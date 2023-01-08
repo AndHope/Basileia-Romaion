@@ -1,0 +1,113 @@
+﻿### Try to keep tags in alphabetical order if it's not too far gone, please.
+
+#CHI = { # China
+#	dynamic_country_name = {
+#		name = dyn_c_yuan
+#		adjective = dyn_c_yuan_adj
+#		
+#		is_main_tag_only = yes
+#		priority = 0
+#		
+#		trigger = {
+#			exists = scope:actor
+#			scope:actor = {
+#				has_law = law_type:law_monarchy
+#				ruler = {
+#					has_culture = cu:mongol
+#				}
+#			}
+#		}
+#	}
+#}
+
+FIN = { # Finland
+	dynamic_country_name = {
+		name = dyn_c_grand_duchy_of_finland
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = c:SWE
+			c:SWE = {
+				has_diplomatic_pact = {
+					who = c:FIN
+					type = personal_union
+					is_initiator = yes
+				}
+			}
+		}
+	}
+}
+
+FRA = { 
+	dynamic_country_name = { # HRE
+		name = dyn_c_HRE
+		adjective = dyn_c_HRE_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				OR = {
+					has_law = law_type:law_monarchy
+					has_law = law_type:law_theocracy
+				}
+			}
+		}
+	}
+}
+
+ARA = { 
+	dynamic_country_name = { # Abbasid Calipate
+		name = dyn_c_abbasid
+		adjective = dyn_c_abbasid_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				OR = {
+					has_law = law_type:law_monarchy
+					has_law = law_type:law_theocracy
+				}
+			}
+		}
+	}
+}
+
+TAT = { 
+	dynamic_country_name = { # Golden Horde
+		name = dyn_c_goldenhorde
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				country_has_primary_culture = cu:mongol
+			}
+		}
+	}
+	
+    dynamic_country_name = {
+		name = dyn_c_khazer # Khazer Khanate
+		adjective = dyn_c_khazer_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				#country_has_state_religion = rel:jewish
+				NOT = { country_has_primary_culture = cu:mongol }
+			}
+		}
+	}
+}

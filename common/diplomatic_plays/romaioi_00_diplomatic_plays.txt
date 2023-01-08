@@ -1,0 +1,119 @@
+﻿dp_make_exarchate = {
+	war_goal = make_exarchate
+	
+	requires_interest_marker = no
+	blocked_by_diplomatic_status = no
+
+	texture = "gfx/interface/icons/war_goals/make_puppet.dds"
+	
+	possible = {
+		#has_technology_researched = romaioi
+	}
+
+	#ai_will_do = { exists = c:BYZ c:BYZ = ROOT always = yes }
+
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_annex_subject = {
+	war_goal = annex_country
+	
+	texture = "gfx/interface/icons/war_goals/annex_country.dds"
+	
+	possible = {
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		scope:target = {
+			NOT = { is_country_type = decentralized }
+			is_direct_subject_of = root
+			OR = {
+				has_diplomatic_pact = { who = root type = dominion }
+				has_diplomatic_pact = { who = root type = puppet }
+				has_diplomatic_pact = { who = root type = vassal }
+				has_diplomatic_pact = { who = root type = exarchate }
+			}
+		}			
+	}
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_unify_italy = {
+	war_goal = unification
+	
+	requires_interest_marker = no
+	blocked_by_diplomatic_status = no
+	
+	texture = "gfx/interface/icons/war_goals/unify_italy.dds"
+	
+	selectable_in_lens = {
+		always = no
+	}
+	
+	possible = {
+		NOT = { is_country_type = decentralized }
+		has_technology_researched = mass_propaganda
+	}
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_leadership_italy = {
+	war_goal = unification_leadership
+	
+	requires_interest_marker = no
+	mirror_war_goal = yes
+	
+	texture = "gfx/interface/icons/war_goals/unify_italy.dds"
+	
+	selectable_in_lens = {
+		always = no
+	}	
+	
+	possible = {
+		has_technology_researched = mass_propaganda			
+	}
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+#dp_unify_empire = {
+#	war_goal = unification
+#	
+#	requires_interest_marker = no
+#	blocked_by_diplomatic_status = no
+#	
+#	texture = "gfx/interface/icons/war_goals/annex_country.dds"
+#	
+#	selectable_in_lens = {
+#		always = no
+#	}
+#	
+#	possible = {
+#		NOT = { is_country_type = decentralized }
+#		AND = { exists = c:BYZ c:BYZ = ROOT always = yes }
+#		AND = { exists = c:PER c:PER = ROOT always = yes }
+#	}
+#	
+#	on_weekly_pulse = {}
+#	
+#	on_war_begins = {}
+#
+#	on_war_end = {}
+#}

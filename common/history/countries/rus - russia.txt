@@ -1,0 +1,215 @@
+﻿COUNTRIES = {
+#Russia
+	c:PSK = { #Pskov
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_freedom_of_conscience
+		
+		ig:ig_landowners = { 
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+	}
+	
+	c:NOV = { #Novgorod
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		
+		ig:ig_landowners = { 
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+			add_ruling_interest_group = yes
+		}
+	}
+
+	c:PRM = { #Yugra
+		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = noble_tradition
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_serfdom_banned
+
+		ig:ig_landowners = { 
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+			add_ruling_interest_group = yes
+		}
+	}
+		
+	c:MUS = { #Muscovy
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = general_staff
+		add_technology_researched = percussion_cap
+		add_technology_researched = noble_tradition
+		add_technology_researched = norse
+		
+		effect_starting_politics_traditional = yes
+		
+		set_ruling_interest_groups = {
+			ig_landowners
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_taxed_goods = g:liquor
+
+	}
+
+	c:RYA = { #Ryazan
+		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = noble_tradition
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_peasant_levies	
+		activate_law = law_type:law_closed_borders
+		
+		set_ruling_interest_groups = {
+			ig_landowners
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_taxed_goods = g:liquor
+	}
+
+	c:SMO = { #Smolensk
+		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = noble_tradition
+		
+		effect_starting_politics_traditional = yes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_peasant_levies	
+		activate_law = law_type:law_closed_borders
+
+		set_ruling_interest_groups = {
+			ig_landowners
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_taxed_goods = g:liquor
+	}
+
+	c:RUT = { #Kiev
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_landed_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_peasant_levies	
+		activate_law = law_type:law_closed_borders
+		
+		#In-Government
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_taxed_goods = g:liquor
+
+	}
+#Decentralized
+	c:SIB = {
+		effect_starting_technology_tier_5_tech = yes
+
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_right_of_assembly
+		#activate_law = law_type:law_isolationism
+		activate_law = law_type:law_closed_borders
+
+		effect_native_conscription_8 = yes
+
+	}
+	c:YAK = {
+		effect_starting_technology_tier_5_tech = yes
+
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_right_of_assembly
+		#activate_law = law_type:law_isolationism
+		activate_law = law_type:law_closed_borders
+
+		effect_native_conscription_8 = yes
+
+	}
+}

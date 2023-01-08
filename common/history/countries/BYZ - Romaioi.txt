@@ -1,0 +1,197 @@
+﻿# Basileía ton Romaíon
+COUNTRIES = {
+	c:BYZ = {
+
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
+
+		#Custom set-up tech
+		#Society
+		add_technology_researched = centralization
+		add_technology_researched = law_enforcement
+		add_technology_researched = medical_degrees
+		add_technology_researched = banking
+		add_technology_researched = empiricism
+		#add_technology_researched = organized_sports
+
+		#Economy
+		add_technology_researched = lathe
+		add_technology_researched = crystal_glass
+		add_technology_researched = intensive_agriculture
+		#add_technology_researched = modern_sewerage
+		#add_technology_researched = paved_roads
+		add_technology_researched = romaioi #Custom invisible buff/debuff to make the experience more authentic feeling
+		add_technology_researched = roman_roads
+
+		#Warfare
+		add_technology_researched = napoleonic_warfare
+		##add_technology_researched = logistics
+		add_technology_researched = field_works
+		#add_technology_researched = triage
+		#add_technology_researched = general_staff
+
+		#Naval
+		#add_technology_researched = hydraulic_cranes
+		#add_technology_researched = paddle_steamer
+
+
+		#set_tariffs_import_priority = g:
+		#set_tariffs_import_priority = g:	
+		#add_taxed_goods = g:liquor
+		#add_taxed_goods = g:opium
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:wine
+		#add_taxed_goods = g:luxury_clothes
+		#add_taxed_goods = g:luxury_furniture
+		#add_taxed_goods = g:porcelain
+		add_taxed_goods = g:services
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom
+		#activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_per_capita_based_taxation
+		#activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy 
+		activate_law = law_type:law_outlawed_dissent
+		#activate_law = law_type:law_colonial_exploitation 
+		#activate_law = law_type:law_legacy_slavery #Removed
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		#activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		#activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_poor_laws
+
+		#set_tax_level = low
+		#set_military_wage_level = high
+
+		trigger_event = {
+			id = bulgarian_revolt.1
+			days = 250
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 2
+		}
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+		set_institution_investment_level = {
+			institution = institution_health_system
+			level = 1
+		}
+
+		#In-Government
+		ig:ig_landowners = {
+			set_interest_group_name = ig_themata_patricians
+			add_ideology = ideology_romaioi_hegemony
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+		}
+
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_tagmata_strategos
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_patriarch
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_romaioi_patriarch
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			remove_ideology = ideology_anti_slavery
+			remove_ideology = ideology_meritocratic
+			add_ideology = ideology_romaioi_meritocratic
+			set_interest_group_name = ig_merchant_guilds
+			#add_ruling_interest_group = yes
+		}
+
+		#Not-In-Government
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_agrotikos
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+		}
+
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_liberal
+			remove_ideology = ideology_republican
+			remove_ideology = ideology_anti_slavery
+
+			add_ideology = ideology_romaioi_republican
+			add_ideology = ideology_romaioi_liberal
+			add_ideology = ideology_romaioi_anti_clerical
+
+			set_interest_group_name = ig_dianooumenoi
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+
+		ig:ig_trade_unions = {
+			#remove_ideology = ideology_anti_slavery
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_journal_entry = {
+			type = je_veiled_exarchate
+		}
+		add_journal_entry = {
+			type = je_veiled_exarchate2
+		}
+
+		add_modifier = {
+			name = romaioi_culture_supremacy
+			months = -1
+		}
+		add_modifier = {
+			name = latin_privileges
+			months = -1
+		}
+		add_modifier = {
+			name = romaioi_themata_primacy
+			months = -1
+		}
+		add_modifier = {
+			name = romaioi_bureaucratic_corruption
+			months = -1
+		}
+		#add_modifier = {
+		#	name = rooting_out_radicals
+		#	months = 36
+		#}
+
+		#trigger_event = {
+		#	id = sick_man.1
+		#}
+		#add_modifier = {
+		#	name = sick_man_of_europe
+		#	months = -1
+		#}		
+		#add_modifier = {
+		#	name = outmoded_bureaucracy
+		#	months = -1
+		#}
+		#add_modifier = {
+		#	name = cizye_tax
+		#	months = -1
+		#}
+
+	}
+}

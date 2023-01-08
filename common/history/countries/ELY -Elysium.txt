@@ -1,0 +1,134 @@
+﻿COUNTRIES = {
+	c:ELY = {
+		
+		effect_starting_technology_tier_2_tech = yes
+		add_technology_researched = dialectics
+		add_technology_researched = elysium
+		add_technology_researched = new_world_colonial
+
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_elected_bureaucrats
+		activate_law = law_type:law_no_migration_controls				
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_private_health_insurance
+		activate_law = law_type:law_colonial_resettlement
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}	
+
+		#set_variable = monroe_doctrine
+
+		#add_journal_entry = { type = je_texas_usa }
+		#add_journal_entry = { type = je_acw_countdown }
+
+		#add_modifier = {
+		#	name = missouri_compromise
+		#	years = 50
+		#	is_decaying = yes
+		#}
+
+		add_taxed_goods = g:liquor
+		#add_taxed_goods = g:opium
+		#add_taxed_goods = g:tobacco
+		add_taxed_goods = g:wine
+		#add_taxed_goods = g:luxury_clothes
+		#add_taxed_goods = g:luxury_furniture
+		#add_taxed_goods = g:porcelain
+		add_taxed_goods = g:services
+		
+		#In-Government
+		ig:ig_landowners = {
+			set_interest_group_name = ig_themata_patricians
+			add_ideology = ideology_romaioi_hegemony
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+		}
+
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_tagmata_strategos
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_neo_hellenes
+			#remove_ideology = ideology_patriarchal
+			#add_ideology = ideology_romaioi_patriarch
+			#add_ruling_interest_group = yes
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			remove_ideology = ideology_anti_slavery
+			remove_ideology = ideology_meritocratic
+			add_ideology = ideology_romaioi_meritocratic
+			set_interest_group_name = ig_merchant_guilds
+			add_ruling_interest_group = yes
+		}
+
+		#Not-In-Government
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_agrotikos
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_liberal
+			remove_ideology = ideology_republican
+			remove_ideology = ideology_anti_slavery
+
+			add_ideology = ideology_romaioi_republican
+			add_ideology = ideology_romaioi_liberal
+			add_ideology = ideology_romaioi_anti_clerical
+
+			set_interest_group_name = ig_dianooumenoi
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+
+		ig:ig_trade_unions = {
+			#remove_ideology = ideology_anti_slavery
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = romaioi_colonial_subsidies
+			months = 88
+		}
+		add_modifier = {
+			name = latin_privileges
+			months = -1
+		}
+		add_modifier = {
+			name = romaioi_themata_primacy
+			months = -1
+		}
+		add_modifier = {
+			name = linguistic_discrimination
+			months = -1
+		}
+
+	}
+}

@@ -1,0 +1,621 @@
+﻿revive_olympic_games_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		has_technology_researched = organized_sports
+		hidden_trigger = {
+			NOT = { has_variable = revive_olympics_decision_taken }
+		}
+	}
+	
+	when_taken = {
+		set_variable = {
+			name = revive_olympics_decision_taken
+			value = yes
+		}
+		add_modifier = {
+			name = modifier_olympic_games
+		}
+		#convert_population = {
+		#	target = rel:hellenic 
+		#	value = 0.05
+		#}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { bureaucracy > 0 }
+			add = 5
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}		
+	}
+}
+hellenic_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		NOT = { country_has_state_religion = rel:hellenic }
+		has_variable = revive_olympics_decision_taken
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		ig:ig_devout = {
+			is_marginal = no
+		}
+		NOT = { has_modifier = religious_chaos }
+		has_law = law_type:law_monarchy
+	}
+
+	when_taken = {
+		set_state_religion = rel:hellenic
+		ig:ig_devout = {
+			set_interest_group_name = ig_neo_hellenes
+			#remove_ideology = ideology_buddhist_moralist
+			#add_ideology = ideology_shinto_moralist
+		}
+		add_modifier = {
+			name = religious_chaos
+			months = 52
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:hellenic 
+				}
+			}
+			add_loyalists = {
+				religion = rel:hellenic
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:orthodox 
+				}
+			}
+			add_radicals = {
+				religion = rel:orthodox
+				value = 0.75
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+orthodox_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		NOT = { country_has_state_religion = rel:orthodox }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		#has_variable = revive_olympics_decision_taken
+		ig:ig_devout = {
+			is_marginal = no
+		}
+		NOT = { has_modifier = religious_chaos }
+		has_law = law_type:law_monarchy
+	}
+
+	when_taken = {
+		set_state_religion = rel:orthodox
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_patriarch 
+			#remove_ideology = ideology_buddhist_moralist
+			#add_ideology = ideology_shinto_moralist
+		}
+		add_modifier = {
+			name = religious_chaos
+			months = 52
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:orthodox 
+				}
+			}
+			add_loyalists = {
+				religion = rel:orthodox
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:hellenic 
+				}
+			}
+			add_radicals = {
+				religion = rel:hellenic
+				value = 0.75
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+fight_corruption = {
+	is_shown = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		has_modifier = romaioi_bureaucratic_corruption
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		has_modifier = romaioi_bureaucratic_corruption
+	}
+
+	when_taken = {
+		remove_modifier = romaioi_bureaucratic_corruption
+		add_modifier = {
+			name = dealing_with_corruption
+			months = 52
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_angry
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = romaioi_ig_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+end_latin_privileges = {
+	is_shown = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		has_modifier = latin_privileges
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		has_modifier = latin_privileges
+	}
+
+	when_taken = {
+		remove_modifier = latin_privileges
+		add_modifier = {
+			name = anti_latin_policies
+			months = 52
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:north_italian
+				}
+			}
+			add_radicals = {
+				culture = cu:north_italian
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.75
+			}
+		}
+		c:VEN = {
+			change_relations = { 
+				country = c:BYZ 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:BYZ
+					secret_goal = conquer
+				}
+			}
+		}
+		c:GEN = {
+			change_relations = { 
+				country = c:BYZ 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:BYZ
+					secret_goal = conquer
+				}
+			}
+		}	
+	}
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				OR = {
+					AND = {
+						army_size > c:VEN.army_size
+						navy_size > c:VEN.navy_size
+						army_size > c:GEN.army_size
+						navy_size > c:GEN.navy_size
+					}
+					any_scope_ally = {
+						army_size > c:VEN.army_size
+						navy_size > c:VEN.navy_size
+						army_size > c:GEN.army_size
+						navy_size > c:GEN.navy_size
+					}
+				}
+			}
+			add = 0
+		}
+		
+		modifier = {
+			trigger = {
+				country_rank >= rank_value:major_power
+			}
+			add = 0
+		}
+		
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}	
+	}
+}
+
+end_latin_privileges_ELY = {
+	is_shown = {
+		exists = c:ELY
+		ROOT = c:ELY
+		has_modifier = latin_privileges
+	}
+
+	possible = {
+		exists = c:ELY
+		ROOT = c:ELY
+		has_modifier = latin_privileges
+	}
+
+	when_taken = {
+		remove_modifier = latin_privileges
+		add_modifier = {
+			name = anti_latin_policies
+			months = 52
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:north_italian
+				}
+			}
+			add_radicals = {
+				culture = cu:north_italian
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.75
+			}
+		}
+		c:VEN = {
+			change_relations = { 
+				country = c:ELY 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:ELY
+					secret_goal = conquer
+				}
+			}
+		}
+		c:GEN = {
+			change_relations = { 
+				country = c:ELY 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:ELY
+					secret_goal = conquer
+				}
+			}
+		}	
+	}
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				OR = {
+					AND = {
+						army_size > c:VEN.army_size
+						navy_size > c:VEN.navy_size
+						army_size > c:GEN.army_size
+						navy_size > c:GEN.navy_size
+					}
+					any_scope_ally = {
+						army_size > c:VEN.army_size
+						navy_size > c:VEN.navy_size
+						army_size > c:GEN.army_size
+						navy_size > c:GEN.navy_size
+					}
+				}
+			}
+			add = 0
+		}
+		
+		modifier = {
+			trigger = {
+				country_rank >= rank_value:major_power
+			}
+			add = 0
+		}
+		
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}	
+	}
+}
+
+romaioi_themata_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		has_modifier = romaioi_tagmata_primacy
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		has_modifier = romaioi_tagmata_primacy
+		NOT = { has_modifier = romaioi_military_reorganization }
+	}
+
+	when_taken = {
+		remove_modifier = romaioi_tagmata_primacy
+
+		add_modifier = {
+			name = romaioi_themata_primacy
+			months = -1
+		}
+
+		add_modifier = {
+			name = romaioi_military_reorganization
+			months = 36
+		}
+
+		ig:ig_armed_forces = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+romaioi_tagmata_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		has_modifier = romaioi_themata_primacy
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		has_modifier = romaioi_themata_primacy
+		NOT = { has_modifier = romaioi_military_reorganization }
+	}
+
+	when_taken = {
+		remove_modifier = romaioi_themata_primacy
+
+		add_modifier = {
+			name = romaioi_tagmata_primacy
+			months = -1
+		}
+
+		add_modifier = {
+			name = romaioi_military_reorganization
+			months = 36
+		}
+
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+armenian_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+		}
+		NOT = { country_has_primary_culture = cu:armenian }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+		}
+		#NOT = { has_modifier = romaioi_culture_supremacy }
+		NOT = { country_has_primary_culture = cu:armenian }
+	}
+
+	when_taken = {
+		add_primary_culture = cu:armenian
+		add_loyalists = {
+			culture = cu:armenian
+			value = 0.2
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+armenian_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+		}
+		NOT = { country_has_primary_culture = cu:armenian }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+		}
+		#NOT = { has_modifier = romaioi_culture_supremacy }
+		NOT = { country_has_primary_culture = cu:armenian }
+	}
+
+	when_taken = {
+		add_primary_culture = cu:armenian
+		add_loyalists = {
+			culture = cu:armenian
+			value = 0.2
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+azerbaijani_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:persian
+		}
+		NOT = { country_has_primary_culture = cu:azerbaijani }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:persian
+		}
+		#NOT = { has_modifier = romaioi_culture_supremacy }
+		NOT = { country_has_primary_culture = cu:azerbaijani }
+	}
+
+	when_taken = {
+		add_primary_culture = cu:azerbaijani
+		add_loyalists = {
+			culture = cu:azerbaijani
+			value = 0.2
+		}
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}

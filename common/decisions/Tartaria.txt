@@ -1,0 +1,94 @@
+﻿revive_khazer_khanate_decision = {
+	is_shown = {
+		country_has_state_religion = rel:tengri
+		NOT = { country_has_state_religion = rel:jewish }
+	}
+
+	possible = {
+		country_has_state_religion = rel:tengri
+		has_law = law_type:law_monarchy
+	}
+
+	when_taken = {
+		set_state_religion = rel:jewish
+		remove_primary_culture = cu:mongol
+		#ig:ig_devout = {
+		#	set_interest_group_name = ig_neo_hellenes
+			#remove_ideology = ideology_buddhist_moralist
+			#add_ideology = ideology_shinto_moralist
+		#}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:jewish 
+				}
+			}
+			add_loyalists = {
+				religion = rel:jewish
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:tengri 
+				}
+			}
+			add_radicals = {
+				religion = rel:tengri
+				value = 0.25
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+sunni_decision = {
+	is_shown = {
+		country_has_state_religion = rel:tengri
+		NOT = { country_has_state_religion = rel:sunni }
+	}
+
+	possible = {
+		country_has_state_religion = rel:tengri
+		has_law = law_type:law_monarchy
+	}
+
+	when_taken = {
+		set_state_religion = rel:sunni
+		#ig:ig_devout = {
+		#	set_interest_group_name = ig_orthodox_patriarch 
+			#remove_ideology = ideology_buddhist_moralist
+			#add_ideology = ideology_shinto_moralist
+		#}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:sunni 
+				}
+			}
+			add_loyalists = {
+				religion = rel:sunni
+				value = 0.5
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:tengri 
+				}
+			}
+			add_radicals = {
+				religion = rel:tengri
+				value = 0.25
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 5
+	}
+}

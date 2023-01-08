@@ -1,0 +1,80 @@
+﻿arabic_fez_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+			owner = {
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}	
+			}
+			owner = {
+				top_overlord = {
+					OR = {
+						is_country_type = recognized
+						is_country_type = colonial
+					}	
+				}
+			}
+			owner = {
+				exists = c:ANL
+				c:ANL = this
+				c:ANL = { has_law = law_type:law_monarchy }
+			}
+		}
+	}       
+}
+
+arabic_military_fez_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		AND = {
+			OR = {
+				owner = {
+					exists = c:ALD
+					c:ALD = this
+					c:ALD = { has_law = law_type:law_monarchy }
+				}
+				owner = {
+					exists = c:ANL
+					c:ANL = this
+					c:ANL = { has_law = law_type:law_monarchy }
+				}
+				owner = {
+					exists = c:TUN
+					c:TUN = this
+					c:TUN = { has_law = law_type:law_monarchy }
+				}
+				owner = {
+					exists = c:MOR
+					c:MOR = this
+					c:MOR = { has_law = law_type:law_monarchy }
+				}
+			}
+			OR = {
+				culture = {
+					OR = {
+						has_discrimination_trait = middle_eastern_heritage
+						has_discrimination_trait = central_asian_heritage
+					}
+				}
+			}
+		}
+	}       
+}
+
+indian_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+			culture = {
+				has_discrimination_trait = south_asian_heritage
+				has_discrimination_trait = iranian_turanian_culture_group
+			}
+			religion = rel:sikh
+		}
+	}
+}
+
+
+
