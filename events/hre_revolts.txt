@@ -1,0 +1,98 @@
+﻿namespace = frankish_revolt
+
+frankish_revolt.1 = {
+	type = country_event
+	placement = c:FRA.capital
+
+	title = frankish_revolt.1.t
+	desc = frankish_revolt.1.d
+	flavor = frankish_revolt.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/asia_sepoy_mutiny.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {   
+	}
+	immediate = {
+
+		c:HES = {
+			remove_diplomatic_pact = {
+				country = c:FRA
+				type = puppet
+			}
+			change_relations = {
+				country = c:FRA
+				value = -100
+			}
+		}
+		c:WUR = {
+			remove_diplomatic_pact = {
+				country = c:FRA
+				type = puppet
+			}
+			change_relations = {
+				country = c:FRA
+				value = -100
+			}
+		}
+		c:SAR = {
+			remove_diplomatic_pact = {
+				country = c:FRA
+				type = puppet
+			}
+			change_relations = {
+				country = c:FRA
+				value = -100
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					any_diplomatic_play = {
+						any_scope_play_involved = { this = c:HES }
+						any_scope_play_involved = { this = c:FRA }
+						is_diplomatic_play_type = dp_native_uprising
+					}
+				}
+			}
+		}	
+
+			create_diplomatic_play = {
+				name = Frankish_Rebellion1
+				war = yes
+				type = dp_native_uprising
+
+				target_state = s:STATE_HESSE.region_state:HES
+
+			}
+
+			create_diplomatic_play = {
+				name = Frankish_Rebellion2
+				war = yes
+				type = dp_native_uprising
+
+				target_state = s:STATE_WURTTEMBERG.region_state:WUR
+
+			}
+
+			create_diplomatic_play = {
+				name = Frankish_Rebellion3
+				war = yes
+				type = dp_native_uprising
+
+				target_state = s:STATE_PIEDMONT.region_state:SAR
+
+			}
+
+		}
+	}
+}

@@ -1,5 +1,5 @@
 ﻿gov_exarchate = {								
-	#transfer_of_power = hereditary
+	transfer_of_power = hereditary
 	
 	male_ruler = "RULER_TITLE_EXARCH"			# Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary. 
 	female_ruler = "" # Empty on purpose
@@ -20,8 +20,30 @@
 	}		
 }
 
+gov_independent_exarchate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EXARCH"
+	female_ruler = "" # Empty on purpose
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			country_tier = principality
+			country_tier = grand_principality
+		}
+		or = {
+			AND = { exists = c:AGY c:AGY = ROOT }
+			AND = { exists = c:NAF c:NAF = ROOT }
+		}
+	}
+}
+
 gov_satrapy = {								
-	#transfer_of_power = hereditary
+	transfer_of_power = hereditary
 	
 	male_ruler = "RULER_TITLE_SATRAP"			# Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary. 
 	female_ruler = "" # Empty on purpose
@@ -44,7 +66,7 @@ gov_satrapy = {
 
 
 gov_byz_empire = {
-	#transfer_of_power = hereditary
+	transfer_of_power = hereditary
 
 	male_ruler = "RULER_TITLE_BASILEUS"
 	female_ruler = "RULER_TITLE_BASILISSA"

@@ -1,0 +1,149 @@
+﻿namespace = anatolian_revolt
+
+anatolian_revolt.1 = {
+	type = country_event
+	placement = c:ANA.capital
+
+	title = anatolian_revolt.1.t
+	desc = anatolian_revolt.1.d
+	flavor = anatolian_revolt.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/asia_sepoy_mutiny.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {   
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { exists = c:ANA }
+				exists = s:STATE_KONYA.region_state:BYZ
+			}
+			create_country = {
+				tag = ANA
+				origin = c:BYZ
+				state = s:STATE_KONYA.region_state:BYZ
+			}
+		}
+		if = {
+			limit = { exists = s:STATE_ALEPPO.region_state:BYZ }
+			s:STATE_ALEPPO.region_state:BYZ = { set_state_owner = c:ANA }
+		}
+		if = {
+			limit = { exists = s:STATE_ADANA.region_state:BYZ }
+			s:STATE_ADANA.region_state:BYZ = { set_state_owner = c:ANA }
+		}
+		if = {
+			limit = { exists = s:STATE_KONYA.region_state:BYZ }
+			s:STATE_KONYA.region_state:BYZ = { set_state_owner = c:ANA }
+		}
+		if = {
+			limit = { exists = s:STATE_ANKARA.region_state:BYZ }
+			s:STATE_ANKARA.region_state:BYZ = { set_state_owner = c:ANA }
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_diplomatic_play = {
+						any_scope_play_involved = { this = c:ANA }
+						any_scope_play_involved = { this = c:BYZ }
+						is_diplomatic_play_type = dp_native_uprising
+					}
+				}
+			}
+
+		}
+		c:ANA = {
+			add_modifier = {
+				name = romaioi_themata_primacy
+				months = -1
+			}
+			activate_law = law_type:law_monarchy
+			activate_law = law_type:law_oligarchy
+			create_character = {
+				first_name = "Bardas"
+				last_name = "Phokas"
+				birth_date = 1697.3.1 # excact date unknown. 
+				culture = cu:greek
+				ruler = yes
+				is_general = yes
+				religion = orthodox
+				interest_group = ig_armed_forces
+				ideology = ideology_jingoist_leader
+				traits = { 
+					stalwart_defender 
+					wrathful
+					scarred
+					pillager
+					resupply_commander
+					experienced_offensive_planner
+					experienced_artillery_commander 
+				}
+			}
+			create_character = {
+				birth_date = 1717.1.5 # excact date unknown. 
+				first_name = "Nikephoros"
+				last_name = "Phokas"
+				culture = cu:greek
+				is_general = yes
+				heir = yes
+				religion = orthodox
+				interest_group = ig_landowners
+				ideology = ideology_royalist
+				traits = { 
+					stalwart_defender
+					resupply_commander 
+					basic_political_operator 
+					pillager
+				}
+			}
+		}
+	}
+
+	option = {
+		name = anatolian_revolt.1.a
+		default_option = yes
+
+		c:ANA = {
+			add_modifier = {
+				name = war_for_independence
+				months = normal_modifier_time
+			}
+		}
+
+
+		create_diplomatic_play = {
+			name = anatolian_Rebellion
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_KONYA.region_state:ANA
+
+		}
+
+	}
+	option = {
+		name = anatolian_revolt.1.b
+
+		c:BYZ = {
+			create_diplomatic_pact = {
+				country = c:ANA
+				type = exarchate
+			}
+			change_relations = {
+				country = c:ANA
+				value = 50
+			}
+		}
+
+	}
+
+}
