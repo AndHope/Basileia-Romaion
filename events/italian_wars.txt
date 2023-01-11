@@ -1,0 +1,396 @@
+﻿namespace = greek_revolt
+
+greek_revolt.1 = {
+	type = country_event
+	placement = c:GRE.capital
+
+	title = greek_revolt.1.t
+	desc = greek_revolt.1.d
+	flavor = greek_revolt.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/asia_sepoy_mutiny.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {   
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { exists = c:GRE }
+				exists = s:STATE_ATTICA.region_state:BYZ
+			}
+			create_country = {
+				tag = GRE
+				origin = c:BYZ
+				state = s:STATE_ATTICA.region_state:BYZ
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:GRE
+				exists = s:STATE_ATTICA.region_state:BYZ
+			}
+			s:STATE_ATTICA.region_state:BYZ = { set_state_owner = c:GRE }
+		}
+		if = {
+			limit = { exists = s:STATE_PELOPONNESE.region_state:BYZ }
+			s:STATE_PELOPONNESE.region_state:BYZ = { set_state_owner = c:GRE }
+		}
+		if = {
+			limit = { exists = s:STATE_WEST_AEGEAN_ISLANDS.region_state:BYZ }
+			s:STATE_WEST_AEGEAN_ISLANDS.region_state:BYZ = { set_state_owner = c:GRE }
+		}
+
+		if = {
+			limit = {
+				NOT = { exists = c:CYP }
+				exists = s:STATE_CYPRUS.region_state:BYZ
+			}
+			create_country = {
+				tag = CYP
+				origin = c:BYZ
+				state = s:STATE_CYPRUS.region_state:BYZ
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:CYP
+				exists = s:STATE_CYPRUS.region_state:BYZ
+			}
+			s:STATE_CYPRUS.region_state:BYZ = { set_state_owner = c:CYP }
+		}
+
+		if = {
+			limit = {
+				NOT = { exists = c:CRE }
+				exists = s:STATE_CRETE.region_state:BYZ
+			}
+			create_country = {
+				tag = CRE
+				origin = c:BYZ
+				state = s:STATE_CRETE.region_state:BYZ
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:CRE
+				exists = s:STATE_CRETE.region_state:BYZ
+			}
+			s:STATE_CRETE.region_state:BYZ = { set_state_owner = c:CRE }
+		}
+
+		if = {
+			limit = {
+				NOT = { exists = c:ION }
+				exists = s:STATE_IONIAN_ISLANDS.region_state:BYZ
+			}
+			create_country = {
+				tag = ION
+				origin = c:BYZ
+				state = s:STATE_IONIAN_ISLANDS.region_state:BYZ
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:ION
+				exists = s:STATE_IONIAN_ISLANDS.region_state:BYZ
+			}
+			s:STATE_IONIAN_ISLANDS.region_state:BYZ = { set_state_owner = c:ION }
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					any_diplomatic_play = {
+						any_scope_play_involved = { this = c:GRE }
+						any_scope_play_involved = { this = c:BYZ }
+						#is_diplomatic_play_type = dp_native_uprising
+					}
+				}
+			}
+		}
+		c:GRE = {
+			activate_law = law_type:law_presidential_republic
+			activate_law = law_type:law_wealth_voting
+			activate_law = law_type:law_cultural_exclusion
+			activate_law = law_type:law_mercantilism
+			activate_law = law_type:law_interventionism
+			activate_law = law_type:law_right_of_assembly		
+			activate_law = law_type:law_per_capita_based_taxation
+			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_elected_bureaucrats
+			activate_law = law_type:law_no_migration_controls				
+			activate_law = law_type:law_national_militia
+			activate_law = law_type:law_national_guard
+			activate_law = law_type:law_private_schools
+			activate_law = law_type:law_dedicated_police
+			activate_law = law_type:law_women_own_property
+			activate_law = law_type:law_private_health_insurance
+			create_character = {
+				first_name = "Angelo"
+				last_name = "Gaitanos"
+				birth_date = 1697.3.1 # excact date unknown. 
+				culture = cu:north_italian
+				ruler = yes
+				is_general = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender 
+					wrathful
+					scarred
+					resupply_commander
+				}
+			}
+			create_character = {
+				birth_date = 1717.1.5 # excact date unknown. 
+				first_name = "Odysseas"
+				last_name = "Gaitanos"
+				culture = cu:north_italian
+				is_general = yes
+				heir = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender
+					resupply_commander 
+					basic_political_operator 
+				}
+			}
+		}
+		c:CYP = {
+			activate_law = law_type:law_presidential_republic
+			activate_law = law_type:law_wealth_voting
+			activate_law = law_type:law_cultural_exclusion
+			activate_law = law_type:law_mercantilism
+			activate_law = law_type:law_interventionism
+			activate_law = law_type:law_right_of_assembly		
+			activate_law = law_type:law_per_capita_based_taxation
+			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_elected_bureaucrats
+			activate_law = law_type:law_no_migration_controls				
+			activate_law = law_type:law_national_militia
+			activate_law = law_type:law_national_guard
+			activate_law = law_type:law_private_schools
+			activate_law = law_type:law_dedicated_police
+			activate_law = law_type:law_women_own_property
+			activate_law = law_type:law_private_health_insurance
+			create_character = {
+				first_name = "Angelo"
+				last_name = "Gaitanos"
+				birth_date = 1697.3.1 # excact date unknown. 
+				culture = cu:north_italian
+				ruler = yes
+				is_general = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender 
+					wrathful
+					scarred
+					resupply_commander
+				}
+			}
+			create_character = {
+				birth_date = 1717.1.5 # excact date unknown. 
+				first_name = "Odysseas"
+				last_name = "Gaitanos"
+				culture = cu:north_italian
+				is_general = yes
+				heir = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender
+					resupply_commander 
+					basic_political_operator 
+				}
+			}
+		}
+		c:CRE = {
+			activate_law = law_type:law_presidential_republic
+			activate_law = law_type:law_wealth_voting
+			activate_law = law_type:law_cultural_exclusion
+			activate_law = law_type:law_mercantilism
+			activate_law = law_type:law_interventionism
+			activate_law = law_type:law_right_of_assembly		
+			activate_law = law_type:law_per_capita_based_taxation
+			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_elected_bureaucrats
+			activate_law = law_type:law_no_migration_controls				
+			activate_law = law_type:law_national_militia
+			activate_law = law_type:law_national_guard
+			activate_law = law_type:law_private_schools
+			activate_law = law_type:law_dedicated_police
+			activate_law = law_type:law_women_own_property
+			activate_law = law_type:law_private_health_insurance
+			create_character = {
+				first_name = "Angelo"
+				last_name = "Gaitanos"
+				birth_date = 1697.3.1 # excact date unknown. 
+				culture = cu:north_italian
+				ruler = yes
+				is_general = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender 
+					wrathful
+					scarred
+					resupply_commander
+				}
+			}
+			create_character = {
+				birth_date = 1717.1.5 # excact date unknown. 
+				first_name = "Odysseas"
+				last_name = "Gaitanos"
+				culture = cu:north_italian
+				is_general = yes
+				heir = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender
+					resupply_commander 
+					basic_political_operator 
+				}
+			}
+		}
+		c:ION = {
+			activate_law = law_type:law_presidential_republic
+			activate_law = law_type:law_wealth_voting
+			activate_law = law_type:law_cultural_exclusion
+			activate_law = law_type:law_mercantilism
+			activate_law = law_type:law_interventionism
+			activate_law = law_type:law_right_of_assembly		
+			activate_law = law_type:law_per_capita_based_taxation
+			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_elected_bureaucrats
+			activate_law = law_type:law_no_migration_controls				
+			activate_law = law_type:law_national_militia
+			activate_law = law_type:law_national_guard
+			activate_law = law_type:law_private_schools
+			activate_law = law_type:law_dedicated_police
+			activate_law = law_type:law_women_own_property
+			activate_law = law_type:law_private_health_insurance
+			create_character = {
+				first_name = "Angelo"
+				last_name = "Gaitanos"
+				birth_date = 1697.3.1 # excact date unknown. 
+				culture = cu:north_italian
+				ruler = yes
+				is_general = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender 
+					wrathful
+					scarred
+					resupply_commander
+				}
+			}
+			create_character = {
+				birth_date = 1717.1.5 # excact date unknown. 
+				first_name = "Odysseas"
+				last_name = "Gaitanos"
+				culture = cu:north_italian
+				is_general = yes
+				heir = yes
+				religion = catholic
+				interest_group = ig_petty_bourgeoisie
+				ideology = ideology_market_liberal
+				traits = { 
+					stalwart_defender
+					resupply_commander 
+					basic_political_operator 
+				}
+			}
+		}
+		c:VEN = {
+			create_diplomatic_pact = {
+				country = c:GRE
+				type = puppet
+			}
+			create_diplomatic_pact = {
+				country = c:CYP
+				type = puppet
+			}
+			create_diplomatic_pact = {
+				country = c:CRE
+				type = puppet
+			}
+			create_diplomatic_pact = {
+				country = c:ION
+				type = puppet
+			}
+		}
+	}
+
+	option = {
+		name = greek_revolt.1.a
+		default_option = yes
+
+		create_diplomatic_play = {
+			name = Latin_intervention_Attica
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_ATTICA.region_state:GRE
+
+		}
+
+		create_diplomatic_play = {
+			name = Latin_intervention_Cyprus
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_CYPRUS.region_state:CYP
+
+		}
+
+		create_diplomatic_play = {
+			name = Latin_intervention_Crete
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_CRETE.region_state:CRE
+
+		}
+
+		create_diplomatic_play = {
+			name = Latin_intervention_Ionia
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_IONIAN_ISLANDS.region_state:ION
+
+		}
+
+		ai_chance = {
+			base = 100
+		}
+
+	}
+	option = {
+		name = greek_revolt.1.b
+
+		
+
+	}
+
+}

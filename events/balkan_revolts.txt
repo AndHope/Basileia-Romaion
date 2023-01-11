@@ -50,17 +50,12 @@ bulgarian_revolt.1 = {
 					any_diplomatic_play = {
 						any_scope_play_involved = { this = c:BUL }
 						any_scope_play_involved = { this = c:BYZ }
-						is_diplomatic_play_type = dp_native_uprising
+						#is_diplomatic_play_type = dp_native_uprising
 					}
 				}
 			}
-
 		}
 		c:BUL = {
-			add_modifier = {
-				name = romaioi_themata_primacy
-				months = -1
-			}
 			activate_law = law_type:law_monarchy
 			activate_law = law_type:law_oligarchy
 			create_character = {
@@ -119,6 +114,10 @@ bulgarian_revolt.1 = {
 				name = war_for_independence
 				months = normal_modifier_time
 			}
+			remove_modifier = {
+				name = romaioi_themata_primacy
+				months = -1
+			}
 			remove_diplomatic_pact = {
 				country = c:BYZ
 				type = exarchate
@@ -151,6 +150,10 @@ bulgarian_revolt.1 = {
 
 		}
 
+		ai_chance = {
+			base = 100
+		}
+
 	}
 	option = {
 		name = bulgarian_revolt.1.b
@@ -160,12 +163,20 @@ bulgarian_revolt.1 = {
 				country = c:BYZ
 				value = 50
 			}
+			add_modifier = {
+				name = romaioi_themata_primacy
+				months = -1
+			}
 		}
 
 		c:BYZ = {
 			create_diplomatic_pact = {
 				country = c:BUL
 				type = exarchate
+			}
+			add_modifier = {
+				name = romaioi_themata_primacy
+				months = -1
 			}
 			change_relations = {
 				country = c:BUL

@@ -188,11 +188,19 @@ fight_corruption = {
 			name = dealing_with_corruption
 			months = 52
 		}
+		add_radicals = {
+			pop_type = bureaucrats
+			value = medium_radicals
+		}
 		ig:ig_intelligentsia = {
 			add_modifier = {
 				name = romaioi_ig_very_angry
 				months = normal_modifier_time
 			}
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = medium_radicals
 		}
 		ig:ig_landowners = {
 			add_modifier = {
@@ -228,16 +236,20 @@ end_latin_privileges = {
 
 	when_taken = {
 		remove_modifier = latin_privileges
-		add_modifier = {
-			name = anti_latin_policies
-			months = 52
+		trigger_event = {
+			id = greek_revolt.1
+			days = 15
 		}
-		ig:ig_petty_bourgeoisie = {
-			add_modifier = {
-				name = romaioi_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
+		#add_modifier = {
+		#	name = anti_latin_policies
+		#	months = 52
+		#}
+		#ig:ig_petty_bourgeoisie = {
+		#	add_modifier = {
+		#		name = romaioi_ig_very_angry
+		#		months = normal_modifier_time
+		#	}
+		#}
 		if = {
 			limit = {
 				any_scope_pop = { 
@@ -249,78 +261,7 @@ end_latin_privileges = {
 				value = 0.75
 			}
 		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:catholic 
-				}
-			}
-			add_radicals = {
-				religion = rel:catholic
-				value = 0.75
-			}
-		}
-		c:VEN = {
-			change_relations = { 
-				country = c:BYZ 
-				value = -150 
-			}
-			hidden_effect = {
-				set_secret_goal = {
-					country = c:BYZ
-					secret_goal = conquer
-				}
-			}
-		}
-		c:GEN = {
-			change_relations = { 
-				country = c:BYZ 
-				value = -150 
-			}
-			hidden_effect = {
-				set_secret_goal = {
-					country = c:BYZ
-					secret_goal = conquer
-				}
-			}
-		}	
-	}
-	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = {
-				OR = {
-					AND = {
-						army_size > c:VEN.army_size
-						navy_size > c:VEN.navy_size
-						army_size > c:GEN.army_size
-						navy_size > c:GEN.navy_size
-					}
-					any_scope_ally = {
-						army_size > c:VEN.army_size
-						navy_size > c:VEN.navy_size
-						army_size > c:GEN.army_size
-						navy_size > c:GEN.navy_size
-					}
-				}
-			}
-			add = 0
-		}
-		
-		modifier = {
-			trigger = {
-				country_rank >= rank_value:major_power
-			}
-			add = 0
-		}
-		
-		modifier = {
-			OR = {
-				is_diplomatic_play_committed_participant = yes
-				is_at_war = yes
-			}
-			add = -1000
-		}	
+	
 	}
 }
 
@@ -466,6 +407,16 @@ romaioi_themata_decision = {
 			months = 36
 		}
 
+		add_loyalists = {
+			pop_type = aristocrats
+			value = large_radicals
+		}
+
+		add_loyalists = {
+			pop_type = farmers
+			value = large_radicals
+		}
+
 		ig:ig_armed_forces = {
 			add_modifier = {
 				name = romaioi_ig_very_angry
@@ -510,6 +461,16 @@ romaioi_tagmata_decision = {
 			months = 36
 		}
 
+		add_loyalists = {
+			pop_type = officers
+			value = large_radicals
+		}
+
+		add_loyalists = {
+			pop_type = soldiers
+			value = large_radicals
+		}
+
 		ig:ig_landowners = {
 			add_modifier = {
 				name = romaioi_ig_very_angry
@@ -557,40 +518,7 @@ armenian_decision = {
 		base = 0
 	}
 }
-armenian_decision = {
-	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-		}
-		NOT = { country_has_primary_culture = cu:armenian }
-	}
 
-	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-		}
-		#NOT = { has_modifier = romaioi_culture_supremacy }
-		NOT = { country_has_primary_culture = cu:armenian }
-	}
-
-	when_taken = {
-		add_primary_culture = cu:armenian
-		add_loyalists = {
-			culture = cu:armenian
-			value = 0.2
-		}
-		ig:ig_landowners = {
-			add_modifier = {
-				name = romaioi_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 0
-	}
-}
 azerbaijani_decision = {
 	is_shown = {
 		OR = {

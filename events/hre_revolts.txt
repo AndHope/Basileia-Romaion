@@ -23,76 +23,104 @@ frankish_revolt.1 = {
 	}
 	immediate = {
 
-		c:HES = {
-			remove_diplomatic_pact = {
-				country = c:FRA
-				type = puppet
-			}
-			change_relations = {
-				country = c:FRA
-				value = -100
-			}
-		}
-		c:WUR = {
-			remove_diplomatic_pact = {
-				country = c:FRA
-				type = puppet
-			}
-			change_relations = {
-				country = c:FRA
-				value = -100
-			}
-		}
-		c:SAR = {
-			remove_diplomatic_pact = {
-				country = c:FRA
-				type = puppet
-			}
-			change_relations = {
-				country = c:FRA
-				value = -100
-			}
-		}
-
 		if = {
 			limit = {
 				NOT = {
 					any_diplomatic_play = {
 						any_scope_play_involved = { this = c:HES }
 						any_scope_play_involved = { this = c:FRA }
-						is_diplomatic_play_type = dp_native_uprising
 					}
 				}
 			}
 		}	
 
-			create_diplomatic_play = {
-				name = Frankish_Rebellion1
-				war = yes
-				type = dp_native_uprising
-
-				target_state = s:STATE_HESSE.region_state:HES
-
+		c:HES = {
+			remove_diplomatic_pact = {
+				country = c:FRA
+				type = puppet
 			}
+		}
 
-			create_diplomatic_play = {
-				name = Frankish_Rebellion2
-				war = yes
-				type = dp_native_uprising
-
-				target_state = s:STATE_WURTTEMBERG.region_state:WUR
-
+		c:WUR = {
+			remove_diplomatic_pact = {
+				country = c:FRA
+				type = puppet
 			}
+		}
 
-			create_diplomatic_play = {
-				name = Frankish_Rebellion3
-				war = yes
-				type = dp_native_uprising
-
-				target_state = s:STATE_PIEDMONT.region_state:SAR
-
+		c:SAR = {
+			remove_diplomatic_pact = {
+				country = c:FRA
+				type = puppet
 			}
+		}
+
+	}
+
+	option = {
+		name = frankish_revolt.1.a
+		default_option = yes
+
+		create_diplomatic_play = {
+			name = Frankish_Rebellion1
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_HESSE.region_state:HES
 
 		}
+
+		create_diplomatic_play = {
+			name = Frankish_Rebellion2
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_WURTTEMBERG.region_state:WUR
+
+		}
+
+		create_diplomatic_play = {
+			name = Frankish_Rebellion3
+			war = yes
+			type = dp_native_uprising
+
+			target_state = s:STATE_PIEDMONT.region_state:SAR
+
+		}
+	
+		ai_chance = {
+			base = 100
+		}
+	
+		}
+
+	option = {
+		name = frankish_revolt.1.b
+	
+		c:FRA = {
+			add_primary_culture = cu:flemish
+			add_loyalists = {
+				culture = cu:flemish
+				value = 0.2
+			}
+			remove_modifier = {
+				name = linguistic_discrimination
+				months = -1
+			}
+			create_diplomatic_pact = {
+				country = c:HES
+				type = dominion
+			}
+			create_diplomatic_pact = {
+				country = c:WUR
+				type = dominion
+			}
+			create_diplomatic_pact = {
+				country = c:SAR
+				type = dominion
+			}
+		}
+	
 	}
+
 }
