@@ -107,24 +107,16 @@ bulgarian_revolt.1 = {
 				name = war_for_independence
 				months = normal_modifier_time
 			}
-		}
-
-		c:SER = {
 			add_modifier = {
-				name = war_for_independence
-				months = normal_modifier_time
-			}
-			remove_modifier = {
 				name = romaioi_themata_primacy
 				months = -1
 			}
+		}
+
+		c:BYZ = {
 			remove_diplomatic_pact = {
-				country = c:BYZ
+				country = c:SER
 				type = exarchate
-			}
-			change_relations = {
-				country = c:BYZ
-				value = -100
 			}
 		}
 
@@ -141,6 +133,7 @@ bulgarian_revolt.1 = {
 				target_state = s:STATE_NORTHERN_THRACE.region_state:BYZ
 			}
 		}
+
 		create_diplomatic_play = {
 			name = Serbian_Rebellion
 			war = yes
@@ -162,10 +155,6 @@ bulgarian_revolt.1 = {
 			change_relations = {
 				country = c:BYZ
 				value = 50
-			}
-			add_modifier = {
-				name = romaioi_themata_primacy
-				months = -1
 			}
 		}
 

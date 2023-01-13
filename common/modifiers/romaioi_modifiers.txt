@@ -57,7 +57,7 @@ linguistic_discrimination = {
 modifier_olympic_games = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_bureaucracy_add = -200
-	country_prestige_add = 50
+	country_prestige_add = 25
 }
 
 war_for_independence = {
@@ -76,6 +76,8 @@ romaioi_culture_supremacy = {
 }
 romaioi_bureaucratic_corruption = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	state_political_strength_from_wealth_mult = 0.15
+	country_bureaucrats_pol_str_mult = 0.15
 	country_prestige_add = -25
 	country_bureaucracy_mult = -0.15
 	state_tax_capacity_mult = -0.15
@@ -85,7 +87,7 @@ romaioi_bureaucratic_corruption = {
 latin_privileges = {
 	#icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
-	interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.1
+	country_shopkeepers_pol_str_mult = 0.1
 	country_trade_route_cost_mult = -0.1
 	country_trade_route_quantity_mult = 0.1
 	tariff_import_add = -0.1
@@ -93,23 +95,18 @@ latin_privileges = {
 	country_navy_power_projection_mult = -0.25
 }
 anti_latin_policies = {
-	#icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
-	#tax_heathen_add = 0.1
 	country_bureaucracy_add = -100
 	country_prestige_add = -100
 	country_authority_add = -100
-	#state_tax_capacity_mult = -0.1
 	country_trade_route_cost_mult = 0.1
 	country_trade_route_quantity_mult = -0.1
-	#state_radicals_from_discrimination_mult = 0.1
-	#state_radicals_from_sol_change_mult = 0.1
 }
 
 romaioi_themata_primacy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	country_aristocrats_pol_str_mult = 0.25
-	country_farmers_pol_str_mult = 0.05
+	country_farmers_pol_str_mult = 0.1
 	state_conscription_rate_mult = 0.25
 	unit_army_defense_mult = 0.15
 	unit_supply_consumption_mult = -0.15
@@ -118,7 +115,7 @@ romaioi_themata_primacy = {
 romaioi_tagmata_primacy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	country_officers_pol_str_mult = 0.25
-	country_soldiers_pol_str_mult = 0.05
+	country_soldiers_pol_str_mult = 0.1
 	unit_army_offense_mult = 0.15
 	unit_morale_loss_mult = -0.15
 }
@@ -157,28 +154,97 @@ romaioi_colonial_subsidies = {
 
 romaioi_jihad = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	state_conscription_rate_add = 0.05
+	country_clergymen_pol_str_mult = 0.25
+	state_conscription_rate_add = 0.075
 	unit_army_offense_mult = 0.5
 	unit_army_defense_mult = 0.5
 	unit_morale_loss_mult = -0.5
-	unit_supply_consumption_mult = -0.25
+	unit_morale_damage_mult = 0.5
+	unit_supply_consumption_mult = -0.5
 }
 
 decentralized_khanate = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	country_officers_pol_str_mult = 0.75
+	country_soldiers_pol_str_mult = 0.25
 	state_tax_capacity_mult = -0.25
 	tariff_import_add = -0.1
 	tariff_export_add = -0.1
 	state_conscription_rate_add = 0.075
+	unit_morale_damage_mult = 0.25
 	unit_supply_consumption_mult = -0.25
-	unit_devastation_mult = 0.25
+	unit_devastation_mult = 0.5
+	country_army_power_projection_mult = 0.25
 }
 
 merchant_republic = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
-	interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.25
+	country_shopkeepers_pol_str_mult = 0.25
 	state_political_strength_from_wealth_mult = 0.25
 	country_navy_power_projection_mult = 0.25
 	country_trade_route_cost_mult = -0.5
 	country_trade_route_competitiveness_mult = 0.5
+}
+
+romaioi_pentarchy = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_clergymen_pol_str_mult = 0.05
+	state_conversion_mult = 0.05
+	tax_heathen_add = 0.05
+}
+
+arab_caliphate = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_clergymen_pol_str_mult = 0.5
+	country_officers_pol_str_mult = 0.5
+	country_authority_mult = 0.25
+	unit_morale_loss_mult = -0.25
+	state_conversion_mult = 0.25
+	country_minting_add = 2000
+}
+
+pope = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_clergymen_pol_str_mult = 0.25
+	country_influence_mult = 0.25
+	state_conversion_mult = 0.1
+	tax_heathen_add = 0.025
+	country_minting_add = 5000
+}
+
+patriarch_alexandria = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_clergymen_pol_str_mult = 0.025
+	state_conversion_mult = 0.025
+	tax_heathen_add = 0.025
+}
+
+patriarch_jerusalem = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_clergymen_pol_str_mult = 0.025
+	state_conversion_mult = 0.025
+	tax_heathen_add = 0.025
+}
+
+patriarch_antioch = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_clergymen_pol_str_mult = 0.025
+	state_conversion_mult = 0.025
+	tax_heathen_add = 0.025
+}
+
+holy_roman_empire = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_legitimacy_headofstate_add = 25
+	country_influence_mult = 0.1
+	country_authority_mult = 0.1
+	country_clergymen_pol_str_mult = 0.05
+	country_aristocrats_pol_str_mult = 0.1
+}
+
+eastern_roman_empire = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_legitimacy_headofstate_add = 25
+	country_influence_mult = 0.1
+	country_authority_mult = 0.1
 }
