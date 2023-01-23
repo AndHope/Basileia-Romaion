@@ -16,11 +16,24 @@ NTechnology = {
 	TECH_AHEAD_OF_TIME_PENALTY_FACTOR = 0.50	#was 0.25 # For every tech in a previous era not already researched in this category, take this multiple of the cost as an additional penalty (multiplied by number of eras between the techs)
 }
 
+NPolitics = {
+
+	SECESSION_TURMOIL_CUTOFF = 0.33 #was 0.5						# Turmoil requires for cultures to start secession
+	SECESSION_WEEKLY_BASE_CHANCE = 0.005	# was 0.001			# weekly base chance for culture to start secession movement
+	SECESSION_STATE_CUTOFF_PERCENT = 0.25 #was 0.33				# Required pop percentage in State to be egligble for secession
+	SECESSION_COOLDOWN_YEARS = 10 #was 5
+}	
+
 NPops = {
+	#CONVERSION_RATE = 0.0001 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
+	#ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
+	DISCRIMINATION_BASE = 50 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
+	RADICALS_MAX_FROM_DISCRIMINATION = 0.75 #was 0.5		# If pop is already this % radical, don't add more radicals from discrimination (Scales by literacy)
+
 	QUALIFICATIONS_UPDATE_FACTOR = 0.0001 # was 0.0003				# Calculated potential values are multiplied by this value and the workforce size of the pop before being added to the existing potentials
 	QUALIFICATIONS_NUM_MONTHS_AT_START = 30 # was 60				# How many months of qualifications should be seeded to pops at start of game?
 
-	LOYALTIES_GAIN_GRACE_PERIOD = "1738.1.1"	# Until this date, only a scaling part of the Radicals and Loyalists gained from SOL changes will be applied
+	LOYALTIES_GAIN_GRACE_PERIOD = "1755.1.1"	# Until this date, only a scaling part of the Radicals and Loyalists gained from SOL changes will be applied
 
 	LOW_POP_THRESHOLD = 10000
 
@@ -29,7 +42,7 @@ NPops = {
 	ECONOMIC_MIGRATION_FROM_SOL_DIFFERENCE = 0.005 # was 0.01
 
 	CULTURAL_MIGRATION_BASE = 0.01 #was 0.05
-	CULTURAL_MIGRATION_FROM_RADICALS = 0.24 #was 0.05
+	CULTURAL_MIGRATION_FROM_RADICALS = 0.2 #was 0.05
 	MIGRATION_AVERAGE_ATTRACTION_EMIGRATION_MULT = 0.01 #was 0.25
 
 	MIGRATION_CULTURE_TARGET_TURMOIL = 0.2				# Create one migration target for this amount of cultural turmoil
@@ -42,3 +55,4 @@ NPops = {
 	MAX_BASE_COLONIAL_GROWTH = 0.025 
 
 }	
+

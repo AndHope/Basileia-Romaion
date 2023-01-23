@@ -102,6 +102,7 @@ bulgarian_revolt.1 = {
 		name = bulgarian_revolt.1.a
 		default_option = yes
 
+	
 		c:BUL = {
 			add_modifier = {
 				name = war_for_independence
@@ -113,10 +114,20 @@ bulgarian_revolt.1 = {
 			}
 		}
 
-		c:BYZ = {
-			remove_diplomatic_pact = {
-				country = c:SER
-				type = exarchate
+		hidden_effect = {
+			c:BYZ = {
+				remove_diplomatic_pact = {
+					country = c:SER
+					type = exarchate
+				}
+		#		remove_diplomatic_pact = {
+		#			country = c:MOL
+		#			type = exarchate
+		#		}
+		#		remove_diplomatic_pact = {
+		#			country = c:WAL
+		#			type = exarchate
+		#		}
 			}
 		}
 
@@ -140,6 +151,12 @@ bulgarian_revolt.1 = {
 			type = dp_native_uprising
 
 			target_state = s:STATE_NORTHERN_SERBIA.region_state:SER
+
+		#	add_war_goal = {
+		#		holder = c:BYZ
+		#		type = make_exarchate
+		#		target_country = c:SER
+		#	}
 
 		}
 

@@ -8,7 +8,6 @@ COUNTRIES = {
 		#Custom set-up tech
 		#Society
 		add_technology_researched = centralization
-		add_technology_researched = law_enforcement
 		add_technology_researched = medical_degrees
 		add_technology_researched = banking
 		add_technology_researched = empiricism
@@ -16,7 +15,7 @@ COUNTRIES = {
 
 		#Economy
 		add_technology_researched = lathe
-		add_technology_researched = crystal_glass
+		#add_technology_researched = crystal_glass
 		add_technology_researched = intensive_agriculture
 		#add_technology_researched = modern_sewerage
 		#add_technology_researched = paved_roads
@@ -24,9 +23,10 @@ COUNTRIES = {
 		add_technology_researched = roman_roads
 
 		#Warfare
-		add_technology_researched = napoleonic_warfare
+		
+		#add_technology_researched = napoleonic_warfare
 		##add_technology_researched = logistics
-		add_technology_researched = field_works
+		#add_technology_researched = field_works
 		#add_technology_researched = triage
 		#add_technology_researched = general_staff
 
@@ -51,18 +51,18 @@ COUNTRIES = {
 		activate_law = law_type:law_serfdom
 		#activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_per_capita_based_taxation
-		#activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_hereditary_bureaucrats
+		#activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_national_supremacy 
-		activate_law = law_type:law_outlawed_dissent
+		activate_law = law_type:law_censorship
 		#activate_law = law_type:law_colonial_exploitation 
 		#activate_law = law_type:law_legacy_slavery #Removed
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
-		#activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_peasant_levies
+		#activate_law = law_type:law_professional_army
 		activate_law = law_type:law_private_schools
 		activate_law = law_type:law_charitable_health_system
 		#activate_law = law_type:law_agrarianism
@@ -74,11 +74,15 @@ COUNTRIES = {
 		#set_military_wage_level = high
 
 
-		#Revolts
+		#Revolts tied to decisions
 		trigger_event = {
 			id = bulgarian_revolt.1
 			days = 250
 		}
+	#	trigger_event = {
+	#		id = vlach_rebellion.1
+	#		days = 26
+	#	}
 		trigger_event = {
 			id = anatolian_revolt.1
 			days = 1500
@@ -133,19 +137,19 @@ COUNTRIES = {
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agrotikos
-			remove_ideology = ideology_isolationist
-			add_ideology = ideology_isolationist_expansionism
+			#remove_ideology = ideology_isolationist
+			#add_ideology = ideology_isolationist_expansionism
 		}
 
 		ig:ig_intelligentsia = { 
-			remove_ideology = ideology_anti_clerical
-			remove_ideology = ideology_liberal
+			#remove_ideology = ideology_anti_clerical
+			#remove_ideology = ideology_liberal
 			remove_ideology = ideology_republican
 			remove_ideology = ideology_anti_slavery
 
 			add_ideology = ideology_romaioi_republican
-			add_ideology = ideology_romaioi_liberal
-			add_ideology = ideology_romaioi_anti_clerical
+			#add_ideology = ideology_romaioi_liberal
+			#add_ideology = ideology_romaioi_anti_clerical
 
 			set_interest_group_name = ig_dianooumenoi
 		}
@@ -200,9 +204,9 @@ COUNTRIES = {
 		#	months = 36
 		#}
 
-		#trigger_event = {
-		#	id = sick_man.1
-		#}
+		trigger_event = {
+			id = sick_man.1
+		}
 		#add_modifier = {
 		#	name = sick_man_of_europe
 		#	months = -1

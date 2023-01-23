@@ -112,6 +112,33 @@ c:FRA = {
 		}
 	}	
 }
+c:PLC = {
+	create_diplomatic_play = {
+		name = Cossak_War
+		
+		target_state = s:STATE_KIEV.region_state:RUT
+			
+		war = yes
+			
+		type = dp_make_puppet
+
+		add_war_goal = {
+			holder = c:TAT
+			type = force_recognition
+			target_country = c:PLC
+		}
+		add_war_goal = {
+			holder = c:TAT
+			type = war_reparations
+			target_country = c:PLC
+		}
+		add_war_goal = {
+			holder = c:TAT
+			type = war_reparations
+			target_country = c:HUN
+		}
+	}	
+}
 
 c:FRA = {
 	create_diplomatic_play = {
