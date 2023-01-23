@@ -14,7 +14,7 @@
 		}
 	}
 
-	timeout = 27300
+	timeout = 25700
 
 	on_timeout = {
 		#remove_modifier = sick_man_of_europe
@@ -28,7 +28,7 @@
 	}
 
 	goal_add_value = {
-		add = 4
+		add = 6
 	}
 
 	progressbar = yes
@@ -41,12 +41,10 @@ je_sick_man_syria = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	complete = {
-		owns_entire_state_region = STATE_ALEPPO
 		owns_entire_state_region = STATE_SYRIA
 		owns_entire_state_region = STATE_LEBANON
 		owns_entire_state_region = STATE_PALESTINE
 		owns_entire_state_region = STATE_TRANSJORDAN
-		owns_entire_state_region = STATE_ADANA
 	}
 
 	on_complete = {
@@ -133,6 +131,86 @@ je_sick_man_egypt = {
 				owns_entire_state_region = STATE_UPPER_EGYPT
 				owns_entire_state_region = STATE_MIDDLE_EGYPT
 				owns_entire_state_region = STATE_LOWER_EGYPT
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_sick_man_advance
+		change_variable = {
+			name = sick_man_var
+			add = 1
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_sick_man_tt
+			has_variable = sick_man_complete
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+je_sick_man_italy = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:SIC
+				c:SIC = {
+					is_subject_of = ROOT
+				}
+			}
+			AND = {
+				owns_entire_state_region = STATE_SICILY
+				owns_entire_state_region = STATE_CAMPANIA
+				owns_entire_state_region = STATE_ABRUZZO
+				owns_entire_state_region = STATE_CALABRIA
+				owns_entire_state_region = STATE_APULIA
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_sick_man_advance
+		change_variable = {
+			name = sick_man_var
+			add = 1
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_sick_man_tt
+			has_variable = sick_man_complete
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+je_sick_man_africa = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:NAF
+				c:NAF = {
+					is_subject_of = ROOT
+				}
+			}
+			AND = {
+				owns_entire_state_region = STATE_TUNISIA
+				owns_entire_state_region = STATE_TRIPOLI
+				owns_entire_state_region = STATE_LIBYA
 			}
 		}
 	}
