@@ -1,6 +1,9 @@
 ﻿# Romaioi Mod - This is executed last among all history
 GLOBAL = {
 	every_country = {
+		trigger_event = {
+			id = romaioi_startup_events.1
+		}
 		if = {
 			limit = {
 				any_scope_pop = { 
@@ -10,6 +13,17 @@ GLOBAL = {
 			add_loyalists = {
 				culture = cu:greek
 				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:protestant 
+				}
+			}
+			add_radicals = {
+				religion = rel:protestant
+				value = 0.1
 			}
 		}
 		if = {
@@ -172,6 +186,31 @@ GLOBAL = {
 			add_loyalists = {
 				culture = cu:bedouin
 				value = 0.95
+			}
+		}
+	}
+
+	c:ANL = {
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:sunni 
+				}
+			}
+			add_loyalists = {
+				religion = rel:sunni
+				value = 0.33
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.33
 			}
 		}
 	}

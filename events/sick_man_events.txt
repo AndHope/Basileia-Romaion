@@ -41,15 +41,16 @@ sick_man.1 = {
 		add_journal_entry = {
 			type = je_sick_man_syria
 		}
-		add_journal_entry = {
-			type = je_sick_man_egypt
-		}
-		add_journal_entry = {
-			type = je_sick_man_italy
-		}
-		add_journal_entry = {
-			type = je_sick_man_africa
-		}
+	#Do Syria first to unlock rest.	
+	#	add_journal_entry = {
+	#		type = je_sick_man_egypt
+	#	}
+	#	add_journal_entry = {
+	#		type = je_sick_man_italy
+	#	}
+	#	add_journal_entry = {
+	#		type = je_sick_man_africa
+	#	}
 		add_journal_entry = {
 			type = je_sick_man_economy
 		}
@@ -63,22 +64,25 @@ sick_man.1 = {
 			type = je_sick_man_army
 		}
 		add_journal_entry = {
+			type = je_sick_man_navy
+		}
+		add_journal_entry = {
 			type = je_sick_man_bureaucracy
 		}
-	#	show_as_tooltip = {
-	#		add_modifier = {
-	#			name = sick_man_of_europe
-	#			months = -1
-	#		}		
-	#		add_modifier = {
-	#			name = outmoded_bureaucracy
-	#			months = -1
-	#		}
-	#		add_modifier = {
-	#			name = cizye_tax
-	#			months = -1
-	#		}			
-	#	}
+		show_as_tooltip = {
+			add_modifier = {
+				name = romaioi_themata_primacy
+				months = -1
+			}		
+			add_modifier = {
+				name = romaioi_bureaucratic_corruption
+				months = -1
+			}
+			add_modifier = {
+				name = latin_privileges
+				months = -1
+			}			
+		}
 	}
 }
 
@@ -247,5 +251,15 @@ sick_man.3 = {
 		ruler = {
 			kill_character = yes
 		}
+		trigger_event = {
+			id = bulgarian_revolt.1
+		}
+		trigger_event = {
+			id = anatolian_revolt.1
+		}
+		trigger_event = {
+			id = anatolian_revolt.2
+		}
+
 	}
 }

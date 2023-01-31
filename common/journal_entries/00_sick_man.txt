@@ -8,7 +8,18 @@
 	}
 
 	on_complete = {
-		#remove_modifier = sick_man_of_europe
+		add_modifier = {
+			name = popular_autocrat
+			months = very_long_modifier_time
+		}
+		add_modifier = {
+			name = russification_modifier
+			months = very_long_modifier_time
+		}
+		add_modifier = {
+			name = religious_orthodocy_enforced_mod
+			months = very_long_modifier_time
+		}
 		trigger_event = {
 			id = sick_man.2
 		}
@@ -91,6 +102,8 @@ je_sick_man_syria = {
 		}
 		else = {
 			add_journal_entry = {
+				type = je_sick_man_africa
+				type = je_sick_man_italy
 				type = je_sick_man_egypt
 			}
 		}
@@ -117,6 +130,13 @@ je_sick_man_syria = {
 
 je_sick_man_egypt = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:greek
+		NOT = {
+			has_variable = sick_man_complete
+		}
+	}
 
 	complete = {
 		OR = {
@@ -157,6 +177,13 @@ je_sick_man_egypt = {
 
 je_sick_man_italy = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:greek
+		NOT = {
+			has_variable = sick_man_complete
+		}
+	}
 
 	complete = {
 		OR = {
@@ -199,6 +226,13 @@ je_sick_man_italy = {
 je_sick_man_africa = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:greek
+		NOT = {
+			has_variable = sick_man_complete
+		}
+	}
+
 	complete = {
 		OR = {
 			AND = {
@@ -239,12 +273,15 @@ je_sick_man_economy = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 
 	complete = {
-		in_default = no
 		NOT = { has_modifier = latin_privileges }
+		taking_loans = no
 		any_scope_state = {
 			is_incorporated = yes
 			has_building = building_urban_center
 			percent >= 0.75
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
 		}
 	}
 
@@ -264,9 +301,24 @@ je_sick_man_economy = {
 		}
 	}
 
+	fail = {
+		in_default = yes
+	}
+
+	#added
+	current_value = {
+		value = root.gdp
+	}
+
+	goal_add_value = {
+		value = root.gdp
+		multiply = 1
+	}
+
 	inheritable = no
 
 	weight = 5000
+	progressbar = yes
 }
 
 # Literacy and Universities
@@ -299,7 +351,7 @@ je_sick_man_education = {
 
 	goal_add_value = {
 		value = root.literacy_rate
-		add = 0.45
+		add = 0.35
 	}
 
 	invalid = {
@@ -363,7 +415,7 @@ je_sick_man_separatism = {
 	}
 
 	goal_add_value = {
-		add = 180
+		add = 340
 	}
 
 	invalid = {
@@ -407,6 +459,9 @@ je_sick_man_army = {
 			name = sick_man_var
 			add = 1
 		}
+#		add_journal_entry = {
+#			type = je_sick_man_navy
+#		}
 	}
 
 	on_monthly_pulse = {
@@ -427,6 +482,61 @@ je_sick_man_army = {
 	weight = 5000
 }
 
+#Navy reform
+je_sick_man_navy = {
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	
+#	is_shown_when_inactive = {
+#		country_has_primary_culture = cu:greek
+#		NOT = {
+#			has_variable = sick_man_complete
+#		}
+#	}
+
+	complete = {
+		navy_size >= 125
+		has_technology_researched = power_of_the_purse
+		has_technology_researched = screw_frigate
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_naval_base
+				has_active_production_method = pm_no_naval_theory
+			}
+		}
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_shipyards
+				has_active_production_method = pm_basic_shipbuilding
+			}
+		}
+	}
+
+	on_complete = {
+		#set_variable = completed_sick_man_army_je
+		custom_tooltip = je_sick_man_advance
+		change_variable = {
+			name = sick_man_var
+			add = 1
+		}
+	}
+
+	on_monthly_pulse = {
+		events = {
+			tanzimat_events.10 # Tanzimat Draft Question
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_sick_man_tt
+			has_variable = sick_man_complete
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
 
 # Bureaucractic Reform
 je_sick_man_bureaucracy = {

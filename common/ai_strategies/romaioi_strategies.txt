@@ -33,7 +33,7 @@ ai_strategy_agressive_expansion = {
 	wanted_army_ratio = 100000 # 1 barrack per 150k incorporated population
 	wanted_navy_ratio = 400000 # 1 naval base per 400k coastal incorporated population	
 	
-	undesirable_infamy_level = 75
+	undesirable_infamy_level = 100
 	unacceptable_infamy_level = 125
 	
 	ideological_opinion_effect_mult = 0.75
@@ -47,19 +47,19 @@ ai_strategy_agressive_expansion = {
 	
 	# Added to value from default strategy
 	bravery = {
-		value = 0.25
+		value = 0.5
 	}
 	
 	# Added to value from default strategy
 	aggression = {
-		value = 4
+		value = 5
 		
 		if = {
 			limit = { 
 				NOT = { country_is_in_europe = yes }
 				scope:target_country = { is_country_type = unrecognized } 
 			}
-			add = 4
+			add = 5
 		}	
 
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering

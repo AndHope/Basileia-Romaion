@@ -49,21 +49,21 @@ COUNTRIES = {
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_serfdom
-		#activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_per_capita_based_taxation
-		activate_law = law_type:law_hereditary_bureaucrats
+		#activate_law = law_type:law_land_based_taxation 
+		activate_law = law_type:law_per_capita_based_taxation #too hard without this tax law
+		activate_law = law_type:law_hereditary_bureaucrats #Balance reasons half of Burecrats appointed still
 		#activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_national_supremacy 
 		activate_law = law_type:law_censorship
 		#activate_law = law_type:law_colonial_exploitation 
 		#activate_law = law_type:law_legacy_slavery #Removed
-		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_national_guard #Themata
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_peasant_levies #Balance reasons
 		#activate_law = law_type:law_professional_army
-		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_private_schools #School mostly for the rich Religious schools op at start.
 		activate_law = law_type:law_charitable_health_system
 		#activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_migration_controls	
@@ -169,6 +169,9 @@ COUNTRIES = {
 		add_journal_entry = {
 			type = je_veiled_exarchate2
 		}
+		add_journal_entry = {
+			type = je_veiled_exarchate3
+		}
 
 		add_modifier = {
 			name = romaioi_culture_supremacy
@@ -203,6 +206,10 @@ COUNTRIES = {
 		#	name = rooting_out_radicals
 		#	months = 36
 		#}
+
+		trigger_event = {
+			id = romaioi_startup_events.1
+		}
 
 		trigger_event = {
 			id = sick_man.1

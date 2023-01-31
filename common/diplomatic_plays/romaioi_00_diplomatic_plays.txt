@@ -6,8 +6,18 @@
 
 	texture = "gfx/interface/icons/war_goals/make_puppet.dds"
 	
-	possible = {
+	#possible = {
+		#aggressive_diplomatic_plays_permitted = yes	
 		#has_technology_researched = romaioi
+	#	exists = c:BYZ
+	#	c:BYZ = ROOT	
+	#}
+
+	possible = {
+		exists = c:BYZ
+		scope:target = {
+			this = c:AGY
+		}
 	}
 
 	#ai_will_do = { exists = c:BYZ c:BYZ = ROOT always = yes }
