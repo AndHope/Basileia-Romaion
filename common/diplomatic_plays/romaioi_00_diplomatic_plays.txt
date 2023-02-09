@@ -14,10 +14,11 @@
 	#}
 
 	possible = {
-		exists = c:BYZ
-		scope:target = {
-			this = c:AGY
-		}
+		aggressive_diplomatic_plays_permitted = yes	
+		custom_tooltip = {
+			text = DIPLO_ACTION_RELATIONS_CORDIAL_OR_GREATER_NOT
+			scope:target_country.relations:root < relations_threshold:cordial
+		}		
 	}
 
 	#ai_will_do = { exists = c:BYZ c:BYZ = ROOT always = yes }
@@ -37,7 +38,7 @@ dp_annex_subject = {
 	possible = {
 		NOT = { is_country_type = decentralized }
 		aggressive_diplomatic_plays_permitted = yes
-		scope:target = {
+		scope:target_country = {
 			NOT = { is_country_type = decentralized }
 			is_direct_subject_of = root
 			OR = {

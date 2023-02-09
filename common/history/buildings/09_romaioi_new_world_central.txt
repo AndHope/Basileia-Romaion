@@ -1,6 +1,6 @@
 ﻿BUILDINGS={
 	s:STATE_COLORADO={
-		region_state:NAH={
+		region_state:PUE={
 			create_building={
 				building="building_livestock_ranch"
 				level=1
@@ -8,35 +8,28 @@
 				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
 			}
 			create_building={
+				building="building_logging_camp"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+			}
+			create_building={
+				building="building_maize_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards_building_maize_farm" }
+			}
+			create_building={
 				building="building_barracks"
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
 			}
-		}
-		region_state:ARP={
 		}
 	}
 
 	s:STATE_UTAH={
-		region_state:NAH={
-			create_building={
-				building="building_livestock_ranch"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}
-			create_building={
-				building="building_barracks"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
-			}
-		}
-		region_state:NVJ={
-		}
-		region_state:UTE={
-		}
+
 	}
 	s:STATE_TEXAS={
 		region_state:NAH={
@@ -53,24 +46,9 @@
 				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
 			}
 		}
-		region_state:COM={
-		}
+
 	}
 	s:STATE_NEVADA={
-		region_state:NAH={
-			create_building={
-				building="building_livestock_ranch"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}
-			create_building={
-				building="building_barracks"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
-			}
-		}
 	}
 	s:STATE_ARIZONA={
 		region_state:NAH={
@@ -87,7 +65,25 @@
 				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
 			}
 		}
-		region_state:NVJ={
+		region_state:PUE={
+			create_building={
+				building="building_livestock_ranch"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_wheat_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
+			}
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
+			}
 		}
 	}
 	s:STATE_NEW_MEXICO={
@@ -105,20 +101,41 @@
 				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
 			}
 		}
-		region_state:NVJ={
-		}
-		region_state:COM={
-		}
-		region_state:APC={
-		}
-	}
-	s:STATE_CALIFORNIA={
-		region_state:NAH={
+		region_state:PUE={
 			create_building={
-				building="building_logging_camp"
+				building="building_livestock_ranch"
 				level=1
 				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_wheat_farm"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
+			}
+			create_building={
+				building="building_barracks"
+				level=4
+				reserves=1
+				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
+			}
+		}
+
+	}
+	s:STATE_CALIFORNIA={
+		region_state:CNW={
+			create_building={
+				building="building_logging_camp"
+				level=2
+				reserves=1
 				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_privately_owned" "pm_standard_fences" "pm_unrefrigerated" "pm_open_air_stockyards" }
 			}
 			create_building={
 				building="building_fishing_wharf"
@@ -128,9 +145,15 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=4
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_wound_dressing" "pm_irregular_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
+			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
 			}
 		}
 	}

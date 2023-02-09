@@ -3,11 +3,15 @@
 	c:JAP = {
 		create_diplomatic_pact = {
 			country = c:PHI
-			type = vassal
+			type = tributary
 		}
 		create_diplomatic_pact = {
 			country = c:HAW
-			type = vassal
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:JNW
+			type = tributary
 		}
 		create_diplomatic_pact = {
 			country = c:JAV
@@ -20,10 +24,6 @@
 	}
 
 	c:MGL = {
-	#	create_diplomatic_pact = {
-	#		country = c:MCH
-	#		type = tributary
-	#	}
 		create_diplomatic_pact = {
 			country = c:YUN
 			type = tributary
@@ -45,9 +45,23 @@
 			type = tributary
 		}
 		create_diplomatic_pact = {
+			country = c:CNW
+			type = tributary
+		}
+		create_diplomatic_pact = {
 			country = c:JAV
 			type = trade_agreement
-		}	
+		}
+		set_relations = { country = c:MGL value = -200 }
+		set_relations = { country = c:SIA value = 25 }
+		set_relations = { country = c:DAI value = 25 }
+		set_relations = { country = c:MUG value = 25 }
+		set_relations = { country = c:JAV value = 25 }
+		set_relations = { country = c:LAN value = 50 }
+		set_relations = { country = c:JAP value = -50 }
+		set_relations = { country = c:FRA value = -50 }
+		set_relations = { country = c:GBR value = -50 }
+		set_relations = { country = c:ANL value = -50 }
 	}
 
 	c:DAI = {
@@ -117,6 +131,42 @@
 			country = c:TID
 			type = vassal
 		}
+	}
+
+	c:MUG = {
+		create_diplomatic_pact = {
+			country = c:CEY	
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:MYS	
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:SIK	
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:NEP	
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:BHU	
+			type = tributary
+		}
+
+		create_truce = {
+			country = c:CEY
+			months = 36
+		}
+		create_truce = {
+			country = c:MYS
+			months = 36
+		}
+
+		set_relations = { country = c:CEY value = -75 }
+		set_relations = { country = c:MYS value = -125 }
+
 	}
 
 }
