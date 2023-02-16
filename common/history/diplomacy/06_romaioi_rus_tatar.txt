@@ -10,7 +10,7 @@
 		}
 		create_diplomatic_pact = {
 			country = c:PRM
-			type = vassal #dominion
+			type = tributary #dominion
 		}
 		create_diplomatic_pact = {
 			country = c:SMO	
@@ -28,6 +28,10 @@
 			country = c:NOV
 			type = tributary #tributary
 		}
+		create_diplomatic_pact = {
+			country = c:CHC
+			type = tributary #Moved from Persia
+		}
 		set_relations = { country = c:PER value = -50 }
 		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:MOL value = -125 }
@@ -42,6 +46,13 @@
 		set_relations = { country = c:PLC value = -200 }
 		set_relations = { country = c:GEN value = 50 }
 		set_relations = { country = c:VEN value = 50 }
+
+		c:TAT = {
+			create_diplomatic_pact = {
+				country = c:PLC
+				type = rivalry
+			}
+		}
 
 		create_truce = {
 			country = c:MUS
@@ -69,6 +80,7 @@ c:MUS = {
 	set_relations = { country = c:RYA value = 100 }
 	set_relations = { country = c:SMO value = 100 }
 }
+
 c:RUT = {
 	set_relations = { country = c:TAT value = -175 }
 	set_relations = { country = c:BYZ value = 150 }
@@ -83,6 +95,7 @@ c:RUT = {
 		type = defensive_pact
 	}
 }
+
 c:SMO = {
 	set_relations = { country = c:TAT value = -150 }
 	set_relations = { country = c:BYZ value = 125 }
@@ -96,6 +109,7 @@ c:SMO = {
 		type = defensive_pact
 	}
 }
+
 c:RYA = {
 	set_relations = { country = c:TAT value = -150 }
 	set_relations = { country = c:BYZ value = 125 }
@@ -108,10 +122,12 @@ c:RYA = {
 		type = defensive_pact
 	}
 }
+
 c:NOV = {
 	set_relations = { country = c:TAT value = -175 }
 	set_relations = { country = c:SWE value = 125 }
 }
+
 c:PSK = {
 	set_relations = { country = c:TAT value = -175 }
 	set_relations = { country = c:MUS value = -125 }

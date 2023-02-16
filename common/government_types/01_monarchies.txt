@@ -1,11 +1,28 @@
 ﻿gov_exarchate = {								
 	transfer_of_power = hereditary
 	
-	male_ruler = "RULER_TITLE_EXARCH"			# Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary. 
+	male_ruler = "RULER_TITLE_EXARCH"
+	female_ruler = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:BYZ
+		is_subject_of = c:BYZ
+
+		OR = {
+			country_tier = kingdom
+			country_tier = grand_principality
+		}
+
+	}		
+}
+
+gov_themata = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_STRATEGOS"
 	female_ruler = "" # Empty on purpose
 
-	male_heir = "RULER_TITLE_PRINCE"	# Governor of a Vilayet's subunit, the Sanjak, who would assume command in the Vali's absence
-	female_heir = "" # Empty on purpose
 	
 	possible = {
 		has_law = law_type:law_monarchy
@@ -14,7 +31,7 @@
 
 		OR = {
 			country_tier = principality
-			country_tier = grand_principality
+			country_tier = city_state
 		}
 
 	}		
@@ -45,10 +62,10 @@ gov_independent_exarchate = {
 gov_satrapy = {								
 	transfer_of_power = hereditary
 	
-	male_ruler = "RULER_TITLE_SATRAP"			# Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary. 
+	male_ruler = "RULER_TITLE_SATRAP"
 	female_ruler = "" # Empty on purpose
 
-	male_heir = "RULER_TITLE_PRINCE"	# Governor of a Vilayet's subunit, the Sanjak, who would assume command in the Vali's absence
+	male_heir = "RULER_TITLE_PRINCE"
 	female_heir = "" # Empty on purpose
 	
 	possible = {

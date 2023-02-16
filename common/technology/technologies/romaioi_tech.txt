@@ -17,8 +17,8 @@ romaioi = {
 		interest_group_ig_trade_unions_pop_attraction_mult = -0.5
 
 		#Buffs
-		country_max_declared_interests_mult = 0.25
-		state_rich_standard_of_living_add = 3
+		#country_max_declared_interests_mult = 0.25
+		#state_rich_standard_of_living_add = 3
 
 		#Debuffs
 		country_government_wages_mult = 0.15
@@ -33,10 +33,15 @@ noble_tradition = {
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#Buffs
+		#IGS
 		interest_group_ig_landowners_pop_attraction_mult = 0.25
+		#Buffs
+		#state_rich_standard_of_living_add = 5
+		#Debuffs
+		#state_poor_standard_of_living_add = -1
 	}
 }
+
 
 hre_emperor = {
 	era = era_5
@@ -45,12 +50,12 @@ hre_emperor = {
 	modifier = {
 		#Buffs
 		country_prestige_add = 50
-		country_war_exhaustion_casualties_mult = -0.25
-		country_max_declared_interests_mult = 0.25
+		#country_war_exhaustion_casualties_mult = -0.25
+		#country_max_declared_interests_mult = 0.25
 	}
 }
 
-pope = {
+pope = { 
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
@@ -59,7 +64,7 @@ pope = {
 		country_legitimacy_headofstate_add = 25
 		interest_group_ig_devout_pol_str_mult = 0.25
 		country_prestige_add = 25
-		country_max_declared_interests_mult = 0.25
+		#country_max_declared_interests_mult = 0.25
 	}
 }
 
@@ -75,9 +80,9 @@ italian_republic = {
 
 		#Buffs
 		state_education_access_wealth_add = 0.015
-		state_welfare_payments_add = 0.25
-		state_dependent_wage_mult = 0.5
-		country_max_declared_interests_mult = 0.25
+		state_dependent_wage_mult = 1.0
+		state_shopkeepers_investment_pool_efficiency_mult = 0.75	
+		state_capitalists_investment_pool_efficiency_mult = 0.25
 
 		#Trade
 		country_trade_route_cost_mult = -0.5
@@ -97,11 +102,12 @@ merchant_republic = {
 		state_political_strength_from_wealth_mult = 0.25
 
 		#Buffs
-		country_max_declared_interests_mult = 0.5
-		state_rich_standard_of_living_add = 2
+		#country_max_declared_interests_mult = 0.5
+		#state_rich_standard_of_living_add = 2
 		state_education_access_wealth_add = 0.015
-		state_welfare_payments_add = 0.25
-		state_dependent_wage_mult = 0.5 
+		state_dependent_wage_mult = 1.0
+		state_shopkeepers_investment_pool_efficiency_mult = 0.75	
+		state_capitalists_investment_pool_efficiency_mult = 0.5
 
 		#Military
 		unit_navy_defense_mult = 0.25
@@ -125,6 +131,7 @@ roman_roads = {
 		country_trade_route_quantity_mult = 0.2
 		country_trade_route_cost_mult = -0.2
 		country_trade_route_competitiveness_mult = 0.2
+		market_land_trade_capacity_add = 100
 	}
 }
 
@@ -138,6 +145,7 @@ silk_road = {
 		country_trade_route_quantity_mult = 0.25
 		country_trade_route_cost_mult = -0.25
 		country_trade_route_competitiveness_mult = 0.25
+		market_land_trade_capacity_add = 250
 	}
 }
 
@@ -160,7 +168,8 @@ tribal = {
 		#Military
 		state_conscription_rate_add = 0.05
 		unit_supply_consumption_mult = -0.25
-		country_war_exhaustion_casualties_mult = -0.25
+		#country_war_exhaustion_casualties_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
 	}
 }
@@ -182,13 +191,14 @@ horde = {
 		state_education_access_wealth_add = -0.005
 		country_legitimacy_headofstate_add = 25
 		country_authority_add = 200
-		country_max_declared_interests_mult = 0.25
+		#country_max_declared_interests_mult = 0.25
 
 		#Military
 		character_battle_condition_surprise_maneuver_mult = 2
 		state_conscription_rate_add = 0.03
 		unit_supply_consumption_mult = -0.25
-		country_war_exhaustion_casualties_mult = -0.25
+		#country_war_exhaustion_casualties_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
 		#Debuffs
 		state_conversion_mult = -0.5
@@ -218,11 +228,11 @@ caliph = {
 		country_prestige_add = 50
 		country_influence_add = 100
 		country_authority_add = 200
-		country_max_declared_interests_mult = 0.25
+		#country_max_declared_interests_mult = 0.25
 
 		#Military
 		state_conscription_rate_add = 0.025
-		country_war_exhaustion_casualties_mult = -0.25
+		#country_war_exhaustion_casualties_mult = -0.25
 
 		country_minting_add = 5000
 
@@ -247,9 +257,10 @@ arab_tribal = {
 		#Buffs #Military
 		state_conscription_rate_add = 0.05
 		unit_supply_consumption_mult = -0.25
-		country_war_exhaustion_casualties_mult = -0.5
+		#country_war_exhaustion_casualties_mult = -0.5
+		country_military_goods_cost_mult = -0.25
 
-		country_max_declared_interests_mult = 0.25
+		#country_max_declared_interests_mult = 0.25
 		country_minting_add = 7500
 	}
 }
@@ -277,7 +288,8 @@ sunset_invasion = {
 		state_conscription_rate_add = 0.06
 		unit_supply_consumption_mult = -0.25
 	    unit_morale_damage_mult = 0.25
-		country_war_exhaustion_casualties_mult = -0.25
+		#country_war_exhaustion_casualties_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
 	}
 }
@@ -305,14 +317,14 @@ rising_sun = {
 		unit_supply_consumption_mult = -0.25
 		unit_offense_mult = 0.15
 		unit_navy_offense_mult = 0.15
-		country_war_exhaustion_casualties_mult = -0.25
+		#country_war_exhaustion_casualties_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
 		#Trade
 		country_convoys_capacity_mult = 0.25
 		country_trade_route_quantity_mult = 0.25
 		country_trade_route_cost_mult = -0.25
 		country_trade_route_competitiveness_mult = 0.25
-
 	}
 }
 
@@ -334,7 +346,8 @@ norse = { #Viking heritage
 		state_conscription_rate_add = 0.025
 		unit_supply_consumption_mult = -0.25
 		unit_offense_mult = 0.25
-		country_war_exhaustion_casualties_mult = -0.25
+		#country_war_exhaustion_casualties_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
 		#Colonial
 		state_colony_growth_speed_mult = 0.25
@@ -358,7 +371,7 @@ new_world_colonial = {
 		interest_group_ig_rural_folk_pop_attraction_mult = 0.1
 
 		#Buffs
-		state_assimilation_mult = 0.1
+		state_assimilation_mult = 0.25
 		state_dependent_wage_mult = 0.25
 
 		#Colonial
@@ -413,13 +426,13 @@ elysium = {
 		country_trade_route_cost_mult = -0.2
 		country_trade_route_competitiveness_mult = 0.2
 
-		state_dependent_wage_mult = 0.1
-		state_rich_standard_of_living_add = 2
+		state_dependent_wage_mult = 0.25
+		#state_rich_standard_of_living_add = 2
 		country_minting_add = 2500
 
 		#Colonial
-		state_accepted_birth_rate_mult = 0.05
-		state_migration_pull_mult = 0.1
+		state_accepted_birth_rate_mult = 0.1
+		state_migration_pull_mult = 0.25
 		
 	}
 }

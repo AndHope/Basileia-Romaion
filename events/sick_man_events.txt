@@ -38,6 +38,17 @@ sick_man.1 = {
 
 	option = {
 		name = sick_man.1.a
+
+		hidden_effect = {
+			every_scope_state = {
+				limit = { OR = { state_region = s:STATE_BULGARIA } }
+				add_modifier = {
+					name = bulgarian_resistance
+					years = 100
+				}
+			}
+		}
+
 		add_journal_entry = {
 			type = je_sick_man_syria
 		}

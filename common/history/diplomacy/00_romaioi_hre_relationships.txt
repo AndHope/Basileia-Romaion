@@ -2,36 +2,26 @@
 	c:FRA = {
 		create_diplomatic_pact = {
 			country = c:SAR
-			type = puppet #protectorate
+			type = protectorate #protectorate
 		}		
 		create_diplomatic_pact = {
 			country = c:PAP
 			type = protectorate
 		}
 		create_diplomatic_pact = {
-			country = c:WUR
-			type = puppet #protectorate
-		}
-		create_diplomatic_pact = {
-			country = c:HES
-			type = puppet #protectorate
-		}
-		create_diplomatic_pact = {
 			country = c:BAV
-			type = dominion #protectorate
+			type = protectorate #protectorate
 		}	
 		create_diplomatic_pact = {
 			country = c:OCC
-			type = puppet #protectorate
+			type = protectorate #protectorate
 		}
 		create_diplomatic_pact = {
 			country = c:BRI
-			type = puppet #protectorate
+			type = protectorate #protectorate
 		}
 		set_relations = { country = c:SAR value = -75 }
 		set_relations = { country = c:LOM value = -75 }
-		set_relations = { country = c:WUR value = -75 }
-		set_relations = { country = c:HES value = -75 }
 		set_relations = { country = c:BAV value = -50 }
 		set_relations = { country = c:NET value = -75 }
 		set_relations = { country = c:OCC value = -50 }
@@ -48,12 +38,31 @@
 			type = trade_agreement
 		}
 		set_relations = { country = c:PLC value = 100 }
+
+		c:FRA = {
+			create_diplomatic_pact = {
+				country = c:ANL
+				type = rivalry
+			}
+		}
+		c:FRA = {
+			create_diplomatic_pact = {
+				country = c:GBR
+				type = rivalry
+			}
+		}
+		c:FRA = {
+			create_diplomatic_pact = {
+				country = c:BYZ
+				type = rivalry
+			}
+		}
+
 	}
 
 	c:SAX = {	
 		set_relations = { country = c:DEN value = 125 }
 		set_relations = { country = c:POM value = -100 }
-		set_relations = { country = c:HES value = -200 }
 		set_relations = { country = c:ANL value = 25 }
 		set_relations = { country = c:GBR value = 35 }
 		create_diplomatic_pact = {
@@ -66,10 +75,6 @@
 		set_relations = { country = c:CAT value = 125 }
 		set_relations = { country = c:NAV value = 100 }
 		set_relations = { country = c:CAS value = 100 }
-		create_diplomatic_pact = {
-			country = c:CAT
-			type = defensive_pact
-		}
 	}
 
 	c:NET = {
@@ -87,10 +92,6 @@
 		create_diplomatic_pact = {
 			country = c:HUN
 			type = alliance
-		}
-		create_diplomatic_pact = {
-			country = c:MOL
-			type = protectorate
 		}
 		set_relations = { country = c:HUN value = 125 }
 		set_relations = { country = c:BOH value = 125 }
@@ -121,10 +122,6 @@
 			type = protectorate
 		}
 		create_diplomatic_pact = {
-			country = c:WAL
-			type = protectorate
-		}
-		create_diplomatic_pact = {
 			country = c:CRO
 			type = personal_union
 		}
@@ -138,6 +135,13 @@
 		set_relations = { country = c:FRA value = 50 }
 		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:TAT value = -175 }
+	}
+
+	c:HUN = {
+		create_diplomatic_pact = {
+			country = c:BYZ
+			type = rivalry
+		}
 	}
 
 }
