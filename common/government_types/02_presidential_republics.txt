@@ -93,12 +93,31 @@ gov_chartered_company = {
 	
 	possible = {
 		has_law = law_type:law_presidential_republic
-		AND = { exists = c:GBR is_subject_of = c:GBR }
 		OR = {
-			AND = { exists = c:HBC c:HBC = ROOT }
-			AND = { exists = c:BIC c:BIC = ROOT }
+			AND = {
+				exists = c:VEN
+				exists = c:VAC
+				c:VAC = ROOT
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:AGY
+				is_subject_of = c:AGY
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
 		}
-		is_subject_type = subject_type_dominion
+
 	}
 }
 
@@ -113,9 +132,59 @@ gov_colonial_administration = {
 		has_law = law_type:law_presidential_republic
 		OR = {
 			AND = {
-				AND = { exists = c:NET is_subject_of = c:NET }
-				AND = { exists = c:DEI c:DEI = ROOT }
+				exists = c:NET
+				is_subject_of = c:NET
 				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:GBR
+				is_subject_of = c:GBR
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:VEN
+				is_subject_of = c:VEN
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:GEN
+				is_subject_of = c:GEN
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:FRA
+				is_subject_of = c:FRA
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
 			}
 			AND = {
 				exists = c:ANL
@@ -127,6 +196,39 @@ gov_colonial_administration = {
 					has_discrimination_trait = middle_eastern_heritage
 				}
 				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:SAX
+				is_subject_of = c:SAX
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:JAP
+				is_subject_of = c:JAP
+				is_subject_type = subject_type_tributary
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = east_asian_heritage
+				}
+				country_is_in_asia = no
+			}
+			AND = {
+				exists = c:CHI
+				is_subject_of = c:CHI
+				is_subject_type = subject_type_tributary
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = east_asian_heritage
+				}
+				country_is_in_asia = no
 			}
 		}
 	}

@@ -370,6 +370,86 @@ end_latin_privileges_ELY = {
 	}
 }
 
+end_latin_privileges_TAT= {
+	is_shown = {
+		exists = c:TAT
+		ROOT = c:TAT
+		has_modifier = latin_privileges
+	}
+
+	possible = {
+		exists = c:TAT
+		ROOT = c:TAT
+		has_law = law_type:law_interventionism
+		has_law = law_type:law_protectionism
+		has_modifier = latin_privileges
+	}
+
+	when_taken = {
+		remove_modifier = latin_privileges
+		activate_law = law_type:law_interventionism
+		add_modifier = {
+			name = anti_latin_policies
+			months = 52
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:north_italian
+				}
+			}
+			add_radicals = {
+				culture = cu:north_italian
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.75
+			}
+		}
+		c:VEN = {
+			change_relations = { 
+				country = c:TAT 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:TAT
+					secret_goal = conquer
+				}
+			}
+		}
+		c:GEN = {
+			change_relations = { 
+				country = c:TAT 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:TAT
+					secret_goal = conquer
+				}
+			}
+		}	
+	}
+	ai_chance = {
+		base = 0
+	}
+}
+
 romaioi_themata_decision = {
 	is_shown = {
 		OR = {

@@ -14,14 +14,6 @@ DIPLOMACY = {
 			country = c:MES
 			type = puppet
 		}
-		create_diplomatic_pact = {
-			country = c:ETH
-			type = defensive_pact
-		}	
-		create_diplomatic_pact = {
-			country = c:ETH
-			type = trade_agreement
-		}	
 		create_truce = {
 			country = c:PER
 			months = 16
@@ -38,17 +30,25 @@ DIPLOMACY = {
 			country = c:TAT
 			months = 36
 		}
-		set_relations = { country = c:JAP value = 75 }
-		set_relations = { country = c:MGL value = 75 }
-		set_relations = { country = c:AGY value = -150 }
-		set_relations = { country = c:NAF value = -150 }
-		set_relations = { country = c:ETH value = 150 }
+		set_relations = { country = c:JAP value = 30 }
+		set_relations = { country = c:CHI value = 30 }
+		set_relations = { country = c:AGY value = -75 }
+		set_relations = { country = c:NAF value = -75 }
+		set_relations = { country = c:EOT value = -75 }
+		set_relations = { country = c:ETH value = 75 }
 	}
 
 	c:SER = {
-		set_relations = { country = c:BYZ value = -125 }
-		set_relations = { country = c:BOS value = -125 }
-		set_relations = { country = c:MON value = -125 }
+		set_relations = { country = c:BYZ value = -25 }
+		set_relations = { country = c:HUN value = -25 }
+		create_diplomatic_pact = {
+			country = c:MON
+			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:BOS
+			type = protectorate
+		}
 	}
 
 	c:WAL = {
@@ -56,18 +56,14 @@ DIPLOMACY = {
 			country = c:MOL
 			type = defensive_pact
 		}	
-		set_relations = { country = c:BYZ value = -75 }
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:MOL value = 125 }
 		set_relations = { country = c:SER value = 125 }
 	}
 
 	c:GEO = {
-		create_diplomatic_pact = {
-			country = c:ARM
-			type = defensive_pact
-		}	
-		set_relations = { country = c:BYZ value = -50 }
-		set_relations = { country = c:PER value = -100 }
+		set_relations = { country = c:BYZ value = -25 }
+		set_relations = { country = c:PER value = -50 }
 		set_relations = { country = c:TAT value = -75 }
 		set_relations = { country = c:ARM value = 125 }
 	}
@@ -78,22 +74,53 @@ DIPLOMACY = {
 	}
 
 	c:MON = {
-		set_relations = { country = c:BYZ value = -75 }
+		set_relations = { country = c:BYZ value = -25 }
 	}
 
 	c:BOS = {
-		set_relations = { country = c:BYZ value = -75 }
+		set_relations = { country = c:BYZ value = -25 }
 	}
 
 	c:MOL = {
-		set_relations = { country = c:BYZ value = -75 }
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:WAL value = 125 }
 	}
 
 	c:ARM = {
-		set_relations = { country = c:BYZ value = -75 }
-		set_relations = { country = c:PER value = -175 }
+		set_relations = { country = c:BYZ value = -25 }
+		set_relations = { country = c:PER value = -75 }
 		set_relations = { country = c:GEO value = 125 }
+	}
+
+	c:AGY = {
+		create_diplomatic_pact = {
+			country = c:RIC
+			type = dominion
+		}	
+		create_diplomatic_pact = {
+			country = c:ETH
+			type = customs_union
+		}
+		create_diplomatic_pact = {
+			country = c:W99
+			type = customs_union
+		}
+		create_diplomatic_pact = {
+			country = c:R42
+			type = customs_union
+		}
+
+		set_relations = { country = c:NAF value = 50 }
+		set_relations = { country = c:MYS value = 50 }
+		set_relations = { country = c:ETH value = 100 }
+		set_relations = { country = c:W99 value = 95 }
+		set_relations = { country = c:R42 value = 95 }
+	}
+	
+	c:RIC = {	
+		set_relations = { country = c:CEY value = 75 }
+		set_relations = { country = c:MYS value = 125 }
+		set_relations = { country = c:ETH value = 150 }
 	}
 
 }

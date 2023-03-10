@@ -75,21 +75,16 @@ building_palace_complex = {
 
 building_great_port = {
 	building_group = bg_romaioi_monuments
-	texture = "gfx/interface/icons/building_icons/shipyards.dds"
+	#city_type = port
+	texture = "gfx/interface/icons/building_icons/building_port.dds"
 	expandable = no
 	buildable = no
 	downsizeable = no
 	unique = yes
-	#locator = "hagia_sophia_locator"
+	port = yes
 	
 	entity_not_constructed = { }
-	#entity_under_construction = { "building_construction_3x3_entity" }
-	#entity_constructed = { "wonder_forbidden_city_01_entity"}
-	
-	#city_gfx_interactions = {
-	#	clear_size_area = yes
-	#	size = 2
-	#}
+	terrain_manipulator = urban_port
 	
 	production_method_groups = {
 		pmg_base_building_great_port
