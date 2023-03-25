@@ -65,7 +65,40 @@ pm_default_building_great_palace = {
 				state_rich_standard_of_living_add = 10
 			}	
 		}
-}	
+}
+
+pm_bureaucrat_building_great_palace = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_legitimacy_headofstate_add = 10
+			country_academics_pol_str_mult = 0.25
+			country_officers_pol_str_mult = 0.25
+			country_bureaucrats_pol_str_mult = 0.50
+			country_prestige_add = 15
+			country_influence_add = 150
+			country_authority_add = 150
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_paper_add = 25
+		}
+		level_scaled = {
+			#building_employment_aristocrats_add = 2500 #Relatives and other Important nobles living in or near the Palace Complex
+			building_employment_bureaucrats_add = 8000 #Imperial Bureaucrats 
+			building_employment_officers_add = 2500 #Importtant Officers advisors to Emperor
+			building_employment_academics_add = 2500 #Important intelectuals of the Empire educators to important palace persons etc
+			building_employment_soldiers_add = 2500 #Varangian Guard Soldiers
+		}
+	}
+		state_modifiers = {
+			unscaled = {
+				state_rich_standard_of_living_add = 5
+			}	
+		}
+}
 
 pm_default_building_palace_complex = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
@@ -96,6 +129,39 @@ pm_default_building_palace_complex = {
 		state_modifiers = {
 			unscaled = {
 				state_rich_standard_of_living_add = 5
+			}	
+		}
+}
+
+pm_bureaucrat_building_palace_complex = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_legitimacy_headofstate_add = 5
+			country_academics_pol_str_mult = 0.15
+			country_officers_pol_str_mult = 0.15
+			country_bureaucrats_pol_str_mult = 0.25
+			country_prestige_add = 10
+			country_influence_add = 100
+			country_authority_add = 100
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_paper_add = 10
+		}
+		level_scaled = {
+			#building_employment_aristocrats_add = 2000 #Relatives and other Important nobles living in or near the Palace Complex
+			building_employment_bureaucrats_add = 5000 #Imperial Bureaucrats 
+			building_employment_officers_add = 1500 #Importtant Officers advisors to Emperor
+			building_employment_academics_add = 1500 #Important intelectuals of the Empire educators to important palace persons etc
+			building_employment_soldiers_add = 1500 #Varangian Guard Soldiers
+		}
+	}
+		state_modifiers = {
+			unscaled = {
+				state_rich_standard_of_living_add = 2
 			}	
 		}
 }
@@ -182,7 +248,7 @@ pm_default_building_white_house = {
 	}
 	state_modifiers = {
 		unscaled = {
-			state_migration_pull_mult = 0.25
+			#state_migration_pull_mult = 0.25
 		}	
 	}
 }

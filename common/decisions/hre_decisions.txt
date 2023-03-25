@@ -45,10 +45,40 @@
 			}
 		}
 
+		ruler = {
+			kill_character = yes
+		}
+
+		create_character = {
+			first_name = Napoleon
+			last_name = Bonaparte
+			ruler = yes
+			is_general = yes # Both general and IG leader
+			age = 20
+			culture = cu:corsican
+			interest_group = ig_armed_forces
+			ideology = ideology_royalist
+			commander_rank = commander_rank_4
+			traits = {
+				tactful
+				innovative
+				celebrity_commander
+				resupply_commander
+				surveyor
+				firebrand
+				expert_political_operator
+				expert_offensive_planner
+				expert_defensive_strategist
+				expert_artillery_commander
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		} 
 
 		hidden_effect = {
 
-			activate_law = law_type:law_presidential_republic
+			#activate_law = law_type:law_presidential_republic
 			activate_law = law_type:law_total_separation
 			activate_law = law_type:law_women_own_property
 			activate_law = law_type:law_per_capita_based_taxation
@@ -68,42 +98,6 @@
 			set_strategy = ai_strategy_territorial_expansion
 			set_strategy = ai_strategy_progressive_agenda
 
-			annex = c:OCC
-			annex = c:BRI
-			annex = c:SAR
-			annex = c:WUR
-			annex = c:HES
-
-			ruler = {
-				kill_character = yes
-			}
-
-			create_character = {
-				first_name = Napoleon
-				last_name = Bonaparte
-				ruler = yes
-				is_general = yes # Both general and IG leader
-				age = 20
-				interest_group = ig_armed_forces
-				ideology = ideology_royalist
-				commander_rank = commander_rank_4
-				traits = {
-					tactful
-					innovative
-					celebrity_commander
-					resupply_commander
-					surveyor
-					firebrand
-					expert_political_operator
-					expert_offensive_planner
-					expert_defensive_strategist
-					expert_artillery_commander
-				}
-				on_created = {
-					set_variable = is_married
-				}
-			} 
-
 		}
 
 	}
@@ -111,6 +105,6 @@
 	change_infamy = 50
 
 	ai_chance = {
-		base = 50
+		base = 0
 	}
 }

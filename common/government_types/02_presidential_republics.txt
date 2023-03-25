@@ -116,6 +116,18 @@ gov_chartered_company = {
 				}
 				country_is_in_europe = no
 			}
+			AND = {
+				exists = c:NET
+				exists = c:ATC
+				c:ATC = ROOT
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
 		}
 
 	}
@@ -217,7 +229,7 @@ gov_colonial_administration = {
 				any_primary_culture = {
 					has_discrimination_trait = east_asian_heritage
 				}
-				country_is_in_asia = no
+				#country_is_in_asia = no
 			}
 			AND = {
 				exists = c:CHI
@@ -228,7 +240,7 @@ gov_colonial_administration = {
 				any_primary_culture = {
 					has_discrimination_trait = east_asian_heritage
 				}
-				country_is_in_asia = no
+				#country_is_in_asia = no
 			}
 		}
 	}
