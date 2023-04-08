@@ -54,7 +54,7 @@ GLOBAL = {
 			limit = { OR = { state_region = s:STATE_HOME_COUNTIES state_region = s:STATE_ILE_DE_FRANCE state_region = s:STATE_ANDALUSIA state_region = s:STATE_TUSCANY state_region = s:STATE_LAZIO
 			state_region = s:STATE_LOWER_EGYPT state_region = s:STATE_BAGHDAD state_region = s:STATE_BEIJING state_region = s:STATE_NANJING state_region = s:STATE_KANTO state_region = s:STATE_ICA
 			state_region = s:STATE_MEXICO state_region = s:STATE_DISTRICT_OF_COLUMBIA state_region = s:STATE_VENETIA state_region = s:STATE_PIEDMONT state_region = s:STATE_LOMBARDY
-			state_region = s:STATE_DELHI state_region = s:STATE_TIMBUKTU
+			state_region = s:STATE_TIMBUKTU
 		} 
 		}
 			add_modifier = {
@@ -64,7 +64,7 @@ GLOBAL = {
 		}
 
 		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_EAST_JAVA state_region = s:STATE_ZANZIBAR state_region = s:STATE_VENETIA state_region = s:STATE_MADRAS state_region = s:STATE_OMAN
+			limit = { OR = { state_region = s:STATE_ZANZIBAR state_region = s:STATE_VENETIA state_region = s:STATE_MADRAS state_region = s:STATE_OMAN
 		} 
 		}
 			add_modifier = {
@@ -179,6 +179,26 @@ GLOBAL = {
 			limit = { OR = { state_region = s:STATE_PIEDMONT } }
 			add_modifier = {
 				name = merchant_state
+				years = -1
+			}
+		}
+	}
+
+	c:JAV = {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_EAST_JAVA } }
+			add_modifier = {
+				name = merchant_state
+				years = -1
+			}
+		}
+	}
+
+	c:MUG = {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_DELHI } }
+			add_modifier = {
+				name = great_city_state
 				years = -1
 			}
 		}

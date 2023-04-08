@@ -1,29 +1,43 @@
 ﻿BUILDINGS={
-	s:STATE_SAKHALIN={
-		region_state:JAP={
+	s:STATE_OKHOTSK={
+		region_state:JSB={
 			create_building={
 				building="building_port"
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
 			}
+		}
+	}
+	s:STATE_KAMCHATKA={
+		region_state:JSB={
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_SAKHALIN={
+		region_state:JAP={
 			create_building={
 				building="building_logging_camp"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
 			create_building={
 				building="building_fishing_wharf"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
 			create_building={
-				building="building_whaling_station"
+				building="building_port"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_simple_whaling" "pm_unrefrigerated" "pm_merchant_guilds_building_whaling_station" }
+				activate_production_methods={ "pm_anchorage" }
 			}
 		}
 	}
@@ -39,7 +53,7 @@
 				building="building_logging_camp"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
 			create_building={
 				building="building_barracks"
@@ -67,7 +81,7 @@
 				building="building_logging_camp"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
 			create_building={
 				building="building_barracks"
@@ -101,7 +115,7 @@
 				building="building_logging_camp"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
 			create_building={
 				building="building_barracks"
@@ -117,39 +131,19 @@
 			}
 		}
 	}
-	s:STATE_WEST_MICRONESIA={
-		region_state:JAP={
-			create_building={
-				building="building_port"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_anchorage" }
-			}
-		}
-	}
-	s:STATE_EAST_MICRONESIA={
-		region_state:JAP={
-			create_building={
-				building="building_port"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_anchorage" }
-			}
-		}
-	}
 	s:STATE_HOKKAIDO={
 		region_state:JAP={
 			create_building={
 				building="building_government_administration"
-				level=3
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
 			}
 			create_building={
 				building="building_logging_camp"
-				level=5
+				level=3
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
 			create_building={
 				building="building_coal_mine"

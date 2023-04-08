@@ -25,10 +25,16 @@
 		add_modifier = {
 			name = modifier_olympic_games
 		}
-		#convert_population = {
-		#	target = rel:hellenic 
-		#	value = 0.05
-		#}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+			}
+			convert_population = {
+				target = rel:hellenic
+				value = 0.05
+			}
+		}
 	}
 
 	ai_chance = {
@@ -78,6 +84,27 @@ hellenic_decision = {
 		add_modifier = {
 			name = religious_chaos
 			months = 52
+		}		
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:hellenic
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:hellenic
+				value = 0.15
+			}
 		}
 		if = {
 			limit = {
@@ -139,6 +166,27 @@ orthodox_decision = {
 		add_modifier = {
 			name = religious_chaos
 			months = 52
+		}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:orthodox
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:orthodox
+				value = 0.15
+			}
 		}
 		if = {
 			limit = {

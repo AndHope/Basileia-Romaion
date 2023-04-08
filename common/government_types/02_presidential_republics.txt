@@ -107,6 +107,18 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
+				exists = c:GEN
+				exists = c:GAC
+				c:GAC = ROOT
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
 				exists = c:AGY
 				is_subject_of = c:AGY
 				is_subject_type = subject_type_dominion
@@ -223,7 +235,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:JAP
 				is_subject_of = c:JAP
-				is_subject_type = subject_type_tributary
+				#is_subject_type = subject_type_tributary
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {

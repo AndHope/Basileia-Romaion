@@ -1,0 +1,50 @@
+﻿zoroastrianism_decision = {
+	is_shown = {
+		exists = c:PER
+		c:PER = THIS
+		NOT = { country_has_state_religion = rel:zoroastrian }
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		ig:ig_devout = {
+			is_in_government = no
+		}
+		has_law = law_type:law_freedom_of_conscience
+		has_law = law_type:law_slavery_banned
+		NOT = { has_law = law_type:law_religious_schools }
+		OR = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+		}
+		has_technology_researched = nationalism
+	}
+
+	when_taken = {
+		set_state_religion = rel:zoroastrian
+		ig:ig_devout = {
+			hidden_effect = { set_interest_group_name = ig_zoroastrian_priests }
+		}
+				random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:zoroastrian
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:zoroastrian
+				value = 0.15
+			}
+		}
+	}
+}

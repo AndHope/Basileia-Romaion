@@ -17,6 +17,27 @@
 			#remove_ideology = ideology_buddhist_moralist
 			#add_ideology = ideology_shinto_moralist
 		#}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:jewish
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:jewish
+				value = 0.15
+			}
+		}
 		if = {
 			limit = {
 				any_scope_pop = { 
@@ -42,7 +63,7 @@
 	}
 
 	ai_chance = {
-		base = 0
+		base = 5
 	}
 }
 
@@ -64,6 +85,27 @@ sunni_decision = {
 			#remove_ideology = ideology_buddhist_moralist
 			#add_ideology = ideology_shinto_moralist
 		#}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:sunni
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:sunni
+				value = 0.15
+			}
+		}
 		if = {
 			limit = {
 				any_scope_pop = { 
