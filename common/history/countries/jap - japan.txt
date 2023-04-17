@@ -1,7 +1,11 @@
 ﻿COUNTRIES = {
 	c:JAP = {
 		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = quinine
+		add_technology_researched = urban_planning
+		add_technology_researched = centralization
+		add_technology_researched = law_enforcement
+		add_technology_researched = academia
+		#add_technology_researched = quinine
 		#add_technology_researched = civilizing_mission
 		
 		add_technology_researched = rising_sun
@@ -11,21 +15,30 @@
 
 		add_technology_researched = napoleonic_warfare
 		
-
 		set_tax_level = medium
 		add_taxed_goods = g:services
+		add_taxed_goods = g:luxury_clothes
+		add_taxed_goods = g:luxury_furniture
+		add_taxed_goods = g:porcelain
+		add_taxed_goods = g:meat
+
+		add_modifier = {
+			name = edo_class_system
+		}
+
+		set_market_capital = STATE_KANTO
 		
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_landed_voting #law_wealth_voting
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_protectionism
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_public_schools #law_private_schools
 		activate_law = law_type:law_professional_army
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_migration_controls	
-		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_ethnostate
 		activate_law = law_type:law_dedicated_police
 		activate_law = law_type:law_censorship
 		#activate_law = law_type:law_colonial_exploitation
@@ -40,39 +53,75 @@
 			level = 2
 		}
 
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		ig:ig_landowners = {
+			set_interest_group_name = ig_daimyo
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
+		}
+
+		ig:ig_armed_forces = {
+			remove_ideology = ideology_loyalist
+			add_ideology = ideology_bakufu
+			set_interest_group_name = ig_samurai
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.75
+			}
+		}
+
+		ig:ig_intelligentsia = {
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_republican
+			set_interest_group_name = ig_rangakusha
+		}
+
 		ig:ig_devout = {
 			set_interest_group_name = ig_buddhist_monks
 			remove_ideology = ideology_moralist
 			add_ideology = ideology_buddhist_moralist
 		}
 
-		ig:ig_intelligentsia = { 
-			#add_ruling_interest_group = yes
-		}
-
-		ig:ig_industrialists = { 
-			#add_ruling_interest_group = yes
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_armed_forces = {
-			add_ruling_interest_group = yes
-			set_ig_bolstering = yes
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-		}
-
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_peasants
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.1
+			}
 		}
 
-		#trigger_event = {
-		#	id = meiji.1
-		#}
+
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_chonin
+			remove_ideology = ideology_meritocratic
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
+		}
+
+		ig:ig_industrialists = {
+			set_interest_group_name = ig_craftsmen
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
+		}
+
+		#effect_starting_wealthy_merchants = yes
+
+#		trigger_event = {
+#			id = meiji.1
+#		}
+
 
 	}
 
@@ -111,12 +160,20 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
 		}
 
 		ig:ig_rural_folk = {
 			remove_ideology = ideology_isolationist
 			add_ideology = ideology_isolationist_expansionism
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
 		}
 
 	}
@@ -156,12 +213,20 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
 		}
 
 		ig:ig_rural_folk = {
 			remove_ideology = ideology_isolationist
 			add_ideology = ideology_isolationist_expansionism
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
 		}
 
 	}
@@ -202,12 +267,20 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
 		}
 
 		ig:ig_rural_folk = {
 			remove_ideology = ideology_isolationist
 			add_ideology = ideology_isolationist_expansionism
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = edo_society_ig
+				multiplier = 0.25
+			}
 		}
 
 	}

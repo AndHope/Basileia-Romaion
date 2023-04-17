@@ -1,222 +1,4 @@
-﻿revive_olympic_games_decision = {
-	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-	}
-
-	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-		has_technology_researched = organized_sports
-		hidden_trigger = {
-			NOT = { has_variable = revive_olympics_decision_taken }
-		}
-	}
-	
-	when_taken = {
-		set_variable = {
-			name = revive_olympics_decision_taken
-			value = yes
-		}
-		add_modifier = {
-			name = modifier_olympic_games
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-			}
-			convert_population = {
-				target = rel:hellenic
-				value = 0.05
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { bureaucracy > 0 }
-			add = 5
-		}
-		modifier = {
-			OR = {
-				is_diplomatic_play_committed_participant = yes
-				is_at_war = yes
-			}
-			add = -1000
-		}		
-	}
-}
-hellenic_decision = {
-	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-		NOT = { country_has_state_religion = rel:hellenic }
-		has_variable = revive_olympics_decision_taken
-	}
-
-	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-		ig:ig_devout = {
-			is_marginal = no
-		}
-		NOT = { has_modifier = religious_chaos }
-		has_law = law_type:law_monarchy
-	}
-
-	when_taken = {
-		set_state_religion = rel:hellenic
-		ig:ig_devout = {
-			set_interest_group_name = ig_neo_hellenes
-			#remove_ideology = ideology_buddhist_moralist
-			#add_ideology = ideology_shinto_moralist
-		}
-		add_modifier = {
-			name = religious_chaos
-			months = 52
-		}		
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:hellenic
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:hellenic
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:hellenic 
-				}
-			}
-			add_loyalists = {
-				religion = rel:hellenic
-				value = 0.75
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:orthodox 
-				}
-			}
-			add_radicals = {
-				religion = rel:orthodox
-				value = 0.75
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 0
-	}
-}
-orthodox_decision = {
-	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-		NOT = { country_has_state_religion = rel:orthodox }
-	}
-
-	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-		#has_variable = revive_olympics_decision_taken
-		ig:ig_devout = {
-			is_marginal = no
-		}
-		NOT = { has_modifier = religious_chaos }
-		has_law = law_type:law_monarchy
-	}
-
-	when_taken = {
-		set_state_religion = rel:orthodox
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_patriarch 
-			#remove_ideology = ideology_buddhist_moralist
-			#add_ideology = ideology_shinto_moralist
-		}
-		add_modifier = {
-			name = religious_chaos
-			months = 52
-		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:orthodox
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:orthodox
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:orthodox 
-				}
-			}
-			add_loyalists = {
-				religion = rel:orthodox
-				value = 0.75
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:hellenic 
-				}
-			}
-			add_radicals = {
-				religion = rel:hellenic
-				value = 0.75
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 0
-	}
-}
-
+﻿
 fight_corruption = {
 	is_shown = {
 		exists = c:BYZ
@@ -663,6 +445,36 @@ armenian_decision = {
 	}
 }
 
+accept_english_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:danish
+		}
+		NOT = { country_has_primary_culture = cu:british }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:danish
+		}
+		NOT = { has_law = law_type:law_national_supremacy }
+		NOT = { country_has_primary_culture = cu:british }
+	}
+
+	when_taken = {
+		add_primary_culture = cu:british
+
+		add_loyalists = {
+			culture = cu:british
+			value = 0.1
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
 azerbaijani_decision = {
 	is_shown = {
 		OR = {
@@ -688,6 +500,6 @@ azerbaijani_decision = {
 	}
 
 	ai_chance = {
-		base = 100
+		base = 0
 	}
 }

@@ -1,7 +1,6 @@
 ﻿# Romaioi Mod - This is executed last among all history
 GLOBAL = {
 	every_country = {
-		
 		trigger_event = {
 			id = romaioi_startup_events.1
 		}
@@ -477,6 +476,20 @@ GLOBAL = {
 			add_radicals = {
 				religion = rel:orthodox
 				value = 0.5
+			}
+		}
+	}
+
+	c:DEN = {
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:danish
+				}
+			}
+			add_loyalists = {
+				culture = cu:danish
+				value = 0.25
 			}
 		}
 	}

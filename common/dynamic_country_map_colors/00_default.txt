@@ -21,25 +21,6 @@
 #	}
 #}
 
-peru_bolivia = {
-	color = "peru_bolivia"
-
-	possible = {
-		OR = {
-			AND = {
-				exists = c:PEU
-				THIS = c:PEU
-			}
-			AND = {
-				exists = c:BOL
-				THIS = c:BOL
-			}
-		}
-		owns_entire_state_region = STATE_LA_PAZ
-		owns_entire_state_region = STATE_LIMA
-	}
-}
-
 kalmar_union = {
 	color = "kalmar_orange"
 
@@ -66,42 +47,12 @@ fennoscandia = {
 	}
 }
 
-yellow_prussia = {
-	color = "yellow"
-
-	possible = {
-		exists = c:PRU
-		THIS = c:PRU
-		has_law = law_type:law_anarchy
-	}
-}
-
 korea_monarchy_blue = {
 	color = "joseon_blue"
 	possible = {
 		exists = c:KOR
 		THIS = c:KOR
 		has_law = law_type:law_monarchy 
-	}
-}
-
-japanese_shogunate = {
-	color = "tokugawa_green"
-	possible = {
-		exists = c:JAP
-		THIS = c:JAP
-		has_law = law_type:law_monarchy 
-		NOT = { has_variable = meiji_var }
-	}
-}
-
-usa_monarchy = {
-	color = "usa_monarchy_blue"
-
-	possible = {
-		exists = c:USA
-		THIS = c:USA
-		has_law = law_type:law_monarchy
 	}
 }
 
@@ -113,20 +64,6 @@ ukraine_free_territory = {
 		THIS = c:UKR
 		has_law = law_type:law_council_republic
 		has_law = law_type:law_anarchy
-	}
-}
-
-turkish_republic = {
-	color = "turkish_republic_red"
-
-	possible = {
-		exists = c:TUR
-		THIS = c:TUR
-		OR = {
-			has_law = law_type:law_parliamentary_republic
-			has_law = law_type:law_presidential_republic
-			has_law = law_type:law_council_republic
-		}
 	}
 }
 
@@ -150,31 +87,12 @@ united_netherlands = {
 	}
 }
 
-mexican_empire = {
-	color = "mexican_empire_green"
-	possible = {
-		exists = c:MEX
-		THIS = c:MEX
-		has_law = law_type:law_monarchy
-	}
-}
-
 dark_khmer = {
 	color = "khmer_green"
 	possible = {
 		exists = c:CAM
 		THIS = c:CAM
 		NOT = { is_country_type = unrecognized }
-	}
-}
-
-austria_hungary = {
-	color = "yellow_light"
-
-	possible = {
-		exists = c:AUS
-		THIS = c:AUS
-		country_has_primary_culture = cu:hungarian
 	}
 }
 
@@ -234,29 +152,6 @@ han_imperial_china = {
 		THIS = c:CHI
 		NOT = { country_has_primary_culture = cu:manchu }
 		has_law = law_type:law_monarchy
-	}
-}
-
-fascist_spain = {
-	color = "orange"
-
-	possible = {
-		exists = c:SPA
-		THIS = c:SPA
-		coa_dictatorship_trigger = yes
-	}
-}
-
-republican_portugal = {
-	color = "green_dark"
-
-	possible = {
-		exists = c:POR
-		THIS = c:POR
-		OR = {
-			has_law = law_type:law_parliamentary_republic
-			has_law = law_type:law_presidential_republic
-		}
 	}
 }
 
