@@ -1,0 +1,276 @@
+﻿namespace = palaiologos_reforms
+
+# start event
+palaiologos_reforms.1 = {
+	type = country_event
+	placement = root
+	title = palaiologos_reforms.1.t
+	desc = palaiologos_reforms.1.d
+	flavor = palaiologos_reforms.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = {
+			name = palaiologos_reforms_var
+			value = 0
+		}
+		set_variable = {
+			name = palaiologos_reforms_separatist_var
+			value = 0
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_main
+		}
+	}
+
+	option = {
+		name = palaiologos_reforms.1.a
+
+		hidden_effect = {
+			every_scope_state = {
+				limit = { OR = { state_region = s:STATE_BULGARIA } }
+				add_modifier = {
+					name = bulgarian_resistance
+					years = 50
+				}
+			}
+		}
+
+		add_journal_entry = {
+			type = je_palaiologos_reforms_syria
+		}
+	#Do Syria first to unlock rest.	
+		add_journal_entry = {
+			type = je_palaiologos_reforms_egypt
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_italy
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_africa
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_economy
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_education
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_separatism
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_army
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_navy
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_bureaucracy
+		}
+		show_as_tooltip = {
+			add_modifier = {
+				name = romaioi_themata_primacy
+				months = -1
+			}		
+			add_modifier = {
+				name = romaioi_bureaucratic_corruption
+				months = -1
+			}
+			add_modifier = {
+				name = latin_privileges
+				months = -1
+			}			
+		}
+	}
+}
+
+# Success event
+palaiologos_reforms.2 = {
+	type = country_event
+	placement = root
+	title = palaiologos_reforms.2.t
+	desc = palaiologos_reforms.2.desc
+	flavor = palaiologos_reforms.2.f
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_london_center.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/london_center"
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = palaiologos_reforms_complete
+		#remove_modifier = outmoded_bureaucracy
+		#remove_modifier = cizye_tax
+	}
+
+	option = {
+		name = palaiologos_reforms.2.a
+		default_option = yes
+		trigger = {
+			has_variable = completed_palaiologos_reforms_army_je
+		}
+		add_modifier = {
+			name = romaioi_army_reform
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = palaiologos_reforms.2.b
+		trigger = {
+			OR = {
+				has_variable = completed_syria_je
+				has_variable = completed_separatism_palaiologos_reforms_je
+			}
+			NAND = {
+				owns_entire_state_region = STATE_BOSNIA
+				owns_entire_state_region = STATE_DALMATIA
+				owns_entire_state_region = STATE_CROATIA
+				owns_entire_state_region = STATE_SLAVONIA
+				owns_entire_state_region = STATE_MONTENEGRO
+				owns_entire_state_region = STATE_ISTRIA
+			}
+		}
+		s:STATE_BOSNIA = {
+			add_claim = ROOT
+		}
+		s:STATE_DALMATIA = {
+			add_claim = ROOT
+		}
+		s:STATE_CROATIA = {
+			add_claim = ROOT
+		}
+		s:STATE_SLAVONIA = {
+			add_claim = ROOT
+		}
+		s:STATE_MONTENEGRO = {
+			add_claim = ROOT
+		}
+		s:STATE_ISTRIA = {
+			add_claim = ROOT
+		}
+	}
+	option = {
+		name = palaiologos_reforms.2.c
+		trigger = {
+			has_variable = completed_palaiologos_reforms_economy_je
+		}
+		add_modifier = {
+			name = romaioi_urbanization
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = palaiologos_reforms.2.d
+		trigger = {
+			has_variable = completed_palaiologos_reforms_education_je
+		}
+		add_modifier = {
+			name = romaioi_education
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = palaiologos_reforms.2.e
+		trigger = {
+			has_variable = completed_palaiologos_reforms_bureaucracy_je
+		}
+		add_modifier = {
+			name = romaioi_bureaucracy
+			months = normal_modifier_time
+		}
+	}
+}
+
+# Fail event
+palaiologos_reforms.3 = {
+	type = country_event
+	placement = root
+	title = palaiologos_reforms.3.t
+	desc = palaiologos_reforms.3.d
+	flavor = palaiologos_reforms.3.f
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = palaiologos_reforms_complete
+		#remove_modifier = outmoded_bureaucracy
+		#remove_modifier = cizye_tax
+		ruler = {
+			save_scope_as = romaioi_sultan
+		}
+	}
+
+	option = {
+		name = palaiologos_reforms.3.a
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						is_country_type = unrecognized
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					OR = {
+						NOT = {
+							is_country_type = unrecognized
+						}
+						is_subject_type = subject_type_protectorate
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_puppet
+						#is_subject_type = subject_type_exarchate
+					}
+				}
+				make_independent = yes
+			}
+		}
+		#set_country_type = unrecognized
+		ruler = {
+			kill_character = yes
+		}
+		trigger_event = {
+			id = bulgarian_revolt.1
+		}
+		trigger_event = {
+			id = anatolian_revolt.1
+		}
+		trigger_event = {
+			id = anatolian_revolt.2
+		}
+
+	}
+}

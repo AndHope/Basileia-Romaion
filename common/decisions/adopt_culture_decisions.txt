@@ -1,0 +1,100 @@
+﻿armenian_decision = {
+	is_shown = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		NOT = { country_has_primary_culture = cu:armenian }
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		NOT = { has_law = law_type:law_national_supremacy }
+		NOT = { country_has_primary_culture = cu:armenian }
+	}
+
+	when_taken = {
+		add_primary_culture = cu:armenian
+		remove_modifier = romaioi_culture_supremacy
+
+		hidden_effect = {
+			trigger_event = {
+				id = anatolian_revolt.2
+				days = 14
+			}
+		}
+
+		add_loyalists = {
+			culture = cu:armenian
+			value = 0.25
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+accept_english_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:danish
+		}
+		NOT = { country_has_primary_culture = cu:british }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:danish
+		}
+		NOT = { has_law = law_type:law_national_supremacy }
+		NOT = { country_has_primary_culture = cu:british }
+	}
+
+	when_taken = {
+		add_primary_culture = cu:british
+
+		add_loyalists = {
+			culture = cu:british
+			value = 0.1
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+azerbaijani_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:persian
+		}
+		NOT = { country_has_primary_culture = cu:azerbaijani }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:persian
+		}
+		#NOT = { has_modifier = romaioi_culture_supremacy }
+		NOT = { country_has_primary_culture = cu:azerbaijani }
+	}
+
+	when_taken = {
+		add_primary_culture = cu:azerbaijani
+		add_loyalists = {
+			culture = cu:azerbaijani
+			value = 0.2
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}

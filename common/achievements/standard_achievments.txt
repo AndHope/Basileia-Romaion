@@ -65,7 +65,7 @@ an_empire_under_the_pun = {
     }
     happened = {
         hidden_trigger = {
-            c:MUG = {
+            c:GBR = {
                 is_subject_of = ROOT
             }
         }
@@ -74,11 +74,11 @@ an_empire_under_the_pun = {
 
 i_didnt_vote_for_pedro = {
     possible = {
-        this = c:FAZ
+        has_variable = i_didnt_vote_for_pedro_ach_possible
     }
     happened = {
-        exists = c:FAZ
-        this = c:FAZ
+        exists = c:FRZ
+        this = c:FRZ
         OR = {
             has_law = law_type:law_presidential_republic
             has_law = law_type:law_parliamentary_republic
@@ -97,21 +97,21 @@ go_west_young_man = {
         hidden_trigger = {
             s:STATE_CALIFORNIA= {
                 exists = region_state:ELY
-                region_state:USA = {
+                region_state:ELY = {
                     is_split_state = no
                     state_population >= 250000
                 }
             }
             s:STATE_OREGON= {
                 exists = region_state:ELY
-                region_state:USA = {
+                region_state:ELY = {
                     is_split_state = no
                     state_population >= 250000
                 }
             }
             s:STATE_WASHINGTON= {
                 exists = region_state:ELY
-                region_state:USA = {
+                region_state:ELY = {
                     is_split_state = no
                     state_population >= 250000
                 }
@@ -202,7 +202,7 @@ healthy_man_of_europe = {
 
 habsburg_resurgence = {
     possible = {
-        this = c:BAV
+        has_variable = habsburg_resurgence_ach_possible
     }
     happened = {
         exists = c:BAV
@@ -211,11 +211,11 @@ habsburg_resurgence = {
             owns_entire_state_region = STATE_SILESIA
             or = {
                 NOT = { 
-                    c:SAX = {
+                    c:PRU = {
                         is_country_alive = yes
                     }
                 }
-                c:SAX = { 
+                c:PRU = { 
                     country_rank < rank_value:major_power 
                 }
             }
@@ -262,16 +262,17 @@ manifest_mexico = {
 		c:NAH = {
 			owned_great_plains_region_states = yes
 			owned_pacific_coast_region_states = yes
+            owns_entire_state_region = STATE_TEXAS
 			country_rank >= rank_value:great_power
 		}
 		hidden_trigger = {
 			OR = {
 				NOT = {
-					c:LOU = {
+					c:ELY = {
 						is_country_alive = yes 
 					}
 				}
-				c:LOU = {
+				c:ELY = {
 					country_rank <= rank_value:major_power
 				}
 			}
@@ -284,8 +285,8 @@ american_territory = {
         has_variable = american_territory_ach_possible
     }
     happened = {
-        exists = c:LOU
-        c:LOU ={
+        exists = c:ELY
+        c:ELY ={
             is_subject_of = ROOT
             any_scope_state = {
                 count <= 3
@@ -672,8 +673,8 @@ star_swarmed_banner = {
     happened = {
         custom_tooltip = {
             text = star_swarmed_banner_tt
-            exists = c:USA
-            this = c:USA
+            exists = c:ELY
+            this = c:ELY
             any_scope_state = {
                 hidden_trigger = {
                     state_region = { NOT = { has_variable = usa_state_flag_block } }

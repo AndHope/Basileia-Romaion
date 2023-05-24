@@ -34,11 +34,7 @@ BYZ = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
 	color2 = "yellow"
-
-    #sub = {
-    #   parent = "sub_RUS_crown" 
-    #    instance = { scale = { 0.4 0.4 } offset = { 0.3 0.05 } }
-    #}
+	color3 = "white"
 
     sub = {
         parent = "sub_BYZ2_coa" 
@@ -59,6 +55,26 @@ BYZ = {
         instance = { position = { @[1-(canton_scale_cross_x/2)] @[canton_scale_cross_y/2] } scale = { @[1/5*2] @[1/5*2] } } # top right
         instance = { position = { @[canton_scale_cross_x/2] @[1-(canton_scale_cross_y/2)] } scale = { @[-1/5*2] @[1/5*2] } } # bottom left
         instance = { position = { @[1-(canton_scale_cross_x/2)] @[1-(canton_scale_cross_y/2)] } scale = { @[1/5*2] @[1/5*2] } } # bottom right
+	}
+
+	colored_emblem = {
+		texture = "ce_chi_rho2.dds"
+		color1 = color3
+		#color2 = color1
+		instance = { scale = { 0.35 0.35 } position = { 0.5 0.5 } }		
+	}
+
+}
+
+BYZ = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "yellow"
+
+
+	textured_emblem = {
+		texture = "BRFLAG2.png"
+		instance = { scale = { 1.0 1.0 } }
 	}
 }
 
@@ -123,10 +139,10 @@ RIC = {
 	color1 = "purple"
 	color2 = "yellow"
 
-    sub = {
-        parent = "sub_BYZ2_coa" 
-        instance = { scale = { 0.9 0.9 } offset = { 0.05 0.075 } }
-    }	
+    #sub = {
+     #   parent = "sub_BYZ2_coa" 
+      #  instance = { scale = { 0.9 0.9 } offset = { 0.05 0.075 } }
+    #}	
 
 	colored_emblem = {
 		texture = "ce_cross_england.dds"
@@ -144,6 +160,20 @@ RIC = {
         instance = { position = { @[canton_scale_cross_x/2] @[1-(canton_scale_cross_y/2)] } scale = { @[-1/5*2] @[1/5*2] } } # bottom left
         instance = { position = { @[1-(canton_scale_cross_x/2)] @[1-(canton_scale_cross_y/2)] } scale = { @[1/5*2] @[1/5*2] } } # bottom right
 	}
+
+	colored_emblem = {
+		texture = "ce_tamgha_roundel_frame.dds"
+		color1 = "purple"
+		color2 = "yellow"
+		instance = { position = { 0.5 0.5 } scale = { 0.4 0.4 } }
+	}
+	colored_emblem = {
+		texture = "ce_eagle_double.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.5 0.525 } scale = { 0.33 0.33 } }
+	}
+
 }
 
 TAT = {
@@ -801,6 +831,18 @@ DEN = {
 }
 
 ENG = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+	colored_emblem = {
+		texture = "ce_wyvern.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 }  }
+	}
+}
+
+NEN = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
 	color2 = "white"

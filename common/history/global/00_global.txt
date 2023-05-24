@@ -6,6 +6,22 @@ GLOBAL = {
 		ig:ig_landowners = { add_ideology = ideology_pro_slavery }
 	}
 	
+	# Jack the ripper, prevents the event from happening every game
+
+	every_country = {
+		if = {
+			limit = {
+				is_player = yes
+			}
+		}
+		random_list = {
+			1 = { set_variable = var_jack_ripper_possible }
+			9 = {
+				#Nothing Happens
+			}
+		}
+	}
+
 ###ACHIEVEMENT VARIABLES###
 	
 	#Serf's Up
@@ -26,8 +42,8 @@ GLOBAL = {
 	#Muhammad Ali's Ambition
 	every_country = {
 		limit = {
-			exists = c:EGY
-			this = c:EGY
+			exists = c:AGY
+			this = c:AGY
 		}
 		set_variable = muhammed_alis_ambition_ach_possible
 	}
@@ -114,8 +130,8 @@ GLOBAL = {
 	#I Didn't Vote for Pedro
 	every_country = {
 		limit = {
-			exists = c:FAZ
-			this = c:FAZ
+			exists = c:FRZ
+			this = c:FRZ
 		}
 		set_variable = i_didnt_vote_for_pedro_ach_possible
 	}
@@ -150,8 +166,13 @@ GLOBAL = {
 	#Barbarys Back
 	every_country = {
 		limit = {
-			exists = c:ANL
-			this = c:ANL
+			OR = {
+				c:ANL ?= this
+				c:MAS ?= this
+				c:CON ?= this
+				c:AIT ?= this
+				c:TUG ?= this
+			}
 		}
 		set_variable = barbarys_back_ach_possible
 	}
@@ -177,8 +198,8 @@ GLOBAL = {
 	#Habsburg Resurgence
 	every_country = {
 		limit = {
-			exists = c:BAV
-			this = c:BAV
+			exists = c:AUS
+			this = c:AUS
 		}
 		set_variable = habsburg_resurgence_ach_possible
 	}
@@ -204,8 +225,8 @@ GLOBAL = {
 	#American Territory
 	every_country = {
 		limit = {
-			exists = c:ELY
-			this = c:ELY
+			exists = c:CHE
+			this = c:CHE
 		}
 		set_variable = american_territory_ach_possible
 	}
@@ -233,6 +254,7 @@ GLOBAL = {
 			can_form_nation = GER
 		}
 		set_variable = three_hurrahs_ach_possible
+		set_variable = huge_ego_sorry_ach_possible
 	}
 	
 	#Solomon's Quest
@@ -262,7 +284,7 @@ GLOBAL = {
 	#Manifest Mexico
 	every_country = {
 		limit = {
-			this ?= c:NAH
+			c:MEX ?= this
 		}
 		set_variable = manifest_mexico_ach_possible
 	}
@@ -284,18 +306,6 @@ GLOBAL = {
 		value = 0
 	}
 	
-	s:STATE_DISTRICT_OF_COLUMBIA = {	
-		set_variable = {
-            name = usa_state_flag_block
-            value = yes
-        }
-
-        set_variable = {
-            name = district_of_columbia
-            value = yes
-        }
-	}
-	
 	s:STATE_WEST_VIRGINIA = {	
         set_variable = {
             name = usa_state_flag_block
@@ -308,7 +318,7 @@ GLOBAL = {
 			limit = {	
 				state_region = s:STATE_SICHUAN
 			}
-			add_radicals = {
+			add_radicals_in_state = {
                 value = large_radicals
                 culture = cu:han
             }
@@ -317,7 +327,7 @@ GLOBAL = {
 			limit = {	
 				state_region = s:STATE_YUNNAN
 			}
-			add_radicals = {
+			add_radicals_in_state = {
                 value = small_radicals
                 culture = cu:han
             }
@@ -326,7 +336,7 @@ GLOBAL = {
 			limit = {	
 				state_region = s:STATE_CHONGQING
 			}
-			add_radicals = {
+			add_radicals_in_state = {
                 value = medium_radicals
                 culture = cu:han
             }

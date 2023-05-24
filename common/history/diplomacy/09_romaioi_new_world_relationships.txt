@@ -9,15 +9,28 @@
 			type = dominion
 		}
 	}
-	c:ENG = {
+	c:DEN = {
 		create_diplomatic_pact = {
-			country = c:USA
-			type = dominion
+			country = c:NEN
+			type = protectorate
 		}
+	}
+
+	c:NEN = {
+		set_relations = { country = c:DEN value = -200 }
 		set_relations = { country = c:NET value = 200 }
+		set_relations = { country = c:SWE value = 150 }
+		set_relations = { country = c:FRA value = 50 }
+		set_relations = { country = c:ANL value = 25 }
+		set_relations = { country = c:BYZ value = 50 }
+
 	}
 
 	c:VIN = {
+		create_diplomatic_pact = {
+			country = c:NWC
+			type = puppet
+		}
 		create_truce = {
 			country = c:CON
 			months = 240
@@ -28,6 +41,10 @@
 		}
 		create_truce = {
 			country = c:CTF
+			months = 240
+		}
+		create_truce = {
+			country = c:IRO
 			months = 240
 		}
 
@@ -47,6 +64,13 @@
 			months = 140
 		}
 
+	}
+
+	c:BYZ = {
+		create_diplomatic_pact = {
+			country = c:ELY
+			type = customs_union
+		}
 	}
 
 	c:ELY = { 
@@ -86,7 +110,7 @@
 			
 	}
 
-	c:USA = {
+	c:NEN = {
 		create_truce = {
 			country = c:GNI
 			months = 240

@@ -28,6 +28,23 @@ law_colonial_resettlement = {
 	
 	institution = institution_colonial_affairs 
 	
+	pop_support = {
+		value = 0
+		# Officers like colonialism
+		add = {
+			desc = "POP_OFFICERS"			
+			if = {
+				limit = {
+					owner = { 
+						has_law = law_type:law_no_colonial_affairs 
+					} 
+					is_pop_type = officers
+				}
+				value = 0.25
+			}
+		}
+	}
+
 	ai_will_do = {
 		OR = {
 			has_law = law_type:law_colonial_exploitation
@@ -50,11 +67,28 @@ law_colonial_exploitation = {
 	modifier = {
 		building_unincorporated_throughput_add = 0.15
 		state_unincorporated_starting_wages_mult = -0.25
-		building_unincorporated_subsistence_output_mult = -0.25
+		building_unincorporated_subsistence_output_mult = -0.15
 		country_tension_decay_mult = -0.25
 	}
 	
 	institution = institution_colonial_affairs 
+
+	pop_support = {
+		value = 0
+		# Officers like colonialism
+		add = {
+			desc = "POP_OFFICERS"			
+			if = {
+				limit = {
+					owner = { 
+						has_law = law_type:law_no_colonial_affairs 
+					} 
+					is_pop_type = officers
+				}
+				value = 0.25
+			}
+		}
+	}
 	
 	ai_will_do = {
 		OR = {
