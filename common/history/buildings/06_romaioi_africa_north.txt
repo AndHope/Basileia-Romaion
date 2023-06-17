@@ -37,6 +37,12 @@
 				activate_production_methods={ "pm_crude_tools" "pm_automation_disabled" "pm_merchant_guilds_building_tooling_workshops" }
 			}
 			create_building={
+				building="building_arms_industry"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_muskets" "pm_merchant_guilds_building_arms_industry" "pm_no_artillery_production" }
+			}
+			create_building={
 				building="building_glassworks"
 				level=4
 				reserves=1
@@ -50,7 +56,7 @@
 			}
 			create_building={
 				building="building_textile_mills"
-				level=5
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_handsewn_clothes" "pm_craftsman_sewing" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
 			}
@@ -305,15 +311,35 @@
 				reserves=1
 				activate_production_methods={ "pm_irregular_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_cannon_artillery" }
 			}
+		}
+		region_state:RIC={
+			create_building={
+				building="building_government_administration"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" }
+			}
+			create_building={
+				building="building_barracks"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_line_infantry" "pm_cannon_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+			}
 			create_building={
 				building="building_port"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
 			}
-			#create_building={
-			#	building= "building_suez_canal"
-			#}
+			create_building={
+				building= "building_suez_canal"
+			}
+			create_building={
+				building="building_naval_base"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_man_o_wars" "pm_frigates" "pm_commerce_raider" "pm_power_of_the_purse" }
+			}
 		}
 	}
 	#Abyssinia
@@ -365,15 +391,9 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=2
+				level=4
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
-			}
-			create_building={
-				building="building_naval_base"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_man_o_wars" "pm_frigates" "pm_commerce_raider" "pm_no_naval_theory" }
+				activate_production_methods={ "pm_line_infantry" "pm_cannon_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 			create_building={
 				building="building_port"

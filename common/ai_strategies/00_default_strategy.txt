@@ -485,16 +485,7 @@ ai_strategy_default = {
 			add = 0.5
 		}			
 
-		#Italian Nightmare
-		if = {
-			limit = {
-				has_journal_entry = je_italian_unification
-				scope:target_country = {
-					has_journal_entry = je_italian_unification
-				}
-			}
-			add = 0.5
-		}
+		#Italian Nightmare #Removed
 
 		# Warlord China Thunderdome
 		if = {
@@ -1123,10 +1114,6 @@ ai_strategy_default = {
 			limit = { 
 				OR = {
 					has_strategy = ai_strategy_territorial_expansion 
-					has_strategy = ai_strategy_unify_germany
-					has_strategy = ai_strategy_unify_italy
-					has_strategy = ai_strategy_unify_ethiopia
-					has_strategy = ai_strategy_unify_china
 				}
 			}
 			multiply = 1.25
@@ -1397,24 +1384,20 @@ ai_strategy_default = {
 	strategic_region_scores = {
 		region_anatolia = {
 			if = {
-				limit = { # Great Powers care about Egyptian-Ottoman conflict in Arabia/Anatolia early game
-					exists = c:TUR
-					c:TUR = { has_journal_entry = je_sick_man_syria }
-					country_rank = rank_value:great_power
-					navy_size >= 50
+				limit = {
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
 				}
-				add = 1000
+				add = 100
 			}
 		}	
 		region_arabic = {
 			if = {
-				limit = { # Great Powers care about Egyptian-Ottoman conflict in Arabia/Anatolia early game
-					exists = c:TUR
-					c:TUR = { has_journal_entry = je_sick_man_syria }
-					country_rank = rank_value:great_power
-					navy_size >= 50
+				limit = {
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
 				}
-				add = 1000
+				add = 100
 			}
 		}
 		region_japan = {	
@@ -1535,19 +1518,14 @@ ai_strategy_default = {
 				add = 200
 			}		
 		}
-		region_north_germany = {
+		#Removed
+		region_north_germany = { 
 			if = {
 				limit = {
 					country_is_in_europe = yes
 					country_rank >= rank_value:great_power
 				}
 				add = 100
-			}
-			if = {
-				limit = {
-					has_journal_entry = je_german_unification
-				}
-				add = 1000
 			}			
 		}
 		region_south_germany = {
@@ -1557,12 +1535,6 @@ ai_strategy_default = {
 					country_rank >= rank_value:great_power
 				}
 				add = 100
-			}
-			if = {
-				limit = {
-					has_journal_entry = je_german_unification
-				}
-				add = 1000
 			}				
 		}		
 		region_italy = {
@@ -1782,13 +1754,13 @@ ai_strategy_default = {
 				limit = {
 					country_rank < rank_value:major_power
 					OR = {
-						country_has_primary_culture = cu:north_german
-						country_has_primary_culture = cu:south_german					
+						country_has_primary_culture = cu:baltic_german
+						country_has_primary_culture = cu:bavarian					
 					}
 					scope:target_country = {
 						NOR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german						
+							country_has_primary_culture = cu:baltic_german
+							country_has_primary_culture = cu:bavarian						
 						}
 					}
 					scope:target_country = { NOT = { is_subject_of = root } }
@@ -2441,18 +2413,6 @@ ai_strategy_default = {
 					scope:target_country = {
 						any_scope_state = {
 							state_region = { is_homeland = cu:han }
-						}
-					}
-				}
-				add = 200
-			}
-			
-			if = {
-				limit = {
-					has_journal_entry = je_greek_nationalism
-					scope:target_country = {
-						any_scope_state = {
-							state_region = { is_homeland = cu:greek }
 						}
 					}
 				}
@@ -3177,14 +3137,6 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_boxer_rebellion
 					scope:target_state.state_region = { is_homeland = cu:han }
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_greek_nationalism
-					scope:target_state.state_region = { is_homeland = cu:greek }
 				}
 				add = 50
 			}

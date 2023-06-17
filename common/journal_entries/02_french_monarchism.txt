@@ -1,0 +1,495 @@
+﻿je_divided_monarchists = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	immediate = {
+		set_variable = {
+			name = french_monarchist_progress_var
+			value = 0
+		}
+		random_law = {
+			limit = { type = law_type:law_monarchy }
+			save_scope_as = monarchy_scope
+		}
+	}
+
+	complete = {
+		has_law = law_type:law_monarchy
+		custom_tooltip = {
+			text = je_divided_monarchists_02_tt
+			has_variable = one_true_french_dynasty
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = {
+			text = je_divided_monarchists_03_tt
+		}
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_divided_monarchists_01_fail_tt
+			has_variable = monarchy_stamped_out_var
+		}
+	}
+
+	on_fail = {
+	}
+
+	scripted_button = french_monarchy_bonapartist_button
+	scripted_button = french_monarchy_orleanist_button
+	scripted_button = french_monarchy_legitimist_button
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { # Chosen dynasty is cementing its rule
+				desc = status_fra_dynasty_cementing
+				trigger = {
+					OR = {
+						AND = {
+							has_variable = supporting_bonapartist_var
+							has_variable = bonapartist_restoration_var
+						}
+						AND = {
+							has_variable = supporting_legitimist_var
+							has_variable = legitimist_restoration_var
+						}
+						AND = {
+							has_variable = supporting_orleanist_var
+							has_variable = orleanist_restoration_var
+						}
+					}
+				}
+			}
+			triggered_desc = { # Supporting Orleans in government
+				desc = status_orleans_fra
+				trigger = {
+					has_variable = supporting_orleanist_var
+					NOT = {
+						has_variable = orleanist_restoration_var
+					}
+				}
+			}
+			triggered_desc = { # Supporting Legitimist in government
+				desc = status_legitimate_fra
+				trigger = {
+					has_variable = supporting_legitimist_var
+					NOT = {
+						has_variable = legitimist_restoration_var
+					}
+				}
+			}
+			triggered_desc = { # Supporting Bonapartist in government
+				desc = status_bonaparte_fra
+				trigger = {
+					has_variable = supporting_bonapartist_var
+					NOT = {
+						has_variable = bonapartist_restoration_var
+					}
+				}
+			}
+			triggered_desc = { # Bar not moving, either no supported or not in government
+				desc = status_fra_no_dynasty
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	on_weekly_pulse = {
+		events = {
+			french_pretenders.5
+		}
+		effect = {
+			if = {
+				limit = {
+					root.var:french_monarchist_progress_var < 60
+					has_journal_entry = je_cement_the_rightful_dynasty
+					OR = {
+						AND = {
+							has_variable = orleanist_restoration_var
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_orleanist_var
+							}
+						}
+						AND = {
+							has_variable = legitimist_restoration_var
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_legitimist_var
+							}
+						}
+						AND = {
+							has_variable = bonapartist_restoration_var
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_bonapartist_var
+							}
+						}
+					}
+				}
+				set_variable = { name = french_monarchist_progress_var value = 60 }
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					has_law = law_type:law_monarchy
+					scope:journal_entry = {
+						is_goal_complete = yes
+					}
+					# safety check
+					OR = {
+						AND = {
+							has_variable = supporting_orleanist_var
+							ruler = { NOT = { has_variable = orleanist_leader } }
+						}
+						AND = {
+							has_variable = supporting_bonapartist_var
+							ruler = { NOT = { has_variable = bonapartist_leader } }
+						}
+						AND = {
+							has_variable = supporting_legitimist_var
+							ruler = { NOT = { has_variable = legitimist_leader } }
+						}
+					}
+					NOR = {
+						ruler = {
+							has_modifier = the_restorer_modifier
+						}
+						any_interest_group = {
+							OR = {
+								has_modifier = orleanist_restoration_modifier
+								has_modifier = legitimist_restoration_modifier
+								has_modifier = bonapartist_restoration_modifier
+							}
+						}
+					}
+					NOT = {
+						has_variable = pretender_enthroned_cooldown
+					}
+				}
+				trigger_event = { id = french_pretenders.1 popup = yes}
+			}
+			if = {
+				limit = {
+					scope:journal_entry = {
+						is_goal_complete = no
+					}
+					has_variable = french_monarchist_progress_var
+					OR = {
+						AND = {
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_orleanist_var
+							}
+							any_interest_group = {
+								leader = { has_ideology = ideology:ideology_orleanist }
+								is_in_government = yes
+							}
+							NOT = {
+								has_variable = orleanist_restoration_var
+							}
+						}
+						AND = {
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_legitimist_var
+							}
+							any_interest_group = {
+								leader = { has_ideology = ideology:ideology_legitimist }
+								is_in_government = yes
+							}
+							NOT = {
+								has_variable = legitimist_restoration_var
+							}
+						}
+						AND = {
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_bonapartist_var
+							}
+							any_interest_group = {
+								leader = { has_ideology = ideology:ideology_bonapartist }
+								is_in_government = yes
+							}
+							NOT = {
+								has_variable = bonapartist_restoration_var
+							}
+						}
+					}
+				}
+				change_variable = {
+					name = french_monarchist_progress_var
+					add = 1
+				}
+			}
+		}
+		random_events = {
+			50 = 0
+			10 = french_pretenders_pulse.2
+			10 = french_pretenders_pulse.3
+		}
+	}
+	on_yearly_pulse = {
+		random_events = {
+		}
+	}
+
+	current_value = {
+		value = root.var:french_monarchist_progress_var
+	}
+
+	goal_add_value = {
+		value = 60
+	}
+
+	progressbar = yes
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}
+
+je_cement_the_rightful_dynasty = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	immediate = {
+		set_variable = {
+			name = french_dynastic_primary_progress_var
+			value = 0
+		}
+
+		if = {
+			limit = {
+				any_scope_character = { ### This is load-bearing cursed script. Do NOT change this to ruler = { } ###
+					is_ruler = yes
+					has_variable = legitimist_leader
+				}
+			}
+			set_variable = {
+				name = legitimist_restoration_var
+			}
+		}
+		else_if = {
+			limit = {
+				any_scope_character = {
+					is_ruler = yes
+					has_variable = orleanist_leader
+				}
+			}
+			set_variable = {
+				name = orleanist_restoration_var
+			}
+		}
+		else_if = {
+			limit = {
+				any_scope_character = {
+					is_ruler = yes
+					has_variable = bonapartist_leader
+				}
+			}
+			set_variable = {
+				name = bonapartist_restoration_var
+			}
+		}
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = french_pretenders_pulse.5 popup = yes }
+		set_variable = {
+			name = one_true_french_dynasty
+		}
+	}
+
+	fail = {
+		OR = {
+			NOT = { has_law = law_type:law_monarchy }
+			custom_tooltip = {
+				text = je_divided_monarchists_02_fail_tt
+				OR = {
+					AND = {
+						has_variable = orleanist_restoration_var
+						OR = {
+							ruler = {
+								OR = {
+									has_variable = legitimist_leader
+									has_variable = bonapartist_leader
+								}
+							}
+						}
+					}
+					AND = {
+						has_variable = legitimist_restoration_var
+						OR = {
+							ruler = {
+								OR = {
+									has_variable = orleanist_leader
+									has_variable = bonapartist_leader
+								}
+							} 
+						}
+					}
+					AND = {
+						has_variable = bonapartist_restoration_var
+						OR = {
+							ruler = {
+								OR = {
+									has_variable = orleanist_leader
+									has_variable = legitimist_leader
+								}
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = je_divided_monarchists_02_fail_2_tt
+				OR = {
+					AND = {
+						has_variable = orleanist_restoration_var
+						trigger_if = {
+							limit = {
+								is_player = yes
+							}
+							OR = {
+								has_variable = supporting_legitimist_var
+								has_variable = supporting_bonapartist_var
+							}
+						}
+					}
+					AND = {
+						has_variable = legitimist_restoration_var
+						trigger_if = {
+							limit = {
+								is_player = yes
+							}
+							OR = {
+								has_variable = supporting_bonapartist_var
+								has_variable = supporting_orleanist_var
+							}
+						}
+					}
+					AND = {
+						has_variable = bonapartist_restoration_var
+						trigger_if = {
+							limit = {
+								is_player = yes
+							}
+							OR = {
+								has_variable = supporting_legitimist_var
+								has_variable = supporting_orleanist_var
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		remove_variable = french_dynastic_primary_progress_var
+		if = {
+			limit = {
+				has_variable = orleanist_restoration_var
+			}
+			remove_variable = orleanist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = legitimist_restoration_var
+			}
+			remove_variable = legitimist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = bonapartist_restoration_var
+			}
+			remove_variable = bonapartist_restoration_var
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = orleanist_restoration_var
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_orleanist_var
+							}
+						}
+						AND = {
+							has_variable = legitimist_restoration_var
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_legitimist_var
+							}
+						}
+						AND = {
+							has_variable = bonapartist_restoration_var
+							trigger_if = {
+								limit = {
+									is_player = yes
+								}
+								has_variable = supporting_bonapartist_var
+							}
+						}
+					}
+				}
+				change_variable = {
+					name = french_dynastic_primary_progress_var
+					add = 1
+				}
+			}
+		}
+		random_events = {
+			90 = 0
+			10 = french_pretenders_pulse.1
+			5 = french_pretenders_pulse.4
+		}
+	}
+
+	current_value = {
+		value = root.var:french_dynastic_primary_progress_var
+	}
+
+	goal_add_value = {
+		value = 120
+	}
+
+	progressbar = yes
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}

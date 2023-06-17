@@ -72,11 +72,6 @@
 			add_war_goal = {
 				holder = c:DEN
 				type = return_state
-				target_state = s:STATE_LANCASHIRE.region_state:ENG
-			}
-			add_war_goal = {
-				holder = c:DEN
-				type = return_state
 				target_state = s:STATE_MIDLANDS.region_state:ENG
 			}
 			add_war_goal = {
@@ -129,6 +124,89 @@
 		#		type = return_state
 		#		target_state = s:STATE_NORRLAND.region_state:NSE
 		#	}
+		}			
+	}
+
+	c:FRA = {
+		create_diplomatic_play = {
+			name = HRE_Burgundian_War
+		
+			target_country = c:BRG
+			
+			war = yes
+			
+			type = dp_annex_war #dp_secession
+
+		}			
+	}
+
+	c:VIN = {
+		create_diplomatic_play = {
+			name = Vinland_War
+		
+			target_country = c:A06
+			
+			war = yes
+			
+			type = dp_native_uprising #dp_secession
+
+		}			
+	}
+
+	c:AGY = {
+		create_diplomatic_play = {
+			name = AGY_Red_Sea_War
+		
+			target_country = c:R03
+			
+			war = yes
+			
+			type = dp_annex_subject #dp_secession
+
+		}			
+	}
+
+	c:NAF = {
+		create_diplomatic_play = {
+			name = NAF_Desert_Expansion_War
+		
+			target_country = c:AWL
+			
+			war = yes
+			
+			type = dp_native_uprising #dp_secession
+
+		}			
+	}
+
+	c:AGY = {
+		create_diplomatic_play = {
+			name = AGY_Desert_Expansion_War
+		
+			target_country = c:EGT
+			
+			war = yes
+			
+			type = dp_annex_subject #dp_secession
+
+		}			
+	}
+
+	c:RIC = {
+		create_diplomatic_play = {
+			name = AGY_Red_Sea_War
+		
+			target_country = c:R03
+			
+			war = yes
+			
+			type = dp_return_state #dp_secession
+
+			add_war_goal = {
+				holder = c:RIC
+				type = return_state
+				target_state = s:STATE_DONGOLA.region_state:R03
+			}
 		}			
 	}
 
