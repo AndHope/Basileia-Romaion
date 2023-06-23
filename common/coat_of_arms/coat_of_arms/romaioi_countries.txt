@@ -30,48 +30,43 @@
 #	}
 #}
 
+#BYZ = {
+#	pattern = "pattern_solid.tga"
+#	color1 = "red"
+#	color2 = "yellow"
+#	color3 = "white"
+#
+#    sub = {
+#        parent = "sub_BYZ2_coa" 
+#        instance = { scale = { 1.0 1.0 } offset = { 0 0.075 } }
+#    }	
+#
+#	colored_emblem = {
+#		texture = "ce_cross_england.dds"
+#		color1 = color2
+#		color2 = color2
+#	}
+#	colored_emblem = {
+#		texture = "ce_letter_beta.dds"
+#		color1 = color2
+#		color2 = color2
+#		
+#        instance = { position = { @[canton_scale_cross_x/2] @[canton_scale_cross_y/2] } scale = { @[-1/5*2] @[1/5*2] } } # top left
+#        instance = { position = { @[1-(canton_scale_cross_x/2)] @[canton_scale_cross_y/2] } scale = { @[1/5*2] @[1/5*2] } } # top right
+#        instance = { position = { @[canton_scale_cross_x/2] @[1-(canton_scale_cross_y/2)] } scale = { @[-1/5*2] @[1/5*2] } } # bottom left
+#        instance = { position = { @[1-(canton_scale_cross_x/2)] @[1-(canton_scale_cross_y/2)] } scale = { @[1/5*2] @[1/5*2] } } # bottom right
+#	}
+#
+#	colored_emblem = {
+#		texture = "ce_chi_rho2.dds"
+#		color1 = color3
+#		#color2 = color1
+#		instance = { scale = { 0.35 0.35 } position = { 0.5 0.5 } }		
+#	}
+#
+#}
+
 BYZ = {
-	pattern = "pattern_solid.tga"
-	color1 = "red"
-	color2 = "yellow"
-	color3 = "white"
-
-    sub = {
-        parent = "sub_BYZ2_coa" 
-        instance = { scale = { 1.0 1.0 } offset = { 0 0.075 } }
-    }	
-
-	colored_emblem = {
-		texture = "ce_cross_england.dds"
-		color1 = color2
-		color2 = color2
-	}
-	colored_emblem = {
-		texture = "ce_letter_beta.dds"
-		color1 = color2
-		color2 = color2
-		
-        instance = { position = { @[canton_scale_cross_x/2] @[canton_scale_cross_y/2] } scale = { @[-1/5*2] @[1/5*2] } } # top left
-        instance = { position = { @[1-(canton_scale_cross_x/2)] @[canton_scale_cross_y/2] } scale = { @[1/5*2] @[1/5*2] } } # top right
-        instance = { position = { @[canton_scale_cross_x/2] @[1-(canton_scale_cross_y/2)] } scale = { @[-1/5*2] @[1/5*2] } } # bottom left
-        instance = { position = { @[1-(canton_scale_cross_x/2)] @[1-(canton_scale_cross_y/2)] } scale = { @[1/5*2] @[1/5*2] } } # bottom right
-	}
-
-	colored_emblem = {
-		texture = "ce_chi_rho2.dds"
-		color1 = color3
-		#color2 = color1
-		instance = { scale = { 0.35 0.35 } position = { 0.5 0.5 } }		
-	}
-
-}
-
-BYZ = {
-	pattern = "pattern_solid.tga"
-	color1 = "red"
-	color2 = "yellow"
-
-
 	textured_emblem = {
 		texture = "BRFLAG2.png"
 		instance = { scale = { 1.0 1.0 } }
@@ -699,6 +694,40 @@ FRA = {
     }
 }
 
+SAV = {
+	pattern = "pattern_solid.tga" #"pattern_shield_03_small.dds"
+	color1 = "white"
+	color2 = "red"
+	colored_emblem = {
+		texture = "ce_block_02.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 }  }
+	}
+	colored_emblem = {
+		texture = "ce_eagle.dds"
+		color1 = "black"
+		color2 = "red"
+		color3 = "white"
+		mask = { 1 }
+		instance = { position = { 0.5 0.52 } scale = { 1.1 1.1 }  }
+	}
+	colored_emblem = {
+		texture = "ce_block_02.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { position = { 0.5 0.41 } scale = { 0.5 0.5 }  }
+		mask = { 2 }
+	}
+	colored_emblem = {
+		texture = "ce_ordinary_cross_thinnest.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { position = { 0.5 0.41 } scale = { 0.5 0.5 }  }
+		mask = { 2 }
+	}
+}
+
 SIC = {
 	pattern = "pattern_solid.tga"
 	color1 = "green"
@@ -1179,5 +1208,33 @@ WUR = {
 		instance = { position = { 0.5 0.16 } scale = { 0.85 0.85 }  }
 		instance = { position = { 0.5 0.415 } scale = { 0.85 0.85 }  }
 		instance = { position = { 0.5 0.67 } scale = { 0.85 0.85 }  }
+	}
+}
+
+AFG = { 
+	# Staring flag
+	# Plain black flag of Kandahar
+	
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "green"
+	}
+	
+	colored_emblem = {
+		texture = "ce_inti.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { scale = { 0.38 0.38 } position = { 0.5 0.16 } }
+	}
+	
+	colored_emblem = {
+		texture = "ce_scimitar.dds"
+		color1 = "white"
+		instance = { scale = { 1.0 1.0 } position = { 0.5 0.80 } }	
+		instance = { scale = { 1.0 1.0 } position = { 0.5 0.80 } }	
 	}
 }
