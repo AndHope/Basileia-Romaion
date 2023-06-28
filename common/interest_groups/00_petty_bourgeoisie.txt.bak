@@ -25,7 +25,7 @@
 	on_character_ig_membership = {}
 
 	pop_potential = {
-		pop_has_primary_culture = yes
+		#pop_has_primary_culture = yes
 		NOR = {
 			is_pop_type = aristocrats
 			#is_pop_type = capitalists
@@ -35,12 +35,35 @@
 			pop_employment_building_group = bg_service
 			pop_employment_building_group = bg_urban_facilities
 			pop_employment_building_group = bg_government
+			pop_employment_building_group = bg_mining
+			pop_employment_building_group = bg_logging
 		}
 	}
 
 	pop_weight = {
 		value = 75
 
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+				is_pop_type = bureaucrats
+				owner = {
+					OR = {
+						has_law = law_type:law_autocracy
+						has_law = law_type:law_oligarchy
+						has_law = law_type:law_technocracy
+						has_law = law_type:law_single_party_state
+					}
+				}
+			}
+			add = {
+				desc = "IN_GOVERNMENT_AUTHORITARAN_ATTRACTION"
+				value = 50
+			}
+		}
+		
 		add = {
 			desc = "POP_SHOPKEEPERS"
 			if = {
