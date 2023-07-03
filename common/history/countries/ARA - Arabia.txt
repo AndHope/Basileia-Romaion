@@ -3,7 +3,7 @@
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
 		effect_starting_politics_traditional = yes
-		add_technology_researched = arab_mod #This is now the Arab Caliphate buff
+		#add_technology_researched = arab_mod #This is now the Arab Caliphate buff
 		add_technology_researched = silk_road
 		#add_technology_researched = quinine
 		#add_technology_researched = civilizing_mission
@@ -42,6 +42,14 @@
 			name = arab_caliphate
 			months = -1
 		}
+		add_modifier = {
+			name = hajj
+			months = -1
+		}
+		add_modifier = {
+			name = holy_warriors
+			years = 66
+		}
 
 		#change_infamy = 75
 
@@ -50,11 +58,21 @@
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
 			set_ig_bolstering = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 100
+			}
 		}
 
 		ig:ig_devout = { 
 			add_ruling_interest_group = yes
 			set_interest_group_name = ig_sunni_madrasahs 
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+			}
 		}	
 	}
 	c:JAB = {
@@ -185,6 +203,50 @@
 		}	
 	}
 
+	c:KUW = {
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
+
+		add_technology_researched = tribal
+		activate_law = law_type:law_homesteading
+		add_technology_researched = silk_road
+		
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_monarchy #was law_theocracy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_migration_controls
+		#activate_law = law_type:law_colonial_exploitation
+
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
+
+		#In-Government
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+		}
+
+		ig:ig_devout = { 
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_sunni_madrasahs 
+		}	
+	}
+
 	c:OMA = {
 		effect_starting_technology_tier_4_tech = yes
 
@@ -211,6 +273,10 @@
 		add_modifier = {
 			name = cizye_tax
 			months = -1
+		}
+		add_modifier = {
+			name = spice_income
+			years = 75
 		}
 		add_modifier = {
 			name = linguistic_discrimination

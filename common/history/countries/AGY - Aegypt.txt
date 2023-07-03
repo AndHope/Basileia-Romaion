@@ -89,6 +89,95 @@
 
 	}
 
+	c:SYR = {
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = silk_road
+		add_technology_researched = romaioi_mod #Custom invisible buff/debuff to make the experience more authentic feeling
+
+
+		effect_starting_politics_traditional = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_agrarianism
+		#activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_migration_controls	
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_military_wage_level = low
+		set_government_wage_level = low
+
+
+		ig:ig_landowners = {
+			set_interest_group_name = ig_themata_patricians
+			add_ruling_interest_group = yes
+		}
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_tagmata_strategos
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_rural_folk = {
+			#remove_ideology = ideology_isolationist
+			#add_ideology = ideology_isolationist_expansionism
+			set_interest_group_name = ig_agrotikos
+		}
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_merchant_guilds
+		}
+		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_dianooumenoi
+		}
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = romaioi_themata_primacy
+			months = -1
+		}
+
+		add_modifier = {
+			name = latin_privileges
+			months = -1
+		}
+
+		add_modifier = {
+			name = linguistic_discrimination
+			months = -1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_oriental_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_oriental_orthodox_patriarch
+			add_ruling_interest_group = yes
+		}
+
+		#effect_starting_wealthy_merchants = yes
+
+	}
+
 	c:RIC = {
 		# set_next_election_date = ???
 		
@@ -129,34 +218,69 @@
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_republican_paternalistic
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 50
+			}
 		}
 
 		ig:ig_armed_forces = {
 			set_interest_group_name = ig_tagmata_strategos
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 50
+			}
 		}
 
 		ig:ig_rural_folk = {
 			remove_ideology = ideology_isolationist
 			add_ideology = ideology_isolationist_expansionism
 			set_interest_group_name = ig_agrotikos
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 50
+			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
 			set_interest_group_name = ig_merchant_guilds
 			add_ruling_interest_group = yes
 			set_ig_bolstering = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 50
+			}
 		}
 
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 50
+			}
 		}
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 50
+			}
 		}
 
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 50
+			}
 		}
 
 		ig:ig_devout = {
@@ -169,6 +293,11 @@
 		add_modifier = {
 			name = merchant_republic
 			months = -1
+		}
+
+		add_modifier = {
+			name = spice_income
+			years = 75
 		}
 
 		add_modifier = {

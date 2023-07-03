@@ -6,6 +6,11 @@
 
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+			}
 		}
 
 		set_tax_level = medium
@@ -27,6 +32,11 @@
 		ig:ig_devout = {
 			set_interest_group_name = ig_evangelical_church
 		}	
+
+		add_modifier = {
+			name = spice_income
+			years = 75
+		}
 	}
 
 	c:FLA = {
@@ -34,6 +44,12 @@
 
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.75
+				years = 100
+			}
 		}
 
 		set_tax_level = medium
@@ -149,19 +165,26 @@
 			add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.25
+				multiplier = 0.75
 				years = 50
 			}
 		}
 
 		ig:ig_rural_folk = {
-			remove_ideology = ideology_isolationist
-			add_ideology = ideology_isolationist_expansionism
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.75
+				years = 50
+			}
 		}
 		
 		add_modifier = {
 			name = romaioi_colonial_subsidies
 			months = 124
+		}
+		add_modifier = {
+			name = spice_income
+			years = 75
 		}
 		
 		ig:ig_devout = {
