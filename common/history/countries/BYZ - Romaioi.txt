@@ -111,6 +111,11 @@ COUNTRIES = {
 		ig:ig_armed_forces = {
 			set_interest_group_name = ig_tagmata_strategos
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.75
+				years = 100
+			}
 		}
 		
 		ig:ig_devout = {
@@ -126,7 +131,11 @@ COUNTRIES = {
 			add_ideology = ideology_romaioi_meritocratic
 			set_interest_group_name = ig_merchant_guilds
 			#add_ruling_interest_group = yes
-			set_ig_bolstering = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+			}
 		}
 
 		#Not-In-Government
@@ -152,11 +161,21 @@ COUNTRIES = {
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.5
+				years = 100
+			}
 		}
 
 		ig:ig_trade_unions = {
 			#remove_ideology = ideology_anti_slavery
 			set_interest_group_name = ig_syndikalistai
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.5
+				years = 100
+			}
 		}
 
 		add_journal_entry = {
