@@ -36,6 +36,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
+		#activate_law = law_type:law_colonial_exploitation #0.34 test
 		
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
@@ -65,7 +66,7 @@
 		
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_oligarchy #law_autocracy 
 
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
@@ -129,7 +130,7 @@
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_oligarchy #law_autocracy 
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
@@ -138,7 +139,121 @@
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_peasant_levies	
-		activate_law = law_type:law_closed_borders
+		#activate_law = law_type:law_closed_borders
+		
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+		}
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				months = 360
+			}
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_taxed_goods = g:liquor
+	}
+
+	c:TVE = { #Ryazan
+		effect_starting_technology_tier_4_tech = yes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_peasant_levies	
+		#activate_law = law_type:law_closed_borders
+		
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+		}
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				months = 360
+			}
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_taxed_goods = g:liquor
+	}
+
+	c:NZH = { #Ryazan
+		effect_starting_technology_tier_4_tech = yes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_peasant_levies	
+		#activate_law = law_type:law_closed_borders
+		
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+		}
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				months = 360
+			}
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_taxed_goods = g:liquor
+	}
+
+	c:UGG = { #Ryazan
+		effect_starting_technology_tier_4_tech = yes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_peasant_levies	
+		#activate_law = law_type:law_closed_borders
 		
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
@@ -169,7 +284,7 @@
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_oligarchy #law_autocracy 
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
@@ -178,7 +293,7 @@
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_peasant_levies	
-		activate_law = law_type:law_closed_borders
+		#activate_law = law_type:law_closed_borders
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
@@ -202,55 +317,6 @@
 		add_taxed_goods = g:liquor
 	}
 
-	c:RUT = { #Kiev
-		effect_starting_technology_tier_4_tech = yes
-		
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_landed_voting
-		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_traditionalism
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		activate_law = law_type:law_closed_borders
-		
-		#In-Government
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				months = 900
-			}
-		}
-
-		ig:ig_rural_folk = {
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.75
-				months = 900
-			}
-		}
-
-		ig:ig_armed_forces = {
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
-
-		add_taxed_goods = g:liquor
-
-	}
 #Decentralized
 	c:SIB = {
 		effect_starting_technology_tier_5_tech = yes

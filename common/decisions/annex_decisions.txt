@@ -315,3 +315,42 @@ annex_NWC = {
 		base = 1
 	}
 }
+
+annex_russians = {
+	is_shown = {
+		exists = c:MUS
+		exists = c:RYA
+		exists = c:SMO
+		exists = c:NZH
+		exists = c:TVE
+		exists = c:UGG
+		c:MUS = ROOT
+	}
+
+	possible = {
+		exists = c:MUS
+		exists = c:RYA
+		exists = c:SMO
+		exists = c:NZH
+		exists = c:TVE
+		exists = c:UGG
+		c:MUS = ROOT
+		c:TAT = {
+			relations:root >= 100
+		}
+
+	}
+
+	when_taken = {
+		annex = c:SMO
+		annex = c:RYA
+		annex = c:NZH
+		annex = c:TVE
+		annex = c:UGG
+		change_infamy = 25
+	}
+
+	ai_chance = {
+		base = 75
+	}
+}

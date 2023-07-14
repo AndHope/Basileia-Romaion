@@ -59,31 +59,32 @@
 		
 			target_country = c:ENG
 			#add_target_backers = { c:NET  }
+			#add_initiator_backers
 			
 			war = yes
 			
-			type = dp_return_state #dp_secession
+			type = dp_annex_subject #dp_secession
 
-			add_war_goal = {
-				holder = c:DEN
-				type = return_state
-				target_state = s:STATE_HOME_COUNTIES.region_state:ENG
-			}
-			add_war_goal = {
-				holder = c:DEN
-				type = return_state
-				target_state = s:STATE_MIDLANDS.region_state:ENG
-			}
-			add_war_goal = {
-				holder = c:DEN
-				type = return_state
-				target_state = s:STATE_EAST_ANGLIA.region_state:ENG
-			}
-			add_war_goal = {
-				holder = c:DEN
-				type = return_state
-				target_state = s:STATE_WEST_COUNTRY.region_state:ENG
-			}
+	#		add_war_goal = {
+	#			holder = c:DEN
+	#			type = return_state
+	#			target_state = s:STATE_HOME_COUNTIES.region_state:ENG
+	#		}
+	#		add_war_goal = {
+	#			holder = c:DEN
+	#			type = return_state
+	#			target_state = s:STATE_MIDLANDS.region_state:ENG
+	#		}
+	#		add_war_goal = {
+	#			holder = c:DEN
+	#			type = return_state
+	#			target_state = s:STATE_EAST_ANGLIA.region_state:ENG
+	#		}
+	#		add_war_goal = {
+	#			holder = c:DEN
+	#			type = return_state
+	#			target_state = s:STATE_WEST_COUNTRY.region_state:ENG
+	#		}
 
 		#	add_war_goal = {
 		#		holder = c:ENG
@@ -117,7 +118,7 @@
 			
 			war = yes
 			
-			type = dp_annex_war #dp_secession
+			type = dp_annex_subject #dp_secession
 
 		#	add_war_goal = {
 		#		holder = c:SWE
@@ -149,7 +150,7 @@
 			
 			war = yes
 			
-			type = dp_make_dominion
+			type = dp_humiliation
 
 		#	add_war_goal = {
 		#		holder = c:HUN
@@ -243,6 +244,33 @@
 				type = return_state
 				target_state = s:STATE_DONGOLA.region_state:R03
 			}
+		}			
+	}
+
+	c:ALD = {
+		create_diplomatic_play = {
+			name = Ald1
+		
+			target_country = c:OSC
+			add_initiator_backers = { c:ANL c:MOR }
+			
+			war = yes
+			
+			type = dp_annex_subject
+
+		}			
+	}
+	c:ALD = {
+		create_diplomatic_play = {
+			name = Ald2
+		
+			target_country = c:CAO
+			add_initiator_backers = { c:ANL c:MOR }
+			
+			war = yes
+			
+			type = dp_annex_subject
+
 		}			
 	}
 

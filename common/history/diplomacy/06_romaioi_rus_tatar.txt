@@ -5,30 +5,6 @@
 			type = tributary #tributary
 		}
 		create_diplomatic_pact = {
-			country = c:RUT	
-			type = tributary #tributary
-		}
-		create_diplomatic_pact = {
-			country = c:PRM
-			type = tributary #dominion
-		}
-		create_diplomatic_pact = {
-			country = c:SMO	
-			type = tributary #tributary
-		}
-		create_diplomatic_pact = {
-			country = c:RYA
-			type = tributary #tributary
-		}
-	#	create_diplomatic_pact = {
-	#		country = c:PSK	
-	#		type = tributary #tributary Swedish instead
-	#	}
-		create_diplomatic_pact = {
-			country = c:NOV
-			type = tributary #tributary
-		}
-		create_diplomatic_pact = {
 			country = c:C01
 			type = tributary #tributary
 		}
@@ -38,6 +14,10 @@
 		}
 		create_diplomatic_pact = {
 			country = c:C02
+			type = tributary #Moved from Persia
+		}
+		create_diplomatic_pact = {
+			country = c:PRM
 			type = tributary #Moved from Persia
 		}
 		set_relations = { country = c:PER value = -25 }
@@ -56,82 +36,110 @@
 
 		create_truce = {
 			country = c:MUS
-			months = 36
-		}
-		create_truce = {
-			country = c:RUT
-			months = 36
+			months = 120
 		}
 		create_truce = {
 			country = c:SMO
-			months = 36
+			months = 120
 		}
 		create_truce = {
 			country = c:RYA
-			months = 36
+			months = 120
+		}
+		create_truce = {
+			country = c:NZH
+			months = 120
+		}
+		create_truce = {
+			country = c:UGG
+			months = 120
+		}
+		create_truce = {
+			country = c:TVE
+			months = 120
 		}
 	}
 
 c:MUS = {
-	set_relations = { country = c:TAT value = -75 }
-	set_relations = { country = c:NOV value = -75 }
-	set_relations = { country = c:BYZ value = 75 }
-	set_relations = { country = c:RUT value = 100 }
-	set_relations = { country = c:RYA value = 100 }
-	set_relations = { country = c:SMO value = 100 }
-}
 
-c:RUT = {
-	set_relations = { country = c:TAT value = -75 }
-	set_relations = { country = c:BYZ value = 75 }
-	set_relations = { country = c:RYA value = 100 }
-	set_relations = { country = c:SMO value = 100 }
 	create_diplomatic_pact = {
-		country = c:MUS
-		type = defensive_pact
+		country = c:SMO	
+		type = protectorate #tributary
 	}
 	create_diplomatic_pact = {
 		country = c:RYA
-		type = defensive_pact
+		type = protectorate #tributary
 	}
+	create_diplomatic_pact = {
+		country = c:NZH
+		type = protectorate #tributary
+	}
+	create_diplomatic_pact = {
+		country = c:UGG
+		type = protectorate #tributary
+	}
+	create_diplomatic_pact = {
+		country = c:TVE
+		type = protectorate #tributary
+	}
+
+	set_relations = { country = c:TAT value = -75 }
+	set_relations = { country = c:NOV value = -75 }
+	set_relations = { country = c:PLC value = -75 }
+	set_relations = { country = c:BYZ value = 75 }
 }
 
 c:SMO = {
 	set_relations = { country = c:TAT value = -75 }
+	set_relations = { country = c:MUS value = -35 }
+	set_relations = { country = c:NOV value = 25 }
 	set_relations = { country = c:BYZ value = 75 }
-	set_relations = { country = c:RYA value = 100 }
-	create_diplomatic_pact = {
-		country = c:MUS
-		type = defensive_pact
-	}
-	create_diplomatic_pact = {
-		country = c:RUT
-		type = defensive_pact
-	}
+	set_relations = { country = c:PLC value = -75 }
+}
+
+c:UGG = {
+	set_relations = { country = c:TAT value = -75 }
+	set_relations = { country = c:MUS value = -35 }
+	set_relations = { country = c:NOV value = 25 }
+	set_relations = { country = c:BYZ value = 75 }
+	set_relations = { country = c:PLC value = -75 }
+}
+
+c:TVE = {
+	set_relations = { country = c:TAT value = -75 }
+	set_relations = { country = c:MUS value = -35 }
+	set_relations = { country = c:NOV value = 25 }
+	set_relations = { country = c:BYZ value = 75 }
+	set_relations = { country = c:PLC value = -75 }
+}
+
+c:NZH = {
+	set_relations = { country = c:TAT value = -75 }
+	set_relations = { country = c:MUS value = -35 }
+	set_relations = { country = c:NOV value = 25 }
+	set_relations = { country = c:BYZ value = 75 }
+	set_relations = { country = c:PLC value = -75 }
 }
 
 c:RYA = {
 	set_relations = { country = c:TAT value = -75 }
+	set_relations = { country = c:MUS value = -35 }
+	set_relations = { country = c:NOV value = 25 }
 	set_relations = { country = c:BYZ value = 75 }
-	create_diplomatic_pact = {
-		country = c:MUS
-		type = defensive_pact
-	}
-	create_diplomatic_pact = {
-		country = c:SMO
-		type = defensive_pact
-	}
+	set_relations = { country = c:PLC value = -75 }
 }
 
 c:NOV = {
 	set_relations = { country = c:TAT value = -75 }
 	set_relations = { country = c:SWE value = 125 }
+	set_relations = { country = c:PLC value = -75 }
 }
 
 c:PSK = {
 	set_relations = { country = c:TAT value = -75 }
-	set_relations = { country = c:MUS value = -50 }
+	set_relations = { country = c:MUS value = -75 }
+	set_relations = { country = c:NOV value = 75 }
 	set_relations = { country = c:SWE value = 125 }
+	set_relations = { country = c:PLC value = -75 }
 }
-
 }
