@@ -15,7 +15,7 @@
 		NOT = { has_law = law_type:law_oligarchy }
 		has_technology_researched = centralization
 		c:FIN = {
-			relations:root >= 150
+			relations:root >= 65
 		}
 	}
 
@@ -47,7 +47,7 @@ annex_norway = {
 		NOT = { has_law = law_type:law_oligarchy }
 		has_technology_researched = centralization
 		c:NOR = {
-			relations:root >= 150
+			relations:root >= 65
 		}
 	}
 
@@ -79,7 +79,7 @@ annex_UBD = {
 		NOT = { has_law = law_type:law_oligarchy }
 		has_technology_researched = centralization
 		c:UBD = {
-			relations:root >= 150
+			relations:root >= 65
 		}
 	}
 
@@ -141,7 +141,10 @@ annex_RIC = {
 			has_law = law_type:law_colonial_exploitation
 		}
 		c:RIC = {
-			relations:root >= 100
+			relations:root >= 75
+		}
+		ROOT = {
+			navy_size >= 50
 		}
 	}
 
@@ -174,7 +177,7 @@ annex_DEI = {
 			has_law = law_type:law_colonial_exploitation
 		}
 		c:DEI = {
-			relations:root >= 100
+			relations:root >= 65
 		}
 	}
 
@@ -206,7 +209,7 @@ annex_ATC = {
 			has_law = law_type:law_colonial_exploitation
 		}
 		c:ATC = {
-			relations:root >= 100
+			relations:root >= 65
 		}
 	}
 
@@ -237,14 +240,16 @@ annex_JSB = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
-		c:JSB = {
-			relations:root >= 100
+		ROOT = {
+			army_size >= 100
+			navy_size >= 30
 		}
 	}
 
 	when_taken = {
 		annex = c:JSB
-		change_infamy = 10
+		annex = c:AIN
+		change_infamy = 15
 	}
 
 	ai_chance = {
@@ -262,21 +267,26 @@ annex_JPI = {
 	possible = {
 		exists = c:JAP
 		exists = c:JPI
+		exists = c:RYU
 		c:JAP = ROOT
 		c:JPI = { is_subject_of = c:JAP }
+		c:RYU = { is_subject_of = c:JAP }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
-		c:JPI = {
-			relations:root >= 100
+		ROOT = {
+			army_size >= 100
+			navy_size >= 30
 		}
 	}
 
 	when_taken = {
 		annex = c:JPI
-		change_infamy = 10
+		annex = c:RYU
+		annex = c:FRI
+		change_infamy = 15
 	}
 
 	ai_chance = {
@@ -302,7 +312,7 @@ annex_NWC = {
 			has_law = law_type:law_colonial_exploitation
 		}
 		c:NWC = {
-			relations:root >= 100
+			relations:root >= 50
 		}
 	}
 
@@ -336,7 +346,10 @@ annex_russians = {
 		exists = c:UGG
 		c:MUS = ROOT
 		c:TAT = {
-			relations:root >= 100
+			relations:root >= 70
+		}
+		ROOT = {
+			army_size >= 60
 		}
 
 	}
@@ -352,5 +365,62 @@ annex_russians = {
 
 	ai_chance = {
 		base = 75
+	}
+}
+
+annex_VAC = {
+	is_shown = {
+		exists = c:VEN
+		exists = c:VAC
+		c:VEN = ROOT
+	}
+
+	possible = {
+		exists = c:VEN
+		exists = c:VAC
+		c:VEN = ROOT
+		c:VAC = { is_subject_of = c:VEN }
+		#has_technology_researched = civilizing_mission
+		OR = {
+			has_law = law_type:law_colonial_resettlement
+			has_law = law_type:law_colonial_exploitation
+		}
+	}
+
+	when_taken = {
+		annex = c:VAC
+		change_infamy = 10
+	}
+
+	ai_chance = {
+		base = 99
+	}
+}
+annex_GAC = {
+	is_shown = {
+		exists = c:GEN
+		exists = c:GAC
+		c:GEN = ROOT
+	}
+
+	possible = {
+		exists = c:GEN
+		exists = c:GAC
+		c:GEN = ROOT
+		c:GAC = { is_subject_of = c:GEN }
+		#has_technology_researched = civilizing_mission
+		OR = {
+			has_law = law_type:law_colonial_resettlement
+			has_law = law_type:law_colonial_exploitation
+		}
+	}
+
+	when_taken = {
+		annex = c:GAC
+		change_infamy = 10
+	}
+
+	ai_chance = {
+		base = 99
 	}
 }

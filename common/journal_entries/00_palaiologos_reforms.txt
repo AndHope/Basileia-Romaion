@@ -20,13 +20,13 @@
 			name = religious_orthodocy_enforced_mod
 			months = very_long_modifier_time
 		}
-		change_infamy = -100
+		change_infamy = -25
 		trigger_event = {
 			id = palaiologos_reforms.2
 		}
 	}
 
-	timeout = 25700
+	timeout = 35700
 
 	on_timeout = {
 		#remove_modifier = palaiologos_reforms_of_europe
@@ -40,7 +40,7 @@
 	}
 
 	goal_add_value = {
-		add = 6
+		add = 8
 	}
 
 	progressbar = yes
@@ -62,7 +62,7 @@ je_palaiologos_reforms_syria = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -160,7 +160,14 @@ je_palaiologos_reforms_egypt = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
+			add_modifier = {
+				name = patriarch_alexandria
+				years = -1
+			}
+		}
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -209,7 +216,7 @@ je_palaiologos_reforms_italy = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -256,7 +263,7 @@ je_palaiologos_reforms_africa = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -294,7 +301,7 @@ je_palaiologos_reforms_economy = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_economy_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -346,7 +353,7 @@ je_palaiologos_reforms_education = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_education_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -385,12 +392,17 @@ je_palaiologos_reforms_separatism = {
 			is_goal_complete = yes
 		}
 		highest_secession_progress < 0.5
+		NOT = {
+			any_scope_state = {
+				turmoil >= 0.35
+			}
+		}
 	}
 
 	on_complete = {
 		set_variable = completed_separatism_palaiologos_reforms_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -464,7 +476,7 @@ je_palaiologos_reforms_army = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_army_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -524,7 +536,7 @@ je_palaiologos_reforms_navy = {
 	on_complete = {
 		#set_variable = completed_palaiologos_reforms_army_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -567,12 +579,11 @@ je_palaiologos_reforms_bureaucracy = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_bureaucracy_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		change_infamy = -15
+		change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
-		#remove_modifier = outmoded_bureaucracy
 	}
 
 	on_monthly_pulse = {
@@ -583,6 +594,94 @@ je_palaiologos_reforms_bureaucracy = {
 	}
 
 	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_centralization_west = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	complete = {
+		NOR = { 
+			exists = c:EPR
+			exists = c:MRE
+			exists = c:BUL
+			exists = c:ALB
+		}
+		AND = {
+			owns_entire_state_region = STATE_ALBANIA
+			owns_entire_state_region = STATE_ATTICA
+			owns_entire_state_region = STATE_THESSALIA
+			owns_entire_state_region = STATE_PELOPONNESE
+		}
+	}
+
+	on_complete = {
+        custom_tooltip = je_palaiologos_reforms_advance
+		change_infamy = -5
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+	}
+
+    invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_centralization_east= {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	complete = {
+		NOR = { 
+			exists = c:TBZ
+			exists = c:MES
+		}
+		AND = {
+			exists = c:ARM
+			c:ARM = {
+				is_subject_of = ROOT
+			}
+		}
+		AND = {
+			exists = c:GEO
+			c:GEO = {
+				is_subject_of = ROOT
+			}
+		}
+	#	AND = {
+	#		owns_entire_state_region = STATE_ALBANIA
+	#		owns_entire_state_region = STATE_ATTICA
+	#		owns_entire_state_region = STATE_THESSALIA
+	#		owns_entire_state_region = STATE_PELOPONNESE
+	#	}
+	}
+
+	on_complete = {
+        custom_tooltip = je_palaiologos_reforms_advance
+		change_infamy = -5
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+	}
+
+    invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
 			has_variable = palaiologos_reforms_complete

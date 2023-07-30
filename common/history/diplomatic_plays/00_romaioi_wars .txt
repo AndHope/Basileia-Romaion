@@ -233,17 +233,12 @@
 		create_diplomatic_play = {
 			name = AGY_Red_Sea_War
 		
-			target_country = c:R03
+			target_country = c:SUA
 			
 			war = yes
 			
-			type = dp_return_state #dp_secession
+			type = dp_annex_subject #dp_secession
 
-			add_war_goal = {
-				holder = c:RIC
-				type = return_state
-				target_state = s:STATE_DONGOLA.region_state:R03
-			}
 		}			
 	}
 
@@ -270,6 +265,33 @@
 			war = yes
 			
 			type = dp_annex_subject
+
+		}			
+	}
+
+	c:VCA = {
+		create_diplomatic_play = {
+			name = VCA_WAR
+		
+			target_country = c:SML
+			add_initiator_backers = { c:LOU }
+			
+			war = yes
+			
+			type = dp_annex_subject #dp_secession
+
+		}			
+	}
+
+	c:CHI = {
+		create_diplomatic_play = {
+			name = Ming_Revolution
+		
+			target_country = c:CH1
+			
+			war = yes
+			
+			type = dp_revolution #dp_secession
 
 		}			
 	}

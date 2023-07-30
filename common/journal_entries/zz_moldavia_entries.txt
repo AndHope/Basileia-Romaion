@@ -1,0 +1,123 @@
+﻿
+# Side with the Russians
+je_side_russia = {
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	complete = {
+		is_at_war = no
+		AND = {
+			c:TAT = {
+				relations:ROOT >= relations_threshold:amicable
+			}
+			c:HUN = {
+				relations:ROOT <= relations_threshold:cold
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = moldavia_events.4
+			popup = yes
+		}
+
+		add_journal_entry = {
+			type = je_conquer_wallachia_dobruja
+		}
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+# Army reform and modernization
+je_army_modernization = {
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	complete = {
+		NOR = {
+			has_law = law_type:law_peasant_levies
+		}
+
+		army_size >= 25
+
+		any_scope_building = {
+			is_building_type = building_arms_industry
+			level >= 1
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = moldavia_events.3
+			popup = yes
+		}
+
+	}
+
+	weight = 9000
+
+	should_be_pinned_by_default = yes
+}
+
+# Conquer Wallachia & Dobruja
+je_conquer_wallachia_dobruja = {
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		has_technology_researched = nationalism
+        owns_entire_state_region = STATE_DOBRUDJA
+		owns_entire_state_region = STATE_WALLACHIA
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = moldavia_events.5
+			popup = no
+		}
+
+		add_journal_entry = {
+			type = je_form_greater_romania_mol
+		}
+
+		set_variable = form_romanian_nation
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+# Form Greater Romania
+je_form_greater_romania_mol = {
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	complete = {
+		is_subject = no
+
+        owns_entire_state_region = STATE_DOBRUDJA
+		owns_entire_state_region = STATE_SOUTHERN_TRANSYLVANIA
+		owns_entire_state_region = STATE_BANAT
+		owns_entire_state_region = STATE_NORTHERN_TRANSYLVANIA
+		owns_entire_state_region = STATE_BEKES
+		owns_entire_state_region = STATE_BESSARABIA
+		owns_entire_state_region = STATE_MOLDAVIA
+		owns_entire_state_region = STATE_WALLACHIA
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = moldavia_events.6
+			popup = no
+		}
+	}
+
+	weight = 10000
+	
+	should_be_pinned_by_default = yes
+}

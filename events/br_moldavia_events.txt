@@ -1,0 +1,216 @@
+﻿namespace = moldavia_events
+
+# Between the hammer and the anvil
+moldavia_events.1 = {
+	type = country_event
+	placement = root
+	title = moldavia_events.1.t
+	desc = moldavia_events.1.d
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/courtroom_upheaval"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = {
+			name = side_rus_progress_var
+			value = 0
+		}
+	}
+
+	option = {
+		name = moldavia_events.1.a
+
+		add_journal_entry = {
+			type = je_side_russia
+		}
+		add_journal_entry = {
+			type = je_army_modernization
+		}
+	}
+}
+
+# Army reform and modernization
+moldavia_events.3 = {
+
+	type = country_event
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	title = moldavia_events.3.t
+	desc = moldavia_events.3.d
+	flavor = moldavia_events.3.f
+
+	duration = 3
+
+	option = {
+		name = moldavia_events.3.a
+		
+		add_modifier = {
+			name = conscription_efforts_modifier
+			months = 24
+		}
+		add_modifier = {
+			name = zeppelins_military_modifier
+			months = 24
+		}
+	}
+}
+
+# Side with the Russians
+moldavia_events.4 = {
+
+	type = country_event
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = moldavia_events.4.t
+	desc = moldavia_events.4.d
+	flavor = moldavia_events.4.f
+
+	duration = 3
+
+	option = {
+		name = moldavia_events.4.a
+
+		c:HUN = {
+  			remove_diplomatic_pact = {
+    			country = c:MOL
+    			type = protectorate
+  			}
+		}
+
+		s:STATE_BESSARABIA = {
+			random_scope_state = {
+				limit = {
+					exists = c:TAT
+					owner = {
+						OR = {
+							c:TAT = THIS
+							is_subject_of = c:TAT
+						}
+					}
+				}
+				set_state_owner = c:MOL
+			}
+		}
+
+		c:TAT ={
+			create_diplomatic_pact = {
+            	country = c:MOL
+            	type = protectorate
+			}
+		}
+
+		s:STATE_DOBRUDJA = {
+			add_claim = ROOT
+		}
+		s:STATE_WALLACHIA = {
+			add_claim = ROOT
+		}
+	}
+}
+
+# Conquer Wallachia & Dobruja
+moldavia_events.5 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_world_fair.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	title = moldavia_events.5.t
+	desc = moldavia_events.5.d
+	flavor = moldavia_events.5.f
+
+	duration = 3
+
+	option = {
+		name = moldavia_events.5.a
+		
+		s:STATE_MOLDAVIA = {
+			add_claim = ROOT
+		}
+		s:STATE_SOUTHERN_TRANSYLVANIA = {
+			add_claim = ROOT
+		}
+		s:STATE_BANAT = {
+			add_claim = ROOT
+		}
+		s:STATE_NORTHERN_TRANSYLVANIA = {
+			add_claim = ROOT
+		}
+		s:STATE_BEKES = {
+			add_claim = ROOT
+		}
+	}
+}
+
+# Greater Romania
+moldavia_events.6 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	title = moldavia_events.6.t
+	desc = moldavia_events.6.d
+	flavor = moldavia_events.6.f
+
+	duration = 3
+
+	option = {
+		name = moldavia_events.6.a
+		
+		add_loyalists = {
+			value = 0.20
+			culture = cu:romanian
+		}
+
+		add_modifier = {
+			name = health_bureaucracy
+			months = -1
+		}
+
+		add_modifier = {
+			name = 	linguistic_discrimination
+			months = 12
+		}
+
+		add_modifier = {
+			name = 	romanian_nationalism
+			months = -1
+		}
+	}
+}

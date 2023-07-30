@@ -381,7 +381,7 @@ ai_strategy_colonial_expansion = {
 	}	
 		
 	possible = {
-		navy_size >= 25
+		#navy_size >= 15
 		is_country_type = recognized
 		OR = {
 			has_law = law_type:law_colonial_resettlement
@@ -415,7 +415,15 @@ ai_strategy_colonial_expansion = {
 		if = {
 			limit = { has_technology_researched = civilizing_mission }
 			multiply = 1.25
-		}				
+		}	
+		if = {
+			limit = { has_technology_researched = africa_colonial }
+			multiply = 1.25
+		}	
+			if = {
+			limit = { has_technology_researched = new_world_colonial }
+			multiply = 1.25
+		}
 	}
 }
 

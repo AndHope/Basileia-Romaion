@@ -1,22 +1,15 @@
 ﻿### Romaioi Tech
 #country_expenses_add = 2000
 #country_tax_income_add = 2000
+#state_minimum_wealth_add = 3
 #These tech are non researchable and non transferable.
 #Tech is here to change the flavor of the empire more powerful centralized base with more rebelions along the periphery.
 romaioi_mod = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.25
-		#interest_group_ig_landowners_pop_attraction_mult = 0.25
-        #interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.25
-		#interest_group_ig_rural_folk_pop_attraction_mult = 0.25
-		#interest_group_ig_industrialists_pop_attraction_mult = -0.25
-		#interest_group_ig_trade_unions_pop_attraction_mult = -0.25
-
 		#Descrimination #Pops
 		state_latinoi_standard_of_living_add = 1
 		state_greek_standard_of_living_add = 1
@@ -30,6 +23,8 @@ romaioi_mod = {
 		#Buffs
 		#country_max_declared_interests_mult = 0.25
 		#state_rich_standard_of_living_add = 3
+		state_radicals_from_sol_change_accepted_culture_mult = -0.15
+		state_loyalists_from_sol_change_accepted_culture_mult = 0.15
 
 		#Debuffs
 		country_government_wages_mult = 0.15
@@ -46,71 +41,20 @@ romaioi_mod = {
 
 }
 
-hre_emperor = {
-	era = era_5
-	category = society
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
-	
-	modifier = {
-		#Buffs
-		country_prestige_add = 50
-		#country_war_exhaustion_casualties_mult = -0.25
-		#country_max_declared_interests_mult = 0.25
-	}
-
-	can_research = no
-
-	ai_weight = {
-		value = -99 # Not meant to be researched.
-	}
-
-}
-
-pope = { 
-	era = era_5
-	category = society
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
-	
-	modifier = {
-		#Buffs
-		country_legitimacy_headofstate_add = 25
-		#interest_group_ig_devout_pol_str_mult = 0.25
-		country_prestige_add = 25
-		#country_max_declared_interests_mult = 0.25
-	}
-
-	can_research = no
-
-	ai_weight = {
-		value = -99 # Not meant to be researched.
-	}
-
-}
-
 italian_republic_mod = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.25
-		#interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.25
-		#interest_group_ig_landowners_pol_str_mult = -0.15
-		#interest_group_ig_landowners_pop_attraction_mult = -0.15
-		#interest_group_ig_devout_pol_str_mult = -0.15
-		#interest_group_ig_devout_pop_attraction_mult = -0.15
-		#interest_group_ig_rural_folk_pop_attraction_mult = -0.25
-		state_political_strength_from_wealth_mult = 0.25
-
 		#Buffs
 		#Pops
+		state_political_strength_from_wealth_mult = 0.25
 		state_north_italian_standard_of_living_add = 1
 		state_education_access_wealth_add = 0.005
-		#state_dependent_wage_mult = 0.5
-		#state_working_adult_ratio_add = 0.03
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
-		state_capitalists_investment_pool_efficiency_mult = 0.1
+		state_capitalists_investment_pool_efficiency_mult = 0.15
+		building_group_bg_agriculture_tax_mult = 0.15
 
 		building_university_throughput_mult = 0.1
 		building_arts_academy_throughput_mult = 0.1
@@ -120,7 +64,7 @@ italian_republic_mod = {
 		country_trade_route_competitiveness_mult = 0.5
 
 		#debuff
-		#state_migration_pull_mult = -0.15
+		state_migration_pull_mult = -0.15
 
 	}
 
@@ -134,32 +78,19 @@ italian_republic_mod = {
 
 merchant_republic_mod = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.35
-		#interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.35
-		#interest_group_ig_landowners_pol_str_mult = -0.25
-		#interest_group_ig_landowners_pop_attraction_mult = -0.25
-		#interest_group_ig_devout_pol_str_mult = -0.25
-		#interest_group_ig_devout_pop_attraction_mult = -0.25
-		#interest_group_ig_rural_folk_pop_attraction_mult = -0.25
-		state_political_strength_from_wealth_mult = 0.25
-
 		#Buffs
-
 		#Pops
+		state_political_strength_from_wealth_mult = 0.25
 		state_north_italian_standard_of_living_add = 1
 		state_education_access_wealth_add = 0.005
-		#state_dependent_wage_mult = 0.5
-		#state_working_adult_ratio_add = 0.05
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.1
 
-		building_university_throughput_mult = 0.1
-		building_arts_academy_throughput_mult = 0.1
+		building_group_bg_agriculture_tax_mult = 0.15
 
 		#Military
 		unit_navy_defense_mult = 0.25
@@ -181,31 +112,19 @@ merchant_republic_mod = {
 
 merchant_republic_mod2 = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.75
-		#interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.75
-		#interest_group_ig_landowners_pol_str_mult = -0.35
-		#interest_group_ig_landowners_pop_attraction_mult = -0.35
-		#interest_group_ig_devout_pol_str_mult = -0.25
-		#interest_group_ig_devout_pop_attraction_mult = -0.25
-		#interest_group_ig_rural_folk_pol_str_mult = -0.25
-		#interest_group_ig_rural_folk_pop_attraction_mult = -0.25
-		state_political_strength_from_wealth_mult = 0.25
-
 		#Buffs
+		state_political_strength_from_wealth_mult = 0.25
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.1
-		#state_working_adult_ratio_add = 0.05
 
 		#Military
 		unit_navy_defense_mult = 0.25
 
 		#Trade
-		#country_convoys_capacity_mult = 0.25
 		country_trade_route_cost_mult = -0.25
 		country_trade_route_quantity_mult = 0.25
 		country_trade_route_competitiveness_mult = 0.5
@@ -222,7 +141,7 @@ merchant_republic_mod2 = {
 #Modern road, sewage and engineering were mostly relearning what was forgotten after the fall of the roman empire.
 roman_roads = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/paved_roads.dds"
 	
 	modifier = {
@@ -244,7 +163,7 @@ roman_roads = {
 
 silk_road = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
@@ -264,23 +183,18 @@ silk_road = {
 
 }
 
-defensive_mod = {
+defensive_tech_mod = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pol_str_mult = 0.25
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.25
-
 		#Buffs
-		battle_defense_owned_province_mult = 0.25
+		state_conscription_rate_add = 0.03
+		state_education_access_wealth_add = -0.002
 		unit_supply_consumption_mult = -0.25
 		country_military_goods_cost_mult = -0.25
 		building_mobilization_cost_mult = -0.25
-		state_conscription_rate_add = 0.02
-		state_education_access_wealth_add = -0.002
 	}
 
 	can_research = no
@@ -293,28 +207,19 @@ defensive_mod = {
 
 tribal = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pol_str_mult = 0.25
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.25
-		#interest_group_ig_rural_folk_pol_str_mult = 0.25
-		#interest_group_ig_rural_folk_pop_attraction_mult = 0.75
-		#interest_group_ig_industrialists_pop_attraction_mult = -0.75
-		#interest_group_ig_trade_unions_pop_attraction_mult = -0.75
-
 		#Buffs
 		battle_defense_owned_province_mult = 0.25
 		state_conscription_rate_add = 0.05
 		unit_devastation_mult = 0.25
-		unit_supply_consumption_mult = -0.5
-		country_military_goods_cost_mult = -0.5
+		unit_supply_consumption_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
 		state_education_access_wealth_add = -0.005
-		country_society_tech_spread_mult = -0.25
-		country_production_tech_spread_mult = -0.25
+		country_tech_spread_mult = -0.25
 	}
 
 	can_research = no
@@ -328,18 +233,10 @@ tribal = {
 
 horde_mod = {
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pol_str_mult = 0.75
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.75
-		#interest_group_ig_rural_folk_pol_str_mult = 0.25
-		#interest_group_ig_rural_folk_pop_attraction_mult = 0.75
-		#interest_group_ig_industrialists_pop_attraction_mult = -0.75
-		#interest_group_ig_trade_unions_pop_attraction_mult = -0.75
-
 		#Pops 
 		state_mongol_standard_of_living_add = 1
 		state_tatar_standard_of_living_add = 1
@@ -350,28 +247,20 @@ horde_mod = {
 		country_legitimacy_headofstate_add = 25
 		country_authority_add = 200
 		country_military_tech_spread_mult = 0.25
-		#building_livestock_ranch_throughput_mult = 0.1
 
 		#Military
 		country_army_power_projection_mult = 0.25
 		battle_defense_owned_province_mult = 0.25
 		battle_offense_owned_province_mult = 0.25
-		#unit_army_offense_mult = 0.25
-		#unit_morale_damage_mult = 0.25
-		unit_devastation_mult = 0.5
-		character_battle_condition_surprise_maneuver_mult = 2
-		state_conscription_rate_add = 0.04
-		unit_supply_consumption_mult = -0.5
-		country_military_goods_cost_mult = -0.5
+		unit_devastation_mult = 0.25
+		state_conscription_rate_add = 0.025
+		unit_supply_consumption_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
 		#Debuffs
-		state_conversion_mult = -0.5
-		state_assimilation_mult = -0.5
-		state_radicals_from_discrimination_mult = 0.25
+		state_radicals_from_discrimination_mult = 0.35
 		political_movement_radicalism_mult = 0.25
-		country_society_tech_spread_mult = -0.25
-		country_production_tech_spread_mult = -0.25
-		state_education_access_wealth_add = -0.002
+		state_education_access_wealth_add = -0.003
 	}
 
 	can_research = no
@@ -385,12 +274,10 @@ horde_mod = {
 andalus_mod = {
 	# Persia/Andalus buff
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-
 		#Buffs
 
 		#Pops
@@ -404,10 +291,6 @@ andalus_mod = {
 
 		#Military
 		state_conscription_rate_add = 0.02
-		#country_war_exhaustion_casualties_mult = -0.25
-
-		#country_minting_add = 5000
-
 	}
 
 	can_research = no
@@ -421,34 +304,19 @@ andalus_mod = {
 persia_mod = {
 	# Persia/Mughal buff
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_devout_pop_attraction_mult = 0.15
-		#interest_group_ig_landowners_pop_attraction_mult = 0.15
-		#interest_group_ig_rural_folk_pop_attraction_mult = 0.25
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.25
-		#interest_group_ig_industrialists_pop_attraction_mult = -0.5
-		#interest_group_ig_trade_unions_pop_attraction_mult = -0.5
-
 		#Buffs
 
 		#Pops
 		state_persian_standard_of_living_add = 1
 
-		country_legitimacy_headofstate_add = 25
-		country_prestige_add = 50
-		country_influence_add = 100
-		country_authority_add = 100
-		#country_max_declared_interests_mult = 0.25
-
 		#Military
 		state_conscription_rate_add = 0.02
 		battle_defense_owned_province_mult = 0.25
 		battle_offense_owned_province_mult = 0.25
-
 	}
 
 	can_research = no
@@ -462,33 +330,24 @@ persia_mod = {
 sunset_invasion = {
 	# Aztec/Inca Buff
 	era = era_5
-	category = society
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	#category = society
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	##category = society
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pol_str_mult = 0.5
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.25
-		#interest_group_ig_devout_pop_attraction_mult = 0.25
-		#interest_group_ig_industrialists_pop_attraction_mult = -0.5
-		#interest_group_ig_trade_unions_pop_attraction_mult = -0.5
-
 		#Buffs
 		country_legitimacy_headofstate_add = 25
 		country_prestige_add = 50
 		country_authority_add = 200
 
 		#Military
-		state_conscription_rate_add = 0.04
+		state_conscription_rate_add = 0.03
 		battle_defense_owned_province_mult = 0.25
 		battle_offense_owned_province_mult = 0.25
 		unit_supply_consumption_mult = -0.25
 	    unit_morale_damage_mult = 0.25
 		country_war_exhaustion_casualties_mult = -0.25
 		country_military_goods_cost_mult = -0.25
-		#state_working_adult_ratio_add = 0.05
-
 	}
 
 	can_research = no
@@ -499,22 +358,15 @@ sunset_invasion = {
 
 }
 
-
 rising_sun = {
 	era = era_5
-	category = society
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	#category = society
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pol_str_mult = 0.25
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.5
-		#interest_group_ig_industrialists_pop_attraction_mult = 0.25
-
 		#Buffs
 		country_legitimacy_headofstate_add = 25
-		country_prestige_add = 50
+		country_prestige_add = 25
 		country_authority_add = 200
 		state_education_access_wealth_add = 0.005
 
@@ -527,8 +379,6 @@ rising_sun = {
 		country_military_goods_cost_mult = -0.15
 
 		#Trade
-		#country_convoys_capacity_mult = 0.25
-		#country_trade_route_quantity_mult = 0.25
 		country_trade_route_cost_mult = -0.25
 		country_trade_route_competitiveness_mult = 0.25
 	}
@@ -545,15 +395,10 @@ rising_sun = {
 norse_mod = { #Viking heritage
 	# Vinland Denmark
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pol_str_mult = 0.25
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.25
-		##interest_group_ig_rural_folk_pop_attraction_mult = 0.25
-
 		#Buffs #Military
 		country_navy_power_projection_mult = 0.25
 		unit_navy_offense_mult = 0.25
@@ -566,11 +411,7 @@ norse_mod = { #Viking heritage
 		#Colonial
 		state_colony_growth_speed_mult = 0.25
 		building_group_bg_logging_throughput_mult = 0.15
-		#state_working_adult_ratio_add = 0.05
 
-		#Trade
-		#country_convoys_capacity_mult = 0.25
-		#country_trade_route_quantity_mult = 0.25
 		country_trade_route_cost_mult = -0.25
 		country_trade_route_competitiveness_mult = 0.25
 	}
@@ -586,14 +427,10 @@ norse_mod = { #Viking heritage
 new_world_colonial = {
 	# Help them survive with such low pop and have money to colonize
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_rural_folk_pol_str_mult = 0.25
-		#interest_group_ig_rural_folk_pop_attraction_mult = 0.5
-
 		#Buffs
 		state_assimilation_mult = 1.0
 		country_minting_add = 1000
@@ -614,20 +451,13 @@ new_world_colonial = {
 africa_colonial = {
 	# 
 	era = era_5
-	category = society
+	#category = society
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	
 	modifier = {
-		#interest_group_ig_rural_folk_pol_str_mult = 0.25
-		#interest_group_ig_rural_folk_pop_attraction_mult = 0.25
-		#Buffs
-		#state_assimilation_mult = 0.1
-		#country_minting_add = 2500
-
 		#Colonial
 		state_colony_growth_speed_mult = 0.25
 		state_migration_pull_mult = 0.25
-		#state_working_adult_ratio_add = 0.05
 	}
 
 	can_research = no
@@ -641,19 +471,11 @@ africa_colonial = {
 elysium = {
 	# Romaioi of America
 	era = era_5
-	category = society
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	#category = society
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	##category = society
 	
 	modifier = {
-		#IGs
-		#interest_group_ig_armed_forces_pop_attraction_mult = 0.1
-		#interest_group_ig_landowners_pop_attraction_mult = 0.1
-        #interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.25
-		##interest_group_ig_rural_folk_pop_attraction_mult = 0.25
-		#interest_group_ig_industrialists_pop_attraction_mult = -0.4
-		#interest_group_ig_trade_unions_pop_attraction_mult = -0.4
-
 		#Buffs
 		state_elysian_standard_of_living_add = 1
 		state_assimilation_mult = 0.5
@@ -670,8 +492,6 @@ elysium = {
 
 		#Colonial
 		state_accepted_birth_rate_mult = 0.1
-		#state_migration_pull_mult = 0.15
-		
 	}
 
 	can_research = no

@@ -1,124 +1,14 @@
-﻿vive_la_revolution_decision = {
-	is_shown = {
-		exists = c:FRA
-		ROOT = c:FRA
-		has_modifier = holy_roman_empire
-	}
-
-	possible = {
-		exists = c:FRA
-		ROOT = c:FRA
-		has_law = law_type:law_wealth_voting
-		has_modifier = holy_roman_empire
-	}
-
-	when_taken = {
-		
-		remove_modifier = holy_roman_empire
-
-		add_modifier = {
-			name = vive_la_revolution
-			months = -1
-		}
-
-		add_radicals = {
-			pop_type = clergymen
-			value = large_radicals
-		}
-
-		add_radicals = {
-			pop_type = aristocrats
-			value = large_radicals
-		}
-
-		ig:ig_devout = {
-			add_modifier = {
-				name = romaioi_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
-
-		ig:ig_landowners = {
-			add_modifier = {
-				name = romaioi_ig_angry
-				months = normal_modifier_time
-			}
-		}
-
-		ruler = {
-			kill_character = yes
-		}
-
-		create_character = {
-			first_name = Napoleon
-			last_name = Bonaparte
-			ruler = yes
-			is_general = yes # Both general and IG leader
-			age = 20
-			culture = cu:corsican
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = commander_rank_4
-			traits = {
-				tactful
-				innovative
-				celebrity_commander
-				resupply_commander
-				surveyor
-				firebrand
-				expert_political_operator
-				expert_offensive_planner
-				expert_defensive_strategist
-				expert_artillery_commander
-			}
-			on_created = {
-				set_variable = is_married
-			}
-		} 
-
-		hidden_effect = {
-
-			#activate_law = law_type:law_presidential_republic
-			activate_law = law_type:law_total_separation
-			activate_law = law_type:law_women_own_property
-			activate_law = law_type:law_per_capita_based_taxation
-			activate_law = law_type:law_appointed_bureaucrats
-			activate_law = law_type:law_cultural_exclusion
-			activate_law = law_type:law_protectionism
-			activate_law = law_type:law_interventionism
-			activate_law = law_type:law_public_schools
-			activate_law = law_type:law_per_capita_based_taxation
-			activate_law = law_type:law_dedicated_police
-			activate_law = law_type:law_professional_army
-			activate_law = law_type:law_censorship 
-			activate_law = law_type:law_national_guard
-			activate_law = law_type:law_serfdom_banned
-
-			set_strategy = ai_strategy_industrial_expansion
-			set_strategy = ai_strategy_territorial_expansion
-			set_strategy = ai_strategy_progressive_agenda
-
-		}
-
-	}
-
-	#change_infamy = 50
-
-	ai_chance = {
-		base = 0
-	}
-}
-
+﻿
 remove_noble_privileges_decision = {
 	is_shown = {
-		exists = c:FRA
-		ROOT = c:FRA
+		#exists = c:FRA
+		#ROOT = c:FRA
 		has_modifier = noble_privileges
 	}
 
 	possible = {
-		exists = c:FRA
-		ROOT = c:FRA
+		#exists = c:FRA
+		#ROOT = c:FRA
 		NOT = { has_law = law_type:law_hereditary_bureaucrats }
 		has_modifier = noble_privileges
 	}

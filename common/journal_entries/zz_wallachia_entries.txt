@@ -1,0 +1,123 @@
+﻿# Union of the Romanian Principalities
+je_little_union = {
+
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+	
+	complete = {
+		OR = {
+			hidden_trigger = {
+				AND = {
+					is_player = no
+					game_date >= 1859
+					c:MOL = {
+						is_player = no
+					}
+				}
+			}
+			AND = {
+				is_at_war = no
+				exists = c:MOL
+				has_technology_researched = nationalism
+
+        		NOR = {
+					has_law = law_type:law_closed_borders
+				}
+
+				c:MOL = {
+					relations:ROOT >= relations_threshold:amicable
+				}
+
+				c:BYZ = {
+					relations:ROOT >= relations_threshold:amicable
+				}
+
+				OR = {
+					c:FRA = {
+						relations:ROOT >= relations_threshold:amicable
+					}
+					c:DEN = {
+						relations:ROOT >= relations_threshold:amicable
+					}
+				}
+
+				OR = {
+					c:TAT = {
+						relations:ROOT >= relations_threshold:amicable
+					}
+					c:PLC = {
+						relations:ROOT >= relations_threshold:amicable
+					}
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = wallachia_events.3
+			popup = yes
+		}
+
+		s:STATE_MOLDAVIA = {
+			add_claim = ROOT
+		}
+	}
+
+	weight = 9000
+
+	should_be_pinned_by_default = yes
+}
+
+# War of Independence
+je_secure_dobruja = {
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		is_subject = no
+        owns_entire_state_region = STATE_DOBRUDJA
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = wallachia_events.6
+			popup = no
+		}
+
+		add_journal_entry = {
+			type = je_form_greater_romania
+		}
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+# Form Greater Romania
+je_form_greater_romania = {
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	complete = {
+        owns_entire_state_region = STATE_DOBRUDJA
+		owns_entire_state_region = STATE_SOUTHERN_TRANSYLVANIA
+		owns_entire_state_region = STATE_BANAT
+		owns_entire_state_region = STATE_NORTHERN_TRANSYLVANIA
+		owns_entire_state_region = STATE_BEKES
+		owns_entire_state_region = STATE_BESSARABIA
+		owns_entire_state_region = STATE_MOLDAVIA
+		owns_entire_state_region = STATE_WALLACHIA
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = wallachia_events.7
+			popup = no
+		}
+	}
+
+	weight = 10000
+	
+	should_be_pinned_by_default = yes
+}

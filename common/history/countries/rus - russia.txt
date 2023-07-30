@@ -92,7 +92,6 @@
 		
 	c:MUS = { #Muscovy
 		effect_starting_technology_tier_4_tech = yes
-		add_technology_researched = defensive_mod
 		
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_national_guard
@@ -119,6 +118,20 @@
 			set_interest_group_name = ig_orthodox_church
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_technology_researched = defensive_tech_mod
+		add_modifier = {
+			name = defensive_mod
+			months = -1
+		}
+		add_modifier = {
+			name = noble_privileges
+			months = -1
+		}
+		add_modifier = {
+			name = cossacks
+			months = -1
 		}
 
 		add_taxed_goods = g:liquor
@@ -160,6 +173,15 @@
 			add_ideology = ideology_orthodox_patriarch
 		}
 
+		add_modifier = {
+			name = noble_privileges
+			months = -1
+		}
+		add_modifier = {
+			name = cossacks
+			months = -1
+		}
+
 		add_taxed_goods = g:liquor
 	}
 
@@ -196,6 +218,11 @@
 			set_interest_group_name = ig_orthodox_church
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_orthodox_patriarch
+		}
+
+		add_modifier = {
+			name = noble_privileges
+			months = -1
 		}
 
 		add_taxed_goods = g:liquor
@@ -236,6 +263,11 @@
 			add_ideology = ideology_orthodox_patriarch
 		}
 
+		add_modifier = {
+			name = noble_privileges
+			months = -1
+		}
+
 		add_taxed_goods = g:liquor
 	}
 
@@ -274,6 +306,11 @@
 			add_ideology = ideology_orthodox_patriarch
 		}
 
+		add_modifier = {
+			name = noble_privileges
+			months = -1
+		}
+
 		add_taxed_goods = g:liquor
 	}
 
@@ -308,6 +345,11 @@
 			}
 		}
 
+		add_modifier = {
+			name = noble_privileges
+			months = -1
+		}
+
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_church
 			remove_ideology = ideology_patriarchal
@@ -315,41 +357,5 @@
 		}
 
 		add_taxed_goods = g:liquor
-	}
-
-#Decentralized
-	c:SIB = {
-		effect_starting_technology_tier_5_tech = yes
-
-		effect_starting_politics_traditional = yes
-		activate_law = law_type:law_elder_council
-		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_traditionalism
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_right_of_assembly
-		#activate_law = law_type:law_isolationism
-		activate_law = law_type:law_closed_borders
-
-		effect_native_conscription_3 = yes
-		add_technology_researched = tribal
-		activate_law = law_type:law_homesteading
-
-	}
-	c:YAK = {
-		effect_starting_technology_tier_5_tech = yes
-
-		effect_starting_politics_traditional = yes
-		activate_law = law_type:law_elder_council
-		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_traditionalism
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_right_of_assembly
-		#activate_law = law_type:law_isolationism
-		activate_law = law_type:law_closed_borders
-
-		effect_native_conscription_3 = yes
-		add_technology_researched = tribal
-		activate_law = law_type:law_homesteading
-
 	}
 }

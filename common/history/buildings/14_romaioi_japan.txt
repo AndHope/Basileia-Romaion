@@ -18,12 +18,32 @@
 				activate_production_methods={ "pm_anchorage" }
 			}
 		}
-	}
-	s:STATE_SAKHALIN={
-		region_state:JAP={
+		region_state:AIN={
 			create_building={
 				building="building_logging_camp"
-				level=2
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_SAKHALIN={
+		region_state:AIN={
+			create_building={
+				building="building_logging_camp"
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
@@ -59,7 +79,7 @@
 				building="building_barracks"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_cannon_artillery" }
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 			create_building={
 				building="building_whaling_station"
@@ -87,7 +107,7 @@
 				building="building_barracks"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_cannon_artillery" }
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 			create_building={
 				building="building_coal_mine"
@@ -121,7 +141,7 @@
 				building="building_barracks"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_cannon_artillery" }
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -135,13 +155,13 @@
 		region_state:JAP={
 			create_building={
 				building="building_government_administration"
-				level=2
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
 			}
 			create_building={
 				building="building_logging_camp"
-				level=3
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
@@ -153,7 +173,7 @@
 			}
 			create_building={
 				building="building_iron_mine"
-				level=2
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_iron_mine" }
 			}
@@ -165,7 +185,7 @@
 			}
 			create_building={
 				building="building_wheat_farm"
-				level=3
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_soil_enriching_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
 			}
@@ -186,6 +206,38 @@
 				level=5
 				reserves=1
 				activate_production_methods={ "pm_man_o_wars" "pm_frigates" "pm_commerce_raider" "pm_power_of_the_purse" }
+			}
+		}
+		region_state:AIN={
+			create_building={
+				building="building_logging_camp"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_merchant_guilds_building_fishing_wharf" "pm_unrefrigerated" "pm_fishing_trawlers" }
+			}
+			create_building={
+				building="building_wheat_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_soil_enriching_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_barracks"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
 			}
 		}
 	}
@@ -401,6 +453,18 @@
 				activate_production_methods={ "pm_default_building_palace_complex" }
 			}
 			create_building={
+				building="building_arts_academy"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_traditional_art" }
+			}
+			create_building={
+				building="building_university"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_scholastic_education" }
+			}
+			create_building={
 				building="building_construction_sector"
 				level=1
 				reserves=1
@@ -551,10 +615,10 @@
 		}
 	}
 	s:STATE_RYUKYU_ISLANDS={
-		region_state:JAP={
+		region_state:RYU={
 			create_building={
 				building="building_government_administration"
-				level=2
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
 			}
@@ -569,6 +633,12 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_barracks"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 			create_building={
 				building="building_naval_base"

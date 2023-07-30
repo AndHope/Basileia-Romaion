@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:MGL = {
+	c:CH1 = {
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = napoleonic_warfare
@@ -12,15 +12,16 @@
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
-		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
-		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_censorship	
 		#activate_law = law_type:law_national_guard
 		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_migration_controls	
 		
 		set_government_wage_level = high
 		set_tax_level = low
@@ -53,23 +54,128 @@
 			add_ideology = ideology_confucian
 		}
 
-		change_infamy = 50
+		#change_infamy = 50
 		add_modifier = {
-			name = decentralized_khanate
+			name = war_for_china
+			months = 48
+		}
+	#	add_modifier = {
+	#		name = decentralized_khanate
+	#		months = -1
+	#	}
+	#	add_modifier = {
+	#		name = tribal_warriors
+	#		months = -1
+	#	}
+		add_modifier = {
+			name = mongol_religious_tolerance
 			months = -1
 		}
 
-	#	add_modifier = {
-	#		name = nomad_heritage
-	#		months = -1
-	#	}
 
-	#	add_modifier = {
-	#		name = linguistic_discrimination
-	#		months = -1
-	#	}
 
 	}
+
+	c:IMG = {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = mandatory_service
+		add_technology_researched = tribal
+		add_technology_researched = silk_road
+		#add_technology_researched = civilizing_mission
+		
+		add_technology_researched = law_enforcement
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship	
+		#activate_law = law_type:law_national_guard
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_migration_controls	
+		
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.75
+				years = 100
+			}
+		}
+
+		add_modifier = {
+			name = tribal_warriors
+			months = -1
+		}
+		add_modifier = {
+			name = mongol_religious_tolerance
+			months = -1
+		}
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+
+	}
+
+	c:OMG = {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = mandatory_service
+		add_technology_researched = tribal
+		add_technology_researched = silk_road
+		#add_technology_researched = civilizing_mission
+		
+		add_technology_researched = law_enforcement
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship	
+		#activate_law = law_type:law_national_guard
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_migration_controls	
+		
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			set_ig_bolstering = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.75
+				years = 100
+			}
+		}
+
+		add_modifier = {
+			name = tribal_warriors
+			months = -1
+		}
+		add_modifier = {
+			name = mongol_religious_tolerance
+			months = -1
+		}
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+
+	}
+	
 
 	c:CHI = {
 		effect_starting_technology_tier_4_tech = yes
@@ -81,12 +187,14 @@
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
-		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_censorship	
+		activate_law = law_type:law_migration_controls	
 		
 		set_government_wage_level = high
 		set_tax_level = low
@@ -113,6 +221,19 @@
 			name = mandate_of_heaven
 			months = -1
 		}
+		add_modifier = {
+			name = inward_perfection
+			years = 150
+		}
+
+		add_modifier = {
+			name = war_for_china
+			months = 48
+		}
+		add_modifier = {
+			name = righteous_cause
+			months = 48
+		}
 
 	#	set_variable = {
 	#		name = china_warlord_explosion
@@ -132,6 +253,7 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
+		activate_law = law_type:law_migration_controls	
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_confucian
@@ -156,12 +278,13 @@
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_cultural_exclusion
 		activate_law = law_type:law_protectionism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_colonial_resettlement
 		activate_law = law_type:law_dedicated_police
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_censorship # The July Monarchy was already backtracking on promises made in 1830
 		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_homesteading
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -193,8 +316,190 @@
 		}
 
 		add_modifier = {
-			name = romaioi_colonial_subsidies
+			name = colonial_ferver
 			months = 124
+		}
+
+	}
+
+	c:XIN = {
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		add_technology_researched = silk_road
+		add_technology_researched = tribal
+
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+
+		set_military_wage_level = low
+		set_government_wage_level = low
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		#activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_migration_controls	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+	}
+
+	c:KUM = {
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		add_technology_researched = silk_road
+		add_technology_researched = tribal
+
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+
+		set_military_wage_level = low
+		set_government_wage_level = low
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		#activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_migration_controls	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+	}
+
+	c:QIN = {
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		add_technology_researched = silk_road
+		add_technology_researched = tribal
+
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_tenant_farmers
+
+		set_military_wage_level = low
+		set_government_wage_level = low
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		#activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_migration_controls	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+	}
+
+	c:MCH = {
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		add_technology_researched = tribal
+
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_tenant_farmers
+
+		set_military_wage_level = low
+		set_government_wage_level = low
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		#activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_migration_controls	
+
+
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
 		}
 
 	}

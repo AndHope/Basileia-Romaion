@@ -119,9 +119,11 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
-				exists = c:AGY
-				is_subject_of = c:AGY
-				is_subject_type = subject_type_dominion
+				#exists = c:AGY
+				#is_subject_of = c:AGY
+				exists = c:RIC
+				c:RIC = ROOT
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				any_primary_culture = {
 					has_discrimination_trait = european_heritage
@@ -132,6 +134,18 @@ gov_chartered_company = {
 				exists = c:NET
 				exists = c:ATC
 				c:ATC = ROOT
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:NET
+				exists = c:DEI
+				c:DEI = ROOT
 				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
