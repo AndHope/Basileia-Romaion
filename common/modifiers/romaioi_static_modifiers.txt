@@ -49,13 +49,22 @@ base_values = {
 	state_academics_investment_pool_efficiency_mult = -0.25 #new
 	state_officers_investment_pool_efficiency_mult = -0.25 #new
 
-	state_unincorporated_starting_wages_mult = -0.15 # To balance for unincorporated states not paying taxes
+	# To balance for unincorporated states not paying taxes
+	state_unincorporated_starting_wages_mult = -0.20
+	building_unincorporated_subsistence_output_mult = -0.20
 	
 	country_construction_add = 5 
 	
 	building_mobilization_cost_mult = 0.6
 	
 	building_economy_of_scale_level_cap_add = 20
+
+	state_market_access_price_impact = 0.75
+	
+	country_company_throughput_bonus_add = 0.1
+	country_company_construction_efficiency_bonus_add = 0.25
+	
+	country_max_weekly_construction_progress_add = 10
 	
 }
 
@@ -64,7 +73,7 @@ capital_state = {
 	state_pop_pol_str_mult = 0.25
 	state_tax_capacity_mult = 0.25
 	state_infrastructure_mult = 0.25 #new
-	building_throughput_mult = 0.05 #new
+	building_throughput_add = 0.05 #new
 	state_education_access_wealth_add = 0.01 #new
 }
 
@@ -73,7 +82,7 @@ country_literacy_rate = {
 	country_weekly_innovation_max_add = 100 #was 150
 	country_tech_spread_add = 50 #was 75
 	#country_weekly_innovation_add = 100 #was none
-	building_throughput_mult = 0.25 #new
+	building_throughput_add = 0.25 #new
 	state_birth_rate_mult = -0.25 #new
 
 	state_farmers_investment_pool_efficiency_mult = 0.5 #new
@@ -100,6 +109,10 @@ unincorporated_state = {
 	state_welfare_payments_add = -1.0
 	state_expected_sol_mult = -0.33
 	state_pop_pol_str_mult = -0.50
+	building_group_bg_manufacturing_throughput_add = -0.25
+	building_group_bg_government_throughput_add = -0.1
+	building_group_bg_military_throughput_add = -0.1		
+	state_market_access_price_impact = -0.1
 }
 
 tax_modifier_very_low = {
