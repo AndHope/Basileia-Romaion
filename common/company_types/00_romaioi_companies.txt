@@ -1,0 +1,64 @@
+company_SuezCompany = {
+	texture = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	
+	building_types = {  
+		building_suez_canal
+		#building_shipyards
+	}
+	
+	potential = {
+	    OR = {
+		country_has_primary_culture = cu:greek
+		#country_has_primary_culture = cu:
+		}
+	}
+	
+	possible = {
+		any_scope_building = {
+		  is_building_type = building_suez_canal
+		}
+	}
+	
+	prosperity_modifier = {
+		country_convoys_capacity_mult = 0.5
+		country_prestige_mult = 0.25
+		country_trade_route_competitiveness_mult = 0.25
+		country_navy_power_projection_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_byz_ric = {
+	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_military_shipyards
+	}
+
+	potential = {
+		country_has_primary_culture = cu:greek
+	}
+	
+	possible = {
+		OR = {
+			owns_entire_state_region = STATE_EASTERN_THRACE
+			owns_entire_state_region = STATE_MACEDONIA
+			owns_entire_state_region = STATE_ATTICA
+		}
+	}
+	
+	prosperity_modifier = {
+		country_navy_power_projection_mult = 0.25
+		country_convoys_capacity_mult = 0.25
+		country_trade_route_competitiveness_mult = 0.25
+		state_colony_growth_speed_mult = 0.25
+	}
+}

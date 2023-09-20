@@ -48,17 +48,17 @@
 
 DEFAULT = {
 	flag_definition = {
-		coa = list "anarchy"
-		priority = 500
-		trigger = {
-			coa_def_anarchy_flag_trigger = yes
-		}
-	}
-	flag_definition = {
 		coa = list "communist"
 		priority = 1000
 		trigger = {
 			coa_def_communist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = list "anarchy"
+		priority = 2000
+		trigger = {
+			coa_def_anarchy_flag_trigger = yes
 		}
 	}
 }
@@ -290,7 +290,9 @@ AIT = { # Ait Abbas
 		subject_canton = AIT
 		priority = 1
 	}
-}ALB = { # Albania
+}
+
+ALB = { # Albania
 	flag_definition = {
 		coa = ALB
 		subject_canton = ALB
@@ -327,7 +329,7 @@ ALD = { # Algeria
 		trigger = { 
 			coa_def_french_ensign_trigger = yes
 		}
-	}	
+	}
 	flag_definition = {
 		coa = ALD_deylik
 		subject_canton = ALD_deylik
@@ -1544,6 +1546,16 @@ BYZ = { # Byzantium
 		subject_canton = BYZ
 		overlord_canton_scale = { @canton_scale_cross_x @canton_scale_cross_y }
 	}
+	flag_definition = {
+		coa = BYZ_republic
+		subject_canton = BYZ
+		priority = 10
+		allow_overlord_canton = yes
+		overlord_canton_scale = { 0.5 @[1/9*5] }
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
 }
 
 CAL = { # California
@@ -1578,6 +1590,8 @@ CAL = { # California
 		}
 	}
 }
+
+
 
 CAM = { # Cambodia
 	flag_definition = {
@@ -1864,6 +1878,7 @@ CON = { # Constantine
 		priority = 1
 	}
 }
+
 CHL = { # Chile
 	flag_definition = {
 		coa = CHL
@@ -3166,9 +3181,11 @@ GEO = { # Georgia
 GER = { # Germany
 	flag_definition = {
 		coa = GER_modern
+		subject_canton = GER_modern
 	}
 	flag_definition = {
 		coa = GER_modern
+		subject_canton = GER_modern
 		priority = 10
 		trigger = { 
 			coa_def_republic_flag_trigger = yes
@@ -3176,6 +3193,7 @@ GER = { # Germany
 	}
 	flag_definition = {
 		coa = GER_dictatorship
+		subject_canton = GER_dictatorship
 		priority = 15
 		trigger = { 
 			coa_def_dictatorship_flag_trigger = yes
@@ -3183,6 +3201,7 @@ GER = { # Germany
 	}
 	flag_definition = {
 		coa = GER_communist
+		subject_canton = GER_communist
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
@@ -3201,6 +3220,7 @@ GER = { # Germany
 
 	flag_definition = {
 		coa = GER_bavarian
+		subject_canton = GER_bavarian
 		priority = 100
 		trigger = {
 			exists = scope:actor
@@ -3212,6 +3232,7 @@ GER = { # Germany
 	}	
 	flag_definition = {
 		coa = GER_austrian
+		subject_canton = GER
 		priority = 100
 		trigger = {
 			exists = scope:actor
@@ -3224,6 +3245,7 @@ GER = { # Germany
 
 	flag_definition = {
 		coa = GER_saxon
+		subject_canton = GER_saxon
 		priority = 100
 		trigger = {
 			exists = scope:actor
@@ -3236,6 +3258,7 @@ GER = { # Germany
 
 	flag_definition = {
 		coa = GER_saxon_monarchist
+		subject_canton = GER_saxon_monarchist
 		priority = 150
 		trigger = {
 			coa_def_absolute_monarchy_flag_trigger = yes
@@ -3248,6 +3271,7 @@ GER = { # Germany
 
 	flag_definition = {
 		coa = GER_hannover
+		subject_canton = GER_hannover
 		priority = 100
 		trigger = {
 			exists = scope:actor
@@ -3260,6 +3284,7 @@ GER = { # Germany
 
 	flag_definition = {
 		coa = GER_wurttemberg
+		subject_canton = GER_wurttemberg
 		priority = 100
 		trigger = {
 			exists = scope:actor
@@ -3273,6 +3298,7 @@ GER = { # Germany
 	# Black-White-Red tricolor is reserved for a Prussian monarchy
 	flag_definition = {
 		coa = GER
+		subject_canton = GER
 		priority = 100
 		trigger = {
 			exists = scope:actor
@@ -3284,6 +3310,7 @@ GER = { # Germany
 	}
 	flag_definition = {
 		coa = GER_iron_cross
+		subject_canton = GER_iron_cross
 		priority = 5
 		trigger = {
 			coa_def_autocracy_flag_trigger = yes
@@ -3293,8 +3320,9 @@ GER = { # Germany
 			}
 		}
 	}	
-flag_definition = {
+	flag_definition = {
 		coa = GER_nihilist
+		subject_canton = GER_nihilist
 		priority = 1500
 		trigger = { 
 			coa_def_nihilist_flag_trigger = yes
@@ -5483,6 +5511,15 @@ MOL = { # Moldavia
 		}
 	}	
 	flag_definition = {
+		coa = ROM_united_principalities
+		priority = 100
+		trigger = { 
+			scope:actor = {
+				has_variable = ROM_united_principality
+			}
+		}
+	}	
+	flag_definition = {
 		coa = MOL_communist
 		priority = 1500
 		trigger = { 
@@ -6943,6 +6980,7 @@ RHE = { # Rhineland
 		priority = 1
 	}
 }
+
 RIO = { # Rio Grande 
 	flag_definition = {
 		coa = RIO_coa
@@ -7031,6 +7069,13 @@ RUS = { # Russia
 			coa_def_theocracy_flag_trigger = yes
 		}
 	}	
+	flag_definition = {
+		coa = RUS_nihilist
+		priority = 1500 # need to override the DEFAULT
+		trigger = { 
+			coa_def_nihilist_flag_trigger = yes
+		}
+	}
 }	
 
 SAF = { # South Africa
@@ -7139,6 +7184,8 @@ SAV = { # Savoy
 		priority = 1
 	}
 }
+
+
 SAX = { # Saxony
 	flag_definition = {
 		coa = SAX
@@ -8065,6 +8112,7 @@ TUG = { # Touggourt
 		priority = 1
 	}
 }
+
 TUR = { # Turkey
 	flag_definition = {
 		coa = TUR
@@ -8511,6 +8559,15 @@ WAL = { # Wallachia
 		trigger = { 
 			coa_def_turkish_ensign_trigger = yes		
 		}
+	}
+	flag_definition = {
+		coa = ROM_united_principalities
+		priority = 100
+		trigger = { 
+			scope:actor = {
+				has_variable = ROM_united_principality
+			}
+		}
 	}	
 }	
 
@@ -8809,6 +8866,14 @@ KAU = { # Kaurna
 	flag_definition = {
 		coa = KAU	
 		subject_canton = KAU
+		priority = 1
+	}
+}
+
+PRC = { # Paris Commune
+	flag_definition = {
+		coa = PRC
+		subject_canton = PRC
 		priority = 1
 	}
 }
