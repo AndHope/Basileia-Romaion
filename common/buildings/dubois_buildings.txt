@@ -1,0 +1,181 @@
+﻿######################
+# DUBOIS BUILDINGS  #
+######################
+
+#by Lord R & Marco Dandolo
+
+##########################
+
+#Zoo
+
+building_dubois_zoo = {
+
+	building_group = bg_government
+
+	city_type = city
+	ignore_stateregion_max_level = yes
+	expandable = no
+	downsizeable = no
+
+	unlocking_technologies = {
+		dubois_theory_of_evolution_tech
+	}
+
+	production_method_groups = {
+		pmg_zoo_level
+		pmg_base_building_zoo
+		pmg_paleontological_collection
+		pmg_botanical_garden
+		pmg_specimen_collection
+	}
+
+	texture = "gfx/interface/icons/building_icons/building_dubois_zoo.dds"
+
+	required_construction = construction_cost_medium
+
+	can_build_government = {
+		error_check = {
+			severity = invalid
+			custom_tooltip = {
+				text = dubois_zoo_can_construct_tt
+				is_capital = yes
+				NOT = {
+					any_scope_building = {
+						is_building_type = building_dubois_zoo
+						level > 0
+					}
+				} 
+				owner = {
+					dubois_has_zoo_minimum = yes
+				}
+			}
+		}
+	}
+
+	can_build_private = {
+		error_check = {
+			severity = potential
+			always = no
+		}
+	}
+
+	ai_value = 10000 # Ai should do it whenever it can
+}
+
+#Nature Reserve
+
+building_dubois_national_park = {
+	
+	building_group = bg_dubois_national_park
+
+	city_type = wood
+	ignore_stateregion_max_level = yes
+	levels_per_mesh = 1
+	
+	expandable = no
+	downsizeable = no
+	buildable = yes
+
+	unlocking_technologies = {
+		dubois_genetics_tech
+	}
+
+	production_method_groups = {
+		pmg_dubois_reserve_type
+	}
+
+	texture = "gfx/interface/icons/building_icons/building_dubois_national_park.dds"
+
+	required_construction = construction_cost_medium
+
+	can_build_government = {
+		OR = {
+			AND = {
+				is_homeland_of_country_cultures = owner
+				is_incorporated = yes
+				custom_tooltip = {
+					text = dubois_has_habitat_for_nr_tt
+					OR = {
+						has_modifier = dubois_grizzly_habitat_modifier
+						has_modifier = dubois_eagle_habitat_modifier
+						has_modifier = dubois_bison_habitat_modifier
+						has_modifier = dubois_panther_habitat_modifier
+						has_modifier = dubois_alligator_habitat_modifier
+						has_modifier = dubois_axolotl_habitat_modifier
+						has_modifier = dubois_sloth_habitat_modifier
+						has_modifier = dubois_jaguar_habitat_modifier
+						has_modifier = dubois_anteater_habitat_modifier
+						has_modifier = dubois_armadillo_habitat_modifier
+						has_modifier = dubois_condor_habitat_modifier
+						has_modifier = dubois_manatee_habitat_modifier
+						has_modifier = dubois_monkey_habitat_modifier
+						has_modifier = dubois_lynx_habitat_modifier
+						has_modifier = dubois_wolf_habitat_modifier
+						has_modifier = dubois_badger_habitat_modifier
+						has_modifier = dubois_stoat_habitat_modifier
+						has_modifier = dubois_otter_habitat_modifier
+						has_modifier = dubois_ibex_habitat_modifier
+						has_modifier = dubois_wisent_habitat_modifier
+						has_modifier = dubois_hippopotamus_habitat_modifier
+						has_modifier = dubois_lion_habitat_modifier
+						has_modifier = dubois_elephant_habitat_modifier
+						has_modifier = dubois_giraffe_habitat_modifier
+						has_modifier = dubois_penguin_habitat_modifier
+						has_modifier = dubois_mole_habitat_modifier
+						has_modifier = dubois_zebra_habitat_modifier
+						has_modifier = dubois_panda_habitat_modifier
+						has_modifier = dubois_orangutan_habitat_modifier
+						has_modifier = dubois_tiger_habitat_modifier
+						has_modifier = dubois_tapir_habitat_modifier
+						has_modifier = dubois_dragon_habitat_modifier
+						has_modifier = dubois_leopard_habitat_modifier
+						has_modifier = dubois_cheetah_habitat_modifier
+						has_modifier = dubois_turtle_habitat_modifier
+						has_modifier = dubois_manta_habitat_modifier
+						has_modifier = dubois_kangaroo_habitat_modifier
+						has_modifier = dubois_koala_habitat_modifier
+						has_modifier = dubois_platypus_habitat_modifier
+						has_modifier = dubois_cassowary_habitat_modifier
+						has_modifier = dubois_sealion_habitat_modifier
+					}
+				}
+			}
+			custom_tooltip = {
+				text = dubois_has_nature_reserve_location_tt
+				has_modifier = dubois_nature_reserve_location_modifier
+			}
+		}
+	}
+
+	can_build_private = {
+		error_check = {
+			severity = potential
+			always = no
+		}
+	}
+}
+
+#########################
+
+building_university = {
+
+	building_group = bg_technology
+
+	city_type = city
+
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		academia
+	}
+
+	production_method_groups = {
+		pmg_base_building_university
+		pmg_university_academia
+		pmg_university_focus
+	}
+
+	texture = "gfx/interface/icons/building_icons/building_university.dds"
+
+	required_construction = construction_cost_medium
+}

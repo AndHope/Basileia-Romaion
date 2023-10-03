@@ -1,0 +1,82 @@
+﻿########################
+# ACADEMICS ON ACTIONS #
+########################
+
+#by Lord R
+
+######################
+
+on_monthly_pulse_country = { 
+	on_actions = {
+		academics_unhappy_academic_random_on_monthly_pulse_country
+		academics_retirement_for_scientists
+	}
+}
+
+academics_unhappy_academic_random_on_monthly_pulse_country = {
+	random_events = {
+		50 = 0
+		2 = academics.1000
+		2 = academics.1001
+		2 = academics.1002
+		2 = academics.1003
+		2 = academics.1004
+	}
+}
+
+academics_retirement_for_scientists = {
+	random_events = {
+		1 = academics.1
+		1 = academics.2
+		1 = academics.3
+		1 = academics.4
+		1 = academics.5
+		1 = academics.6
+		40 = 0
+	}
+}
+
+on_yearly_pulse_country = { 
+	on_actions = {
+		academics_on_yearly_pulse_country
+		academics_on_yearly_pulse_country_missions
+	}
+}
+
+academics_on_yearly_pulse_country = {
+	events = {
+		academics.150
+	}
+}
+
+academics_on_yearly_pulse_country_missions = {
+	trigger = {
+		academics_mission_possible = yes
+		game_date > 1841.1.1
+	}
+	random_events = {
+		###Astronomy###
+		1 = academics.2001 #Academics 2001: The Scientific Society asks us to focus on surveying the skies
+		1 = academics.2004 #Academics 2004: The Scientific Society The requests a new star chart from our [Astronomer]
+		1 = academics.2009 #Academics 2009: We need to find more stars than [Scope Rival Nation]
+		1 = academics.2012 #Academics 2012: The Scientific Society asks us to found an Observatory
+		1 = academics.2015 #Academics 2015: The Scientific Society wants us to find Planet X
+		###Archaeology###
+		1 = academics.2101 #Academics 2101: The Scientific Society asks us to found an Archaeological Museum
+		1 = academics.2104 #Academics 2104: Archaeological Museum wants Egyptian Artifacts
+		1 = academics.2105 #Academics 2105: Archaeological Museum wants Mesopotamian Artifacts
+		1 = academics.2106 #Academics 2106: Archaeological Museum wants Aegean Artifacts
+		1 = academics.2107 #Academics 2107: Archaeological Museum wants Pre-Columbian Artifacts
+		1 = academics.2110 #Academics 2110: Archaeological Museum wants Major Artifact
+		1 = academics.2113 #Academics 2113: Archaeological Museum wants Excellent Collection
+		1 = academics.2116 #Academics 2116: We need to find more artifacts than [Scope Rival Nation]
+		###Naturalism###
+		1 = academics.2200 #Academics 2200: We need to find more specimen than [Scope Rival Nation]
+		1 = academics.2203 #Academics 2203: Get a [exotic animal] for our Zoo
+		1 = academics.2206 #Academics 2206: Found a Zoo
+		1 = academics.2209 #Academics 2209: A Medium-sized Zoo
+		1 = academics.2210 #Academics 2210: A large Zoo
+		###Palontological###
+		#1 = academics.2300 #Academics 2300: We need to find more fossils than [Scope Rival Nation]
+	}
+}

@@ -1,0 +1,127 @@
+﻿######################
+# CURTISS ON ACTIONS #
+######################
+
+#by Marco Dandolo
+
+######################
+
+on_acquired_technology = {
+	on_actions = {
+		curtiss_on_acquired_technology
+	}
+}
+
+on_battle_won = {
+	on_actions = {
+		#curtiss_on_battle_won
+	}
+}
+
+on_yearly_pulse_country = { 
+	on_actions = {
+		curtiss_on_yearly_pulse_country
+	}
+}
+
+on_half_yearly_pulse_country = { 
+	on_actions = {
+		curtiss_on_half_yearly_pulse_country
+		delay = { days = { 30 90 } } #Learned this from Dementive
+	}
+}
+
+on_monthly_pulse_country = { 
+	on_actions = {
+		curtiss_on_monthly_pulse_country
+	}
+}
+
+curtiss_on_acquired_technology = {
+	events = {
+		curtiss.10 #Curtiss 10: Seaplanes [Schneider's Trophy JE]
+		curtiss.11 #Curtiss 11: Has Seaplanes tech [hidden]
+		curtiss.12 #Curtiss 12: Henry Fabre
+
+		curtiss.50 #Curtiss 50: Airplanes or Zeppelins
+	}
+}
+
+curtiss_on_battle_won = {
+	events = {
+		#curtiss.30 #Curtiss 30: Il Vate
+		curtiss.31 #Curtiss 31: Der Rote Baron
+	}
+	random_events = {
+		1000 = 0
+
+		50 = curtiss.311 #Curtiss 311: A new pilot
+		50 = curtiss.312 #Curtiss 312: Flying Ace
+	}
+}
+
+curtiss_on_yearly_pulse_country = {
+	events = {
+		curtiss.1 #Curtiss 1: Airline status
+	}
+}
+
+curtiss_on_half_yearly_pulse_country = {
+	events = {
+		curtiss.13 #Curtiss 13: Water Airport
+		
+		curtiss.22 #Curtiss 22: Privatization of National Airline
+		curtiss.23 #Curtiss 23: Nationalization of Private Airline
+
+		curtiss.51 #Curtiss 51: Helium discovered
+		curtiss.52 #Curtiss 52: Helium reserve lost
+		curtiss.53 #Curtiss 53: Graf Ferdinand von Zeppelin
+
+		curtiss.213 #Curtiss 213: Zeppelin Flight route between Skyscrapers
+		curtiss.217 #Curtiss 217: Electoral Campaign
+		curtiss.228 #Curtiss 228: Thriving aircraft factories
+
+		curtiss.514 #Curtiss 514: Helium instead of Hydrogen
+	}
+
+	random_events = {
+		1000 = 0
+
+		250 = curtiss.211 #Curtiss 211: New Flight Route to foreign Airport
+		50 = curtiss.214 #Curtiss 214: Scenic Flights
+		50 = curtiss.215 #Curtiss 215: Colonial Goods
+		50 = curtiss.216 #Curtiss 216: Tourism
+		50 = curtiss.218 #Curtiss 218: A Pilot for advertising?
+		50 = curtiss.219 #Curtiss 219: New Airport connected
+		50 = curtiss.220 #Curtiss 220: Airport grows
+		50 = curtiss.221 #Curtiss 221: New aircraft
+		50 = curtiss.222 #Curtiss 222: Plane crash
+		50 = curtiss.223 #Curtiss 223: Airline in financial difficulties
+		50 = curtiss.224 #Curtiss 224: Corrupting Aviation
+		50 = curtiss.225 #Curtiss 225: Unprofitable air transport
+		50 = curtiss.226 #Curtiss 226: Competing airline
+		50 = curtiss.227 #Curtiss 227: Airline Tycoon in trouble
+		50 = curtiss.229 #Curtiss 229: A new airplane factory
+		50 = curtiss.230 #Curtiss 230: $HOWARD$, the Patron of Arts
+		25 = curtiss.251 #Curtiss 251: Lost Horizon
+	}
+}
+
+################################################################################
+
+#by Lord R
+
+curtiss_on_monthly_pulse_country = {
+	events = {
+		curtiss.600 #Curtiss 600: Balloon flight from Vauxhall Gardens to Weilburg
+		curtiss.601 #Curtiss 601: Invention of the Rip Panel
+		curtiss.602 #Curtiss 602: First crossing of the Alps in a balloon by Francisque Arban
+		curtiss.603 #Curtiss 603: Francisque Arban disappeared during a balloon flight over the Mediterranean Sea
+		curtiss.609 #Curtiss 609: Nadar takes first aerial photos from a balloon
+		curtiss.610 #Curtiss 610: Nadar's "Le Géant" crashes in Hannover
+		curtiss.611 #Curtiss 611: Glaisher and Coxwell set record for highest balloon flight
+		curtiss.612 #Curtiss 612: Eduard Spelterini transports passengers across the Alps
+		curtiss.613 #Curtiss 613: First flight of a steerable airship built by Giffard
+		curtiss.614 #Curtiss 614: Auguste Piccard considers moving to Brussels
+	}
+}

@@ -11,6 +11,7 @@ COUNTRIES = {
 		add_technology_researched = medical_degrees
 		add_technology_researched = banking
 		add_technology_researched = empiricism
+		add_technology_researched = sericulture
 		#add_technology_researched = organized_sports
 
 		#Economy
@@ -48,8 +49,8 @@ COUNTRIES = {
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_tenant_farmers #law_type:law_serfdom
-		activate_law = law_type:law_land_based_taxation 
-		#activate_law = law_type:law_per_capita_based_taxation #too hard without this tax law
+		#activate_law = law_type:law_land_based_taxation 
+		activate_law = law_type:law_per_capita_based_taxation #too hard without this tax law
 		activate_law = law_type:law_hereditary_bureaucrats #Balance reasons half of Burecrats appointed still
 		#activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_state_religion
@@ -111,6 +112,10 @@ COUNTRIES = {
 				multiplier = 0.25
 				years = 100
 			}
+			add_modifier = {
+				name = ig_latin_priviledges
+				years = 25
+			}
 		}
 
 		ig:ig_armed_forces = {
@@ -125,9 +130,14 @@ COUNTRIES = {
 		
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_patriarch
-			remove_ideology = ideology_patriarchal
+			remove_ideology = ideology_orthodox_patriarch
 			add_ideology = ideology_romaioi_patriarch
 			add_ruling_interest_group = yes
+
+			add_modifier = {
+				name = ig_latin_priviledges
+				years = 25
+			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
@@ -138,8 +148,12 @@ COUNTRIES = {
 			#add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.25
+				multiplier = 0.5
 				years = 100
+			}
+			add_modifier = {
+				name = ig_latin_priviledges
+				years = 25
 			}
 		}
 
@@ -152,14 +166,14 @@ COUNTRIES = {
 		}
 
 		ig:ig_intelligentsia = { 
-			#remove_ideology = ideology_anti_clerical
-			#remove_ideology = ideology_liberal
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_liberal
 			remove_ideology = ideology_republican
 			remove_ideology = ideology_anti_slavery
 
 			add_ideology = ideology_romaioi_republican
-			#add_ideology = ideology_romaioi_liberal
-			#add_ideology = ideology_romaioi_anti_clerical
+			add_ideology = ideology_romaioi_liberal
+			add_ideology = ideology_romaioi_anti_clerical
 
 			set_interest_group_name = ig_dianooumenoi
 		}
@@ -168,7 +182,7 @@ COUNTRIES = {
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.5
+				multiplier = -0.75
 				years = 100
 			}
 		}
@@ -178,7 +192,7 @@ COUNTRIES = {
 			set_interest_group_name = ig_syndikalistai
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.5
+				multiplier = -0.75
 				years = 100
 			}
 		}
@@ -209,6 +223,10 @@ COUNTRIES = {
 			name = romaioi_bureaucratic_corruption
 			months = -1
 		}
+		add_modifier = {
+			name = roman_senate
+			months = -1
+		}
 	#	add_modifier = {
 	#		name = romaioi_pentarchy
 	#		months = -1
@@ -227,12 +245,14 @@ COUNTRIES = {
 		#	months = 36
 		#}
 
-		#trigger_event = {
-		#	id = romaioi_startup_events.1
-		#}
+		trigger_event = {
+			id = chariot_racing.1
+			days = 250
+		}
 
 		trigger_event = {
 			id = palaiologos_reforms.1
+			days = 5
 		}
 		#add_modifier = {
 		#	name = sick_man_of_europe

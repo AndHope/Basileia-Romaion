@@ -1,0 +1,389 @@
+﻿#########################
+# MORGENRÖTE OBJECTIVES #
+#########################
+
+#by Marco Dandolo
+
+#########################
+
+######BASIC OBJECTIVES######
+
+je_objective_promote_an_academic = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		OR = {
+			verrier_has_astronomer = yes
+			dubois_has_naturalist = yes
+			dubois_has_paleontologist = yes
+			lepsius_has_archaeologist = yes
+			lepsius_has_anthropologist = yes
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	on_invalid = {
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+je_objective_a_great_step_forward = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		custom_tooltip = {
+			text = je_objective_a_great_step_forward_goal
+			OR = {
+				AND = { #Invent Theory of Evolution
+					has_variable = dubois_naturalist_var
+					var:dubois_naturalist_var = {
+						has_variable = dubois_invented_evolution_theory_var
+					}
+				}
+				AND = { #Invent Early Archaeology
+					has_variable = lepsius_archaeologist_var
+					var:dubois_naturalist_var = {
+						has_variable = lepsius_invented_early_archaeology_var
+					}
+				}
+				AND = { #Invent Modern Astronomy
+					has_variable = verrier_astronomer_var
+					var:verrier_astronomer_var = {
+						has_variable = verrier_astronomer_measured_distance_cygni_var
+					}
+				}
+			}
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+		has_global_variable = dubois_theory_of_evolution
+		has_global_variable = lepsius_early_archaeology_global_var
+		has_global_variable = verrier_modern_astronomy_global_var
+	}
+
+	on_invalid = {
+		remove_active_objective_subgoal = sg_a_great_step_forward
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+je_objective_major_discovery = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		custom_tooltip = {
+			text = je_objective_major_discovery_goal
+			OR = {
+				lepsius_has_major_artifacts = yes
+				has_modifier = verrier_discovered_pluto_modifier
+				has_modifier = verrier_discovered_neptune_modifier
+				has_variable = rapanui_challenger_deep_discoverer
+			}
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	on_invalid = {
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+######SECOND OBJECTIVES######
+
+je_objective_go_on_scientifical_expedition = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		OR = {
+			custom_tooltip = {
+				text = je_objective_go_on_scientifical_expedition_archaeology
+				lepsius_on_archaeological_expedition = yes
+			}
+			custom_tooltip = {
+				text = je_objective_go_on_scientifical_expedition_paleontology
+				dubois_paleontological_research = yes
+			}
+			custom_tooltip = {
+				text = je_objective_go_on_scientifical_expedition_botany
+				dubois_botanical_research = yes
+			}
+			custom_tooltip = {
+				text = je_objective_go_on_scientifical_expedition_pacific
+				has_modifier = rapanui_pacific_expedition_modifier
+			}
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	on_invalid = {
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+je_objective_dawn_of_a_new_era = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		OR = {
+			custom_tooltip = {
+				text = dawn_of_new_era_fossil_tt
+				var:dubois_fossil >= 25
+			}
+			custom_tooltip = {
+				text = dawn_of_new_era_specimen_tt
+				var:dubois_specimen >= 35000
+			}
+			custom_tooltip = {
+				text = dawn_of_new_era_artifacts_tt
+				var:lepsius_total_artifacts >= 50
+			}
+			custom_tooltip = {
+				text = dawn_of_new_era_astronomical_objects_tt
+				var:verrier_astronomical_objects >= 75
+			}
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	on_invalid = {
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+je_objective_more_than_politics = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		any_scope_building = {
+			is_building_type = building_lepsius_archaeological_museum
+		}
+		any_scope_building = {
+			is_building_type = building_verrier_observatory
+		}
+		any_scope_building = {
+			is_building_type = building_dubois_zoo
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	on_invalid = {
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+je_objective_assemble_dinosaur_skeleton = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		custom_tooltip = {
+			text = je_objective_assemble_dinosaur_skeleton_goal
+			dubois_has_dinosaur_skeleton = yes
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	on_invalid = {
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+######LATE OBJECTIVES######
+
+je_objective_relevant_culture = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+
+	complete = {
+		OR = {
+			custom_tooltip = {
+				text = relevant_culture_archaeology_tt
+				any_scope_state = {
+					is_capital = yes
+					OR = {
+						is_production_method_active = {
+							building_type = building_lepsius_archaeological_museum
+							production_method = pm_lepsius_large_egyptian_exhibition
+						}
+						is_production_method_active = {
+							building_type = building_lepsius_archaeological_museum
+							production_method = pm_lepsius_large_mesopotamian_exhibition
+						}
+						is_production_method_active = {
+							building_type = building_lepsius_archaeological_museum
+							production_method = pm_lepsius_large_aegean_exhibition
+						}
+						is_production_method_active = {
+							building_type = building_lepsius_archaeological_museum
+							production_method = pm_lepsius_large_precolumbian_exhibition
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = relevant_culture_zoology_tt
+				any_scope_state = {
+					is_capital = yes
+					is_production_method_active = {
+						building_type = building_dubois_zoo
+						production_method = pm_zoo_level_4
+					}
+				}
+			}
+			custom_tooltip = {
+				text = relevant_culture_astronomy_tt
+				has_modifier = verrier_congress_host_modifier
+			}
+		}
+	}
+	
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	on_invalid = {
+	}
+		
+	weight = 1000
+	transferable = yes
+}
+
+######FINAL OBJECTIVE######
+
+je_objective_thriving_culture = {
+	should_be_pinned_by_default = yes
+	icon = "gfx/interface/icons/objectives/thriving_culture_icon.dds"
+	active_update_frequency = 1
+
+	immediate = {	
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = thriving_culture_exhibition_tt
+			any_scope_state = {
+				is_capital = yes
+				OR = {
+					is_production_method_active = {
+						building_type = building_lepsius_archaeological_museum
+						production_method = pm_lepsius_excellent_egyptian_exhibition
+					}
+					is_production_method_active = {
+						building_type = building_lepsius_archaeological_museum
+						production_method = pm_lepsius_excellent_mesopotamian_exhibition
+					}
+					is_production_method_active = {
+						building_type = building_lepsius_archaeological_museum
+						production_method = pm_lepsius_excellent_aegean_exhibition
+					}
+					is_production_method_active = {
+						building_type = building_lepsius_archaeological_museum
+						production_method = pm_lepsius_excellent_precolumbian_exhibition
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = thriving_culture_archaeological_discovery_tt
+			var:lepsius_total_discoveries >= 1
+		}
+		has_technology_researched = verrier_astro_physics_tech
+		custom_tooltip = {
+			text = thriving_culture_great_comet_tt
+			has_variable = verrier_discovered_great_comet
+		}
+		any_scope_state = {
+			is_production_method_active = {
+				building_type = building_dubois_zoo
+				production_method = pm_botanical_garden
+			}
+		}
+		any_scope_state = {
+			is_production_method_active = {
+				building_type = building_dubois_zoo
+				production_method = pm_specimen_collection
+			}
+		}
+		any_scope_state = {
+			is_production_method_active = {
+				building_type = building_dubois_zoo
+				production_method = pm_paleontological_collection
+			}
+		}
+		OR = {
+			has_modifier = curtiss_hindenburg_national_modifier
+			has_modifier = curtiss_spruce_goose_modifier
+		}
+		has_modifier = curtiss_the_schneider_trophy_modifier
+	}
+
+	on_complete = {
+		hidden_effect = {
+			owner = {
+				start_tutorial_lesson = { 
+					tutorial_lesson = thriving_culture_complete
+					journal_entry = je:je_objective_thriving_culture
+				}
+			}
+		}
+	}
+
+	weight = 1012
+	transferable = yes
+}

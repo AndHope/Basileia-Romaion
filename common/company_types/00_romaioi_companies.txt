@@ -1,4 +1,4 @@
-company_SuezCompany = {
+company_suez_company = {
 	texture = "gfx/interface/icons/company_icons/basic_metalworks.dds"
 	
 	building_types = {  
@@ -20,10 +20,9 @@ company_SuezCompany = {
 	}
 	
 	prosperity_modifier = {
-		country_convoys_capacity_mult = 0.5
-		country_prestige_mult = 0.25
 		country_trade_route_competitiveness_mult = 0.25
-		country_navy_power_projection_mult = 0.25
+		country_trade_route_cost_mult = -0.25
+		unit_convoy_requirements_mult = -0.25
 	}
 
 	ai_weight = {
@@ -40,7 +39,7 @@ company_byz_ric = {
 		building_trade_center
 		building_port
 		building_shipyards
-		building_military_shipyards
+		#building_military_shipyards
 	}
 
 	potential = {
@@ -48,17 +47,403 @@ company_byz_ric = {
 	}
 	
 	possible = {
-		OR = {
-			owns_entire_state_region = STATE_EASTERN_THRACE
-			owns_entire_state_region = STATE_MACEDONIA
-			owns_entire_state_region = STATE_ATTICA
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+		NOR = {
+			has_modifier = latin_privileges
 		}
 	}
 	
 	prosperity_modifier = {
-		country_navy_power_projection_mult = 0.25
-		country_convoys_capacity_mult = 0.25
+		#country_trade_route_cost_mult = -0.25
 		country_trade_route_competitiveness_mult = 0.25
-		state_colony_growth_speed_mult = 0.25
+		#state_colony_growth_speed_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_ven_trade = {
+	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		#building_military_shipyards
+	}
+
+	potential = {
+		country_has_primary_culture = cu:north_italian
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_trade_route_cost_mult = -0.25
+		country_trade_route_competitiveness_mult = 0.25
+		#unit_convoy_requirements_mult = -0.15
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_ven_arsenal = {
+	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_military_shipyards
+	}
+	
+	potential = {
+		country_has_primary_culture = cu:north_italian
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_military_shipyards
+				level > 1
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_navy_defense_mult = 0.25
+		country_navy_power_projection_mult = 0.25
+	}
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_gen_trade = {
+	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		#building_military_shipyards
+	}
+
+	potential = {
+		country_has_primary_culture = cu:north_italian
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_PIEDMONT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_trade_route_cost_mult = -0.25
+		country_trade_route_competitiveness_mult = 0.25
+		#state_colony_growth_speed_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_gen_arsenal = {
+	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_military_shipyards
+	}
+	
+	potential = {
+		country_has_primary_culture = cu:north_italian
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_PIEDMONT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_military_shipyards
+				level > 1
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_navy_defense_mult = 0.25
+		country_navy_power_projection_mult = 0.25
+	}
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Imperial Arsenal
+company_imperial_arsenal = {
+	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_military_shipyards
+	}
+	
+	potential = {
+		has_interest_marker_in_region = region_anatolia
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_military_shipyards
+				level > 10
+			}
+		}
+		has_technology_researched = hydraulic_cranes
+	}
+	
+	prosperity_modifier = {
+		unit_navy_defense_mult = 0.25
+		country_navy_power_projection_mult = 0.25
+	}
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Zeytinburnu Industrial Complex
+company_zeytinburnu = {
+	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_arms_industry
+		building_steel_mills
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = region_anatolia
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_arms_industry
+					is_building_type = building_artillery_foundries
+					is_building_type = building_steel_mills
+					is_building_type = building_motor_industry
+				}
+				level > 10
+			}
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+	}
+	
+	prosperity_modifier = {
+		country_production_tech_spread_mult = 0.1
+	}	
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bakırköy Industrial Complex
+company_bakiroy = {
+	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_textile_mills
+		building_munition_plants
+		building_explosives_factory
+	}
+	
+	potential = {
+		has_interest_marker_in_region = region_anatolia
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_textile_mills
+					is_building_type = building_munition_plants
+					is_building_type = building_explosives_factory
+				}
+				level > 10
+			}
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+	}
+	
+	prosperity_modifier = {
+		country_production_tech_spread_mult = 0.1
+	}	
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Chemins de fer Orientaux
+company_orient_express = {
+	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_railway
+	}
+	
+	potential = {
+		OR = {
+			has_interest_marker_in_region = region_anatolia
+			has_interest_marker_in_region = region_balkans
+		}
+	}
+	
+	possible = {
+		owns_entire_state_region = STATE_EASTERN_THRACE
+		any_scope_state = {
+			region = sr:region_balkans
+			is_incorporated = yes
+			has_building = building_railway
+			count >= 4
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.1
+	}	
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_misr = {
+	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	
+	flavored_company = yes
+	
+	building_types = { 
+		building_textile_mills
+		building_cotton_plantation
+	}
+	
+	potential = {
+		has_interest_marker_in_region = region_nile_basin
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mills
+				level > 10
+			}
+		}
+		has_technology_researched = corporatism
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_sol_change_mult = 0.1
+	}	
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Egyptian National Railways
+company_egyptian_rail = {
+	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	
+	flavored_company = yes
+	
+	building_types = { 
+		building_railway
+	}
+	
+	potential = {
+		has_interest_marker_in_region = region_nile_basin
+	}
+	
+	possible = { 
+		any_scope_state = {
+			region = sr:region_nile_basin
+			is_incorporated = yes
+			has_building = building_railway
+			count >= 4
+		}
+		has_technology_researched = corporatism
+	}
+	
+	prosperity_modifier = {
+		state_infrastructure_from_population_max_add = 15
+	}	
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
 	}
 }

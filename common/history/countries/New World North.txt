@@ -24,13 +24,86 @@ COUNTRIES = {
 			add_ideology = ideology_isolationist_expansionism
 		}
 
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 3
+				years = 100
+			}
+		}
+
+	}
+
+	c:PUE = {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		add_technology_researched = tribal
+		activate_law = law_type:law_homesteading
+		add_technology_researched = prospecting
+		add_technology_researched = international_trade
+
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_right_of_assembly
+		#activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_censorship
+
+		ig:ig_rural_folk = {
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+		}
+
+	}
+
+	c:MAY = {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		add_technology_researched = tribal
+		activate_law = law_type:law_homesteading
+		add_technology_researched = prospecting
+		add_technology_researched = international_trade
+
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_right_of_assembly
+		#activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_censorship
+
 	}
 
 	c:IRO = {
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
 		
+		activate_law = law_type:law_chiefdom
 		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		ig:ig_rural_folk = {
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 150
+			}
+		}
+
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_peasant_levies
@@ -38,15 +111,35 @@ COUNTRIES = {
 		#activate_law = law_type:law_isolationism
 		activate_law = law_type:law_closed_borders
 
-		effect_native_conscription_8 = yes
+		#effect_native_conscription_8 = yes
 		add_technology_researched = tribal
 		activate_law = law_type:law_homesteading
 	}
 	c:CTF = {
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
-		
+		activate_law = law_type:law_chiefdom
 		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 150
+			}
+		}
+
+		ig:ig_rural_folk = {
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+		}
+
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_peasant_levies
@@ -54,7 +147,7 @@ COUNTRIES = {
 		#activate_law = law_type:law_isolationism
 		activate_law = law_type:law_closed_borders
 
-		effect_native_conscription_8 = yes
+		#effect_native_conscription_8 = yes
 		add_technology_researched = tribal
 		activate_law = law_type:law_homesteading
 	}
@@ -96,7 +189,14 @@ COUNTRIES = {
 		effect_starting_technology_tier_7_tech = yes
 		effect_starting_politics_traditional = yes
 		
+		activate_law = law_type:law_chiefdom
 		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_peasant_levies
@@ -105,7 +205,7 @@ COUNTRIES = {
 		activate_law = law_type:law_closed_borders
 		activate_law = law_type:law_debt_slavery
 
-		effect_native_conscription_6 = yes
+		#effect_native_conscription_6 = yes
 		add_technology_researched = tribal
 		activate_law = law_type:law_homesteading
 	}
@@ -113,7 +213,28 @@ COUNTRIES = {
 		effect_starting_technology_tier_7_tech = yes
 		effect_starting_politics_traditional = yes
 		
+		activate_law = law_type:law_chiefdom
 		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 2
+				years = 150
+			}
+		}
+
+		ig:ig_rural_folk = {
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+		}
+
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_peasant_levies
@@ -122,7 +243,7 @@ COUNTRIES = {
 		activate_law = law_type:law_closed_borders
 		activate_law = law_type:law_debt_slavery
 
-		effect_native_conscription_9 = yes
+		#effect_native_conscription_9 = yes
 		add_technology_researched = tribal
 		activate_law = law_type:law_homesteading
 	}
@@ -142,6 +263,117 @@ COUNTRIES = {
 		add_technology_researched = tribal
 		activate_law = law_type:law_homesteading
 	}
+
+	c:COM = {
+
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 2
+				years = 150
+			}
+		}
+
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_8 = yes
+		add_technology_researched = tribal
+		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+	}
+
+	c:APC = {
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_9 = yes
+		add_technology_researched = tribal
+		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 2
+				years = 150
+			}
+		}
+
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		#activate_law = law_type:law_isolationism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_peasant_levies
+	}
+
+	c:NVJ = {
+		effect_starting_technology_tier_6_tech = yes
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_isolationism
+
+		effect_native_conscription_6 = yes
+		add_technology_researched = tribal
+		activate_law = law_type:law_homesteading
+	}
+
+	c:IRC = {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		#effect_native_conscription_5 = yes
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 150
+			}
+		}
+
+		add_technology_researched = tribal
+		activate_law = law_type:law_homesteading
+	}
+
 	#EU4 Tribals
 	#Alaska
 
@@ -414,14 +646,25 @@ COUNTRIES = {
 		activate_law = law_type:law_homesteading
 	}
 
-	c:DKT = {
-		effect_native_conscription_6 = yes
-		activate_law = law_type:law_elder_council
+	c:LKT = {
+		#effect_native_conscription_6 = yes
 		effect_starting_politics_traditional = yes
 		effect_starting_technology_tier_7_tech = yes
 		add_technology_researched = tribal
 		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
 	}
+
 
 	c:M05 = {
 		effect_native_conscription_6 = yes

@@ -1,0 +1,186 @@
+﻿# script_context = <script context>	# see later for list of valid script contexts
+# texture = <path>					# the path is relative to the "game" folder
+# valid = <trigger>					# an invalid alert will not be shown
+# open_panel = <panel_name>[|<tab>]	# if specified, this panel will open when the alert is clicked. Cannot specify both open_panel and open_popup
+									# an optional tab name can be specified after a | character
+# open_popup = <popup_name>			# if specified, this popup will open when the alert is clicked. Cannot specify both open_panel and open_popup
+# type = alert | important_action | angry_important_action	# if unspecified or "alert", this will be a standard alert. Otherwise, it will be shown inside the important actions alert (angry_important_action alerts are sorted first)
+# alert_group = <alert_group_name>	# if specified, multiple alerts in the same group will be grouped in the important actions alert (if they are "important_action"). "important_actions with unspecified alert_group will never be grouped together
+#
+# ------------------------------------------------------------------------------
+# Valid script contexts
+# ------------------------------------------------------------------------------
+# player_country
+# player_diplomatic_play
+# player_diplomatic_pact
+# player_diplomatic_action
+# player_diplomatic_relations
+# player_interest_group
+# player_invaded_state
+# player_national_market
+# player_involved_market
+# player_state
+# player_building
+# player_market_goods
+# player_commander
+# player_trade_route
+
+curtiss_balloonist_possible_alert = {
+	script_context = player_country
+
+	valid = {
+		has_journal_entry = je_curtiss_balloonist
+		curtiss_no_balloonist_trigger = yes
+	}
+
+	open_panel = journal
+	type = important_action
+	alert_group = morgenroete
+}
+
+curtiss_zeppelin_expedition_possible_alert = {
+	script_context = player_country
+
+	valid = {
+		is_at_war = no
+		has_technology_researched = zeppelins
+		any_scope_building = {
+			is_building_type = building_verrier_observatory
+			has_active_production_method = pm_curtiss_weather_station
+		}
+		any_scope_character = {
+			OR = {
+				has_trait = curtiss_pilot
+				has_trait = curtiss_pilot_ace
+			}
+			is_busy = no
+		}
+		OR = {
+
+			OR = {
+				any_scope_state = {
+					state_region = s:STATE_GREENLAND
+				}
+				any_country = {
+					has_diplomatic_pact = {
+						who = ROOT
+						type = airspace_convention
+					}				
+					any_scope_state = {
+						state_region = s:STATE_GREENLAND
+					}
+				}		
+			}
+			OR = {
+				any_scope_state = {
+					state_region = s:STATE_NORTHERN_NORWAY
+				}
+				any_country = {
+					has_diplomatic_pact = {
+						who = ROOT
+						type = airspace_convention
+					}				
+					any_scope_state = {
+						state_region = s:STATE_NORTHERN_NORWAY
+					}
+				}		
+			}
+			OR = {
+				any_scope_state = {
+					state_region = s:STATE_ALASKA
+				}
+				any_country = {
+					has_diplomatic_pact = {
+						who = ROOT
+						type = airspace_convention
+					}				
+					any_scope_state = {
+						state_region = s:STATE_ALASKA
+					}
+				}		
+			}
+			OR = {
+				any_scope_state = {
+				state_region = s:STATE_NUNAVUT
+				}
+				any_country = {
+					has_diplomatic_pact = {
+						who = ROOT
+						type = airspace_convention
+					}				
+					any_scope_state = {
+						state_region = s:STATE_NUNAVUT
+					}
+				}		
+			}
+			OR = {
+				any_scope_state = {
+					state_region = s:STATE_NENETSIA
+				}
+				any_country = {
+					has_diplomatic_pact = {
+						who = ROOT
+						type = airspace_convention
+					}				
+					any_scope_state = {
+						state_region = s:STATE_NENETSIA
+					}
+				}		
+			}
+		}
+		NOR = {
+			has_modifier = curtiss_arctica_expedition_modifier
+			has_modifier = curtiss_had_arctica_expedition_modifier
+		}
+	}
+
+	open_panel = journal|decisions
+	type = important_action
+	alert_group = morgenroete
+}
+
+curtiss_schneider_trophy_race_possible_alert = {
+	script_context = player_country
+
+	valid = {
+		NOT = {
+			any_country = {
+				has_modifier = curtiss_the_schneider_trophy_modifier
+			}
+		}
+		curtiss_schneider_trophy_winner = yes
+		NOT = {
+			has_variable = curtiss_schneider_trophy_host
+		}
+		is_at_war = no
+		NOT = {
+			has_modifier = curtiss_schneider_trophy_break_modifier
+		}
+		OR = {
+			any_scope_state = {
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_port
+				}
+				any_scope_building = {
+					is_building_type = building_urban_center
+					level >= 10
+				}
+			}
+			AND = {
+				exists = c:SWI
+				c:SWI = ROOT
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_urban_center
+						level >= 10
+					}
+				}
+			}
+		}
+	}
+
+	open_panel = journal|decisions
+	type = important_action
+	alert_group = morgenroete
+}

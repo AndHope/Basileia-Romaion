@@ -23,7 +23,7 @@ romaioi_mod = {
 		#Buffs
 		#country_max_declared_interests_mult = 0.25
 		#state_rich_standard_of_living_add = 3
-		country_max_companies_add = 1
+		#country_max_companies_add = 1
 		state_radicals_from_sol_change_accepted_culture_mult = -0.15
 		state_loyalists_from_sol_change_accepted_culture_mult = 0.15
 
@@ -32,6 +32,37 @@ romaioi_mod = {
 		country_military_wages_mult = 0.15
 		state_radicals_from_discrimination_mult = 0.15
 		political_movement_radicalism_mult = 0.15
+		country_opposition_ig_approval_add = -2
+	}
+
+	can_research = no
+
+	ai_weight = {
+		value = -99 # Not meant to be researched.
+	}
+
+}
+
+china_mod = {
+	era = era_5
+	#category = society
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	
+	modifier = {
+
+		#country_officers_pol_str_mult = 0.1
+
+		#Debuffs
+		country_bureaucracy_mult = -0.25
+		state_tax_capacity_mult = -0.25
+
+		country_government_wages_mult = 0.15
+
+		state_radicals_from_discrimination_mult = 0.25
+		political_movement_radicalism_mult = 0.35
+		state_turmoil_effects_mult = 0.35
+
+		interest_group_ig_rural_folk_approval_add = -3
 	}
 
 	can_research = no
@@ -58,6 +89,7 @@ italian_republic_mod = {
 		building_group_bg_agriculture_tax_mult = 0.15
 
 		country_max_companies_add = 1
+		country_max_declared_interests_add = 1
 		building_university_throughput_add = 0.1
 		building_arts_academy_throughput_add = 0.1
 
@@ -92,8 +124,8 @@ merchant_republic_mod = {
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.1
 
-		country_max_companies_add = 2
-
+		country_max_companies_add = 1
+		country_max_declared_interests_add = 1
 		building_group_bg_agriculture_tax_mult = 0.15
 
 		#Military
@@ -122,6 +154,7 @@ merchant_republic_mod2 = {
 	modifier = {
 		#Buffs
 		country_max_companies_add = 1
+		country_max_declared_interests_add = 1
 		state_political_strength_from_wealth_mult = 0.25
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.1
@@ -217,6 +250,7 @@ tribal = {
 	
 	modifier = {
 		#Buffs
+		#country_max_declared_interests_add = -1
 		battle_defense_owned_province_mult = 0.25
 		state_conscription_rate_add = 0.05
 		unit_devastation_mult = 0.25
@@ -225,6 +259,8 @@ tribal = {
 
 		state_education_access_wealth_add = -0.005
 		country_tech_spread_mult = -0.25
+		building_group_bg_manufacturing_throughput_add = -0.1
+		building_group_bg_ranching_throughput_add = 0.1
 	}
 
 	can_research = no
@@ -266,6 +302,8 @@ horde_mod = {
 		state_radicals_from_discrimination_mult = 0.35
 		political_movement_radicalism_mult = 0.25
 		state_education_access_wealth_add = -0.003
+		building_group_bg_manufacturing_throughput_add = -0.1
+		building_group_bg_ranching_throughput_add = 0.1
 	}
 
 	can_research = no
@@ -290,7 +328,6 @@ andalus_mod = {
 		state_spanish_standard_of_living_add = -1
 
 		country_legitimacy_headofstate_add = 25
-		#country_prestige_add = 25
 		country_influence_add = 100
 		country_authority_add = 100
 
@@ -372,17 +409,14 @@ rising_sun = {
 		#Buffs
 		country_max_companies_add = 2
 		country_legitimacy_headofstate_add = 25
-		country_prestige_add = 25
-		country_authority_add = 200
 		state_education_access_wealth_add = 0.005
+		building_glassworks_throughput_add = 0.25
 
 		#Military
-		state_conscription_rate_add = 0.02
-		unit_supply_consumption_mult = -0.15
-		battle_defense_owned_province_mult = 0.25
 		battle_offense_owned_province_mult = 0.25
-		unit_navy_offense_mult = 0.15
-		country_military_goods_cost_mult = -0.15
+		unit_navy_offense_mult = 0.25
+		country_military_goods_cost_mult = -0.25
+		unit_supply_consumption_mult = -0.25
 
 		#Trade
 		country_trade_route_cost_mult = -0.25
@@ -408,15 +442,15 @@ norse_mod = { #Viking heritage
 		#Buffs #Military
 		country_navy_power_projection_mult = 0.25
 		unit_navy_offense_mult = 0.25
-		state_conscription_rate_add = 0.025
 		unit_supply_consumption_mult = -0.25
-		battle_defense_owned_province_mult = 0.25
 		battle_offense_owned_province_mult = 0.25
 		country_military_goods_cost_mult = -0.25
 
 		#Colonial
 		state_colony_growth_speed_mult = 0.25
-		building_group_bg_logging_throughput_add = 0.15
+		building_group_bg_logging_throughput_add = 0.1
+		building_group_bg_fishing_throughput_add = 0.1
+		building_group_bg_whaling_throughput_add = 0.1
 
 		country_trade_route_cost_mult = -0.25
 		country_trade_route_competitiveness_mult = 0.25
@@ -444,6 +478,11 @@ new_world_colonial = {
 		#Colonial
 		state_colony_growth_speed_mult = 0.25
 		state_migration_pull_mult = 0.25
+
+		country_max_declared_interests_mult = -0.5
+
+		building_group_bg_manufacturing_throughput_add = -0.1
+		building_group_bg_agriculture_throughput_add = 0.1
 	}
 
 	can_research = no
@@ -464,6 +503,10 @@ africa_colonial = {
 		#Colonial
 		state_colony_growth_speed_mult = 0.25
 		state_migration_pull_mult = 0.25
+
+		country_max_declared_interests_mult = -0.5
+		building_group_bg_manufacturing_throughput_add = -0.1
+		building_group_bg_agriculture_throughput_add = 0.1
 	}
 
 	can_research = no

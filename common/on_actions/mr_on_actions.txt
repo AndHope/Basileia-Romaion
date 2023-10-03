@@ -1,0 +1,109 @@
+﻿##########################
+# MORGENROETE ON ACTIONS #
+##########################
+
+#by Marco Dandolo
+
+######################
+
+#Checking the AI
+
+on_monthly_pulse_country = { 
+	on_actions = {
+		mr_on_monthly_pulse_country
+	}
+}
+
+mr_on_monthly_pulse_country = {
+
+	events = {
+		mr.1 #Check new AI countries for variables
+		mr.2 #Check Lepsius Exhibtions
+		mr.5 #Check University PMs
+	}
+}
+
+# Root = Releasing Country
+# scope:target = Released Country
+on_country_released_as_independent = {
+	on_actions = {
+		mr_on_country_released_as_independent
+	}
+}
+
+mr_on_country_released_as_independent = {
+	effect = {
+		scope:target = {
+			mr_add_variables = yes
+			mr_copy_percentage_of_variables = yes
+		}
+	}
+}
+
+# Root = Releasing Country
+# scope:target = Released Country
+on_country_released_as_own_subject = {
+	on_actions = {
+		mr_on_country_released_own_subject
+	}
+}
+
+mr_on_country_released_own_subject = {
+	effect = {
+		scope:target = {
+			mr_add_variables = yes
+			mr_copy_percentage_of_variables = yes
+		}
+	}
+}
+
+# Root = Releasing Country
+# scope:target = Released Country
+on_country_released_as_overlord_subject = {
+	on_actions = {
+		mr_on_country_released_as_overlord_subject
+	}
+}
+
+mr_on_country_released_as_overlord_subject = {
+	effect = {
+		scope:target = {
+			mr_add_variables = yes
+			mr_copy_percentage_of_variables = yes
+		}
+	}
+}
+
+# Root = Country
+# scope:target = Uprising country
+on_revolution_start = {
+	on_actions = {
+		mr_on_revolution_start
+	}
+}
+
+mr_on_revolution_start = {
+	effect = {
+		scope:target = {
+			mr_add_variables = yes
+		}
+	}
+}
+
+
+# Root = Country
+# scope:target = Uprising country
+on_secession_start = {
+	on_actions = {
+		mr_on_secession_start
+	}
+}
+
+mr_on_secession_start = {
+	effect = {
+		scope:target = {
+			mr_add_variables = yes
+			mr_copy_percentage_of_variables = yes
+		}
+	}
+}

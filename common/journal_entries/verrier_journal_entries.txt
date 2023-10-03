@@ -1,0 +1,334 @@
+﻿############################
+# VERRIER JOURNAL ENTRIES  #
+############################
+
+#by Marco Dandolo
+
+############################
+
+######DISCOVERIES######
+
+je_verrier_neptune = {
+	icon = "gfx/interface/icons/event_icons/event_astronomy.dds"
+
+	is_shown_when_inactive = {
+		has_technology_researched = verrier_physics_tech
+		NOT = {
+			has_global_variable = verrier_neptune_discovered_var
+		}
+	}
+
+	possible = {
+		has_technology_researched = verrier_astronomy_tech
+		any_scope_building = {
+			is_building_type = building_university
+			level >= 5
+		}
+	}
+
+	current_value = {
+		value = var:verrier_astronomical_objects
+	}
+
+	goal_add_value = {
+		value = 100 #value you want the variable to reach
+		subtract = var:verrier_astronomical_objects #current value of the variable
+		if = { #prevents the value of the goal_add_value to be below one
+			limit = {
+				var:verrier_astronomical_objects >= 100
+			}
+			value = 1
+		}
+	}
+
+	complete = {
+		any_scope_building = {
+			is_building_type = building_verrier_observatory
+		}
+		OR = {
+			any_scope_character = {
+				OR = {
+					has_trait = innovative
+					has_trait = meticulous
+					has_trait = ambitious
+					has_trait = persistent
+				}
+			}
+			verrier_has_astronomer = yes
+		}
+		custom_tooltip = {
+			text = je_verrier_neptune_success
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { 
+			id = verrier.10
+			popup = yes 
+		}
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_verrier_neptune_fail
+			any_country = {
+				NOT = { this = ROOT }
+				has_modifier = verrier_discovered_neptune_modifier
+			}
+		}
+    }
+
+	progressbar = yes
+
+	weight = 50
+}
+
+je_verrier_pluto = {
+	icon = "gfx/interface/icons/event_icons/event_astronomy.dds"
+
+	is_shown_when_inactive = {
+		has_technology_researched = verrier_astronomy_tech
+		has_technology_researched = camera
+		has_global_variable = verrier_neptune_discovered_var
+		NOT = {
+			has_global_variable = verrier_pluto_discovered_var
+		}
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_university
+			level >= 35
+		}
+	}
+
+	current_value = {
+		value = var:verrier_astronomical_objects
+	}
+
+	goal_add_value = {
+		value = 1500 #value you want the variable to reach
+		subtract = var:verrier_astronomical_objects #current value of the variable
+		if = { #prevents the value of the goal_add_value to be below one
+			limit = {
+				var:verrier_astronomical_objects >= 1500
+			}
+			value = 1
+		}
+	}
+
+	complete = {
+		any_scope_building = {
+			is_building_type = building_verrier_observatory
+		}
+		verrier_has_astronomer = yes
+		custom_tooltip = {
+			text = je_verrier_pluto_success
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { 
+			id = verrier.20
+			popup = yes 
+		}
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_verrier_pluto_fail
+			any_country = {
+				NOT = { this = ROOT }
+				has_modifier = verrier_discovered_pluto_modifier
+			}
+		}
+    }
+
+	progressbar = yes
+
+	weight = 50
+}
+
+###########################################################
+
+######MOON MAPPING#######
+
+je_verrier_charter_moon = {
+	icon = "gfx/interface/icons/event_icons/event_astronomy.dds"
+
+	is_shown_when_inactive = {
+		has_technology_researched = verrier_astronomy_tech
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_university
+			level >= 10
+		}
+		any_scope_building = {
+			is_building_type = building_verrier_observatory
+		}
+		has_technology_researched = camera
+	}
+
+	on_yearly_pulse = {
+		random_events = {
+			80 = 0
+			
+			10 = verrier.51 #Verrier 61: Lunar channels
+			10 = verrier.52 #Verrier 62: Lunar crater
+			10 = verrier.53 #Verrier 63: Lunar maria
+			10 = verrier.54 #Verrier 64: Lunar mountains
+		}
+	}
+
+	current_value = {
+		value = var:verrier_moon_photo
+	}
+
+	goal_add_value = {
+		add = 10
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_verrier_charter_moon_success
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { 
+			id = verrier.50
+			popup = yes 
+		}
+		remove_modifier = verrier_charter_moon_modifier
+	}
+
+	progressbar = yes
+
+	weight = 25
+}
+
+###########################################################
+
+######MODERN PHYSICS######
+
+je_verrier_astro_physics = {
+	icon = "gfx/interface/icons/event_icons/event_astronomy.dds"
+
+	is_shown_when_inactive = {
+		has_global_variable = verrier_neptune_discovered_var
+	}
+
+	possible = {
+		has_technology_researched = verrier_astronomy_tech
+	}
+
+	current_value = {
+		value = var:verrier_astronomical_objects
+	}
+
+	goal_add_value = {
+		value = 750 #value you want the variable to reach
+		subtract = var:verrier_astronomical_objects #current value of the variable
+		if = { #prevents the value of the goal_add_value to be below one
+			limit = {
+				var:verrier_astronomical_objects >= 750
+			}
+			value = 1
+		}
+	}
+
+	complete = {
+		has_technology_researched = electrical_generation
+		custom_tooltip = {
+			text = je_verrier_astro_physics_success
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		add_technology_researched = verrier_astro_physics_tech
+	}
+
+	progressbar = yes
+
+	weight = 35
+}
+
+###########################################################
+
+######Tara Wali Kothi######
+
+je_verrier_tara_wali_kothi = {
+	icon = "gfx/interface/icons/event_icons/event_astronomy.dds"
+
+	scripted_button = verrier_kothe_buy_additional_instruments_button
+	scripted_button = verrier_kothe_pay_workers_extra_button
+	scripted_button = verrier_kothe_employ_physics_teachers_button
+	scripted_button = verrier_kothe_employ_foreign_engineers_button
+
+	current_value = {
+		value = var:verrier_tara_wali_kothi_progress
+	}
+
+	immediate = {
+		set_variable = { #This variable tracks the progress of the construction
+			name = verrier_tara_wali_kothi_progress
+			value = 0
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			change_variable = {
+				name = verrier_tara_wali_kothi_progress
+				add = 1
+			}
+		}
+	}
+
+	goal_add_value = {
+		value = 100 #value you want the variable to reach
+		subtract = var:verrier_tara_wali_kothi_progress #current value of the variable
+		if = { #prevents the value of the goal_add_value to be below one
+			limit = {
+				var:verrier_tara_wali_kothi_progress >= 100
+			}
+			value = 1
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_verrier_tara_wali_kothi_success
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		remove_variable = verrier_tara_wali_kothi_progress
+
+		trigger_event = { 
+			id = verrier.1002
+			popup = yes 
+		}
+	}
+
+	progressbar = yes
+
+	weight = 15
+}

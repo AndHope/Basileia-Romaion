@@ -34,20 +34,7 @@ base_values = {
 	state_farmers_investment_pool_contribution_add = 0.05
 	state_shopkeepers_investment_pool_contribution_add = 0.05
 	state_aristocrats_investment_pool_contribution_add = 0.10
-	state_capitalists_investment_pool_contribution_add = 0.20	
-
-	state_farmers_investment_pool_efficiency_mult = -0.25 #new
-	state_shopkeepers_investment_pool_efficiency_mult = -0.25 #new
-	state_capitalists_investment_pool_efficiency_mult = -0.25 #new
-	state_aristocrats_investment_pool_efficiency_mult = -0.25 #new
-	state_engineers_investment_pool_efficiency_mult = -0.25 #new
-	state_machinists_investment_pool_efficiency_mult = -0.25 #new
-	state_bureaucrats_investment_pool_efficiency_mult = -0.25 #new
-	state_clerks_investment_pool_efficiency_mult = -0.25 #new
-	state_soldiers_investment_pool_efficiency_mult = -0.25 #new
-	state_clergymen_investment_pool_efficiency_mult = -0.25 #new
-	state_academics_investment_pool_efficiency_mult = -0.25 #new
-	state_officers_investment_pool_efficiency_mult = -0.25 #new
+	state_capitalists_investment_pool_contribution_add = 0.20
 
 	# To balance for unincorporated states not paying taxes
 	state_unincorporated_starting_wages_mult = -0.20
@@ -78,9 +65,16 @@ capital_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	state_pop_pol_str_mult = 0.25
 	state_tax_capacity_mult = 0.25
-	state_infrastructure_mult = 0.25 #new
-	building_throughput_add = 0.05 #new
+	state_infrastructure_mult = 0.1 #new
+	#building_throughput_add = 0.05 #new
+	building_group_bg_government_throughput_add = 0.1 #new
 	state_education_access_wealth_add = 0.01 #new
+}
+
+market_capital_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_infrastructure_mult = 0.25
+	building_group_bg_manufacturing_throughput_add = 0.1 #new
 }
 
 country_literacy_rate = {
@@ -89,21 +83,7 @@ country_literacy_rate = {
 	country_tech_spread_add = 50 #was 75
 	#country_weekly_innovation_add = 100 #was none
 	building_throughput_add = 0.25 #new
-	state_birth_rate_mult = -0.25 #new
-
-	state_farmers_investment_pool_efficiency_mult = 0.5 #new
-	state_shopkeepers_investment_pool_efficiency_mult = 0.5 #new
-	state_capitalists_investment_pool_efficiency_mult = 0.5 #new
-	state_aristocrats_investment_pool_efficiency_mult = 0.5 #new
-	state_engineers_investment_pool_efficiency_mult = 0.5 #new
-	state_machinists_investment_pool_efficiency_mult = 0.5 #new
-	state_bureaucrats_investment_pool_efficiency_mult = 0.5 #new
-	state_clerks_investment_pool_efficiency_mult = 0.5 #new
-	state_soldiers_investment_pool_efficiency_mult = 0.5 #new
-	state_clergymen_investment_pool_efficiency_mult = 0.5 #new
-	state_academics_investment_pool_efficiency_mult = 0.5 #new
-	state_officers_investment_pool_efficiency_mult = 0.5 #new
-
+	#state_birth_rate_mult = -0.1 #new
 }
 
 unincorporated_state = {

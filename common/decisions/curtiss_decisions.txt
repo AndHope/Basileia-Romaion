@@ -1,0 +1,384 @@
+﻿#####################
+# CURTISS DECISIONS #
+#####################
+
+#by Marco Dandolo
+
+###################
+
+######################################################################################
+
+#Hold Schneider Trophy Race
+
+curtiss_hold_schneider_trophy_race_decision = {
+	is_shown = {	
+		NOT = {
+			any_country = {
+				has_modifier = curtiss_the_schneider_trophy_modifier
+			}
+		}
+		curtiss_schneider_trophy_winner = yes
+		NOT = {
+			has_variable = curtiss_schneider_trophy_host
+		}
+	}
+	possible = {
+		is_at_war = no
+		NOT = {
+			has_modifier = curtiss_schneider_trophy_break_modifier
+		}
+		OR = {
+			any_scope_state = {
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_port
+				}
+				any_scope_building = {
+					is_building_type = building_urban_center
+					level >= 10
+				}
+			}
+			AND = {
+				exists = c:SWI
+				c:SWI = ROOT
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_urban_center
+						level >= 10
+					}
+				}
+			}
+		}
+	}
+	when_taken = {
+		remove_global_variable = curtiss_schneider_trophy_race_end
+		add_treasury = -25000
+		trigger_event = { 
+			id = curtiss.102
+			popup = yes 
+		}
+	}
+
+	ai_chance = {
+		base = 1000	
+	}
+}
+
+#Found Pilot School
+
+curtiss_found_pilot_school_decision = {
+	is_shown = {
+		has_technology_researched = military_aviation
+		NOT = {
+			has_modifier = curtiss_pilot_school_modifier
+		}
+	}
+	possible = {
+		OR = {
+			any_scope_character = {
+				has_trait = curtiss_pilot_ace
+			}
+			AND = {
+				any_scope_character = {
+					has_modifier = curtiss_schneider_veteran_modifier
+				}
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_war_machine_industry
+						level >= 3
+					}
+				}
+			}
+			AND = {
+				any_scope_character = {
+					has_trait = curtiss_pilot
+				}
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_war_machine_industry
+						level >= 5
+					}
+				}
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_airport
+						level >= 2
+					}
+				}
+			}
+		}
+	}
+	when_taken = {
+		add_modifier = {
+			name = curtiss_pilot_school_modifier
+		}
+	}
+
+	ai_chance = {
+		base = 1000	
+	}
+}
+
+#Lost Horizon
+
+curtiss_lost_horizon_decision = {
+	is_shown = {
+		has_variable = curtiss_search_for_conway
+		NOT = {
+			has_modifier = curtiss_search_conway_modifier
+		}
+		NOT = {
+			has_variable = curtiss_shangrila_mission_canceled
+		}
+	}
+	possible = {
+		any_scope_character = {
+			OR = {
+				has_trait = curtiss_pilot
+				has_trait = curtiss_pilot_ace
+			}
+			is_busy = no
+		}
+	}
+	when_taken = {
+		add_modifier = {
+			name = curtiss_search_conway_modifier
+		}
+		trigger_event = { 
+			id = curtiss.252
+			popup = yes 
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+curtiss_lost_horizon_continue_decision = {
+	is_shown = {
+		has_variable = curtiss_search_for_conway
+		NOT = {
+			has_modifier = curtiss_search_conway_modifier
+		}
+		has_variable = curtiss_shangrila_mission_canceled
+	}
+	possible = {
+		any_scope_character = {
+			OR = {
+				has_trait = curtiss_pilot
+				has_trait = curtiss_pilot_ace
+			}
+			is_busy = no
+		}
+	}
+	when_taken = {
+		add_modifier = {
+			name = curtiss_search_conway_modifier
+		}
+		remove_variable = curtiss_shangrila_mission_canceled
+		trigger_event = { 
+			id = curtiss.252
+			popup = yes 
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+curtiss_lost_horizon_archaeologist_decision = {
+	is_shown = {
+		has_variable = curtiss_road_to_shangrila
+		NOT = {
+			has_variable = curtiss_road_to_shangrila_found
+		}
+	}
+	possible = {
+		OR = {
+			lepsius_has_active_experienced_archaeologist = yes
+			lepsius_has_active_famous_archaeologist = yes
+		}
+	}
+	when_taken = {
+		set_variable = curtiss_road_to_shangrila_found
+		trigger_event = { 
+			id = curtiss.291
+			popup = yes
+			days = 7
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+######################################################################################
+
+#by Lord R
+
+######################
+
+######Sponsor Balloonist######
+
+curtiss_sponsor_balloonist_decisions = {
+	is_shown = {	
+		has_technology_researched = curtiss_montgolfier_balloon_tech
+		NOT = {
+			has_variable = curtiss_balloonist_var
+		}
+		is_ai = yes
+	}
+
+	possible = {
+	}
+
+	when_taken = {
+		trigger_event = {
+			id = curtiss.650
+			popup = yes
+		}
+
+		balloonist_cost_effect = yes
+	}
+	
+	ai_chance = {
+		base = -10000 #Hopefully mostly progressive countries should do this
+		modifier = {
+			trigger = {
+				ig:ig_devout = {
+					OR = {
+						is_in_government = yes
+						is_powerful = yes
+					}
+				}
+			}
+			add = -15
+		}
+		modifier = {
+			trigger = {
+				country_rank >= rank_value:major_power
+			}
+			add = 25
+		}
+		modifier = {
+			trigger = {
+				country_rank < rank_value:major_power
+			}
+			add = -5
+		}
+		modifier = {
+			trigger = {
+				ig:ig_landowners = {
+					OR = {
+						is_in_government = yes
+						is_powerful = yes
+					}
+				}
+			}
+			add = -15
+		}
+		modifier = {
+			trigger = {
+				ig:ig_intelligentsia = {
+					OR = {
+						is_in_government = yes
+						is_powerful = yes
+					}
+				}
+			}
+			add = 5
+		}
+		modifier = {
+			trigger = {
+				ig:ig_industrialists = {
+					OR = {
+						is_in_government = yes
+						is_powerful = yes
+					}
+				}
+			}
+			add = 5
+		}
+		modifier = {
+			trigger = {
+				ruler = {
+					interest_group = { 
+						OR = {
+							is_interest_group_type = ig_intelligentsia
+							is_interest_group_type = ig_industrialists
+						}
+					}
+				}
+			}
+			add = 5
+		}
+		modifier = {
+			trigger = {
+				has_technology_researched = zeppelins
+			}
+			add = -5
+		}
+		modifier = {
+			trigger = {
+				is_country_type = recognized
+			}
+			add = 5
+		}
+		modifier = {
+			trigger = {
+				NOR = {
+					average_sol >= 15
+					any_scope_pop = {
+						standard_of_living > 52
+					}
+				}
+			}
+			add = -5
+		}
+		modifier = {
+			trigger = {
+				NOT = {
+					any_scope_building = {
+						is_building_type = building_university
+						level >= 5
+					}
+				}			
+			}
+			add = -5
+		}
+	}
+}
+
+######Ballooning Window######
+
+#curtiss_show_ballooning_window_decision = {
+#	is_shown = {		
+#		has_technology_researched = curtiss_montgolfier_balloon_tech
+#		is_player = yes
+#		NOT = {
+#			has_variable = curtiss_aviation_decisions_hide
+#		}
+#	}
+#
+#	possible = {
+#		NOT = {
+#			has_variable = curtiss_ballooning_window_open_var
+#		}
+#	}
+#
+#	when_taken = {
+#		set_variable = curtiss_ballooning_window_open_var
+#		
+#		trigger_event = {
+#			id = curtiss.651
+#			popup = yes
+#		}
+#	}
+#	
+#	ai_chance = {
+#		base = 0 #AI should never do this
+#	}
+#}

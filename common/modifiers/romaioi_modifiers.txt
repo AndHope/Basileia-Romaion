@@ -51,6 +51,8 @@ war_for_independence = {
 	country_war_exhaustion_casualties_mult = -0.25
 }
 
+#Asia
+
 war_for_china = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
 	country_war_exhaustion_casualties_mult = -0.50
@@ -59,9 +61,9 @@ war_for_china = {
 
 inward_perfection = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
-	country_society_tech_cost_mult = -0.25
-	country_tech_spread_mult = -0.50
-	building_silk_plantation_throughput_add = 0.25
+	country_max_declared_interests_mult = -1
+	country_society_tech_research_speed_mult = 0.1
+	country_tech_spread_mult = -0.5
 }
 
 righteous_cause = {
@@ -108,7 +110,7 @@ pronoia_abolished = {
 romaioi_culture_supremacy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	state_greek_standard_of_living_add = 1
-	country_society_tech_cost_mult = -0.1
+	country_society_tech_research_speed_mult = 0.1
 	state_assimilation_mult = 0.25
 	state_radicals_from_discrimination_mult = 0.25
 }
@@ -121,20 +123,31 @@ romaioi_bureaucratic_corruption = {
 	state_tax_capacity_mult = -0.15
 	country_government_wages_mult = 0.15
 	state_conscription_rate_mult = -0.15
+	country_bureaucrats_voting_power_add = 5
 }
 latin_privileges = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	state_latinoi_standard_of_living_add = 3
 	country_shopkeepers_pol_str_mult = 0.25
+	country_shopkeepers_voting_power_add = 5
 	country_trade_route_cost_mult = -0.1
 	country_trade_route_quantity_mult = 0.1
-	tariff_import_add = -0.1
-	tariff_export_add = -0.1
-	country_navy_power_projection_mult = -0.25
+	#tariff_import_add = -0.1
+	#tariff_export_add = -0.1
+	country_convoys_capacity_mult = -0.5
+	country_navy_power_projection_mult = -0.5
+	#unit_convoy_requirements_mult = 0.25
+}
+roman_senate = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	country_aristocrats_voting_power_add = 25
+	country_officers_voting_power_add = 10
+	country_bureaucrats_voting_power_add = 5
 }
 noble_privileges = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
 	country_aristocrats_pol_str_mult = 0.25
+	country_aristocrats_voting_power_add = 25
 	country_authority_mult = -0.25
 	state_conscription_rate_mult = 0.25
 	state_tax_collection_mult = -0.25
@@ -153,6 +166,8 @@ romaioi_themata_primacy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	country_aristocrats_pol_str_mult = 0.35
 	country_farmers_pol_str_mult = 0.25
+	country_aristocrats_voting_power_add = 25
+	country_farmers_voting_power_add = 5
 	state_conscription_rate_mult = 0.25
 	battle_defense_owned_province_mult = 0.25
 	building_group_bg_agriculture_tax_mult = -0.1
@@ -161,6 +176,8 @@ romaioi_tagmata_primacy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	country_officers_pol_str_mult = 0.35
 	country_soldiers_pol_str_mult = 0.25
+	country_officers_voting_power_add = 25
+	country_soldiers_voting_power_add = 5
 	unit_army_offense_mult = 0.1
 	unit_morale_loss_mult = -0.1
 }
@@ -202,7 +219,8 @@ decentralized_khanate = {
 	state_tax_collection_mult = -0.25
 	battle_defense_owned_province_mult = 0.25
 	battle_offense_owned_province_mult = 0.25
-	building_livestock_ranch_throughput_add = 0.1
+	#building_livestock_ranch_throughput_add = 0.1
+	building_group_bg_ranching_throughput_add = 0.1
 	building_group_bg_manufacturing_throughput_add = -0.1
 	country_tech_spread_mult = -0.25
 	country_military_tech_spread_mult = 0.25
@@ -214,7 +232,8 @@ nomad_heritage = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	country_farmers_pol_str_mult = 0.5
 	state_tax_collection_mult = -0.25
-	building_livestock_ranch_throughput_add = 0.1
+	#building_livestock_ranch_throughput_add = 0.1
+	building_group_bg_ranching_throughput_add = 0.1
 	building_group_bg_manufacturing_throughput_add = -0.1
 	country_tech_spread_mult = -0.25
 	country_military_tech_spread_mult = 0.25
@@ -233,6 +252,7 @@ mongol_religious_tolerance = {
 merchant_republic = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
 	country_shopkeepers_pol_str_mult = 0.5
+	country_shopkeepers_voting_power_add = 10
 	state_shopkeepers_investment_pool_efficiency_mult = 0.5
 	state_political_strength_from_wealth_mult = 0.25
 	country_navy_power_projection_mult = 0.25
@@ -307,6 +327,7 @@ persian_empire = {
 persian_satraps = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
 	country_officers_pol_str_mult = 0.25
+	country_officers_voting_power_add = 10
 	state_conscription_rate_mult = 0.25
 }
 
@@ -315,6 +336,8 @@ vive_la_revolution = {
 	country_legitimacy_headofstate_add = 25
 	country_officers_pol_str_mult = 0.5
 	country_soldiers_pol_str_mult = 0.25
+	country_officers_voting_power_add = 25
+	country_soldiers_voting_power_add = 5
 	unit_army_offense_mult = 0.1
 	unit_morale_loss_mult = -0.1
 	country_clergymen_pol_str_mult = -0.5
@@ -350,6 +373,7 @@ boyars = {
 	country_aristocrats_pol_str_mult = 0.5
 	country_authority_mult = -0.25
 	building_group_bg_agriculture_tax_mult = -0.25
+	country_aristocrats_voting_power_add = 25
 }
 
 cossacks = {
@@ -387,35 +411,6 @@ ro_diplomacy = {
 romanian_nationalism = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
 	country_prestige_add = 100
-}
-
-#ig Modifiers
-
-romaioi_ig_angry = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	interest_group_approval_add = -3
-}
-romaioi_ig_very_angry = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	interest_group_approval_add = -6
-}
-romaioi_ig_happy = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
-	interest_group_approval_add = 3
-}
-romaioi_ig_very_happy = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
-	interest_group_approval_add = 6
-}
-
-edo_society_ig = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	interest_group_pol_str_mult = 1.0
-}
-
-ig_influence_modifier= {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	interest_group_pol_str_mult = 1.0
 }
 
 

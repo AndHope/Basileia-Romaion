@@ -1,0 +1,403 @@
+﻿namespace = chariot_racing
+
+# Revive chariot racing
+chariot_racing.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = chariot_racing.1.t
+	desc = chariot_racing.1.d
+	flavor = chariot_racing.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/southamerica_election.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+	
+	immediate = {
+		random_scope_character = {
+			limit = {
+				is_ruler = no
+				age >= 18
+			}
+			save_scope_as = chariot_racing_volunteer
+		}
+	}
+
+	option = {
+		name = chariot_racing.1.a
+		default_option = yes
+		
+		scope:chariot_racing_volunteer = {
+			set_variable = chariot_racing_volunteer_var
+		}
+		random_list = {
+			50 = {
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								age >= 50
+							}
+						}
+						add = -10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								age >= 60
+							}
+						}
+						add = -5
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								age >= 70
+							}
+						}
+						add = -10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = bandit
+							}
+						}
+						add = 10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = wounded
+							}
+						}
+						add = -10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = beetle_ear
+							}
+						}
+						add = -5
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = kidney_stones
+							}
+						}
+						add = -5
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = shellshocked
+							}
+						}
+						add = -5
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_role = general
+							}
+						}
+						add = 10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_role = admiral
+							}
+						}
+						add = 10
+					}
+				}
+				trigger_event = { id = chariot_racing.2 days = 30 popup = yes }
+			}
+			50 = {
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								age >= 50
+							}
+						}
+						add = 10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								age >= 60
+							}
+						}
+						add = 5
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								age >= 70
+							}
+						}
+						add = 10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = bandit
+							}
+						}
+						add = -10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = wounded
+							}
+						}
+						add = 10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = beetle_ear
+							}
+						}
+						add = 5
+					}
+				}
+
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = kidney_stones
+							}
+						}
+						add = 5
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_trait = shellshocked
+							}
+						}
+
+						add = 5
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_role = general
+							}
+						}
+						add = -10
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:chariot_racing_volunteer = {
+								has_role = admiral
+							}
+						}
+						add = -10
+					}
+				}
+				trigger_event = { id = chariot_racing.3 days = 30 popup = yes }
+			}
+		}
+	}
+
+	option = {
+		name = chariot_racing.1.b
+		
+		add_modifier = {
+			name = chariot_racing_medium_modifier
+			months = normal_modifier_time
+		}
+	}
+}
+
+# Racing success
+chariot_racing.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = chariot_racing.2.t
+	desc = chariot_racing.2.d
+	flavor = chariot_racing.2.f
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:chariot_racing_volunteer
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+	
+	immediate = {
+		any_scope_character = {
+			limit = {
+				has_variable = chariot_racing_volunteer_var
+			}
+			save_scope_as = chariot_racing_volunteer
+		}
+	}
+
+	option = {
+		name = chariot_racing.2.a
+		default_option = yes
+		trigger_event = { id = chariot_racing.4 days = 30 popup = yes }
+		add_modifier = {
+			name = chariot_racing_big_modifier
+			months = normal_modifier_time
+		}
+		scope:chariot_racing_volunteer = {
+			add_modifier = {
+				name = the_man_of_the_hour
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Racing failure
+chariot_racing.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = chariot_racing.3.t
+	desc = chariot_racing.3.d
+	flavor = chariot_racing.3.f
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:chariot_racing_volunteer
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+	
+	immediate = {
+		any_scope_character = {
+			limit = {
+				has_variable = chariot_racing_volunteer_var
+			}
+			save_scope_as = chariot_racing_volunteer
+		}
+	}
+
+	option = {
+		name = chariot_racing.3.a
+		default_option = yes
+		
+		add_modifier = {
+			name = chariot_racing_small_modifier
+			months = normal_modifier_time
+		}
+		scope:chariot_racing_volunteer = {
+			if = {
+				limit = {
+					NOT = {
+						has_trait = wounded
+					}
+				}
+				add_trait = wounded
+			}
+			add_modifier = {
+				name = tarnished_honor_modifier
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Grand Hippodrome built
+chariot_racing.4 = {
+	type = country_event
+	placement = ROOT
+
+	title = chariot_racing.4.t
+	desc = chariot_racing.4.d
+	flavor = chariot_racing.4.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_world_fair.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = chariot_racing.4.a
+		default_option = yes
+		
+	}
+}

@@ -1,0 +1,435 @@
+﻿
+###########################
+# DUBOIS JOURNAL ENTRIES  #
+###########################
+
+#by Marco Dandolo
+
+############################
+
+######SAFARI######
+
+je_dubois_safari = {
+	icon = "gfx/interface/icons/event_icons/event_animals.dds"
+
+	on_monthly_pulse = {
+		random_events = {
+			4 = dubois.32 #Standard event: Trap or Follow
+			2 = dubois.33 #Rare Flowers
+			2 = dubois.34 #Unknown Species
+			1 = dubois.35 #New vehicle: 2 follows possible
+			1 = dubois.36 #Extra traps: 2 traps possible
+			10 = dubois.38 #Hidden event
+			10 = dubois.39 #Succesful Safari
+		}
+	}
+	
+	immediate = {
+		var:dubois_naturalist_var = {
+			save_scope_as = dubois_naturalist_scope
+		}
+	}
+	
+    fail = {
+    }
+
+	on_fail = {
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_dubois_safari_fail
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = dubois.40
+			popup = yes
+		}
+	}
+
+	invalid = {
+	}
+
+	current_value = {
+		value = var:dubois_safari_progress
+	}
+
+	goal_add_value = {
+		add = 6
+	}
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
+
+	weight = 35
+}
+
+######ANIMAL BREEDING######
+
+je_animal_breeding = {	
+
+	on_yearly_pulse = {
+		random_events = {
+			5 = dubois.1311 #Dubois 1311: Hidden Event to calculate change for the animal population
+		}
+	}
+	
+	immediate = {
+		set_variable = {
+			name = dubois_breeding_animal_amount_var
+			value = 20
+		}
+	}
+	
+    fail = {
+		custom_tooltip = {
+			text = je_breeding_programm_failed_tt
+			var:dubois_breeding_animal_amount_var <= 1
+		}
+    }
+	
+	on_fail = {
+		trigger_event = {
+			id = dubois.1322
+			popup = yes
+		}
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = je_breeding_programm_succesfull_tt
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+	
+	on_complete = {
+		trigger_event = {
+			id = dubois.1321
+			popup = yes
+		}
+	}
+	
+	current_value = {
+		value = var:dubois_breeding_animal_amount_var
+	}
+
+	goal_add_value = {
+		value = 3980 #value you want the variable to reach
+	}
+	
+	progressbar = yes
+	
+    weight = 200
+    should_be_pinned_by_default = yes
+}
+
+######SPECIMEN COLLECTION######
+
+je_dubois_specimen = {
+	icon = "gfx/interface/icons/event_icons/event_animals.dds"
+
+	is_shown_when_inactive = {
+		is_player = yes
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_dubois_zoo
+		}
+	}
+	
+	immediate = {
+	}
+
+	
+    fail = {
+    }
+
+	on_fail = {
+	}
+
+	scripted_button = dubois_specimen_garden_button
+	scripted_button = dubois_specimen_collection_button
+
+	complete = {
+	}
+
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	current_value = {
+	}
+
+	goal_add_value = {
+	}
+
+	should_be_pinned_by_default = no
+
+	weight = 100
+}
+
+######FOSSIL EXHIBITION######
+
+je_dubois_fossil = {
+	icon = "gfx/interface/icons/event_icons/event_fossil.dds"
+
+	is_shown_when_inactive = {
+		is_player = yes
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_dubois_zoo
+		}
+		has_technology_researched = dubois_paleontology_tech
+	}
+	
+	immediate = {
+	}
+
+	
+    fail = {
+    }
+
+	on_fail = {
+	}
+
+	complete = {
+		dubois_has_paleontologist = yes
+		custom_tooltip = {
+			text = dubois_fossil_tt
+			var:dubois_fossil >= 100
+		}
+		NOT = {
+			any_scope_state = {
+				is_production_method_active = {
+					building_type = building_dubois_zoo
+					production_method = pm_paleontological_collection
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		dubois_sub_100_fossil = yes
+		random_scope_state = {
+			limit = {
+				has_building = building_dubois_zoo
+			}
+			activate_production_method = {
+				building_type = building_dubois_zoo
+				production_method = pm_paleontological_collection
+			}
+		}
+	}
+
+	invalid = {
+	}
+
+	current_value = {
+	}
+
+	goal_add_value = {
+	}
+
+	should_be_pinned_by_default = no
+
+	weight = 100
+}
+
+###DINOSAUR EXCAVATION######
+
+je_dubois_dinosaur_excavation = {
+	icon = "gfx/interface/icons/event_icons/event_fossil.dds"
+
+	on_monthly_pulse = {
+		random_events = {
+			100 = dubois.212 #Excavation progress (hidden)
+			10 = dubois.213 #Fossil Fragments
+			10 = dubois.214 #Dinosaur Bone
+			5 = dubois.215 #Dinosaur Skull
+			5 = dubois.216 #Dinosaur Skeleton
+		}
+	}
+	
+	immediate = {
+		var:dubois_paleontologist_var = {
+			save_scope_as = dubois_paleontologist_scope
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_dubois_dinosaur_excavation_goal
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = dubois.220
+			popup = yes
+		}
+	}
+
+	invalid = {
+		OR = {
+			dubois_has_paleontologist = no
+			NOT = {
+				has_modifier = dubois_paleontological_research_modifier
+			}
+		}
+	}
+
+	current_value = {
+		value = var:dubois_dinosaur_excavation_progress
+	}
+
+	goal_add_value = {
+		value = 12
+	}
+
+	progressbar = yes
+
+	weight = 25
+}
+
+###MOUNTAIN EXPEDITION######
+
+je_dubois_mountain_expedition = {
+	icon = "gfx/interface/icons/event_icons/event_geology.dds"
+
+	on_monthly_pulse = {
+		random_events = {
+			1 = 0
+			10 = dubois.430 #Dubois 430: An Easy Climb
+			10 = dubois.431 #Dubois 431: A Slope
+			10 = dubois.432 #Dubois 432: Steep Wall
+			10 = dubois.433 #Dubois 433: Avalanche
+			10 = dubois.434 #Dubois 434: Abyss
+			10 = dubois.435 #Dubois 435: Weather Change
+			10 = dubois.436 #Dubois 436: Death Step
+			20 = dubois.437 #Dubois 437: Lack of Oxygen
+			20 = dubois.438 #Dubois 438: Severe Injuries
+			20 = dubois.439 #Dubois 439: Rope Group
+			5 = dubois.440 #Dubois 440: Scientist does Science
+			5 = dubois.441 #Dubois 441: The Red Panda
+		}
+	}
+	
+	immediate = {
+		set_dubois_mountain_expedition_leader_effect = yes
+		set_dubois_summit_location = yes
+		set_dubois_mountain_expedition_scientist_effect = yes
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_dubois_mountain_expedition_goal
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = dubois.420
+			popup = yes
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = je_dubois_mountain_expedition_invalid
+			NOT = {
+				any_scope_state = {
+					has_variable = dubois_targeted_summit_var
+				}
+			}
+		}
+	}
+
+	on_invalid = {
+		remove_dubois_mountain_expedition_leader_effect = yes
+		remove_dubois_mountain_expedition_scientist_effect = yes
+		remove_dubois_mountain_choice_effect = yes
+	}
+
+	timeout = 365
+
+	on_timeout = {
+		trigger_event = { 
+			id = dubois.422
+			popup = yes 
+		}
+	}
+
+	current_value = {
+		value = var:dubois_mountain_climbing_progress
+	}
+
+	goal_add_value = {
+		if = {
+			limit = {
+				OR = {
+					has_variable = dubois_summit_great_dividing_range_var
+					has_variable = dubois_summit_scottish_highlands_var
+				}
+			}
+			add = 2 #Mountains with less than 3000 m
+		}
+		if = {
+			limit = {
+				OR = {
+					has_variable = dubois_summit_cascades_var
+					has_variable = dubois_summit_sierra_nevada_var
+					has_variable = dubois_summit_rocky_mountains_var
+					has_variable = dubois_summit_sierra_madre_occidental_var
+					has_variable = dubois_summit_central_american_cordilleras_var
+					has_variable = dubois_summit_wasatch_range_var
+					has_variable = dubois_summit_alps_mountains_var
+					has_variable = dubois_summit_atlas_mountains_var
+					has_variable = dubois_summit_zagros_mountains_var
+				}
+			}
+			add = 4 #Mountains with less than 5000 m
+		}
+		if = {
+			limit = {
+				OR = {
+					has_variable = dubois_summit_sierra_madre_oriental_var
+					has_variable = dubois_summit_andes_var
+					has_variable = dubois_summit_caucasus_mountains_var
+				}
+			}
+			add = 6 #Mountains with less than 7000 m
+		}
+		if = {
+			limit = {
+				OR = {
+					has_variable = dubois_summit_himalayas_mountains_var
+				}
+			}
+			add = 8 #Mountains with more than 7000 m
+		}
+		
+	}
+
+	progressbar = yes
+
+	weight = 25
+}

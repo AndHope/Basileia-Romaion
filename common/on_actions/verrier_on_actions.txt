@@ -1,0 +1,174 @@
+﻿######################
+# VERRIER ON ACTIONS #
+######################
+
+#by Marco Dandolo
+
+######################
+
+on_acquired_technology = {
+	on_actions = {
+		verrier_on_acquired_technology
+	}
+}
+
+on_half_yearly_pulse_country = { 
+	on_actions = {
+		verrier_on_half_yearly_pulse_country
+	}
+}
+
+on_yearly_pulse_country = { 
+	on_actions = {
+		verrier_on_yearly_pulse_country
+	}
+}
+
+on_monthly_pulse_country = { 
+	on_actions = {
+		verrier_on_monthly_pulse_country
+	}
+}
+
+verrier_on_acquired_technology = {
+	events = {
+		verrier.200 #Verrier 200: [SCOPE] determines the distance of 61 Cygni to be 11.4 light years
+	}
+}
+
+verrier_on_half_yearly_pulse_country = {
+
+	effect = {
+		if = { #Comet of 1843
+			limit = {
+				game_date > 1843.1.1
+				NOT = {
+					game_date >= 1844.1.1
+				}
+				NOT = {
+					has_global_variable = verrier_1843_comet_sighted_var
+				}
+			}
+			trigger_event = {
+				id = verrier.60
+			}
+			c:USA ?= {
+				trigger_event = {
+					id = verrier.1060
+				}
+			}
+		}
+		if = { #Comet of 1858
+			limit = {
+				game_date > 1858.1.1
+				NOT = {
+					game_date >= 1859.1.1
+				}
+				NOT = {
+					has_global_variable = verrier_1858_comet_sighted_var
+				}
+			}
+			trigger_event = {
+				id = verrier.63
+			}
+		}
+		if = { #Comet of 1861
+			limit = {
+				game_date > 1861.1.1
+				NOT = {
+					game_date >= 1862.1.1
+				}
+				NOT = {
+					has_global_variable = verrier_1861_comet_sighted_var
+				}
+			}
+			trigger_event = {
+				id = verrier.66
+			}
+		}
+		if = { #Comet of 1874
+			limit = {
+				game_date > 1874.1.1
+				NOT = {
+					game_date >= 1875.1.1
+				}
+				NOT = {
+					has_global_variable = verrier_1874_comet_sighted_var
+				}
+			}
+			trigger_event = {
+				id = verrier.69
+			}
+		}
+		if = { #Comet of 1882
+			limit = {
+				game_date > 1882.1.1
+				NOT = {
+					game_date >= 1883.1.1
+				}
+				NOT = {
+					has_global_variable = verrier_1882_comet_sighted_var
+				}
+			}
+			trigger_event = {
+				id = verrier.72
+			}
+		}
+	}
+}
+
+verrier_on_yearly_pulse_country = {
+
+	events = {
+		verrier.1 #Verrier 1: Yearly astronomical report
+		verrier.6 #Verrier 6: Obsevratory Dissolution
+		verrier.91 #Verrier 91: Einstein's annus mirabilis (1905, Switzerland)
+		verrier.92 #Verrier 92: Einstein moves
+		verrier.93 #Verrier 93: Einstein General Theory of Relativity (1915)
+		verrier.94 #Verrier 94: Einstein moves again (if country is not democratic enough)
+		verrier.95 #Verrier 95: Einstein, a politician?
+		
+		verrier.111 #Verrier 111: Miracles of the Sky (1836, Austria)
+		verrier.112 #Verrier 112: Bonner Durchmusterung (1846-1863, Prussia)
+		verrier.113 #Verrier 113: Martian canals (1877, Sardinia/Italy)
+		verrier.114 #Verrier 114: Halley's Comet (1910)
+		verrier.115 #Verrier 115: Lemaître's expanding universe (1927, Belgium)
+		verrier.116 #Verrier 116: Max Planck (Germany)
+		verrier.117 #Verrier 117: Edwin Hubble (USA)
+		verrier.118 #Verrier 118: Ernest Rutherford (Great Britain)
+		verrier.119 #Verrier 119: Dmitri Mendeleev (Russia)
+		verrier.120 #Verrier 120: Le Verrier (France)
+
+		verrier.121 #Verrier 121: Astraea discovered
+
+		verrier.1001 #Verrier 1001: Construction of the Tara Wali Kothi (Awadh)
+	}
+
+	random_events = {
+		1010 = 0
+
+		20 = verrier.40 #Verrier 40: Comet sighted!
+		30 = verrier.41 #Verrier 41: A new Asteroid
+		10 = verrier.42 #Verrier 42: Meteor shower
+		15 = verrier.43 #Verrier 43: Nebula
+		15 = verrier.44 #Verrier 44: Naming a star
+		30 = verrier.45 #Verrier 45: Astronomer
+		10 = verrier.46 #Verrier 46: Star maps wrong
+		20 = verrier.47 #Verrier 47: New Moon
+		10 = verrier.48 #Verrier 48: Incredible Nova!
+		10 = verrier.1100 #Verrier 1100: A stressful job
+		10 = verrier.1101 #Verrier 1101: Is [Astronomer] losing his/her mind?
+		20 = verrier.1110 #Verrier 1110: Twin Star disappeared
+		20 = verrier.1111 #Verrier 1111: Research Notes destroyed
+		100 = verrier.1112 #Verrier 1112: Lost stars
+	}
+}
+
+verrier_on_monthly_pulse_country = {
+	events = {
+		verrier.1011 #verrier 1011: Construction of the Ethniko Asterosokopio Athinon started (Greece)
+		verrier.1012 #verrier 1012: Construction of the Ethniko Asterosokopio Athinon finished (Greece)
+		verrier.1013 #verrier 1013: Othóneion Panepistímion opened in Athens (Greece)
+		verrier.1022 #verrier 1021: Eidgenössische Sternwarte (Switzerland)
+	}
+}

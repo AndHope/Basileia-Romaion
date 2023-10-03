@@ -1,12 +1,16 @@
 ﻿customs_union = {
 	requires_approval = yes
 	can_use_obligations = yes
-
+	
 	unlocking_technologies = {
 		international_trade
 	}
 
 	potential = {
+		custom_tooltip = {
+			text = tut_customs_union_block_txt
+			NOT = { has_variable = tut_customs_union_block }
+		}
 		NOR = {
 			is_country_type = decentralized 
 			has_law = law_type:law_isolationism
@@ -17,7 +21,8 @@
 				has_law = law_type:law_isolationism
 			}
 		}
-	}        
+	}
+
 	possible = {
 		NOT = { has_war_with = scope:target_country }
 		NOT = { is_subject_of = scope:target_country }
@@ -40,6 +45,7 @@
 		is_revolutionary = no
 		scope:target_country = {
 			is_revolutionary = no
+			NOT = { has_variable = tut_customs_union_block }
 		}
 		custom_tooltip = {
 			text = DIPLO_ACTION_MARKET_CONNECTION_REQUIRED
@@ -50,7 +56,7 @@
 				}
 				market = {
 					any_scope_country = {
-						is_adjacent = scope:target_country
+						is_adjacent_to_country = scope:target_country
 					}
 				}
 			}
@@ -77,7 +83,9 @@
 		has_junior_participant = yes
 		recipient_pays_maintenance = no
 		is_customs_union = yes
-		
+		can_be_used_in_sway_offers = yes
+		sway_maneuvers_cost = 10
+
 		relations_progress_per_day = 1  # At 100, +1 relations
 		relations_improvement_max = 80		
 		
@@ -170,7 +178,7 @@
 					NOR = {
 						scope:actor.market = {
 							any_scope_country = {
-								is_adjacent = root
+								is_adjacent_to_country = root
 							}
 						}
 						scope:actor = {
@@ -355,7 +363,7 @@
 					NOR = {
 						scope:actor.market = {
 							any_scope_country = {
-								is_adjacent = root
+								is_adjacent_to_country = root
 							}
 						}
 						scope:actor = {
@@ -608,6 +616,10 @@ join_customs_union = {
 	can_use_obligations = yes
 
 	potential = {
+		custom_tooltip = {
+			text = tut_customs_union_block_txt
+			NOT = { has_variable = tut_customs_union_block }
+		}
 		NOT = { is_country_type = decentralized }
 
 		scope:target_country = {
@@ -617,8 +629,12 @@ join_customs_union = {
 
 	possible = {
 		NOT = { has_war_with = scope:target_country }
-		NOT = { country_has_primary_culture = cu:manchu }
-		NOT = { country_has_primary_culture = cu:han }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:mongol} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:han} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:tatar} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:mughal} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:persian} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:japanese} }
 
 		# if we are the senior partner in an existing customs union,
 		# we don't want to join someone else's union
@@ -642,6 +658,7 @@ join_customs_union = {
 		scope:target_country = {
 			is_revolutionary = no
 			is_junior_in_customs_union = no
+			NOT = { has_variable = tut_customs_union_block }
 		}
 		
 		custom_tooltip = {
@@ -653,7 +670,7 @@ join_customs_union = {
 				}
 				market = {
 					any_scope_country = {
-						is_adjacent = scope:target_country
+						is_adjacent_to_country = scope:target_country
 					}
 				}
 			}
@@ -703,6 +720,10 @@ change_customs_union = {
 	can_use_obligations = yes
 
 	potential = {
+		custom_tooltip = {
+			text = tut_customs_union_block_txt
+			NOT = { has_variable = tut_customs_union_block }
+		}
 		NOT = { is_country_type = decentralized }
 		is_junior_in_customs_union = no
 		scope:target_country = {
@@ -713,8 +734,12 @@ change_customs_union = {
 
 	possible = {
 		NOT = { has_war_with = scope:target_country }
-		NOT = { scope:target_country = {country_has_primary_culture = cu:manchu} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:mongol} }
 		NOT = { scope:target_country = {country_has_primary_culture = cu:han} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:tatar} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:mughal} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:persian} }
+		NOT = { scope:target_country = {country_has_primary_culture = cu:japanese} }
 		
 		has_diplomatic_relevance = scope:target_country
 
@@ -732,6 +757,7 @@ change_customs_union = {
 
 		scope:target_country = {
 			is_revolutionary = no
+			NOT = { has_variable = tut_customs_union_block }
 		}
 		
 		custom_tooltip = {
@@ -743,7 +769,7 @@ change_customs_union = {
 				}
 				market = {
 					any_scope_country = {
-						is_adjacent = scope:target_country
+						is_adjacent_to_country = scope:target_country
 					}
 				}
 			}
