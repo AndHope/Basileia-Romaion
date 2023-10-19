@@ -92,16 +92,52 @@ TAT = {
 	}
 }
 
-BYZ = { # Belgium
+BYZ = { 
 	dynamic_country_name = {
-		name = dyn_byz_republic
+		name = dyn_c_byzantine_republic
 		
 		is_main_tag_only = yes
-		priority = 0
+		priority = 1
 		
 		trigger = {
 			coa_def_republic_flag_trigger = yes
-			#NOT = { coa_def_communist_flag_trigger = yes }
 		}
-	}	
+	}
+	
+	dynamic_country_name = {
+		name = dyn_c_patriarchal_synod
+		
+		is_main_tag_only = yes
+		priority = 1
+		
+		trigger = {
+			coa_def_theocracy_flag_trigger = yes
+		}
+	}
+	
+	dynamic_country_name = {
+		name = dyn_c_byzantine_peoples_republic
+		
+		is_main_tag_only = yes
+		priority = 10000 # why PDX why
+		
+		trigger = {
+			OR = {
+				coa_def_communist_flag_trigger = yes
+			}
+		}
+	}
+
+	dynamic_country_name = {
+		name = dyn_c_byzantine_peoples_front
+		
+		is_main_tag_only = yes
+		priority = 2
+		
+		trigger = {
+			OR = {
+				coa_def_anarchy_flag_trigger = yes
+			}
+		}
+	}
 }

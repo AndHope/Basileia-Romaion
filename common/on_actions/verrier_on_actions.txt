@@ -30,6 +30,12 @@ on_monthly_pulse_country = {
 	}
 }
 
+on_building_built = {
+	on_actions = {
+		verrier_on_building_built
+	}
+}
+
 verrier_on_acquired_technology = {
 	events = {
 		verrier.200 #Verrier 200: [SCOPE] determines the distance of 61 Cygni to be 11.4 light years
@@ -41,9 +47,9 @@ verrier_on_half_yearly_pulse_country = {
 	effect = {
 		if = { #Comet of 1843
 			limit = {
-				game_date > 1843.1.1
+				game_date > 1743.1.1
 				NOT = {
-					game_date >= 1844.1.1
+					game_date >= 1744.1.1
 				}
 				NOT = {
 					has_global_variable = verrier_1843_comet_sighted_var
@@ -60,9 +66,9 @@ verrier_on_half_yearly_pulse_country = {
 		}
 		if = { #Comet of 1858
 			limit = {
-				game_date > 1858.1.1
+				game_date > 1758.1.1
 				NOT = {
-					game_date >= 1859.1.1
+					game_date >= 1759.1.1
 				}
 				NOT = {
 					has_global_variable = verrier_1858_comet_sighted_var
@@ -74,9 +80,9 @@ verrier_on_half_yearly_pulse_country = {
 		}
 		if = { #Comet of 1861
 			limit = {
-				game_date > 1861.1.1
+				game_date > 1761.1.1
 				NOT = {
-					game_date >= 1862.1.1
+					game_date >= 1762.1.1
 				}
 				NOT = {
 					has_global_variable = verrier_1861_comet_sighted_var
@@ -88,9 +94,9 @@ verrier_on_half_yearly_pulse_country = {
 		}
 		if = { #Comet of 1874
 			limit = {
-				game_date > 1874.1.1
+				game_date > 1774.1.1
 				NOT = {
-					game_date >= 1875.1.1
+					game_date >= 1775.1.1
 				}
 				NOT = {
 					has_global_variable = verrier_1874_comet_sighted_var
@@ -102,9 +108,9 @@ verrier_on_half_yearly_pulse_country = {
 		}
 		if = { #Comet of 1882
 			limit = {
-				game_date > 1882.1.1
+				game_date > 1782.1.1
 				NOT = {
-					game_date >= 1883.1.1
+					game_date >= 1783.1.1
 				}
 				NOT = {
 					has_global_variable = verrier_1882_comet_sighted_var
@@ -170,5 +176,24 @@ verrier_on_monthly_pulse_country = {
 		verrier.1012 #verrier 1012: Construction of the Ethniko Asterosokopio Athinon finished (Greece)
 		verrier.1013 #verrier 1013: Othóneion Panepistímion opened in Athens (Greece)
 		verrier.1022 #verrier 1021: Eidgenössische Sternwarte (Switzerland)
+	}
+}
+
+verrier_on_building_built = {
+	effect = {
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						has_variable = verrier_observatory_inauguration_happened
+					}
+					verrier_astronomical_observation = yes
+				}
+			}
+			trigger_event = {
+				id = verrier.5 #Verrier 5: Observatory inauguration
+				popup = yes
+			}
+		}
 	}
 }

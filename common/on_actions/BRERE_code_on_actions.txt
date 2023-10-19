@@ -7,3 +7,79 @@ on_law_checkpoint_debate = {
 		palaiologos_events.4
 	}
 }
+
+on_monthly_pulse_country = {
+	on_actions = {
+		romaioi_monthly_pulse
+		chariot_racing_pulse_1
+		chariot_racing_pulse_2
+	}
+}
+
+romaioi_monthly_pulse = {
+	trigger = {
+		OR = {
+			exists = c:BYZ
+		}
+	}
+	events = {
+		pentarchy.1  # restoration of the patriarchate
+	}
+	random_events = {
+		100 = 0
+	}
+	effect = {
+		if = {
+			limit = {
+				has_variable =  byzfm_held_chariot_races
+			}
+			change_variable = {
+				name = byzfm_held_chariot_races
+				add = -1
+			}
+			clamp_variable = { # just to avoid outlandish values
+				name = byzfm_held_chariot_races
+				max = 48 
+				min = 0 
+			}
+		}
+	}
+}
+
+chariot_racing_pulse_1 = {
+	trigger = {
+		has_modifier = modifier_chariot_racing
+		has_variable = byzfm_held_chariot_races
+		var:byzfm_held_chariot_races < 1
+	}
+	random_events = {
+		20 = chariot_racing.50 # reds win
+		20 = chariot_racing.51 # whites win
+		20 = chariot_racing.52 # greens win
+		20 = chariot_racing.53 # blues win
+		10 = chariot_racing.56 # first match complete, crowd calls for diversum
+		 1 = chariot_racing.57 # sporting riot
+		 1 = chariot_racing.58 # ruler tries to join race
+		 1 = chariot_racing.59 # team gets caught cheating
+	}
+}
+
+chariot_racing_pulse_2 = {
+	trigger = {
+		has_modifier = modifier_expanded_chariot_racing
+		has_variable = byzfm_held_chariot_races
+		var:byzfm_held_chariot_races < 1
+	}
+	random_events = {
+		25 = chariot_racing.50 # reds win - industrialists
+		25 = chariot_racing.51 # whites win - intel
+		25 = chariot_racing.52 # greens win - rural folk
+		25 = chariot_racing.53 # blues win - petite
+		25 = chariot_racing.54 # purples win - landowners
+		25 = chariot_racing.55 # golds win - trade unions
+		15 = chariot_racing.56 # first match complete, crowd calls for diversum
+		 5 = chariot_racing.57 # sporting riot
+		 5 = chariot_racing.58 # ruler tries to join race
+		 1 = chariot_racing.59 # team gets caught cheating
+	}
+}

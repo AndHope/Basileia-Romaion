@@ -1,5 +1,5 @@
 company_suez_company = {
-	texture = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	texture = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
 	
 	building_types = {  
 		building_suez_canal
@@ -217,7 +217,7 @@ company_gen_arsenal = {
 
 # Imperial Arsenal
 company_imperial_arsenal = {
-	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	texture = "gfx/interface/icons/company_icons/historical_company_icons/imperial_arsenal.dds"
 	
 	flavored_company = yes
 	
@@ -242,8 +242,8 @@ company_imperial_arsenal = {
 	}
 	
 	prosperity_modifier = {
-		unit_navy_defense_mult = 0.25
-		country_navy_power_projection_mult = 0.25
+		unit_navy_defense_mult = 0.1
+		country_navy_power_projection_mult = 0.1
 	}
 	
 	ai_weight = {
@@ -252,13 +252,14 @@ company_imperial_arsenal = {
 }
 
 # Zeytinburnu Industrial Complex
-company_zeytinburnu = {
-	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+company_anatolia = {
+	texture = "gfx/interface/icons/company_icons/basic_metalworks.dds"
 	
 	flavored_company = yes
 	
 	building_types = {  
 		building_arms_industry
+		building_artillery_found
 		building_steel_mills
 		building_motor_industry
 	}
@@ -297,8 +298,8 @@ company_zeytinburnu = {
 }
 
 # Bakırköy Industrial Complex
-company_bakiroy = {
-	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+company_anatolia2 = {
+	texture = "gfx/interface/icons/company_icons/basic_munitions.dds"
 	
 	flavored_company = yes
 	
@@ -332,7 +333,7 @@ company_bakiroy = {
 	}
 	
 	prosperity_modifier = {
-		country_production_tech_spread_mult = 0.1
+		country_military_goods_cost_mult = -0.15
 	}	
 	
 	ai_weight = {
@@ -342,7 +343,7 @@ company_bakiroy = {
 
 # Chemins de fer Orientaux
 company_orient_express = {
-	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	texture = "gfx/interface/icons/company_icons/historical_company_icons/chemins_de_fer_orientaux.dds"
 	
 	flavored_company = yes
 	
@@ -373,74 +374,6 @@ company_orient_express = {
 	
 	prosperity_modifier = {
 		country_prestige_mult = 0.1
-	}	
-	
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
-	}
-}
-
-company_misr = {
-	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
-	
-	flavored_company = yes
-	
-	building_types = { 
-		building_textile_mills
-		building_cotton_plantation
-	}
-	
-	potential = {
-		has_interest_marker_in_region = region_nile_basin
-	}
-	
-	possible = { 
-		any_scope_state = {
-			state_region = s:STATE_LOWER_EGYPT
-			is_incorporated = yes
-			any_scope_building = {
-				is_building_type = building_textile_mills
-				level > 10
-			}
-		}
-		has_technology_researched = corporatism
-	}
-	
-	prosperity_modifier = {
-		state_loyalists_from_sol_change_mult = 0.1
-	}	
-	
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
-	}
-}
-
-# Egyptian National Railways
-company_egyptian_rail = {
-	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
-	
-	flavored_company = yes
-	
-	building_types = { 
-		building_railway
-	}
-	
-	potential = {
-		has_interest_marker_in_region = region_nile_basin
-	}
-	
-	possible = { 
-		any_scope_state = {
-			region = sr:region_nile_basin
-			is_incorporated = yes
-			has_building = building_railway
-			count >= 4
-		}
-		has_technology_researched = corporatism
-	}
-	
-	prosperity_modifier = {
-		state_infrastructure_from_population_max_add = 15
 	}	
 	
 	ai_weight = {

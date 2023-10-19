@@ -20,6 +20,15 @@ je_mr_visit_building = {
 			any_scope_building = {
 				is_building_type = building_lepsius_archaeological_museum
 			}
+			any_scope_building = {
+				is_building_type = building_verrier_observatory
+			}
+			any_scope_building = {
+				is_building_type = building_dubois_zoo
+			}
+			verrier_has_astronomer = yes
+			dubois_has_naturalist = yes
+			dubois_has_paleontologist = yes
 			lepsius_has_archaeologist = yes
 			lepsius_has_anthropologist = yes
 		}
@@ -35,6 +44,11 @@ je_mr_visit_building = {
 	}
 
 	scripted_button = mr_visit_museum_button
+	scripted_button = mr_visit_observatory_button
+	scripted_button = mr_visit_opera_button
+	scripted_button = mr_visit_zoo_button
+	scripted_button = mr_visit_paleontological_collection_button
+	scripted_button = mr_visit_scientific_society_button
 
 	complete = {
 	}
@@ -55,6 +69,33 @@ je_mr_visit_building = {
 		effect = {
 			if = {
 				limit = {
+					has_variable = verrier_astronomer_var
+					var:verrier_astronomer_var = {
+						is_character_alive = no
+					}
+				}
+				trigger_event = academics.12
+			}
+			if = {
+				limit = {
+					has_variable = dubois_naturalist_var
+					var:dubois_naturalist_var = {
+						is_character_alive = no
+					}
+				}
+				trigger_event = academics.13
+			}
+			if = {
+				limit = {
+					has_variable = dubois_paleontologist_var
+					var:dubois_paleontologist_var = {
+						is_character_alive = no
+					}
+				}
+				trigger_event = academics.14
+			}
+			if = {
+				limit = {
 					has_variable = lepsius_archaeologist_var
 					var:lepsius_archaeologist_var = {
 						is_character_alive = no
@@ -62,7 +103,124 @@ je_mr_visit_building = {
 				}
 				trigger_event = academics.15
 			}
+			if = {
+				limit = {
+					has_variable = lepsius_anthropologist_var
+					var:lepsius_anthropologist_var = {
+						is_character_alive = no
+					}
+				}
+				trigger_event = academics.16
+			}
 		}
+	}
+
+	should_be_pinned_by_default = yes
+
+	weight = 1000
+}
+
+######SCIENTIFIC EXPEDITIONS######
+
+je_mr_scientific_expeditions = {
+	icon = "gfx/interface/icons/event_icons/event_navigation.dds"
+
+	is_shown_when_inactive = {
+		has_technology_researched = empiricism
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_university
+		}
+	}
+	
+	immediate = {
+	}
+
+    fail = {
+    }
+
+	on_fail = {
+	}
+
+	scripted_button = mr_pacific_expedition_button
+	scripted_button = mr_mountain_expedition_button
+	scripted_button = mr_botanical_expedition_button
+	scripted_button = mr_botanical_expedition_recall_button
+	scripted_button = mr_paleontological_expedition_button
+	scripted_button = mr_paleontological_expedition_recall_button
+	scripted_button = mr_arctica_expedition_button
+
+	complete = {
+	}
+
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	current_value = {
+	}
+
+	goal_add_value = {
+	}
+
+	should_be_pinned_by_default = yes
+
+	weight = 1000
+}
+
+######SCIENTIFIC CONFERENCES######
+
+je_mr_scientific_conferences = {
+	icon = "gfx/interface/icons/event_icons/event_literature.dds"
+
+	is_shown_when_inactive = {
+		has_technology_researched = empiricism
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_university
+		}
+	}
+	
+	immediate = {
+	}
+
+    fail = {
+    }
+
+	on_fail = {
+	}
+
+	scripted_button = mr_exodus_congress_button
+	scripted_button = mr_civilization_congress_button
+	scripted_button = mr_troy_congress_button
+	scripted_button = mr_asteroid_congress_button
+	scripted_button = mr_carte_congress_button
+	scripted_button = mr_great_debate_congress_button
+	#scripted_button = mr_origin_of_moon_debate_button (Astronomer)
+	#scripted_button = mr_hippocampus_debate_button (Paleontologists, Anthropologists)
+	#scripted_button = mr_origin_of_man_debate_button (Anthropologists)
+	#scripted_button = mr_continental_drift_debate_button (Geologists)
+	#scripted_button = mr_age_of_earth_debate_button (Geologists)
+
+	complete = {
+	}
+
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	current_value = {
+	}
+
+	goal_add_value = {
 	}
 
 	should_be_pinned_by_default = yes
@@ -117,6 +275,59 @@ je_mr_archaeology = {
 	scripted_button = mr_second_excavation_team_button
 	scripted_button = mr_third_excavation_team_button
 	scripted_button = mr_fourth_excavation_team_button
+
+	complete = {
+	}
+
+	on_complete = {
+	}
+
+	invalid = {
+	}
+
+	current_value = {
+	}
+
+	goal_add_value = {
+	}
+
+	should_be_pinned_by_default = yes
+
+	weight = 1000
+}
+
+######ZOOLOGY######
+
+je_mr_zoology = {
+	icon = "gfx/interface/icons/event_icons/event_animals.dds"
+
+	is_shown_when_inactive = {
+		has_technology_researched = academia
+	}
+
+	possible = {
+		has_technology_researched = dubois_theory_of_evolution_tech
+	}
+	
+	immediate = {
+	}
+
+    fail = {
+    }
+
+	on_fail = {
+	}
+
+	scripted_button = mr_safari_expedition_button
+	scripted_button = mr_zoological_expedition_button
+	scripted_button = mr_extend_zoo_small_button
+	scripted_button = mr_extend_zoo_medium_button
+	scripted_button = mr_extend_zoo_large_button
+	scripted_button = mr_extend_zoo_famous_button
+	scripted_button = mr_ban_animal_export_button
+	scripted_button = mr_allow_animal_export_button
+	scripted_button = mr_nature_reserve_survey_button
+	scripted_button = mr_breeding_animals_button
 
 	complete = {
 	}

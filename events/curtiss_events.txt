@@ -1188,8 +1188,8 @@ curtiss.31 = {
 	duration = 3
 
 	trigger = {
-		exists = c:FRA
-		c:FRA = root
+		exists = c:HRE
+		c:HRE = root
 		game_date >= 1914.1.1
 		NOT = {
 			has_global_variable = curtiss_manfred_von_richthofen
@@ -1624,14 +1624,17 @@ curtiss.52 = {
 
 #Curtiss 53: Graf Ferdinand von Zeppelin
 
-curtiss.53 = {
+
+#Curtiss 54: Graf Ferdinand von Zeppelin
+
+curtiss.54 = {
 	type = country_event
 
-    title = curtiss.53.t
+    title = curtiss.54.t
 		
-    desc = curtiss.53.d
+    desc = curtiss.54.d
 
-	flavor = curtiss.53.f
+	flavor = curtiss.54.f
 
 	duration = 1
 		
@@ -1645,30 +1648,13 @@ curtiss.53 = {
 	icon = "gfx/interface/icons/event_icons/event_zeppelin.dds"
 
 	trigger = {
-		game_date >= 1900.1.1
-		NOT = {
-			game_date >= 1909.1.1
-		}
-		NOT = {
-			has_global_variable = curtiss_ferdinand_von_zeppelin_happened
-		}
-		OR = {
-			country_has_primary_culture = cu:south_german
-			country_has_primary_culture = cu:north_german
-			country_has_primary_culture = cu:alemannic
-		}
-		any_scope_state = {
-			state_region = s:STATE_WURTTEMBERG #Friedrichshafen
-		}
-		has_technology_researched = curtiss_reconnaissance_balloon_tech
 	}
 
 	immediate = {
-		set_global_variable = curtiss_ferdinand_von_zeppelin_happened
 	}
 
-	option = { #A misjudged genius.
-		name = curtiss.52.g
+	option = { #I knew he could do it!
+		name = curtiss.54.g
 		default_option = yes
 		if = {
 			limit = {
@@ -13374,8 +13360,8 @@ curtiss.602 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/airship"
 
 	trigger = {
-		exists = c:FRA
-		c:FRA = root
+		exists = c:HRE
+		c:HRE = root
 		NOT = {
 			has_global_variable = curtiss_arban_alps_global_var
 		}
@@ -13416,8 +13402,8 @@ curtiss.603 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/airship"
 
 	trigger = {
-		exists = c:FRA
-		c:FRA = root
+		exists = c:HRE
+		c:HRE = root
 		has_global_variable = curtiss_arban_alps_global_var
 		NOT = {
 			has_global_variable = curtiss_arban_mediterranean_lost_global_var
@@ -13876,8 +13862,8 @@ curtiss.609 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/airship"
 
 	trigger = {
-		exists = c:FRA
-		c:FRA = root
+		exists = c:HRE
+		c:HRE = root
 		NOT = {
 			has_global_variable = curtiss_nadar_photos_global_var
 		}
@@ -13920,8 +13906,8 @@ curtiss.610 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/airship"
 
 	trigger = {
-		exists = c:FRA
-		c:FRA = root
+		exists = c:HRE
+		c:HRE = root
 		NOT = {
 			has_global_variable = curtiss_nadar_crashed_global_var
 		}
@@ -14058,8 +14044,8 @@ curtiss.613 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/airship"
 
 	trigger = {
-		exists = c:FRA
-		c:FRA = root
+		exists = c:HRE
+		c:HRE = root
 		NOT = {
 			has_global_variable = curtiss_giffard_dirigible_global_var
 		}

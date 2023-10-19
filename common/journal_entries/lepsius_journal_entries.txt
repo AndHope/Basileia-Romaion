@@ -14,8 +14,9 @@ je_lepsius_letter_to_rosellini = {
 	icon = "gfx/interface/icons/event_icons/event_archaeology.dds"
 
 	is_shown_when_inactive = {
-		exists = c:SIC
-		c:SIC = root
+	#	exists = c:VEN
+	#	c:VEN = root
+		has_technology_researched = lepsius_antiquarianism_tech
 	}
 
 	possible = {
@@ -23,7 +24,7 @@ je_lepsius_letter_to_rosellini = {
 	}
 
 	complete = {
-		game_date >= 1736.1.5
+		game_date >= 1736.3.5
 	}
 
 	on_complete = {
@@ -31,12 +32,12 @@ je_lepsius_letter_to_rosellini = {
 	}
 
 	invalid = {
-		NOT = { exists = c:SIC }
+		NOT = { has_technology_researched = lepsius_antiquarianism_tech }
 	}
 
 	weight = 10
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default = no
 }
 
 #Stephens & Catherwood Expedition, access to Guatemala (you need something against malaria, however)
@@ -45,12 +46,13 @@ je_lepsius_stephens_catherwood_expedition = {
 	icon = "gfx/interface/icons/event_icons/event_archaeology.dds"
 
 	is_shown_when_inactive = {
-		exists = c:ELY
-		c:ELY = root
+	#	exists = c:VEN
+	#	c:VEN = root
+		has_technology_researched = lepsius_antiquarianism_tech
 	}
 
 	possible = {
-		game_date >= 1736.1.1
+		game_date >= 1750.1.5
 	}
 
 	complete = {
@@ -64,7 +66,7 @@ je_lepsius_stephens_catherwood_expedition = {
 	}
 
 	invalid = {
-		NOT = { exists = c:ELY }
+		NOT = { has_technology_researched = lepsius_antiquarianism_tech }
 	}
 
 	weight = 10
@@ -79,7 +81,7 @@ je_lepsius_decipherment_akkadian = {
 
 	is_shown_when_inactive = {
 		has_technology_researched = lepsius_antiquarianism_tech
-		game_date >= 1750.1.1
+		#game_date >= 1750.1.1
 		NOT = {
 			has_global_variable = lepsius_decipherment_akkadian_var
 		}
@@ -87,6 +89,7 @@ je_lepsius_decipherment_akkadian = {
 
 	possible = {
 		has_technology_researched = lepsius_early_archaeology_tech
+		#game_date >= 1760.1.5
 	}
 
 	complete = {
@@ -129,24 +132,25 @@ je_lepsius_support_schliemann = {
 	icon = "gfx/interface/icons/event_icons/event_archaeology.dds"
 
 	is_shown_when_inactive = {
-		has_technology_researched = lepsius_early_archaeology_tech
-		game_date >= 1770.1.1
+		has_technology_researched = lepsius_antiquarianism_tech
 		NOT = {
 			has_global_variable = lepsius_support_schliemann_var
 		}
 	}
 
 	possible = {
+		has_technology_researched = lepsius_early_archaeology_tech
+		#game_date >= 1770.1.1
 		any_scope_building = {
 			is_building_type = building_lepsius_archaeological_museum
 		}
 	}
 
 	complete = {
-		literacy_rate >= 0.75
+		literacy_rate >= 0.65
 		any_scope_building = {
 			is_building_type = building_university
-			level >= 15
+			level >= 10
 		}
 	}
 
@@ -175,15 +179,16 @@ je_lepsius_machu_picchu = {
 	icon = "gfx/interface/icons/event_icons/event_archaeology.dds"
 
 	is_shown_when_inactive = {
-		has_technology_researched = lepsius_modern_archaeology_tech
-		game_date >= 1900.1.1
+		has_technology_researched = lepsius_antiquarianism_tech
 		NOT = {
 			has_global_variable = lepsius_machu_picchu_var
 		}
 	}
 
 	possible = {
-		has_technology_researched = military_aviation
+		#game_date >= 1800.1.1
+		#has_technology_researched = military_aviation
+		has_technology_researched = lepsius_modern_archaeology_tech
 	}
 
 	complete = {

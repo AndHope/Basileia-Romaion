@@ -59,7 +59,7 @@
 				building="building_barracks"
 				level=15
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_naval_base"
@@ -129,7 +129,7 @@
 				building="building_barracks"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_port"
@@ -173,7 +173,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_port"
@@ -219,7 +219,7 @@
 				building="building_barracks"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_naval_base"
@@ -259,7 +259,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_fishing_wharf"
@@ -279,7 +279,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 		}
 	}
@@ -295,7 +295,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -335,7 +335,7 @@
 				building="building_barracks"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_naval_base"
@@ -373,7 +373,7 @@
 			}		
 			create_building={
 				building="building_shipyards"
-				level=3
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_basic_shipbuilding" "pm_merchant_guilds_building_shipyards" }
 			}
@@ -411,7 +411,7 @@
 				building="building_barracks"
 				level=15
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_naval_base"
@@ -469,7 +469,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}			
 			create_building={
 				building="building_naval_base"
@@ -543,7 +543,7 @@
 				building="building_barracks"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_port"
@@ -568,6 +568,12 @@
 				activate_production_methods={ "pm_merchant_guilds_building_fishing_wharf" "pm_unrefrigerated" "pm_simple_fishing" }
 			}
 			create_building={
+				building="building_whaling_station"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_whaling" "pm_unrefrigerated" "pm_merchant_guilds_building_whaling_station" }
+			}
+			create_building={
 				building="building_port"
 				level=1
 				reserves=1
@@ -576,12 +582,24 @@
 		}
 	}
 	s:STATE_GREENLAND={
-		region_state:DEN={
+		region_state:NWC={
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
 			create_building={
 				building="building_fishing_wharf"
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_merchant_guilds_building_fishing_wharf" "pm_unrefrigerated" "pm_simple_fishing" }
+			}
+			create_building={
+				building="building_whaling_station"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_whaling" "pm_unrefrigerated" "pm_merchant_guilds_building_whaling_station" }
 			}
 			create_building={
 				building="building_port"
@@ -627,7 +645,7 @@
 				building="building_barracks"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_port"
@@ -739,7 +757,7 @@
 				building="building_textile_mills"
 				level=4
 				reserves=1
-				activate_production_methods={ "pm_handsewn_clothes" "pm_privately_owned_building_textile_mills" "pm_traditional_looms" "pm_craftsman_sewing" }
+				activate_production_methods={ "pm_handsewn_clothes" "pm_privately_owned_building_textile_mills" "pm_traditional_looms" "pm_no_luxury_clothes" }
 			}
 			create_building={
 				building="building_shipyards"
@@ -763,7 +781,7 @@
 				building="building_barracks"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}			
 			create_building={
 				building="building_rye_farm"
@@ -797,7 +815,7 @@
 				building="building_textile_mills"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_handsewn_clothes" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
+				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
 				building="building_coal_mine"
@@ -827,7 +845,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_naval_base"
@@ -855,7 +873,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_rye_farm"
@@ -919,7 +937,7 @@
 				building="building_barracks"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_naval_base"
@@ -965,7 +983,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -985,7 +1003,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -1025,13 +1043,13 @@
 				building="building_textile_mills"
 				level=4
 				reserves=1
-				activate_production_methods={ "pm_handsewn_clothes" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
+				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
 				building="building_furniture_manufacturies"
 				level=4
 				reserves=1
-				activate_production_methods={ "pm_handcrafted_furniture" "pm_luxury_furniture" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
+				activate_production_methods={ "pm_handcrafted_furniture" "pm_no_luxuries" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
 			}
 			create_building={
 				building="building_coal_mine"
@@ -1061,7 +1079,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}
 			create_building={
 				building="building_port"
@@ -1089,7 +1107,7 @@
 				building="building_furniture_manufacturies"
 				level=3
 				reserves=1
-				activate_production_methods={ "pm_handcrafted_furniture" "pm_luxury_furniture" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
+				activate_production_methods={ "pm_handcrafted_furniture" "pm_no_luxuries" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
 			}
 			create_building={
 				building="building_glassworks"
@@ -1107,7 +1125,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}			
 			create_building={
 				building="building_rye_farm"
@@ -1127,7 +1145,7 @@
 				building="building_food_industry"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_merchant_guilds_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_merchant_guilds_building_food_industry" "pm_disabled_canning" "pm_bakery" "pm_manual_dough_processing" "pm_pot_stills" }
 			}
 			create_building={
 				building="building_iron_mine"
@@ -1145,7 +1163,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}			
 			create_building={
 				building="building_naval_base"
@@ -1191,13 +1209,13 @@
 				building="building_textile_mills"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_handsewn_clothes" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
+				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}			
 			create_building={
 				building="building_wheat_farm"
@@ -1247,7 +1265,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}			
 			create_building={
 				building="building_naval_base"
@@ -1341,7 +1359,7 @@
 				building="building_barracks"
 				level=8
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}
 			create_building={
 				building="building_port"
@@ -1391,7 +1409,7 @@
 				building="building_barracks"
 				level=3
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_port"
@@ -1419,7 +1437,7 @@
 				building="building_barracks"
 				level=3
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -1445,7 +1463,7 @@
 				building="building_barracks"
 				level=3
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -1473,7 +1491,7 @@
 				building="building_barracks"
 				level=3
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}
 			create_building={
 				building="building_port"
@@ -1501,7 +1519,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}
 		}
 		region_state:DEN={
@@ -1521,7 +1539,7 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" }
+				activate_production_methods={ "pm_general_training" }
 			}
 			create_building={
 				building="building_port"
@@ -1543,7 +1561,7 @@
 				building="building_barracks"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" }
+				activate_production_methods={ "pm_no_organization" }
 			}
 			create_building={
 				building="building_port"

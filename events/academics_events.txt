@@ -12,7 +12,6 @@ namespace = academics
 
 ###Retirement###
 
-#Academics 1: Engineer retires
 #Academics 2: Astronomer retires
 #Academics 3: Naturalist retires
 #Academics 4: Paleontologist retires
@@ -21,7 +20,6 @@ namespace = academics
 
 ###Death Notifications from Game caused Deaths###
 
-#Academics 11: Engineer died
 #Academics 12: Astronomer died
 #Academics 13: Naturalist died
 #Academics 14: Paleontologist died
@@ -31,7 +29,6 @@ namespace = academics
 ###Character Overview###
 
 #Academics 30: Academic Society
-#Academics 31: Our Engineer, SCOPE
 #Academics 32: Our Astronomer, SCOPE
 #Academics 33: Our Naturalist, SCOPE
 #Academics 34: Our Paleontologist, SCOPE
@@ -41,7 +38,6 @@ namespace = academics
 ###Academy###
 
 #Academics 50: Academy Progress
-#Academics 51: Engineer
 #Academics 52: Astronomer
 #Academics 53: Naturalist
 #Academics 54: Paleontologist
@@ -73,7 +69,6 @@ namespace = academics
 
 # Academic unhappy with Promotion of other Academics
 
-#Academics 1000: Dr. [Engineers] requests funding
 #Academics 1001: Dr. [Astronomer] requests funding
 #Academics 1002: Dr. [Naturalist] requests funding
 #Academics 1003: Dr. [Paleontologist] requests funding
@@ -140,7 +135,6 @@ namespace = academics
 #Academics 2301: Fantastic Fossil Collection
 #Academics 2302: We failed to collect more Fossils than [Rival]
 
-###Industrial/Engineering Missions###
 
 #Academics 2400: We need Railways!
 
@@ -307,7 +301,7 @@ academics.4 = {
 
 	desc = academics.4.d
 
-#	flavor = academics.4.f
+	flavor = academics.4.f
 	
 	duration = 3
 
@@ -355,12 +349,6 @@ academics.4 = {
 	option = {	#We need him! Pay him extra!
 		name = academics.1.h
 
-		trigger = {
-			NOT = {
-				has_modifier = academics_engineer_emeritus_delayed_modifier
-			}
-		}
-
 		add_modifier = {
 			name = academics_paleontologist_emeritus_delayed_modifier
 		}
@@ -383,7 +371,7 @@ academics.5 = {
 
 	desc = academics.5.d
 
-#	flavor = academics.5.f
+	flavor = academics.5.f
 	
 	duration = 3
 
@@ -839,7 +827,6 @@ academics.30 = {
 	}
 }
 
-#Academics 31: Our Engineer, SCOPE
 
 #Academics 32: Our Astronomer, SCOPE
 academics.32 = {
@@ -955,7 +942,7 @@ academics.34 = {
 
 	desc = academics.34.d
 
-#	flavor = academics.34.f
+	flavor = academics.4.f
 	
 	duration = 3
 
@@ -1008,7 +995,7 @@ academics.35 = {
 
 	desc = academics.35.d
 
-#	flavor = academics.35.f
+	flavor = academics.5.f
 	
 	duration = 3
 
@@ -1230,7 +1217,9 @@ academics.50 = {
 
 		if = { #Observatory gives mathematical advantage
 			limit = {
-				has_variable = dubois_promote_mathematics_active
+				OR = {
+					has_variable = academics_promote_astronomer_active
+				}
 				any_scope_building = {
 					is_building_type = building_verrier_observatory
 				}
@@ -1240,7 +1229,10 @@ academics.50 = {
 
 		if = { #Zoo gives naturalistic advantage
 			limit = {
-				has_variable = dubois_promote_natural_history_active
+				OR = {
+					has_variable = academics_promote_naturalist_active
+					has_variable = academics_promote_paleontologist_active
+				}
 				any_scope_building = {
 					is_building_type = building_dubois_zoo
 				}
@@ -1264,10 +1256,23 @@ academics.50 = {
         	}
 			dubois_add_academy_progress = yes
 		}
+
+		if = { #Exodus Congress
+			limit = {
+            	has_modifier = lepsius_historical_materialistic_school_modifier
+        	}
+			dubois_add_academy_progress = yes
+		}
+
+		if = { #Troy Congress
+			limit = {
+            	has_modifier = lepsius_troy_myth_modifier
+        	}
+			dubois_add_academy_progress = yes
+		}
 	}
 }
 
-#Academics 51: Engineer
 
 #Academics 52: Astronomer
 
@@ -1574,102 +1579,7 @@ academics.56 = {
 	}
 }
 
-#Academics 60: Random Scientist
-
-#academics.60 = {
-#	type = country_event
-#
-#	title = academics.51.t
-#
-#	desc = {
-#		triggered_desc = {
-#			trigger = {
-#				has_variable = dubois_promote_engineer
-#			}
-#			desc = academics.60.d.engineer
-#		}
-#		triggered_desc = {
-#			trigger = {
-#				has_variable = dubois_promote_astronomer
-#			}
-#			desc = academics.60.d.astronomer
-#		}
-#		triggered_desc = {
-#			trigger = {
-#				has_variable = dubois_promote_naturalist
-#			}
-#			desc = academics.60.d.naturalist
-#		}
-#		triggered_desc = {
-#			trigger = {
-#				has_variable = dubois_promote_paleontologist
-#			}
-#			desc = academics.60.d.paleontologist
-#		}
-#		triggered_desc = {
-#			trigger = {
-#				has_variable = dubois_promote_archaeologist
-#			}
-#			desc = academics.60.d.archaeologist
-#		}
-#		triggered_desc = {
-#			trigger = {
-#				has_variable = dubois_promote_anthropologist
-#			}
-#			desc = academics.60.d.anthropologist
-#		}
-#	}
-#
-#	flavor = academics.51.f
-#
-#	event_image = {
-#		texture = "gfx/event_pictures/dubois_pictures/dubois_academy.dds"
-#	}
-#
-#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-#
-#	icon = "gfx/interface/icons/event_icons/event_academy.dds"
-#
-#	trigger = {
-#	}
-#
-#	immediate = {
-#		random_list = { #randomizes scientist
-#			1 = { 
-#				set_variable = dubois_promote_engineer
-#				create_engineer_effect = yes
-#			}
-#			1 = { 
-#				set_variable = dubois_promote_astronomer
-#				create_astronomer_effect = yes
-#			}
-#			1 = { 
-#				set_variable = dubois_promote_naturalist
-#				create_naturalist_effect = yes
-#			}
-#			1 = { 
-#				set_variable = dubois_promote_paleontologist
-#				create_paleontologist_effect = yes
-#			}
-#			1 = { 
-#				set_variable = dubois_promote_archaeologist
-#				create_archaeologist_effect = yes
-#			}
-			#1 = { 
-			#	set_variable = dubois_promote_anthropologist
-			#	create_anthropologist_effect = yes
-			#}
-#		}
-#	}
-#
-#	option = {
-#		name = academics.51.g
-#	}
-#
-#	after = {
-#		dubois_remove_academy_effect = yes
-#	}
-#}
+#Academics 60: Random Scientist REMOVED
 
 #################################################################################
 
@@ -2260,7 +2170,6 @@ academics.150 = {
 
 ######Academic Interactions######
 
-#Academics 1000: Dr. [Engineers] requests funding
 
 
 #Academics 1001: Dr. [Astronomer] requests funding
@@ -2289,12 +2198,13 @@ academics.1001 = {
 
 	trigger = {
 		OR = {
-			has_variable = dubois_promote_humanities_active
-			has_variable = dubois_promote_natural_history_active
+			has_variable = academics_promote_naturalist_active
+			has_variable = academics_promote_paleontologist_active
+			has_variable = academics_promote_archaeologist_active
+			has_variable = academics_promote_anthropologist_active
 		}
 		has_variable = verrier_astronomer_var
 		NOR = {
-			has_modifier = academics_additional_funding_engineer_modifier
 			has_variable = academics_no_more_funding_petitions_var
 		}
 	}
@@ -2519,8 +2429,9 @@ academics.1003 = {
 
 	trigger = {
 		OR = {
-			has_variable = dubois_promote_humanities_active
-			has_variable = dubois_promote_natural_history_active
+			has_variable = academics_promote_astronomer_active
+			has_variable = academics_promote_archaeologist_active
+			has_variable = academics_promote_anthropologist_active
 		}
 		has_variable = dubois_paleontologist_var
 		NOR = {
@@ -2634,8 +2545,9 @@ academics.1004 = {
 
 	trigger = {
 		OR = {
-			has_variable = dubois_promote_humanities_active
-			has_variable = dubois_promote_natural_history_active
+			has_variable = academics_promote_astronomer_active
+			has_variable = academics_promote_naturalist_active
+			has_variable = academics_promote_paleontologist_active
 		}
 		has_variable = lepsius_archaeologist_var
 		NOR = {
@@ -2713,6 +2625,122 @@ academics.1004 = {
 		}
 		modifier = {
 			var:lepsius_archaeologist_var = {
+				has_trait = cautious
+			}
+			factor = 0.5
+		}
+	}
+
+	after = {
+	}
+}
+
+#Academics 1005: Dr. [Anthropologist] requests funding
+academics.1005 = {
+	type = country_event
+
+	title = academics.1005.t
+
+	desc = academics.1005.d
+
+	flavor = academics.1005.f
+
+	placement = ROOT
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:lepsius_anthropologist_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_archaeology.dds"
+
+	cooldown = {
+		years = { 5 10 }
+	}
+
+	trigger = {
+		OR = {
+			has_variable = academics_promote_astronomer_active
+			has_variable = academics_promote_naturalist_active
+			has_variable = academics_promote_paleontologist_active
+		}
+		has_variable = lepsius_anthropologist_var
+		NOR = {
+			has_modifier = academics_additional_funding_anthropologist_modifier
+			has_variable = academics_no_more_funding_petitions_var
+		}
+	}
+
+	immediate = {
+		var:lepsius_anthropologist_var = {
+			save_scope_as = lepsius_anthropologist_scope
+		}
+		set_variable = {
+			name = academics_no_more_funding_petitions_var
+			years = { 3 7 }
+		}
+	}
+
+	option = {
+		name = academics.1005.g
+
+		add_modifier = {
+			name = academics_additional_funding_anthropologist_modifier
+			years = 3
+		}
+	}
+
+	option = {
+		name = academics.1005.h
+		default_option = yes
+
+		add_modifier = {
+			name = academics_no_funding_anthropologist_modifier
+			years = 3
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			var:lepsius_anthropologist_var = {
+				has_trait = direct
+			}
+			factor = 2
+		}
+		modifier = {
+			var:lepsius_anthropologist_var = {
+				has_trait = arrogant
+			}
+			factor = 2
+		}
+		modifier = {
+			var:lepsius_anthropologist_var = {
+				has_trait = reckless
+			}
+			factor = 2
+		}
+		modifier = {
+			var:lepsius_anthropologist_var = {
+				has_trait = ambitious
+			}
+			factor = 2
+		}
+		modifier = {
+			var:lepsius_anthropologist_var = {
+				has_trait = reserved
+			}
+			factor = 0.1
+		}
+		modifier = {
+			var:lepsius_anthropologist_var = {
+				has_trait = tactful
+			}
+			factor = 0.5
+		}
+		modifier = {
+			var:lepsius_anthropologist_var = {
 				has_trait = cautious
 			}
 			factor = 0.5
@@ -3335,7 +3363,7 @@ academics.2012 = {
 	immediate = {
 	}
 
-	option = { #I need our best architects and engineers right now!
+	option = { #I need our best architects and  right now!
 		name = academics.2012.g
 
 		add_journal_entry = {
@@ -5658,7 +5686,6 @@ academics.2302 = {
 
 #################################################################################
 
-###Industrial/Engineering Missions###
 
 #Academics 2400: We need Railways!
 academics.2400 = {

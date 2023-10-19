@@ -58,6 +58,8 @@ base_values = {
 	military_formation_organization_gain_add = 0.5 # 200 days to get max organization
 	
 	state_urbanization_per_level_add = 100
+
+	unit_experience_gain_add = 2.0
 	
 }
 
@@ -68,13 +70,16 @@ capital_state = {
 	state_infrastructure_mult = 0.1 #new
 	#building_throughput_add = 0.05 #new
 	building_group_bg_government_throughput_add = 0.1 #new
-	state_education_access_wealth_add = 0.01 #new
+	state_education_access_wealth_add = 0.005 #new
+	state_dependent_wage_mult = 0.1 #new
 }
 
 market_capital_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	state_infrastructure_mult = 0.25
 	building_group_bg_manufacturing_throughput_add = 0.1 #new
+	state_dependent_wage_mult = 0.1 #new
+	state_education_access_wealth_add = 0.005 #new
 }
 
 country_literacy_rate = {
@@ -83,36 +88,43 @@ country_literacy_rate = {
 	country_tech_spread_add = 50 #was 75
 	#country_weekly_innovation_add = 100 #was none
 	building_throughput_add = 0.25 #new
-	#state_birth_rate_mult = -0.1 #new
+	#state_dependent_wage_mult = 0.1 #new
+	#state_birth_rate_mult = -0.25 #new
+}
+
+low_pop_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_birth_rate_mult = 0.25 #was 0.50
 }
 
 unincorporated_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
 	state_infrastructure_mult = -0.25
 	state_conscription_rate_mult = -0.5
+	state_expected_sol_mult = -0.33
+	state_pop_pol_str_mult = -0.50
 	tax_income_add = 0.15
 	tax_dividends_add = 0.15
 	state_welfare_payments_add = -1.0
-	state_expected_sol_mult = -0.33
-	state_pop_pol_str_mult = -0.50
 	building_group_bg_manufacturing_throughput_add = -0.25
 	building_group_bg_government_throughput_add = -0.1
 	building_group_bg_military_throughput_add = -0.1		
 	state_market_access_price_impact = -0.1
+	state_birth_rate_mult = -0.1
 }
 
 tax_modifier_very_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	country_legitimacy_base_add = 10
 	state_radicals_from_sol_change_mult = -0.2
-	state_birth_rate_mult = 0.02
+	state_birth_rate_mult = 0.04
 }
 
 tax_modifier_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	country_legitimacy_base_add = 5
 	state_radicals_from_sol_change_mult = -0.1
-	state_birth_rate_mult = 0.01
+	state_birth_rate_mult = 0.02
 }	
 
 tax_modifier_medium = {
@@ -122,6 +134,7 @@ tax_modifier_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	country_legitimacy_base_add = -5
 	state_radicals_from_sol_change_mult = 0.25
+	interest_group_in_government_attraction_mult = -0.1
 	state_birth_rate_mult = -0.02
 }	
 
@@ -129,6 +142,7 @@ tax_modifier_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	country_legitimacy_base_add = -10
 	state_radicals_from_sol_change_mult = 0.5
+	interest_group_in_government_attraction_mult = -0.2
 	state_birth_rate_mult = -0.04
 }	
 

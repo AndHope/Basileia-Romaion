@@ -62,6 +62,14 @@ GLOBAL = {
 			}
 		}
 
+#		every_scope_state = {
+#			limit = { OR = { state_region = s:STATE_HEDJAZ } }
+#			add_modifier = {
+#				name = hajj
+#				years = -1
+#			}
+#		}
+
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_ZANZIBAR state_region = s:STATE_MADRAS state_region = s:STATE_OMAN
 		} 
@@ -121,5 +129,121 @@ GLOBAL = {
 			}
 		}
 	}
+
+	every_state = {
+		limit = {
+			state_region = s:STATE_LOWER_EGYPT
+		}
+		add_modifier = {
+			name = lepsius_lower_egypt_modifier
+		}
+	}
+	every_state = {
+		limit = {
+			state_region = s:STATE_UPPER_EGYPT
+		}
+		add_modifier = {
+			name = lepsius_upper_egypt_modifier
+		}
+	}
+	every_state = {
+		limit = {
+			state_region = s:STATE_YUCATAN
+		}
+		add_modifier = {
+			name = lepsius_yucatan_modifier
+		}
+	}
+	every_state = {
+		limit = {
+			state_region = s:STATE_BAGHDAD
+		}
+		add_modifier = {
+			name = lepsius_babylonia_modifier
+		}
+	}
+	every_state = {
+		limit = {
+			state_region = s:STATE_MOSUL
+		}
+		add_modifier = {
+			name = lepsius_assyria_modifier
+		}
+	}
+	every_state = {
+		limit = {
+			state_region = s:STATE_PELOPONNESE
+		}
+		add_modifier = {
+			name = lepsius_argolis_modifier
+		}
+	}
+	every_state = {
+		limit = {
+			state_region = s:STATE_CRETE
+		}
+		add_modifier = {
+			name = lepsius_crete_modifier
+		}
+	}
+	every_state = {
+		limit = {
+			state_region = s:STATE_ICA
+		}
+		add_modifier = {
+			name = lepsius_peru_modifier
+		}
+	}
+
+	if = {
+        limit = {
+            has_game_rule = new_world_natives_game_rule_recognized
+        }
+        c:IRO ?= {
+            set_country_type = unrecognized
+			remove_modifier = native_conscription_8
+        }
+        c:CTF ?= {
+            set_country_type = unrecognized
+			remove_modifier = native_conscription_8
+        }
+		c:CRK ?= {
+            set_country_type = unrecognized
+			remove_modifier = native_conscription_6
+        }
+		c:CHE ?= {
+            set_country_type = unrecognized
+			remove_modifier = native_conscription_12
+        }
+		c:COM ?= {
+            set_country_type = unrecognized
+			remove_modifier = native_conscription_10
+        }
+		c:IRC ?= {
+            set_country_type = unrecognized
+			remove_modifier = native_conscription_8
+        }
+		c:LKT ?= {
+            set_country_type = unrecognized
+			remove_modifier = native_conscription_8
+        }
+    }
+
+	if = {
+        limit = {
+            has_game_rule = recognized_asians_game_rule_unrecognized
+        }
+        c:CHI ?= {
+            set_country_type = unrecognized
+        }
+        c:MUG ?= {
+            set_country_type = unrecognized
+			remove_modifier = inward_perfection
+        }
+		c:JAP ?= {
+            set_country_type = unrecognized
+			remove_modifier = inward_perfection
+        }
+    }
 
 }	

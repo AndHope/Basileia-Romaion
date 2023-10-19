@@ -150,7 +150,7 @@ academics_scientific_society_generic_name_custom_loc = {
 
 	text = {
 		trigger = {
-			c:FRA ?= this
+			c:HRE ?= this
 			coa_monarchy_trigger = yes
 		}
 		localization_key = academics_FRA_academie_royale
@@ -158,7 +158,7 @@ academics_scientific_society_generic_name_custom_loc = {
 
 	text = {
 		trigger = {
-			c:FRA ?= this
+			c:HRE ?= this
 		}
 		localization_key = academics_FRA_academie_des_sciences
 	}
@@ -172,7 +172,7 @@ academics_scientific_society_generic_name_custom_loc = {
 
 	text = {
 		trigger = {
-			c:GRE ?= this
+			c:BYZ ?= this
 		}
 		localization_key = academics_GRE_akadimia_athinon
 	}
@@ -810,7 +810,27 @@ academics_scientific_society_generic_name_custom_loc = {
 }
 
 #Engineer: Informas whether there is an Engineer or not.
+academics_scientific_society_has_engineer_custom_loc = {
+	type = country
+	random_valid = no #From top to bottom decides which name list is appropriate.
+	
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+		}
+		localization_key = academics_scientific_society_has_engineer
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_variable = gaudi_engineer_var
+			}
+		}
+		localization_key = academics_scientific_society_no_engineer
+	}
 
+}
 
 #Astronomer: Informas whether there is an Astronomer or not.
 academics_scientific_society_has_astronomer_custom_loc = {
@@ -930,7 +950,27 @@ academics_scientific_society_has_anthropologist_custom_loc = {
 ###REPLACEMENT CUSTOM LOCS###
 
 #Replacement Tooltip for the Engineer --> Used to show whether you will replace an existing Engineer
+academics_replacement_engineer_custom_loc = {
+	type = country
+	random_valid = no #From top to bottom decides which name list is appropriate.
+	
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+		}
+		localization_key = academics_would_replace_engineer_loc
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_variable = gaudi_engineer_var
+			}
+		}
+		localization_key = academics_will_not_replace_engineer_loc
+	}
 
+}
 
 #Replacement Tooltip for the Astronomer --> Used to show whether you will replace an existing Astronomer
 academics_replacement_astronomer_custom_loc = {
@@ -1075,21 +1115,30 @@ academics_receiver_of_funding_custom_loc = {
 
 	text = {
 		trigger = {
-			has_variable = dubois_promote_humanities_active
+			OR = {
+				has_variable = academics_promote_archaeologist_active
+				has_variable = academics_promote_anthropologist_active
+			}
 		}
 		localization_key = dubois_humanities_receive_promotion_loc
 	}
 
 	text = {
 		trigger = {
-			has_variable = dubois_promote_natural_history_active
+			OR = {
+				has_variable = academics_promote_naturalist_active
+				has_variable = academics_promote_paleontologist_active
+			}
 		}
 		localization_key = dubois_natural_history_receive_promotion_loc
 	}
 
 	text = {
 		trigger = {
-			has_variable = dubois_promote_mathematics_active
+			OR = {
+				has_variable = academics_promote_engineer_active
+				has_variable = academics_promote_astronomer_active
+			}
 		}
 		localization_key = dubois_mathematics_receive_promotion_loc
 	}
@@ -1161,23 +1210,44 @@ je_academics_promotion_custom_loc = {
 
 	text = {
 		trigger = {
-			has_variable = dubois_promote_humanities_active
+			has_variable = academics_promote_engineer_active
 		}
-		localization_key = je_academics_academy_promote_humanities_loc
+		localization_key = je_academics_academy_promote_engineer_loc
 	}
 
 	text = {
 		trigger = {
-			has_variable = dubois_promote_natural_history_active
+			has_variable = academics_promote_astronomer_active
 		}
-		localization_key = je_academics_academy_promote_natural_history_loc
+		localization_key = je_academics_academy_promote_astronomer_loc
 	}
 
 	text = {
 		trigger = {
-			has_variable = dubois_promote_mathematics_active
+			has_variable = academics_promote_naturalist_active 
 		}
-		localization_key = je_academics_academy_promote_mathematics_loc
+		localization_key = je_academics_academy_promote_naturalist_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = academics_promote_paleontologist_active
+		}
+		localization_key = je_academics_academy_promote_paleontologist_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = academics_promote_archaeologist_active
+		}
+		localization_key = je_academics_academy_promote_archaeologist_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = academics_promote_anthropologist_active
+		}
+		localization_key = je_academics_academy_promote_anthropologist_loc
 	}
 
 	text = {
@@ -1572,5 +1642,115 @@ academics_railway_line_flavor_custom_loc = {
 
 	text = {
 		localization_key = academics_generic_flavor_loc
+	}
+}
+
+gaudi_engineer_has_specialization_type = {
+	type = country
+	random_valid = no #From top to bottom decides which name list is appropriate.
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_civil_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_is_civil_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_mechanical_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_is_mechanical_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_military_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_is_military_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_electrical_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_is_electrical_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_aeronautical_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_is_aeronautical_engineer_loc
+	}
+}
+
+gaudi_engineer_no_longer_old_specialization_type = {
+	type = country
+	random_valid = no #From top to bottom decides which name list is appropriate.
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_civil_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_stops_being_civil_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_mechanical_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_stops_being_mechanical_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_military_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_stops_being_military_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_electrical_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_stops_being_electrical_engineer_loc
+	}
+
+	text = {
+		trigger = {
+			has_variable = gaudi_engineer_var
+			var:gaudi_engineer_var = {
+				has_variable = gaudi_is_aeronautical_engineer_var
+			}
+		}
+		localization_key = gaudi_engineer_stops_being_aeronautical_engineer_loc
 	}
 }

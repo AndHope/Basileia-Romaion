@@ -84,6 +84,7 @@ end_latin_privileges = {
 
 	when_taken = {
 		remove_modifier = latin_privileges
+		activate_law = law_type:law_state_religion
 		hidden_effect = {
 			trigger_event = {
 				id = greek_revolt.1
@@ -509,5 +510,58 @@ notbyz_tagmata_decision = {
 	ai_chance = {
 		base = 0
 	}
+}
+
+chariot_racing_decision = {
+	is_shown = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		NOT = {
+			has_modifier = modifier_chariot_racing
+		}
+	}
+	
+	possible = {
+		any_scope_building = {
+			is_building_type = building_hippodrome
+		}
+	}
+	
+	when_taken = {
+		add_modifier = {
+			name = modifier_chariot_racing
+		}
+		custom_tooltip = {
+			text = chariot_racing_enabled_tt	
+			trigger_event = {
+				id = chariot_racing.1
+			}
+		}
+	}
+}
+
+expand_chariot_racing_decision = {
+	is_shown = {
+		has_modifier = modifier_chariot_racing
+	}
+	
+	possible = {
+		has_modifier = modifier_chariot_racing
+		has_technology_researched = organized_sports
+	}
+	
+	when_taken = {
+		show_as_tooltip = {
+			remove_modifier = modifier_chariot_racing
+			add_modifier = {
+				name = modifier_expanded_chariot_racing
+			}
+		}
+		hidden_effect = {
+			trigger_event = {
+				id = chariot_racing.46
+			}
+		}
+	}	
 }
 

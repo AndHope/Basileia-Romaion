@@ -237,30 +237,6 @@ CZH = {
 	ai_will_do = { always = yes }
 }
 
-CAN = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75	
-	
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = nationalism
-	}
-}
-
-AST = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75	
-	
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = nationalism
-	}
-}
-
 POL = {
 	use_culture_states = yes
 
@@ -308,18 +284,6 @@ ARA = {
 
 	possible = {
 		has_technology_researched = pan-nationalism
-	}
-}
-
-GCO = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75	
-
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = nationalism
 	}
 }
 
@@ -415,7 +379,7 @@ TRH = {
 		STATE_JETISY
 	}
 
-	required_states_fraction = 0.7
+	required_states_fraction = 0.5
 	
 	ai_will_do = { always = yes }
 
@@ -554,3 +518,42 @@ ALD = {
 	
 	ai_will_do = { always = yes }
 }
+
+UNL = {
+	states = {
+		STATE_HOLLAND
+		STATE_FLANDERS
+		STATE_WALLONIA
+		STATE_FRIESLAND
+		STATE_GELRE
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+}
+
+PLT = {
+	use_culture_states = yes
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+	
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
+
+HRE = {
+	use_culture_states = yes
+
+	required_states_fraction = 0.75
+	
+	ai_will_do = { always = no }
+	
+	possible = {
+		NOT = { has_game_rule = plausible_formable_nations }
+	}
+}
+

@@ -5,7 +5,6 @@
 ############################################################################
 
 #All Academics (and Special Characters) should have a variable assigned to the character:
-# mr_is_engineer_var		--> Engineer
 # mr_is_astronomer_var		--> Astronomer
 # mr_is_naturalist_var		--> Naturalist
 # mr_is_paleontologist_var	--> Paleontologist
@@ -16,7 +15,6 @@
 # mr_is_missionary_var		--> Missionary
 # mr_is_adventurer_var		--> Adventurer
 
-######ENGINEER######
 
 ######ASTRONOMER######
 
@@ -62,7 +60,7 @@ create_new_astronomer_effect = {
 			trigger = {
 				NOT = { has_global_variable = verrier_niesten_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -92,7 +90,7 @@ create_new_astronomer_effect = {
 			trigger = {
 				NOT = { has_global_variable = verrier_quetelet_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -159,7 +157,7 @@ create_new_astronomer_effect = {
 		4 = { #Jules Janssen, France
 			trigger = {
 				NOT = { has_global_variable = verrier_janssen_created_global_var }
-				c:FRA ?= this
+				c:HRE ?= this
 				game_date < 1879.2.22 #Age 55
 				year >= 1861 #started studying telluric absorption
 			}
@@ -487,17 +485,28 @@ astronomer_experience_set_up_effect = {
 				has_variable = verrier_astronomer_experience
 			}
 		}
-		set_variable = {
-			name = verrier_astronomer_experience
-			value = age
+		if = {
+			limit = {
+				age > 30
+			}
+			set_variable = {
+				name = verrier_astronomer_experience
+				value = age
+			}
+			change_variable = {
+				name = verrier_astronomer_experience
+				subtract = 30
+			}
+			change_variable = {
+				name = verrier_astronomer_experience
+				multiply = 10
+			}
 		}
-		change_variable = {
-			name = verrier_astronomer_experience
-			subtract = 30
-		}
-		change_variable = {
-			name = verrier_astronomer_experience
-			multiply = 10
+		else = {
+			set_variable = {
+				name = verrier_astronomer_experience
+				value = 0
+			}
 		}
 		if = { #Adds the Experienced Astronomer Trait if Experience is above 100
 			limit = {
@@ -513,7 +522,7 @@ astronomer_experience_set_up_effect = {
 			remove_trait = verrier_astronomer
 			add_trait = verrier_astronomer_experienced
 		}
-		if = { #Adds the Famous Astronomer Trait if Experience is above 100
+		if = { #Adds the Famous Astronomer Trait if Experience is above 300
 			limit = {
 				var:verrier_astronomer_experience >= 300
 				NOT = {
@@ -619,8 +628,8 @@ create_new_naturalist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_berg_created_global_var }
 				OR = {
-					this ?= c:FAZ
-					was_formed_from = FAZ
+					this ?= c:HRE
+					was_formed_from = HRE
 				}
 				NOT = {
 					cu:north_german = {
@@ -653,8 +662,8 @@ create_new_naturalist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_holmberg_created_global_var }
 				OR = {
-					this ?= c:FAZ
-					was_formed_from = FAZ
+					this ?= c:HRE
+					was_formed_from = HRE
 				}
 				game_date < 1907.6.27 #Age 55
 				year >= 1878 #participated in the conquest of the desert
@@ -832,7 +841,7 @@ create_new_naturalist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_van_beneden_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -862,7 +871,7 @@ create_new_naturalist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_dubois_alphonse_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -892,7 +901,7 @@ create_new_naturalist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_payen_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -922,7 +931,7 @@ create_new_naturalist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_dubois_rousseau_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -1116,7 +1125,7 @@ create_new_naturalist_effect = {
 		4 = { #Paul Gervais, France
 			trigger = {
 				NOT = { has_global_variable = dubois_gervais_created_global_var }
-				c:FRA ?= this
+				c:HRE ?= this
 				game_date < 1871.9.26 #Age 55
 				year >= 1835 #First job as assistant at the French Museum of Natural History
 			}
@@ -1173,8 +1182,8 @@ create_new_naturalist_effect = {
 					country_has_primary_culture = cu:north_german
 					AND = {
 						OR = {
-							this ?= c:FAZ
-							was_formed_from = FAZ
+							this ?= c:HRE
+							was_formed_from = HRE
 						}
 						NOT = {
 							cu:north_german = {
@@ -2109,17 +2118,26 @@ naturalist_experience_set_up_effect = {
 				has_variable = dubois_naturalist_experience
 			}
 		}
-		set_variable = {
-			name = dubois_naturalist_experience
-			value = age
+		if = {
+			limit = { age > 30 }
+			set_variable = {
+				name = dubois_naturalist_experience
+				value = age
+			}
+			change_variable = {
+				name = dubois_naturalist_experience
+				subtract = 30
+			}
+			change_variable = {
+				name = dubois_naturalist_experience
+				multiply = 10
+			}
 		}
-		change_variable = {
-			name = dubois_naturalist_experience
-			subtract = 30
-		}
-		change_variable = {
-			name = dubois_naturalist_experience
-			multiply = 10
+		else = {
+			set_variable = {
+				name = dubois_naturalist_experience
+				value = 0
+			}
 		}
 	}
 }
@@ -2213,7 +2231,7 @@ create_new_paleontologist_effect = {
 				NOT = { has_global_variable = dubois_ameghino_created }
 				OR = {
 					country_has_primary_culture = cu:platinean
-					c:FAZ ?= this
+					c:HRE ?= this
 				}
 				game_date < 1908.9.19 #Age 55
 				year >= 1878 #The Antiquity of Man in the Río de la Plata published
@@ -2270,7 +2288,7 @@ create_new_paleontologist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_van_beneden_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -2300,9 +2318,9 @@ create_new_paleontologist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_dollo_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -2332,7 +2350,7 @@ create_new_paleontologist_effect = {
 			trigger = {
 				NOT = { has_global_variable = dubois_de_koninck_created_global_var }
 				OR = {
-					c:FRA ?= this
+					c:HRE ?= this
 					country_has_primary_culture = cu:wallonian
 					country_has_primary_culture = cu:flemish
 				}
@@ -2361,7 +2379,7 @@ create_new_paleontologist_effect = {
 		4 = { #Paul Gervais, France
 			trigger = {
 				NOT = { has_global_variable = dubois_gervais_created_global_var }
-				c:FRA ?= this
+				c:HRE ?= this
 				game_date < 1871.9.26 #Age 55
 				year >= 1835 #First job as assistant at the French Museum of Natural History
 			}
@@ -2387,7 +2405,7 @@ create_new_paleontologist_effect = {
 		4 = { #Alcide d'Orbigny, France
 			trigger = {
 				NOT = { has_global_variable = dubois_d_orbigny_created }
-				c:FRA ?= this
+				c:HRE ?= this
 				game_date < 1857.9.6 #Age 55
 				year >= 1833 #Return from America
 			}
@@ -2939,17 +2957,26 @@ paleontologist_experience_set_up_effect = {
 				has_variable = dubois_paleontologist_experience
 			}
 		}
-		set_variable = {
-			name = dubois_paleontologist_experience
-			value = age
+		if = {
+			limit = { age > 30 }
+			set_variable = {
+				name = dubois_paleontologist_experience
+				value = age
+			}
+			change_variable = {
+				name = dubois_paleontologist_experience
+				subtract = 30
+			}
+			change_variable = {
+				name = dubois_paleontologist_experience
+				multiply = 10
+			}
 		}
-		change_variable = {
-			name = dubois_paleontologist_experience
-			subtract = 30
-		}
-		change_variable = {
-			name = dubois_paleontologist_experience
-			multiply = 10
+		else = {
+			set_variable = {
+				name = dubois_paleontologist_experience
+				value = 0
+			}
 		}
 		if = { #Adds the Experienced Paleontologist Trait if Experience is above 100
 			limit = {
@@ -3095,7 +3122,7 @@ create_new_archaeologist_effect = {
 		100 = { #Paul-Émile Botta
 			trigger = {
 				NOT = { has_global_variable = lepsius_botta_created }
-				c:FRA ?= this
+				c:HRE ?= this
 				game_date < 1857.12.6 #Age 55
 				year >= 1831 #Travel to Cairo
 			}
@@ -3121,7 +3148,7 @@ create_new_archaeologist_effect = {
 		100 = { #Auguste Mariette, France
 			trigger = {
 				NOT = { has_global_variable = lepsius_mariette_created }
-				c:FRA ?= this
+				c:HRE ?= this
 				game_date < 1876.2.11 #Age 55
 				year >= 1850 #First Journey to Egypt
 			}
@@ -3683,17 +3710,26 @@ archaeologist_experience_set_up_effect = { #This effect needs to be placed in th
 				has_variable = lepsius_archaeologist_experience
 			}
 		}
-		set_variable = {
-			name = lepsius_archaeologist_experience
-			value = age
+		if = {
+			limit = { age > 30 }
+			set_variable = {
+				name = lepsius_archaeologist_experience
+				value = age
+			}
+			change_variable = {
+				name = lepsius_archaeologist_experience
+				subtract = 30
+			}
+			change_variable = {
+				name = lepsius_archaeologist_experience
+				multiply = 10
+			}
 		}
-		change_variable = {
-			name = lepsius_archaeologist_experience
-			subtract = 30
-		}
-		change_variable = {
-			name = lepsius_archaeologist_experience
-			multiply = 10
+		else = {
+			set_variable = {
+				name = lepsius_archaeologist_experience
+				value = 0
+			}
 		}
 		if = { #Adds the Experienced Archaeologist Trait if Experience is above 100
 			limit = {
@@ -3807,6 +3843,40 @@ kill_anthropologist_effect = {
 # Creates a new Anthropologist without losing the old one
 create_new_anthropologist_effect = {
 	random_list = { #Each Entry has a chance to appear if the triggers are met.
+		4 = { #Davidson Black, Canada
+			trigger = {
+				NOT = { has_global_variable = lepsius_black_created }
+				OR = {
+					has_state_in_state_region = STATE_ONTARIO
+					has_state_in_state_region = STATE_BEIJING
+				}
+				NOT = {
+					cu:anglo_canadian = {
+						culture_is_discriminated_in = root
+					}
+				}
+				game_date < 1939.7.25 #Age 55
+				year > 1914 #Interest in Paleoanthropology started
+			}
+			create_character = {
+				template = mr_can_davidson_black_character_template
+
+				save_scope_as = lepsius_new_anthropologist_scope
+			}
+			scope:lepsius_new_anthropologist_scope = {
+				set_variable = lepsius_black_character_var #Unique for Black, mostly used for clothing
+				set_variable = mr_is_anthropologist_var #Could be used for clothing or a role in the future
+				anthropologist_experience_set_up_effect = yes #sets up experience for the character (0 till 30 and then 10 Experience per year)
+				place_character_in_void = 1200 #This is needed so the character doesn't disappear
+			}
+
+			set_variable = {
+				name = lepsius_new_anthropologist_var
+				value = scope:lepsius_new_anthropologist_scope
+			}
+
+			set_global_variable = lepsius_black_created #Makes sure Black is not already created
+		}
 		4 = { #Thomas Henry Huxley, Great Britain
 			trigger = {
 				NOT = { has_global_variable = lepsius_huxley_created }
@@ -3927,17 +3997,26 @@ anthropologist_experience_set_up_effect = {
 				has_variable = lepsius_anthropologist_experience
 			}
 		}
-		set_variable = {
-			name = lepsius_anthropologist_experience
-			value = age
+		if = {
+			limit = { age > 30 }
+			set_variable = {
+				name = lepsius_anthropologist_experience
+				value = age
+			}
+			change_variable = {
+				name = lepsius_anthropologist_experience
+				subtract = 30
+			}
+			change_variable = {
+				name = lepsius_anthropologist_experience
+				multiply = 10
+			}
 		}
-		change_variable = {
-			name = lepsius_anthropologist_experience
-			subtract = 30
-		}
-		change_variable = {
-			name = lepsius_anthropologist_experience
-			multiply = 10
+		else = {
+			set_variable = {
+				name = lepsius_anthropologist_experience
+				value = 0
+			}
 		}
 		if = { #Adds the Experienced Anthropologist Trait if Experience is above 100
 			limit = {
@@ -4111,17 +4190,26 @@ geologist_experience_set_up_effect = {
 				has_variable = dubois_geologist_experience
 			}
 		}
-		set_variable = {
-			name = dubois_geologist_experience
-			value = age
+		if = {
+			limit = { age > 30 }
+			set_variable = {
+				name = dubois_geologist_experience
+				value = age
+			}
+			change_variable = {
+				name = dubois_geologist_experience
+				subtract = 30
+			}
+			change_variable = {
+				name = dubois_geologist_experience
+				multiply = 10
+			}
 		}
-		change_variable = {
-			name = dubois_geologist_experience
-			subtract = 30
-		}
-		change_variable = {
-			name = dubois_geologist_experience
-			multiply = 10
+		else = {
+			set_variable = {
+				name = dubois_geologist_experience
+				value = 0
+			}
 		}
 		if = { #Adds the Experienced Geologist Trait if Experience is above 100
 			limit = {
@@ -4332,7 +4420,7 @@ academics_add_historical_tech_schools = {
 				this = c:ANL
 				this = c:BYZ
 				this = c:AGY
-				this = c:FRA
+				this = c:HRE
 				this = c:MUG
 			}
 		}

@@ -346,7 +346,7 @@ chariot_racing.3 = {
 	option = {
 		name = chariot_racing.3.a
 		default_option = yes
-		
+		trigger_event = { id = chariot_racing.4 days = 30 popup = yes }
 		add_modifier = {
 			name = chariot_racing_small_modifier
 			months = normal_modifier_time
@@ -398,6 +398,789 @@ chariot_racing.4 = {
 	option = {
 		name = chariot_racing.4.a
 		default_option = yes
-		
+		trigger_event = { id = chariot_racing.45 days = 30 popup = yes }
 	}
 }
+
+
+chariot_racing.45 = { # chariot racing reestablished
+	type = country_event
+	
+	title = chariot_racing.45.t
+	desc = chariot_racing.45.d
+	flavor = chariot_racing.45.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by decision
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.45.a
+		default_option = yes
+		set_variable = byzfm_chariot_racing
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_held_chariot_races
+				months = 48
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+
+}
+
+chariot_racing.46 = { # chariot racing expanded
+	type = country_event
+	
+	title = chariot_racing.46.t
+	desc = chariot_racing.46.d
+	flavor = chariot_racing.46.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+
+	trigger = { # triggered by decision
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.46.a
+		default_option = yes
+		if = {
+			limit = {
+				has_modifier = modifier_chariot_racing
+			}
+			remove_modifier = modifier_chariot_racing
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_modifier = modifier_expanded_chariot_racing
+				}
+			}
+			add_modifier = {
+				name = modifier_expanded_chariot_racing
+			}
+		}
+	}
+	
+}
+
+chariot_racing.47 = { # the birth of motorsport
+	orphan = yes  # blocked for future work
+}
+
+chariot_racing.48 = { # drag racing introduced
+	orphan = yes  # blocked for future work	
+}
+
+#################
+# RACING EVENTS #
+#################
+
+chariot_racing.50 = { # reds win
+	type = country_event
+	
+	title = chariot_racing.50.t
+	desc = chariot_racing.50.d
+	flavor = chariot_racing.50.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_1/2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.50.a
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_held_chariot_races
+				months = 48
+			}
+		}
+		ig:ig_industrialists = {
+			add_modifier = {
+				name = modifier_ig_won_races
+				months = 48
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+		
+}
+
+chariot_racing.51 = { # whites win
+	type = country_event
+	
+	title = chariot_racing.51.t
+	desc = chariot_racing.51.d
+	flavor = chariot_racing.51.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_1/2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.51.a
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_held_chariot_races
+				months = 48
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = modifier_ig_won_races
+				months = 48
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+
+}
+
+chariot_racing.52 = { # greens win
+	type = country_event
+	
+	title = chariot_racing.52.t
+	desc = chariot_racing.52.d
+	flavor = chariot_racing.52.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_1/2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.52.a
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_held_chariot_races
+				months = 48
+			}
+		}
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = modifier_ig_won_races
+				months = 48
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+
+}
+
+chariot_racing.53 = { # blues win
+	type = country_event
+	
+	title = chariot_racing.53.t
+	desc = chariot_racing.53.d
+	flavor = chariot_racing.53.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_1/2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.53.a
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_held_chariot_races
+				months = 48
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = modifier_ig_won_races
+				months = 48
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+	
+}
+
+chariot_racing.54 = { # purples win
+	type = country_event
+	
+	title = chariot_racing.54.t
+	desc = chariot_racing.54.d
+	flavor = chariot_racing.54.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.54.a
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_held_chariot_races
+				months = 48
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = modifier_ig_won_races
+				months = 48
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+	
+}
+
+chariot_racing.55 = { # golds win
+	type = country_event
+	
+	title = chariot_racing.55.t
+	desc = chariot_racing.55.d
+	flavor = chariot_racing.55.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}
+	
+	option = {
+		name = chariot_racing.55.a
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_held_chariot_races
+				months = 48
+			}
+		}
+		ig:ig_trade_unions = {
+			add_modifier = {
+				name = modifier_ig_won_races
+				months = 48
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+	
+}
+
+chariot_racing.56 = { # first match complete, crowd calls for diversum
+	type = country_event
+	
+	title = chariot_racing.56.t
+	desc = chariot_racing.56.d
+	flavor = chariot_racing.56.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}	
+	
+	option = { # hold the second round
+		name = chariot_racing.56.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_tiebreaker_race
+			months = 12
+		}
+		custom_tooltip = {
+			text = chariot_racing.56.tt
+			hidden_effect = {
+				trigger_event = {
+					id = chariot_racing.98 # second round of races
+					days = 30
+				}
+			}
+		}
+	}
+	
+	option = { # we'll call it a draw
+		name = chariot_racing.56.b
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_cancelled_races
+				months = 24
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+		
+}
+
+chariot_racing.57 = { # sporting riot
+	type = country_event
+	
+	title = chariot_racing.57.t
+	desc = chariot_racing.57.d
+	flavor = chariot_racing.57.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "byzfm_chariot_race"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_1/2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+	}	
+	
+	option = { # we'll call it a draw
+		name = chariot_racing.57.b
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_devastation = 10
+			add_modifier = {
+				name = modifier_cancelled_races
+				months = 24
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+	
+}
+
+chariot_racing.58 = { # ruler tries to join in the races
+	type = country_event
+	
+	title = chariot_racing.58.t
+	desc = chariot_racing.58.d
+	flavor = chariot_racing.58.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_1/2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+		ruler = {
+			save_scope_as = byzfm_ruler_scope
+		}
+	}	
+	
+	option = { # let him join in
+		name = chariot_racing.58.a
+		default_option = yes
+		scope:byzfm_ruler_scope = {
+			add_modifier = {
+				name = modifier_redneck_emperor
+				months = normal_modifier_time
+			}
+		}
+		custom_tooltip = {
+			text = chariot_racing.56.tt
+			hidden_effect = {
+				trigger_event = {
+					id = chariot_racing.98 # second round of races
+					days = 30
+				}
+			}
+		}
+	}
+	
+	option = { # bro thats like, really redneck...
+		name = chariot_racing.58.b
+		default_option = yes
+		add_modifier = {
+			name = modifier_legitmacy_boost
+			months = normal_modifier_time
+		}
+		custom_tooltip = {
+			text = chariot_racing.56.tt
+			hidden_effect = {
+				trigger_event = {
+					id = chariot_racing.98 # second round of races
+					days = 30
+				}
+			}
+		}
+	}	
+	
+}
+
+chariot_racing.59 = { # team gets caught cheating
+	type = country_event
+	
+	title = chariot_racing.59.t
+	desc = chariot_racing.59.d
+	flavor = chariot_racing.59.f
+	
+	placement = scope:byzantium_capital_state
+	
+	event_image = {
+		video = "votp_conspiring"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+	
+	
+
+	trigger = { # triggered by byzfm_chariot_pulse_1/2
+		has_variable = byzfm_chariot_racing
+	}
+	
+	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = byzantium_capital_state
+			}
+		}
+		ruler = {
+			save_scope_as = byzfm_ruler_scope
+		}
+	}
+
+	option = { # root out the corruption
+		name = chariot_racing.59.a
+		default_option = yes
+		scope:byzantium_capital_state = {
+			add_modifier = {
+				name = modifier_cancelled_races
+				months = 24
+			}
+		}
+		set_variable = {
+			name = byzfm_held_chariot_races
+			value = 48
+		}
+	}
+	
+	option = { # let them race
+		name = chariot_racing.59.b
+		default_option = yes
+		add_modifier = {
+			name = modifier_ignored_corruption
+			months = normal_modifier_time
+		}
+		custom_tooltip = {
+			text = chariot_racing.59.tt
+			hidden_effect = {
+				trigger_event = {
+					id = chariot_racing.98 # second round of races
+					days = 30
+				}
+			}
+		}
+	}
+	
+}
+
+chariot_racing.98 = { # second round of races
+	type = country_event
+	placement = root
+	hidden = yes
+	
+	trigger = {
+	# called by chariot_racing.56, 58, and 59
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_modifier = modifier_chariot_racing
+			}
+			random_list = {
+				40 = {
+					trigger_event = { id = chariot_racing.50 } # reds win
+				}
+				40 = {
+					trigger_event = { id = chariot_racing.51 } # whites win
+				}
+				40 = {
+					trigger_event = { id = chariot_racing.52 } # greens win
+				}
+				40 = {
+					trigger_event = { id = chariot_racing.53 } # blues win
+				}
+				1 = {
+					trigger_event = { id = chariot_racing.57 } # sporting riot
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_expanded_chariot_racing
+			}
+			random_list = {
+				25 = {
+					trigger_event = { id = chariot_racing.50 } # reds win
+				}
+				25 = {
+					trigger_event = { id = chariot_racing.51 } # whites win
+				}
+				25 = {
+					trigger_event = { id = chariot_racing.52 } # greens win
+				}
+				25 = {
+					trigger_event = { id = chariot_racing.53 } # blues win
+				}
+				25 = {
+					trigger_event = { id = chariot_racing.54 } # purples win
+				}
+				25 = {
+					trigger_event = { id = chariot_racing.55 } # golds win
+				}
+				1 = {
+					trigger_event = { id = chariot_racing.57 } # sporting riot
+				}
+			}
+		}
+	}
+	
+}
+

@@ -466,7 +466,7 @@ je_palaiologos_reforms_army = {
 				is_building_type = building_barracks
 				OR = {
 					building_has_goods_shortage = yes
-					has_active_production_method = pm_irregular_infantry
+					has_active_production_method = pm_no_organization
 					#has_active_production_method = pm_no_artillery
 					#has_active_production_method = pm_cannon_artillery
 				}
@@ -610,12 +610,6 @@ je_palaiologos_reforms_centralization_west = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	complete = {
-		NOR = { 
-			exists = c:EPR
-			exists = c:MRE
-			exists = c:BUL
-			exists = c:ALB
-		}
 		AND = {
 			owns_entire_state_region = STATE_ALBANIA
 			owns_entire_state_region = STATE_ATTICA
@@ -649,10 +643,6 @@ je_palaiologos_reforms_centralization_east= {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	complete = {
-		NOR = { 
-			exists = c:TBZ
-			exists = c:MES
-		}
 		AND = {
 			exists = c:ARM
 			c:ARM = {
@@ -665,12 +655,9 @@ je_palaiologos_reforms_centralization_east= {
 				is_subject_of = ROOT
 			}
 		}
-	#	AND = {
-	#		owns_entire_state_region = STATE_ALBANIA
-	#		owns_entire_state_region = STATE_ATTICA
-	#		owns_entire_state_region = STATE_THESSALIA
-	#		owns_entire_state_region = STATE_PELOPONNESE
-	#	}
+		AND = {
+			owns_entire_state_region = STATE_TRABZON
+		}
 	}
 
 	on_complete = {

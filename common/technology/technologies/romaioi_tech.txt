@@ -24,6 +24,7 @@ romaioi_mod = {
 		#country_max_declared_interests_mult = 0.25
 		#state_rich_standard_of_living_add = 3
 		#country_max_companies_add = 1
+		country_diplomatic_play_maneuvers_add = 50
 		state_radicals_from_sol_change_accepted_culture_mult = -0.15
 		state_loyalists_from_sol_change_accepted_culture_mult = 0.15
 
@@ -32,7 +33,7 @@ romaioi_mod = {
 		country_military_wages_mult = 0.15
 		state_radicals_from_discrimination_mult = 0.15
 		political_movement_radicalism_mult = 0.15
-		country_opposition_ig_approval_add = -2
+		#country_opposition_ig_approval_add = -2
 	}
 
 	can_research = no
@@ -83,6 +84,7 @@ italian_republic_mod = {
 		#Pops
 		state_political_strength_from_wealth_mult = 0.25
 		state_north_italian_standard_of_living_add = 1
+		state_dependent_wage_mult = 0.1
 		state_education_access_wealth_add = 0.005
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.15
@@ -90,6 +92,7 @@ italian_republic_mod = {
 
 		country_max_companies_add = 1
 		country_max_declared_interests_add = 1
+		country_diplomatic_play_maneuvers_add = 25
 		building_university_throughput_add = 0.1
 		building_arts_academy_throughput_add = 0.1
 
@@ -120,12 +123,14 @@ merchant_republic_mod = {
 		#Pops
 		state_political_strength_from_wealth_mult = 0.25
 		state_north_italian_standard_of_living_add = 1
+		state_dependent_wage_mult = 0.1
 		state_education_access_wealth_add = 0.005
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.1
 
 		country_max_companies_add = 1
 		country_max_declared_interests_add = 1
+		country_diplomatic_play_maneuvers_add = 25
 		building_group_bg_agriculture_tax_mult = 0.15
 
 		#Military
@@ -156,6 +161,7 @@ merchant_republic_mod2 = {
 		country_max_companies_add = 1
 		country_max_declared_interests_add = 1
 		state_political_strength_from_wealth_mult = 0.25
+		country_diplomatic_play_maneuvers_add = 25
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.1
 
@@ -257,10 +263,11 @@ tribal = {
 		unit_supply_consumption_mult = -0.25
 		country_military_goods_cost_mult = -0.25
 
-		state_education_access_wealth_add = -0.005
+		state_education_access_wealth_add = -0.006
 		country_tech_spread_mult = -0.25
 		building_group_bg_manufacturing_throughput_add = -0.1
 		building_group_bg_ranching_throughput_add = 0.1
+		state_mortality_mult = 0.05
 	}
 
 	can_research = no
@@ -268,8 +275,62 @@ tribal = {
 	ai_weight = {
 		value = -99 # Not meant to be researched.
 	}
+}
 
+new_world_tribal = {
+	era = era_5
+	#category = society
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	
+	modifier = {
+		#Buffs
+		#country_max_declared_interests_add = -1
+		battle_defense_owned_province_mult = 0.25
+		state_conscription_rate_add = 0.06
+		unit_devastation_mult = 0.25
+		unit_supply_consumption_mult = -0.25
+		country_military_goods_cost_mult = -0.25
 
+		state_education_access_wealth_add = -0.006
+		country_tech_spread_mult = -0.25
+		building_group_bg_manufacturing_throughput_add = -0.1
+		building_group_bg_ranching_throughput_add = 0.1
+		#state_standard_of_living_add = -1
+		state_mortality_mult = 0.1
+	}
+
+	can_research = no
+
+	ai_weight = {
+		value = -99 # Not meant to be researched.
+	}
+}
+
+africa_tribal = {
+	era = era_5
+	#category = society
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	
+	modifier = {
+		#Buffs
+		battle_defense_owned_province_mult = 0.25
+		state_conscription_rate_add = 0.05
+		unit_devastation_mult = 0.25
+		unit_supply_consumption_mult = -0.25
+		country_military_goods_cost_mult = -0.25
+
+		state_education_access_wealth_add = -0.007
+		country_tech_spread_mult = -0.25
+		building_group_bg_manufacturing_throughput_add = -0.1
+		building_group_bg_ranching_throughput_add = 0.1
+		state_mortality_mult = 0.05
+	}
+
+	can_research = no
+
+	ai_weight = {
+		value = -99 # Not meant to be researched.
+	}
 }
 
 horde_mod = {
@@ -476,8 +537,8 @@ new_world_colonial = {
 		country_minting_add = 1000
 
 		#Colonial
-		state_colony_growth_speed_mult = 0.25
-		state_migration_pull_mult = 0.25
+		state_colony_growth_speed_mult = 0.35
+		state_migration_pull_mult = 0.35
 
 		country_max_declared_interests_mult = -0.5
 

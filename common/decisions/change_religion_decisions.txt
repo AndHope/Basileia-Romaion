@@ -138,7 +138,7 @@ hellenic_decision = {
 			}
 		}
 		change_relations = { 
-			country = c:FRA 
+			country = c:HRE 
 			value = -150 
 		}
 		change_relations = { 
@@ -230,16 +230,24 @@ orthodox_decision = {
 
 acknowledge_roman_orthodox_supremacy = {
 	is_shown = {
-		NOT = { has_variable = byz_sup_var }
+		NOT = {
+			c:BYZ = ROOT
+			has_modifier = subservient_patriarch
+		}
 		exists = c:BYZ
-		country_has_state_religion = rel:orthodox
-		NOT = { c:BYZ = ROOT }
+		OR = {
+			country_has_state_religion = rel:orthodox
+			country_has_state_religion = rel:oriental_orthodox
+		}
 	}
 
 	possible = {
 		is_at_war = no
 		is_subject = no
-		country_has_state_religion = rel:orthodox
+		OR = {
+			country_has_state_religion = rel:orthodox
+			country_has_state_religion = rel:oriental_orthodox
+		}
 		c:BYZ = {
 			relations:root >= relations_threshold:cordial
 			is_at_war = no
@@ -247,16 +255,8 @@ acknowledge_roman_orthodox_supremacy = {
 	}
 	
 	when_taken = {
-		set_variable = byz_sup_var
-		c:BYZ = { save_scope_as = target_country }
 		add_modifier = {
 			name = subservient_patriarch
-		}
-		c:BYZ = {
-			create_diplomatic_pact = {
-				who = ROOT
-				type = customs_union
-			}
 		}
 		change_relations = {
 			country = c:BYZ
@@ -270,7 +270,9 @@ acknowledge_roman_orthodox_supremacy = {
 
 declare_patriarch_independence = {
 	is_shown = {
-		NOT = { has_variable = byz_ind_var }
+		NOT = {
+			c:BYZ = ROOT
+		}
 		exists = c:BYZ
 		has_modifier = subservient_patriarch
 	}
@@ -281,17 +283,10 @@ declare_patriarch_independence = {
 	}
 	
 	when_taken = {
-		set_variable = byz_ind_var
 		remove_modifier = subservient_patriarch
 		change_relations = {
 			country = c:BYZ
-			value = -200
-		}
-		c:BYZ = {
-			remove_diplomatic_pact = {
-				who = ROOT
-				type = customs_union
-			}
+			value = -100
 		}
 	}
 	ai_chance = {
@@ -459,7 +454,7 @@ norse_decision = {
 			}
 		}
 		change_relations = { 
-			country = c:FRA 
+			country = c:HRE 
 			value = -150 
 		}
 		change_relations = { 

@@ -14,6 +14,10 @@ GLOBAL = {
 
 	#Lepsius Variable: Artifacts and Excavation Teams
 	every_country = {
+		set_global_variable = {
+			name = lepsius_global_artifacts
+			value = 0
+		}
 		set_variable = {
             name = lepsius_total_artifacts
             value = 0
@@ -145,31 +149,31 @@ GLOBAL = {
 	every_country = {
 		limit = {
 			OR = {
-				this = c:BYZ #British Museum/Young
-				this = c:FRA #Louvre/Champollion
-				this = c:PER #Egyptian Museum/Karl Richard Lepsius
-				this = c:NET #Rijksmuseum van Oudheden/Reuvens
-				this = c:TUS #Egyption Collection from the Franco-Tuscan Expedition/Rosellini
-				this = c:PAP #Roman-Egyptian Collection in the Vatican/Ungarelli
-				this = c:SAR #Egyptian Collection, one of the most important in Europe
-				this = c:AGY #Egyptian Collection
-				this = c:SWE #Donation from Giovanni Anastasi, who was also an important trader of antiquities and swedisch general consul in Egypt
-				this = c:SIC #Borgia and Picchianti Collection
-				this = c:BAV #Aegyptica in the Glyptothek
-				this = c:SAX #Seyffarth
-				this = c:LOM #Aegyptica (?), not sure if before 1836, but benefit of the doubt
-				this = c:GEN #Aegyptica in the Glyptothek
-				this = c:VEN #Seyffarth
-				this = c:ANL #Aegyptica (?), not sure if before 1836, but benefit of the doubt
+				#this = c:BYZ #Aegyptica
+				#this = c:HRE #Louvre/Champollion
+				#this = c:PER #Aegyptica
+				this = c:TUS #Aegyptica Collection from the Franco-Tuscan Expedition/Rosellini
+				this = c:PAP #Roman-Aegyptica
+				this = c:SAR #Aegyptica
+				#this = c:AGY #Aegyptica
+				this = c:SIC #Aegyptica
+				this = c:LOM #Aegyptica
+				this = c:GEN #Aegyptica
+				this = c:VEN #Aegyptica
+				#this = c:ANL #Aegyptica
+				#this = c:NET #Rijksmuseum van Oudheden/Reuvens
 			}
+			
 		}
 		add_technology_researched = lepsius_antiquarianism_tech
+		add_technology_researched = curtiss_messenger_pidgeons_tech
+		add_technology_researched = curtiss_montgolfier_balloon_tech
 	}
 
 	#Lepsius archaeologists for specific countries
 	### NOT IN USE RIGHT NOW ###
 
-	#c:FRA ?= {
+	#c:HRE ?= {
 	#	create_botta_paul_emile_effect = yes
 	#}
 	#c:GBR ?= {
@@ -234,7 +238,7 @@ GLOBAL = {
 	#Verrier Modifiers: Countries who discovered certain asteroids which were considered planets; also Uranus for statistics
 	every_country = {
 		limit = {
-			this = c:DEN #Uranus, discovered by Friedrich Wilhelm Herschel in 1781 [United Kingdom]
+			this = c:TUS #Uranus, discovered by Friedrich Wilhelm Herschel in 1781 [United Kingdom]
 		}
 		add_modifier = {
 			name = verrier_discovered_uranus_modifier
@@ -250,7 +254,7 @@ GLOBAL = {
 	}
 	every_country = {
 		limit = {
-			this = c:SAX #Pallas and Vesta, discovered by Heinrich Wilhelm Olbers in 1802 and 1807 [Bremen]
+			this = c:LOM #Pallas and Vesta, discovered by Heinrich Wilhelm Olbers in 1802 and 1807 [Bremen]
 		}
 		add_modifier = {
 			name = verrier_discovered_pallas_modifier
@@ -261,12 +265,23 @@ GLOBAL = {
 	}
 	every_country = {
 		limit = {
-			this = c:SAX #Juno, discovered by Karl Ludwig Harding in 1804 [Hanover]
+			this = c:VEN #Juno, discovered by Karl Ludwig Harding in 1804 [Hanover]
 		}
 		add_modifier = {
 			name = verrier_discovered_juno_modifier
 		}
 	}
+
+	#Verrier Variable: Observatory Inauguration
+
+	every_country = {
+		limit = {
+			verrier_astronomical_observation = yes
+		}
+		set_variable = verrier_observatory_inauguration_happened
+	}
+
+	############################################################ELGAR
 
 	############################################################GAUDÍ
 
@@ -289,46 +304,46 @@ GLOBAL = {
 	#Balloon Records
 	set_global_variable = { #7280 meters by Étienne-Gaspard Robert in 1803
 		name = curtiss_balloon_altitude_record_global_var
-		value = 7280
+		value = 3500
 	}
 	set_global_variable = {
 		name = curtiss_balloon_altitude_record_holder_global_var
-		value = c:FRA
+		value = c:LOM
 	}
-	c:FRA = {
+	c:LOM = {
 		set_variable = {
 			name = curtiss_balloon_altitude_record_var
-			value = 7280
+			value = 5000
 		}
 	}
 
 	set_global_variable = { #636 kilometers by André-Jacques Garnerin in 1802
 		name = curtiss_balloon_distance_record_global_var
-		value = 636
+		value = 500
 	}
 	set_global_variable = {
 		name = curtiss_balloon_distance_record_holder_global_var
-		value = c:FRA
+		value = c:LOM
 	}
-	c:FRA = {
+	c:LOM = {
 		set_variable = {
 			name = curtiss_balloon_distance_record_var
-			value = 636
+			value = 500
 		}
 	}
 
 	set_global_variable = { #9 hours by Sophie Blanchard in 1811
 		name = curtiss_balloon_time_record_global_var
-		value = 9
+		value = 8
 	}
 	set_global_variable = {
 		name = curtiss_balloon_time_record_holder_global_var
-		value = c:FRA
+		value = c:LOM
 	}
-	c:FRA = {
+	c:LOM = {
 		set_variable = {
 			name = curtiss_balloon_time_record_var
-			value = 9
+			value = 8
 		}
 	}
 	
