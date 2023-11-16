@@ -49,12 +49,58 @@ veiled_exarchate.1 = {
 
 	option = {
 		name = veiled_exarchate.1.b
+		c:AGY = {
+			set_state_religion = rel:orthodox
+			add_modifier = {
+				name = subservient_patriarch
+				months = -1
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						religion = rel:oriental_orthodox 
+					}
+				}
+				add_radicals = {
+					religion = rel:oriental_orthodox
+					value = 0.1
+				}
+			}
+		}
 		scope:aegypt_ruler = {
 			kill_character = yes
 		}
 		change_relations = {
 			country = c:AGY
 			value = 50
+		}
+		c:CYR = {
+			set_state_religion = rel:orthodox
+			if = {
+				limit = {
+					any_scope_pop = { 
+						religion = rel:oriental_orthodox 
+					}
+				}
+				add_radicals = {
+					religion = rel:oriental_orthodox
+					value = 0.1
+				}
+			}
+		}
+		c:RIC = {
+			set_state_religion = rel:orthodox
+			if = {
+				limit = {
+					any_scope_pop = { 
+						religion = rel:oriental_orthodox 
+					}
+				}
+				add_radicals = {
+					religion = rel:oriental_orthodox
+					value = 0.1
+				}
+			}
 		}
 	}
 }
@@ -107,6 +153,24 @@ veiled_exarchate.2 = {
 
 	option = {
 		name = veiled_exarchate.2.b
+		c:NAF = {
+			set_state_religion = rel:orthodox
+			add_modifier = {
+				name = subservient_patriarch
+				months = -1
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						religion = rel:oriental_orthodox 
+					}
+				}
+				add_radicals = {
+					religion = rel:oriental_orthodox
+					value = 0.1
+				}
+			}
+		}
 		scope:africa_ruler = {
 			kill_character = yes
 		}
@@ -165,6 +229,24 @@ veiled_exarchate.3 = {
 
 	option = {
 		name = veiled_exarchate.3.b
+		c:SIC = {
+			set_state_religion = rel:orthodox
+			add_modifier = {
+				name = subservient_patriarch
+				months = -1
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						religion = rel:catholic 
+					}
+				}
+				add_radicals = {
+					religion = rel:catholic
+					value = 0.25
+				}
+			}
+		}
 		scope:italy_ruler = {
 			kill_character = yes
 		}

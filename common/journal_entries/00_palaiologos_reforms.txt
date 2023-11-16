@@ -1,6 +1,8 @@
 ﻿je_palaiologos_reforms_main = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
+	group = je_group_internal_affairs
+
 	complete = {
 		scope:journal_entry = {
 			is_goal_complete = yes
@@ -51,6 +53,8 @@
 
 je_palaiologos_reforms_syria = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
 
 	complete = {
 		owns_entire_state_region = STATE_ALEPPO
@@ -134,6 +138,8 @@ je_palaiologos_reforms_syria = {
 je_palaiologos_reforms_egypt = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
 
+	group = je_group_foreign_affairs
+
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:greek
 		NOT = {
@@ -172,6 +178,13 @@ je_palaiologos_reforms_egypt = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+		trigger_event = {
+			id = veiled_exarchate.1
+		}
+		trigger_event = {
+			id = pentarchy.1
+			days = 5
+		}
 	}
 
 	invalid = {
@@ -188,6 +201,8 @@ je_palaiologos_reforms_egypt = {
 
 je_palaiologos_reforms_italy = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
 
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:greek
@@ -221,6 +236,9 @@ je_palaiologos_reforms_italy = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+		trigger_event = {
+			id = veiled_exarchate.3
+		}
 	}
 
 	invalid = {
@@ -237,6 +255,8 @@ je_palaiologos_reforms_italy = {
 
 je_palaiologos_reforms_africa = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
 
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:greek
@@ -268,6 +288,9 @@ je_palaiologos_reforms_africa = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+		trigger_event = {
+			id = veiled_exarchate.2
+		}
 	}
 
 	invalid = {
@@ -284,6 +307,8 @@ je_palaiologos_reforms_africa = {
 
 je_palaiologos_reforms_economy = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_internal_affairs
 
 	complete = {
 		NOT = { has_modifier = latin_privileges }
@@ -339,6 +364,8 @@ je_palaiologos_reforms_economy = {
 je_palaiologos_reforms_education = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
+	group = je_group_internal_affairs
+
 	complete = {
 		any_scope_building = {
 			is_building_type = building_university
@@ -386,6 +413,8 @@ je_palaiologos_reforms_education = {
 # Nationalism
 je_palaiologos_reforms_separatism = {
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	group = je_group_internal_affairs
 
 	complete = {
 		scope:journal_entry = {
@@ -457,6 +486,8 @@ je_palaiologos_reforms_separatism = {
 je_palaiologos_reforms_army = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
+	group = je_group_internal_affairs
+
 	complete = {
 		army_size >= 250
 		has_technology_researched = napoleonic_warfare
@@ -508,6 +539,8 @@ je_palaiologos_reforms_army = {
 #Navy reform
 je_palaiologos_reforms_navy = {
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	group = je_group_internal_affairs
 	
 #	is_shown_when_inactive = {
 #		country_has_primary_culture = cu:greek
@@ -566,6 +599,8 @@ je_palaiologos_reforms_navy = {
 je_palaiologos_reforms_bureaucracy = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
+	group = je_group_internal_affairs
+
 	complete = {
 		NOR = { 
 			has_law = law_type:law_hereditary_bureaucrats 
@@ -609,6 +644,8 @@ je_palaiologos_reforms_bureaucracy = {
 je_palaiologos_reforms_centralization_west = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
+	group = je_group_internal_affairs
+
 	complete = {
 		AND = {
 			owns_entire_state_region = STATE_ALBANIA
@@ -641,6 +678,8 @@ je_palaiologos_reforms_centralization_west = {
 
 je_palaiologos_reforms_centralization_east= {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
 
 	complete = {
 		AND = {

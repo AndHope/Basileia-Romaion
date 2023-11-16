@@ -1183,13 +1183,13 @@ pentarchy.1 = { # restoration of the patriarchate
 
 	duration = 3
 	
-	trigger = {
+	trigger = { #journal entry
 		NOT = { has_variable = byzfm_pentarchy_restoration }
-		owns_entire_state_region = STATE_EASTERN_THRACE
-		owns_entire_state_region = STATE_ADANA
-		owns_entire_state_region = STATE_PALESTINE
-		owns_entire_state_region = STATE_LOWER_EGYPT
-		has_law = law_type:law_state_religion
+		#owns_entire_state_region = STATE_EASTERN_THRACE
+		#owns_entire_state_region = STATE_ADANA
+		#owns_entire_state_region = STATE_PALESTINE
+		#owns_entire_state_region = STATE_LOWER_EGYPT
+		#has_law = law_type:law_state_religion
 	}
 	
 	immediate = {
@@ -1231,14 +1231,6 @@ pentarchy.1 = { # restoration of the patriarchate
 				name = modifier_restored_pentarchy
 				is_decaying = yes
 				months = long_modifier_time
-			}
-		}
-		if = {
-			limit = {
-				exists = scope:ig_devout_party_scope
-			}
-			scope:ig_devout_party_scope = {
-				add_momentum = 0.15
 			}
 		}
 	}

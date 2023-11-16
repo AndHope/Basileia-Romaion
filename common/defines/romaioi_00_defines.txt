@@ -22,8 +22,8 @@ NPops = {
 	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
 	#DISCRIMINATION_BASE = 25 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
 
-	QUALIFICATIONS_UPDATE_FACTOR = 0.0001 # was 0.0003				# Calculated potential values are multiplied by this value and the workforce size of the pop before being added to the existing potentials
-	QUALIFICATIONS_NUM_MONTHS_AT_START = 25 # was 60				# How many months of qualifications should be seeded to pops at start of game?
+	#QUALIFICATIONS_UPDATE_FACTOR = 0.0001 # was 0.0003				# Calculated potential values are multiplied by this value and the workforce size of the pop before being added to the existing potentials
+	#QUALIFICATIONS_NUM_MONTHS_AT_START = 25 # was 60				# How many months of qualifications should be seeded to pops at start of game?
 
 	LOYALTIES_GAIN_GRACE_PERIOD = "1755.1.1"	# Until this date, only a scaling part of the Radicals and Loyalists gained from SOL changes will be applied
 
@@ -55,6 +55,42 @@ NPops = {
 	MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY = 5	# Countries with at least this number of possible target states do not receive any penalty to their mass migration target score
 	MASS_MIGRATION_FEW_TARGET_STATES_PENALTY = 0.25		# Mass migration target score is divided by ( 1 + this * number of possible target states less than MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY )
 }
+
+### Pop Growth Constants
+@min_birthrate = 0.0020 #was 0.0010
+@max_birthrate = 0.0050 #WAS 0.0080
+@min_mortality = 0.0010
+@max_mortality = 0.0080 #was 0.0100
+@pop_growth_sol_equilibrium = 5	#was 5				# Equilibrium is where (with no birthrate/death-rate mods) growth is stagnant
+@pop_growth_sol_delta_cap = 25							# SoL Delta Cap is where net growth stops increasing with rising SoL, i.e. both drop at the same pace
+@pop_growth_sol_cap = 50								# SoL Cap is where they birthrate/death-rate stop dropping
+
+@mortality_at_equilibrium = @[max_birthrate-(pop_growth_sol_equilibrium*(max_birthrate-min_birthrate)/pop_growth_sol_cap)]
+@birthrate_at_delta_cap = @[max_birthrate-(pop_growth_sol_delta_cap*(max_birthrate-min_birthrate)/pop_growth_sol_cap)]
+@improving_slope = @[(birthrate_at_delta_cap-min_birthrate-min_mortality-mortality_at_equilibrium)/(pop_growth_sol_delta_cap-pop_growth_sol_equilibrium)]
+@improving_intercept = @[-1*improving_slope*pop_growth_sol_equilibrium+mortality_at_equilibrium]
+@mortality_at_delta_cap = @[improving_slope*pop_growth_sol_delta_cap+improving_intercept]
+@fixed_delta_slope = @[(min_mortality-mortality_at_delta_cap)/(pop_growth_sol_cap-pop_growth_sol_delta_cap)]
+		
+NPops = {
+	POP_GROWTH_BIRTHRATE_REDUCTION_PER_SOL = @[(max_birthrate-min_birthrate)/pop_growth_sol_cap]
+	POP_GROWTH_MORTALITY_AT_EQUILIBRIUM = @mortality_at_equilibrium
+	POP_GROWTH_STARVING_SLOPE = @[(mortality_at_equilibrium-max_mortality)/pop_growth_sol_equilibrium]
+	POP_GROWTH_BIRTHRATE_AT_DELTA_CAP = @birthrate_at_delta_cap
+	POP_GROWTH_IMPROVING_SLOPE = @improving_slope
+	POP_GROWTH_IMPROVING_INTERCEPT = @improving_intercept
+	POP_GROWTH_FIXED_DELTA_SLOPE = @fixed_delta_slope
+	POP_GROWTH_FIXED_DELTA_INTERCEPT = @[-1*fixed_delta_slope*pop_growth_sol_cap+min_mortality]
+	
+	POP_GROWTH_MIN_BIRTHRATE = @min_birthrate					# Minimum base birthrate per month (at SOL_POP_GROWTH_CAP)
+	POP_GROWTH_MAX_BIRTHRATE = @max_birthrate					# Maximum base birthrate per month (at SOL = 0)
+	POP_GROWTH_MIN_MORTALITY = @min_mortality					# Maximum base mortality per month (at SOL_POP_GROWTH_CAP)
+	POP_GROWTH_MAX_MORTALITY = @max_mortality					# Maximum base mortality per month (at SOL = 0)
+	POP_GROWTH_SOL_DELTA_CAP = @pop_growth_sol_delta_cap		# Birthrate and Mortality retains its delta beyond this SoL
+	POP_GROWTH_SOL_CAP = @pop_growth_sol_cap					# Birthrate and Mortality reaches its minimum values and does not drop beyond this SoL
+	POP_GROWTH_SOL_EQUILIBRIUM = @pop_growth_sol_equilibrium	# The Standard of Living where Birthrate and Mortality correspond, after which Mortality diminishes slower
+}
+### End Pop Growth Constant defines
 
 NEconomy = {
 	TRADE_CENTER_MIN_AVAILABLE_WORKFORCE = 10000 # was 20000 Don't put new trade centers in places with less available workforce than this

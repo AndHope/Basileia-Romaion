@@ -80,21 +80,36 @@ market_capital_state = {
 	building_group_bg_manufacturing_throughput_add = 0.1 #new
 	state_dependent_wage_mult = 0.1 #new
 	state_education_access_wealth_add = 0.005 #new
+	state_market_access_price_impact = 0.05
 }
 
 country_literacy_rate = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
 	country_weekly_innovation_max_add = 100 #was 150
 	country_tech_spread_add = 50 #was 75
-	#country_weekly_innovation_add = 100 #was none
 	building_throughput_add = 0.25 #new
 	#state_dependent_wage_mult = 0.1 #new
-	#state_birth_rate_mult = -0.25 #new
+	state_birth_rate_mult = -0.10 #new
+	state_mortality_mult = -0.10 #new
 }
 
 low_pop_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	state_birth_rate_mult = 0.25 #was 0.50
+	state_migration_pull_mult = 0.25 #was 0
+}
+
+high_pop_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	state_birth_rate_mult = -0.25
+	state_migration_pull_mult = -0.25 #was 0
+}
+
+# Multiplies unemployment rate in state by this
+unemployment_birth_penalty_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	#state_birth_rate_mult = -0.4
+	state_migration_pull_mult = -2
 }
 
 unincorporated_state = {
@@ -106,11 +121,12 @@ unincorporated_state = {
 	tax_income_add = 0.15
 	tax_dividends_add = 0.15
 	state_welfare_payments_add = -1.0
+	state_education_access_add = -0.25
 	building_group_bg_manufacturing_throughput_add = -0.25
 	building_group_bg_government_throughput_add = -0.1
 	building_group_bg_military_throughput_add = -0.1		
 	state_market_access_price_impact = -0.1
-	state_birth_rate_mult = -0.1
+	#state_birth_rate_mult = -0.1
 }
 
 tax_modifier_very_low = {

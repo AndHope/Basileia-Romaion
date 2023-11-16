@@ -1,0 +1,85 @@
+﻿NGraphics = {
+
+	# Gradient Borders
+	STATE_BORDER_FADE_NEAR = 200
+	STATE_BORDER_FADE_FAR = 1500 # default: 2000
+
+	# Tweaks the papermap shoreline stripes
+	#SHORELINE_MASK_BLUR = 2.5		# Recommended Range [1.0 - 10.0]			| The terrain/sea mask, blurrier mask can make the lines extend more
+	#SHORELINE_EXTENT_STR = 10.0	# Recommended Range [0.0 - 10.0]			| Simple strength of the lines
+	#SHORELINE_ALPHA = 0.3			# Recommended Range [0.0 - 5.0]				| Simple alpha tweaking
+	
+	#FLAT_MAP_ZOOM_STEP = 10		# At which zoom step to fade to flat map
+	
+	# Bottom mesh tint gradient					(Applied globally to all meshes)
+	#MESHTINT_HEIGHT_MIN = 0.0					# Tint begin (from bottom)
+	#MESHTINT_HEIGHT_MAX = 0.07					# Tint end
+	#MESHTINT_COLOR = { 0.20 0.14 0.06 1.0 }	# Tint Alpha and Color (effectitvely disabled with alpha 0.0)
+
+	
+}
+
+NMapName = {
+
+	ZOOM_STEPS_VISIBLE_SCALES = {	
+        # Each map-name has a scale. This list contains min-max values for each zoom step. 
+        # If a name's scale is outside that range it will not be visible.
+        # min (hides names that are too small)
+        # max (hides names when they get to large)
+         0.0	0.0 	# 0
+         0.0	0.0 	# 1
+         0.0	0.0 	# 2
+         0.0	0.0 	# 3
+         0.0	0.0		# 4
+         0.0 	0.0		# 5
+         0.0 	0.8		# 6
+         0.0 	1.0		# 7 	Terrain map
+         0.0 	1.5		# 8
+         0.0 	2.0		# 9
+         0.0 	5.0		# 10	Flatmap
+         0.0 	5.0		# 11
+         0.0 	5.0		# 12
+         0.0 	5.0		# 13	No 2D UI on Map
+         0.0 	5.0		# 14
+         0.0 	5.0		# 15
+	}
+    
+        #NAME_DRAW_DISTANCE = 4000.0		    # Remove names beyond this distance
+        #NAME_FONT_NAME = "PlayfairDisplay"		# Font used for drawing the map names
+        #NAME_FONT_SIZE = 80					# Font size used for drawing the map names
+        #FADE_SPEED = 2.0						# How fast names fade in/out
+        #MAX_OPACITY = 0.8
+        #MIN_OPACITY = 0.0						# minimum opacity. Names hidden by draw distance will still fade to 0
+        #MIN_PROVINCES = 3						# minimum number of provinces for a name to be generated
+    
+}
+
+NMapMode = {
+
+	### CLOSE DISTANCE FADE ###
+	# Used for borders and impassable terrain
+	DISTANCE_FADE_START = 45.0f								# Height at which to start fading out when zooming in
+	DISTANCE_FADE_END = 0.0f									# Height at which to be fully faded out
+
+	### HIGHLIGHT ###
+	#HIGHLIGHT_COLOR = { 1 1 1 0.125 }								# White
+	#HIGHLIGHT_INTERACTION_COLOR = { 1 0.57 0.15 0.5 }			# Golden
+	#CAMERA_HEIGHT_START_FADING_HIGHLIGHT = 800					# At what camera height should we start fading out the highlight?
+	#CAMERA_HEIGHT_FULLY_FADED_HIGHLIGHT = 0						# At what camera height should it be fully faded?
+	#HIGHLIGHT_ALPHA = 0.2										# Used for the Civil War highlight
+	
+	### DECENTRALIZED ###
+	COLOR_DECENTRALIZED_COUNTRY = { 0.58 0.53 0.42 1.0 }		# Alpha can control blend with country color #{ 0.88 0.83 0.72 1.0 }
+
+}
+
+NCamera = {
+    #FOV	= 55 	# Field-of-View
+    #ZNEAR = 1
+    #ZFAR = 50000
+}
+
+NCities = {
+	CITY_VFX_ZOOM_CUTOFF = 60				# zoom at which we hide all city VFXes, default: 250
+	CITY_PARTICLES_ZOOM_CUTOFF = 50			# zoom at which we hide all city particle effects (for example chimney smoke), default: 200
+}

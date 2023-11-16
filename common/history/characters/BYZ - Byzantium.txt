@@ -51,15 +51,18 @@
 			interest_group = ig_landowners
 			commander_rank = commander_rank_3
 			ideology = ideology_jingoist_leader
-			hq = region_anatolia
+			#hq_region = sr:region_anatolia
 			traits = {
 				bigoted
 				arrogant
 				demagogue
 				expert_political_operator
 			}
+			save_scope_as = doukas_gen
 		}
-
+		scope:doukas_gen = {
+			transfer_to_formation = scope:balkan_arm_byz1
+		}
 		create_character = {
 			first_name = "Maurianos"
 			last_name = "Akropolites"
@@ -80,7 +83,7 @@
 			age = 30
 			ig_leader = yes # Both general and IG leader
 			is_general = yes # Both general and IG leader
-			hq = region_anatolia
+			#hq_region = sr:region_anatolia
 			interest_group = ig_armed_forces
 			commander_rank = commander_rank_3
 			ideology = ideology_jingoist_leader
@@ -95,6 +98,10 @@
 				expert_political_operator
 			}
 			#character_popularity_add = 50
+			save_scope_as = komnenos_gen
+		}
+		scope:komnenos_gen = {
+			transfer_to_formation = scope:anatolia_arm_byz1
 		}
 
 		create_character = {
@@ -119,13 +126,11 @@
 			female = no
 			age = 40
 			traits = {
-				lepsius_archaeologist
 				tactful
 				erudite
 				innovative
 				honorable
 			}
-			save_scope_as = lepsius_new_archaeologist_scope
 		}
 		create_character = {
 			culture = cu:greek
@@ -135,13 +140,9 @@
 			female = no
 			age = 40
 			traits = {
-				lepsius_anthropologist
-				lepsius_archaeologist
-				dubois_geologist
 				explorer
 				meticulous
 			}
-			save_scope_as = lepsius_new_archaeologist_scope
 		}
 
 		create_character = {
@@ -154,7 +155,7 @@
 			interest_group = ig_petty_bourgeoisie 
 			commander_rank = commander_rank_2
 			culture = cu:latinoi
-			hq = region_anatolia
+			#hq_region = sr:region_anatolia
 			traits = {
 				imperious
 				inspirational_orator
@@ -165,107 +166,7 @@
 				expert_political_operator
 			}
 		}
-
-		create_character = {
-			is_general = yes
-			age = 40
-			interest_group = ig_landowners
-			commander_rank = commander_rank_2
-			hq = region_anatolia
-			traits = {
-			basic_defensive_strategist
-			surveyor
-			cautious
-			}
-		}
 		
-		create_character = { 
-		    is_admiral = yes
-			interest_group = ig_landowners
-			commander_rank = commander_rank_2
-			hq = region_anatolia
-			age = 40
-			traits = {
-			meticulous
-			traditionalist_commander
-		 	}
-		}
-		create_character = {
-			is_general = yes
-			age = 40
-			interest_group = ig_landowners
-			commander_rank = commander_rank_2
-			hq = region_dnieper
-			traits = {
-			basic_defensive_strategist
-			surveyor
-			cautious
-			}
-		}
-		
-		create_character = { 
-		    is_admiral = yes
-			interest_group = ig_petty_bourgeoisie
-			commander_rank = commander_rank_2
-			hq = region_balkans
-			age = 40
-			traits = {
-			meticulous
-			traditionalist_commander
-		 	}
-		}
-		create_character = {
-			is_general = yes
-			age = 40
-			interest_group = ig_landowners
-			commander_rank = commander_rank_2
-			hq = region_anatolia
-			traits = {
-			basic_defensive_strategist
-			resupply_commander
-			cautious
-			}
-		}
-		
-		create_character = { 
-		    is_admiral = yes
-			interest_group = ig_landowners
-			commander_rank = commander_rank_2
-			hq = region_anatolia
-			age = 40
-			traits = {
-			meticulous
-			resupply_commander
-			traditionalist_commander
-		 	}
-		}
-		create_character = {
-			is_general = yes
-			age = 30
-			culture = cu:varangian
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			hq = region_balkans
-			traits = {
-			wrathful
-			scarred
-			pillager
-			experienced_offensive_planner
-			alcoholic
-			}
-		}
-		
-		create_character = { 
-		    is_admiral = yes
-			interest_group = ig_petty_bourgeoisie
-			commander_rank = commander_rank_2
-			hq = region_balkans
-			age = 40
-			traits = {
-			meticulous
-			traditionalist_commander
-		 	}
-		}
 		
 	}
 
@@ -672,6 +573,29 @@
 				expert_naval_commander
 			}
 		}
+		
+	}
+
+	c:THE = {
+		create_character = {
+			ruler = yes
+			is_general = yes # Both general and IG leader
+			age = 22
+			interest_group = ig_armed_forces
+			ideology = ideology_jingoist_leader
+			commander_rank = commander_rank_1
+			culture = cu:varangian
+			traits = {
+				brave
+				wrathful
+				scarred
+				pillager
+				experienced_offensive_planner
+				alcoholic
+				surveyor
+			}
+			#character_popularity_add = 50
+		}	
 		
 	}
 
