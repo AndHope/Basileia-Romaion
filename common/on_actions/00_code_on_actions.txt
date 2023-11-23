@@ -14,11 +14,19 @@ on_monthly_pulse_country = {
 		unable_to_enact.1
 		poland_events.3 # Polish Unification
 		colonial_administration_events.2 # African Colony Radicals
+		caudillo.1
+		sa_migration.5
+		amazonas.1 # Taming Amazonia
+		#paraguay.11 # Paraguay War
+		#acw_events.9 # CSA victory event
 
 		# Exile Agitators Events
 		yeet_agitator_events.1
 		yeet_agitator_events.2
 		yeet_agitator_events.3
+
+		# Comte
+		positivism.1
 	}
 	effect = {
 		every_character_in_exile_pool = {
@@ -34,28 +42,6 @@ on_monthly_pulse_country = {
 				c:GER ?= { is_country_alive = yes }
 			}
 			set_global_variable = germany_formed
-		}
-		if = {
-			limit = {
-				c:TEX ?= this
-				NOT = {
-					has_variable = santa_anna_captured
-				}
-				exists = c:MEX
-				any_diplomatic_play = {
-					initiator_is = c:TEX
-					target_is = c:MEX
-				}
-				c:MEX = {
-					is_player = no
-					any_scope_character = {
-						has_variable = is_santa_anna
-					}
-				}
-				game_date >= 1836.4.21 # Battle of San Jacinto
-				game_date < 1838.1.1
-			}
-			trigger_event = { id = texan_war_of_independence.3 days = 0 popup = yes } # Santa Anna Captured
 		}
 	}
 	# Election Events
@@ -226,33 +212,6 @@ on_yearly_pulse_country = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				ROOT = {
-					is_player = yes
-					has_dlc_feature = voice_of_the_people_content
-					empty_agitator_slots >= 1
-					OR = {
-						c:USA ?= this
-						trigger_if = {
-							limit = {
-								exists = c:CAL
-							}
-							c:CAL ?= this
-						}
-					}
-					any_scope_state = {
-						state_region = s:STATE_CALIFORNIA
-						is_incorporated = yes
-					}
-					game_date > 1860.1.1
-					game_date < 1880.1.1
-				}
-				NOT = { has_global_variable = emperor_norton_spawn }	
-			}
-			trigger_event = { id = historical_agitators.9 }
-		}
 	}
 	random_events = {
 		150 = 0
@@ -352,7 +311,7 @@ on_yearly_pulse_country = {
 		3 = natural_disaster_events.2
 		1 = natural_disaster_events.3
 		1 = natural_disaster_events.4
-		3 = natural_disaster_events.5
+		20 = natural_disaster_events.5
 		3 = natural_disaster_events.6
 		3 = natural_disaster_events.7
 		1 = natural_disaster_events.8
@@ -393,8 +352,6 @@ on_yearly_pulse_country = {
 		50 = strike.7
 
 		10 = opium_wars.8
-
-		10 = south_america.3
 		
 		20 = communism.9
 		20 = communism.7
@@ -410,7 +367,7 @@ on_yearly_pulse_country = {
 		#nationalism
 		20 = fascism_events.8
 
-		# 20 = dreadnought_hoax.1
+		20 = dreadnought_hoax.1
 
 		2 = patagonia.2
 		10 = amazon.1
@@ -475,12 +432,36 @@ on_yearly_pulse_country = {
 
 		50 = acw_events.7
 		50 = acw_events.8
+
+		# Carnaval
+		30 = bp1_misc.1
+
+		# Medium Roast
+		30 = bp1_misc.2
+
+		# To the Highest Standards
+		20 = pedro.14
+	}
+
+	#Russian Monarchy Pulse Events
+	random_events = {
+		10 = 0
+		5 = russia_monarchy.2
+		10 = russia_monarchy.6
+		50 = russia_monarchy.7
+		5 = russia_monarchy.8
 	}
 
 	# Springtime of the Peoples
 	random_events = {
 		5 = 0
 		1 = peoples_springtime.6
+	}
+
+	# Landowners become Oligarchic
+	random_events = {
+		5 = 0
+		1 = bp1_misc.3
 	}
 
 	# Indochina JE start
@@ -666,6 +647,11 @@ on_battle_ended = {}
 on_battle_won = {
 	events = {
 		texan_war_of_independence.3
+
+	}
+	random_events = {
+		80 = 0
+		20 = culture_brazil.1
 	}
 }
 
@@ -743,16 +729,6 @@ on_acquired_technology = {
 		}
 		if = {
 			limit = {
-				has_technology_researched = socialism
-				NOT = { has_variable = socialism_researched }
-			}
-			set_variable = socialism_researched
-			ig:ig_trade_unions = {
-				add_ideology = ideology_socialist
-			}
-		}
-		if = {
-			limit = {
 				is_player = yes
 				has_technology_researched = pumpjacks
 				NOT = { has_variable = first_oil_discovered }
@@ -802,16 +778,6 @@ on_acquired_technology = {
 					}
 					force_resource_discovery = bg_oil_extraction
 				}
-			}
-		}
-		if = {
-			limit = {
-				has_technology_researched = nationalism
-				NOT = { has_variable = nationalism_researched }
-			}
-			set_variable = nationalism_researched
-			root = {
-				post_notification = nationalism_unlock_national_agitation
 			}
 		}
 	}
@@ -947,7 +913,6 @@ on_character_death = {
 			}
 		}
 		###
-
 		# Garibaldi exist check
 		if = {
 			limit = {
@@ -955,16 +920,32 @@ on_character_death = {
 			}
 			remove_global_variable = garibaldi_is_alive_global_var
 		}
+		### Caudillo Kingmaker
+		if = {
+			limit = {
+				NOT = { has_variable = caudillo_kingmaker }
+				has_role = politician
+				interest_group = {
+					is_interest_group_type = ig_armed_forces
+					is_marginal = no
+				}
+				owner = {
+					in_election_campaign = no
+					country_has_voting_franchise = yes
+					OR = {
+						has_journal_entry = je_caudillo
+						has_modifier = age_of_caudillos_modifier
+					}
+				}
+			}
+			owner = {
+				trigger_event = caudillo.5
+			}
+		}
 	}
 }
 
 # Root = Character
-on_new_ruler = {
-	effect = {
-		post_notification = new_ruler
-	}
-
-}
 
 # Root = Country
 on_country_default = {
@@ -1180,8 +1161,8 @@ on_country_released_as_independent = {
 				}
 			}
 			s:STATE_PALESTINE = {
-				add_homeland = sephardic
-				add_homeland = ashkenazi
+				add_homeland = cu:sephardic
+				add_homeland = cu:ashkenazi
 			}
 		}
 		if = {
@@ -1235,8 +1216,8 @@ on_country_released_as_own_subject = {
 				}
 			}
 			s:STATE_PALESTINE = {
-				add_homeland = sephardic
-				add_homeland = ashkenazi
+				add_homeland = cu:sephardic
+				add_homeland = cu:ashkenazi
 			}
 		}
 		scope:target = {
@@ -1345,8 +1326,8 @@ on_country_released_as_overlord_subject = {
 				}
 			}
 			s:STATE_PALESTINE = {
-				add_homeland = sephardic
-				add_homeland = ashkenazi
+				add_homeland = cu:sephardic
+				add_homeland = cu:ashkenazi
 			}
 		}
 		scope:target = {
@@ -1447,6 +1428,14 @@ on_country_formed = {
 				c:LAO ?= ROOT
 			}
 			trigger_event = { id = formation.1 popup = yes }
+		}
+        else_if = {
+			limit = {
+				c:PLT ?= THIS
+				was_formed_from = PRG
+				has_variable = patino_paraguay_var
+			}
+			add_primary_culture = cu:guarani
 		}
 		else_if = {
 			limit = {
@@ -1554,6 +1543,18 @@ on_country_formed = {
 			}
 			trigger_event = { id = formation.20 popup = yes }
 		}
+		else_if = {
+			limit = {
+				c:GER ?= ROOT
+			}
+			trigger_event = { id = german_unification.4 popup = yes }
+		}
+		else_if = {
+			limit = {
+				c:ITA ?= ROOT
+			}
+			trigger_event = { id = italian_unification.1 popup = yes }
+		}
 		else = {
 			trigger_event = { id = formation.17 popup = yes }
 		}
@@ -1629,7 +1630,7 @@ on_capitulation = {
             name = recently_lost_war
             days = 1825
             value = yes
-        } 
+        }
 	}
 }
 
@@ -2177,7 +2178,6 @@ on_law_checkpoint_stall = {
 		10 = luddite_law_events.6
 		10 = agitators_law_events.1
 		10 = agitators_law_events.2
-		10 = agitators_law_events.3
 		10 = agitators_law_events.4
 		10 = agitators_law_events.5
 		10 = agitators_law_events.6
@@ -2236,6 +2236,71 @@ on_law_enactment_pass = {
 			}
 			set_variable = achievement_amish_paradise_var
 		}
+		if = {
+			limit = {
+				has_journal_entry = je_pedro_republic
+				is_enacting_law = law_type:law_presidential_republic
+			}
+			ruler = { place_character_in_void = 6 }
+			trigger_event = { id = pedro.10 popup = yes }
+		}
+		if = {
+			limit = {
+				has_modifier = brazil_slaving_pariah_modifier
+				has_law = law_type:law_slave_trade
+				OR = {
+					is_enacting_law = law_type:law_debt_slavery
+					is_enacting_law = law_type:law_legacy_slavery
+					is_enacting_law = law_type:law_slavery_banned
+				}
+			}
+			remove_modifier = brazil_slaving_pariah_modifier
+		}
+		if = {
+			limit = {
+				OR = {
+					has_modifier = unrestricted_slave_trade_modifier
+					has_modifier = restricted_slave_trade_modifier
+					has_modifier = slave_shipments_intercepted_small
+					has_modifier = slave_shipments_intercepted_large
+				}
+				has_law = law_type:law_slave_trade
+				OR = {
+					is_enacting_law = law_type:law_debt_slavery
+					is_enacting_law = law_type:law_legacy_slavery
+				}
+			}
+			if = {
+				limit = {
+					has_modifier = unrestricted_slave_trade_modifier
+				}
+				remove_modifier = unrestricted_slave_trade_modifier
+			}
+			if = {
+				limit = {
+					has_modifier = restricted_slave_trade_modifier
+				}
+				remove_modifier = restricted_slave_trade_modifier
+			}
+			if = {
+				limit = {
+					has_modifier = slave_shipments_intercepted_small
+				}
+				remove_modifier = slave_shipments_intercepted_small
+			}
+			if = {
+				limit = {
+					has_modifier = slave_shipments_intercepted_large
+				}
+				remove_modifier = slave_shipments_intercepted_large
+			}
+			if = {
+				limit = {
+					has_variable = var_slave_trade_suppression_var
+				}
+				remove_variable = var_slave_trade_suppression_var
+			}
+		}
 	}
 }
 
@@ -2273,8 +2338,6 @@ on_law_enactment_ended = {
 # when this is triggered the law that was enacted is no longer considered being
 # enacted. Therefore using the `currently_enacting_law` link will return the
 # null law
-on_law_activated = {
-}
 
 # Root = Institution
 on_investment_increased = {
@@ -2347,7 +2410,7 @@ on_revolution_start = {
 			c:PRC = {
 				annex = scope:target
 				create_diplomatic_play = {
-					type = dp_annex_war
+					type = dp_revolution
 					target_state = c:FRA.capital
 					annex_as_civil_war = yes
 					add_war_goal = {
@@ -2370,6 +2433,141 @@ on_revolution_start = {
 			}
 			c:AUS = {
 				trigger_event = { id = krakow.1 days = 3 popup = yes }
+			}
+		}
+		if = {
+			limit = {
+				has_dlc_feature = voice_of_the_people_content
+				c:FRA ?= ROOT
+			}
+			if = {
+				limit = {
+					scope:target = {
+						is_secessionist = no
+						has_law = law_type:law_monarchy
+						any_interest_group = {
+							is_in_government = yes
+							is_strongest_ig_in_government = yes
+							leader = {
+								has_ideology = ideology:ideology_orleanist
+							}
+						}
+					}
+				}
+				scope:target = {
+					if = {
+						limit = {
+							has_variable = bonapartist_restoration_var
+						}
+						remove_variable = bonapartist_restoration_var
+					}
+					if = {
+						limit = {
+							has_variable = legitimist_restoration_var
+						}
+						remove_variable = legitimist_restoration_var
+					}
+					set_variable = { name = orleanist_restoration_var }
+					if = {
+						limit = {
+							ROOT.ruler = {
+								has_ideology = ideology:ideology_orleanist
+							}
+						}
+						create_character = {
+							template = dynamic_orleanist_ruler_template
+						}
+					}
+					else = {
+						generate_french_monarch = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					scope:target = {
+						is_secessionist = no
+						has_law = law_type:law_monarchy
+						any_interest_group = {
+							is_in_government = yes
+							is_strongest_ig_in_government = yes
+							leader = {
+								has_ideology = ideology:ideology_legitimist
+							}
+						}
+					}
+				}
+				scope:target = {
+					if = {
+						limit = {
+							has_variable = bonapartist_restoration_var
+						}
+						remove_variable = bonapartist_restoration_var
+					}
+					if = {
+						limit = {
+							has_variable = orleanist_restoration_var
+						}
+						remove_variable = orleanist_restoration_var
+					}
+					set_variable = { name = legitimist_restoration_var }
+					if = {
+						limit = {
+							ROOT.ruler = {
+								has_ideology = ideology:ideology_legitimist
+							}
+						}
+						create_character = {
+							template = dynamic_legitimist_ruler_template
+						}
+					}
+					else = {
+						generate_french_monarch = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					scope:target = {
+						is_secessionist = no
+						has_law = law_type:law_monarchy
+						any_interest_group = {
+							is_in_government = yes
+							is_strongest_ig_in_government = yes
+							leader = {
+								has_ideology = ideology:ideology_bonapartist
+							}
+						}
+					}
+				}
+				scope:target = {
+					if = {
+						limit = {
+							has_variable = orleanist_restoration_var
+						}
+						remove_variable = orleanist_restoration_var
+					}
+					if = {
+						limit = {
+							has_variable = legitimist_restoration_var
+						}
+						remove_variable = legitimist_restoration_var
+					}
+					set_variable = { name = bonapartist_restoration_var }
+					if = {
+						limit = {
+							ROOT.ruler = {
+								has_ideology = ideology:ideology_bonapartist
+							}
+						}
+						create_character = {
+							template = dynamic_bonapartist_ruler_template
+						}
+					}
+					else = {
+						generate_french_monarch = yes
+					}
+				}
 			}
 		}
 	}
@@ -2428,7 +2626,7 @@ on_secession_start = {
 			            ruler = {
 			                culture = cu:polish
 			            }
-			        }				
+			        }
 				}
 				scope:target = {
 					OR = {
@@ -2893,7 +3091,7 @@ on_revolution_checkpoint_reached = {
 		10 = revolution_pulse_events.3
 		10 = revolution_pulse_events.4
 		10 = revolution_pulse_events.5
-		# 10 = revolution_pulse_events.6
+		10 = revolution_pulse_events.6
 		10 = revolution_pulse_events.7
 		10 = revolution_pulse_events.8
 		10 = revolution_pulse_events.9
@@ -2987,6 +3185,7 @@ on_wargoal_enforced = {
         		}
         	}
         	c:PRC = {
+				set_immune_to_revolutions = no
 				change_tag = FRA
 				every_scope_state = {
 					limit = {
@@ -2997,7 +3196,73 @@ on_wargoal_enforced = {
 					set_state_type = incorporated
 				}
         	}
-        }   
+        }
+		if = {
+			limit = {
+				c:FRA ?= root
+				NOT = {
+					exists = c:PRC
+				}
+			}
+			if = {
+				limit = {
+					c:FRA = {
+						is_immune_to_revolutions = yes
+					}
+				}
+				set_immune_to_revolutions = no
+			}
+		}
+        if = {
+        	limit = {
+        		owner = {
+	        		c:PNI ?= this
+	        		has_variable = ragamuffin_nation_var
+	        		NOT = { has_variable = won_ragamuffin_war_var }
+					owns_entire_state_region = STATE_RIO_GRANDE_DO_SUL
+					owns_entire_state_region = STATE_SANTA_CATARINA
+				}
+        	}
+        	owner = {
+        		set_variable = won_ragamuffin_war_var
+        		trigger_event = { id = brazilian_minors.1 days = 0 popup = yes }
+        	}
+        }
+        if = {
+        	limit = {
+        		owner = {
+        			game_date < 1850.1.1 # Just in case.
+        			NOT = {
+        				has_variable = cabanagem_defeat_var
+        				exists = c:PRA
+        			}
+	        		c:BRZ ?= this
+					owns_entire_state_region = STATE_PARA
+					any_scope_state = { state_region = s:STATE_AMAZONAS }
+				}
+        	}
+        	owner = {
+        		set_variable = cabanagem_defeat_var
+        		trigger_event = { id = brazilian_minors.2 days = 0 popup = yes }
+        	}
+        }
+        if = {
+        	limit = {
+        		owner = {
+        			game_date < 1850.1.1 # Just in case.
+        			NOT = {
+        				has_variable = ragamuffin_defeat_var
+        				exists = c:PNI
+        			}
+	        		c:BRZ ?= this
+					owns_entire_state_region = STATE_RIO_GRANDE_DO_SUL
+				}
+        	}
+        	owner = {
+        		set_variable = ragamuffin_defeat_var
+        		trigger_event = { id = brazilian_minors.3 days = 0 popup = yes }
+        	}
+        }
 	}	
 }
 
@@ -3038,6 +3303,20 @@ on_rank_changed = {
 on_claim_added = {
 	effect = {
 		post_notification = claim_added_notification
+	}
+}
+
+# Root = Country (in which the company is established)
+# scope:company = The company that was established
+on_company_established = {
+	effect = {
+	}
+}
+
+# Root = Country (in which the company was disbanded)
+# scope:company = The company that was disbanded
+on_company_disbanded = {
+	effect = {
 	}
 }
 
@@ -3278,11 +3557,6 @@ on_election_campaign_start = {
 }
 
 # Root = Country
-on_election_campaign_end = {
-	effect = {
-		debug_log = "Election Campaign Ended"
-	}
-}
 
 # Root = Country
 on_government_reformed = {
@@ -3442,6 +3716,16 @@ on_character_recruitment = {
 	}
 }
 
+# This on-action is triggered in cases where there is no overriding on_impose effect on a law type. In case an on_impose effect exists on the law type, this will NOT be executed.
+# Root = country being imposed upon
+# scope:initiator = country doing the imposition
+# scope:law = law being imposed
+on_impose_law = {
+	effect = {
+		start_enactment = scope:law.type
+	}
+}
+
 # Root = invaded country
 # scope:actor = invading country
 # scope:admiral = invading admiral
@@ -3488,3 +3772,20 @@ on_travel_track_formation_cancelled = {
 		post_notification = formation_travel_track_formation_cancelled
 	}
 }
+
+# Root = Military Formation
+on_military_formation_created = {
+	effect = {
+		if = {
+			limit = {
+				owner = {
+					has_journal_entry = je_tutorial_create_formation
+				}
+			}
+			owner = {
+				remove_variable = formation_tutorial_ongoing
+			}
+		}
+	}
+}
+
