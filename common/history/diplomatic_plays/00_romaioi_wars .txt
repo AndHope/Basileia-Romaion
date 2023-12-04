@@ -141,21 +141,22 @@
 		}			
 	}
 
-	c:HUN = {
+	c:SER = {
 		create_diplomatic_play = {
 			name = Balkan_revolt2
 		
-			target_country = c:SER
+			target_country = c:HUN
 			#add_target_backers = { c:WAL c:MOL }
+			#add_initiator_backers = { c:DLM }
 			
 			war = yes
 			
-			type = dp_humiliation
+			type = dp_independence
 
 		#	add_war_goal = {
-		#		holder = c:HUN
+		#		holder = c:CRO
 		#		type = return_state
-		#		target_state = s:STATE_SLAVONIA.region_state:SER
+		#		target_state = s:STATE_BOSNIA.region_state:SER
 		#	}
 
 		}			
@@ -229,19 +230,19 @@
 #		}			
 #	}
 #
-#	c:RIC = {
-#		create_diplomatic_play = {
-#			name = AGY_Red_Sea_War
-#		
-#			target_country = c:SUA
-#			add_initiator_backers = { c:AGY }
-#			
-#			war = yes
-#			
-#			type = dp_annex_subject #dp_secession
-#
-#		}			
-#	}
+	c:RIC = {
+		create_diplomatic_play = {
+			name = AGY_Red_Sea_War
+		
+			target_country = c:SUA
+			#add_initiator_backers = { c:AGY }
+			
+			war = yes
+			
+			type = dp_annex_subject #dp_secession
+
+		}			
+	}
 
 	c:ALD = {
 		create_diplomatic_play = {
@@ -336,5 +337,27 @@
 
 		}			
 	}
+
+
+#	c:TRS = {
+#		create_diplomatic_play = {
+#	name = TRSWAR1
+#		
+#			target_country = c:MOL
+#			#add_initiator_backers = { c:WAL c:WAL }
+#			add_target_backers = { c:WAL  }
+#			
+#			war = yes
+#			
+#			type = dp_humiliation
+#
+#			add_war_goal = {
+#				holder = c:MOL
+#				type = return_state
+#				target_state = s:STATE_MOLDAVIA.region_state:TRS
+#			}
+#
+#		}			
+#	}
 
 }

@@ -68,7 +68,7 @@ DIPLOMACY = {
 
 	c:SER = {
 		set_relations = { country = c:BYZ value = -25 }
-		set_relations = { country = c:HUN value = -25 }
+		set_relations = { country = c:HUN value = -75 }
 	}
 
 	c:WAL = {
@@ -76,8 +76,13 @@ DIPLOMACY = {
 			country = c:MOL
 			type = defensive_pact #alliance
 		}
-		set_relations = { country = c:BYZ value = -25 }
-		set_relations = { country = c:TRS value = -15 }
+		set_owes_obligation_to = {
+			country = c:SER
+			setting = yes
+		}
+		set_relations = { country = c:HUN value = -75 }
+		set_relations = { country = c:BYZ value = 25 }
+		set_relations = { country = c:TRS value = -25 }
 		set_relations = { country = c:MOL value = 75 }
 		set_relations = { country = c:SER value = 75 }
 	}
@@ -95,14 +100,22 @@ DIPLOMACY = {
 
 	c:ETH = {
 		set_relations = { country = c:BYZ value = 75 }
-		set_relations = { country = c:MJT value = -75 }
+		set_relations = { country = c:MJT value = -95 }
 	}
 
 	c:MOL = {
-		set_relations = { country = c:BYZ value = -25 }
-		set_relations = { country = c:TRS value = -55 }
+		set_relations = { country = c:BYZ value = 25 }
+		set_relations = { country = c:TRS value = -95 }
+		set_relations = { country = c:HUN value = -75 }
+		set_relations = { country = c:PLC value = 50 }
 		set_relations = { country = c:WAL value = 75 }
 		set_relations = { country = c:SER value = 75 }
+
+		set_owes_obligation_to = {
+			country = c:WAL
+			setting = yes
+		}
+
 	}
 
 	c:ARM = {
@@ -180,27 +193,27 @@ DIPLOMACY = {
 		}
 		create_truce = {
 			country = c:SIW
-			months = 360
+			months = 120
 		}
 		create_truce = {
 			country = c:SAH
-			months = 800
+			months = 120
 		}
 		create_truce = {
 			country = c:TUG
-			months = 800
+			months = 120
 		}
 		create_truce = {
 			country = c:AHG
-			months = 800
+			months = 120
 		}
 		create_truce = {
 			country = c:ZJR
-			months = 800
+			months = 120
 		}
 		create_truce = {
 			country = c:TBI
-			months = 800
+			months = 120
 		}
 		create_truce = {
 			country = c:MJB
@@ -209,6 +222,10 @@ DIPLOMACY = {
 		create_truce = {
 			country = c:ZUW
 			months = 24
+		}
+		set_owes_obligation_to = {
+			country = c:GEN
+			setting = yes
 		}
 	}
 	
@@ -245,6 +262,12 @@ DIPLOMACY = {
 		set_relations = { country = c:ZAN value = -100 }
 		set_relations = { country = c:MJT value = -100 }
 		set_relations = { country = c:LAN value = -100 }
+
+		create_truce = {
+			country = c:BJA
+			months = 124
+		}
+
 	}
 
 	c:EPR = {

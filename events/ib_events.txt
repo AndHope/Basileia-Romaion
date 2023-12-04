@@ -1,0 +1,148 @@
+namespace = ib_events
+
+ib_events.01 = {
+	type = country_event
+	title = ib_events.01.t
+	desc = ib_events.01.d
+	flavor = ib_events.01.f
+
+	event_image = {
+		video = "gfx/event_pictures/southamerica_aristocrats.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/southamerica/aristocrats"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 1
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				root = {
+					has_diplomatic_pact = {
+						who = prev
+						type = change_primary_culture
+					}
+				}
+			}
+			save_scope_as = culture_target_country
+		}	
+	}
+
+	option = {
+		name = ib_events.01.a
+		hidden_effect = {
+			every_country = {
+				every_scope_culture = {
+					limit = {
+						scope:culture_target_country = {
+							country_has_primary_culture = prev
+						}
+					}
+					scope:culture_target_country = {
+						remove_primary_culture = prev
+					}
+				}
+			}
+		}
+		
+		scope:culture_target_country = {
+			set_state_religion = root.religion
+			
+		}
+
+		every_primary_culture = {
+			scope:culture_target_country = {
+				add_primary_culture = prev
+			}
+		}
+		hidden_effect = {
+			scope:culture_target_country = {
+				if = {
+					limit = {
+						NOT = {
+							any_scope_pop ={
+								pop_has_primary_culture = yes
+							}
+						}
+					}
+					random_primary_culture ={
+						save_temporary_scope_as = target_culture
+					}
+					every_scope_pop = {
+						limit = {
+							is_pop_type = aristocrats
+						}
+						change_pop_culture = { target = scope:target_culture value = 0.01 }
+					}
+				}
+				every_scope_character = {
+					kill_character = yes
+				}
+
+			}
+		}
+
+		
+	}
+}
+
+ib_events.02 = {
+	type = country_event
+	title = ib_events.02.t
+	desc = ib_events.02.d
+	flavor = ib_events.02.f
+
+	event_image = {
+		video = "gfx/event_pictures/southamerica_aristocrats.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/southamerica/aristocrats"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 1
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				root = {
+					has_diplomatic_pact = {
+						who = prev
+						type = increase_autonomy
+					}
+				}
+			}
+			save_scope_as = autonomy_target_country
+		}	
+	}
+
+	option = {
+		name = ib_events.02.a
+
+		change_infamy = -5
+		remove_diplomatic_pact = {
+			country = scope:autonomy_target_country
+			type = puppet
+		}
+		create_diplomatic_pact = {
+			country = scope:autonomy_target_country
+			type = dominion
+		}
+		scope:autonomy_target_country = {
+	        change_relations = {
+				country = root
+				value = 20
+			}
+		}
+	}
+}

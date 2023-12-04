@@ -61,10 +61,6 @@
 
 	c:ARA = {
 		create_diplomatic_pact = {
-			country = c:ZAN
-			type = tributary
-		}	
-		create_diplomatic_pact = {
 			country = c:MJT
 			type = tributary
 		}
@@ -74,7 +70,7 @@
 		}
 		create_diplomatic_pact = {
 			country = c:OMA
-			type = puppet
+			type = dominion
 		}
 
 		set_relations = { country = c:BYZ value = -75 }
@@ -82,6 +78,41 @@
 		set_relations = { country = c:PER value = -50 }
 		set_relations = { country = c:NAF value = -25 }
 		set_relations = { country = c:ANL value = -35 }
+
+	}
+
+	c:OMA = {
+		create_diplomatic_pact = {
+			country = c:ZAN
+			type = personal_union
+		}
+		create_diplomatic_pact = {
+			country = c:ACE
+			type = trade_agreement
+		}
+		set_owes_obligation_to = {
+			country = c:ACE
+			setting = yes
+		}
+	}
+
+	c:ACE = {
+		create_diplomatic_pact = {
+			country = c:JOH
+			type = vassal
+		}
+		set_owes_obligation_to = {
+			country = c:OMA
+			setting = yes
+		}
+
+	}
+
+	c:ZAN = {
+		set_owes_obligation_to = {
+			country = c:OMA
+			setting = yes
+		}
 
 	}
 

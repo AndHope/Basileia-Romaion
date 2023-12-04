@@ -1,0 +1,40 @@
+﻿FX_ask_subject_to_fight = {
+	requires_approval = no
+    should_notify_third_parties = no
+	show_effect_in_tooltip = yes
+    possible = {
+		scope:target_country = {
+			NOT = { 
+				is_country_type = decentralized
+				# is_subject_type = subject_type_customs_union
+			}
+		}
+    }
+    potential = {
+		always = yes
+	}
+	
+    accept_effect = {
+		scope:target_country = {
+			save_scope_as = FX_subject_fight_target_country
+		}
+
+		every_subject_or_below = {
+			if = {
+				limit = { not = {is_subject_type = subject_type_customs_union} not = { has_variable = FX_potential_subject }}
+				set_variable  = FX_potential_subject
+			}
+		}
+
+		trigger_event = {
+			id = FX_subject_fight.1
+			days = 0
+			popup = yes
+		}
+    }
+    ai = {
+        will_propose = {
+            always = no
+        }
+    }
+}

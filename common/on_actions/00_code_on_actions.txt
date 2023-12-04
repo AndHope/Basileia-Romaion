@@ -317,8 +317,6 @@ on_yearly_pulse_country = {
 		1 = natural_disaster_events.8
 		
 		# Taiping Heavenly Kingdom
-		20 = heavenly.1
-
 		# Warlords
 		20 = warlord_china_events.110
 		20 = warlord_china_events.301
@@ -622,6 +620,7 @@ on_five_year_pulse_state = {}
 on_decade_pulse_state = {}
 
 # Root = attacker or defender country
+# scope:enemy_country = enemy of root
 # scope:battle = battle
 # scope:attacker = attacking commander
 # scope:defender = defending commander
@@ -633,6 +632,7 @@ on_battle_started = {
 }
 
 # Root = attacker or defender country
+# scope:enemy_country = enemy of root
 # scope:battle = battle
 # scope:attacker = attacking commander
 # scope:defender = defending commander
@@ -640,6 +640,7 @@ on_battle_started = {
 on_battle_ended = {}
 
 # Root = attacker or defender country
+# scope:enemy_country = enemy of root
 # scope:battle = battle
 # scope:attacker = attacking commander
 # scope:defender = defending commander
@@ -656,6 +657,7 @@ on_battle_won = {
 }
 
 # Root = attacker or defender country
+# scope:enemy_country = enemy of root
 # scope:battle = battle
 # scope:attacker = attacking commander
 # scope:defender = defending commander
@@ -802,27 +804,6 @@ on_spreading_technology = {
 # scope:target = Target of the play
 on_diplomatic_play_started = {
 	effect = {
-		if = {
-			limit = { is_diplomatic_play_type = dp_unify_germany }
-			every_country = {
-				limit = {
-					is_supporting_unification_candidate = { who = scope:initiator country_formation = GER }
-				}
-				
-				scope:initiator = { annex = prev }
-			}
-		}
-		
-		if = {
-			limit = { is_diplomatic_play_type = dp_unify_italy }
-			every_country = {
-				limit = {
-					is_supporting_unification_candidate = { who = scope:initiator country_formation = ITA }
-				}
-				
-				scope:initiator = { annex = prev }
-			}
-		}
 
 		if = {
 			limit = { is_diplomatic_play_type = dp_unify_scandinavia }
@@ -1542,18 +1523,6 @@ on_country_formed = {
 				c:RHN ?= ROOT
 			}
 			trigger_event = { id = formation.20 popup = yes }
-		}
-		else_if = {
-			limit = {
-				c:GER ?= ROOT
-			}
-			trigger_event = { id = german_unification.4 popup = yes }
-		}
-		else_if = {
-			limit = {
-				c:ITA ?= ROOT
-			}
-			trigger_event = { id = italian_unification.1 popup = yes }
 		}
 		else = {
 			trigger_event = { id = formation.17 popup = yes }
@@ -2376,11 +2345,7 @@ on_revolution_start = {
 				has_journal_entry = je_warlord_china
 				NOT = { has_variable = china_warlord_explosion_revolution }
 			}
-			post_notification = warlord_china_explosion_point_add
-			change_variable = {
-				name = china_warlord_explosion
-				add = 1
-			}
+			chi_remove_1_fragile_unity = yes
 			set_variable = china_warlord_explosion_revolution
 		}
 		if = {
@@ -2413,11 +2378,6 @@ on_revolution_start = {
 					type = dp_revolution
 					target_state = c:FRA.capital
 					annex_as_civil_war = yes
-					add_war_goal = {
-						holder = c:FRA
-						type = annex_country
-						target_country = c:PRC
-					}
 				}
 			}
 		}
@@ -2587,34 +2547,8 @@ on_secession_start = {
 				has_journal_entry = je_warlord_china
 				NOT = { has_variable = china_warlord_explosion_revolution }
 			}
-			post_notification = warlord_china_explosion_point_add
-			change_variable = {
-				name = china_warlord_explosion
-				add = 1
-			}
+			chi_remove_1_fragile_unity = yes
 			set_variable = china_warlord_explosion_revolution
-		}
-		if = {
-			limit = {
-				scope:target = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-				}
-				ROOT = {
-					NOR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-				}
-				any_country = {
-					has_journal_entry = je_risorgimento
-				}
-			}
-			root = {
-				trigger_event = { id = italian_unification.7 days = 3 }
-			}
 		}
 		if = {
 			limit = {
@@ -3608,14 +3542,16 @@ on_stop_supporting_unification = {
 	}
 }
 
-# Root = Character
+# Root = Country
+# scope:region - the sea region where the raid happened
 on_enemy_convoys_raided = {
 	effect = {
 		post_notification = enemy_convoys_raided
 	}
 }
 
-# Root = Character
+# Root = Country
+# scope:region - the sea region where the raid happened
 on_our_convoys_raided = {
 	effect = {
 		post_notification = our_convoys_raided

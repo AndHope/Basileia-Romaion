@@ -1,15 +1,18 @@
 company_suez_company = {
-	texture = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
 	
 	building_types = {  
 		building_suez_canal
-		#building_shipyards
+		building_trade_center
+		building_shipyards
+		building_military_shipyards
 	}
 	
 	potential = {
 	    OR = {
 		country_has_primary_culture = cu:greek
-		#country_has_primary_culture = cu:
+		country_has_primary_culture = cu:latinoi
 		}
 	}
 	
@@ -23,6 +26,7 @@ company_suez_company = {
 		country_trade_route_competitiveness_mult = 0.25
 		country_trade_route_cost_mult = -0.25
 		unit_convoy_requirements_mult = -0.25
+		country_tax_income_add = 5000 #was 50000
 	}
 
 	ai_weight = {
@@ -31,7 +35,8 @@ company_suez_company = {
 }
 
 company_byz_ric = {
-	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
 	
 	replaces_company = company_basic_shipyards
 
@@ -55,9 +60,9 @@ company_byz_ric = {
 				level > 10
 			}
 		}
-		NOR = {
-			has_modifier = latin_privileges
-		}
+	#	NOR = {
+	#		has_modifier = latin_privileges
+	#	}
 	}
 	
 	prosperity_modifier = {
@@ -72,7 +77,8 @@ company_byz_ric = {
 }
 
 company_ven_trade = {
-	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
 	
 	replaces_company = company_basic_shipyards
 
@@ -110,12 +116,14 @@ company_ven_trade = {
 }
 
 company_ven_arsenal = {
-	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
 	
 	flavored_company = yes
 	
 	building_types = {  
 		building_military_shipyards
+		building_artillery_foundries
 	}
 	
 	potential = {
@@ -135,7 +143,7 @@ company_ven_arsenal = {
 	
 	prosperity_modifier = {
 		unit_navy_defense_mult = 0.25
-		country_navy_power_projection_mult = 0.25
+		country_prestige_from_navy_power_projection_mult = 0.25
 	}
 	
 	ai_weight = {
@@ -144,7 +152,8 @@ company_ven_arsenal = {
 }
 
 company_gen_trade = {
-	texture = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
 	
 	replaces_company = company_basic_shipyards
 
@@ -182,12 +191,14 @@ company_gen_trade = {
 }
 
 company_gen_arsenal = {
-	texture = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
 	
 	flavored_company = yes
 	
 	building_types = {  
 		building_military_shipyards
+		building_artillery_foundries
 	}
 	
 	potential = {
@@ -207,7 +218,7 @@ company_gen_arsenal = {
 	
 	prosperity_modifier = {
 		unit_navy_defense_mult = 0.25
-		country_navy_power_projection_mult = 0.25
+		country_prestige_from_navy_power_projection_mult = 0.25
 	}
 	
 	ai_weight = {
@@ -217,7 +228,8 @@ company_gen_arsenal = {
 
 # Imperial Arsenal
 company_imperial_arsenal = {
-	texture = "gfx/interface/icons/company_icons/historical_company_icons/imperial_arsenal.dds"
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/imperial_arsenal.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
 	
 	flavored_company = yes
 	
@@ -243,7 +255,7 @@ company_imperial_arsenal = {
 	
 	prosperity_modifier = {
 		unit_navy_defense_mult = 0.1
-		country_navy_power_projection_mult = 0.1
+		country_prestige_from_navy_power_projection_mult = 0.1
 	}
 	
 	ai_weight = {
@@ -253,7 +265,8 @@ company_imperial_arsenal = {
 
 # Zeytinburnu Industrial Complex
 company_anatolia = {
-	texture = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufactering_heavy.dds"
 	
 	flavored_company = yes
 	
@@ -282,10 +295,6 @@ company_anatolia = {
 				level > 10
 			}
 		}
-		NOR = {
-			has_modifier = sick_man_of_europe
-			is_country_type = unrecognized
-		}
 	}
 	
 	prosperity_modifier = {
@@ -299,7 +308,8 @@ company_anatolia = {
 
 # Bakırköy Industrial Complex
 company_anatolia2 = {
-	texture = "gfx/interface/icons/company_icons/basic_munitions.dds"
+	icon = "gfx/interface/icons/company_icons/basic_munitions.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufactering_heavy.dds"
 	
 	flavored_company = yes
 	
@@ -326,10 +336,6 @@ company_anatolia2 = {
 				level > 10
 			}
 		}
-		NOR = {
-			has_modifier = sick_man_of_europe
-			is_country_type = unrecognized
-		}
 	}
 	
 	prosperity_modifier = {
@@ -343,7 +349,8 @@ company_anatolia2 = {
 
 # Chemins de fer Orientaux
 company_orient_express = {
-	texture = "gfx/interface/icons/company_icons/historical_company_icons/chemins_de_fer_orientaux.dds"
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/chemins_de_fer_orientaux.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
 	
 	flavored_company = yes
 	
@@ -365,10 +372,6 @@ company_orient_express = {
 			is_incorporated = yes
 			has_building = building_railway
 			count >= 4
-		}
-		NOR = {
-			has_modifier = sick_man_of_europe
-			is_country_type = unrecognized
 		}
 	}
 	
