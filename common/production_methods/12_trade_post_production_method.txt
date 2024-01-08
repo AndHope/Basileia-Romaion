@@ -1,0 +1,61 @@
+pm_horse_transport = {
+	texture = "gfx/interface/icons/production_method_icons/horse_transport.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_horse_add = 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 4000
+		}
+	}
+}
+
+###
+
+pm_no_street_transport = {
+	texture = "gfx/interface/icons/production_method_icons/no_horse.dds"
+}
+
+pm_horse_street_transport = {
+	texture = "gfx/interface/icons/production_method_icons/horse_street_transport.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+				goods_input_horse_add = 2
+			}
+
+		level_scaled = {
+			building_employment_laborers_add = -500
+		}
+	}
+}
+
+pm_truck_street_transport = {
+	texture = "gfx/interface/icons/production_method_icons/truck_street_transport.dds"
+
+
+	unlocking_technologies = {
+		combustion_engine
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 5
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+				goods_input_automobiles_add = 2
+			}
+
+		level_scaled = {
+			building_employment_laborers_add = -1000
+		}
+	}
+}

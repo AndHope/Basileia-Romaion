@@ -1,0 +1,252 @@
+﻿### Cavalry
+
+combat_unit_type_hussars = {
+    group = combat_unit_group_cavalry
+    
+    upkeep_modifier = {
+        goods_input_horse_add = 1
+    }
+
+    battle_modifier = {
+        unit_offense_add = 15
+        unit_defense_add = 10
+        unit_morale_loss_add = 10
+    }
+
+    formation_modifier = {
+        military_formation_mobilization_speed_mult = 0.25
+        military_formation_movement_speed_mult = 0.25
+    }
+
+	unlocking_technologies = { standing_army }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = east_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_east_asian_hussar.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = south_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_south_asian_hussar.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = african
+        }
+        texture = "gfx/unit_illustrations/cavalry_african_hussar.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = arabic
+        }
+        texture = "gfx/unit_illustrations/cavalry_arabic_hussar.dds"
+    }
+
+    combat_unit_image = {
+        # fallback
+        texture = "gfx/unit_illustrations/cavalry_eu_hussar.dds"
+    }
+
+    upgrades = {
+        combat_unit_type_dragoons
+        combat_unit_type_cuirassiers
+        combat_unit_type_lancers
+    }
+}
+
+combat_unit_type_dragoons = {
+    group = combat_unit_group_cavalry
+
+    can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
+    }
+    
+    upkeep_modifier = {
+        goods_input_horse_add = 1
+        goods_input_small_arms_add = 2
+    }
+
+    battle_modifier = {
+        unit_offense_add = 20
+        unit_defense_add = 25
+        unit_morale_loss_add = 8
+        unit_occupation_mult = 0.3
+        #should get modifiers to mobile/surprise battle conditions appearing
+    }
+
+	unlocking_technologies = { military_drill }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = east_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_east_asian_dragoon.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = south_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_south_asian_dragoon.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = african
+        }
+        texture = "gfx/unit_illustrations/cavalry_african_dragoon.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = arabic
+        }
+        texture = "gfx/unit_illustrations/cavalry_arabic_dragoon.dds"
+    }
+
+    combat_unit_image = {
+        # fallback
+        texture = "gfx/unit_illustrations/cavalry_eu_dragoon.dds"
+    }
+
+    upgrades = {
+        combat_unit_type_cuirassiers
+        combat_unit_type_lancers
+    }
+}
+
+combat_unit_type_cuirassiers = {
+    group = combat_unit_group_cavalry
+	
+    can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
+    }
+    
+    upkeep_modifier = {
+        goods_input_horse_add = 2
+        goods_input_small_arms_add = 1
+        goods_input_iron_add = 1
+    }
+
+    battle_modifier = {
+        unit_offense_add = 25
+        unit_defense_add = 20
+        unit_morale_loss_add = 8
+        unit_occupation_mult = 0.3
+    }
+
+	unlocking_technologies = { military_drill }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = east_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_east_asian_cuirassier.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = south_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_south_asian_cuirassier.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = african
+        }
+        texture = "gfx/unit_illustrations/cavalry_african_cuirassier.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = arabic
+        }
+        texture = "gfx/unit_illustrations/cavalry_arabic_cuirassier.dds"
+    }
+
+    combat_unit_image = {
+        # fallback
+        texture = "gfx/unit_illustrations/cavalry_eu_cuirassier.dds"
+    }
+
+    upgrades = {
+        combat_unit_type_dragoons
+        combat_unit_type_lancers
+    }
+}
+
+combat_unit_type_lancers = {
+    group = combat_unit_group_cavalry
+	
+    can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
+    }
+    
+    upkeep_modifier = {
+        goods_input_horse_add = 2
+        goods_input_small_arms_add = 2
+		goods_input_iron_add = 2
+    }
+
+    battle_modifier = {
+        unit_offense_add = 30
+        unit_defense_add = 20
+        unit_morale_loss_add = 6
+        unit_kill_rate_add = 0.05
+        unit_morale_loss_mult = 0.05
+        unit_occupation_mult = 0.3
+    }
+
+	unlocking_technologies = { napoleonic_warfare }
+    
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = east_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_east_asian_lancer.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = south_asian
+        }
+        texture = "gfx/unit_illustrations/cavalry_south_asian_lancer.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = african
+        }
+        texture = "gfx/unit_illustrations/cavalry_african_lancer.dds"
+    }
+
+    combat_unit_image = {
+        trigger = { 
+            has_culture_graphics = arabic
+        }
+        texture = "gfx/unit_illustrations/cavalry_arabic_lancer.dds"
+    }
+
+    combat_unit_image = {
+        # fallback
+        texture = "gfx/unit_illustrations/cavalry_eu_lancer.dds"
+    }
+
+    upgrades = {
+        combat_unit_type_dragoons
+        combat_unit_type_cuirassiers
+    }
+}

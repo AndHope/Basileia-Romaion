@@ -15,7 +15,9 @@ FX_subject_fight.1 = {
 
 	immediate = {
 		every_subject_or_below = {
-			limit = {has_variable = FX_potential_subject}
+			limit = {
+				#aggressive_diplomatic_plays_permitted = yes
+				has_variable = FX_potential_subject}
 			if = {limit = { not = {has_global_variable = subject_initiator1}}   this = {remove_variable = FX_potential_subject save_scope_as = subject_initiator1 set_global_variable = subject_initiator1}}
 			else_if = {limit = { not = {has_global_variable = subject_initiator2}}   this = {remove_variable = FX_potential_subject save_scope_as = subject_initiator2 set_global_variable = subject_initiator2}}      
 			else_if = {limit = { not = {has_global_variable = subject_initiator3}}   this = {remove_variable = FX_potential_subject save_scope_as = subject_initiator3 set_global_variable = subject_initiator3}}       

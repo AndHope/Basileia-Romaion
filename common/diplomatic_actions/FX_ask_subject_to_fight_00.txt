@@ -3,16 +3,16 @@
     should_notify_third_parties = no
 	show_effect_in_tooltip = yes
     possible = {
+		aggressive_diplomatic_plays_permitted = yes
 		scope:target_country = {
-			NOT = { 
-				is_country_type = decentralized
-				# is_subject_type = subject_type_customs_union
-			}
-		}
+			NOT = { is_country_type = decentralized }
+			NOT = { is_subject_of = root }
+		}	
+		diplomatic_play_has_no_relations_blockers = yes	
     }
-    potential = {
-		always = yes
-	}
+#    potential = {
+#		always = yes
+#	}
 	
     accept_effect = {
 		scope:target_country = {

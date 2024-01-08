@@ -10,12 +10,12 @@
 		
 		# Laws
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_landed_voting #law_wealth_voting
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_cultural_exclusion
-		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_national_supremacy #law_cultural_exclusion
+		activate_law = law_type:law_mercantilism #law_protectionism
 		activate_law = law_type:law_traditionalism #law_agrarianism
 		activate_law = law_type:law_private_schools
 		activate_law = law_type:law_charitable_health_system
@@ -28,7 +28,11 @@
 		activate_law = law_type:law_migration_controls	
 
 		add_modifier = {
-			name = boyars
+			name = piotrkow_statutes
+			months = -1
+		}
+		add_modifier = {
+			name = liberum_veto
 			months = -1
 		}
 		add_modifier = {
@@ -41,14 +45,37 @@
 			level = 1
 		}
 
-		ig:ig_landowners = { # Victor de Broglie was Prime Minister until February 22, 1836
+		ig:ig_landowners = { 
 			add_ruling_interest_group = yes
-			set_interest_group_name = ig_boyars
+			set_interest_group_name = ig_szlachta
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_sarmatism_paternalistic
+			add_ideology = ideology_polonization
+		#	add_modifier = {
+		#		name = ig_influence_modifier
+		#		multiplier = 0.25
+		#		years = 100
+		#		is_decaying = yes
+		#	}
+		}	
+
+		ig:ig_petty_bourgeoisie = {
+			#remove_ideology = 
+			#add_ideology = 
+			set_interest_group_name = ig_mieszczanie
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.25
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
 			}
-		}	
+		}
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_soltys
+			#remove_ideology = ideology_isolationist
+			#add_ideology = ideology_isolationist_expansionism
+		}
 		
 		ig:ig_devout = { 
 			set_interest_group_name = ig_catholic_church 
@@ -93,7 +120,6 @@
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
-				months = -1
 			}
 		}
 

@@ -4,7 +4,7 @@
 }
 
 NAI = {
-	BASE_AGGRESSION = 0.7 #was 0.5
+	BASE_AGGRESSION = 0.75 #was 0.5
 }
 
 NTechnology = {
@@ -12,15 +12,15 @@ NTechnology = {
 }
 
 NPolitics = {
-	SECESSION_TURMOIL_CUTOFF = 0.4 #was 0.5					# Turmoil requires for cultures to start secession
+	SECESSION_TURMOIL_CUTOFF = 0.35 #was 0.5					# Turmoil requires for cultures to start secession
 	SECESSION_WEEKLY_BASE_CHANCE = 0.002	# was 0.001			# weekly base chance for culture to start secession movement
-	SECESSION_STATE_CUTOFF_PERCENT = 0.3 #was 0.33				# Required pop percentage in State to be egligble for secession
+	#SECESSION_STATE_CUTOFF_PERCENT = 0.3 #was 0.33				# Required pop percentage in State to be egligble for secession
 }	
 
 NPops = {
 	CONVERSION_RATE = 0.001 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
 	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
-	#DISCRIMINATION_BASE = 25 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
+	#DISCRIMINATION_BASE = 35 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
 
 	#QUALIFICATIONS_UPDATE_FACTOR = 0.0001 # was 0.0003				# Calculated potential values are multiplied by this value and the workforce size of the pop before being added to the existing potentials
 	#QUALIFICATIONS_NUM_MONTHS_AT_START = 25 # was 60				# How many months of qualifications should be seeded to pops at start of game?
@@ -28,7 +28,7 @@ NPops = {
 	LOYALTIES_GAIN_GRACE_PERIOD = "1755.1.1"	# Until this date, only a scaling part of the Radicals and Loyalists gained from SOL changes will be applied
 
 	#CULTURAL_MIGRATION_BASE = 0.1 #was 0.5								# Base amount of a pop that wants to move due to mass migration
-	CULTURAL_MIGRATION_FROM_RADICALS = 0.2 #was 0.05
+	#CULTURAL_MIGRATION_FROM_RADICALS = 0.25 #was 0.05
 
 	#MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.20 #was 0.25	# Must have at least this much turmoil in cultural homelands to create a migration target
 
@@ -70,20 +70,9 @@ NDiplomacy = {
 	INFAMY_THRESHOLD_PARIAH = 200			# Above this, countries are considered pariah and get related penalties 100 
 	BASE_YEARLY_INFAMY_DECAY_RATE = 2.5 	# Decay rate of infamy per year 5
 	
+	WAR_GOAL_INFAMY_OWN_SUBJECT_MULT = 0.5 # Infamy is multiplied by this for wargoals targeting your own subject was 0.25
+
 	# Tension is used instead of relations by colonizable countries
-	MIN_TENSION = 0 
-	MAX_TENSION = 100
-	START_TENSION = 0
-	
-	TENSION_THRESHOLD_UNEASY = 25
-	TENSION_THRESHOLD_TENSE = 50
-	TENSION_THRESHOLD_VOLATILE = 75
-	TENSION_DECAY_RATE = 2.5 # Per year
-	TENSION_INCREASE_MIN = 2.5 # Tension increases by a min of this when a province is colonized
-	TENSION_INCREASE_MAX = 25.00 # Tension increases by a max of this when a province is colonized
-	TENSION_NUM_PROVINCE_SCALING_BASE = 10 # Below this amount of provinces a decentralized country gets additional tension when their provinces are colonized
-	TENSION_NUM_PROVINCE_SCALING_RATE = 2.5 # Max multiplier increase in tension per province taken from having only a few provinces
-	TENSION_INCREASE_RATE_ADJACENT = 1.5 # Multiplied to tension increase when it is neighboring countries' provinces that are colonized
-	TENSION_UPRISING_CHANCE = 0.03 # Chance of war breaking out instead of the next province being colonized (base when tension is at least TENSION_THRESHOLD_VOLATILE)
+	TENSION_DECAY_RATE = 2.5 # Per year was 5
 }
 
