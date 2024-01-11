@@ -1,0 +1,240 @@
+ai_strategy_colony_plantation_economy = {
+	icon = "gfx/interface/icons/ai_strategy_icons/agricultural_expansion.dds"
+	
+	type = administrative
+
+	wanted_construction_ratio = 2000000 # 1 level of construction sector per 2 million incorporated population
+
+	desired_tax_level = very_high
+	max_tax_level = very_high
+	min_tax_level = very_low
+	
+	goods_stances = {
+		fruit = { stance = wants_export }
+		fabric = { stance = wants_export }
+		sugar = { stance = wants_export }
+		coffee = { stance = wants_export }
+		tea = { stance = wants_export }
+		opium = { stance = wants_export }
+		tobacco = { stance = wants_export }
+		dye = { stance = wants_export }
+		silk = { stance = wants_export }
+	}	
+
+	building_group_weights = {
+		bg_plantations = 6.0
+		bg_rubber = 3.0
+		bg_oil_extraction = 4.0
+		bg_mining = 2.0
+		bg_logging = 2.0
+		bg_manufacturing = 0.15
+	}
+
+	possible = {
+		OR = {
+			capital.region = sr:region_dixie
+			country_is_in_south_america = yes
+			country_is_in_central_america = yes
+			country_is_in_india = yes
+			country_is_in_southeast_asia = yes
+			country_is_in_africa = yes	
+			country_is_in_east_asia = yes	
+			country_is_in_middle_east = yes	
+		}
+	}
+	
+	weight = {
+		value = 10			
+		
+		if = {
+			limit = { 
+				OR = {
+					country_is_in_south_america = yes
+					country_is_in_central_america = yes
+					country_is_in_india = yes
+					country_is_in_southeast_asia = yes
+					capital.region = sr:region_dixie
+				}
+			}
+			add = 20
+		}
+
+		if = {
+			limit = { 
+				exists = ig:ig_landowners
+				ig:ig_landowners = { is_powerful = yes } 
+			}
+			multiply = 1.5
+		}		
+
+		if = {
+			limit = {
+				is_subject = yes
+				OR = {
+					is_subject_type = subject_type_dominion
+					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_vassal
+				}
+				overlord = {
+					trigger_if = {
+						limit = { is_country_type = recognized }
+						always = yes
+					}
+					trigger_else_if = {
+						limit = { is_country_type = colonial }
+						is_subject = no
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+			}
+			if = {
+				limit = { is_country_type = colonial }
+				multiply = 3.0
+			}
+			else_if = {
+				limit = { is_country_type = unrecognized }
+				multiply = 1.5
+			}
+			else = {
+				multiply = 0
+			}
+		}
+        else = {
+            multiply = 0
+        }
+	}
+}
+
+ai_strategy_colony_resource_expansion = {
+	icon = "gfx/interface/icons/ai_strategy_icons/resource_expansion.dds"
+	
+	type = administrative	
+
+	wanted_construction_ratio = 1500000 # 1 level of construction sector per 1.5 million incorporated population
+
+	desired_tax_level = very_high
+	max_tax_level = very_high
+	min_tax_level = very_low
+	
+	building_group_weights = {
+		bg_plantations = 2.0
+		bg_rubber = 4.0
+		bg_oil_extraction = 6.0
+		bg_mining = 3.0
+		bg_logging = 3.0
+		bg_manufacturing = 0.2
+	}
+	
+	#subsidies = {
+	#	building_tooling_workshops = wants_to_have
+	#	building_chemical_plants = wants_to_have
+	#}
+	
+	goods_stances = {
+		explosives = { 
+			stance = wants_high_supply 
+			trigger = {
+				has_technology_researched = nitroglycerin
+			}			
+		}	
+		fertilizer = { # Explosives byproduct
+			stance = wants_export   
+			trigger = {
+				has_technology_researched = nitroglycerin
+			}				
+		}
+		tools = { stance = wants_high_supply }
+		coal = { stance = wants_export }
+		iron = { stance = wants_export }
+		oil = { stance = wants_export }
+		lead = { stance = wants_export }
+		wood = { stance = wants_export }
+		hardwood = { stance = wants_export }
+		sulfur = { stance = wants_export }			
+	}
+
+
+	possible = {
+		always = yes
+	}
+	
+	weight = {
+		value = 10		
+		
+		if = {
+			limit = { 
+				OR = {
+					country_is_in_europe = yes
+					country_is_in_north_america = yes
+				}
+			}
+			add = 20
+		}
+
+		if = {
+			limit = { 
+				exists = ig:ig_industrialists
+				ig:ig_industrialists = { is_powerful = yes } 
+			}
+			multiply = 1.5
+		}
+
+		if = {
+			limit = {
+				has_technology_researched = railways
+			}
+			multiply = 2.0
+		}
+		
+		if = {
+			limit = {
+				exists = overlord
+				overlord = { 
+					OR = { 
+						AND = {
+							is_ai = no
+							NOT = { has_law = law_type:law_traditionalism }				
+						}						
+						has_strategy = ai_strategy_resource_expansion
+						has_strategy = ai_strategy_industrial_expansion
+					}		
+				}
+			}
+			multiply = 2.0
+		}	
+		
+		if = {
+			limit = {
+				OR = {
+					is_country_type = unrecognized
+					is_country_type = colonial
+				}
+				is_subject = yes
+				OR = {
+					is_subject_type = subject_type_dominion
+					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_vassal
+				}
+				overlord = {
+					trigger_if = {
+						limit = { is_country_type = recognized }
+						always = yes
+					}
+					trigger_else_if = {
+						limit = { is_country_type = colonial }
+						is_subject = no
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+			}
+			multiply = 1.5
+		}
+		else = {
+			multiply = 0
+		}
+	}
+}

@@ -42,7 +42,12 @@
 		if = {
 			limit = { has_journal_entry = je_government_petition  }
 			add = 10
-		}		
+		}	
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}
 	}	
 
 	pro_interest_groups = {
@@ -84,6 +89,529 @@
 	possible = {
 		exists = c:BYZ
 		this = c:BYZ
+	}
+	
+	weight = {
+		value = 1000
+	}
+}
+
+ai_strategy_romaion_expansion = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+	
+	type = diplomatic
+	
+	undesirable_infamy_level = {
+		value = 150
+	}
+	
+	unacceptable_infamy_level = {
+		value = 200
+	}
+	
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+	
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}		
+	
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+	
+	diplomatic_play_boldness = {
+		value = 25
+	}
+	
+	recklessness = {
+		value = 0.25
+	}
+	
+	aggression = {
+		value = 1
+
+		if = {
+			limit = { 
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:greek
+						country_has_primary_culture = cu:south_italian
+					}	
+				}
+			}
+			add = 2.75
+		}
+		
+		if = {
+			limit = { 
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized } 
+			}
+			add = 1
+		}	
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}					
+			}
+			multiply = 0.25
+		}	
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		if = {
+			limit = {
+				"ai_ideological_opinion(scope:target_country)" < 0
+			}
+			
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.2
+				add = 1
+				max = 4.0
+			}				
+		}	
+		else = {
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+			}			
+		}			
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+	
+	secret_goal_weights = {
+		protect = 0.5
+		dominate = 1.5
+		conquer = 1.5
+	}
+
+	wargoal_weights = {
+		reduce_autonomy = 0.5
+		conquer_state = 1.5
+		return_state = 1.5
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					has_strategic_adjacency = scope:target_country
+					scope:target_country.country_rank <= root.country_rank
+				}
+				
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}		
+				else_if = {
+					limit = {				
+						scope:target_country = { is_country_type = unrecognized }						
+					}
+					add = 50
+				}
+			}
+		}
+	}
+		
+	possible = {
+		exists = c:BYZ
+		this = c:BYZ
+	}
+	
+	weight = {
+		value = 1000
+	}
+}
+
+ai_strategy_trade_republic_agenda = {
+	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
+	
+	type = political
+	
+	revolution_aversion = {
+		value = 50
+	}
+	
+	min_law_chance_to_pass = {
+		value = 20
+		
+		if = {
+			limit = { 				
+				OR = {
+					any_political_movement = {
+						desired_law ?= scope:law.type
+						political_movement_radicalism >= 75
+					}
+					AND = {
+						has_journal_entry = je_government_petition
+						var:desired_law_var	?= scope:law			
+					}
+				}
+			}
+			
+			multiply = 0.5
+		}	
+	}
+	
+	max_progressiveness = {
+		value = 75
+	}
+	
+	max_regressiveness = {
+		value = 25
+	}
+	
+	change_law_chance = { 
+		value = 10	
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}	
+
+		if = {
+			limit = { has_journal_entry = je_government_petition  }
+			add = 25
+		}			
+	}	
+	
+	pro_interest_groups = {
+		ig_intelligentsia
+		ig_petty_bourgeoisie
+		ig_industrialists
+	}
+
+	
+	anti_interest_groups ={
+		ig_landowners
+		ig_rural_folk
+		ig_devout
+		ig_trade_unions
+	}
+
+	institution_scores = {
+		institution_colonial_affairs = {	
+			value = 75	
+		}				
+		institution_social_security = {	
+			value = 100			
+		}
+		institution_workplace_safety = {	
+			value = 100			
+		}		
+		institution_schools = {	
+			value = 150			
+		}		
+		institution_police = {	
+			value = 75			
+		}		
+		institution_health_system = {	
+			value = 100			
+		}		
+		institution_home_affairs = {	
+			value = 100			
+		}				
+	}
+
+	possible = {
+		has_modifier = merchant_republic
+	}
+	
+	weight = {
+		value = 1000
+	}
+}
+
+ai_strategy_trade_imperialism = {
+	icon = "gfx/interface/icons/ai_strategy_icons/economic_imperialism.dds"
+	
+	type = diplomatic
+	
+	undesirable_infamy_level = {
+		value = 125
+	}
+	
+	unacceptable_infamy_level = {
+		value = 150
+	}
+	
+	ideological_opinion_effect_mult = {
+		value = 1.0
+	}
+	
+	wargoal_maneuvers_fraction = {
+		value = 0
+	
+		if = {
+			limit = {
+				scope:enemy_country = { is_country_type = unrecognized }
+			}
+			add = 0.25
+		}
+	}			
+	
+	diplomatic_play_neutrality = {
+		value = 10
+	}
+	
+	diplomatic_play_boldness = {
+		value = -10
+	}
+	
+	recklessness = {
+		value = -0.1
+	}
+	
+	aggression = {
+		value = 0.5
+		if = {
+			limit = { 
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized } 
+			}
+			add = 0.5
+			
+			if = {
+				limit = { has_technology_researched = civilizing_mission }
+				add = 0.5
+			}			
+		}
+		
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}					
+			}
+			multiply = 0.25
+		}	
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		if = {
+			limit = {
+				"ai_ideological_opinion(scope:target_country)" < 0
+			}
+			
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.2
+				add = 1
+				max = 4.0
+			}				
+		}	
+		else = {
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+			}			
+		}			
+	}
+	
+	building_group_weights = {
+		bg_navy = 2.0
+	}
+	
+	colonial_interest_ratio = {
+		value = 0.10
+	
+		if = {
+			limit = { navy_size >= 30 }
+			add = 0.05
+		}
+		
+		if = {
+			limit = { navy_size >= 60 }
+			add = 0.05
+		}		
+		
+		if = {
+			limit = { navy_size >= 90 }
+			add = 0.05
+		}	
+		
+		if = {
+			limit = { navy_size >= 120 }
+			add = 0.05
+		}			
+	}
+	
+	strategic_region_scores = {
+		region_japan = { # Great Powers with significant navies should pay attention to Japan
+			if = {
+				limit = {
+					exists = c:JAP
+					c:JAP = { has_law = law_type:law_isolationism }
+					country_rank = rank_value:great_power
+					navy_size >= 25
+				}
+				add = 1000
+			}				
+		}	
+	}
+	
+	secret_goal_scores = {
+		dominate = {
+			if = {
+				limit = {
+					has_technology_researched = nationalism  # Just to make sure it doesn't happen immediately in 1836
+					country_rank = rank_value:great_power
+					navy_size >= 25
+					scope:target_country = { 
+						has_law = law_type:law_isolationism 
+						gdp >= 2000000
+						capital.region = sr:region_japan												
+					} 
+				}
+				add = 500
+			}		
+			else_if = {
+				limit = {
+					has_strategic_adjacency = scope:target_country
+					scope:target_country = { 
+						has_law = law_type:law_isolationism
+						gdp >= 2000000
+						NOT = { capital.region = sr:region_japan }	
+					}
+				}
+				add = 100
+			}
+			
+			if = {
+				limit = {
+					has_strategic_adjacency = scope:target_country
+					root.country_rank > scope:target_country.country_rank
+					scope:target_country.country_rank < rank_value:major_power
+					scope:target_country = {
+						NOR = { 
+							has_law = law_type:law_free_trade 
+							has_law = law_type:law_isolationism
+						}
+					}
+				}
+				add = 50
+				
+				if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+			}		
+		}		
+		conquer = {		
+			if = {
+				limit = {
+					has_strategic_adjacency = scope:target_country
+					scope:target_country = { is_country_type = unrecognized }
+				}
+				add = 50
+			}
+			if = {
+				limit = {
+					scope:target_country = { NOT = { is_country_type = unrecognized } }
+				}
+				add = -50
+			}
+			
+			# Don't attack Japan outright, open them instead
+			if = {
+				limit = {
+					scope:target_country = { 
+						has_law = law_type:law_isolationism 
+						gdp >= 2000000
+						capital.region = sr:region_japan												
+					} 
+				}
+				add = -1000
+			}			
+		}		
+	}
+
+	wargoal_weights = {
+		make_protectorate = 1.5	
+		make_tributary = 1.5	
+	}	
+	
+	treaty_port_value = {
+		if = {
+			limit = {
+				can_reach_target_state = yes
+				scope:target_country = {
+					has_law = law_type:law_isolationism
+					gdp >= 2000000 # Not worth doing against very small markets
+				}
+				scope:target_state = { is_incorporated = yes }
+			}
+			add = {
+				value = 50
+			
+				# More likely to grab a treaty port if we're already enemies in a play, ie they attacked us first
+				if = {
+					limit = { is_diplomatic_play_enemy_of = scope:target_country }
+					multiply = 2.0
+				}
+			}
+		}	
+	}
+	
+	wargoal_scores = {	
+		open_market = {
+			value = 0
+		
+			if = {
+				limit = {
+					country_rank = rank_value:great_power
+					can_reach_target_country = yes
+					scope:target_country = {
+						has_law = law_type:law_isolationism
+						gdp >= 5000000 # Not worth doing against small markets
+					}
+				}
+				add = {
+					value = 100
+				
+					# Less interested in open market as a sway or defensive wargoal
+					if = {
+						limit = { is_diplomatic_play_involved_with = scope:target_country }
+						multiply = 0.2
+					}
+					else_if = { # Very high score for opening Japan
+						limit = { 
+							scope:target_country = { 
+								exists = c:JAP
+								this = c:JAP		
+								has_law = law_type:law_isolationism 				
+							} 	
+						}
+						multiply = 10
+					}
+				}
+			}
+		}		
+	}
+		
+	possible = {
+		has_modifier = merchant_republic
 	}
 	
 	weight = {

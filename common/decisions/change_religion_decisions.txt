@@ -453,6 +453,17 @@ norse_decision = {
 				value = 0.25
 			}
 		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.25
+			}
+		}
 		change_relations = { 
 			country = c:HRE 
 			value = -150 
@@ -460,6 +471,312 @@ norse_decision = {
 		change_relations = { 
 			country = c:PAP 
 			value = -150 
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+baltic_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:lithuanian
+			country_has_primary_culture = cu:latvian
+			country_has_primary_culture = cu:estonian
+		}
+		NOT = { country_has_state_religion = rel:baltic }
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		ig:ig_devout = {
+			is_in_government = no
+		}
+		has_law = law_type:law_freedom_of_conscience
+		NOT = { has_law = law_type:law_religious_schools }
+		OR = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+		}
+	}
+
+	when_taken = {
+		set_state_religion = rel:baltic
+		ig:ig_devout = {
+			set_interest_group_name = ig_baltic_priests
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_baltic_clergy
+		}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:baltic
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:baltic
+				value = 0.15
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:baltic 
+				}
+			}
+			add_loyalists = {
+				religion = rel:baltic
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:protestant 
+				}
+			}
+			add_radicals = {
+				religion = rel:protestant
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.25
+			}
+		}
+		change_relations = { 
+			country = c:HRE 
+			value = -150 
+		}
+		change_relations = { 
+			country = c:PAP 
+			value = -150 
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+slavic_decision = {
+	is_shown = {
+		OR = {
+			any_primary_culture = { 
+				has_discrimination_trait = jugoslav
+			}
+			any_primary_culture = { 
+				has_discrimination_trait = west_slavic
+			}
+			any_primary_culture = { 
+				has_discrimination_trait = east_slavic
+			}
+		}
+		NOT = { country_has_state_religion = rel:slavic }
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		ig:ig_devout = {
+			is_in_government = no
+		}
+		has_law = law_type:law_freedom_of_conscience
+		NOT = { has_law = law_type:law_religious_schools }
+		OR = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+		}
+	}
+
+	when_taken = {
+		set_state_religion = rel:slavic
+		ig:ig_devout = {
+			set_interest_group_name = ig_slavic_priests
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_slavic_clergy
+		}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:slavic
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:slavic
+				value = 0.15
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:slavic 
+				}
+			}
+			add_loyalists = {
+				religion = rel:slavic
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:protestant 
+				}
+			}
+			add_radicals = {
+				religion = rel:protestant
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.25
+			}
+		}
+		change_relations = { 
+			country = c:HRE 
+			value = -150 
+		}
+		change_relations = { 
+			country = c:PAP 
+			value = -150 
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+tengri_decision = {
+	is_shown = {
+		OR = {
+			any_primary_culture = { 
+				has_discrimination_trait = north_asian_heritage
+			}
+			any_primary_culture = { 
+				has_discrimination_trait = turkic
+			}
+		}
+		NOT = { country_has_state_religion = rel:tengri }
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		ig:ig_devout = {
+			is_in_government = no
+		}
+		has_law = law_type:law_freedom_of_conscience
+		NOT = { has_law = law_type:law_religious_schools }
+		OR = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+		}
+	}
+
+	when_taken = {
+		set_state_religion = rel:tengri
+		ig:ig_devout = {
+			set_interest_group_name = ig_tengri_priests
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_tengri_clergy
+		}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:tengri
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:tengri
+				value = 0.15
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:tengri 
+				}
+			}
+			add_loyalists = {
+				religion = rel:tengri
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:sunni 
+				}
+			}
+			add_radicals = {
+				religion = rel:sunni
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:shiite 
+				}
+			}
+			add_radicals = {
+				religion = rel:shiite
+				value = 0.25
+			}
+		}
+		change_relations = { 
+			country = c:ARA 
+			value = -100 
+		}
+		change_relations = { 
+			country = c:PER 
+			value = -100 
 		}
 	}
 

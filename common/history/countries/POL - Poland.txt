@@ -35,10 +35,13 @@
 			name = liberum_veto
 			months = -1
 		}
-		add_modifier = {
-			name = cossacks
-			months = -1
-		}
+	#	add_modifier = {
+	#		name = cossacks
+	#		months = -1
+	#	}
+	trigger_event = {
+		id = poland.1
+	}
 		
 		set_institution_investment_level = {
 			institution = institution_police
@@ -51,21 +54,23 @@
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_sarmatism_paternalistic
 			add_ideology = ideology_polonization
-		#	add_modifier = {
-		#		name = ig_influence_modifier
-		#		multiplier = 0.25
-		#		years = 100
-		#		is_decaying = yes
-		#	}
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}	
 
 		ig:ig_petty_bourgeoisie = {
-			#remove_ideology = 
-			#add_ideology = 
 			set_interest_group_name = ig_mieszczanie
+			remove_ideology = ideology_patriotic
+			add_ideology = ideology_polish_patriotism
+			remove_ideology = ideology_reactionary
+			add_ideology = ideology_enlightened_despotism 
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.5
+				multiplier = 1
 				years = 100
 				is_decaying = yes
 			}
@@ -73,8 +78,14 @@
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_soltys
-			#remove_ideology = ideology_isolationist
-			#add_ideology = ideology_isolationist_expansionism
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_cossacks
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
 		}
 		
 		ig:ig_devout = { 
@@ -169,7 +180,7 @@
 		activate_law = law_type:law_national_supremacy # Swedish policies regarding the Sami were not terribly enlightened during this period
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_private_schools
+		#activate_law = law_type:law_private_schools
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_professional_army

@@ -1,0 +1,329 @@
+﻿
+
+ai_strategy_anti_shogunate = {
+	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
+	
+	type = political
+	
+	revolution_aversion = {
+		value = 1
+	}
+	
+	min_law_chance_to_pass = {
+		value = 10 
+	}
+	
+	max_progressiveness = {
+		value = 1000
+	}
+	
+	max_regressiveness = {
+		value = 50
+	}
+
+	change_law_chance = { 
+		value = 10	
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}			
+	}	
+	
+	pro_interest_groups = {
+		ig_intelligentsia
+		ig_industrialists
+		ig_armed_forces
+		ig_rural_folk
+	}
+
+	anti_interest_groups = {
+		ig_landowners
+		ig_devout
+	}
+
+	institution_scores = {
+		institution_colonial_affairs = {	
+			value = 200		
+		}				
+		institution_social_security = {	
+			value = 50			
+		}
+		institution_workplace_safety = {	
+			value = 50			
+		}		
+		institution_schools = {	
+			value = 200		
+		}		
+		institution_police = {	
+			value = 100			
+		}		
+		institution_health_system = {	
+			value = 50		
+		}		
+		institution_home_affairs = {	
+			value = 100			
+		}			
+	}
+
+	possible = {
+		has_variable = japan_forced_to_open_market
+	}
+	
+	weight = {
+		value = 0
+
+		if = {
+			limit = {
+				has_variable = japan_forced_to_open_market
+				NOT = {
+					has_variable = meiji_restoration_complete
+				}
+			}
+			add = 1000
+		}
+	}
+}
+
+ai_strategy_meiji_restoration = {
+	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
+	
+	type = political
+	
+	revolution_aversion = {
+		value = 2.5
+	}
+	
+	min_law_chance_to_pass = {
+		value = 20
+	}
+	
+	max_progressiveness = {
+		value = 100
+	}
+	
+	max_regressiveness = {
+		value = 25
+	}
+	
+	change_law_chance = { 
+		value = 10	
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}			
+	}	
+	
+	pro_interest_groups = {
+		ig_intelligentsia
+		ig_industrialists
+	}
+
+	anti_interest_groups = {
+		ig_landowners
+		ig_armed_forces
+	}
+
+	institution_scores = {
+		institution_colonial_affairs = {	
+			value = 200	
+		}				
+		institution_social_security = {	
+			value = 100			
+		}
+		institution_workplace_safety = {	
+			value = 100			
+		}		
+		institution_schools = {	
+			value = 200			
+		}		
+		institution_police = {	
+			value = 75			
+		}		
+		institution_health_system = {	
+			value = 150			
+		}		
+		institution_home_affairs = {	
+			value = 100			
+		}				
+	}
+
+	possible = {
+		always = yes
+	}
+	
+	weight = {
+		value = 0
+
+		if = {
+			limit = {
+				has_journal_entry = je_meiji_main
+				has_journal_entry = je_meiji_army
+			}
+			add = 2000
+		}
+	}
+}
+
+ai_strategy_meiji_restoration_2 = {
+	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
+	
+	type = political
+	
+	revolution_aversion = {
+		value = 2.5
+	}
+	
+	min_law_chance_to_pass = {
+		value = 20
+	}
+	
+	max_progressiveness = {
+		value = 100
+	}
+	
+	max_regressiveness = {
+		value = 25
+	}
+	
+	change_law_chance = { 
+		value = 10	
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}			
+	}	
+	
+	pro_interest_groups = {
+		ig_intelligentsia
+		ig_industrialists
+	}
+
+	anti_interest_groups = {
+		ig_landowners
+	}
+
+	institution_scores = {
+		institution_colonial_affairs = {	
+			value = 200	
+		}				
+		institution_social_security = {	
+			value = 100			
+		}
+		institution_workplace_safety = {	
+			value = 100			
+		}		
+		institution_schools = {	
+			value = 200			
+		}		
+		institution_police = {	
+			value = 75			
+		}		
+		institution_health_system = {	
+			value = 150			
+		}		
+		institution_home_affairs = {	
+			value = 100			
+		}				
+	}
+
+	possible = {
+		always = yes
+	}
+	
+	weight = {
+		value = 0
+
+		if = {
+			limit = {
+				has_journal_entry = je_meiji_main
+				NOT = { has_journal_entry = je_meiji_army }
+			}
+			add = 2000
+		}
+	}
+}
+
+ai_strategy_showa_restoration = {
+	icon = "gfx/interface/icons/ai_strategy_icons/nationalist_agenda.dds"
+	
+	type = political
+	
+	revolution_aversion = {
+		value = 2.5
+	}
+	
+	min_law_chance_to_pass = {
+		value = 20
+	}
+	
+	max_progressiveness = {
+		value = 50
+	}
+	
+	max_regressiveness = {
+		value = 50
+	}
+	
+	change_law_chance = { 
+		value = 10	
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}			
+	}	
+	
+	pro_interest_groups = {
+		ig_armed_forces
+		ig_petty_bourgeoisie
+		ig_industrialists
+		ig_devout
+	}
+	
+	anti_interest_groups = {
+		ig_rural_folk
+		ig_trade_unions
+	}
+	
+	institution_scores = {
+		institution_colonial_affairs = {	
+			value = 200			
+		}				
+		institution_social_security = {	
+			value = 25
+		}
+		institution_workplace_safety = {	
+			value = 25		
+		}		
+		institution_schools = {	
+			value = 150			
+		}		
+		institution_police = {	
+			value = 200			
+		}		
+		institution_health_system = {	
+			value = 75			
+		}		
+		institution_home_affairs = {	
+			value = 200			
+		}				
+	}	
+
+	possible = {
+		has_technology_researched = political_agitation			
+	}
+	
+	weight = {
+		value = 0
+		
+		if = {
+			limit = {
+				THIS = c:JAP
+			}
+			add = 3000
+		}			
+	}
+}
