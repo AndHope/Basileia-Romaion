@@ -1,0 +1,62 @@
+﻿remove_cossacks = {
+	is_shown = {
+		any_scope_state = {
+			has_modifier = cossacks
+		}
+	}
+
+	possible = {
+		OR = {
+            AND = {
+                ig:ig_devout = {
+			        is_powerful = yes
+			        is_in_government = yes
+		        }
+		        has_insurrectionary_interest_groups = no
+                country_has_state_religion = rel:catholic
+				has_law = law_type:law_national_supremacy
+				NOT = { has_law = law_type:law_freedom_of_conscience }
+            }
+            AND = {
+                OR = {
+					country_has_state_religion = rel:orthodox
+					country_has_state_religion = rel:sunni
+				}
+                NOT = {
+                    has_law = law_type:law_hereditary_bureaucrats
+                    has_law = law_type:law_serfdom
+                }
+            }
+        }
+		any_scope_state = {
+			has_modifier = cossacks
+		}
+	}
+
+	when_taken = {
+		
+		every_scope_state = {
+			limit = {
+				has_modifier = cossacks
+			}
+			remove_modifier = cossacks
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:orthodox 
+				}
+			}
+			add_radicals = {
+				religion = rel:orthodox
+				value = 0.25
+			}
+		}
+
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
