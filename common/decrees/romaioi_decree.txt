@@ -1,0 +1,33 @@
+﻿
+decree_romanisation = {
+	texture = "gfx/interface/icons/decree/decree_promote_national_values.dds"		
+	unlocking_technologies = {
+		romaioi_mod
+		elysium
+	}
+	
+	valid = {
+		is_incorporated = yes
+		owner = { NOT = { has_law = law_type:law_guaranteed_liberties } }
+		owner = {
+			is_player = yes
+		}
+	}
+	modifier = {
+		state_loyalists_from_sol_change_accepted_culture_mult = 0.25
+		state_accepted_birth_rate_mult = 0.15
+		state_assimilation_mult = 0.75
+		state_conversion_mult = 0.5
+		state_birth_rate_mult = -0.25
+		state_political_strength_from_discrimination_mult = -0.25
+		state_radicals_from_discrimination_mult = 0.5
+		state_migration_pull_mult = 0.25
+	}
+
+	cost = 100
+	
+	ai_weight = {
+		value = 0
+	}
+
+}

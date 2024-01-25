@@ -1,5 +1,6 @@
 ﻿MILITARY_FORMATIONS = {
 	c:BYZ = {
+	#Tagmata
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_balkans
@@ -20,6 +21,11 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_EASTERN_THRACE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ANKARA
 				count = 5
 			}
 
@@ -65,7 +71,7 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_THESSALIA
+				state_region = s:STATE_ANKARA
 				count = 5
 			}
 
@@ -75,14 +81,26 @@
 				count = 5
 			}
 
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KONYA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ADANA
+				count = 5
+			}
+
 			save_scope_as = balkan_arm_byz2
 		}
 
 		create_character = {
 			is_general = yes
 			age = 40
-			interest_group = ig_landowners
-			commander_rank = commander_rank_1
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_2
 			hq = region_balkans
 			traits = {
 			basic_defensive_strategist
@@ -120,14 +138,32 @@
 				state_region = s:STATE_AYDIN
 				count = 5
 			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ANKARA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KONYA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KASTAMONU
+				count = 5
+			}
+
 			save_scope_as = anatolia_arm_byz1
 		}
 
 		create_character = {
 			is_general = yes
 			age = 40
-			interest_group = ig_landowners
-			commander_rank = commander_rank_1
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_2
 			hq = region_anatolia
 			traits = {
 			basic_defensive_strategist
@@ -140,39 +176,40 @@
 			transfer_to_formation = scope:anatolia_arm_byz1
 		}
 
+	#Themata
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_anatolia
-			name = "Themata Anatolia"
+			name = "Themata 'Anatolia'"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
 				state_region = s:STATE_ANKARA
 				count = 10
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
 				state_region = s:STATE_KONYA
 				count = 10
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
 				state_region = s:STATE_KASTAMONU
 				count = 5
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
 				state_region = s:STATE_ADANA
 				count = 5
 			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_ANKARA
-				count = 5
-			}
+			
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_KONYA
@@ -189,13 +226,105 @@
 			hq = region_anatolia
 			traits = {
 			basic_defensive_strategist
-			surveyor
 			cautious
 			}
 			save_scope_as = byz_gen4
 		}
 		scope:byz_gen4 = {
 			transfer_to_formation = scope:anatolia_arm_byz2
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = "Themata 'Thracia'"
+
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_NORTHERN_THRACE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_NORTHERN_THRACE
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_EASTERN_THRACE
+				count = 20
+			}
+			save_scope_as = themata_arm_byz2
+		}
+
+		create_character = {
+			is_general = yes
+			age = 40
+			interest_group = ig_landowners
+			commander_rank = commander_rank_2
+			hq = region_balkans
+			traits = {
+			basic_defensive_strategist
+			cautious
+			}
+			save_scope_as = themata_gen_byz2
+		}
+		scope:byz_gen4 = {
+			transfer_to_formation = scope:themata_arm_byz2
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = "Themata 'Hellas'"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_THESSALIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MACEDONIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_THESSALIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_ATTICA
+				count = 10
+			}
+
+			save_scope_as = themata_arm_byz3
+		}
+
+		create_character = {
+			is_general = yes
+			age = 40
+			interest_group = ig_landowners
+			commander_rank = commander_rank_2
+			hq = region_balkans
+			traits = {
+			basic_defensive_strategist
+			cautious
+			}
+			save_scope_as = themata_gen_byz3
+		}
+		scope:byz_gen4 = {
+			transfer_to_formation = scope:themata_arm_byz3
 		}
 
 		create_military_formation = {
@@ -241,7 +370,7 @@
 			interest_group = ig_petty_bourgeoisie
 			commander_rank = commander_rank_2
 			hq = region_balkans
-			age = 40
+			age = 35
 			traits = {
 			meticulous
 			resupply_commander
@@ -296,7 +425,7 @@
 			interest_group = ig_petty_bourgeoisie
 			commander_rank = commander_rank_1
 			hq = region_anatolia
-			age = 40
+			age = 35
 			traits = {
 			meticulous
 			traditionalist_commander

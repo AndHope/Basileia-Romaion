@@ -12,15 +12,17 @@ NTechnology = {
 }
 
 NPolitics = {
-	SECESSION_TURMOIL_CUTOFF = 0.35 #was 0.5					# Turmoil requires for cultures to start secession
+	SECESSION_TURMOIL_CUTOFF = 0.28 #was 0.5					# Turmoil requires for cultures to start secession
 	SECESSION_WEEKLY_BASE_CHANCE = 0.002	# was 0.001			# weekly base chance for culture to start secession movement
-	#SECESSION_STATE_CUTOFF_PERCENT = 0.3 #was 0.33				# Required pop percentage in State to be egligble for secession
+	SECESSION_STATE_CUTOFF_PERCENT = 0.28 #was 0.33				# Required pop percentage in State to be egligble for secession
+
+	MIN_POP_SIZE_TO_SECEDE = 75000 #100000	
 }	
 
 NPops = {
 	CONVERSION_RATE = 0.001 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
 	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
-	#DISCRIMINATION_BASE = 35 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
+	#DISCRIMINATION_BASE = 35 #was 25 now 33					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
 
 	#QUALIFICATIONS_UPDATE_FACTOR = 0.0001 # was 0.0003				# Calculated potential values are multiplied by this value and the workforce size of the pop before being added to the existing potentials
 	#QUALIFICATIONS_NUM_MONTHS_AT_START = 25 # was 60				# How many months of qualifications should be seeded to pops at start of game?
@@ -28,7 +30,7 @@ NPops = {
 	LOYALTIES_GAIN_GRACE_PERIOD = "1755.1.1"	# Until this date, only a scaling part of the Radicals and Loyalists gained from SOL changes will be applied
 
 	#CULTURAL_MIGRATION_BASE = 0.1 #was 0.5								# Base amount of a pop that wants to move due to mass migration
-	#CULTURAL_MIGRATION_FROM_RADICALS = 0.25 #was 0.05
+	#CULTURAL_MIGRATION_FROM_RADICALS = 0.25 #was 0.05 now 0.25
 
 	#MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.20 #was 0.25	# Must have at least this much turmoil in cultural homelands to create a migration target
 
@@ -42,7 +44,7 @@ NPops = {
 	# Factors for creating mass migration targets
 	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.15 #was 0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
 	MASS_MIGRATION_ORIGIN_MIN_EMIGRANTS = 100000		# A country must have at least this many possible migrants to trigger a mass migration
-	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.149 #was 0.20			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
+	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.15 #was 0.20			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
 	MASS_MIGRATION_TARGET_MIN_ARABLE_LAND = 50			# A state must have at least this much arable land to be a mass migration target
 	MASS_MIGRATION_STATE_MIN_MARKET_ACCESS = 0.5		# A state must have at least this much market access to their market to be a mass migration target or origin state
 	MASS_MIGRATION_SPAWN_CHANCE = 1.0 #was 0.5 					# Per week for each potential mass migration, scales with turmoil (1 = 1%)
@@ -51,7 +53,7 @@ NPops = {
 	MASS_MIGRATION_TARGET_COUNTRY_RANDOM_FACTOR = 0.5	# The higher this is, the more random the selection of mass migration country targets will be
 	MASS_MIGRATION_TARGET_STATE_RANDOM_FACTOR = 0.5		# The higher this is, the more random the selection of mass migration state targets in the target country will be
 	MASS_MIGRATION_DURATION_MONTHS = 12					# How long does a mass migration last in months
-	MASS_MIGRATION_COOLDOWN_MONTHS = 18 #was 60				# How many months before the same culture can mass migrate from a country again
+	MASS_MIGRATION_COOLDOWN_MONTHS = 30 #was 60				# How many months before the same culture can mass migrate from a country again
 	MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY = 5	# Countries with at least this number of possible target states do not receive any penalty to their mass migration target score
 	MASS_MIGRATION_FEW_TARGET_STATES_PENALTY = 0.25		# Mass migration target score is divided by ( 1 + this * number of possible target states less than MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY )
 }
@@ -74,5 +76,49 @@ NDiplomacy = {
 
 	# Tension is used instead of relations by colonizable countries
 	TENSION_DECAY_RATE = 2.5 # Per year was 5
+}
+
+NMilitary = {
+	BATTLE_PLAN_ADVANCE_PROGRESS_TO_LAUNCH = 200 	#100		# required accumulated advance progress to launch
+
+	BATTLE_RAW_MANPOWER_INFLICTED_CASUALTY_RATIO = 0.15	#0.50	# applied to the number of casualties caused by raw number of troops, ie without considering Offense/Defense - increasing this makes CE less important and battles more lethal
+	BATTLE_COMBAT_EFFICIENCY_INFLICTED_CASUALTY_RATIO = 0.5 #1.5	# applied to the number of casualties caused by troops with Offense/Defense also factored in - incre
+	BASE_MORALE_RECOVERED_PER_DAY = 0.015	#0.03		# Default morale recovered is 3% per day
+	BASE_MORALE_LOST_PER_DAY = 0.01			#0.05		# Default morale lost when out of supply is 5%
+	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MIN = 0.01 #0.04 	# The minimum percentage of manpower a unit can lose each week due to attrition
+	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MAX = 0.05 #0.12 	# The maximum percentage of manpower a unit can lose each week due to attrition
+
+	BATTLE_BASE_MIN_PROVINCES_TAKEN = 2 #4
+	BATTLE_BASE_MAX_PROVINCES_TAKEN = 6 #12
+	#BATTLE_PROVINCES_TAKEN_FRONT_PROVINCES_NUM_DIVISOR = 25		# Attacker takes (num provinces in front) divided by this as extra, clamped to BATTLE_BASE_MIN_PROVINCES_TAKEN and BATTLE_BASE_MAX_PROVINCES_TAKEN
+	#BATTLE_PROVINCES_TAKEN_THEATER_PROVINCES_NUM_DIVISOR = 250	# Attacker takes (num provinces in theater) divided by this as extra, clamped to BATTLE_BASE_MIN_PROVINCES_TAKEN and BATTLE_BASE_MAX_PROVINCES_TAKEN
+	#BATTLE_PROVINCES_TAKEN_ATTACKING_UNIT_SCALE = 0.02			# Multiply provinces taken by ( 1 + this * number of attacking units left at end of battle)
+	#BATTLE_PROVINCES_TAKEN_MAX_DEPTH_MIN = 1					# Maximum distance from battle provinces that provinces can be taken by attacker (minimum)
+	#BATTLE_PROVINCES_TAKEN_MAX_DEPTH_MAX = 3					# Maximum distance from battle provinces that provinces can be taken (maximum)
+	#BATTLE_PROVINCES_TAKEN_MAX_DEPTH_FRONT_PROVINCES_NUM_DIVISOR = 50	# Num provinces in front is divided by this and added to maximum depth attacker can take provinces at
+	#BATTLE_PROVINCES_TAKEN_MAX_DEPTH_THEATER_PROVINCES_NUM_DIVISOR = 500	# Num provinces in theater is divided by this and added to maximum depth attacker can take provinces at 
+	#DEFENSIVE_PROVINCES_RETAKEN_MAX_DEPTH = 1					# Maximum distance from battle provinces that provinces can be retaken in defensive battle
+	#BATTLE_PROVINCES_TAKEN_THEATER_UNIT_SCALE = 1				# Scales number of provinces captured by theater-provinces / ( units-in-theater * this-define )
+	#BATTLE_PROVINCES_TAKEN_MAX_EXTRA = 1                  		# If the selected provinces will cause split, capture the new theater as long as it has up to BATTLE_PROVINCES_TAKEN_MAX_EXTRA provinces. This might not respect the distance limit (BATTLE_PROVINCES_TAKEN_MAX_DEPTH).
+	#BATTLE_PROVINCES_TAKEN_THEATER_MIN_SCALE = 0.01			# Number of provinces captured cannot result in a lower scaling factor than this due to BATTLE_PROVINCES_TAKEN_THEATER_UNIT_SCALE
+	#BATTLE_PROVINCES_TAKEN_ABSOLUTE_MIN = 1					# The absolute least number of provinces that can be captured in a successful advance, after all scaling has been applied
+
+	MOBILIZATION_INFRASTRUCTURE_FACTOR = 0.005 #0.01	# amount of mobilization generated per point of infrastructure. one battalion takes one full point of mobilization to mobilize
+	MIN_MOBILIZATION_PER_DAY = 0.025		#0.05		# minimum mobilization gained per day by each mobilizing battalion (the last unit to gain mobilization in a state might have to do with whatever is left)
+	MAX_MOBILIZATION_PER_DAY = 0.1		#0.20		# maximum mobilization gained per day by each mobilizing battalion
+}
+
+NWar = {
+
+	#DEVASTATION_INCREASE_RATE = 0.03 # Per day, scales with level of occupation
+	#DEVASTATION_DECAY_RATE = -0.03 # Per day, when there are no occupations
+	#DEVASTATION_FROM_BATTLES = 0.1 # For each battle
+
+	#DAYS_BETWEEN_WAR_EXHAUSTION = 30 # Every this many days war support will be reduced by the war exhaustion formula
+	#WAR_EXHAUSTION_BASE = 0.25
+ 	#WAR_EXHAUSTION_KIA_FACTOR = 50.0 # Scaled by casualties compared to total manpower
+
+	#MAX_SIMULTANEOUS_BATTLES = 1                    # Allows to spawn up to MAX_SIMULTANEOUS_BATTLES as long as you have that many generals with advance orders.
+
 }
 
