@@ -3,6 +3,7 @@
 		exists = c:BYZ
 		ROOT = c:BYZ
 		has_modifier = romaioi_bureaucratic_corruption
+		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
 	possible = {
@@ -10,6 +11,7 @@
 		ROOT = c:BYZ
 		NOT = { has_law = law_type:law_hereditary_bureaucrats }
 		has_modifier = romaioi_bureaucratic_corruption
+		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
 	when_taken = {
@@ -72,6 +74,7 @@ end_latin_privileges = {
 		exists = c:BYZ
 		ROOT = c:BYZ
 		has_modifier = latin_privileges
+		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
 	possible = {
@@ -80,11 +83,12 @@ end_latin_privileges = {
 		has_law = law_type:law_interventionism
 		has_law = law_type:law_protectionism
 		has_modifier = latin_privileges
+		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
 	when_taken = {
 		remove_modifier = latin_privileges
-		activate_law = law_type:law_state_religion
+		#activate_law = law_type:law_state_religion
 		hidden_effect = {
 			trigger_event = {
 				id = greek_revolt.1
@@ -528,6 +532,7 @@ chariot_racing_decision = {
 	}
 	
 	when_taken = {
+		add_treasury = -100000
 		add_modifier = {
 			name = modifier_chariot_racing
 		}
@@ -538,6 +543,17 @@ chariot_racing_decision = {
 			}
 		}
 	}
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { 
+				weekly_net_fixed_income > money_amount_multiplier_medium
+				gold_reserves > 0
+			}
+			add = 100
+		}
+	}
+
 }
 
 expand_chariot_racing_decision = {
@@ -551,17 +567,32 @@ expand_chariot_racing_decision = {
 	}
 	
 	when_taken = {
+		add_treasury = -250000
 		show_as_tooltip = {
 			remove_modifier = modifier_chariot_racing
 			add_modifier = {
 				name = modifier_expanded_chariot_racing
 			}
 		}
-		hidden_effect = {
-			trigger_event = {
-				id = chariot_racing.46
-			}
+		trigger_event = {
+			id = chariot_racing.46
 		}
+	#	hidden_effect = {
+	#		trigger_event = {
+	#			id = chariot_racing.46
+	#		}
+	#	}
 	}	
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { 
+				weekly_net_fixed_income > money_amount_multiplier_medium
+				gold_reserves > 0
+			}
+			add = 100
+		}
+	}
 }
 

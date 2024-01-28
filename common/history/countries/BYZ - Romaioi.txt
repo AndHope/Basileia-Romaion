@@ -37,25 +37,19 @@ COUNTRIES = {
 		#add_technology_researched = paddle_steamer
 
 		set_tariffs_import_priority = g:wood
-		set_tariffs_import_priority = g:iron	
-		#add_taxed_goods = g:liquor
-		#add_taxed_goods = g:opium
+		set_tariffs_import_priority = g:iron
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:dye	
 		add_taxed_goods = g:tobacco
 		add_taxed_goods = g:wine
-		#add_taxed_goods = g:luxury_clothes
-		#add_taxed_goods = g:luxury_furniture
-		#add_taxed_goods = g:porcelain
 		add_taxed_goods = g:services
 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_tenant_farmers #law_type:law_serfdom
-		#activate_law = law_type:law_land_based_taxation 
-		activate_law = law_type:law_per_capita_based_taxation #too hard without this tax law
-		activate_law = law_type:law_hereditary_bureaucrats #Balance reasons half of Burecrats appointed still
-		#activate_law = law_type:law_appointed_bureaucrats
-		activate_law = law_type:law_state_religion
-		#activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_serfdom #law_tenant_farmers 
+		activate_law = law_type:law_land_based_taxation #law_per_capita_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats # law_appointed_bureaucrats Balance reasons half of Burecrats appointed still
+		activate_law = law_type:law_state_religion #law_freedom_of_conscience
 		activate_law = law_type:law_national_supremacy 
 		activate_law = law_type:law_censorship
 		#activate_law = law_type:law_colonial_exploitation 
@@ -63,8 +57,7 @@ COUNTRIES = {
 		activate_law = law_type:law_national_guard #Themata
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies #Balance reasons
-		#activate_law = law_type:law_professional_army
+		activate_law = law_type:law_peasant_levies #law_professional_army Balance reasons
 		activate_law = law_type:law_private_schools #School mostly for the rich Religious schools op at start.
 		activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_traditionalism #law_agrarianism
@@ -74,21 +67,6 @@ COUNTRIES = {
 
 		#set_tax_level = low
 		#set_military_wage_level = high
-
-
-		#Revolts tied to decisions
-	#	trigger_event = {
-	#		id = bulgarian_revolt.1
-	#		days = 250
-	#	}
-	#	trigger_event = {
-	#		id = anatolian_revolt.1
-	#		days = 1500
-	#	}
-	#	trigger_event = {
-	#		id = anatolian_revolt.2
-	#		days = 2750
-	#	}
 
 		set_institution_investment_level = {
 			institution = institution_police
@@ -106,24 +84,36 @@ COUNTRIES = {
 		#In-Government
 		ig:ig_landowners = {
 			set_interest_group_name = ig_themata_patricians
-			add_ideology = ideology_romaioi_hegemony
 			add_ruling_interest_group = yes
+
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_romaioi_paternalistic
+			add_ideology = ideology_romaioi_hegemony
+			
 			#set_ig_bolstering = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 100
-				is_decaying = yes
-			}
+		#	add_modifier = {
+		#		name = ig_influence_modifier
+		#		multiplier = 0.25
+		#		years = 100
+		#		is_decaying = yes
+		#	}
 			add_modifier = {
 				name = ig_latin_priviledges
 				years = 25
+				is_decaying = yes
 			}
+
 		}
 
 		ig:ig_armed_forces = {
 			set_interest_group_name = ig_tagmata_strategos
 			add_ruling_interest_group = yes
+			
+			remove_ideology = ideology_jingoist
+			add_ideology = ideology_tagmata
+			remove_ideology = ideology_loyalist
+			add_ideology = ideology_romaioi_loyalist
+
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.75
@@ -134,22 +124,27 @@ COUNTRIES = {
 		
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_patriarch
+			add_ruling_interest_group = yes
+
 			remove_ideology = ideology_orthodox_patriarch
 			add_ideology = ideology_romaioi_patriarch
-			add_ruling_interest_group = yes
+
 
 			add_modifier = {
 				name = ig_latin_priviledges
 				years = 25
+				is_decaying = yes
 			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_merchant_guilds
+			#add_ruling_interest_group = yes
+
 			remove_ideology = ideology_anti_slavery
 			remove_ideology = ideology_meritocratic
 			add_ideology = ideology_romaioi_meritocratic
-			set_interest_group_name = ig_merchant_guilds
-			#add_ruling_interest_group = yes
+			
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.75
@@ -159,18 +154,33 @@ COUNTRIES = {
 			add_modifier = {
 				name = ig_latin_priviledges
 				years = 25
+				is_decaying = yes
 			}
+
 		}
 
 		#Not-In-Government
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agrotikos
-			#remove_ideology = ideology_isolationist
-			#add_ideology = ideology_isolationist_expansionism
+
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_romaioi_isolationist
+			remove_ideology = ideology_agrarian
+			add_ideology = ideology_romaioi_agrarian
+
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
+
 		}
 
 		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_dianooumenoi
+
 			remove_ideology = ideology_anti_clerical
 			remove_ideology = ideology_liberal
 			remove_ideology = ideology_republican
@@ -180,39 +190,31 @@ COUNTRIES = {
 			add_ideology = ideology_romaioi_liberal
 			add_ideology = ideology_romaioi_anti_clerical
 
-			set_interest_group_name = ig_dianooumenoi
 		}
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
+
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = -0.75
 				years = 100
 				is_decaying = yes
 			}
+
 		}
 
 		ig:ig_trade_unions = {
-			#remove_ideology = ideology_anti_slavery
 			set_interest_group_name = ig_syndikalistai
+
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = -0.75
 				years = 100
 				is_decaying = yes
 			}
-		}
 
-	#	add_journal_entry = {
-	#		type = je_veiled_exarchate
-	#	}
-	#	add_journal_entry = {
-	#		type = je_veiled_exarchate2
-	#	}
-	#	add_journal_entry = {
-	#		type = je_veiled_exarchate3
-	#	}
+		}
 
 		add_modifier = {
 			name = romaioi_culture_supremacy
@@ -223,10 +225,6 @@ COUNTRIES = {
 			months = -1
 		}
 		add_modifier = {
-			name = romaioi_themata_primacy
-			months = -1
-		}
-		add_modifier = {
 			name = romaioi_bureaucratic_corruption
 			months = -1
 		}
@@ -234,6 +232,25 @@ COUNTRIES = {
 			name = roman_senate
 			months = -1
 		}
+		add_modifier = {
+			name = eastern_roman_empire
+			months = -1
+		}
+		add_modifier = {
+			name = romaioi_corrupt_pronoia
+			months = -1
+		}
+		
+	#	add_modifier = {
+	#		name = romaioi_themata_primacy
+	#		months = -1
+	#	}
+
+		trigger_event = {
+			id = palaiologos_reforms.1
+			days = 5
+		}
+
 	#	add_modifier = {
 	#		name = romaioi_pentarchy
 	#		months = -1
@@ -242,10 +259,6 @@ COUNTRIES = {
 	#		name = patriarch_antioch
 	#		months = -1
 	#	}
-		add_modifier = {
-			name = eastern_roman_empire
-			months = -1
-		}
 
 		#add_modifier = {
 		#	name = rooting_out_radicals
@@ -257,10 +270,32 @@ COUNTRIES = {
 	#		days = 750
 	#	}
 
-		trigger_event = {
-			id = palaiologos_reforms.1
-			days = 5
-		}
+
+	#	add_journal_entry = {
+	#		type = je_veiled_exarchate
+	#	}
+	#	add_journal_entry = {
+	#		type = je_veiled_exarchate2
+	#	}
+	#	add_journal_entry = {
+	#		type = je_veiled_exarchate3
+	#	}
+
+	#Revolts tied to decisions
+	#	trigger_event = {
+	#		id = bulgarian_revolt.1
+	#		days = 250
+	#	}
+	#	trigger_event = {
+	#		id = anatolian_revolt.1
+	#		days = 1500
+	#	}
+	#	trigger_event = {
+	#		id = anatolian_revolt.2
+	#		days = 2750
+	#	}
+
+
 		#add_modifier = {
 		#	name = sick_man_of_europe
 		#	months = -1

@@ -41,13 +41,7 @@ palaiologos_reforms.1 = {
 
 		hidden_effect = {
 			change_infamy = -50
-			every_scope_state = {
-				limit = { OR = { state_region = s:STATE_BULGARIA } }
-				add_modifier = {
-					name = bulgarian_resistance
-					years = 50
-				}
-			}
+			add_treasury = 2999999
 			add_loyalists = {
 				value = 0.25
 				culture = cu:greek
@@ -56,21 +50,48 @@ palaiologos_reforms.1 = {
 				value = 0.75
 				culture = cu:varangian
 			}
+			add_loyalists = {
+				pop_type = aristocrats
+				culture = cu:greek
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				culture = cu:greek
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				culture = cu:greek
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				culture = cu:greek
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				culture = cu:greek
+				value = very_large_radicals
+			}
+			capital = {
+				add_loyalists_in_state = {
+					value = very_large_radicals
+					culture = cu:greek
+				}
+			}
+			add_radicals = {
+				pop_type = peasants
+				value = large_radicals
+			}
 		}
 
 		add_journal_entry = {
 			type = je_palaiologos_reforms_syria
 		}
-	#Do Syria first to unlock rest.	
-		add_journal_entry = {
-			type = je_palaiologos_reforms_egypt
-		}
-		add_journal_entry = {
-			type = je_palaiologos_reforms_italy
-		}
-		add_journal_entry = {
-			type = je_palaiologos_reforms_africa
-		}
+	#Do Syria first to unlock rest.	Or not
+		
 		add_journal_entry = {
 			type = je_palaiologos_reforms_economy
 		}
@@ -95,9 +116,15 @@ palaiologos_reforms.1 = {
 		add_journal_entry = {
 			type = je_palaiologos_reforms_centralization_east
 		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_end_curruption
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_end_latin_privileges
+		}
 		show_as_tooltip = {
 			add_modifier = {
-				name = romaioi_themata_primacy
+				name = romaioi_corrupt_pronoia
 				months = -1
 			}		
 			add_modifier = {

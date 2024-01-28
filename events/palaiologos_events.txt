@@ -25,7 +25,7 @@ palaiologos_events.1 = {
 			has_variable = palaiologos_taxfarm 
 		}
 		AND = {
-			has_law = law_type:law_land_based_taxation
+			has_law = law_type:law_oligarchy
 			OR = {
 				is_enacting_law = law_type:law_per_capita_based_taxation
 				is_enacting_law = law_type:law_proportional_taxation
@@ -126,7 +126,7 @@ palaiologos_events.2 = {
 			months = very_long_modifier_time
 		}
 		add_radicals = {
-			pop_type = peasants
+			pop_type = aristocrats
 			value = medium_radicals
 		}
 		custom_tooltip = palaiologos.2.tt1
@@ -154,11 +154,142 @@ palaiologos_events.2 = {
 			months = very_long_modifier_time
 		}
 		add_radicals = {
-			pop_type = peasants
+			pop_type = aristocrats
 			value = large_radicals
 		}
 		custom_tooltip = palaiologos.2.tt1
 		set_variable = reformed_landcode
+	}
+}
+#Themata
+palaiologos_events.3 = {
+	type = country_event
+	placement = root
+	title = palaiologos_events.3.t
+	desc = palaiologos_events.3.d
+	flavor = palaiologos_events.3.f
+
+	event_image = {
+		video = "asia_politician_parliament_motion"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/politician_parliament_motion"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	duration = 3
+
+	trigger = {
+		has_variable = palaiologos_reforms_var
+		NOT = { 
+			has_variable = palaiologos_themata
+		}
+		AND = {
+			has_law = law_type:law_serfdom
+			OR = {
+				is_enacting_law = law_type:law_tenant_farmers
+				is_enacting_law = law_type:law_commercialized_agriculture
+				is_enacting_law = law_type:law_homesteading
+				is_enacting_law = law_type:law_collectivized_agriculture
+			}
+		}
+	}
+	immediate = {
+		currently_enacting_law = {
+			save_scope_as = current_law_scope
+		}
+		ig:ig_landowners = { 
+			save_scope_as = governors 
+		}
+		set_variable = palaiologos_themata
+		hidden_effect = {
+			every_scope_state = {
+				limit = { OR = { state_region = s:STATE_BULGARIA state_region = s:STATE_KONYA state_region = s:STATE_ANKARA state_region = s:STATE_KASTAMONU state_region = s:STATE_TRABZON 
+				} 
+			}
+			add_radicals = {
+				pop_type = aristocrats
+				value = large_radicals
+			}
+			}
+		}
+	}
+	option = { # Restore the Themata System
+		name = palaiologos_events.3.a						
+        default_option = yes
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = very_long_modifier_time
+			}
+		}
+		remove_modifier = romaioi_corrupt_pronoia
+		add_modifier = {
+			name = romaioi_themata_primacy
+			months = -1
+		}
+		add_loyalists = {
+			pop_type = farmers
+			culture = cu:greek
+			value = very_large_radicals
+		}
+		hidden_effect = {
+			trigger_event = {
+				id = anatolian_revolt.2
+				days = 14
+			}
+		}
+	}
+	option = { # Tagmata
+		name = palaiologos_events.3.b
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = very_long_modifier_time
+			}
+		}
+		remove_modifier = romaioi_corrupt_pronoia
+		add_modifier = {
+			name = romaioi_tagmata_primacy
+			months = -1
+		}
+		add_loyalists = {
+			pop_type = officers
+			culture = cu:greek
+			value = large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			culture = cu:greek
+			value = large_radicals
+		}
+		hidden_effect = {
+			trigger_event = {
+				id = anatolian_revolt.1
+				days = 14
+			}
+		}
+	}
+	option = { # Leave the system in place
+		name = palaiologos_events.3.c 
+		add_enactment_modifier = {
+			name = governors_satisfied
+		}
+		add_loyalists = {
+			pop_type = aristocrats
+			culture = cu:greek
+			value = very_large_radicals
+		}
+		remove_modifier = romaioi_corrupt_pronoia
+		add_modifier = {
+			name = romaioi_reformed_pronoia
+			months = -1
+		}
+	#	add_enactment_modifier = {
+	#		name = governors_pleased
+	#	}
+		
 	}
 }
 # Islâhat Hatt-ı Hümâyûnu - equality under the law
@@ -217,7 +348,7 @@ palaiologos_events.4 = {
 			}
 			add_radicals = {
 				religion = rel:orthodox
-				value = large_radicals
+				value = medium_radicals
 			}
 		}
 		if = {
@@ -228,7 +359,7 @@ palaiologos_events.4 = {
 			}
 			add_loyalists = {
 				religion = rel:sunni
-				value = large_radicals
+				value = very_large_radicals
 			}
 		}
 		if = {
@@ -291,7 +422,7 @@ palaiologos_events.4 = {
 			}
 			add_radicals = {
 				religion = rel:orthodox
-				value = medium_radicals
+				value = small_radicals
 			}
 		}
 		if = {
@@ -364,7 +495,7 @@ palaiologos_events.4 = {
 			}
 			add_loyalists = {
 				religion = rel:orthodox
-				value = large_radicals
+				value = medium_radicals
 			}
 		}
 		if = {
@@ -673,7 +804,7 @@ palaiologos_events.6 = {
 				culture = scope:mob_victim_culture
 			}
 			add_radicals_in_state = {
-				value = large_radicals
+				value = small_radicals
 				religion = scope:mob_religion
 			}
 		}
@@ -706,7 +837,7 @@ palaiologos_events.6 = {
 				culture = scope:mob_victim_culture
 			}
 			add_radicals_in_state = {
-				value = large_radicals
+				value = medium_radicals
 				religion = scope:mob_religion
 			}
 		}
@@ -734,7 +865,7 @@ palaiologos_events.6 = {
 				culture = scope:mob_victim_culture
 			}
 			add_radicals_in_state = {
-				value = large_radicals
+				value = small_radicals
 				religion = scope:mob_religion
 			}
 		}
@@ -836,11 +967,11 @@ palaiologos_events.7 = {
         default_option = yes
 		create_incident = {
 			country = root
-			value = 20
+			value = 10
 		}
 		scope:massacre_state_scope = {
 			add_radicals_in_state = {
-				value = large_radicals
+				value = small_radicals
 				religion = rel:orthodox
 			}
 			add_radicals_in_state = {
@@ -853,7 +984,7 @@ palaiologos_events.7 = {
 		name = palaiologos_events.7.b
 		scope:massacre_state_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = small_radicals
 				religion = rel:orthodox
 			}
 			add_radicals_in_state = {
