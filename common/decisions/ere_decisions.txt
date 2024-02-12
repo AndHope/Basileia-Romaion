@@ -15,12 +15,11 @@
 	}
 
 	when_taken = {
-		
 		remove_modifier = romaioi_bureaucratic_corruption
-
+		custom_tooltip = palaiologos.3.tt2
 		add_modifier = {
 			name = dealing_with_corruption
-			months = 52
+			months = 36
 		}
 		hidden_effect = {
 			trigger_event = {
@@ -89,10 +88,18 @@ end_latin_privileges = {
 	when_taken = {
 		remove_modifier = latin_privileges
 		#activate_law = law_type:law_state_religion
+		custom_tooltip = palaiologos.3.tt2
 		hidden_effect = {
-			trigger_event = {
-				id = greek_revolt.1
-				days = 14
+			if = {
+				limit = {
+					OR = {
+						exists = c:VEN
+					}
+						trigger_event = {
+							id = greek_revolt.1
+							days = 14
+					}
+				}
 			}
 		}	
 		add_modifier = {
@@ -354,7 +361,7 @@ romaioi_tagmata_decision = {
 
 	when_taken = {
 		remove_modifier = romaioi_themata_primacy
-
+		custom_tooltip = palaiologos.3.tt2
 		hidden_effect = {
 			trigger_event = {
 				id = anatolian_revolt.1

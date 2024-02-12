@@ -38,6 +38,14 @@ anatolian_revolt.1 = {
 			s:STATE_ALEPPO.region_state:BYZ = { set_state_owner = c:ANA }
 		}
 		if = {
+			limit = { exists = s:STATE_DIYARBAKIR.region_state:BYZ }
+			s:STATE_DIYARBAKIR.region_state:BYZ = { set_state_owner = c:ANA }
+		}
+		if = {
+			limit = { exists = s:STATE_DIYARBAKIR.region_state:MES }
+			s:STATE_DIYARBAKIR.region_state:MES = { set_state_owner = c:ANA }
+		}
+		if = {
 			limit = { exists = s:STATE_ADANA.region_state:BYZ }
 			s:STATE_ADANA.region_state:BYZ = { set_state_owner = c:ANA }
 		}
@@ -119,7 +127,6 @@ anatolian_revolt.1 = {
 			}
 		}
 
-
 		create_diplomatic_play = {
 			name = anatolian_Rebellion
 			war = yes
@@ -128,10 +135,45 @@ anatolian_revolt.1 = {
 			target_state = s:STATE_KONYA.region_state:ANA
 
 		}
-
 		
 		ai_chance = {
 			base = 100
+		}
+
+		hidden_effect = {
+			change_infamy = -15
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				culture = cu:greek
+				value = medium_radicals
+			}
+			capital = {
+				add_loyalists_in_state = {
+					value = medium_radicals
+					culture = cu:greek
+				}
+			}
 		}
 
 	}
@@ -191,6 +233,10 @@ anatolian_revolt.2 = {
 		if = {
 			limit = { exists = s:STATE_TRABZON.region_state:BYZ }
 			s:STATE_TRABZON.region_state:BYZ = { set_state_owner = c:PNT }
+		}
+		if = {
+			limit = { exists = s:STATE_TRABZON.region_state:TBZ }
+			s:STATE_TRABZON.region_state:TBZ = { set_state_owner = c:PNT }
 		}
 		if = {
 			limit = { exists = s:STATE_KASTAMONU.region_state:BYZ }
@@ -274,6 +320,42 @@ anatolian_revolt.2 = {
 
 			target_state = s:STATE_TRABZON.region_state:PNT
 
+		}
+		
+		hidden_effect = {
+			change_infamy = -15
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				culture = cu:greek
+				value = medium_radicals
+			}
+			capital = {
+				add_loyalists_in_state = {
+					value = medium_radicals
+					culture = cu:greek
+				}
+			}
 		}
 
 		ai_chance = {

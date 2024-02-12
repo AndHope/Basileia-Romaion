@@ -41,13 +41,26 @@ greek_revolt.1 = {
 			s:STATE_ATTICA.region_state:BYZ = { set_state_owner = c:GRE }
 		}
 		if = {
+			limit = { exists = s:STATE_ATTICA.region_state:EPR }
+			s:STATE_ATTICA.region_state:EPR = { set_state_owner = c:GRE }
+		}
+		if = {
+			limit = { exists = s:STATE_WESTERN_THRACE.region_state:GEN }
+			s:STATE_WESTERN_THRACE.region_state:GEN = { set_state_owner = c:GRE }
+		}
+		if = {
 			limit = { exists = s:STATE_PELOPONNESE.region_state:BYZ }
 			s:STATE_PELOPONNESE.region_state:BYZ = { set_state_owner = c:GRE }
+		}
+		if = {
+			limit = { exists = s:STATE_PELOPONNESE.region_state:MRE }
+			s:STATE_PELOPONNESE.region_state:MRE = { set_state_owner = c:GRE }
 		}
 		if = {
 			limit = { exists = s:STATE_WEST_AEGEAN_ISLANDS.region_state:BYZ }
 			s:STATE_WEST_AEGEAN_ISLANDS.region_state:BYZ = { set_state_owner = c:GRE }
 		}
+		
 
 		if = {
 			limit = {
@@ -98,12 +111,27 @@ greek_revolt.1 = {
 				state = s:STATE_IONIAN_ISLANDS.region_state:BYZ
 			}
 		}
+		if = {
+			limit = {
+				NOT = { exists = c:ION }
+				exists = s:STATE_IONIAN_ISLANDS.region_state:EPR
+			}
+			create_country = {
+				tag = ION
+				origin = c:EPR
+				state = s:STATE_IONIAN_ISLANDS.region_state:EPR
+			}
+		}
 		else_if = {
 			limit = {
 				exists = c:ION
 				exists = s:STATE_IONIAN_ISLANDS.region_state:BYZ
 			}
 			s:STATE_IONIAN_ISLANDS.region_state:BYZ = { set_state_owner = c:ION }
+		}
+		if = {
+			limit = { exists = s:STATE_IONIAN_ISLANDS.region_state:VEN }
+			s:STATE_IONIAN_ISLANDS.region_state:VEN = { set_state_owner = c:ION }
 		}
 
 		if = {
@@ -134,32 +162,6 @@ greek_revolt.1 = {
 			activate_law = law_type:law_dedicated_police
 			activate_law = law_type:law_women_own_property
 			activate_law = law_type:law_private_health_insurance
-			create_character = {
-				first_name = "Angelo"
-				last_name = "Gaitanos"
-				birth_date = 1697.3.1 # excact date unknown. 
-				culture = cu:latinoi
-				ruler = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator
-				}
-			}
-			create_character = {
-				birth_date = 1717.1.5 # excact date unknown. 
-				first_name = "Odysseas"
-				last_name = "Gaitanos"
-				culture = cu:latinoi
-				heir = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator 
-				}
-			}
 		}
 		c:CYP = {
 			activate_law = law_type:law_presidential_republic
@@ -178,32 +180,6 @@ greek_revolt.1 = {
 			activate_law = law_type:law_dedicated_police
 			activate_law = law_type:law_women_own_property
 			activate_law = law_type:law_private_health_insurance
-			create_character = {
-				first_name = "Angelo"
-				last_name = "Gaitanos"
-				birth_date = 1697.3.1 # excact date unknown. 
-				culture = cu:latinoi
-				ruler = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator
-				}
-			}
-			create_character = {
-				birth_date = 1717.1.5 # excact date unknown. 
-				first_name = "Odysseas"
-				last_name = "Gaitanos"
-				culture = cu:latinoi
-				heir = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator
-				}
-			}
 		}
 		c:CRE = {
 			activate_law = law_type:law_presidential_republic
@@ -222,32 +198,6 @@ greek_revolt.1 = {
 			activate_law = law_type:law_dedicated_police
 			activate_law = law_type:law_women_own_property
 			activate_law = law_type:law_private_health_insurance
-			create_character = {
-				first_name = "Angelo"
-				last_name = "Gaitanos"
-				birth_date = 1697.3.1 # excact date unknown. 
-				culture = cu:latinoi
-				ruler = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator
-				}
-			}
-			create_character = {
-				birth_date = 1717.1.5 # excact date unknown. 
-				first_name = "Odysseas"
-				last_name = "Gaitanos"
-				culture = cu:latinoi
-				heir = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator
-				}
-			}
 		}
 		c:ION = {
 			activate_law = law_type:law_presidential_republic
@@ -266,32 +216,6 @@ greek_revolt.1 = {
 			activate_law = law_type:law_dedicated_police
 			activate_law = law_type:law_women_own_property
 			activate_law = law_type:law_private_health_insurance
-			create_character = {
-				first_name = "Angelo"
-				last_name = "Gaitanos"
-				birth_date = 1697.3.1 # excact date unknown. 
-				culture = cu:latinoi
-				ruler = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator
-				}
-			}
-			create_character = {
-				birth_date = 1717.1.5 # excact date unknown. 
-				first_name = "Odysseas"
-				last_name = "Gaitanos"
-				culture = cu:latinoi
-				heir = yes
-				religion = catholic
-				interest_group = ig_petty_bourgeoisie
-				ideology = ideology_market_liberal
-				traits = { 
-					basic_political_operator
-				}
-			}
 		}
 		c:VEN = {
 			create_diplomatic_pact = {
@@ -351,6 +275,41 @@ greek_revolt.1 = {
 
 			target_state = s:STATE_IONIAN_ISLANDS.region_state:ION
 
+		}
+		hidden_effect = {
+			change_infamy = -50
+			add_treasury = 750000
+			add_loyalists = {
+				pop_type = aristocrats
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				culture = cu:greek
+				value = medium_radicals
+			}
+			capital = {
+				add_loyalists_in_state = {
+					value = medium_radicals
+					culture = cu:greek
+				}
+			}
 		}
 
 		ai_chance = {

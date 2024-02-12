@@ -1,0 +1,40 @@
+﻿
+    #############
+    # By Lord R #
+    #############
+
+pdxmesh = {
+	name = "com_male_aiguillettes_01_mesh"
+	file = "male_aiguillettes_01.mesh"
+
+
+	blend_shape = { id = "male_aiguillettes_01_bs_infant"		type = "male_aiguillettes_01_bs_infant.mesh" }
+	blend_shape = { id = "male_aiguillettes_01_bs_fat"			type = "male_aiguillettes_01_bs_fat.mesh" }
+	blend_shape = { id = "male_aiguillettes_01_bs_gaunt"		type = "male_aiguillettes_01_bs_gaunt.mesh" }
+	blend_shape = { id = "male_aiguillettes_01_bs_old"			type = "male_aiguillettes_01_bs_old.mesh" }
+
+
+
+	meshsettings = {
+		name = "male_aiguillettes_01Shape"
+		index = 0
+		texture_diffuse = "com_male_aiguillettes_01_diffuse.dds"
+		texture_normal = "male_aiguillettes_01_normal.dds"
+		texture_specular = "male_aiguillettes_01_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "com_male_aiguillettes_01_silver_entity"
+	pdxmesh = "com_male_aiguillettes_01_mesh"
+
+
+	attribute = { name = "body_bs_infant"					blend_shape = "male_aiguillettes_01_bs_infant" }
+	attribute = { name = "body_bs_fat"						blend_shape = "male_aiguillettes_01_bs_fat" }
+	attribute = { name = "body_bs_gaunt"					blend_shape = "male_aiguillettes_01_bs_gaunt" }
+	attribute = { name = "body_bs_old"						blend_shape = "male_aiguillettes_01_bs_old" }
+
+
+}

@@ -140,4 +140,34 @@ BYZ = {
 			}
 		}
 	}
+
+	dynamic_country_name = { # Roman Empire
+		name = dyn_c_re
+		adjective = dyn_c_re_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = re_name_chosen_var
+			}
+		}
+	}
+	
+	dynamic_country_name = { # Eastern Roman Empire
+		name = dyn_c_ere
+		adjective = dyn_c_re_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = ere_name_chosen_var
+			}
+		}
+	}
 }
