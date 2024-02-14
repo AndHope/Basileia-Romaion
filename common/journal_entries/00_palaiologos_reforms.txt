@@ -882,6 +882,16 @@ je_palaiologos_reforms_end_latin_privileges = {
 					}
 				}
 			}
+			else_if = {
+				limit = {
+					NOT = { exists = c:VEN }
+				}
+				change_infamy = 20
+				add_modifier = {
+					name = anti_latin_policies
+					months = 52
+				}
+			}
 			
 			if = {
 				limit = {
@@ -896,11 +906,6 @@ je_palaiologos_reforms_end_latin_privileges = {
 			}
 		}
 		custom_tooltip = endlatin.1.tt1
-		#change_infamy = 25
-		add_modifier = {
-			name = anti_latin_policies
-			months = 52
-		}
 
 	}
 

@@ -295,20 +295,56 @@ romaioi_themata_decision = {
 	is_shown = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		has_modifier = romaioi_tagmata_primacy
+		OR = {
+			has_modifier = romaioi_tagmata_primacy
+			has_modifier = romaioi_corrupt_pronoia
+		}
 	}
 
 	possible = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		has_law = law_type:law_peasant_levies
-		has_law = law_type:law_agrarianism
-		has_modifier = romaioi_tagmata_primacy
+		OR = {
+			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_homesteading
+		}
+		OR = {
+			has_modifier = romaioi_tagmata_primacy
+			has_modifier = romaioi_corrupt_pronoia
+		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 	}
 
 	when_taken = {
-		remove_modifier = romaioi_tagmata_primacy
+		if = {
+			limit = {
+				has_modifier = romaioi_corrupt_pronoia
+			}
+			remove_modifier = romaioi_corrupt_pronoia
+			add_loyalists = {
+				pop_type = peasants
+				culture = cu:greek
+				value = medium
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = romaioi_tagmata_primacy
+			}
+			remove_modifier = romaioi_tagmata_primacy
+			ig:ig_armed_forces = {
+				add_modifier = {
+					name = romaioi_ig_very_angry
+					months = normal_modifier_time
+				}
+			}
+			add_loyalists = {
+				pop_type = aristocrats
+				culture = cu:greek
+				value = large_radicals
+			}
+		}
+
 		add_modifier = {
 			name = romaioi_themata_primacy
 			months = -1
@@ -320,23 +356,11 @@ romaioi_themata_decision = {
 		}
 
 		add_loyalists = {
-			pop_type = aristocrats
-			culture = cu:greek
-			value = large_radicals
-		}
-
-		add_loyalists = {
 			pop_type = farmers
 			culture = cu:greek
-			value = large_radicals
+			value = very_large_radicals
 		}
 
-		ig:ig_armed_forces = {
-			add_modifier = {
-				name = romaioi_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
 	}
 
 	ai_chance = {
@@ -348,24 +372,53 @@ romaioi_tagmata_decision = {
 	is_shown = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		has_modifier = romaioi_themata_primacy
+		OR = {
+			has_modifier = romaioi_themata_primacy
+			has_modifier = romaioi_reformed_pronoia
+		}
 	}
 
 	possible = {
 		exists = c:BYZ
 		ROOT = c:BYZ
 		has_law = law_type:law_professional_army
-		has_modifier = romaioi_themata_primacy
+		OR = {
+			has_modifier = romaioi_themata_primacy
+			has_modifier = romaioi_reformed_pronoia
+		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 	}
 
 	when_taken = {
-		remove_modifier = romaioi_themata_primacy
 		custom_tooltip = palaiologos.3.tt2
-		hidden_effect = {
-			trigger_event = {
-				id = anatolian_revolt.1
-				days = 14
+		if = {
+			limit = {
+				has_modifier = romaioi_reformed_pronoia
+			}
+			remove_modifier = romaioi_reformed_pronoia
+			ig:ig_landowners = {
+				add_modifier = {
+					name = romaioi_ig_very_angry
+					months = normal_modifier_time
+				}
+			}
+			hidden_effect = {
+				trigger_event = {
+					id = anatolian_revolt.1
+					days = 14
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = romaioi_themata_primacy
+			}
+			remove_modifier = romaioi_themata_primacy
+			hidden_effect = {
+				trigger_event = {
+					id = anatolian_revolt.2
+					days = 14
+				}
 			}
 		}
 
@@ -382,21 +435,14 @@ romaioi_tagmata_decision = {
 		add_loyalists = {
 			pop_type = officers
 			culture = cu:greek
-			value = large_radicals
+			value = very_large_radicals
 		}
-
 		add_loyalists = {
 			pop_type = soldiers
 			culture = cu:greek
 			value = large_radicals
 		}
 
-		ig:ig_landowners = {
-			add_modifier = {
-				name = romaioi_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
 	}
 
 	ai_chance = {
@@ -411,7 +457,10 @@ notbyz_themata_decision = {
 			country_has_primary_culture = cu:greek
 			country_has_primary_culture = cu:elysian
 		}
-		has_modifier = romaioi_tagmata_primacy
+		OR = {
+			has_modifier = romaioi_tagmata_primacy
+			has_modifier = romaioi_corrupt_pronoia
+		}
 		NOT = { ROOT = c:BYZ }
 	}
 
@@ -420,15 +469,46 @@ notbyz_themata_decision = {
 			country_has_primary_culture = cu:greek
 			country_has_primary_culture = cu:elysian
 		}
-		has_law = law_type:law_peasant_levies
-		has_law = law_type:law_agrarianism
-		has_modifier = romaioi_tagmata_primacy
+		OR = {
+			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_homesteading
+		}
+		OR = {
+			has_modifier = romaioi_tagmata_primacy
+			has_modifier = romaioi_corrupt_pronoia
+		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 		NOT = { ROOT = c:BYZ }
 	}
 
 	when_taken = {
-		remove_modifier = romaioi_tagmata_primacy
+		if = {
+			limit = {
+				has_modifier = romaioi_corrupt_pronoia
+			}
+			remove_modifier = romaioi_corrupt_pronoia
+			add_loyalists = {
+				pop_type = peasants
+				value = medium
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = romaioi_tagmata_primacy
+			}
+			remove_modifier = romaioi_tagmata_primacy
+			ig:ig_armed_forces = {
+				add_modifier = {
+					name = romaioi_ig_very_angry
+					months = normal_modifier_time
+				}
+			}
+			add_loyalists = {
+				pop_type = aristocrats
+				value = large_radicals
+			}
+		}
+
 		add_modifier = {
 			name = romaioi_themata_primacy
 			months = -1
@@ -440,22 +520,8 @@ notbyz_themata_decision = {
 		}
 
 		add_loyalists = {
-			pop_type = aristocrats
-			#culture = cu:greek
-			value = large_radicals
-		}
-
-		add_loyalists = {
 			pop_type = farmers
-			#culture = cu:greek
-			value = large_radicals
-		}
-
-		ig:ig_armed_forces = {
-			add_modifier = {
-				name = romaioi_ig_very_angry
-				months = normal_modifier_time
-			}
+			value = very_large_radicals
 		}
 	}
 
@@ -470,7 +536,10 @@ notbyz_tagmata_decision = {
 			country_has_primary_culture = cu:greek
 			country_has_primary_culture = cu:elysian
 		}
-		has_modifier = romaioi_themata_primacy
+		OR = {
+			has_modifier = romaioi_themata_primacy
+			has_modifier = romaioi_reformed_pronoia
+		}
 		NOT = { ROOT = c:BYZ }
 	}
 
@@ -480,13 +549,45 @@ notbyz_tagmata_decision = {
 			country_has_primary_culture = cu:elysian
 		}
 		has_law = law_type:law_professional_army
-		has_modifier = romaioi_themata_primacy
+		OR = {
+			has_modifier = romaioi_themata_primacy
+			has_modifier = romaioi_reformed_pronoia
+		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 		NOT = { ROOT = c:BYZ }
 	}
 
 	when_taken = {
-		remove_modifier = romaioi_themata_primacy
+		if = {
+			limit = {
+				has_modifier = romaioi_reformed_pronoia
+			}
+			remove_modifier = romaioi_reformed_pronoia
+			ig:ig_landowners = {
+				add_modifier = {
+					name = romaioi_ig_very_angry
+					months = normal_modifier_time
+				}
+			}
+			hidden_effect = {
+				trigger_event = {
+					id = anatolian_revolt.1
+					days = 14
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = romaioi_themata_primacy
+			}
+			remove_modifier = romaioi_themata_primacy
+			hidden_effect = {
+				trigger_event = {
+					id = anatolian_revolt.2
+					days = 14
+				}
+			}
+		}
 
 		add_modifier = {
 			name = romaioi_tagmata_primacy
@@ -508,13 +609,6 @@ notbyz_tagmata_decision = {
 			pop_type = soldiers
 			#culture = cu:greek
 			value = large_radicals
-		}
-
-		ig:ig_landowners = {
-			add_modifier = {
-				name = romaioi_ig_very_angry
-				months = normal_modifier_time
-			}
 		}
 	}
 

@@ -128,43 +128,13 @@ bulgarian_revolt.1 = {
 			#	target_state = s:STATE_NORTHERN_THRACE.region_state:BYZ
 			#}
 		}
-	c:BYZ = {
 		hidden_effect = {
 			change_infamy = -15
-			add_treasury = 75000
-			add_loyalists = {
-				pop_type = aristocrats
-				culture = cu:greek
-				value = medium_radicals
-			}
-			add_loyalists = {
-				pop_type = officers
-				culture = cu:greek
-				value = medium_radicals
-			}
-			add_loyalists = {
-				pop_type = soldiers
-				culture = cu:greek
-				value = medium_radicals
-			}
-			add_loyalists = {
-				pop_type = clergymen
-				culture = cu:greek
-				value = medium_radicals
-			}
-			add_loyalists = {
-				pop_type = bureaucrats
-				culture = cu:greek
-				value = medium_radicals
-			}
-			capital = {
-				add_loyalists_in_state = {
-					value = medium_radicals
-					culture = cu:greek
-				}
+			trigger_event = {
+				id = romaion_emp_rally.1
+				days = 7
 			}
 		}
-	}
 
 		ai_chance = {
 			base = 100
@@ -185,10 +155,6 @@ bulgarian_revolt.1 = {
 			create_diplomatic_pact = {
 				country = c:BUL
 				type = puppet
-			}
-			add_modifier = {
-				name = romaioi_themata_primacy
-				months = -1
 			}
 			change_relations = {
 				country = c:BUL

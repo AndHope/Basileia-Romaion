@@ -1,0 +1,73 @@
+﻿namespace = ere_war_events
+
+romaion_emp_rally.1 = {
+	type = country_event
+	placement = c:BYZ.capital
+
+	title = romaion_emp_rally.1.t
+	desc = romaion_emp_rally.1.d
+	flavor = romaion_emp_rally.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {   
+	}
+	immediate = {
+	}
+
+	option = {
+		name = romaion_emp_rally.1.a
+		default_option = yes
+		add_treasury = 250000
+
+		capital = {
+			add_loyalists_in_state = {
+				value = medium_radicals
+				culture = cu:greek
+			}
+		}
+		add_loyalists = {
+			pop_type = aristocrats
+			culture = cu:greek
+			value = medium_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			culture = cu:greek
+			value = medium_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			culture = cu:greek
+			value = medium_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			culture = cu:greek
+			value = medium_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			culture = cu:greek
+			value = medium_radicals
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+
+	}
+#	option = {
+#		name = romaion_emp_rally.1.b
+#	}
+
+}
