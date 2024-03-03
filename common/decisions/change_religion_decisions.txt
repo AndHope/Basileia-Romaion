@@ -593,7 +593,7 @@ slavic_decision = {
 				has_discrimination_trait = east_slavic
 			}
 		}
-		NOT = { country_has_state_religion = rel:slavic }
+		NOT = { country_has_state_religion = rel:br_religion_slavic }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
@@ -610,7 +610,7 @@ slavic_decision = {
 	}
 
 	when_taken = {
-		set_state_religion = rel:slavic
+		set_state_religion = rel:br_religion_slavic
 		ig:ig_devout = {
 			set_interest_group_name = ig_slavic_priests
 			remove_ideology = ideology_patriarchal
@@ -622,7 +622,7 @@ slavic_decision = {
 				is_capital = yes
 			}
 			convert_population = {
-				target = rel:slavic
+				target = rel:br_religion_slavic
 				value = 0.25
 			}
 		}
@@ -633,18 +633,18 @@ slavic_decision = {
 				NOT = { is_capital = yes }
 			}
 			convert_population = {
-				target = rel:slavic
+				target = rel:br_religion_slavic
 				value = 0.15
 			}
 		}
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:slavic 
+					religion = rel:br_religion_slavic
 				}
 			}
 			add_loyalists = {
-				religion = rel:slavic
+				religion = rel:br_religion_slavic
 				value = 0.25
 			}
 		}
