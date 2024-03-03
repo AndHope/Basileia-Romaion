@@ -3,7 +3,7 @@
 		OR = {
 			country_has_primary_culture = cu:greek
 			country_has_primary_culture = cu:elysian
-			country_has_state_religion = rel:hellenic
+			country_has_state_religion = rel:br_religion_hellenic
 		}
 	}
 
@@ -11,7 +11,7 @@
 		OR = {
 			country_has_primary_culture = cu:greek
 			country_has_primary_culture = cu:elysian
-			country_has_state_religion = rel:hellenic
+			country_has_state_religion = rel:br_religion_hellenic
 		}
 		has_technology_researched = organized_sports
 		hidden_trigger = {
@@ -38,7 +38,7 @@
 				is_incorporated = yes
 			}
 			convert_population = {
-				target = rel:hellenic
+				target = rel:br_religion_hellenic
 				value = 0.05
 			}
 		}
@@ -66,7 +66,7 @@ hellenic_decision = {
 			country_has_primary_culture = cu:greek
 			country_has_primary_culture = cu:elysian
 		}
-		NOT = { country_has_state_religion = rel:hellenic }
+		NOT = { country_has_state_religion = rel:br_religion_hellenic }
 		has_variable = revive_olympics_decision_taken
 	}
 
@@ -86,7 +86,7 @@ hellenic_decision = {
 	}
 
 	when_taken = {
-		set_state_religion = rel:hellenic
+		set_state_religion = rel:br_religion_hellenic
 		ig:ig_devout = {
 			set_interest_group_name = ig_neo_hellenes
 			remove_ideology = ideology_patriarchal
@@ -102,7 +102,7 @@ hellenic_decision = {
 				is_capital = yes
 			}
 			convert_population = {
-				target = rel:hellenic
+				target = rel:br_religion_hellenic
 				value = 0.25
 			}
 		}
@@ -113,18 +113,18 @@ hellenic_decision = {
 				NOT = { is_capital = yes }
 			}
 			convert_population = {
-				target = rel:hellenic
+				target = rel:br_religion_hellenic
 				value = 0.15
 			}
 		}
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:hellenic 
+					religion = rel:br_religion_hellenic
 				}
 			}
 			add_loyalists = {
-				religion = rel:hellenic
+				religion = rel:br_religion_hellenic
 				value = 0.50
 			}
 		}
@@ -215,11 +215,11 @@ orthodox_decision = {
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:hellenic 
+					religion = rel:br_religion_hellenic
 				}
 			}
 			add_radicals = {
-				religion = rel:hellenic
+				religion = rel:br_religion_hellenic
 				value = 0.50
 			}
 		}
@@ -300,7 +300,7 @@ zoroastrianism_decision = {
 	is_shown = {
 		exists = c:PER
 		c:PER = THIS
-		NOT = { country_has_state_religion = rel:zoroastrian }
+		NOT = { country_has_state_religion = rel:br_religion_zoroastrian }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
@@ -318,7 +318,7 @@ zoroastrianism_decision = {
 	}
 
 	when_taken = {
-		set_state_religion = rel:zoroastrian
+		set_state_religion = rel:br_religion_zoroastrian
 		ig:ig_devout = {
 			hidden_effect = { set_interest_group_name = ig_zoroastrian_priests }
 		}
@@ -328,7 +328,7 @@ zoroastrianism_decision = {
 				is_capital = yes
 			}
 			convert_population = {
-				target = rel:zoroastrian
+				target = rel:br_religion_zoroastrian
 				value = 0.25
 			}
 		}
@@ -339,18 +339,18 @@ zoroastrianism_decision = {
 				NOT = { is_capital = yes }
 			}
 			convert_population = {
-				target = rel:zoroastrian
+				target = rel:br_religion_zoroastrian
 				value = 0.15
 			}
 		}
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:zoroastrian 
+					religion = rel:br_religion_zoroastrian
 				}
 			}
 			add_loyalists = {
-				religion = rel:zoroastrian
+				religion = rel:br_religion_zoroastrian
 				value = 0.25
 			}
 		}
@@ -389,7 +389,7 @@ norse_decision = {
 			country_has_primary_culture = cu:norwegian
 			country_has_primary_culture = cu:saxon
 		}
-		NOT = { country_has_state_religion = rel:norse }
+		NOT = { country_has_state_religion = rel:br_religion_norse }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
@@ -406,7 +406,7 @@ norse_decision = {
 	}
 
 	when_taken = {
-		set_state_religion = rel:norse
+		set_state_religion = rel:br_religion_norse
 		ig:ig_devout = {
 			set_interest_group_name = ig_norse_priests
 			remove_ideology = ideology_patriarchal
@@ -418,7 +418,7 @@ norse_decision = {
 				is_capital = yes
 			}
 			convert_population = {
-				target = rel:norse
+				target = rel:br_religion_norse
 				value = 0.25
 			}
 		}
@@ -429,18 +429,18 @@ norse_decision = {
 				NOT = { is_capital = yes }
 			}
 			convert_population = {
-				target = rel:norse
+				target = rel:br_religion_norse
 				value = 0.15
 			}
 		}
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:norse 
+					religion = rel:br_religion_norse
 				}
 			}
 			add_loyalists = {
-				religion = rel:norse
+				religion = rel:br_religion_norse
 				value = 0.25
 			}
 		}
@@ -488,7 +488,7 @@ baltic_decision = {
 			country_has_primary_culture = cu:latvian
 			country_has_primary_culture = cu:estonian
 		}
-		NOT = { country_has_state_religion = rel:baltic }
+		NOT = { country_has_state_religion = rel:br_religion_baltic }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
@@ -505,7 +505,7 @@ baltic_decision = {
 	}
 
 	when_taken = {
-		set_state_religion = rel:baltic
+		set_state_religion = rel:br_religion_baltic
 		ig:ig_devout = {
 			set_interest_group_name = ig_baltic_priests
 			remove_ideology = ideology_patriarchal
@@ -517,7 +517,7 @@ baltic_decision = {
 				is_capital = yes
 			}
 			convert_population = {
-				target = rel:baltic
+				target = rel:br_religion_baltic
 				value = 0.25
 			}
 		}
@@ -528,18 +528,18 @@ baltic_decision = {
 				NOT = { is_capital = yes }
 			}
 			convert_population = {
-				target = rel:baltic
+				target = rel:br_religion_baltic
 				value = 0.15
 			}
 		}
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:baltic 
+					religion = rel:br_religion_baltic
 				}
 			}
 			add_loyalists = {
-				religion = rel:baltic
+				religion = rel:br_religion_baltic
 				value = 0.25
 			}
 		}
@@ -695,7 +695,7 @@ tengri_decision = {
 				has_discrimination_trait = turkic
 			}
 		}
-		NOT = { country_has_state_religion = rel:tengri }
+		NOT = { country_has_state_religion = rel:br_religion_tengri }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
@@ -712,7 +712,7 @@ tengri_decision = {
 	}
 
 	when_taken = {
-		set_state_religion = rel:tengri
+		set_state_religion = rel:br_religion_tengri
 		ig:ig_devout = {
 			set_interest_group_name = ig_tengri_priests
 			remove_ideology = ideology_patriarchal
@@ -724,7 +724,7 @@ tengri_decision = {
 				is_capital = yes
 			}
 			convert_population = {
-				target = rel:tengri
+				target = rel:br_religion_tengri
 				value = 0.25
 			}
 		}
@@ -735,18 +735,18 @@ tengri_decision = {
 				NOT = { is_capital = yes }
 			}
 			convert_population = {
-				target = rel:tengri
+				target = rel:br_religion_tengri
 				value = 0.15
 			}
 		}
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:tengri 
+					religion = rel:br_religion_tengri
 				}
 			}
 			add_loyalists = {
-				religion = rel:tengri
+				religion = rel:br_religion_tengri
 				value = 0.25
 			}
 		}
