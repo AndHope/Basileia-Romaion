@@ -1,27 +1,29 @@
-# Basileia-Romaion
-Basileia Romaion for Victoria 3
 Basileía Romaíon 1736
-ERE, Eastern Roman Empire, Byzantium or Byzantine Empire Alternative History Mod.
+Welcome to an alternative world one hundred years earlier than base Victoria 3 where many divergent events led to a drastically different world. Primarily inspired by Roman, Medieval and Renaissance History.
 
-What if the Basileía Romaíon (Roman Empire in Medieval Greek) never ended in the east? always retaining Anatolia and Greece and slowly regaining control over the Balkans, Levant, Egypt and North Africa? What if the Romaíoi (Greek speaking eastern Romans) continued to influence the course of events throughout Europa, Asia, Africa and the New World?
+The term "Basileia Romaion" (Βασιλεία τῶν Ῥωμαίων) is the Greek name for the Eastern Roman Empire or Byzantine Empire. It was the official name of the empire in Greek during its existence. "Basileia" means "Empire" or "Kingdom," and "Romaion" means "of the Romans" or "Roman." This name reflects the Byzantines' self-identification as Romans and their continuity with the Roman Empire.
 
 Features:
 Detailed alternative history scenario based on the premise above.
 Earlier start date of 1736.
-Adjusted all nations starting literacy, technology and buildings to fit in with a earlier timeline.
-Re-balanced colonization, building and technology speed.
+Re-balanced nearly all aspects of the game to make it more deep and challenging.
 Literacy increases production efficiency.
+New Options and Game Rules.
 Hundreds of New nations.
 New journal entries, decisions, events.
-New cultures.
-New religions.
-New Unique Techs, Modifiers & Traits.
-New Monuments.
-New Government types.
+New Political Parties.
+New Companies.
+New Decrees.
+New Diplomatic Actions.
+New Custom Formations.
+New Cultures.
+New Religions.
+New Unique Techs, Modifiers, Traits & State Traits.
+New Goods, Buildings, Monuments & Production Methods.
+New Government & Subject types.
 New Ruler Titles.
-Map Changes including many new State Traits.
-New City Graphics. Integrated Italian Beauty
-Map Changes. Integrated Rivers Expanded
+New Map Scheme.
+New Graphics: Including New City and Map Graphics
 New State/Hub names.
 Base game content functions within the mod.
 Ironman and Most Achievements still earnable.
