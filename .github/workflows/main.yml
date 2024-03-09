@@ -1,0 +1,33 @@
+name: Main
+
+on: push
+
+jobs:
+  yamllint:
+    name: Lint localization/ with yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install requirements
+        run: pip install --requirement scripts/lint/requirements.txt
+      - name: Lint
+        run: python scripts/lint/yaml.py --directory localization/
+             --paths-to-ignore
+             "localization/korean/ib_l_korean .yml"
+             "localization/english/romaioi_events_l_english.yml"
+             "localization/english/br_hippodrome_l_english.yml"
+             "localization/english/romaioi_names_l_english.yml"
+             "localization/english/romaioi_misc_l_english.yml"
+             "localization/english/addons/warispolitics_l_english.yml"
+             "localization/english/addons/ib_l_english.yml"
+             "localization/english/replace/country_flavor_text_l_english.yml"
+             "localization/english/replace/cultures_l_english.yml"
+             "localization/english/replace/misc_l_english.yml"
+             "localization/english/replace/countries_l_english.yml"
+             "localization/english/replace/hub_names_l_english.yml"
+             "localization/english/replace/inventions_l_english.yml"
