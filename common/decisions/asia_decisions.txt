@@ -31,3 +31,59 @@
 	}
 }
 
+br_mandate_heaven_decision = {
+	is_shown = {
+		exists = c:CH1
+		ROOT = c:CH1
+		#NOT = { exists = c:CHI }
+	}
+
+	possible = {
+		exists = c:CH1
+		ROOT = c:CH1
+		NOT = { exists = c:CHI }
+		AND = {
+			has_law = law_type:law_monarchy
+			NOT = { 
+				has_law = law_type:law_total_separation 
+				has_law = law_type:law_state_atheism
+			}
+		}
+	}
+
+	when_taken = {
+		add_primary_culture = cu:han
+		add_modifier = mandate_of_heaven
+		set_country_type = recognized
+
+		capital = {
+			add_loyalists_in_state = {
+				value = medium_radicals
+			}
+		}
+		add_loyalists = {
+			pop_type = aristocrats
+			value = large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = large_radicals
+		}
+	}
+
+	ai_chance = {
+		base = 5
+	}
+}
