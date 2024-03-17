@@ -1520,12 +1520,6 @@ on_country_formed = {
 			}
 			trigger_event = { id = formation.21 popup = yes }
 		}
-		else_if = {
-			limit = {
-				c:ITA ?= ROOT
-			}
-			trigger_event = { id = italian_unification.1 popup = yes }
-		}
 		else = {
 			trigger_event = { id = formation.17 popup = yes }
 		}
@@ -2561,28 +2555,6 @@ on_secession_start = {
 			}
 			chi_remove_1_fragile_unity = yes
 			set_variable = china_warlord_explosion_revolution
-		}
-		if = {
-			limit = {
-				scope:target = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-				}
-				ROOT = {
-					NOR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-				}
-				any_country = {
-					has_journal_entry = je_risorgimento
-				}
-			}
-			root = {
-				trigger_event = { id = italian_unification.7 days = 3 }
-			}
 		}
 		if = {
 			limit = {
