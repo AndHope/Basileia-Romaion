@@ -1,0 +1,275 @@
+﻿gov_merchant_republic = {
+	#transfer_of_power = presidential_elective
+
+	male_ruler = "RULER_TITLE_DOGE"
+	female_ruler = "RULER_TITLE_DOGE"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		or = {
+			AND = { exists = c:VEN c:VEN = ROOT }
+			AND = { exists = c:GEN c:GEN = ROOT }
+		}	
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+
+}
+
+gov_chartered_company = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		OR = {
+			AND = {
+				exists = c:VAC
+				c:VAC = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:GAC
+				c:GAC = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:RIC
+				c:RIC = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:ATC
+				c:ATC = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:DEI
+				c:DEI = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:NWC
+				c:NWC = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				has_variable = african_chartered_company_var
+				is_subject = yes
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+
+}
+
+gov_colonial_administration = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		OR = {
+			AND = {
+				exists = c:NET
+				is_subject_of = c:NET
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:GBR
+				is_subject_of = c:GBR
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:VEN
+				is_subject_of = c:VEN
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:GEN
+				is_subject_of = c:GEN
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:HRE
+				is_subject_of = c:HRE
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:ANL
+				is_subject_of = c:ANL
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = middle_eastern_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:SAX
+				is_subject_of = c:SAX
+				is_subject_type = subject_type_dominion
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
+				exists = c:JAP
+				is_subject_of = c:JAP
+				#is_subject_type = subject_type_tributary
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = east_asian_heritage
+				}
+				#country_is_in_asia = no
+			}
+			AND = {
+				exists = c:CHI
+				is_subject_of = c:CHI
+				is_subject_type = subject_type_tributary
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = east_asian_heritage
+				}
+				#country_is_in_asia = no
+			}
+			AND = {
+				has_variable = senegal_subject_var
+				is_subject = yes
+			}
+			AND = {
+				has_variable = niger_subject_var
+				is_subject = yes
+			}
+			AND = {
+				has_variable = ethiopia_subject_var
+				is_subject = yes
+			}
+			AND = {
+				has_variable = zanj_subject_var
+				is_subject = yes
+			}
+			AND = {
+				has_variable = congo_subject_var
+				is_subject = yes
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+
+}
+
+gov_crown_colony = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR"
+	female_ruler = "RULER_TITLE_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		exists = c:HRE
+		is_subject_of = c:HRE
+		c:HRE = {
+			has_law = law_type:law_monarchy
+		}
+		is_subject_type = subject_type_puppet
+		is_country_type = colonial
+		top_overlord = { NOT = { is_country_type = colonial } }
+		any_primary_culture = {
+			has_discrimination_trait = european_heritage
+		}
+		country_is_in_europe = no
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+
+}
