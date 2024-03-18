@@ -361,3 +361,102 @@ building_libary_alexandria = {
 	
 	required_construction = construction_cost_monument
 }
+
+building_Notre_Dame = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/br_notre_dame.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+    entity_not_constructed = { }
+    entity_constructed = { "wonder_eiffel_tower_01_entity"}
+	production_method_groups = {pmg_base_building_Notre_Dame }
+    required_construction = 2000
+	possible = {
+
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_value = 10
+}
+
+building_Versailles = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/br_versailles.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	has_max_level = yes
+	production_method_groups = {pmg_base_building_Versailles}
+	possible = {
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_value = 10
+}
+
+building_Venice = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/br_doges_palace.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	has_max_level = yes
+	production_method_groups = {pmg_base_building_Venice }
+	possible = {
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_VENETIA
+			}
+		}
+	}
+	ai_value = 10
+}
+
+building_Jerusalem = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/br_holy_city_jerusalem.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	has_max_level = yes
+	production_method_groups = {pmg_base_building_Jerusalem}
+	possible = {
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_PALESTINE
+			}
+		}
+	}
+	ai_value = 10
+}
+
+building_Mecca = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/br_kaaba.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	has_max_level = yes
+	production_method_groups = {pmg_base_building_Mecca}
+	possible = {
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_HEDJAZ
+			}
+		}
+	}
+	ai_value = 10
+}
+
