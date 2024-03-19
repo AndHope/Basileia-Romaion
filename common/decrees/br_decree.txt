@@ -1,16 +1,16 @@
 ﻿
 decree_romanisation = {
 	texture = "gfx/interface/icons/decree/decree_promote_national_values.dds"		
-	unlocking_technologies = {
-		romaioi_mod
-		elysium
-	}
 	
 	valid = {
 		is_incorporated = yes
 		owner = { NOT = { has_law = law_type:law_guaranteed_liberties } }
 		owner = {
 			is_player = yes
+			OR = {
+				country_has_primary_culture = cu:greek
+				country_has_primary_culture = cu:elysian
+			}
 		}
 	}
 	modifier = {
