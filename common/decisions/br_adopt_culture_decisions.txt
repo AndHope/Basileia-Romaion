@@ -8,8 +8,11 @@
 	possible = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		NOT = { has_law = law_type:law_national_supremacy }
-		NOT = { country_has_primary_culture = cu:armenian }
+		NOT = {
+			has_law = law_type:law_national_supremacy 
+			has_law = law_type:law_ethnostate 
+			country_has_primary_culture = cu:armenian
+		}
 	}
 
 	when_taken = {
@@ -40,6 +43,96 @@
 	}
 }
 
+br_end_slavic_oppression_decision = {
+	is_shown = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		has_modifier = br_modifier_slavic_cultural_discrimination
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+
+		AND = {
+			NOT = { has_law = law_type:law_national_supremacy }
+			NOT = { has_law = law_type:law_ethnostate }
+			has_modifier = br_modifier_slavic_cultural_discrimination
+		}
+		
+	}
+
+	when_taken = {
+		remove_modifier = br_modifier_slavic_cultural_discrimination
+
+		add_loyalists = {
+			culture = cu:serb
+			value = 0.1
+		}
+		add_loyalists = {
+			culture = cu:bulgarian
+			value = 0.1
+		}
+		add_loyalists = {
+			culture = cu:albanian
+			value = 0.1
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_end_muslim_oppression_decision = {
+	is_shown = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		has_modifier = br_modifier_muslim_cultural_discrimination
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		AND = {
+			NOT = { has_law = law_type:law_national_supremacy }
+			NOT = { has_law = law_type:law_ethnostate }
+			NOT = { has_law = law_type:law_state_religion }
+			has_modifier = br_modifier_muslim_cultural_discrimination
+		}
+	}
+
+	when_taken = {
+		remove_modifier = br_modifier_muslim_cultural_discrimination
+
+		add_loyalists = {
+			religion = rel:sunni
+			value = 0.1
+		}
+		add_loyalists = {
+			religion = rel:shiite
+			value = 0.1
+		}
+
+		ig:ig_landowners = {
+			add_modifier = {
+				name = romaioi_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
 accept_english_decision = {
 	is_shown = {
 		OR = {
@@ -52,8 +145,11 @@ accept_english_decision = {
 		OR = {
 			country_has_primary_culture = cu:danish
 		}
-		NOT = { has_law = law_type:law_national_supremacy }
-		NOT = { country_has_primary_culture = cu:british }
+		NOT = {
+			has_law = law_type:law_national_supremacy 
+			has_law = law_type:law_ethnostate 
+			country_has_primary_culture = cu:british
+		}
 	}
 
 	when_taken = {
@@ -66,24 +162,23 @@ accept_english_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		base = 1
 	}
 }
 
 azerbaijani_decision = {
 	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:persian
-		}
+		country_has_primary_culture = cu:persian
 		NOT = { country_has_primary_culture = cu:azerbaijani }
 	}
 
 	possible = {
-		OR = {
-			country_has_primary_culture = cu:persian
+		country_has_primary_culture = cu:persian
+		NOT = {
+			has_law = law_type:law_national_supremacy 
+			has_law = law_type:law_ethnostate 
+			country_has_primary_culture = cu:azerbaijani
 		}
-		#NOT = { has_modifier = romaioi_culture_supremacy }
-		NOT = { country_has_primary_culture = cu:azerbaijani }
 	}
 
 	when_taken = {
@@ -95,6 +190,6 @@ azerbaijani_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		base = 5
 	}
 }
