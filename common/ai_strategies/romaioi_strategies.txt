@@ -4,7 +4,7 @@
 	type = political
 
 	revolution_aversion = {
-		value = 100
+		value = 75
 	}
 	
 	min_law_chance_to_pass = {
@@ -33,7 +33,7 @@
 	}
 	
 	max_regressiveness = {
-		value = 2
+		value = 10
 	}
 	
 	change_law_chance = { 
@@ -102,11 +102,11 @@ ai_strategy_romaion_expansion = {
 	type = diplomatic
 	
 	undesirable_infamy_level = {
-		value = 150
+		value = 125
 	}
 	
 	unacceptable_infamy_level = {
-		value = 200
+		value = 150
 	}
 	
 	ideological_opinion_effect_mult = {
@@ -122,11 +122,11 @@ ai_strategy_romaion_expansion = {
 	}
 	
 	diplomatic_play_boldness = {
-		value = 25
+		value = 50
 	}
 	
 	recklessness = {
-		value = 0.25
+		value = -0.15
 	}
 	
 	aggression = {
@@ -141,7 +141,7 @@ ai_strategy_romaion_expansion = {
 					}	
 				}
 			}
-			add = 2.75
+			add = 25
 		}
 		
 		if = {
@@ -306,7 +306,7 @@ ai_strategy_trade_republic_agenda = {
 
 	institution_scores = {
 		institution_colonial_affairs = {	
-			value = 75	
+			value = 150	
 		}				
 		institution_social_security = {	
 			value = 100			
@@ -370,7 +370,7 @@ ai_strategy_trade_imperialism = {
 	}
 	
 	diplomatic_play_boldness = {
-		value = -10
+		value = 10
 	}
 	
 	recklessness = {
@@ -455,47 +455,8 @@ ai_strategy_trade_imperialism = {
 		}			
 	}
 	
-	strategic_region_scores = {
-		region_japan = { # Great Powers with significant navies should pay attention to Japan
-			if = {
-				limit = {
-					exists = c:JAP
-					c:JAP = { has_law = law_type:law_isolationism }
-					country_rank = rank_value:great_power
-					navy_size >= 25
-				}
-				add = 1000
-			}				
-		}	
-	}
-	
 	secret_goal_scores = {
-		dominate = {
-			if = {
-				limit = {
-					has_technology_researched = nationalism  # Just to make sure it doesn't happen immediately in 1836
-					country_rank = rank_value:great_power
-					navy_size >= 25
-					scope:target_country = { 
-						has_law = law_type:law_isolationism 
-						gdp >= 2000000
-						capital.region = sr:region_japan												
-					} 
-				}
-				add = 500
-			}		
-			else_if = {
-				limit = {
-					has_strategic_adjacency = scope:target_country
-					scope:target_country = { 
-						has_law = law_type:law_isolationism
-						gdp >= 2000000
-						NOT = { capital.region = sr:region_japan }	
-					}
-				}
-				add = 100
-			}
-			
+		dominate = {	
 			if = {
 				limit = {
 					has_strategic_adjacency = scope:target_country
@@ -533,17 +494,6 @@ ai_strategy_trade_imperialism = {
 				add = -50
 			}
 			
-			# Don't attack Japan outright, open them instead
-			if = {
-				limit = {
-					scope:target_country = { 
-						has_law = law_type:law_isolationism 
-						gdp >= 2000000
-						capital.region = sr:region_japan												
-					} 
-				}
-				add = -1000
-			}			
 		}		
 	}
 
@@ -594,16 +544,6 @@ ai_strategy_trade_imperialism = {
 					if = {
 						limit = { is_diplomatic_play_involved_with = scope:target_country }
 						multiply = 0.2
-					}
-					else_if = { # Very high score for opening Japan
-						limit = { 
-							scope:target_country = { 
-								exists = c:JAP
-								this = c:JAP		
-								has_law = law_type:law_isolationism 				
-							} 	
-						}
-						multiply = 10
 					}
 				}
 			}

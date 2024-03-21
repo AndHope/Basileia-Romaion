@@ -61,7 +61,7 @@ ai_strategy_default = {
 	# Added to base boldness in diplomatic plays	
 	# Using this value in other strategies will function additively
 	diplomatic_play_boldness = {
-		value = 50
+		value = 60 #base 50
 		
 		if = { # Isolationist Japan should tend to back down against market opening plays
 			limit = {
@@ -86,6 +86,16 @@ ai_strategy_default = {
 			add = 1000
 		}
 
+		if = { #Ming should never surrender against Yuan.
+			limit = {
+				exists = c:CHI
+				THIS = c:CHI
+				exists = c:CH1
+				is_diplomatic_play_enemy_of = c:CH1
+			}
+			add = 1000
+		}
+
 	} 
 		
 	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
@@ -104,7 +114,7 @@ ai_strategy_default = {
 		# Ottomans should want Syria back
 		if = {
 			limit = {
-				has_journal_entry = je_sick_man_syria
+				has_journal_entry = je_palaiologos_reforms_syria
 				scope:enemy_country = {
 					OR = {
 						owns_entire_state_region = STATE_ALEPPO
@@ -113,26 +123,6 @@ ai_strategy_default = {
 						owns_entire_state_region = STATE_PALESTINE
 						owns_entire_state_region = STATE_TRANSJORDAN
 						owns_entire_state_region = STATE_ADANA
-					}
-				}
-			}
-			add = 0.25
-		}
-
-		# USA should Manifest a lot of Destiny
-		if = {
-			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
-				scope:enemy_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_CALIFORNIA
-							state_region = s:STATE_NEVADA
-							state_region = s:STATE_UTAH
-							state_region = s:STATE_ARIZONA
-							state_region = s:STATE_NEW_MEXICO
-							state_region = s:STATE_TEXAS
-						}
 					}
 				}
 			}
@@ -553,121 +543,7 @@ ai_strategy_default = {
 				}
 				add = 50
 			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_expanding_paraguay
-					scope:target_country = {
-						any_scope_state = {
-							state_region = s:STATE_CORRIENTES
-						}
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_expanding_paraguay
-					scope:target_country = {
-						any_scope_state = {
-							OR = {
-								state_region = s:STATE_SANTA_FE
-								state_region = s:STATE_PARANA
-								state_region = s:STATE_RIO_GRANDE_DO_SUL
-							}
-						}
-					}
-				}
-				add = 25
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_age_of_princes
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_AMHARA
-							state_region = s:STATE_GONDER
-						}
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_manifest_destiny_mexico
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_CALIFORNIA
-							state_region = s:STATE_NEVADA
-							state_region = s:STATE_UTAH
-							state_region = s:STATE_ARIZONA
-							state_region = s:STATE_NEW_MEXICO
-							state_region = s:STATE_TEXAS
-						}
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_conquer_oregon
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_WASHINGTON
-							state_region = s:STATE_IDAHO
-							state_region = s:STATE_OREGON
-						}
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_alaska
-					scope:target_state = {
-						state_region = s:STATE_ALASKA
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_the_eastern_border
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_OUTER_MANCHURIA
-							state_region = s:STATE_JETISY
-							state_region = s:STATE_TOMSK
-							state_region = s:STATE_KIRGHIZIA
-						}
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_conquest_of_algeria
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_ALGIERS
-							state_region = s:STATE_CONSTANTINE
-							state_region = s:STATE_ORAN
-							state_region = s:STATE_SAHARA
-							state_region = s:STATE_EAST_SAHARA
-						}
-					}
-				}
-				add = 100
-			}
 		
-			
 			if = {
 				limit = {
 					lenient_ai_behavior_trigger = yes
@@ -1394,7 +1270,7 @@ ai_strategy_default = {
 			limit = {
 				OR = {
 					AND = {
-						has_journal_entry = je_sick_man_syria
+						has_journal_entry = je_palaiologos_reforms_syria
 						scope:target_country = {
 							OR = {
 								owns_entire_state_region = STATE_ALEPPO
@@ -1407,7 +1283,7 @@ ai_strategy_default = {
 						}
 					}
 					AND = {
-						has_journal_entry = je_sick_man_egypt
+						has_journal_entry = je_palaiologos_reforms_egypt
 						scope:target_country = {
 							OR = {
 								owns_entire_state_region = STATE_SINAI
@@ -1420,26 +1296,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 10
-		}
-
-		# USA should be confident against owners of their Manifest Destiny states
-		if = {
-			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_CALIFORNIA
-							state_region = s:STATE_NEVADA
-							state_region = s:STATE_UTAH
-							state_region = s:STATE_ARIZONA
-							state_region = s:STATE_NEW_MEXICO
-							state_region = s:STATE_TEXAS
-						}
-					}
-				}
-			}
-			add = 1
 		}		
 
 		# Ethiopian Thunderdome
@@ -1598,7 +1454,7 @@ ai_strategy_default = {
 			limit = {
 				OR = {
 					AND = {
-						has_journal_entry = je_sick_man_syria
+						has_journal_entry = je_palaiologos_reforms_syria
 						scope:target_country = {
 							OR = {
 								owns_entire_state_region = STATE_ALEPPO
@@ -1611,7 +1467,7 @@ ai_strategy_default = {
 						}
 					}
 					AND = {
-						has_journal_entry = je_sick_man_egypt
+						has_journal_entry = je_palaiologos_reforms_egypt
 						scope:target_country = {
 							OR = {
 								owns_entire_state_region = STATE_SINAI
@@ -1619,26 +1475,6 @@ ai_strategy_default = {
 								owns_entire_state_region = STATE_MIDDLE_EGYPT
 								owns_entire_state_region = STATE_LOWER_EGYPT
 							}
-						}
-					}
-				}
-			}
-			add = 25
-		}
-
-		# USA should be extremely aggressive against owners of their Manifest Destiny states
-		if = {
-			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_CALIFORNIA
-							state_region = s:STATE_NEVADA
-							state_region = s:STATE_UTAH
-							state_region = s:STATE_ARIZONA
-							state_region = s:STATE_NEW_MEXICO
-							state_region = s:STATE_TEXAS
 						}
 					}
 				}
@@ -1707,94 +1543,7 @@ ai_strategy_default = {
 			}
 			add = 5
 		}		
-		
-        # Neutral Switzerland
 
-        # France should very aggressively go for Algeria.
-		if = {
-			limit = {
-				has_journal_entry = je_conquest_of_algeria
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_ALGIERS
-							state_region = s:STATE_CONSTANTINE
-							state_region = s:STATE_ORAN
-							state_region = s:STATE_SAHARA
-							state_region = s:STATE_EAST_SAHARA
-						}
-					}
-				}
-			}
-			add = 10
-		}
-
-        # Isolationist Paraguay under Francia should not go awol.
-        if = {
-            limit = {
-            	has_journal_entry = je_francocracia
-            }
-            add = -25
-        }
-        # Paraguay is less likely to be aggressive when modernizing.
-        if = {
-            limit = {
-            	has_journal_entry = je_modernizing_paraguay
-            }
-            add = -10
-        }
-        # Paraguay should be highly aggressive while they have the war JE.
-        if = {
-            limit = {
-                has_journal_entry = je_expanding_paraguay
-                scope:target_country = {
-                    any_scope_state = {
-                        state_region = s:STATE_CORRIENTES
-                    }
-                }
-            }
-            add = 50
-         }
-
-        if = {
-            limit = {
-                has_journal_entry = je_expanding_paraguay
-                scope:target_country = {
-                    any_scope_state = {
-                        OR = {
-                            state_region = s:STATE_SANTA_FE
-                            state_region = s:STATE_PARANA
-                            state_region = s:STATE_RIO_GRANDE_DO_SUL
-                        }
-                    }
-                }
-            }
-            add = 25
-        }
-		# Acre claimant wants Acre
-		if = {
-			limit = {
-				has_journal_entry = je_acre_dispute
-				scope:target_country = {
-					any_scope_state = {
-						state_region = s:STATE_ACRE
-					}
-				}
-			}
-			add = 25
-		}
-        # Great Powers with slavery banned should be more aggressive against an openly slave trading Brazil
-		if = {
-			limit = {
-				has_law = law_type:law_slavery_banned
-				country_rank >= rank_value:great_power
-				scope:target_country = {
-					has_modifier = brazil_slaving_pariah_modifier
-					has_law = law_type:law_slave_trade
-				}
-			}
-			add = 10
-		}
 	}
 	
 	# How much construction output should the AI aim for
@@ -3003,81 +2752,6 @@ ai_strategy_default = {
 					add = 200
 				}
 
-				if = {
-					limit = {
-						has_journal_entry = je_manifest_destiny_mexico
-						scope:target_country = {
-							any_scope_state = {
-								OR = {
-									state_region = s:STATE_CALIFORNIA
-									state_region = s:STATE_NEVADA
-									state_region = s:STATE_UTAH
-									state_region = s:STATE_ARIZONA
-									state_region = s:STATE_NEW_MEXICO
-									state_region = s:STATE_TEXAS
-								}
-							}
-						}
-					}
-					add = 1000
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_conquer_oregon
-						scope:target_country = {
-							any_scope_state = {
-								OR = {
-									state_region = s:STATE_WASHINGTON
-									state_region = s:STATE_IDAHO
-									state_region = s:STATE_OREGON
-								}
-							}
-						}
-					}
-					add = 1000
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_alaska
-						scope:target_country = {
-							any_scope_state = {
-								state_region = s:STATE_ALASKA
-							}
-						}
-					}
-					add = 1000
-				}
-
-
-				if = {
-					limit = {
-						wants_to_solve_schleswig_holstein = yes
-						scope:target_country = {
-							is_oppressor_of_schleswig_holstein = yes
-						}
-					}
-					add = 500
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_conquest_of_algeria
-						scope:target_country = {
-							any_scope_state = {
-								OR = {
-									state_region = s:STATE_ALGIERS
-									state_region = s:STATE_CONSTANTINE
-									state_region = s:STATE_ORAN
-									state_region = s:STATE_SAHARA
-									state_region = s:STATE_EAST_SAHARA
-								}
-							}
-						}
-					}
-					add = 1000
-				}
 			}
 
 			multiply = {
