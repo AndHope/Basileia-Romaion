@@ -1,0 +1,30 @@
+﻿on_monthly_pulse_country = {
+	on_actions = {
+		br_silk_road_remove_country_modifier
+		br_silk_road_add_country_modifier
+	}
+}
+
+br_silk_road_remove_country_modifier = {
+	trigger = {
+		has_modifier = br_modifier_silk_road
+	}
+	effect = {
+		trigger_event = {
+			id = br_namespace_silk_road.1
+		}
+	}
+}
+
+br_silk_road_add_country_modifier = {
+	trigger = {
+		NOT = {
+			has_modifier = br_modifier_silk_road
+		}
+	}
+	effect = {
+		trigger_event = {
+			id = br_namespace_silk_road.2
+		}
+	}
+}
