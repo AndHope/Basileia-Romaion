@@ -1,0 +1,68 @@
+﻿# Add silk road modifier to states
+GLOBAL = {
+	every_country = {
+		every_scope_state = {
+			limit = {
+				OR = {
+					# China
+					state_region = s:STATE_SUZHOU
+					state_region = s:STATE_NANJING
+					state_region = s:STATE_ZHEJIANG
+					state_region = s:STATE_SOUTHERN_ANHUI
+					state_region = s:STATE_HENAN
+					state_region = s:STATE_XIAN
+					state_region = s:STATE_NINGXIA
+					state_region = s:STATE_GANSU
+					state_region = s:STATE_QINGHAI
+
+					# Central Asia
+					state_region = s:STATE_TIANSHAN
+					state_region = s:STATE_KIRGHIZIA
+					state_region = s:STATE_UZBEKIA
+					state_region = s:STATE_TURKMENIA
+
+					# Persia
+					state_region = s:STATE_KHORASAN
+					state_region = s:STATE_IRAKAJEMI
+					state_region = s:STATE_LURISTAN
+					state_region = s:STATE_BAGHDAD
+
+					# Levant
+					state_region = s:STATE_DEIR_EZ_ZOR
+					state_region = s:STATE_ALEPPO
+					state_region = s:STATE_SYRIA
+					state_region = s:STATE_TRANSJORDAN
+					state_region = s:STATE_PALESTINE
+
+					# Egypt
+					state_region = s:STATE_SINAI
+					state_region = s:STATE_LOWER_EGYPT
+
+					# Anatolia
+					state_region = s:STATE_ADANA
+					state_region = s:STATE_ANKARA
+					state_region = s:STATE_KASTAMONU
+					state_region = s:STATE_HUDAVENDIGAR
+
+					# Balkans
+					state_region = s:STATE_EASTERN_THRACE
+				}
+			}
+			add_modifier = {
+				name = br_state_modifier_silk_road
+				years = -1
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			any_scope_state = {
+				has_modifier = br_state_modifier_silk_road
+			}
+		}
+		add_modifier = {
+			name = br_modifier_silk_road
+			months = -1
+		}
+	}
+}
