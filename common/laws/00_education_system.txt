@@ -22,13 +22,6 @@
 		value = 0
 		
 		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
-		
-		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
@@ -93,29 +86,14 @@ law_religious_schools = {
 				value = 15
 				subtract = standard_of_living
 				multiply = 0.1
-				multiply = literacy_rate
 				min = 0
-				max = 0.5
+				max = 1
 			}
 		}
-	}	
-
-	ai_will_do = { #AI does not go back to religious schools
-		NOR = {
-			has_law = law_type:law_public_schools
-			has_law = law_type:law_private_schools
-		}	
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
-		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
 		
 		if = {
 			limit = { 
@@ -165,32 +143,18 @@ law_private_schools = {
 		value = 0
 		add = {
 			desc = "POP_WEALTH"			
-			# Wealth 30 gives 0.1 pop support, 31 -> 0.2, 36 -> 0.3, ..., 45 -> 1.5
+			# Wealth 20 gives 0.1 pop support, 22 -> 0.2, 24 -> 0.3, ..., 30 -> 0.6
 			value = wealth
-			subtract = 33
+			subtract = 18
+			divide = 2
 			multiply = 0.1
-			multiply = literacy_rate
 			min = 0
-			max = 0.75
-		}
-	}
-
-	# AI don't take it over public schools #changed to prefer private schools over religious
-	ai_will_do = {
-		NOT = {
-			has_law = law_type:law_public_schools
+			max = 0.6
 		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
-		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
 		
 		if = {
 			limit = { 
@@ -251,11 +215,11 @@ law_public_schools = {
 
 		add = {
 			desc = "POP_POVERTY"			
-			# SoL 20 gives 0.1 pop support, 19 -> 0.2, 18 -> 0.3, ... 5 -> 1.5
-			value = 21
+			
+			# SoL 14 gives 0.1 pop support, 13 -> 0.2, 12 -> 0.3, ... 5 -> 1.0
+			value = 15
 			subtract = standard_of_living
 			multiply = 0.1
-			multiply = literacy_rate
 			min = 0
 			max = 1
 		}
@@ -263,13 +227,6 @@ law_public_schools = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
-		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
 		
 		if = {
 			limit = { 

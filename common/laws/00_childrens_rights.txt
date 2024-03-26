@@ -48,13 +48,6 @@ law_child_labor_allowed = {
 		value = 0
 		
 		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
-		
-		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
@@ -109,45 +102,6 @@ law_restricted_child_labor = {
 			}
 			value = 0.33
 		}
-		add = {
-			desc = "POP_DANGEROUS_JOBS"		
-			if = {
-				limit = { 
-					NOT = { strata = rich }
-					OR = {
-						pop_employment_building_group = bg_mining
-						pop_employment_building_group = bg_manufacturing
-					}
-					owner = { 
-						NOT = { has_law = law_type:law_compulsory_primary_school }
-					}
-				}
-				add = {
-					value = literacy_rate
-					divide = 2
-				}
-			}			
-		}
-		add = {
-			desc = "POP_WEALTH"	
-			if = {
-				limit = {
-					NOT = { strata = rich }
-					owner = { 
-						NOT = { has_law = law_type:law_compulsory_primary_school }
-					}
-				}
-				add = {
-					# Wealth 12 gives 0.1 pop support, 13 -> 0.2, 14 -> 0.3, ..., 31 -> 2.0
-					value = wealth
-					subtract = 11
-					multiply = 0.1
-					multiply = literacy_rate
-					min = 0
-					max = 1.0
-				}
-			}		
-		}
 	}
 	
 	ai_will_do = {
@@ -166,25 +120,10 @@ law_restricted_child_labor = {
 		value = 0
 		
 		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
-		
-		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
                 scope:law = var:desired_law_var
-			}
-			add = 750
-		}
-
-		if = {
-			limit = {
-				has_law = law_type:law_child_labor_allowed
-				has_law = law_type:law_public_schools
 			}
 			add = 750
 		}
@@ -217,66 +156,16 @@ law_compulsory_primary_school = {
 
 	pop_support = {
 		value = 0
-
-		add = {
-			desc = "POP_DANGEROUS_JOBS"		
-			if = {
-				limit = { 
-					NOT = { strata = rich }
-					OR = {
-						pop_employment_building_group = bg_mining
-						pop_employment_building_group = bg_manufacturing
-					}
-				}
-				add = {
-					value = literacy_rate
-					divide = 2
-				}
-			}			
-		}
-
-		add = {
-			desc = "POP_WEALTH"	
-			if = {
-				limit = {
-					NOT = { strata = rich }
-				}
-				add = {
-					# Wealth 12 gives 0.1 pop support, 13 -> 0.2, 14 -> 0.3, ..., 31 -> 2.0
-					value = wealth
-					subtract = 11
-					multiply = 0.1
-					multiply = literacy_rate
-					min = 0
-					max = 1.25
-				}
-			}		
-		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
 		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
-		
-		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
                 scope:law = var:desired_law_var
-			}
-			add = 750
-		}
-
-		if = {
-			limit = {
-				has_law = law_type:law_restricted_child_labor
-				has_law = law_type:law_public_schools
 			}
 			add = 750
 		}
