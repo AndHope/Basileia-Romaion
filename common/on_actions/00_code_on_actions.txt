@@ -14,7 +14,6 @@ on_monthly_pulse_country = {
 		unable_to_enact.1
 		poland_events.3 # Polish Unification
 		colonial_administration_events.2 # African Colony Radicals
-		caudillo.1
 		sa_migration.5
 		amazonas.1 # Taming Amazonia
 		#paraguay.11 # Paraguay War
@@ -890,28 +889,6 @@ on_character_death = {
 				has_template = garibaldi_character_template
 			}
 			remove_global_variable = garibaldi_is_alive_global_var
-		}
-		### Caudillo Kingmaker
-		if = {
-			limit = {
-				NOT = { has_variable = caudillo_kingmaker }
-				has_role = politician
-				interest_group = {
-					is_interest_group_type = ig_armed_forces
-					is_marginal = no
-				}
-				owner = {
-					in_election_campaign = no
-					country_has_voting_franchise = yes
-					OR = {
-						has_journal_entry = je_caudillo
-						has_modifier = age_of_caudillos_modifier
-					}
-				}
-			}
-			owner = {
-				trigger_event = caudillo.5
-			}
 		}
 	}
 }
