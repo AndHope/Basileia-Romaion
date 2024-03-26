@@ -3,19 +3,94 @@
 ***
 - You can revert to an older versions of the mod at the official Paradox site https://mods.paradoxplaza.com/mods/51849/Any There's a menu to select version of the mod to pl
 
-Update 92.
+Update 93.
 
-- Various nations have had their invisable buffs turned into national modifiers
+feat: state-based silk road
+
+# Motivation
+
+The current silk road system does not really have
+any connection with any states, which makes it a
+little bit uninteresting.
+
+This commit now binds the silk road to states.
+
+# Changes
+
+Countries at game start now will get the
+country-wide modifier if they control one (or part
+of one) state that has a silk road modifier.
+
+The silk road states were chosen from the
+following map:
+https://en.wikipedia.org/wiki/Silk_Road#/media/File:SeidenstrasseGMT.JPG
+
+The modifier has also been split between the
+state-based one and the country-wide one.
+
+Every month countries that do not control at least
+one part of a state with the silk road modifier
+will lose the country-wide modifier.
+
+Every month countries that control at least one
+part of a state with the silk road modifier will
+gain the country-wide modifier if they do not have
+it already.
+
+- Tech into Modifiers
+	- New World Colony Buff
+	- Africa Colony Buff
+	- Colonial_merchant_republic
+	- Mediterranean_merchant_republic
+	- Silk Road
+	- Defensive Bonus
+	- Elysium
+   
+	# Horde
+	- Slavic Oppression
+	- Legacy of the Khan
+	- Khanate
+	- Reactionary Social Policies
+	- Army Prowess
+   
+	# Italy
+	- Aggressive Foreign Policy
+	- Italian Academia
+	- Accessible Stock Exchanges
+	- Colonial Dividends
+	- Gunboat Diplomacy
+
+New Tech
+	- New tech for colonial nations to allow them to colonize hostile climate early without a malus. Previously these were tied to the invisible techs that were replaced by modifiers.
+
+-Fixes
+	-Fixed typos in nation localization
+	-Fixed errors with Canal toll localization Klysma Canal
+	-Fixed errors related to South American character templates.
+	-Fixed arable land errors
+
+@everyone Update 92 'Epithetikós' is now live on Steam and Github. This update includes many changes and adjustments to balance and litterally 100s of fixes.
+
+- Various nations have had their invisible buffs turned into national modifiers
 	- Inca
 	- Aztec
 	- Andalusia
+	- Japan
+
 
 - Baselia Romaion
-	- Rebalanced starting trade routes, building production methods, taxes so they start with a healthy financial surplus.
-	- Tagmata military formations now start off mobilized and on the appropiate front lines.
+	- Re balanced starting trade routes, building production methods, taxes so they start with a healthy financial surplus AI can ruin it but player should be good.
+	- Tagmata military formations now start off mobilized and on the appropriate front lines.
+	- Removed the last invisible buff/debuff and turned into modifiers with associated decisions. 
 
 - China
-	- Added decesion to remove Peasant and Corruption debuff
+	- Added decisions to remove Peasant and Corruption debuff
+
+- AI
+	- Our AI should be twice as aggressive as the base game due to the previous changes and the new changes.
+	- Increased boldness (AI's willingness to fight enemies of similar strength.)
+	- Gave Baselia Romaion more aggressive behavior towards its lost territories. 
+	- Other tweaks
 
 - More Balance
 	- Adjusted cultural community formation so your primary culture is more likely be spawn as a new cultural community especially if you have greener grass campaign active.
@@ -23,9 +98,19 @@ Update 92.
 	- Decreased Base Horse production
 	- Increased Spice demand.
 	- Adjusted many nations trade routes.
+	- Adjusted buildings throughout the map a bit.
+	- adjusted education, citizenship laws removing restrictions for some as well.
 
 - Fixes
-	-Fixed none Basleia Romaion nations getting an event for a rebellion in Pontus or Anatolia when reforming Themata. 
+	- Skjargh has fixed 100s of errors caused by 1.5 south american content not being in the mod but the game checking for it.
+	- Fixed none Basleia Romaion nations getting an event for a rebellion in Pontos or Anatolia when reforming Themata. 
+	- Added missing localization.
+	- Much more
+
+	https://steamcommunity.com/sharedfiles/filedetails/?id=2880120246
+
+	https://github.com/AndHope/Basileia-Romaion
+
 
 
 Update 91 Kosmikós
