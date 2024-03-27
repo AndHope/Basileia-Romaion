@@ -17,7 +17,6 @@
 		activate_law = law_type:law_peasant_levies
 		activate_law = law_type:law_traditionalism #law_agrarianism
 		activate_law = law_type:law_cultural_exclusion
-		activate_law = law_type:law_private_schools
 		activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_migration_controls	
 
@@ -25,12 +24,7 @@
 		ig:ig_landowners = {
 			set_interest_group_name = ig_themata_patricians
 			add_ruling_interest_group = yes
-		#	add_modifier = {
-		#		name = ig_influence_modifier
-		#		multiplier = 0.25
-		#		years = 100
-		#		is_decaying = yes
-		#	}
+			
 		}
 		ig:ig_armed_forces = {
 			set_interest_group_name = ig_tagmata_strategos
@@ -54,12 +48,18 @@
 		}
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.25
+				multiplier = -0.5
 				years = 100
 				is_decaying = yes
 			}
