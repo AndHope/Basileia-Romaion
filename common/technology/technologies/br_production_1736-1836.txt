@@ -1,0 +1,84 @@
+﻿### ERA 1
+
+new_world_crops = {
+	# TODO
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+flying_shuttle = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+    category = production
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+newcomen_engine = {
+    # TODO
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+    category = production
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+organic_nitrogen_fixation = {
+    # TODO
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+    category = production
+
+    unlocking_technologies = {
+        new_world_crops
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+seed_drill = {
+    # TODO
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+    category = production
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+track = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/track.dds"
+	category = production
+
+    unlocking_technologies = {
+        newcomen_engine
+        flying_shuttle
+    }
+	
+	ai_weight = {
+		value = 2 # Important tech for everyone
+		
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}		
+	}
+}
