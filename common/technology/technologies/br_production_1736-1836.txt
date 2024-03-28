@@ -1,0 +1,224 @@
+﻿### ERA 1
+
+four_field_crop_rotation = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+    category = production
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+rotherham_plough = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+    category = production
+
+    unlocking_technologies = {
+        four_field_crop_rotation
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+new_world_crops = {
+	# TODO
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+    unlocking_technologies = {
+        four_field_crop_rotation
+    }
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+seed_drill = {
+    # TODO
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+    category = production
+
+    unlocking_technologies = {
+        four_field_crop_rotation
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+alchemy = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+murano_glass = {
+    # TODO https://en.wikipedia.org/wiki/Venetian_glass
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    unlocking_technologies = {
+        alchemy
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+textile_manufacturies = {
+    # TODO mention spinning jenny and flying shuttle
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    unlocking_technologies = {
+        alchemy
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+surface_mining = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    unlocking_technologies = {
+        alchemy
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+metallurgy = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+    
+    unlocking_technologies = {
+        alchemy
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+hand_tools = {
+    # TODO: https://en.wikipedia.org/wiki/Machine_tool
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    unlocking_technologies = {
+        metallurgy
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+standardized_measures = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    unlocking_technologies = {
+        alchemy
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+experimental_construction = {
+    # TODO: https://en.wikipedia.org/wiki/History_of_construction#Early_Modern
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    unlocking_technologies = {
+        standardized_measures
+        textile_manufacturies
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+
+
+newcomen_engine = {
+    # TODO
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+    category = production
+
+    unlocking_technologies = {
+        metallurgy
+    }
+
+    ai_weight = {
+        value = 3 # Very important tech in general
+    }
+}
+
+#watt_engine = {
+#    # TODO: Rename atmospheric_engine to watt enginge later?
+#    era = era_1
+#    texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+#    category = production
+#
+#    unlocking_technologies = {
+#        newcomen_engine
+#    }
+#
+#    ai_weight = {
+#        value = 3 # Very important tech in general
+#    }
+#}
+
+track = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/track.dds"
+	category = production
+
+    unlocking_technologies = {
+        experimental_construction
+    }
+	
+	ai_weight = {
+		value = 2 # Important tech for everyone
+		
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}		
+	}
+}
