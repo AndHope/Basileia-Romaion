@@ -3,9 +3,46 @@
 ***
 - You can revert to an older versions of the mod at the official Paradox site https://mods.paradoxplaza.com/mods/51849/Any There's a menu to select version of the mod to pl
 
-Update 93.
+Update 93 Work In progress
+You can test out this update early at https://github.com/AndHope/Basileia-Romaion
 
-feat: state-based silk road
+New systems in the works from Skjargh
+
+Refactor: add vanilla tech tree
+# Motivation
+
+To prepare for adding a pre-1836 tech tree, the
+technologies that are used implicitly by the mod
+should be explicitly added. This will make it
+easier to see what changes are added when new
+technologies are added.
+
+# Changes
+
+Vanilla technologies in `10_production.txt`,
+`20_military.txt` and `30_society.txt` are simply
+overwritten. This is to avoid later upstream
+changes breaks the mod.
+
+This change also fixes the following error:
+
+```
+[jomini_script_system.cpp:262]: Script system
+error!
+Error: has_journal_entry trigger [ Invalid
+database object 'je_risorgimento' ]
+Script location: file:
+common/technology/technologies/30_society.txt
+line: 668
+```
+
+# Future work
+
+* Incorporate add new eras (1736-1836)
+* Incorporate the existing new technologies
+`track` etc, properly into this new structure
+
+Feature: state-based silk road
 
 # Motivation
 
@@ -63,11 +100,34 @@ it already.
 New Tech
 	- New tech for colonial nations to allow them to colonize hostile climate early without a malus. Previously these were tied to the invisible techs that were replaced by modifiers.
 
+- Balance
+	- Increased max Infamy to 9999 after watching Nikoli easily reach the previous cap of 1000 in his Basleia Romaion run. I want to see who can get their infamy the highest possible :D
+	- Adjusted modifiers
+	- Split and moved modifiers around
+	- Created a few new ones not listed above
+	- Changed some modifiers to be 99 years instead of permanent.
+	- Adjusted laws 
+	- Adjusted land_reform laws serfdom and tenant farming now decrease peasant education access 10 and 5%
+	- Added -10% base peasant education access.
+	- Removed homesteading from tribal nations. I may create a Tribal farmland or something special for them later.
+	- Gave China Academia and a couple Universities
+	- Removed the education reduction from all country modifiers as the peasant changes accomplish the goal cleaner.
+	- Added a +25 max barracks in capitol states.
+	- Added a +10 Max Naval bases to your Market Capitol.
+
+	- Lowered base MAPI TO 65%
+		- Added 5% MAPI increase to railroads and ports.
+		- Added 5% MAPI to Canal
+		- Added 5% Mapi to Capitol and previously added 5% to Market Capitol as well.
+
 -Fixes
-	-Fixed typos in nation localization
-	-Fixed errors with Canal toll localization Klysma Canal
-	-Fixed errors related to South American character templates.
-	-Fixed arable land errors
+	- Gave Persia the correct devout IG name.
+	- Only Tataria can create Khazer Khaganate now, to prevent yuan from going Tengri then Jewish and reviving it and removing Mongol as their primary culture.
+	- Fixed typos in nation localization
+	- Fixed errors with Canal toll localization Klysma Canal
+	- Fixed errors related to South American character templates.
+	- Fixed arable land errors
+	- Fixed a looping error related to BR reforms searching for law serfdom instead of the law law_serfdom
 
 @everyone Update 92 'Epithetikós' is now live on Steam and Github. This update includes many changes and adjustments to balance and litterally 100s of fixes.
 
