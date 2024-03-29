@@ -78,6 +78,11 @@ seed_drill = {
 	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
 	category = production
 
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.1
+		building_group_bg_plantations_throughput_add = 0.1
+	}
+
 	unlocking_technologies = {
 		four_field_crop_rotation
 	}
@@ -107,6 +112,7 @@ murano_glass = {
 
 	unlocking_technologies = {
 		artisan_manufacturing
+		surface_mining
 	}
 
 	ai_weight = {
@@ -139,9 +145,9 @@ surface_mining = {
 	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
 	category = production
 
-	unlocking_technologies = {
-		artisan_manufacturing
-	}
+	#unlocking_technologies = {
+	#	artisan_manufacturing
+	#}
 
 	ai_weight = {
 		value = 2
@@ -155,8 +161,13 @@ metallurgy = {
 	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
 	category = production
 
+	modifier = {
+		building_group_bg_mining_throughput_add = 0.1
+	}
+
 	unlocking_technologies = {
 		artisan_manufacturing
+		surface_mining
 	}
 
 	ai_weight = {
@@ -185,6 +196,12 @@ standardized_measures = {
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
 	category = production
+
+	modifier = {
+		state_tax_capacity_mult = 0.1
+		state_shopkeepers_investment_pool_efficiency_mult = 0.1	
+		state_capitalists_investment_pool_efficiency_mult = 0.1
+	}
 
 	unlocking_technologies = {
 		artisan_manufacturing
