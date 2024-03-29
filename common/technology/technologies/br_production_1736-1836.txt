@@ -1,0 +1,255 @@
+﻿### ERA 1
+
+sericulture = {
+	# Unlocks Mulberry Groves PM on Rice Farms
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+	can_research = no
+
+	modifier = {
+		building_silk_plantation_throughput_add = 0.25
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+four_field_crop_rotation = {
+	# Placeholder for even older agriculture techs
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+rotherham_plough = {
+	# Should unlock new PMs for farms
+	# https://en.wikipedia.org/wiki/Plough#Improved_designs
+	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	unlocking_technologies = {
+		four_field_crop_rotation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+new_world_crops = {
+	# Unlock new Plantations
+	# https://en.wikipedia.org/wiki/New_World_crops
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+enclosure = {
+	# Unlocks construction of Farms and Plantations
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	unlocking_technologies = {
+		new_world_crops
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+seed_drill = {
+	# Should unlock new PMs for farms
+	# https://en.wikipedia.org/wiki/Seed_drill#
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	unlocking_technologies = {
+		four_field_crop_rotation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+artisan_manufacturing = {
+	# Placeholder for even older manufacturing techs
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+murano_glass = {
+	# Unlock glassworks
+	# https://en.wikipedia.org/wiki/Venetian_glass
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+textile_manufacturies = {
+	# Unlock textile manufacturies
+	# Related tech: https://en.wikipedia.org/wiki/Spinning_jenny
+	# Related tech: https://en.wikipedia.org/wiki/Flying_shuttle
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+surface_mining = {
+	# Unlocks basic mines
+	# The mines should have a much lower building cap, if that is possible
+	# https://en.wikipedia.org/wiki/Surface_mining
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+metallurgy = {
+	# Placeholder for other older techs
+	# https://en.wikipedia.org/wiki/Metallurgy#History
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+hand_tools = {
+	# Unlocks tooling workshops
+	# Related tech: https://en.wikipedia.org/wiki/Machine_tool
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		metallurgy
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+standardized_measures = {
+	# Placeholder for other older techs with regards to standardization
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+experimental_construction = {
+	# Should unlock first "efficent" PM for construction sector
+	# https://en.wikipedia.org/wiki/History_of_construction#Early_Modern
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		standardized_measures
+		textile_manufacturies
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+
+
+newcomen_engine = {
+	# Placeholder for other early manufacturing technologies
+	# https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		metallurgy
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+track = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/track.dds"
+	category = production
+
+	unlocking_technologies = {
+		experimental_construction
+	}
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
