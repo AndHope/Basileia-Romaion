@@ -1,10 +1,31 @@
 ﻿### ERA 2
 
+fiat_currency = {
+	# Currency tech that bridges the early modern and industrial eras
+	# https://en.wikipedia.org/wiki/Fiat_money
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
+	category = society
+
+	unlocking_technologies = {
+		silver_standard
+		smithian_economics
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
 urbanization = {
 	# Unlocks Urban Centers building
-	era = era_1
+	era = era_2
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	category = society
+
+	unlocking_technologies = {
+		municipal_charter
+	}
 
 	modifier = {
 		state_infrastructure_from_population_add = 2
@@ -43,9 +64,13 @@ urban_planning = {
 
 rationalism = {
 	# Unlocks Freedom of Conscience - Church and State Law
-	era = era_1
+	era = era_2
 	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
 	category = society
+
+	unlocking_technologies = {
+		skepticism
+	}
 
 	modifier = {
 		country_institution_schools_max_investment_add = 1
@@ -87,6 +112,7 @@ currency_standards = {
 	unlocking_technologies = {
 		international_trade
 		centralization
+		fiat_currency
 	}
 
 	ai_weight = {
@@ -108,6 +134,7 @@ democracy = {
 
 	unlocking_technologies = {
 		rationalism
+		separation_of_powers
 	}
 
 	ai_weight = {
@@ -145,6 +172,7 @@ international_trade = {
 
 	unlocking_technologies = {
 		tech_bureaucracy
+		insurance_companies
 	}
 
 	ai_weight = {
@@ -220,6 +248,7 @@ academia = {
 
 	unlocking_technologies = {
 		rationalism
+		natural_history
 	}
 
 	ai_weight = {

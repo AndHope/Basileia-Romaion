@@ -1,0 +1,213 @@
+﻿### ERA 1
+
+tech_mercantilism = {
+	# Placeholder for earlier trade techs
+	# https://en.wikipedia.org/wiki/Mercantilism#History
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = society
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+public_sphere = {
+	# Placeholder for earlier enlightenment techs
+	# https://en.wikipedia.org/wiki/Public_sphere
+	# https://en.wikipedia.org/wiki/The_Structural_Transformation_of_the_Public_Sphere
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = society
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+constabulary = {
+	# Early police tech. Placeholder for earlier law enforcement techs
+	# https://en.wikipedia.org/wiki/Constabulary
+	# https://en.wikipedia.org/wiki/Police#Early_modern
+	# https://en.wikipedia.org/wiki/Private_police#History
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/bureaucracy.dds"
+	category = society
+
+	unlocking_technologies = {
+		public_sphere
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+municipal_charter = {
+	# Placeholder for earlier "city" techs
+	# https://en.wikipedia.org/wiki/Municipal_charter
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = society
+
+	unlocking_technologies = {
+		constabulary
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+silver_standard = {
+	# Placeholder for earlier currency techs
+	# Should provide a small bonus to interest rate
+	# https://en.wikipedia.org/wiki/Silver_standard
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
+	category = society
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+insurance_companies = {
+	# Placeholder for earlier trade techs
+	# https://en.wikipedia.org/wiki/Insurance#History
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
+	category = society
+
+	unlocking_technologies = {
+		silver_standard
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+tech_agrarianism = {
+	# Provides the agrarianism law, but it should probably be adjusted to bridge
+	# the gap between traditionalism and agrarianism
+	# https://en.wikipedia.org/wiki/Agrarianism#History
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = society
+
+	unlocking_technologies = {
+		tech_mercantilism
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+smithian_economics = {
+	# Tech that tries to bridges the mercantilist past and free trade future
+	# https://en.wikipedia.org/wiki/Classical_economics#
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = society
+
+	unlocking_technologies = {
+		tech_agrarianism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+early_modern_universities = {
+	# Placeholder for older knowledge techs.
+	# Should probably use a different PM than vanilla
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/academia.dds"
+	category = society
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+skepticism = {
+	# Placeholder for older society techs.
+	# https://en.wikipedia.org/wiki/Philosophical_skepticism#Skepticism_in_the_Age_of_Enlightenment
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+
+	unlocking_technologies = {
+		divine_right
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+
+divine_right = {
+	# Should probably be one of the earliest starting techs
+	# https://en.wikipedia.org/wiki/Divine_right_of_kings#
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+rights_of_man = {
+	# Should be a relatively new tech with expected standard of living increaes from literacy
+	# https://en.wikipedia.org/wiki/Rights_of_Man#
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+
+	unlocking_technologies = {
+		skepticism
+		public_sphere
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+separation_of_powers = {
+	# If there are any vanilla updates to separation of powers, this tech should be updated.
+	# Should probably be a more recent tech
+	# https://en.wikipedia.org/wiki/Separation_of_powers#History
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+
+	unlocking_technologies = {
+		rights_of_man
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+natural_history = {
+	# Should be a relatively recent tech to bridge theology and science
+	# https://en.wikipedia.org/wiki/Natural_history#Modern
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/academia.dds"
+	category = society
+
+	unlocking_technologies = {
+		early_modern_universities
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
