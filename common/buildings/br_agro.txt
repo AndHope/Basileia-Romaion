@@ -9,7 +9,7 @@ building_rye_farm = {
 	levels_per_mesh = 5
 
 	unlocking_technologies = {
-		four_field_crop_rotation
+		enclosure
 	}
 
 	production_method_groups = {
@@ -33,7 +33,7 @@ building_wheat_farm = {
 	levels_per_mesh = 5
 
 	unlocking_technologies = {
-		four_field_crop_rotation
+		enclosure
 	}
 
 	production_method_groups = {
@@ -57,7 +57,7 @@ building_rice_farm = {
 	levels_per_mesh = 5
 
 	unlocking_technologies = {
-		four_field_crop_rotation
+		enclosure
 	}
 
 	production_method_groups = {
@@ -81,7 +81,7 @@ building_maize_farm = {
 	levels_per_mesh = 5
 
 	unlocking_technologies = {
-		new_world_crops
+		enclosure
 	}
 
 	production_method_groups = {
@@ -105,7 +105,7 @@ building_millet_farm = {
 	levels_per_mesh = 5
 
 	unlocking_technologies = {
-		four_field_crop_rotation
+		enclosure
 	}
 
 	production_method_groups = {
@@ -118,32 +118,6 @@ building_millet_farm = {
 	required_construction = construction_cost_low
 
 	terrain_manipulator = farmland_millet
-}
-
-building_livestock_ranch = {
-	building_group = bg_livestock_ranches
-
-	texture = "gfx/interface/icons/building_icons/cattle_ranch.dds"
-
-	city_type = farm
-	levels_per_mesh = 5
-
-	unlocking_technologies = {
-		four_field_crop_rotation
-	}
-
-	production_method_groups = {
-		pmg_base_building_livestock_ranch
-		pmg_sheep_ranch
-		pmg_horse_ranch
-		pmg_fencing
-		pmg_refrigeration_building_livestock_ranch
-		pmg_ownership_land_building_livestock_ranch
-	}
-
-	required_construction = construction_cost_low
-
-	terrain_manipulator = pasture
 }
 
 building_vineyard_plantation = {
@@ -163,4 +137,31 @@ building_vineyard_plantation = {
 		pmg_train_automation_building_vineyard_plantation
 		pmg_ownership_land_building_vineyard_plantation
 	}
+}
+
+
+building_livestock_ranch = {
+	building_group = bg_livestock_ranches
+
+	texture = "gfx/interface/icons/building_icons/cattle_ranch.dds"
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	production_method_groups = {
+		pmg_base_building_livestock_ranch
+		pmg_sheep_ranch
+		pmg_horse_ranch
+		pmg_fencing
+		pmg_refrigeration_building_livestock_ranch
+		pmg_ownership_land_building_livestock_ranch
+	}
+
+	required_construction = construction_cost_low
+
+	terrain_manipulator = pasture
 }
