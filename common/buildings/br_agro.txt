@@ -81,7 +81,7 @@ building_maize_farm = {
 	levels_per_mesh = 5
 
 	unlocking_technologies = {
-		enclosure
+		new_world_crops
 	}
 
 	production_method_groups = {
@@ -120,26 +120,6 @@ building_millet_farm = {
 	terrain_manipulator = farmland_millet
 }
 
-building_vineyard_plantation = {
-	building_group = bg_vineyard_plantations
-	texture = "gfx/interface/icons/building_icons/vineyards.dds"
-	required_construction = construction_cost_low
-
-	unlocking_technologies = {
-		enclosure
-	}
-
-	city_type = farm
-	levels_per_mesh = 5
-
-	production_method_groups = {
-		pmg_base_building_vineyard_plantation
-		pmg_train_automation_building_vineyard_plantation
-		pmg_ownership_land_building_vineyard_plantation
-	}
-}
-
-
 building_livestock_ranch = {
 	building_group = bg_livestock_ranches
 
@@ -164,4 +144,23 @@ building_livestock_ranch = {
 	required_construction = construction_cost_low
 
 	terrain_manipulator = pasture
+}
+
+building_vineyard_plantation = {
+	building_group = bg_vineyard_plantations
+	texture = "gfx/interface/icons/building_icons/vineyards.dds"
+	required_construction = construction_cost_low
+
+	unlocking_technologies = {
+		four_field_crop_rotation
+	}
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_base_building_vineyard_plantation
+		pmg_train_automation_building_vineyard_plantation
+		pmg_ownership_land_building_vineyard_plantation
+	}
 }
