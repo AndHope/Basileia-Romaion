@@ -1,84 +1,21 @@
 ﻿Mod is inspired by history, not dictated by it.
 
 ***
-- You can revert to an older versions of the mod at the official Paradox site https://mods.paradoxplaza.com/mods/51849/Any There's a menu to select version of the mod to pl
 
-Update 93 Work In progress
-You can test out this update early at https://github.com/AndHope/Basileia-Romaion
+@everyone Hope every one is having a great week and if you celebrate it a good Easter Weekend. Update 93 is updated on Steam and Github. (PDX mods still trying to fix)
 
-New systems in the works from Skjargh
+Update 93 
 
-Refactor: add vanilla tech tree
-# Motivation
+- state-based silk road:
+ 	- The silk road is now based on the states going from China to Northern Africa/Eastern Europe, instead of being just passive country-wide modifiers.
 
-To prepare for adding a pre-1836 tech tree, the
-technologies that are used implicitly by the mod
-should be explicitly added. This will make it
-easier to see what changes are added when new
-technologies are added.
-
-# Changes
-
-Vanilla technologies in `10_production.txt`,
-`20_military.txt` and `30_society.txt` are simply
-overwritten. This is to avoid later upstream
-changes breaks the mod.
-
-This change also fixes the following error:
-
-```
-[jomini_script_system.cpp:262]: Script system
-error!
-Error: has_journal_entry trigger [ Invalid
-database object 'je_risorgimento' ]
-Script location: file:
-common/technology/technologies/30_society.txt
-line: 668
-```
-
-# Future work
-
-* Incorporate add new eras (1736-1836)
-* Incorporate the existing new technologies
-`track` etc, properly into this new structure
-
-Feature: state-based silk road
-
-# Motivation
-
-The current silk road system does not really have
-any connection with any states, which makes it a
-little bit uninteresting.
-
-This commit now binds the silk road to states.
-
-# Changes
-
-Countries at game start now will get the
-country-wide modifier if they control one (or part
-of one) state that has a silk road modifier.
-
-The silk road states were chosen from the
-following map:
-https://en.wikipedia.org/wiki/Silk_Road#/media/File:SeidenstrasseGMT.JPG
-
-The modifier has also been split between the
-state-based one and the country-wide one.
-
-Every month countries that do not control at least
-one part of a state with the silk road modifier
-will lose the country-wide modifier.
-
-Every month countries that control at least one
-part of a state with the silk road modifier will
-gain the country-wide modifier if they do not have
-it already.
+- Increased max infamy to 9999.
 
 - Tech into Modifiers
 	- New World Colony Buff
 	- Africa Colony Buff
-	- Colonial_merchant_republic
-	- Mediterranean_merchant_republic
+	- Colonial Merchant Republic
+	- Mediterranean Merchant Republic
 	- Silk Road
 	- Defensive Bonus
 	- Elysium
@@ -101,6 +38,9 @@ New Tech
 	- New tech for colonial nations to allow them to colonize hostile climate early without a malus. Previously these were tied to the invisible techs that were replaced by modifiers.
 
 - Balance
+	- Gave Muscovy Claims on perm.
+	- Gave PLC Claims on its eastern frontier.
+	- Gave Bohemia claim on Silesia.
 	- Increased max Infamy to 9999 after watching Nikoli easily reach the previous cap of 1000 in his Basleia Romaion run. I want to see who can get their infamy the highest possible :D
 	- Adjusted modifiers
 	- Split and moved modifiers around
@@ -119,6 +59,8 @@ New Tech
 		- Added 5% MAPI increase to railroads and ports.
 		- Added 5% MAPI to Canal
 		- Added 5% Mapi to Capitol and previously added 5% to Market Capitol as well.
+		- 5% Mapi is also added to Coastal and river states. 
+		- There is Laws and techs that also increase max Mapi.
 
 -Fixes
 	- Gave Persia the correct devout IG name.
@@ -128,6 +70,10 @@ New Tech
 	- Fixed errors related to South American character templates.
 	- Fixed arable land errors
 	- Fixed a looping error related to BR reforms searching for law serfdom instead of the law law_serfdom
+	- Fixed Localizations errors
+	- Fixed Inappropriate building errors. 
+	- fix: remove references to vanilla countries and events
+	- Improved the back-end code, reduced the number of errors and made the code easier to work with.
 
 @everyone Update 92 'Epithetikós' is now live on Steam and Github. This update includes many changes and adjustments to balance and litterally 100s of fixes.
 
