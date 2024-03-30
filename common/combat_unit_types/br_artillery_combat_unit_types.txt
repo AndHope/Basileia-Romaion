@@ -1,0 +1,63 @@
+﻿### Artillery
+
+combat_unit_type_cannon_artillery = {
+	group = combat_unit_group_artillery
+
+	upkeep_modifier = {
+		goods_input_artillery_add = 1
+	}
+
+	battle_modifier = {
+		unit_offense_add = 25
+		unit_defense_add = 15
+		unit_morale_loss_add = 10
+		unit_kill_rate_add = 0.1
+		unit_devastation_mult = 0.1
+	}
+
+	formation_modifier = {
+		military_formation_mobilization_speed_mult = -0.2
+		military_formation_movement_speed_mult = -0.2
+	}
+
+	unlocking_technologies = { artillery }
+
+	combat_unit_image = {
+		trigger = {
+			has_culture_graphics = east_asian
+		}
+		texture = "gfx/unit_illustrations/artillery_east_asian_cannon.dds"
+	}
+
+	combat_unit_image = {
+		trigger = {
+			has_culture_graphics = south_asian
+		}
+		texture = "gfx/unit_illustrations/artillery_south_asian_cannon.dds"
+	}
+
+	combat_unit_image = {
+		trigger = {
+			has_culture_graphics = african
+		}
+		texture = "gfx/unit_illustrations/artillery_african_cannon.dds"
+	}
+
+	combat_unit_image = {
+		trigger = {
+			has_culture_graphics = arabic
+		}
+		texture = "gfx/unit_illustrations/artillery_arabic_cannon.dds"
+	}
+
+	combat_unit_image = {
+		# fallback
+		texture = "gfx/unit_illustrations/artillery_eu_cannon.dds"
+	}
+
+	upgrades = {
+		combat_unit_type_mobile_artillery
+		combat_unit_type_shrapnel_artillery
+		combat_unit_type_siege_artillery
+	}
+}
