@@ -16,31 +16,14 @@ sericulture = {
 	}
 }
 
-four_field_crop_rotation = {
-	# Placeholder for even older agriculture techs
+enclosure = {
+	# Unlocks construction of Farms and Plantations
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
 	category = production
 
 	ai_weight = {
 		value = 3
-	}
-}
-
-rotherham_plough = {
-	# Should unlock new PMs for farms
-	# https://en.wikipedia.org/wiki/Plough#Improved_designs
-	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
-	category = production
-
-	unlocking_technologies = {
-		four_field_crop_rotation
-	}
-
-	ai_weight = {
-		value = 1
 	}
 }
 
@@ -51,23 +34,12 @@ new_world_crops = {
 	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
 	category = production
 
+	unlocking_technologies = {
+		enclosure
+	}
+
 	ai_weight = {
 		value = 2
-	}
-}
-
-enclosure = {
-	# Unlocks construction of Farms and Plantations
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
-	category = production
-
-	unlocking_technologies = {
-		new_world_crops
-	}
-
-	ai_weight = {
-		value = 3
 	}
 }
 
@@ -89,6 +61,38 @@ seed_drill = {
 
 	ai_weight = {
 		value = 1
+	}
+}
+
+rotherham_plough = {
+	# Should unlock new PMs for farms
+	# https://en.wikipedia.org/wiki/Plough#Improved_designs
+	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	unlocking_technologies = {
+		seed_drill
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+four_field_crop_rotation = {
+	# Placeholder for even older agriculture techs
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	unlocking_technologies = {
+		rotherham_plough
+	}
+
+	ai_weight = {
+		value = 3
 	}
 }
 
