@@ -1,0 +1,194 @@
+﻿### ERA 1
+
+supply_train = {
+	# Should give some bonuses to armies, perhaps movement speed
+	# https://en.wikipedia.org/wiki/Train_(military)
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	unlocking_technologies = {
+		military_levy
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+lines_of_communication = {
+	# Should give some bonuses to armies, perhaps attrition reduction
+	# https://en.wikipedia.org/wiki/Line_of_communication
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	unlocking_technologies = {
+		supply_train
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+military_levy = {
+	# The earliest form of conscription
+	# https://en.wikipedia.org/wiki/Conscription#Medieval_levies
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+tech_hussar = {
+	# Unlocks a better version of traditional cavalry
+	# https://en.wikipedia.org/wiki/Hussar
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+flintlock_musket = {
+	# Improves the earlier musket techs
+	# https://en.wikipedia.org/wiki/Flintlock
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	unlocking_technologies = {
+		military_levy
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+field_guns = {
+	# Enables early combat guns
+	# https://en.wikipedia.org/wiki/Field_artillery#Early_modern_era
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	unlocking_technologies = {
+		flintlock_musket
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+threadwheel_crane = {
+	# A very old tech for enabling ports
+	# https://en.wikipedia.org/wiki/Treadwheel_crane
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+sextant = {
+	# One of the earliest navigation techs
+	# https://en.wikipedia.org/wiki/Sextant
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+standardized_shipbuilding = {
+	# Gives access to shipyards
+	# https://en.wikipedia.org/wiki/Shipyard#History
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	unlocking_technologies = {
+		threadwheel_crane
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+naval_professionalization = {
+	# Should give some bonuses to naval units
+	# https://www.tandfonline.com/doi/full/10.1080/21533369.2020.1835229
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	unlocking_technologies = {
+		sextant
+	}
+
+	modifier = {
+		state_building_port_max_level_add = 2
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+
+tech_frigate = {
+	# Not the very oldest ship tech, but should be a pretty old tech
+	# https://en.wikipedia.org/wiki/Frigate#Age_of_sail
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+careening = {
+	# Tech closing the gap between pre-modern and modern shipbuilding
+	# https://en.wikipedia.org/wiki/Careening
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	unlocking_technologies = {
+		tech_frigate
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+three_deckers = {
+	# Should unlock the best capital sailing ship
+	# https://en.wikipedia.org/wiki/Three-decker
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	unlocking_technologies = {
+		tech_frigate
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
