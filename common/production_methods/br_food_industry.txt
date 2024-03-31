@@ -1,5 +1,29 @@
-﻿pm_bakery = {
+﻿pm_artisan_bakery = {
+	texture = "gfx/interface/icons/production_method_icons/unused/apothecaries.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_grain_add = 25		# x20 =  500
+
+			# output goods
+			goods_output_groceries_add = 25	# x30 =  750
+		}
+
+		level_scaled = {
+			# profit = 250
+			building_employment_shopkeepers_add = 750
+			building_employment_laborers_add = 1000
+		}
+	}
+}
+
+pm_bakery = {
 	texture = "gfx/interface/icons/production_method_icons/bakeries.dds"
+
+	unlocking_technologies = {
+		manufacturies
+	}
 
 	building_modifiers = {
 		workforce_scaled = {
@@ -19,6 +43,10 @@
 
 pm_spiced_food = {
 	texture = "gfx/interface/icons/production_method_icons/sweeteners.dds"
+
+	unlocking_technologies = {
+		manufacturies
+	}
 
 	building_modifiers = {
 		workforce_scaled = {
