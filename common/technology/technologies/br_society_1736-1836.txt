@@ -99,7 +99,7 @@ silver_standard = {
 insurance_companies = {
 	# Placeholder for earlier trade techs
 	# https://en.wikipedia.org/wiki/Insurance#History
-	era = era_1
+	era = era_2 
 	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
 	category = society
 
@@ -137,9 +137,14 @@ tech_agrarianism = {
 frontier_expansion = {
 	# Earliest colonization tech
 	# https://en.wikipedia.org/wiki/Frontier#History
-	era = era_1
+	era = era_2
 	texture = "gfx/interface/icons/invention_icons/colonization.dds"
 	category = society
+
+	
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+	}
 
 	unlocking_technologies = {
 		tech_agrarianism
@@ -153,9 +158,13 @@ frontier_expansion = {
 smithian_economics = {
 	# Tech that tries to bridges the mercantilist past and free trade future
 	# https://en.wikipedia.org/wiki/Classical_economics#
-	era = era_1
+	era = era_2
 	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
 	category = society
+
+	modifier = {
+		building_cash_reserves_mult = 0.2
+	}
 
 	unlocking_technologies = {
 		tech_agrarianism
@@ -174,6 +183,10 @@ early_modern_universities = {
 	category = society
 
 	modifier = {
+		state_education_access_wealth_add = 0.002
+	}
+
+	modifier = {
 		country_institution_schools_max_investment_add = 1
 	}
 
@@ -190,6 +203,7 @@ skepticism = {
 	category = society
 
 	modifier = {
+		state_expected_sol_from_literacy = 1
 		state_education_access_wealth_add = 0.002
 	}
 
@@ -227,6 +241,7 @@ rights_of_man = {
 	category = society
 
 	modifier = {
+		state_expected_sol_from_literacy = 1
 		state_education_access_wealth_add = 0.002
 	}
 
@@ -244,11 +259,12 @@ separation_of_powers = {
 	# If there are any vanilla updates to separation of powers, this tech should be updated.
 	# Should probably be a more recent tech
 	# https://en.wikipedia.org/wiki/Separation_of_powers#History
-	era = era_1
+	era = era_2
 	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
 	category = society
 
 	modifier = {
+		state_expected_sol_from_literacy = 1
 		state_education_access_wealth_add = 0.002
 	}
 
@@ -269,7 +285,7 @@ natural_history = {
 	category = society
 
 	modifier = {
-		state_education_access_wealth_add = 0.005
+		state_education_access_wealth_add = 0.002
 	}
 
 	unlocking_technologies = {
