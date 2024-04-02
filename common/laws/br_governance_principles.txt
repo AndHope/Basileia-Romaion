@@ -94,11 +94,17 @@ law_chiefdom = {
 	progressiveness = -100
 	
 	can_enact = {
-		is_country_type = decentralized
+		OR = {
+			is_country_type = decentralized
+			is_country_type = unrecognized
+		}	
 	}
 	
 	is_visible = {
-		is_country_type = decentralized
+		OR = {
+			is_country_type = decentralized
+			is_country_type = unrecognized
+		}	
 	}
 	
 	modifier = {
@@ -124,5 +130,10 @@ law_chiefdom = {
 			}
 			add = 750
 		}
+	}
+
+	# AI will never return to chiefdom
+	ai_will_do = {
+		always = no
 	}
 }
