@@ -18,7 +18,83 @@
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
 		#activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_traditionalism
+		
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_traditionalism #law_agrarianism
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_migration_controls	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_steppe_nomads
+			remove_ideology = ideology_agrarian
+			add_ideology = ideology_semi_nomadic
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_modernists
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_sedentarists 
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+
+	}
+	c:KOK = {
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		activate_law = law_type:law_tribal_armies
+
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		
+
+		set_military_wage_level = low
+		set_government_wage_level = low
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		#activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_traditionalism
 		
 		activate_law = law_type:law_censorship
