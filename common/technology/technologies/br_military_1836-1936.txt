@@ -7,7 +7,7 @@ standing_army = {
 	category = military
 
 	unlocking_technologies = {
-		flintlock_musket
+		line_infantry
 		lines_of_communication
 		tech_hussar
 	}
@@ -17,20 +17,23 @@ standing_army = {
 	}
 }
 
-navigation = {
-	# Unlocks Shipyards
-	# Unlocks Ports
-	# Increases Port max level by 2
+naval_professionalization = {
+	# Should give some bonuses to naval units
+	# https://www.tandfonline.com/doi/full/10.1080/21533369.2020.1835229
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/navigation.dds"
 	category = military
 
 	unlocking_technologies = {
-		sextant
+		navigation
+	}
+
+	modifier = {
+		state_building_naval_base_max_level_add = 10
 	}
 
 	ai_weight = {
-		value = 2 # Important tech in general
+		value = 1
 	}
 }
 
@@ -46,7 +49,6 @@ drydocks = {
 
 	unlocking_technologies = {
 		careening
-		standardized_shipbuilding
 	}
 
 	ai_weight = {
@@ -79,36 +81,19 @@ mandatory_service = {
 	}
 }
 
-gunsmithing = {
-	# Unlocks Arms Industry building
-	# Global Unlock for Muskets PM in Barracks
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
-	category = military
-
-	unlocking_technologies = {
-		standing_army
-	}
-
-	ai_weight = {
-		value = 2 # Important tech in general
-	}
-}
-
-artillery = {
-	# Unlocks Artillery Production PM in Arms Industries
-	# Unlocks Cannon Artillery PM in Barracks
+field_guns = {
+	# Enables early combat guns
+	# https://en.wikipedia.org/wiki/Field_artillery#Early_modern_era
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/artillery.dds"
 	category = military
 
 	unlocking_technologies = {
-		gunsmithing
-		field_guns
+		artillery
 	}
 
 	ai_weight = {
-		value = 2 # Important tech in general
+		value = 2
 	}
 }
 
@@ -132,13 +117,13 @@ military_drill = {
 
 napoleonic_warfare = {
 	# Unlocks Mobile Artillery PM in Barracks
-	era = era_2
+	era = era_3
 	texture = "gfx/interface/icons/invention_icons/napoleonic_warfare.dds"
 	category = military
 
 	unlocking_technologies = {
-		line_infantry
-		artillery
+		mandatory_service
+		field_guns
 	}
 
 	ai_weight = {
@@ -162,7 +147,6 @@ admiralty = {
 	}
 
 	unlocking_technologies = {
-		navigation
 		naval_professionalization
 	}
 
@@ -172,7 +156,7 @@ admiralty = {
 }
 
 army_reserves = {
-	era = era_2
+	era = era_3
 	texture = "gfx/interface/icons/invention_icons/army_reserves.dds"
 	category = military
 
@@ -181,7 +165,8 @@ army_reserves = {
 	}
 
 	unlocking_technologies = {
-		line_infantry
+		mandatory_service
+		military_drill
 	}
 
 	ai_weight = {
@@ -196,8 +181,7 @@ line_infantry = {
 	category = military
 
 	unlocking_technologies = {
-		mandatory_service
-		military_drill
+		flintlock_musket
 	}
 
 	ai_weight = {
@@ -296,7 +280,7 @@ shell_gun = {
 	category = military
 
 	unlocking_technologies = {
-		artillery
+		field_guns
 	}
 
 	ai_weight = {
@@ -312,7 +296,7 @@ percussion_cap = {
 	category = military
 
 	unlocking_technologies = {
-		gunsmithing
+		flintlock_musket
 	}
 
 	ai_weight = {

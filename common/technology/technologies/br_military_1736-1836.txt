@@ -1,5 +1,17 @@
 ﻿### ERA 1
 
+military_levy = {
+	# The earliest form of conscription
+	# https://en.wikipedia.org/wiki/Conscription#Medieval_levies
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	ai_weight = {
+		value = 3
+	}
+}
+
 supply_train = {
 	# Should give some bonuses to armies, perhaps movement speed
 	# https://en.wikipedia.org/wiki/Train_(military)
@@ -42,33 +54,9 @@ lines_of_communication = {
 	}
 }
 
-military_levy = {
-	# The earliest form of conscription
-	# https://en.wikipedia.org/wiki/Conscription#Medieval_levies
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
-	category = military
-
-	ai_weight = {
-		value = 3
-	}
-}
-
 tech_hussar = {
 	# Unlocks a better version of traditional cavalry
 	# https://en.wikipedia.org/wiki/Hussar
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
-	category = military
-
-	ai_weight = {
-		value = 2
-	}
-}
-
-flintlock_musket = {
-	# Improves the earlier musket techs
-	# https://en.wikipedia.org/wiki/Flintlock
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
 	category = military
@@ -82,19 +70,47 @@ flintlock_musket = {
 	}
 }
 
-field_guns = {
-	# Enables early combat guns
-	# https://en.wikipedia.org/wiki/Field_artillery#Early_modern_era
+gunsmithing = {
+	# Unlocks Arms Industry building
+	# Global Unlock for Muskets PM in Barracks
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
+	category = military
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+flintlock_musket = {
+	# Improves the earlier musket techs
+	# https://en.wikipedia.org/wiki/Flintlock
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
 	category = military
 
 	unlocking_technologies = {
-		flintlock_musket
+		gunsmithing
 	}
 
 	ai_weight = {
 		value = 2
+	}
+}
+
+artillery = {
+	# Unlocks Artillery Production PM in Arms Industries
+	# Unlocks Cannon Artillery PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/artillery.dds"
+	category = military
+
+	unlocking_technologies = {
+		gunsmithing
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
 	}
 }
 
@@ -146,9 +162,10 @@ standardized_shipbuilding = {
 	}
 }
 
-naval_professionalization = {
-	# Should give some bonuses to naval units
-	# https://www.tandfonline.com/doi/full/10.1080/21533369.2020.1835229
+navigation = {
+	# Unlocks Shipyards
+	# Unlocks Ports
+	# Increases Port max level by 2
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/navigation.dds"
 	category = military
@@ -157,12 +174,8 @@ naval_professionalization = {
 		sextant
 	}
 
-	modifier = {
-		state_building_naval_base_max_level_add = 10
-	}
-
 	ai_weight = {
-		value = 1
+		value = 2 # Important tech in general
 	}
 }
 
@@ -173,6 +186,10 @@ tech_frigate = {
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/navigation.dds"
 	category = military
+
+	unlocking_technologies = {
+		standardized_shipbuilding
+	}
 
 	ai_weight = {
 		value = 3
@@ -187,7 +204,7 @@ careening = {
 	category = military
 
 	unlocking_technologies = {
-		tech_frigate
+		standardized_shipbuilding
 	}
 
 	ai_weight = {
@@ -198,7 +215,7 @@ careening = {
 three_deckers = {
 	# Should unlock the best capital sailing ship
 	# https://en.wikipedia.org/wiki/Three-decker
-	era = era_1
+	era = era_2
 	texture = "gfx/interface/icons/invention_icons/navigation.dds"
 	category = military
 
