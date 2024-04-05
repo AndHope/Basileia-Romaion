@@ -53,30 +53,56 @@
 			}
 		} 	
 	
-		is_about_to_auto_break = {
-            scope:target_country.relations:root <= 23 # this: + 3
-        }
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = DIPLO_ACTION_RELATIONS_CORDIAL_OR_GREATER
+					scope:target_country.relations:root >= relations_threshold:cordial
+				}
+			}
 
-		should_auto_break = {
-			scope:target_country.relations:root <= relations_threshold:cordial
-		}		
-	
-		should_invalidate = {
-			OR = {
-				has_war_with = scope:target_country				
-				is_country_type = decentralized
-				scope:target_country = {
-					OR = {
-						is_country_type = decentralized
-						NOT = { is_direct_subject_of = root }
+			show_about_to_break_warning = {
+				scope:target_country.relations:root < 23 # this is: cordial + 3
+				scope:target_country.relations_change_rate:root < 0
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = "DIPLOMATIC_PACT_REQUIREMENT_AT_PEACE"
+					NOT = { has_war_with = scope:target_country }
+				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = "DIPLOMATIC_PACT_REQUIREMENT_NOT_DECENTRALIZED"
+					NOT = { is_country_type = decentralized }
+					scope:target_country = {
+						NOT = { is_country_type = decentralized }
 					}
 				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
 				NOT = {
 					any_primary_culture = {
-						NOT = { is_primary_culture_of = scope:target_country }
+						is_primary_culture_of = scope:target_country
 					}
 				}
-				in_default = yes
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				NOT = {
+					in_default = yes
+				}
 			}
 		}
 	}
