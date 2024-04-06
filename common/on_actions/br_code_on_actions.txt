@@ -90,3 +90,25 @@ chariot_racing_pulse_2 = {
 		 1 = chariot_racing.59 # team gets caught cheating
 	}
 }
+
+on_law_activated = {
+}
+
+# Root = Character
+on_new_ruler = {
+	effect = {
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						has_variable = hide_ruler_change_notification
+					}
+				}
+			}
+			post_notification = new_ruler
+		}
+	}
+}
+
+on_election_campaign_end = {
+}
