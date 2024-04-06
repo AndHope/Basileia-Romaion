@@ -1,0 +1,37 @@
+﻿# Add sahara trade modifier to states
+GLOBAL = {
+	every_country = {
+		every_scope_state = {
+			limit = {
+				OR = {
+					# Mali
+					state_region = s:STATE_TIMBUKTU
+					state_region = s:STATE_EASTERN_MALI
+
+					# Sahara
+					state_region = s:STATE_SAHARA
+					state_region = s:STATE_EAST_SAHARA
+
+					# Marocco
+					state_region = s:STATE_INNER_MOROCCO
+					state_region = s:STATE_MARRAKECH
+				}
+			}
+			add_modifier = {
+				name = br_state_modifier_sahara_trade
+				years = -1
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			any_scope_state = {
+				has_modifier = br_state_modifier_sahara_trade
+			}
+		}
+		add_modifier = {
+			name = br_modifier_sahara_trade
+			months = -1
+		}
+	}
+}
