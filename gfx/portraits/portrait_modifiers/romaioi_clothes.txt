@@ -1350,38 +1350,7 @@ com_clothes = {
             }
         }
         weight = {
-            base = 0
-            modifier = {
-                add = 500
-                
-                AND = {
-                    exists = scope:character
-                    trigger_if = {
-                        limit = { bf_is_active = yes }
-                        scope:character = {
-                            NOR = {
-                                has_template = swe_karl_johan_bernadotte_template
-                                has_template = swe_oscar_bernadotte_template
-                                #has_template = swe_oscar_fredrik_bernadotte
-                                #has_template = swe_oscar_gustaf_adolf_bernadotte
-                                #has_template = swe_carl_ludvig_eugen_bernadotte
-                                #has_template = swe_oscar_fredrik_wilhelm_olaf_gustaf_adolf_bernadotte
-                            }
-                        }
-                    }
-                    scope:character = {
-                        owner ?= {
-                            OR = {
-                                c:SWE ?= this
-                                was_formed_from = SWE
-                            }
-                        }
-                        monarchy_clothes_trigger = yes
-                        is_female = no
-                        age >= 13
-                    }
-                }
-            }
+            base = 1
         }
     }
 

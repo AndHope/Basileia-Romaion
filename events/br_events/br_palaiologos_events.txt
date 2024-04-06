@@ -205,13 +205,19 @@ palaiologos_events.3 = {
 		set_variable = palaiologos_themata
 		hidden_effect = {
 			every_scope_state = {
-				limit = { OR = { state_region = s:STATE_BULGARIA state_region = s:STATE_KONYA state_region = s:STATE_ANKARA state_region = s:STATE_KASTAMONU state_region = s:STATE_TRABZON 
-				} 
-			}
-			add_radicals = {
-				pop_type = aristocrats
-				value = large_radicals
-			}
+				limit = {
+					OR = {
+						state_region = s:STATE_BULGARIA
+						state_region = s:STATE_KONYA
+						state_region = s:STATE_ANKARA
+						state_region = s:STATE_KASTAMONU
+						state_region = s:STATE_TRABZON
+					}
+				}
+				add_radicals_in_state = {
+					pop_type = aristocrats
+					value = large_radicals
+				}
 			}
 		}
 	}
