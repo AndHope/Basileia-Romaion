@@ -1,0 +1,30 @@
+﻿on_monthly_pulse_country = {
+	on_actions = {
+		br_sahara_trade_remove_country_modifier
+		br_sahara_trade_add_country_modifier
+	}
+}
+
+br_sahara_trade_remove_country_modifier = {
+	trigger = {
+		has_modifier = br_modifier_sahara_trade
+	}
+	effect = {
+		trigger_event = {
+			id = br_namespace_sahara_trade.1
+		}
+	}
+}
+
+br_sahara_trade_add_country_modifier = {
+	trigger = {
+		NOT = {
+			has_modifier = br_modifier_sahara_trade
+		}
+	}
+	effect = {
+		trigger_event = {
+			id = br_namespace_sahara_trade.2
+		}
+	}
+}

@@ -1,0 +1,33 @@
+﻿namespace = br_namespace_sahara_trade
+
+br_namespace_sahara_trade.1 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = br_state_modifier_sahara_trade
+				}
+			}
+		}
+		else = {
+			remove_modifier = br_modifier_sahara_trade
+		}
+	}
+}
+
+br_namespace_sahara_trade.2 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = br_state_modifier_sahara_trade
+				}
+			}
+			add_modifier = br_modifier_sahara_trade
+		}
+	}
+}
