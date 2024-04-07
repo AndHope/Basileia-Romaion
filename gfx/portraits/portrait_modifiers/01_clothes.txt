@@ -300,9 +300,6 @@
             modifier = {
                 add = 90000
                 OR = {
-                    scope:character ?= {
-                        has_template = BRZ_virgulino_ferreira
-                    }
                     AND = {
                         scope:character ?= {
                             OR = {
@@ -1833,66 +1830,6 @@
                         has_role = general
                         has_role = admiral
                     }
-                }
-            }
-        }
-    }
-
-    historical_lampiao = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = top_layer
-                template = south_american_bandit_lampiao
-                range = { 0 1 }
-            }
-            accessory = {
-                mode = add
-                gene = waistcoats
-                template = historical_waistcoats_madero
-                range = { 0 0.1 }
-             }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 90000
-
-                scope:character ?= {
-                    has_template = BRZ_virgulino_ferreira
-                }
-            }
-        }
-    }
-
-    historical_getulio_vargas = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = waistcoats
-                template = historical_waistcoats_madero
-                range = { 0 0.1 }
-            }
-            accessory = {
-                mode = add
-                gene = civilian_coats
-                template = european_civilian_coats
-                range = { 0 1 } # For the randomness to work correctly
-            }
-            accessory = {
-                mode = add
-                gene = legwear
-                template = european_legwear_colors
-                accessory = male_legwear_european_01_black
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 90000
-
-                scope:character ?= {
-                    has_template = BRZ_getulio_vargas_character_template
                 }
             }
         }
@@ -5763,12 +5700,6 @@ gaucho_clothes = {
                             culture = cu:uruguayan
                         }
                         culture = cu:afro_brazilian
-                        AND = {
-                            culture = cu:brazilian
-                            home_country ?= {
-                                has_variable = sulistas_integrated
-                            }
-                        }
                     }
                     has_role = politician
                     OR = {
@@ -5804,12 +5735,6 @@ gaucho_clothes = {
                             culture = cu:uruguayan
                         }
                         culture = cu:afro_brazilian
-                        AND = {
-                            culture = cu:brazilian
-                            owner ?= {
-                                has_variable = sulistas_integrated
-                            }
-                        }
                     }
                     OR = {
                         is_pop_type = farmers
