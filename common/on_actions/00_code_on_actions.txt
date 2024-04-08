@@ -15,9 +15,6 @@ on_monthly_pulse_country = {
 		poland_events.3 # Polish Unification
 		colonial_administration_events.2 # African Colony Radicals
 		sa_migration.5
-		amazonas.1 # Taming Amazonia
-		#paraguay.11 # Paraguay War
-		#acw_events.9 # CSA victory event
 
 		# Exile Agitators Events
 		yeet_agitator_events.1
@@ -1368,14 +1365,6 @@ on_country_formed = {
 				c:LAO ?= ROOT
 			}
 			trigger_event = { id = formation.1 popup = yes }
-		}
-        else_if = {
-			limit = {
-				c:PLT ?= THIS
-				was_formed_from = PRG
-				has_variable = patino_paraguay_var
-			}
-			add_primary_culture = cu:guarani
 		}
 		else_if = {
 			limit = {
