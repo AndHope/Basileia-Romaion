@@ -1,16 +1,22 @@
 ﻿violate_sovereignty = {
+	groups= {
+		general
+	}
 	requires_approval = yes
 	should_notify_third_parties = yes
 	violates_sovereignty = yes
 	can_use_obligations = yes
-
+	
+	selectable = {
+		NOT = { is_country_type = decentralized }
+	}
+	
 	potential = {
 		is_at_war = yes
 
-		NOT = { is_country_type = decentralized }
-		#scope:target_country = {
-		#	NOT = { is_country_type = decentralized }
-		#}
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+		}
 		NOT = {
 			has_war_with = scope:target_country
 			is_in_war_together = scope:target_country
@@ -32,7 +38,7 @@
 			}
 		}
 		
-		#scope:target_country.relations:root < relations_threshold:amicable
+		scope:target_country.relations:root < relations_threshold:amicable
 
 		is_revolutionary = no
 		
@@ -43,7 +49,7 @@
 	
 	accept_effect = {
 		create_incident = {
-			value = 5
+			value = 15
 			country = scope:target_country
 		}
 
@@ -84,6 +90,20 @@
 	}
 	
 	ai = {
+		evaluation_chance = {
+			value = 0
+			
+			if = {
+				limit = { 
+					is_at_war = yes 
+					any_scope_war = {
+						is_warleader = root
+					}				
+				}
+				add = 1
+			}
+		}	
+	
 		propose_score = {
 			value = 100
 		}	
@@ -151,15 +171,6 @@
 				desc = "DIPLOMATIC_ACCEPTANCE_ATTITUDE"
 				if = {
 					limit = {
-						has_attitude = {
-							who = scope:actor
-							attitude = loyal
-						}
-					}
-					value = 50
-				}
-				if = {
-					limit = {
 						OR = {
 							has_attitude = {
 								who = scope:actor
@@ -168,15 +179,19 @@
 							has_attitude = {
 								who = scope:actor
 								attitude = conciliatory
-							}
+							}							
+							has_attitude = {
+								who = scope:actor
+								attitude = loyal
+							}	
 							has_attitude = {
 								who = scope:actor
 								attitude = cooperative
 							}							
 						}
 					}
-					value = 25
-				}
+					value = 15
+				}			
 				if = {
 					limit = {
 						has_attitude = {
@@ -293,13 +308,10 @@
 						}
 						
 						OR = {
+							is_in_customs_union_with = root
 							has_diplomatic_pact = {
 								who = root
 								type = alliance
-							}
-							has_diplomatic_pact = {
-								who = root
-								type = customs_union
 							}
 							has_diplomatic_pact = {
 								who = root

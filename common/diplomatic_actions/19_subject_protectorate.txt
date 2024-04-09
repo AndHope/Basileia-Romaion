@@ -1,21 +1,57 @@
 ﻿protectorate = {
-	can_select = no
+	groups= {
+		general # for breaking only
+		power_bloc
+	}
+	show_in_lens = no
 
-	potential = { # Only created through diplomatic plays
-		always = no
+	potential = { # Normally only created through diplomatic demands, but can also be created if leader of a Power Bloc with the power_bloc_leader_can_make_protectorates modifier if the target is a bloc member
+		power_bloc ?= {
+			modifier:power_bloc_leader_can_make_subjects = yes
+			power_bloc_leader ?= root
+			scope:target_country.power_bloc ?= this
+		}
+		NOT = { scope:target_country = { is_subject_of = root } }
+	}
+	
+	possible = { # only relevant when used as a power_bloc action
+		scope:target_country = { is_subject = no }
+		power_bloc = {
+			current_cohesion_percentage > 0.4			# TODO: PRCAL-33338, finalize value
+		}
+		scope:target_country = {
+			tenure_in_current_power_bloc_years >= 5		# TODO: PRCAL-33338, finalize value
+		}
+		prestige > {
+			value = scope:target_country.prestige
+			multiply = 0.2								# TODO: PRCAL-33338, finalize value
+		}
+	}
+	
+	accept_effect = {
+		power_bloc = {
+			if = {
+				limit = { # this ensures this is invoked as a power_bloc action and not by some other means
+					modifier:power_bloc_leader_can_make_subjects = yes
+					power_bloc_leader ?= root
+					scope:target_country.power_bloc ?= this
+				}
+				add_cohesion_percent = -0.2				# TODO: PRCAL-33338, finalize value
+			}
+		}
 	}
 
 	pact = {	
 		cost = 25
-		is_customs_union = yes
 		has_junior_participant = yes
 		recipient_pays_maintenance = no	
-		income_transfer = 0.2
-		recipient_gets_income_transfer = no
-		income_transfer_based_on_recipient = yes
 		
 		relations_progress_per_day = 1
 		relations_improvement_max = 50
+
+		income_transfer = 0.15
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
 		
 		subject_type = subject_type_protectorate	
 		
@@ -24,22 +60,23 @@
 		}
 
 		target_can_break = { # Has to use diplomatic play to break
-			error_check = {
-				severity = invalid
-				always = no
-			}
-		}			
+			always = no
+		}
 
 		manual_break_effect = {
 			create_truce = { country = scope:target_country months = 60 }
 		}
-
+		
 		auto_break_effect = {
 			create_truce = { country = scope:target_country months = 60 }
 		}
 	}
 	
 	ai = {
+		evaluation_chance = {
+			value = 0
+		}	
+	
 		will_break = {
 			always = no			
 		}		
