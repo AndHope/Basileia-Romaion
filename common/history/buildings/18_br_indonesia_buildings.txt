@@ -444,12 +444,6 @@
 		#		level=1
 		#		activate_production_methods={ "pm_default_building_great_port" }
 		#	}
-		#	create_building={
-		#		building="building_port"
-		#		level=3
-		#		reserves=1
-		#		activate_production_methods={ "pm_basic_port" }
-		#	}
 		}
 		region_state:DEI={
 			create_building={
@@ -488,13 +482,27 @@
 		region_state:RIC={
 			create_building={
 				building="building_fishing_wharf"
-				level=1
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:BYZ"
+						levels=1
+						region="STATE_EASTERN_THRACE"
+					}
+				}
 				reserves=1
 				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_banana_plantation"
-				level=1
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:BYZ"
+						levels=1
+						region="STATE_EASTERN_THRACE"
+					}
+				}
 				reserves=1
 				activate_production_methods={ "default_building_banana_plantation" "pm_road_carts" }
 			}
