@@ -22,6 +22,10 @@ building_urban_center = {
 	downsizeable = no
 
 	terrain_manipulator = urban_city
+	
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
 building_arts_academy = {
@@ -38,11 +42,16 @@ building_arts_academy = {
 	production_method_groups = {
 		pmg_base_building_arts_academy
 		pmg_ownership_building_arts_academy
+		pmg_principle_freedom_of_movement_2
 	}
 
 	texture = "gfx/interface/icons/building_icons/building_arts_academy.dds"
 
 	required_construction = construction_cost_medium
+	
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
 building_power_plant = {
@@ -58,19 +67,17 @@ building_power_plant = {
 
 	production_method_groups = {
 		pmg_base_building_power_plant
-		pmg_ownership_capital_building_power_plant
 	}
 
 	required_construction = construction_cost_very_high
 
 	possible = {
-		error_check = {
-			severity = fail
-			this = {
-				owner = {
-					NOT = { has_law = law_type:law_industry_banned }
-				}
-			}
+		owner = {
+			NOT = { has_law = law_type:law_industry_banned } 
 		}
 	}
+	
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
