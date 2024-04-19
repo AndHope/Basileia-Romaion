@@ -229,4 +229,62 @@
 
 
 	}
+
+	c:SBR = {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_tribal_armies
+		
+		add_modifier = {
+			name = nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = tribal_warriors
+			months = -1
+		}
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_steppe_nomads
+			remove_ideology = ideology_agrarian
+			add_ideology = ideology_semi_nomadic
+			remove_ideology = ideology_particularist 
+			add_ideology = ideology_basqaq
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_constitutionalists
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_modernists
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_sedentarists 
+		}
+
+	}
 }
