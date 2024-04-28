@@ -242,6 +242,17 @@
 	s:STATE_MIDDLE_EGYPT={
 		region_state:AGY={
 			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:AGY"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" }
+			}
+			create_building={
 				building="building_wheat_farm"
 				add_ownership={
 					building={
@@ -324,6 +335,17 @@
 	s:STATE_UPPER_EGYPT={
 		region_state:AGY={
 			create_building={
+				create_building={
+					building="building_government_administration"
+					add_ownership={
+						country={
+							country="c:AGY"
+							levels=1
+						}
+					}
+					reserves=1
+					activate_production_methods={ "pm_simple_organization" }
+				}
 				building="building_wheat_farm"
 				add_ownership={
 					building={
@@ -603,19 +625,6 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled"  }
-			}
-			create_building={
-				building="building_livestock_ranch"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:AGY"
-						levels=2
-						region="STATE_LOWER_EGYPT"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
 			}
 			create_building={
 				building="building_port"

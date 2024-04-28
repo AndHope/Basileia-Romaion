@@ -1519,20 +1519,31 @@
 		}
 		region_state:RIC={
 			create_building={
-				building="building_silk_plantation"
+				building="building_government_administration"
 				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:BYZ"
-						levels=1
-						region="STATE_EASTERN_THRACE"
+					country={
+						country="c:RIC"
+						levels=2
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_silk_plantation" "pm_road_carts" }
+				activate_production_methods={ "pm_simple_organization" }
 			}
 			create_building={
-				building="building_dye_plantation"
+				building="building_fishing_wharf"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:RIC"
+						levels=1
+						region="STATE_GUANGDONG"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_banana_plantation"
 				add_ownership={
 					building={
 						type="building_financial_district"
@@ -1542,7 +1553,33 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_dye_plantation" "pm_road_carts" }
+				activate_production_methods={ "default_building_banana_plantation" "pm_road_carts" }
+			}
+			create_building={
+				building="building_tobacco_plantation"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BYZ"
+						levels=1
+						region="STATE_EASTERN_THRACE"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" }
+			}
+			create_building={
+				building="building_rice_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:RIC"
+						levels=1
+						region="STATE_GUANGDONG"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_tools_disabled"  }
 			}
 			create_building={
 				building="building_port"

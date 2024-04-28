@@ -169,6 +169,13 @@ ai_strategy_plantation_economy = {
 				ig:ig_landowners = { is_powerful = yes }
 			}
 			multiply = 1.5
+		}	
+		
+		if = {
+			limit = {
+				has_journal_entry = je_agricultural_development
+			}
+			add = 45
 		}
 	}
 }
@@ -364,7 +371,7 @@ ai_strategy_industrial_expansion = {
 
 		if = {
 			limit = {
-				has_law = law_type:law_council_republic
+				has_radical_leftist_government = yes
 				NOT = {
 					ig:ig_rural_folk ?= {
 						is_powerful = yes
