@@ -58,20 +58,37 @@
 			type = puppet
 		}
 		create_diplomatic_pact = {
+			country = c:UBD
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
 			country = c:POM
 			type = puppet
 		}
 		create_diplomatic_pact = {
-			country = c:PSK	
-			type = puppet #vassal
+			country = c:POM
+			type = raise_payments
 		}
 		create_diplomatic_pact = {
 			country = c:NOV
 			type = protectorate #tributary
 		}
+		create_diplomatic_pact = {
+			country = c:NOV	
+			type = grant_own_market
+		}
 		set_relations = { country = c:FIN value = 50 }
 		set_relations = { country = c:UBD value = 60 }
 		set_relations = { country = c:POM value = 50 }
+		
+
+	}
+
+	c:NOV = {
+		create_diplomatic_pact = {
+			country = c:PSK	
+			type = protectorate
+		}
 		
 
 	}

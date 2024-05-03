@@ -1,4 +1,52 @@
-﻿
+﻿british_empire_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = c:DEN
+		exists = home_country
+		home_country = {
+			OR = {
+				AND = {
+					c:DEN = this
+					is_subject = no # preventing uniform conflicts if becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:DEN
+			}		
+		}
+	}
+}
+
+british_empire_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:DEN
+		home_country = {
+			OR = {
+				AND = {
+					c:DEN = this
+					is_subject = no # preventing uniform conflicts if becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:DEN
+			}		
+		}
+	}
+}
+
+british_empire_clothes_p_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:DEN
+		home_country = {
+			OR = {
+				AND = {
+					c:DEN = this
+					is_subject = yes # preventing uniform conflicts if becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:DEN
+			}		
+		}
+	}
+}
+
 french_empire_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
