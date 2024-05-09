@@ -49,14 +49,13 @@
 			add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.5
+				multiplier = 0.25
 				years = 100
 				is_decaying = yes
 			}
 		}
 
 		ig:ig_rural_folk = {
-			
 			set_interest_group_name = ig_agrotikos
 		}
 		ig:ig_petty_bourgeoisie = {
@@ -76,7 +75,13 @@
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
 				years = 100
 				is_decaying = yes
 			}
@@ -85,7 +90,13 @@
 			set_interest_group_name = ig_syndikalistai
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.5
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -161,10 +172,22 @@
 		ig:ig_landowners = {
 			set_interest_group_name = ig_themata_patricians
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 		ig:ig_armed_forces = {
 			set_interest_group_name = ig_tagmata_strategos
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_rural_folk = {
@@ -174,6 +197,12 @@
 		}
 		ig:ig_petty_bourgeoisie = {
 			set_interest_group_name = ig_merchant_guilds
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
@@ -253,13 +282,6 @@
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_republican_paternalistic
 			add_ideology = ideology_frontier_expansionist
-			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 100
-				is_decaying = yes
-			}
 		}
 
 		ig:ig_armed_forces = {
@@ -273,10 +295,15 @@
 		}
 
 		ig:ig_rural_folk = {
-			
 			set_interest_group_name = ig_agrotikos
 			add_modifier = {
 				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 100
 				is_decaying = yes
@@ -290,7 +317,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -314,6 +341,12 @@
 				years = 100
 				is_decaying = yes
 			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_trade_unions = {
@@ -321,6 +354,12 @@
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -427,6 +466,12 @@
 			set_interest_group_name = ig_oriental_orthodox_church
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_oriental_orthodox_patriarch
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
@@ -448,11 +493,22 @@
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_trade_unions = {
-			#remove_ideology = ideology_anti_slavery
 			set_interest_group_name = ig_syndikalistai
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 

@@ -1,16 +1,10 @@
 ﻿british_empire_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
-		exists = c:DEN
+		exists = c:BYZ
 		exists = home_country
 		home_country = {
-			OR = {
-				AND = {
-					c:DEN = this
-					is_subject = no # preventing uniform conflicts if becomes a subject of another country with puppet uniforms
-				}
-				is_subject_of = c:DEN
-			}		
+			is_subject_of = c:BYZ		
 		}
 	}
 }
@@ -18,15 +12,9 @@
 british_empire_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		exists = c:DEN
+		exists = c:BYZ
 		home_country = {
-			OR = {
-				AND = {
-					c:DEN = this
-					is_subject = no # preventing uniform conflicts if becomes a subject of another country with puppet uniforms
-				}
-				is_subject_of = c:DEN
-			}		
+			is_subject_of = c:BYZ		
 		}
 	}
 }
@@ -34,15 +22,9 @@ british_empire_clothes_pop_trigger = {
 british_empire_clothes_p_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		exists = c:DEN
+		exists = c:BYZ
 		home_country = {
-			OR = {
-				AND = {
-					c:DEN = this
-					is_subject = yes # preventing uniform conflicts if becomes a subject of another country with puppet uniforms
-				}
-				is_subject_of = c:DEN
-			}		
+			is_subject_of = c:BYZ		
 		}
 	}
 }

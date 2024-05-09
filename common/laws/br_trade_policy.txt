@@ -23,11 +23,11 @@ law_mercantilism = {
 	}
 
 	tariff_modifier_export_priority = {
-		tariff_import_add = 0.5
+		tariff_import_add = 0.45
 	}
 
 	tariff_modifier_import_priority = {
-		tariff_export_add = 0.25
+		tariff_export_add = 0.15
 	}
 
 	possible_political_movements = {
@@ -51,11 +51,7 @@ law_mercantilism = {
 		value = 0
 
 		if = {
-			limit = {
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -170,8 +166,8 @@ law_isolationism = {
 		country_tech_spread_mult = -0.5 #was -0.15
 
 		country_max_declared_interests_mult = -0.5
-
-		market_disallow_trade_routes = yes
+		
+		market_disallow_trade_routes_bool = yes
 	}
 
 	possible_political_movements = {
@@ -196,11 +192,7 @@ law_isolationism = {
 		value = 0
 
 		if = {
-			limit = {
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}

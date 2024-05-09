@@ -106,6 +106,31 @@ law_autocracy = {
 			add = 750
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_autocracy
+				OR = {
+					AND = {
+						power_bloc ?= { has_identity = identity:identity_ideological_union }
+						has_strategy = ai_strategy_conservative_agenda					
+					}
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+				scope:target_country = { 
+					NOR = { # Is their law different enough from what we want to impose?
+						has_law = law_type:law_oligarchy
+						has_law = law_type:law_landed_voting
+					}
+				}
+			}
+			
+			add = base_impose_law_weight
+		}
+	}
 }
 
 law_technocracy = {
@@ -195,6 +220,22 @@ law_technocracy = {
 			add = 750
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_technocracy
+				"ai_ideological_opinion(scope:target_country)" >= 25 # Only want to do this on ideologically similar countries
+				scope:target_country = { # Is their law different enough from what we want to impose?
+					NOT = { has_law = law_type:law_single_party_state }
+				}
+			}
+			
+			add = base_impose_law_weight
+		}
+	}	
 }
 
 law_oligarchy = {
@@ -294,6 +335,31 @@ law_oligarchy = {
 			add = 750
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_oligarchy
+				OR = {
+					AND = {
+						power_bloc ?= { has_identity = identity:identity_ideological_union }
+						has_strategy = ai_strategy_conservative_agenda					
+					}
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+				scope:target_country = { 
+					NOR = { # Is their law different enough from what we want to impose?
+						has_law = law_type:law_autocracy
+						has_law = law_type:law_landed_voting
+					}
+				}
+			}
+			
+			add = base_impose_law_weight
+		}
+	}		
 }
 
 law_elder_council = {
@@ -464,6 +530,31 @@ law_landed_voting = {
 			add = 750
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_landed_voting
+				OR = {
+					AND = {
+						power_bloc ?= { has_identity = identity:identity_ideological_union }
+						has_strategy = ai_strategy_conservative_agenda					
+					}
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+				scope:target_country = { 
+					NOR = { # Is their law different enough from what we want to impose?
+						has_law = law_type:law_oligarchy
+						has_law = law_type:law_autocracy
+					}
+				}
+			}
+			
+			add = base_impose_law_weight
+		}
+	}		
 }
 
 law_wealth_voting = {
@@ -552,6 +643,25 @@ law_wealth_voting = {
 			add = 750
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_wealth_voting
+				has_strategy = ai_strategy_progressive_agenda	
+				scope:target_country = { # Is their law different enough from what we want to impose?
+					NOR = { 
+						has_law = law_type:law_census_voting 
+						has_law = law_type:law_landed_voting 
+					}
+				}
+			}
+			
+			add = base_impose_law_weight
+		}
+	}	
 }
 
 law_census_voting = {
@@ -637,6 +747,25 @@ law_census_voting = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_census_voting
+				has_strategy = ai_strategy_progressive_agenda			
+				scope:target_country = { # Is their law different enough from what we want to impose?
+					NOR = { 
+						has_law = law_type:law_wealth_voting 
+						has_law = law_type:law_universal_suffrage 
+					}
+				}
+			}
+			
+			add = base_impose_law_weight
 		}
 	}
 }
@@ -734,6 +863,25 @@ law_universal_suffrage = {
 			add = 750
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_universal_suffrage
+				has_strategy = ai_strategy_egalitarian_agenda	
+				scope:target_country = { # Is their law different enough from what we want to impose?
+					NOR = { 
+						has_law = law_type:law_census_voting				 
+						has_law = law_type:law_anarchy
+					}
+				}
+			}
+			
+			add = base_impose_law_weight
+		}
+	}
 }
 
 law_anarchy = {
@@ -818,6 +966,22 @@ law_anarchy = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_anarchy
+				has_strategy = ai_strategy_egalitarian_agenda	
+				scope:target_country = { # Is their law different enough from what we want to impose?
+					NOT = { has_law = law_type:law_universal_suffrage }
+				}
+			}
+			
+			add = base_impose_law_weight
 		}
 	}
 }
@@ -988,6 +1152,22 @@ law_single_party_state = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_single_party_state
+				"ai_ideological_opinion(scope:target_country)" >= 25 # Only want to do this on ideologically similar countries
+				scope:target_country = { # Is their law different enough from what we want to impose?
+					NOT = { has_law = law_type:law_technocracy }
+				}				
+			}
+			
+			add = base_impose_law_weight
 		}
 	}
 }

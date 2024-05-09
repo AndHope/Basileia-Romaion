@@ -30,11 +30,7 @@ law_traditionalism = {
 		building_nationalization_investment_return_add = 0.1
 
 		state_market_access_price_impact = -0.15
-
-		country_subsidies_bg_infrastructure = yes
-		country_subsidies_bg_power = yes
-		country_subsidies_bg_trade = yes
-		country_disable_nationalization_without_compensation = yes
+		country_disable_nationalization_without_compensation_bool = yes
 	}
 
 	possible_political_movements = {
@@ -85,8 +81,7 @@ law_interventionism = {
 	}
 
 	modifier = {
-		country_subsidies_all = yes
-		country_disable_nationalization_without_compensation = yes
+		country_disable_nationalization_without_compensation_bool = yes
 		country_private_construction_allocation_mult = 0.5
 		building_nationalization_investment_return_add = 0.5
 		country_government_dividends_efficiency_add = 0.25
@@ -156,13 +151,7 @@ law_agrarianism = {
 		building_nationalization_investment_return_add = 0.5
 		country_government_dividends_efficiency_add = 0.3
 		
-		country_disable_nationalization_without_compensation = yes
-		country_subsidies_bg_agriculture = yes
-		country_subsidies_bg_ranching = yes
-		country_subsidies_bg_plantations = yes
-		country_subsidies_bg_infrastructure = yes
-		country_subsidies_bg_power = yes
-		country_subsidies_bg_trade = yes
+		country_disable_nationalization_without_compensation_bool = yes
 	}
 	
 	possible_political_movements = {
@@ -302,13 +291,7 @@ law_industry_banned = {
 		country_production_tech_spread_mult = -0.25
 		building_nationalization_investment_return_add = 0.5
 		country_government_dividends_efficiency_add = 0.3
-		country_disable_nationalization_without_compensation = yes
-		country_subsidies_bg_agriculture = yes
-		country_subsidies_bg_ranching = yes
-		country_subsidies_bg_plantations = yes
-		country_subsidies_bg_infrastructure = yes
-		country_subsidies_bg_power = yes
-		country_subsidies_bg_trade = yes
+		country_disable_nationalization_without_compensation_bool = yes
 	}
 
 	possible_political_movements = {
@@ -377,13 +360,8 @@ law_laissez_faire = {
 		state_capitalists_investment_pool_efficiency_mult = 0.25
 		country_private_construction_allocation_mult = 0.75
 		country_max_companies_add = 1
-
-		country_subsidies_bg_infrastructure = yes
-		country_subsidies_bg_power = yes
-		country_subsidies_bg_trade = yes
-		country_private_buildings_protected = yes
-		country_disable_nationalization = yes
-		country_force_privatization = yes
+		country_disable_nationalization_bool = yes
+		country_force_privatization_bool = yes
 	}
 	
 	possible_political_movements = {
@@ -450,9 +428,8 @@ law_cooperative_ownership = {
 		state_farmers_investment_pool_efficiency_mult = 0.25
 		country_private_construction_allocation_mult = 0.35
 
-		country_subsidies_all = yes
-		country_disable_nationalization = yes
-		country_force_expropriation = yes
+		country_disable_nationalization_bool = yes
+		country_force_collectivization_bool = yes
 	}
 	
 	possible_political_movements = {
@@ -496,6 +473,19 @@ law_cooperative_ownership = {
 			add = 250
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_cooperative_ownership			
+			}
+			
+			add = base_impose_law_weight
+			multiply = 10.0
+		}
+	}	
 }
 
 law_command_economy = {
@@ -529,9 +519,8 @@ law_command_economy = {
 	}
 
 	modifier = {
-		country_subsidies_all = yes
-		country_disable_investment_pool = yes
-
+		country_disable_investment_pool_bool = yes
+		
 		country_authority_mult = 0.25
 		country_bureaucrats_pol_str_mult = 0.25
 		building_nationalization_cost_mult = -0.5
@@ -597,4 +586,17 @@ law_command_economy = {
 			add = 100
 		}
 	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_command_economy			
+			}
+			
+			add = base_impose_law_weight
+			multiply = 10.0
+		}
+	}	
 }

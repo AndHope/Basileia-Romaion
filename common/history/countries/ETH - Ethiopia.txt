@@ -2,7 +2,6 @@
 	c:ETH = {
 		effect_starting_technology_tier_5_tech = yes
 		add_technology_researched = centralization
-		activate_law = law_type:law_tribal_armies
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_serfdom
@@ -10,7 +9,7 @@
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_national_supremacy 
-		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_tribal_armies
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_mercantilism
@@ -45,17 +44,16 @@
 
 	c:KFA = {
 		effect_starting_technology_tier_5_tech = yes
-		activate_law = law_type:law_tribal_armies
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_national_supremacy 
-		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_tribal_armies
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_traditionalism
@@ -79,17 +77,16 @@
 	}
 	c:BRN = {
 		effect_starting_technology_tier_5_tech = yes
-		activate_law = law_type:law_tribal_armies
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_national_supremacy 
-		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_tribal_armies
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_traditionalism
@@ -113,17 +110,50 @@
 	}
 	c:SDM = {
 		effect_starting_technology_tier_5_tech = yes
-		activate_law = law_type:law_tribal_armies
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_national_supremacy 
-		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_tribal_armies
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_migration_controls	
+		
+		add_modifier = {
+			name = tribal_warriors
+			years = -1
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+	}
+
+	c:TGR = {
+		effect_starting_technology_tier_5_tech = yes
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy 
+		activate_law = law_type:law_tribal_armies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_traditionalism

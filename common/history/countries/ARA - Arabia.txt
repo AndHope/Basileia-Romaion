@@ -1,6 +1,7 @@
 ﻿COUNTRIES = {
 	c:ARA = {
 		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = murano_glass
 		
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_tribal_armies
@@ -74,7 +75,7 @@
 			set_interest_group_name = ig_sunni_madrasahs 
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -88,8 +89,8 @@
 		
 		
 		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_monarchy #was law_theocracy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
@@ -104,24 +105,16 @@
 		activate_law = law_type:law_migration_controls
 
 		add_modifier = {
-			name = br_modifier_holy_warriors
-			years = -1
-		}
-		add_modifier = {
-			name = br_modifier_jihad_called
-			years = 75
-		}
-		add_modifier = {
 			name = br_modifier_desert_culture
 			months = -1
 		}
 
-		#In-Government
-
-		ig:ig_armed_forces = {
-			add_ruling_interest_group = yes
-			set_ig_bolstering = yes
+		add_modifier = {
+			name = br_modifier_terrain_survival
+			months = -1
 		}
+
+		#In-Government
 
 		ig:ig_devout = { 
 			add_ruling_interest_group = yes
@@ -136,8 +129,8 @@
 		
 		
 		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_monarchy #was law_theocracy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
@@ -152,24 +145,15 @@
 		activate_law = law_type:law_migration_controls
 
 		add_modifier = {
-			name = br_modifier_holy_warriors
-			years = -1
-		}
-		add_modifier = {
-			name = br_modifier_jihad_called
-			years = 75
-		}
-		add_modifier = {
 			name = br_modifier_desert_culture
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_terrain_survival
 			months = -1
 		}
 
 		#In-Government
-
-		ig:ig_armed_forces = {
-			add_ruling_interest_group = yes
-			set_ig_bolstering = yes
-		}
 
 		ig:ig_devout = { 
 			add_ruling_interest_group = yes
@@ -235,8 +219,8 @@
 		
 		
 		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_monarchy #was law_theocracy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
@@ -286,8 +270,8 @@
 		
 		
 		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_monarchy #was law_theocracy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
@@ -330,14 +314,15 @@
 
 	c:YEM = {
 		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = murano_glass
 		effect_starting_politics_traditional = yes
 
 		activate_law = law_type:law_tribal_armies
 		
 		
 		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_monarchy #was law_theocracy
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
@@ -378,7 +363,6 @@
 			set_interest_group_name = ig_sunni_madrasahs 
 		}	
 	}
-
 
 	c:OMA = {
 		effect_starting_technology_tier_3_tech = yes
@@ -431,7 +415,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
