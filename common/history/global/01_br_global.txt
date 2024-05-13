@@ -94,20 +94,22 @@ GLOBAL = {
 		#	}
 		}
 
-	#	every_scope_state = {
-	#		limit = { OR = { state_region = s:STATE_GALICIA state_region = s:STATE_ASTURIAS state_region = s:STATE_NAVARRA state_region = s:STATE_KARS state_region = s:STATE_AZERBAIJAN state_region = s:STATE_GREATER_CAUCASUS state_region = s:STATE_ERZURUM
-	#		state_region = s:STATE_ARMENIA state_region = s:STATE_WALLACHIA state_region = s:STATE_MOLDAVIA } }
-	#		add_modifier = {
-	#			name = defensive_mod
-	#			years = -1
-	#		}
-	#	}
 
 	}	
 
 	c:GEN = {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_PIEDMONT } }
+			add_modifier = {
+				name = merchant_state
+				years = -1
+			}
+		}
+	}
+
+	c:NET = {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_HOLLAND } }
 			add_modifier = {
 				name = merchant_state
 				years = -1
@@ -152,105 +154,6 @@ GLOBAL = {
 			}
 		}
 	}
-
-	#Defensive 
-
-	c:CAS = {
-		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_CASTILE } }
-			add_modifier = {
-				name = defensive_mod
-				years = -1
-			}
-		}
-	}
-
-	c:CAT = {
-		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_ARAGON state_region = s:STATE_CATALONIA } }
-			add_modifier = {
-				name = defensive_mod
-				years = -1
-			}
-		}
-	}
-
-	c:GAL = {
-		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_EAST_GALICIA  } }
-			add_modifier = {
-				name = defensive_mod
-				years = -1
-			}
-		}
-	}
-
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_LOWER_EGYPT
-#		}
-#		add_modifier = {
-#			name = lepsius_lower_egypt_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_UPPER_EGYPT
-#		}
-#		add_modifier = {
-#			name = lepsius_upper_egypt_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_YUCATAN
-#		}
-#		add_modifier = {
-#			name = lepsius_yucatan_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_BAGHDAD
-#		}
-#		add_modifier = {
-#			name = lepsius_babylonia_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_MOSUL
-#		}
-#		add_modifier = {
-#			name = lepsius_assyria_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_PELOPONNESE
-#		}
-#		add_modifier = {
-#			name = lepsius_argolis_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_CRETE
-#		}
-#		add_modifier = {
-#			name = lepsius_crete_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_ICA
-#		}
-#		add_modifier = {
-#			name = lepsius_peru_modifier
-#		}
-#	}
-
-
 
 	if = {
         limit = {

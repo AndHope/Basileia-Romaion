@@ -2,7 +2,7 @@
 
 bulgarian_revolt.1 = {
 	type = country_event
-	placement = c:BUL.capital
+	placement = c:BUL2.capital
 
 	title = bulgarian_revolt.1.t
 	desc = bulgarian_revolt.1.d
@@ -24,38 +24,38 @@ bulgarian_revolt.1 = {
 	immediate = {
 		if = {
 			limit = {
-				NOT = { exists = c:BUL }
+				NOT = { exists = c:BUL2 }
 				exists = s:STATE_BULGARIA.region_state:BYZ
 			}
 			create_country = {
-				tag = BUL
+				tag = BUL2
 				origin = c:BYZ
 				state = s:STATE_BULGARIA.region_state:BYZ
 			}
 		}
 		else_if = {
 			limit = {
-				exists = c:BUL
+				exists = c:BUL2
 				exists = s:STATE_BULGARIA.region_state:BYZ
 			}
-			s:STATE_BULGARIA.region_state:BYZ = { set_state_owner = c:BUL }
+			s:STATE_BULGARIA.region_state:BYZ = { set_state_owner = c:BUL2 }
 		}
 		if = {
 			limit = { exists = s:STATE_DOBRUDJA.region_state:BYZ }
-			s:STATE_DOBRUDJA.region_state:BYZ = { set_state_owner = c:BUL }
+			s:STATE_DOBRUDJA.region_state:BYZ = { set_state_owner = c:BUL2 }
 		}
 		if = {
 			limit = {
 				NOT = {
 					any_diplomatic_play = {
-						any_scope_play_involved = { this = c:BUL }
+						any_scope_play_involved = { this = c:BUL2 }
 						any_scope_play_involved = { this = c:BYZ }
 						#is_diplomatic_play_type = dp_secession
 					}
 				}
 			}
 		}
-		c:BUL = {
+		c:BUL2 = {
 			activate_law = law_type:law_monarchy
 			activate_law = law_type:law_oligarchy
 			create_character = {
@@ -103,7 +103,7 @@ bulgarian_revolt.1 = {
 		default_option = yes
 
 	
-		c:BUL = {
+		c:BUL2 = {
 			add_modifier = {
 				name = war_for_independence
 				months = normal_modifier_time
@@ -120,10 +120,10 @@ bulgarian_revolt.1 = {
 			war = yes
 			type = dp_annex_subject #dp_secession
 
-			target_state = s:STATE_BULGARIA.region_state:BUL
+			target_state = s:STATE_BULGARIA.region_state:BUL2
 
 			#add_war_goal = {
-			#	holder = c:BUL
+			#	holder = c:BUL2
 			#	type = conquer_state
 			#	target_state = s:STATE_NORTHERN_THRACE.region_state:BYZ
 			#}
@@ -153,11 +153,11 @@ bulgarian_revolt.1 = {
 
 		c:BYZ = {
 			create_diplomatic_pact = {
-				country = c:BUL
+				country = c:BUL2
 				type = puppet
 			}
 			change_relations = {
-				country = c:BUL
+				country = c:BUL2
 				value = 50
 			}
 		}
