@@ -727,48 +727,7 @@ br_clothes = {
                     }
                 }
             }
-            modifier = {
-                add = 90000
-
-                scope:character ?= {
-                    OR = {
-                        has_template = egy_muhammad_ali_template
-                        has_template = egy_ibrahim_alawi_template
-                    }
-                }
-            }
         }
     }
 
-    br_levant_romaioi_headgear = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = headgear
-                template = arabic_turban
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 10000
-
-                scope:pop ?= {
-                    is_pop_type = shopkeepers
-                    #is_female = no
-                    owner ?= {
-                        has_law = law_type:law_monarchy
-                        OR = {
-                            c:AGY ?= this
-                            can_form_nation = AGY
-                        }
-                    }
-                    culture = {
-                        has_discrimination_trait = greek_culture
-                    }
-                }
-            }
-        }
-    }
 }

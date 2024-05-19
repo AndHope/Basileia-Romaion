@@ -1,46 +1,13 @@
 ﻿protectorate = {
 	groups= {
-		general # for breaking only
-		power_bloc
+		general
 	}
 	show_in_lens = no
 
-	potential = { # Normally only created through diplomatic demands, but can also be created if leader of a Power Bloc with the power_bloc_leader_can_make_protectorates modifier if the target is a bloc member
-		power_bloc ?= {
-			modifier:power_bloc_leader_can_make_subjects = yes
-			power_bloc_leader ?= root
-			scope:target_country.power_bloc ?= this
-		}
-		NOT = { scope:target_country = { is_subject_of = root } }
+	potential = {  # Only created through diplomatic demands
+		always = no
 	}
 	
-	possible = { # only relevant when used as a power_bloc action
-		scope:target_country = { is_subject = no }
-		power_bloc = {
-			current_cohesion_percentage > 0.4			# TODO: PRCAL-33338, finalize value
-		}
-		scope:target_country = {
-			tenure_in_current_power_bloc_years >= 5		# TODO: PRCAL-33338, finalize value
-		}
-		prestige > {
-			value = scope:target_country.prestige
-			multiply = 0.2								# TODO: PRCAL-33338, finalize value
-		}
-	}
-	
-	accept_effect = {
-		power_bloc = {
-			if = {
-				limit = { # this ensures this is invoked as a power_bloc action and not by some other means
-					modifier:power_bloc_leader_can_make_subjects = yes
-					power_bloc_leader ?= root
-					scope:target_country.power_bloc ?= this
-				}
-				add_cohesion_percent = -0.2				# TODO: PRCAL-33338, finalize value
-			}
-		}
-	}
-
 	pact = {	
 		cost = 25
 		has_junior_participant = yes
@@ -55,6 +22,10 @@
 		
 		subject_type = subject_type_protectorate	
 		
+		second_modifier = {
+			country_convoy_contribution_to_market_owner_add = 0.25
+		}
+		
 		actor_can_break = {
 			is_diplomatic_play_committed_participant = no
 		}
@@ -64,19 +35,15 @@
 		}
 
 		manual_break_effect = {
-			create_truce = { country = scope:target_country months = 60 }
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
 		}
 		
 		auto_break_effect = {
-			create_truce = { country = scope:target_country months = 60 }
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
 		}
 	}
 	
 	ai = {
-		evaluation_chance = {
-			value = 0
-		}	
-	
 		will_break = {
 			always = no			
 		}		

@@ -1,10 +1,11 @@
 ﻿british_empire_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
-		exists = c:BYZ
 		exists = home_country
 		home_country = {
-			is_subject_of = c:BYZ		
+			OR = {
+				country_has_primary_culture = cu:elysian
+			}	
 		}
 	}
 }
@@ -12,9 +13,10 @@
 british_empire_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		exists = c:BYZ
 		home_country = {
-			is_subject_of = c:BYZ		
+			OR = {
+				country_has_primary_culture = cu:elysian
+			}	
 		}
 	}
 }
@@ -22,9 +24,10 @@ british_empire_clothes_pop_trigger = {
 british_empire_clothes_p_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		exists = c:BYZ
 		home_country = {
-			is_subject_of = c:BYZ		
+			OR = {
+				country_has_primary_culture = cu:elysian
+			}	
 		}
 	}
 }
@@ -37,7 +40,6 @@ french_empire_clothes_trigger = {
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:latinoi
-				country_has_primary_culture = cu:elysian
 			}
 		}
 	}
@@ -50,7 +52,6 @@ french_empire_clothes_pop_trigger = {
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:latinoi
-				country_has_primary_culture = cu:elysian
 			}	
 		}
 	}
@@ -59,16 +60,16 @@ french_empire_clothes_pop_trigger = {
 german_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
+		exists = c:SAX
 		exists = home_country
 		home_country = {
-			is_subject = no
 			OR = {
-				country_has_primary_culture = cu:baltic_german
-				country_has_primary_culture = cu:frankish
-				country_has_primary_culture = cu:saxon
-				country_has_primary_culture = cu:colonial_german
-				country_has_primary_culture = cu:bavarian
-			}	
+				AND = {
+					c:SAX = this
+					is_subject = no # preventing uniform conflicts if FRA becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:SAX
+			}		
 		}
 	}
 }
@@ -76,15 +77,15 @@ german_clothes_trigger = {
 german_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
+		exists = c:SAX
 		home_country = {
-			is_subject = no
 			OR = {
-				country_has_primary_culture = cu:baltic_german
-				country_has_primary_culture = cu:frankish
-				country_has_primary_culture = cu:saxon
-				country_has_primary_culture = cu:colonial_german
-				country_has_primary_culture = cu:bavarian
-			}	
+				AND = {
+					c:SAX = this
+					is_subject = no # preventing uniform conflicts if FRA becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:SAX
+			}		
 		}
 	}
 }
@@ -143,6 +144,16 @@ arabic_fez_trigger = {
 					c:ALD = { has_law = law_type:law_monarchy }
 				}
 				home_country = {
+					exists = c:CNN
+					c:CNN = this
+					c:CNN = { has_law = law_type:law_monarchy }
+				}
+				home_country = {
+					exists = c:MAS
+					c:MAS = this
+					c:MAS = { has_law = law_type:law_monarchy }
+				}
+				home_country = {
 					exists = c:ANL
 					c:ANL = this
 					c:ANL = { has_law = law_type:law_monarchy }
@@ -186,6 +197,16 @@ arabic_military_fez_pop_trigger = {
 					c:ALD = { has_law = law_type:law_monarchy }
 				}
 				home_country = {
+					exists = c:CNN
+					c:CNN = this
+					c:CNN = { has_law = law_type:law_monarchy }
+				}
+				home_country = {
+					exists = c:MAS
+					c:MAS = this
+					c:MAS = { has_law = law_type:law_monarchy }
+				}
+				home_country = {
 					exists = c:ANL
 					c:ANL = this
 					c:ANL = { has_law = law_type:law_monarchy }
@@ -218,32 +239,10 @@ arabic_clothes_trigger = {
 					has_discrimination_trait = central_asian_heritage #Currently no point having a different check
 				}
 			}
-			religion = rel:oriental_orthodox
+			religion = rel:sunni
 			AND = { 
-				culture = cu:greek
+				culture = cu:mande
 				exists = home_country
-				OR = {
-					home_country = {
-						exists = c:AGY
-						c:AGY = this
-						c:AGY = { has_law = law_type:law_monarchy }
-					}
-					home_country = {
-						exists = c:SYR2
-						c:SYR2 = this
-						c:SYR2 = { has_law = law_type:law_monarchy }
-					}
-					home_country = {
-						exists = c:MES
-						c:MES = this
-						c:MES = { has_law = law_type:law_monarchy }
-					}
-					home_country = {
-						exists = c:CYR
-						c:CYR = this
-						c:CYR = { has_law = law_type:law_monarchy }
-					}
-				}
 			}
 		}
 	}        
@@ -254,34 +253,14 @@ arabic_clothes_pop_trigger = {
 	scope:pop = {
 		OR = {
 			culture = {
-				has_discrimination_trait = middle_eastern_heritage
-			}   
-			religion = rel:oriental_orthodox
-			AND = { 
-				culture = cu:greek
-				exists = home_country
 				OR = {
-					home_country = {
-						exists = c:AGY
-						c:AGY = this
-						c:AGY = { has_law = law_type:law_monarchy }
-					}
-					home_country = {
-						exists = c:SYR2
-						c:SYR2 = this
-						c:SYR2 = { has_law = law_type:law_monarchy }
-					}
-					home_country = {
-						exists = c:MES
-						c:MES = this
-						c:MES = { has_law = law_type:law_monarchy }
-					}
-					home_country = {
-						exists = c:CYR
-						c:CYR = this
-						c:CYR = { has_law = law_type:law_monarchy }
-					}
+					has_discrimination_trait = middle_eastern_heritage
 				}
+			}  
+			religion = rel:sunni
+			AND = { 
+				culture = cu:mande
+				exists = home_country
 			}
 		}
 	}
@@ -346,7 +325,6 @@ ethiopian_clothes_trigger = {
 			} 
 		culture = cu:amhara	
 		culture = cu:sudanese
-		culture = cu:mande
 		}
 	}
 }

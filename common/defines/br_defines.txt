@@ -42,9 +42,6 @@ NPops = {
 	#MAX_BASE_COLONIAL_GROWTH = 0.05	#WAS 0.1					# Country base colonial growth from population cannot be higher than this
 	#MAX_COLONIAL_GROWTH = 0.0075 #WAS 0.02
 	
-}	
-
-NPops = {
 	# Factors for creating mass migration targets
 	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.15 #was 0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
 	MASS_MIGRATION_ORIGIN_MIN_EMIGRANTS = 100000		# A country must have at least this many possible migrants to trigger a mass migration
@@ -60,6 +57,7 @@ NPops = {
 	MASS_MIGRATION_COOLDOWN_MONTHS = 30 #was 60				# How many months before the same culture can mass migrate from a country again
 	MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY = 5	# Countries with at least this number of possible target states do not receive any penalty to their mass migration target score
 	MASS_MIGRATION_FEW_TARGET_STATES_PENALTY = 0.25		# Mass migration target score is divided by ( 1 + this * number of possible target states less than MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY )
+	
 }
 
 NEconomy = {
@@ -81,6 +79,27 @@ NDiplomacy = {
 
 	# Tension is used instead of relations by colonizable countries
 	TENSION_DECAY_RATE = 2.5 # Per year was 5
+
+	ECONOMIC_DEPENDENCE_MIN = 0
+	ECONOMIC_DEPENDENCE_MAX = 2.5 #was 5
+	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_FACTOR = 2.5	#was 5 		# Ex. if you own 15% of the other country's GDP, that works out to +0.75
+	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MIN = 0
+	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MAX = 2.5 #was 5
+	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_FACTOR = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MIN = 0
+	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MAX = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_FACTOR = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MIN = 0
+	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MAX = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_FACTOR = 0.5 #was 1	# The total £ imbalance of goods dependence between this country and another is multiplied by this to get the final factor
+	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MIN = -0.5 #was 1		# At best, a country's pop goods dependence on another can approach a -100% factor on Economic Dependence
+	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MAX = 1 #was 3		# At worst, a country's pop goods dependence on another can approach a 300% factor on Economic Dependence
+	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_FACTOR = 0.5 #was 1		# The total £ imbalance of goods dependence between another country and this is multiplied by this to get the final factor
+	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MIN = -0.25	#was 0.5	# At best, a country's pop goods dependence on another can approach a -50% factor on Economic Dependence
+	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MAX = 0			# A country's goods dependence cannot get worse than zero by the other country's dependence on its goods
+	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_FACTOR = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MIN = 0
+	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MAX = 0.5 #was 1
 }
 
 NMilitary = {

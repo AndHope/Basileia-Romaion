@@ -1,5 +1,5 @@
 ﻿CHARACTERS = {
-	c:DEN = {
+	c:DEN ?= {
 		create_character = {
 			# Frederick VI of Denmark
 			first_name = "Frederik"
@@ -12,6 +12,7 @@
 			ideology = ideology_traditionalist
 			#hq_region = sr:region_england
 			traits = {
+				basic_political_operator
 				imperious
 				brave
 				innovative
@@ -35,6 +36,7 @@
 			interest_group = ig_landowners
 			ideology = ideology_traditionalist
 			traits = {
+				basic_political_operator
 				cautious
 			}
 			on_created = {
@@ -43,89 +45,149 @@
 		}
 
 		create_character = {
-			first_name = "Otto"
-			last_name = "von_Moltke"
-			birth_date = 1670.1.1
+			# Poul Christian von Stemann, Leading minister, and the "grand old man" of Danish absolutism
+			first_name = "Poul_Christian"
+			last_name = "von_Stemann"
+			birth_date = 1664.4.14
 			ig_leader = yes
+			interest_group = ig_landowners
+			ideology = ideology_authoritarian
+			traits = {
+				master_bureaucrat
+				basic_political_operator
+				arrogant
+			}
+		}
+		create_character = {
+			# Johan Christian Drewsen, agronomist, farmer, industrialist, and co-founder of the Society of the Friends of Peasants
+			first_name = Johan_Christian
+			last_name = Drewsen
+			culture = cu:danish
+			birth_date = 1677.12.23
+			ig_leader = yes
+			interest_group = ig_rural_folk
+			ideology = ideology_reformer
+			traits = {
+				erudite
+				basic_political_operator
+			}
+		}
+		create_character = {
+			# Joakim Frederik Schouw, lawyer, botanist, and a leading figure in the National Liberal movement
+			first_name = Joakim_Frederik
+			last_name = Schouw
+			culture = cu:danish
+			birth_date = 1689.2.7
+			ig_leader = yes
+			interest_group = ig_intelligentsia
+			ideology = ideology_reformer
+			traits = {
+				erudite
+				reserved
+			}
+		}
+		create_character = {
+			# Jacob Peter Mynster, theologian, Bishop of Zealand, famously singled out by Søren Kirkegaard as an example of conservative Christianity
+			first_name = Jacob_Peter
+			last_name = Mynster
+			culture = cu:danish
+			birth_date = 1675.11.8
+			ig_leader = yes
+			interest_group = ig_devout
+			ideology = ideology_traditionalist
+			traits = {
+				erudite
+				pious
+			}
+		}
+		create_character = {
+			# Hans Caspersen, anchor smith, industrialist, and member of the "32 Men" of Copenhagen
+			first_name = Hans
+			last_name = Caspersen
+			culture = cu:danish
+			birth_date = 1682.7.7
+			ig_leader = yes
+			interest_group = ig_industrialists
+			ideology = ideology_moderate
+			traits = {
+				engineer # smith
+				tactful
+				basic_diplomat
+			}
+		}
+		create_character = {
+			# Merchant, businessman, and "near-National Liberal" politician
+			first_name = Lauritz_Nicolai
+			last_name = Hvidt
+			culture = cu:danish
+			birth_date = 1677.10.27
+			ig_leader = yes
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_reformer
+			traits = {
+				master_bureaucrat
+				meticulous
+				basic_political_operator
+			}
+		}
+		create_character = {
+			# Frantz Christopher von Bülow, "chief" of both army and court
+			first_name = Frantz
+			last_name = von_Bulow
+			culture = cu:danish
+			birth_date = 1677.12.23
+			ig_leader = yes
+			interest_group = ig_armed_forces
+			ideology = ideology_royalist
+			traits = {
+				arrogant
+				traditionalist_commander
+			}
+		}
+		create_character = {
+			# Gerhard Christoph von Krogh, nobleman, general, and chief commander of the Danish forces in the First Slesvig War
+			is_general = yes
+			first_name = Christoph
+			last_name = von_Krogh
+			culture = cu:danish
+			birth_date = 1685.10.10
 			interest_group = ig_landowners
 			ideology = ideology_royalist
 			traits = {
+				basic_offensive_planner
+				direct
+				expert_defensive_strategist
+			}
+		}
+		create_character = {
+			# Christian Julius de Meza, general in charge of Danish forces in the Second Slesvig War
+			is_general = yes
+			first_name = Christian
+			last_name = de_Meza
+			culture = cu:danish # but of Sephardi stock
+			birth_date = 1692.1.14
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			traits = {
 				cautious
-			}
-		}
-
-		create_character = {
-			is_general = yes
-			first_name = Olaf
-			last_name = Rye
-			age = 45
-			culture = cu:norwegian
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_1
-			#hq_region = sr:region_north_sea_coast
-			traits = {
-				wrathful
-				scarred
-				pillager
-				mountain_commander
-				expert_offensive_planner
-				basic_defensive_strategist
-				}
-		}
-
-		create_character = {
-			is_general = yes
-			age = 40
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_1
-			traits = {
-				resupply_commander
-				surveyor
-				mountain_commander
-				expert_offensive_planner
-				basic_defensive_strategist
-			}
-		}
-
-		create_character = {
-			is_general = yes
-			age = 40
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_1
-			traits = {
-				resupply_commander
-				surveyor
-				mountain_commander
-				expert_offensive_planner
-				basic_defensive_strategist
+				basic_artillery_commander
+				expert_defensive_strategist
 			}
 		}
 		create_character = {
-			is_general = yes
-			age = 40
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			traits = {
-			wrathful
-			scarred
-			pillager
-			mountain_commander
-			expert_offensive_planner
-			basic_defensive_strategist
-			}
-		}
-
-		create_character = { 
+			# Andreas Schifter, admiral, shipbuilder and ley figure in the transition of the Danish navy from sail to steam
 			is_admiral = yes
+			first_name = Andreas
+			last_name = Schifter
+			culture = cu:danish
+			birth_date = 1679.8.25
 			interest_group = ig_armed_forces
-			birth_date = 1673.7.25
-			commander_rank = commander_rank_1
+			ideology = ideology_reformer	
 			traits = {
 				dockyard_master
-				basic_naval_commander
 				innovative
+				master_bureaucrat
 			}
 		}
-
 	}
 }
