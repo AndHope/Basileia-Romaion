@@ -11,6 +11,7 @@ merchant_state = {
 	state_building_port_max_level_add = 2
 	state_building_naval_base_max_level_add = 10
 	state_market_access_price_impact = 0.1
+	country_allow_trade_routes_without_interest_bool = yes
 }	
 
 br_modifier_italy_venetian_arsenal = {
@@ -83,10 +84,80 @@ patriarch_antioch = {
 	tax_heathen_add = 0.05
 }
 
+#Autocephalous Patriarchates 
+
+subservient_patriarch = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_clergy_negative.dds #TO-DO rework this 
+	state_conversion_mult = -0.1
+	country_legitimacy_base_add = -10
+	country_prestige_mult = -0.1
+	interest_group_ig_devout_approval_add = -2
+	country_authority_mult = -0.2
+	country_liberty_desire_add = -0.1
+}
+
+autocephalous_patriarchate_belgrade = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_clergy_positive.dds
+	country_clergymen_pol_str_mult = 0.05
+	state_conversion_mult = 0.05
+	tax_heathen_add = 0.05
+	country_liberty_desire_add = 0.2
+	country_authority_per_subject_add = 5
+	country_influence_per_subject_add = 5 # might not be working but might just be UI
+	country_prestige_per_subject_add = 5 # might not be working but might just be UI
+}
+
+autocephalous_patriarchate_alexandria = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_clergy_positive.dds
+	country_clergymen_pol_str_mult = 0.1
+	state_conversion_mult = 0.1
+	tax_heathen_add = 0.1
+	country_authority_per_subject_add = 10
+	country_influence_per_subject_add = 10 # might not be working but might just be UI
+	country_prestige_per_subject_add = 10 # might not be working but might just be UI
+}
+
+autocephalous_patriarchate_ani = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_clergy_positive.dds
+	country_clergymen_pol_str_mult = 0.05
+	state_conversion_mult = 0.05
+	tax_heathen_add = 0.05
+	country_liberty_desire_add = 0.2
+}
+
+autocephalous_patriarchate_tblisi = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_clergy_positive.dds
+	country_clergymen_pol_str_mult = 0.05
+	state_conversion_mult = 0.05
+	tax_heathen_add = 0.05
+	country_liberty_desire_add = 0.2
+}
+
+autocephalous_patriarchate_moscow = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_clergy_positive.dds
+	country_clergymen_pol_str_mult = 0.1
+	state_conversion_mult = 0.1
+	tax_heathen_add = 0.1
+	country_authority_per_subject_add = 10
+	country_influence_per_subject_add = 10 # might not be working but might just be UI
+	country_prestige_per_subject_add = 10 # might not be working but might just be UI
+}
+
+autocephalous_patriarchate_elysium = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_clergy_positive.dds
+	country_clergymen_pol_str_mult = 0.1
+	state_conversion_mult = 0.1
+	tax_heathen_add = 0.1
+	country_authority_per_subject_add = 10
+	country_influence_per_subject_add = 10 # might not be working but might just be UI
+	country_prestige_per_subject_add = 10 # might not be working but might just be UI
+}
+
 bulgarian_resistance = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	state_radicals_from_discrimination_mult = 0.25
+	#state_radicals_from_discrimination_mult = 0.25
 	#state_bulgarian_standard_of_living_add = -1
+	country_liberty_desire_add = 0.2
 }
 
 cossacks = {
@@ -101,7 +172,7 @@ cossacks = {
 	#state_conscription_rate_add = 0.03
 	unit_supply_consumption_mult = -0.25
 	building_mobilization_cost_mult = -0.25
-	#state_disallow_incorporation = yes
+	state_disallow_incorporation_bool = yes
 }
 
 autonomous_state = {
@@ -112,7 +183,7 @@ autonomous_state = {
 	state_assimilation_mult = -0.5
 	state_tax_capacity_mult = -0.25
 	state_market_access_price_impact = -0.1
-	#state_disallow_incorporation = yes
+	state_disallow_incorporation_bool = yes 
 }
 
 defensive_mod = {

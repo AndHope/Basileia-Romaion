@@ -142,8 +142,8 @@ ai_strategy_default = {
 			limit = {
 				exists = c:CHI
 				THIS = c:CHI
-				exists = c:CH1
-				is_diplomatic_play_enemy_of = c:CH1
+				exists = c:br_great_yuan
+				is_diplomatic_play_enemy_of = c:br_great_yuan
 			}
 			add = 1000
 		}
@@ -370,7 +370,7 @@ ai_strategy_default = {
 	state_value = {
 		value = 0		
 
-		if = { # PUT STATE SCORES INSIDE THE BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE STATES
+		if = { # PUT STATE SCORES INSIDE br_taurica BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE STATES
 		
 			limit = {	
 				OR = {
@@ -902,7 +902,7 @@ ai_strategy_default = {
 	subject_value = {
 		value = 0
 				
-		# PUT ALL REGULAR SUBJECT SCORES INSIDE THE BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE SUBJECTS
+		# PUT ALL REGULAR SUBJECT SCORES INSIDE br_taurica BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE SUBJECTS
 		if = {
 			limit = {		
 				OR = {
@@ -1684,6 +1684,31 @@ ai_strategy_default = {
 			multiply = 0.9
 		}	
 
+		if = {
+			limit =  { has_modifier = norse_military_doctrine }
+			multiply = 2.5
+		}	
+		if = {
+			limit =  { has_modifier = br_modifier_anti_colonialism }
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_horde_khanate } 
+			multiply = 1.5
+		}
+		if = {
+			limit =  { has_modifier = tribal_warriors } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_warriors } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_jihad_called } 
+			multiply = 5
+		}
+
 		# Factor in strategies
 		if = {
 			limit = { 
@@ -1752,12 +1777,12 @@ ai_strategy_default = {
 		}
 
 		if = {
-			limit = { has_strategy = ai_strategy_trade_republic_agenda }
-			multiply = 2.5
+			limit = { has_strategy = ai_strategy_trade_imperialism }
+			multiply = 5
 		}
 
 		if = {
-			limit = { has_strategy = ai_strategy_trade_imperialism }
+			limit =  { has_modifier = br_modifier_italy_gunboat_trade_diplomacy }
 			multiply = 5
 		}
 

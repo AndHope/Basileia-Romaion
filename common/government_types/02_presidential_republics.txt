@@ -8,7 +8,7 @@
 		has_law = law_type:law_presidential_republic
 		or = {
 			AND = { exists = c:VEN c:VEN = ROOT }
-			AND = { exists = c:GEN c:GEN = ROOT }
+			AND = { exists = c:br_genoa c:br_genoa = ROOT }
 		}	
 	}
 
@@ -32,8 +32,8 @@ gov_chartered_company = {
 		has_law = law_type:law_presidential_republic
 		OR = {
 			AND = {
-				exists = c:VAC
-				c:VAC = ROOT
+				exists = c:br_venice_africa_company
+				c:br_venice_africa_company = ROOT
 				is_country_type = colonial
 				any_primary_culture = {
 					has_discrimination_trait = european_heritage
@@ -41,8 +41,8 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
-				exists = c:GAC
-				c:GAC = ROOT
+				exists = c:br_genonese_africa_company
+				c:br_genonese_africa_company = ROOT
 				is_country_type = colonial
 				any_primary_culture = {
 					has_discrimination_trait = european_heritage
@@ -50,8 +50,8 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
-				exists = c:RIC
-				c:RIC = ROOT
+				exists = c:br_romaioi_india_company
+				c:br_romaioi_india_company = ROOT
 				is_country_type = colonial
 				any_primary_culture = {
 					has_discrimination_trait = european_heritage
@@ -59,8 +59,8 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
-				exists = c:ATC
-				c:ATC = ROOT
+				exists = c:br_dutch_west_indies
+				c:br_dutch_west_indies = ROOT
 				is_country_type = colonial
 				any_primary_culture = {
 					has_discrimination_trait = european_heritage
@@ -77,8 +77,8 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
-				exists = c:NWC
-				c:NWC = ROOT
+				exists = c:br_new_world_company
+				c:br_new_world_company = ROOT
 				is_country_type = colonial
 				any_primary_culture = {
 					has_discrimination_trait = european_heritage
@@ -145,8 +145,8 @@ gov_colonial_administration = {
 				country_is_in_europe = no
 			}
 			AND = {
-				exists = c:GEN
-				is_subject_of = c:GEN
+				exists = c:br_genoa
+				is_subject_of = c:br_genoa
 				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }

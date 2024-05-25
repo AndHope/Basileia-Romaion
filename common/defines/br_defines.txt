@@ -81,25 +81,27 @@ NDiplomacy = {
 	TENSION_DECAY_RATE = 2.5 # Per year was 5
 
 	ECONOMIC_DEPENDENCE_MIN = 0
-	ECONOMIC_DEPENDENCE_MAX = 2.5 #was 5
-	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_FACTOR = 2.5	#was 5 		# Ex. if you own 15% of the other country's GDP, that works out to +0.75
+	ECONOMIC_DEPENDENCE_MAX = 2 #5
+	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_FACTOR = 2	#5			# Ex. if you own 15% of the other country's GDP, that works out to +0.75
 	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MIN = 0
-	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MAX = 2.5 #was 5
-	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_FACTOR = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MAX = 2 #5
+	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_FACTOR = 0.5 #1
 	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MIN = 0
-	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MAX = 0.5 #was 1
-	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_FACTOR = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MAX = 0.5 #1
+	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_FACTOR = 0.5 #1
 	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MIN = 0
-	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MAX = 0.5 #was 1
-	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_FACTOR = 0.5 #was 1	# The total £ imbalance of goods dependence between this country and another is multiplied by this to get the final factor
-	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MIN = -0.5 #was 1		# At best, a country's pop goods dependence on another can approach a -100% factor on Economic Dependence
-	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MAX = 1 #was 3		# At worst, a country's pop goods dependence on another can approach a 300% factor on Economic Dependence
-	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_FACTOR = 0.5 #was 1		# The total £ imbalance of goods dependence between another country and this is multiplied by this to get the final factor
-	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MIN = -0.25	#was 0.5	# At best, a country's pop goods dependence on another can approach a -50% factor on Economic Dependence
+	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MAX = 0.5 #1
+	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_FACTOR = 0.5 #1	# The total £ imbalance of goods dependence between this country and another is multiplied by this to get the final factor
+	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MIN = -0.5 #-1		# At best, a country's pop goods dependence on another can approach a -100% factor on Economic Dependence
+	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MAX = 1 #3		# At worst, a country's pop goods dependence on another can approach a 300% factor on Economic Dependence
+	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_FACTOR = 0.5 #1		# The total £ imbalance of goods dependence between another country and this is multiplied by this to get the final factor
+	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MIN = -0.5		# At best, a country's pop goods dependence on another can approach a -50% factor on Economic Dependence
 	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MAX = 0			# A country's goods dependence cannot get worse than zero by the other country's dependence on its goods
-	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_FACTOR = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_FACTOR = 0.5 #1
 	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MIN = 0
-	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MAX = 0.5 #was 1
+	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MAX = 0.5 #1
+
+
 }
 
 NMilitary = {
@@ -133,7 +135,12 @@ NMilitary = {
 }
 
 NPowerBlocs = {
-	MIN_MEMBERS = 1 					# This is the minimum number of members that the bloc needs to have to be considered active. Members include the leader.
+	LEVERAGE_LOBBY_CLOUT_FACTOR = 300 #500	# Leverage gain is increased or decreased by the Lobby's total Clout * this factor
+	COHESION_WEEKLY_DRIFT_MAX = 0.5 #1		# At most, Cohesion will drift by +/- this value each week
+	POWER_BLOC_INFLUENCE_COST = 300 #500		# Cost in Influence to form / be the leader of a Power Bloc
+	LEVERAGE_WEEKLY_DRIFT_FACTOR = 0.01 #0.02	# The delta between current Leverage and Target Leverage will be multiplied by this to determine the weekly Leverage drift
+	LEVERAGE_WEEKLY_DRIFT_MIN = 0.5 #1		# At minimum, Leverage will drift by +/- this value each week, up/down to the target
+	LEVERAGE_INIT_SAME_BLOC_MEMBER_FACTOR = 1 #0.8	# During initialization, multiply calculated target leverage by this if country is member of the bloc in question
 }
 
 NWar = {
@@ -142,11 +149,7 @@ NWar = {
 	#DEVASTATION_DECAY_RATE = -0.03 # Per day, when there are no occupations
 	#DEVASTATION_FROM_BATTLES = 0.1 # For each battle
 
-	#DAYS_BETWEEN_WAR_EXHAUSTION = 30 # Every this many days war support will be reduced by the war exhaustion formula
-	#WAR_EXHAUSTION_BASE = 0.25
- 	#WAR_EXHAUSTION_KIA_FACTOR = 50.0 # Scaled by casualties compared to total manpower
-
-	#MAX_SIMULTANEOUS_BATTLES = 1                    # Allows to spawn up to MAX_SIMULTANEOUS_BATTLES as long as you have that many generals with advance orders.
+	DAYS_BETWEEN_WAR_EXHAUSTION = 14 # 7 Every this many days war support will be reduced by the war exhaustion formula
 
 }
 
