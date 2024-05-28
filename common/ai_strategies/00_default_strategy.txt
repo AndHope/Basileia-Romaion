@@ -370,7 +370,7 @@ ai_strategy_default = {
 	state_value = {
 		value = 0		
 
-		if = { # PUT STATE SCORES INSIDE br_taurica BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE STATES
+		if = { # PUT STATE SCORES INSIDE THE BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE STATES
 		
 			limit = {	
 				OR = {
@@ -902,7 +902,7 @@ ai_strategy_default = {
 	subject_value = {
 		value = 0
 				
-		# PUT ALL REGULAR SUBJECT SCORES INSIDE br_taurica BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE SUBJECTS
+		# PUT ALL REGULAR SUBJECT SCORES INSIDE THE BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE SUBJECTS
 		if = {
 			limit = {		
 				OR = {
@@ -1496,17 +1496,40 @@ ai_strategy_default = {
 			add = 25
 		}
 
-		# Extra french aggression for Haiti renouncing debt payments
 		if = {
-			limit = {
-				has_variable = haiti_stops_paying_france_aggressor				
-				scope:target_country = {
-					has_variable = haiti_stops_paying_france_target
-					any_state = {
-						has_claim_by = root
-					}
-				}				
-			}
+			limit =  { has_modifier = norse_military_doctrine }
+			add = 5
+		}	
+		if = {
+			limit =  { has_modifier = br_modifier_anti_colonialism }
+			add = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_horde_khanate } 
+			add = 15
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_warriors } 
+			add = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_jihad_called } 
+			add = 10
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_aggressive_bonus } 
+			add = 10
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_moscow } 
+			add = 15
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_african_colony } 
+			add = 5
+		}
+		if = {
+			limit =  { has_modifier = spice_income }
 			add = 5
 		}
 
@@ -1638,7 +1661,7 @@ ai_strategy_default = {
 			value = cached_ai_incorporated_population
 			divide = 100000 # 1 level of barracks per 100k incorporated population	
 			
-			max = 10
+			max = 20
 		}			
 	
 		add = {
@@ -1661,27 +1684,27 @@ ai_strategy_default = {
 		# More advanced standing armies are expensive and should be smaller relative to population
 		if = {
 			limit = { has_technology_researched = line_infantry }
-			multiply = 0.9
+			multiply = 0.8
 		}
 
 		if = {
 			limit = { has_technology_researched = general_staff }
-			multiply = 0.9
+			multiply = 0.8
 		}
 
 		if = {
 			limit = { has_technology_researched = trench_works }
-			multiply = 0.9
+			multiply = 0.8
 		}
 
 		if = {
 			limit = { has_technology_researched = nco_training }
-			multiply = 0.9
+			multiply = 0.8
 		}
 		
 		if = {
 			limit = { has_technology_researched = mobile_armor }
-			multiply = 0.9
+			multiply = 0.8
 		}	
 
 		if = {
@@ -1707,6 +1730,30 @@ ai_strategy_default = {
 		if = {
 			limit =  { has_modifier = br_modifier_jihad_called } 
 			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_aggressive_bonus } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_defensive_bonus } 
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_moscow } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_african_colony } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = spice_income }
+			multiply = 2
 		}
 
 		# Factor in strategies
@@ -1783,7 +1830,15 @@ ai_strategy_default = {
 
 		if = {
 			limit =  { has_modifier = br_modifier_italy_gunboat_trade_diplomacy }
-			multiply = 5
+			multiply = 4
+		}
+		if = {
+			limit =  { has_modifier = spice_income }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = norse_naval_tradition }
+			multiply = 3
 		}
 
 		# Factor in strategies
@@ -2003,6 +2058,12 @@ ai_strategy_default = {
 				country_rank >= rank_value:major_power
 			}
 		}
+		horse = {
+			stance = wants_high_supply
+			trigger = {
+				country_rank >= rank_value:major_power
+			}
+		}
 		clippers = {
 			stance = wants_high_supply
 			trigger = {
@@ -2076,6 +2137,13 @@ ai_strategy_default = {
 			trigger = {
 				has_building = building_textile_mills
 				has_technology_researched = lathe
+			}
+		}
+		spices = { 
+			stance = wants_high_supply 
+			trigger = {
+				has_building = building_food_industry
+				total_population >= 1000000
 			}
 		}
 		silk = { 
@@ -2310,8 +2378,21 @@ ai_strategy_default = {
 											
 				}
 				
-				add = 100					
-			}
+				add = 100	
+
+				if = {
+					limit = {
+						scope:target_country = { 
+							has_secret_goal = {
+								who = root
+								secret_goal = reconcile
+							}						
+						}											
+					}
+					
+					add = 200				
+				}					
+			}	
 
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
@@ -3183,6 +3264,17 @@ ai_strategy_default = {
 				multiply = 0.0	
 			}
 			
+			# AI shouldn't be aggressive against subjects of subjects
+			if = {
+				limit = {	
+					scope:target_country = { 
+						is_subject_of = root 
+						NOT = { is_direct_subject_of = root }
+					}	
+				}
+				multiply = 0.0	
+			}			
+			
 			if = {
 				limit = { scope:target_country = { is_still_learning = yes } }
 				multiply = 0
@@ -3191,11 +3283,11 @@ ai_strategy_default = {
 			# Countries scripted to have a friendly pact, historical overlord status or same power bloc shouldn't start with randomly generated hostile goals
 			if = {
 				limit = { 
-					game_date < 1836.1.2
+					game_date < 1736.1.2
 					OR = {
 						is_in_same_power_bloc = scope:target_country
 						has_friendly_diplomatic_pact = { TARGET = scope:target_country }
-						scope:target_country = { NOT = { any_overlord_or_above = { this = root } } }
+						scope:target_country = { is_subject_of = root }	
 					}				
 				}
 				multiply = 0
