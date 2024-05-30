@@ -2,7 +2,7 @@
 	is_shown = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		has_modifier = romaioi_bureaucratic_corruption
+		has_modifier = br_modifier_romaioi_bureaucratic_corruption
 		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
@@ -10,12 +10,12 @@
 		exists = c:BYZ
 		ROOT = c:BYZ
 		NOT = { has_law = law_type:law_hereditary_bureaucrats }
-		has_modifier = romaioi_bureaucratic_corruption
+		has_modifier = br_modifier_romaioi_bureaucratic_corruption
 		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
 	when_taken = {
-		remove_modifier = romaioi_bureaucratic_corruption
+		remove_modifier = br_modifier_romaioi_bureaucratic_corruption
 		custom_tooltip = palaiologos.3.tt2
 		add_modifier = {
 			name = dealing_with_corruption
@@ -43,21 +43,21 @@
 
 		ig:ig_intelligentsia = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
 
 		ig:ig_landowners = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
-				name = romaioi_ig_angry
+				name = br_modifier_ig_angry
 				months = normal_modifier_time
 			}
 		}
@@ -72,7 +72,7 @@ end_latin_privileges = {
 	is_shown = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		has_modifier = latin_privileges
+		has_modifier = br_modifier_latin_privileges
 		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
@@ -81,12 +81,12 @@ end_latin_privileges = {
 		ROOT = c:BYZ
 		has_law = law_type:law_interventionism
 		has_law = law_type:law_protectionism
-		has_modifier = latin_privileges
+		has_modifier = br_modifier_latin_privileges
 		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
 
 	when_taken = {
-		remove_modifier = latin_privileges
+		remove_modifier = br_modifier_latin_privileges
 		#activate_law = law_type:law_state_religion
 		custom_tooltip = palaiologos.3.tt2
 		hidden_effect = {
@@ -103,14 +103,14 @@ end_latin_privileges = {
 			}
 		}	
 		add_modifier = {
-			name = anti_latin_policies
+			name = br_modifier_anti_latin_policies
 			months = 52
 		}
 		change_infamy = 25
 
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
@@ -135,7 +135,7 @@ end_latin_privileges_ELY = {
 	is_shown = {
 		exists = c:br_elysium
 		ROOT = c:br_elysium
-		has_modifier = latin_privileges
+		has_modifier = br_modifier_latin_privileges
 	}
 
 	possible = {
@@ -143,19 +143,19 @@ end_latin_privileges_ELY = {
 		ROOT = c:br_elysium
 		has_law = law_type:law_interventionism
 		has_law = law_type:law_protectionism
-		has_modifier = latin_privileges
+		has_modifier = br_modifier_latin_privileges
 	}
 
 	when_taken = {
-		remove_modifier = latin_privileges
+		remove_modifier = br_modifier_latin_privileges
 		activate_law = law_type:law_interventionism
 		add_modifier = {
-			name = anti_latin_policies
+			name = br_modifier_anti_latin_policies
 			months = 52
 		}
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
@@ -215,7 +215,7 @@ end_latin_privileges_TAT= {
 	is_shown = {
 		exists = c:br_tartaria
 		ROOT = c:br_tartaria
-		has_modifier = latin_privileges
+		has_modifier = br_modifier_latin_privileges
 	}
 
 	possible = {
@@ -223,19 +223,19 @@ end_latin_privileges_TAT= {
 		ROOT = c:br_tartaria
 		has_law = law_type:law_interventionism
 		has_law = law_type:law_protectionism
-		has_modifier = latin_privileges
+		has_modifier = br_modifier_latin_privileges
 	}
 
 	when_taken = {
-		remove_modifier = latin_privileges
+		remove_modifier = br_modifier_latin_privileges
 		activate_law = law_type:law_interventionism
 		add_modifier = {
-			name = anti_latin_policies
+			name = br_modifier_anti_latin_policies
 			months = 52
 		}
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
@@ -296,8 +296,8 @@ romaioi_themata_decision = {
 		exists = c:BYZ
 		ROOT = c:BYZ
 		OR = {
-			has_modifier = romaioi_tagmata_primacy
-			has_modifier = romaioi_corrupt_pronoia
+			has_modifier = br_modifier_tagmata_primacy
+			has_modifier = br_modifier_corrupt_pronoia
 		}
 	}
 
@@ -309,8 +309,8 @@ romaioi_themata_decision = {
 			has_law = law_type:law_homesteading
 		}
 		OR = {
-			has_modifier = romaioi_tagmata_primacy
-			has_modifier = romaioi_corrupt_pronoia
+			has_modifier = br_modifier_tagmata_primacy
+			has_modifier = br_modifier_corrupt_pronoia
 		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 	}
@@ -318,9 +318,9 @@ romaioi_themata_decision = {
 	when_taken = {
 		if = {
 			limit = {
-				has_modifier = romaioi_corrupt_pronoia
+				has_modifier = br_modifier_corrupt_pronoia
 			}
-			remove_modifier = romaioi_corrupt_pronoia
+			remove_modifier = br_modifier_corrupt_pronoia
 			add_loyalists = {
 				pop_type = peasants
 				culture = cu:greek
@@ -329,12 +329,12 @@ romaioi_themata_decision = {
 		}
 		if = {
 			limit = {
-				has_modifier = romaioi_tagmata_primacy
+				has_modifier = br_modifier_tagmata_primacy
 			}
-			remove_modifier = romaioi_tagmata_primacy
+			remove_modifier = br_modifier_tagmata_primacy
 			ig:ig_armed_forces = {
 				add_modifier = {
-					name = romaioi_ig_very_angry
+					name = br_modifier_ig_very_angry
 					months = normal_modifier_time
 				}
 			}
@@ -346,7 +346,7 @@ romaioi_themata_decision = {
 		}
 
 		add_modifier = {
-			name = romaioi_themata_primacy
+			name = br_modifier_themata_primacy
 			months = -1
 		}
 
@@ -373,8 +373,8 @@ romaioi_tagmata_decision = {
 		exists = c:BYZ
 		ROOT = c:BYZ
 		OR = {
-			has_modifier = romaioi_themata_primacy
-			has_modifier = romaioi_reformed_pronoia
+			has_modifier = br_modifier_themata_primacy
+			has_modifier = br_modifier_reformed_pronoia
 		}
 	}
 
@@ -383,8 +383,8 @@ romaioi_tagmata_decision = {
 		ROOT = c:BYZ
 		has_law = law_type:law_professional_army
 		OR = {
-			has_modifier = romaioi_themata_primacy
-			has_modifier = romaioi_reformed_pronoia
+			has_modifier = br_modifier_themata_primacy
+			has_modifier = br_modifier_reformed_pronoia
 		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 	}
@@ -393,12 +393,12 @@ romaioi_tagmata_decision = {
 		custom_tooltip = palaiologos.3.tt2
 		if = {
 			limit = {
-				has_modifier = romaioi_reformed_pronoia
+				has_modifier = br_modifier_reformed_pronoia
 			}
-			remove_modifier = romaioi_reformed_pronoia
+			remove_modifier = br_modifier_reformed_pronoia
 			ig:ig_landowners = {
 				add_modifier = {
-					name = romaioi_ig_very_angry
+					name = br_modifier_ig_very_angry
 					months = normal_modifier_time
 				}
 			}
@@ -411,9 +411,9 @@ romaioi_tagmata_decision = {
 		}
 		if = {
 			limit = {
-				has_modifier = romaioi_themata_primacy
+				has_modifier = br_modifier_themata_primacy
 			}
-			remove_modifier = romaioi_themata_primacy
+			remove_modifier = br_modifier_themata_primacy
 			hidden_effect = {
 				trigger_event = {
 					id = anatolian_revolt.2
@@ -423,7 +423,7 @@ romaioi_tagmata_decision = {
 		}
 
 		add_modifier = {
-			name = romaioi_tagmata_primacy
+			name = br_modifier_tagmata_primacy
 			months = -1
 		}
 
@@ -458,8 +458,8 @@ notbyz_themata_decision = {
 			country_has_primary_culture = cu:elysian
 		}
 		OR = {
-			has_modifier = romaioi_tagmata_primacy
-			has_modifier = romaioi_corrupt_pronoia
+			has_modifier = br_modifier_tagmata_primacy
+			has_modifier = br_modifier_corrupt_pronoia
 		}
 		NOT = { ROOT = c:BYZ }
 	}
@@ -474,8 +474,8 @@ notbyz_themata_decision = {
 			has_law = law_type:law_homesteading
 		}
 		OR = {
-			has_modifier = romaioi_tagmata_primacy
-			has_modifier = romaioi_corrupt_pronoia
+			has_modifier = br_modifier_tagmata_primacy
+			has_modifier = br_modifier_corrupt_pronoia
 		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 		NOT = { ROOT = c:BYZ }
@@ -484,9 +484,9 @@ notbyz_themata_decision = {
 	when_taken = {
 		if = {
 			limit = {
-				has_modifier = romaioi_corrupt_pronoia
+				has_modifier = br_modifier_corrupt_pronoia
 			}
-			remove_modifier = romaioi_corrupt_pronoia
+			remove_modifier = br_modifier_corrupt_pronoia
 			add_loyalists = {
 				pop_type = peasants
 				value = 0.15
@@ -494,12 +494,12 @@ notbyz_themata_decision = {
 		}
 		if = {
 			limit = {
-				has_modifier = romaioi_tagmata_primacy
+				has_modifier = br_modifier_tagmata_primacy
 			}
-			remove_modifier = romaioi_tagmata_primacy
+			remove_modifier = br_modifier_tagmata_primacy
 			ig:ig_armed_forces = {
 				add_modifier = {
-					name = romaioi_ig_very_angry
+					name = br_modifier_ig_very_angry
 					months = normal_modifier_time
 				}
 			}
@@ -510,7 +510,7 @@ notbyz_themata_decision = {
 		}
 
 		add_modifier = {
-			name = romaioi_themata_primacy
+			name = br_modifier_themata_primacy
 			months = -1
 		}
 
@@ -537,8 +537,8 @@ notbyz_tagmata_decision = {
 			country_has_primary_culture = cu:elysian
 		}
 		OR = {
-			has_modifier = romaioi_themata_primacy
-			has_modifier = romaioi_reformed_pronoia
+			has_modifier = br_modifier_themata_primacy
+			has_modifier = br_modifier_reformed_pronoia
 		}
 		NOT = { ROOT = c:BYZ }
 	}
@@ -550,8 +550,8 @@ notbyz_tagmata_decision = {
 		}
 		has_law = law_type:law_professional_army
 		OR = {
-			has_modifier = romaioi_themata_primacy
-			has_modifier = romaioi_reformed_pronoia
+			has_modifier = br_modifier_themata_primacy
+			has_modifier = br_modifier_reformed_pronoia
 		}
 		NOT = { has_modifier = romaioi_military_reorganization }
 		NOT = { ROOT = c:BYZ }
@@ -560,25 +560,25 @@ notbyz_tagmata_decision = {
 	when_taken = {
 		if = {
 			limit = {
-				has_modifier = romaioi_reformed_pronoia
+				has_modifier = br_modifier_reformed_pronoia
 			}
-			remove_modifier = romaioi_reformed_pronoia
+			remove_modifier = br_modifier_reformed_pronoia
 			ig:ig_landowners = {
 				add_modifier = {
-					name = romaioi_ig_very_angry
+					name = br_modifier_ig_very_angry
 					months = normal_modifier_time
 				}
 			}
 		}
 		if = {
 			limit = {
-				has_modifier = romaioi_themata_primacy
+				has_modifier = br_modifier_themata_primacy
 			}
-			remove_modifier = romaioi_themata_primacy
+			remove_modifier = br_modifier_themata_primacy
 		}
 
 		add_modifier = {
-			name = romaioi_tagmata_primacy
+			name = br_modifier_tagmata_primacy
 			months = -1
 		}
 

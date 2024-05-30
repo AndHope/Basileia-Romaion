@@ -70,7 +70,7 @@ DIPLOMACY = {
 		set_relations = { country = c:CHI value = 30 }
 		set_relations = { country = c:br_aegypt value = -75 }
 		set_relations = { country = c:br_afrika value = -75 }
-		set_relations = { country = c:EOT value = -75 }
+		set_relations = { country = c:EOT value = -50 }
 		set_relations = { country = c:ETH value = 75 }
 		set_relations = { country = c:DEN value = 50 }
 		set_relations = { country = c:HRE value = 25 }
@@ -79,8 +79,12 @@ DIPLOMACY = {
 	}
 
 	c:SER = {
+		set_owes_obligation_to = {
+			country = c:WAL
+			setting = yes
+		}
 		set_relations = { country = c:BYZ value = -25 }
-		set_relations = { country = c:HUN value = -75 }
+		set_relations = { country = c:HUN value = -50 }
 	}
 
 	c:WAL = {
@@ -89,25 +93,29 @@ DIPLOMACY = {
 			type = defensive_pact #alliance
 		}
 		set_owes_obligation_to = {
+			country = c:MOL
+			setting = yes
+		}
+		set_owes_obligation_to = {
 			country = c:SER
 			setting = yes
 		}
-		set_relations = { country = c:HUN value = -75 }
+		set_relations = { country = c:HUN value = -50 }
 		set_relations = { country = c:BYZ value = 25 }
-		set_relations = { country = c:TRS value = -25 }
+		set_relations = { country = c:TRS value = -50 }
 		set_relations = { country = c:MOL value = 75 }
 		set_relations = { country = c:SER value = 75 }
 	}
 
 	c:GEO = {
-		set_owes_obligation_to = {
-			country = c:br_trebizond
-			setting = yes
-		}
 		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:PER value = -50 }
 		set_relations = { country = c:br_tartaria value = -75 }
 		set_relations = { country = c:ARM value = 75 }
+		set_owes_obligation_to = {
+			country = c:ARM
+			setting = yes
+		}
 	}
 
 	c:MOL = {
@@ -132,10 +140,6 @@ DIPLOMACY = {
 		}
 		set_owes_obligation_to = {
 			country = c:GEO
-			setting = yes
-		}
-		set_owes_obligation_to = {
-			country = c:br_mesopotamia
 			setting = yes
 		}
 		set_relations = { country = c:BYZ value = -55 }
@@ -229,43 +233,31 @@ DIPLOMACY = {
 	}
 
 	c:br_epiros = {
-		set_owes_obligation_to = {
-			country = c:SIC
-			setting = yes
-		}
-		set_relations = { country = c:BYZ value = -75 }
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:VEN value = 75 }
 		set_relations = { country = c:br_genoa value = 75 }
 	}
 
 	c:br_morea = {
-		set_owes_obligation_to = {
-			country = c:SIC
-			setting = yes
-		}
-		set_relations = { country = c:BYZ value = -75 }
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:VEN value = 75 }
 		set_relations = { country = c:br_genoa value = 75 }
 	}
 
 	c:br_trebizond = {
-		set_owes_obligation_to = {
-			country = c:GEO
-			setting = yes
-		}
-		set_relations = { country = c:BYZ value = -75 }
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:GEO value = 75 }
 		set_relations = { country = c:ARM value = 75 }
 	}
 
 	c:br_albania = {
-		set_relations = { country = c:BYZ value = -100 }
+		set_relations = { country = c:BYZ value = -75 }
 	}
 	c:br_bulgaria = {
-		set_relations = { country = c:BYZ value = -100 }
+		set_relations = { country = c:BYZ value = -75 }
 	}
 	c:br_syria = {
-		set_relations = { country = c:BYZ value = -100 }
+		set_relations = { country = c:BYZ value = -75 }
 	}
 
 }

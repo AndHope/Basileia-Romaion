@@ -1,15 +1,17 @@
-﻿NGame = {
+﻿#Some edits are hashed out as I may bring them back.
+
+NGame = {
 	START_DATE = "1736.1.1" #May adjust the start date in the future
 	END_DATE = "2036.1.1" #300 total years
 }
 
-NAI = {
-	BASE_AGGRESSION = 0.75 #was 0.5
-}
+#NAI = {
+	#BASE_AGGRESSION = 0.75 #was 0.5 #Turned off for now was creating too much border gore will focus more on the default ai file. 
+#}
 
-NTechnology = {
-	TECH_AHEAD_OF_TIME_PENALTY_FACTOR = 0.25	#was 0.25 # For every tech in a previous era not already researched in this category, take this multiple of the cost as an additional penalty (multiplied by number of eras between the techs)
-}
+#NTechnology = {
+#	TECH_AHEAD_OF_TIME_PENALTY_FACTOR = 0.25	#was 0.25 # For every tech in a previous era not already researched in this category, take this multiple of the cost as an additional penalty (multiplied by number of eras between the techs)
+#}
 
 NPolitics = {
 	SECESSION_TURMOIL_CUTOFF = 0.30 #was 0.5					# Turmoil requires for cultures to start secession
@@ -75,28 +77,34 @@ NDiplomacy = {
 	INFAMY_THRESHOLD_PARIAH = 200	#was 100	# Above this, countries are considered pariah and get related penalties 100 
 	BASE_YEARLY_INFAMY_DECAY_RATE = 2.5 #was 5  # Decay rate of infamy per year 5
 	
-	WAR_GOAL_INFAMY_OWN_SUBJECT_MULT = 0.5 # was 0.25 Infamy is multiplied by this for wargoals targeting your own subject was 0.25
+	WAR_GOAL_INFAMY_OWN_SUBJECT_MULT = 0.5 # was 0.25 was increased because of the increased time frame and the subject attack cb. Infamy is multiplied by this for wargoals targeting your own subject was 0.25
 
 	# Tension is used instead of relations by colonizable countries
 	TENSION_DECAY_RATE = 2.5 # Per year was 5
 
 	ECONOMIC_DEPENDENCE_MIN = 0
 	ECONOMIC_DEPENDENCE_MAX = 2 #5
+
 	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_FACTOR = 2	#5			# Ex. if you own 15% of the other country's GDP, that works out to +0.75
 	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MIN = 0
 	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MAX = 2 #5
-	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_FACTOR = 0.5 #1
+
+	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_FACTOR = 1
 	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MIN = 0
-	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MAX = 0.5 #1
+	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MAX = 1
+
 	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_FACTOR = 0.5 #1
 	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MIN = 0
 	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MAX = 0.5 #1
+
 	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_FACTOR = 0.5 #1	# The total £ imbalance of goods dependence between this country and another is multiplied by this to get the final factor
 	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MIN = -0.5 #-1		# At best, a country's pop goods dependence on another can approach a -100% factor on Economic Dependence
-	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MAX = 1 #3		# At worst, a country's pop goods dependence on another can approach a 300% factor on Economic Dependence
+	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MAX = 1 #3	# At worst, a country's pop goods dependence on another can approach a 300% factor on Economic Dependence
+
 	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_FACTOR = 0.5 #1		# The total £ imbalance of goods dependence between another country and this is multiplied by this to get the final factor
 	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MIN = -0.5		# At best, a country's pop goods dependence on another can approach a -50% factor on Economic Dependence
 	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MAX = 0			# A country's goods dependence cannot get worse than zero by the other country's dependence on its goods
+
 	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_FACTOR = 0.5 #1
 	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MIN = 0
 	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MAX = 0.5 #1
@@ -135,11 +143,11 @@ NMilitary = {
 }
 
 NPowerBlocs = {
-	LEVERAGE_LOBBY_CLOUT_FACTOR = 300 #500	# Leverage gain is increased or decreased by the Lobby's total Clout * this factor
-	COHESION_WEEKLY_DRIFT_MAX = 0.5 #1		# At most, Cohesion will drift by +/- this value each week
-	POWER_BLOC_INFLUENCE_COST = 300 #500		# Cost in Influence to form / be the leader of a Power Bloc
+	#LEVERAGE_LOBBY_CLOUT_FACTOR = 300 #500	# Leverage gain is increased or decreased by the Lobby's total Clout * this factor
+	COHESION_WEEKLY_DRIFT_MAX = 0.25 #1		# At most, Cohesion will drift by +/- this value each week
+	#POWER_BLOC_INFLUENCE_COST = 300 #500		# Cost in Influence to form / be the leader of a Power Bloc
 	LEVERAGE_WEEKLY_DRIFT_FACTOR = 0.01 #0.02	# The delta between current Leverage and Target Leverage will be multiplied by this to determine the weekly Leverage drift
-	LEVERAGE_WEEKLY_DRIFT_MIN = 0.5 #1		# At minimum, Leverage will drift by +/- this value each week, up/down to the target
+	LEVERAGE_WEEKLY_DRIFT_MIN = 0.25 #1		# At minimum, Leverage will drift by +/- this value each week, up/down to the target
 	LEVERAGE_INIT_SAME_BLOC_MEMBER_FACTOR = 1 #0.8	# During initialization, multiply calculated target leverage by this if country is member of the bloc in question
 }
 
