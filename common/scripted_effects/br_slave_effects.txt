@@ -47,7 +47,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				limit = {
 					OR = {
 						is_pop_type = slaves
-						AND = { # Some slaves seem to become unemployed labourers so account for that
+						AND = {
 							is_pop_type = laborers
 							is_employed = no
 						}
@@ -58,7 +58,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				}
 				change_pop_culture = {
 					target = cu:afro_french
-					value = 1 #All, could make it less than 100% but would then never fully convert and also this is better for performance
+					value = 1 
 				}
 			}
 		}
@@ -73,7 +73,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				limit = {
 					OR = {
 						is_pop_type = slaves
-						AND = { # Some slaves seem to become unemployed labourers so account for that
+						AND = {
 							is_pop_type = laborers
 							is_employed = no
 						}
@@ -84,11 +84,12 @@ br_convert_africans_to_slave_cultures_effect = {
 				}
 				change_pop_culture = {
 					target = cu:afro_andalusian
-					value = 1 #All, could make it less than 100% but would then never fully convert and also this is better for performance
+					value = 1 
 				}
 			}
 		}
-		else_if = { # bedouin -> afro-arab
+
+		else_if = { # bedouin -> afro-arab 1
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:bedouin
@@ -101,7 +102,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				limit = {
 					OR = {
 						is_pop_type = slaves
-						AND = { # Some slaves seem to become unemployed labourers so account for that
+						AND = {
 							is_pop_type = laborers
 							is_employed = no
 						}
@@ -112,10 +113,44 @@ br_convert_africans_to_slave_cultures_effect = {
 				}
 				change_pop_culture = {
 					target = cu:afro_arab
-					value = 1 #All, could make it less than 100% but would then never fully convert and also this is better for performance
+					value = 1 
 				}
 			}
 		}
+		else_if = { # bedouin -> afro-arab 2
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:maghrebi
+					country_has_primary_culture = cu:misri
+					#country_has_state_religion = rel:sunni
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					OR = {
+						is_pop_type = slaves
+						AND = { 
+							is_pop_type = laborers
+							is_employed = no
+						}
+					}
+					culture = {
+						has_discrimination_trait = african_heritage
+					}
+					NOT = { 
+						OR = {
+							culture = cu:berber
+							culture = cu:sudanese
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:afro_arab #Zanj
+					value = 1 
+				}
+			}
+		}
+
 		else_if = { # colonial-hellenic -> afro-hellenic
 			limit = {
 				OR = {
@@ -127,7 +162,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				limit = {
 					OR = {
 						is_pop_type = slaves
-						AND = { # Some slaves seem to become unemployed labourers so account for that
+						AND = {
 							is_pop_type = laborers
 							is_employed = no
 						}
@@ -137,10 +172,36 @@ br_convert_africans_to_slave_cultures_effect = {
 					}
 				}
 				change_pop_culture = {
-					target = cu:afro_elysian
-					value = 1 #All, could make it less than 100% but would then never fully convert and also this is better for performance
+					target = cu:afro_hellenic #Doulos
+					value = 1
 				}
 			}
 		}
+		else_if = { # colonial-dutch-> afro-dutch
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:colonial_dutch
+				country_has_primary_culture = cu:colonial_german
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				OR = {
+					is_pop_type = slaves
+					AND = {
+						is_pop_type = laborers
+						is_employed = no
+					}
+				}
+				culture = {
+					has_discrimination_trait = african_heritage
+				}
+			}
+			change_pop_culture = {
+				target = cu:afro_dutch #Slaaf
+				value = 1
+			}
+		}
+	}
 	}
 }

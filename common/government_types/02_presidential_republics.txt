@@ -77,6 +77,15 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
+				exists = c:br_blacksea_colonies
+				c:br_blacksea_colonies = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
 				exists = c:br_new_world_company
 				c:br_new_world_company = ROOT
 				is_country_type = colonial
@@ -114,7 +123,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:NET
 				is_subject_of = c:NET
-				is_subject_type = subject_type_dominion
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -125,7 +134,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:GBR
 				is_subject_of = c:GBR
-				is_subject_type = subject_type_dominion
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -136,7 +145,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:VEN
 				is_subject_of = c:VEN
-				is_subject_type = subject_type_dominion
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -147,7 +156,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:br_genoa
 				is_subject_of = c:br_genoa
-				is_subject_type = subject_type_dominion
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -158,7 +167,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:HRE
 				is_subject_of = c:HRE
-				is_subject_type = subject_type_dominion
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -169,7 +178,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:ANL
 				is_subject_of = c:ANL
-				is_subject_type = subject_type_dominion
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -180,7 +189,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:SAX
 				is_subject_of = c:SAX
-				is_subject_type = subject_type_dominion
+				#is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -202,7 +211,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:CHI
 				is_subject_of = c:CHI
-				is_subject_type = subject_type_tributary
+				#is_subject_type = subject_type_tributary
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
