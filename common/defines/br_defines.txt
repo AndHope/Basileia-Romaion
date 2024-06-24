@@ -55,22 +55,22 @@ NEconomy = {
 
 NDiplomacy = {
 
-	INITIAL_LIBERTY_DESIRE = 50 #was 40             # Liberty Desire value which the Diplomatic Pact gets initialized to.
+	#INITIAL_LIBERTY_DESIRE = 50 #was 40             # Liberty Desire value which the Diplomatic Pact gets initialized to.
 	MAX_INFAMY = 9999 #was 1000						# Infamy can't be higher than this
-	INFAMY_THRESHOLD_INFAMOUS = 50	#was 25		# Above this, countries are considered infamous and get related penalties 25
-	INFAMY_THRESHOLD_NOTORIOUS = 75	#was 50		# Above this, countries are considered notorious and get related penalties 50
-	INFAMY_THRESHOLD_PARIAH = 200	#was 100	# Above this, countries are considered pariah and get related penalties 100 
-	#BASE_YEARLY_INFAMY_DECAY_RATE = 2.5 #was 5  # Decay rate of infamy per year 5
+	INFAMY_THRESHOLD_INFAMOUS = 75	#was 25		# Above this, countries are considered infamous and get related penalties 25
+	INFAMY_THRESHOLD_NOTORIOUS = 125	#was 50		# Above this, countries are considered notorious and get related penalties 50
+	INFAMY_THRESHOLD_PARIAH = 250	#was 100	# Above this, countries are considered pariah and get related penalties 100 
+	BASE_YEARLY_INFAMY_DECAY_RATE = 2.5 #was 5  # Decay rate of infamy per year 5
 	
 	WAR_GOAL_INCREASE_AUTONOMY_MIN_LIBERTY_DESIRE = 65 # 75 A subject must have at least this much LD to use the increase autonomy wargoal
 	WAR_GOAL_INDEPENDENCE_MIN_LIBERTY_DESIRE = 75 # 90 A subject must have at least this much LD to use the independence wargoal
 	
-	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE = 10 # 5 Infamy population multiplier can't be higher than this for each state affected
+	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE = 25 # 5 Infamy population multiplier can't be higher than this for each state affected
 	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL = 100 # 50 Infamy population multiplier can't be higher than this, regardless of number of states affected
 	WAR_GOAL_INFAMY_HOMELAND_FACTOR = -0.5 # -0.25 Infamy is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
 	WAR_GOAL_INFAMY_OWN_SUBJECT_MULT = 0.5 # 0.25 Infamy is multiplied by this for wargoals targeting your own subject
 
-	WAR_GOAL_INFAMY_CONQUER_STATE = 10.0 #5.0
+	WAR_GOAL_INFAMY_CONQUER_STATE = 7.5 #5.0
 	WAR_GOAL_INFAMY_ANNEX_COUNTRY = 10.0 #5.0
 
 	WAR_GOAL_INFAMY_DIPLO_PLAY_BACK_DOWN_REFUND = -0.75 # Refund of infamy for war goals that are dropped due to one side backing down in a diplo play (applied to initiator/target)
@@ -78,37 +78,35 @@ NDiplomacy = {
 	WAR_GOAL_INFAMY_PEACE_REFUND = -0.5 				# Refund of infamy for war goals that are dropped due to a country capitulating or negotating peace without enforcing their wargoal
 	WAR_GOAL_INFAMY_REDUCTION_FOR_TARGET = -0.5 		# This much of a war goal's infamy value is removed from the target when target has it enforced on them
 
-
-
 	# Tension is used instead of relations by colonizable countries
 	TENSION_DECAY_RATE = 2.5 # Per year was 5
 
-	ECONOMIC_DEPENDENCE_MIN = 0
-	ECONOMIC_DEPENDENCE_MAX = 2 #5
+	#ECONOMIC_DEPENDENCE_MIN = 0
+	#ECONOMIC_DEPENDENCE_MAX = 2 #5
 
-	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_FACTOR = 2	#5			# Ex. if you own 15% of the other country's GDP, that works out to +0.75
-	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MIN = 0
-	ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MAX = 2 #5
+	#ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_FACTOR = 2	#5			# Ex. if you own 15% of the other country's GDP, that works out to +0.75
+	#ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MIN = 0
+	#ECONOMIC_DEPENDENCE_GDP_RATIO_BY_OTHER_MAX = 2 #5
 
-	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_FACTOR = 1
-	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MIN = 0
-	ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MAX = 1
+	#ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_FACTOR = 1
+	#ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MIN = 0
+	#ECONOMIC_DEPENDENCE_OTHER_GDP_RATIO_OWNED_MAX = 1
 
-	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_FACTOR = 0.5 #1
-	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MIN = 0
-	ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MAX = 0.5 #1
+	#ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_FACTOR = 0.5 #1
+	#ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MIN = 0
+	#ECONOMIC_DEPENDENCE_GDP_PERCENTAGE_MAX = 0.5 #1
 
-	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_FACTOR = 0.5 #1	# The total £ imbalance of goods dependence between this country and another is multiplied by this to get the final factor
-	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MIN = -0.5 #-1		# At best, a country's pop goods dependence on another can approach a -100% factor on Economic Dependence
-	ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MAX = 1 #3	# At worst, a country's pop goods dependence on another can approach a 300% factor on Economic Dependence
+	#ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_FACTOR = 0.5 #1	# The total £ imbalance of goods dependence between this country and another is multiplied by this to get the final factor
+	#ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MIN = -0.5 #-1		# At best, a country's pop goods dependence on another can approach a -100% factor on Economic Dependence
+	#ECONOMIC_DEPENDENCE_POP_GOODS_DEPENDENCE_ON_OTHER_MAX = 1 #3	# At worst, a country's pop goods dependence on another can approach a 300% factor on Economic Dependence
 
-	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_FACTOR = 0.5 #1		# The total £ imbalance of goods dependence between another country and this is multiplied by this to get the final factor
-	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MIN = -0.5		# At best, a country's pop goods dependence on another can approach a -50% factor on Economic Dependence
-	ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MAX = 0			# A country's goods dependence cannot get worse than zero by the other country's dependence on its goods
+	#ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_FACTOR = 0.5 #1		# The total £ imbalance of goods dependence between another country and this is multiplied by this to get the final factor
+	#ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MIN = -0.5		# At best, a country's pop goods dependence on another can approach a -50% factor on Economic Dependence
+	#ECONOMIC_DEPENDENCE_OTHER_POP_GOODS_DEPENDENCE_MAX = 0			# A country's goods dependence cannot get worse than zero by the other country's dependence on its goods
 
-	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_FACTOR = 0.5 #1
-	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MIN = 0
-	ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MAX = 0.5 #1
+	#ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_FACTOR = 0.5 #1
+	#ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MIN = 0
+	#ECONOMIC_DEPENDENCE_TRADE_ROUTE_DEPENDENCE_MAX = 0.5 #1
 
 
 }
