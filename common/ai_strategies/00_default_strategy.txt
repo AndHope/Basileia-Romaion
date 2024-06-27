@@ -357,6 +357,11 @@ ai_strategy_default = {
 			}
 			multiply = 0.25
 		}			
+		
+		if = { # Overlords care a bit more about Obligations from their Subjects, since they can use them to keep them in check
+			limit = { scope:target_country = { is_subject_of = root } }
+			add = 10
+		}
 
 		min = 0
 		max = 30
