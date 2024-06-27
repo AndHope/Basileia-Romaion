@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:TAT = {
+	c:br_tartaria = {
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 
@@ -61,7 +61,13 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1.5 #was 2.0
+				multiplier = 0.5 #was 2.0
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 0.25
 				years = 100
 				is_decaying = yes
 			}
@@ -77,7 +83,13 @@
 			add_ideology = ideology_basqaq
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 0.25
 				years = 100
 				is_decaying = yes
 			}
@@ -89,12 +101,44 @@
 
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_constitutionalists
-			#set_ig_suppression = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_modernists
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 
+		}
+
+		ig:ig_trade_unions = {
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.5
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
@@ -106,17 +150,17 @@
 			level = 1
 		}
 	
-		change_infamy = 99
+		change_infamy = 50
 		add_modifier = {
-			name = decentralized_khanate
+			name = br_modifier_decentralized_khanate
 			months = -1
 		}
 		add_modifier = {
-			name = latin_privileges
+			name = br_modifier_latin_privileges
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			months = -1
 		}
 		add_modifier = {
@@ -139,20 +183,23 @@
 			name = br_modifier_horde_army_prowess
 			months = -1
 		}
+		add_modifier = {
+			name = br_modifier_power_bloc_bonus
+			months = 1
+		}
 
 	#	add_modifier = {
-	#		name = mongol_religious_tolerance
+	#		name = br_modifier_religious_tolerance
 	#		months = -1
 	#	}
 
 	}
-	c:C01 = {
+	c:br_circassia = {
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_tribal_armies
-
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
@@ -163,32 +210,23 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs 
-		}
-
 		add_modifier = {
-			name = cizye_tax
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
-			months = -1
-		}
-		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			months = -1
 		}
 
 
 	}
-	c:C03 = {
+	c:br_dagestan = {
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_tribal_armies
-
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
@@ -208,14 +246,72 @@
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			months = -1
 		}
 
+
+	}
+
+	c:br_sibir = {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_tribal_armies
+		
+		add_modifier = {
+			name = br_modifier_nomad_heritage
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_tribal_warriors
+			months = -1
+		}
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_steppe_nomads
+			remove_ideology = ideology_agrarian
+			add_ideology = ideology_semi_nomadic
+			remove_ideology = ideology_particularist 
+			add_ideology = ideology_basqaq
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_constitutionalists
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_modernists
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_sedentarists 
+		}
 
 	}
 }

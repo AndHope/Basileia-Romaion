@@ -77,8 +77,8 @@ i_didnt_vote_for_pedro = {
         has_variable = i_didnt_vote_for_pedro_ach_possible
     }
     happened = {
-        exists = c:FAZ
-        this = c:FAZ
+        exists = c:br_antarctique
+        this = c:br_antarctique
         OR = {
             has_law = law_type:law_presidential_republic
             has_law = law_type:law_parliamentary_republic
@@ -92,26 +92,26 @@ go_west_young_man = {
         has_variable = go_west_young_man_ach_possible
     }
     happened = {
-        exists = c:ELY
-        this = c:ELY
+        exists = c:br_elysium
+        this = c:br_elysium
         hidden_trigger = {
             s:STATE_CALIFORNIA= {
-                exists = region_state:ELY
-                region_state:ELY = {
+                exists = region_state:br_elysium
+                region_state:br_elysium = {
                     is_split_state = no
                     state_population >= 250000
                 }
             }
             s:STATE_OREGON= {
-                exists = region_state:ELY
-                region_state:ELY = {
+                exists = region_state:br_elysium
+                region_state:br_elysium = {
                     is_split_state = no
                     state_population >= 250000
                 }
             }
             s:STATE_WASHINGTON= {
-                exists = region_state:ELY
-                region_state:ELY = {
+                exists = region_state:br_elysium
+                region_state:br_elysium = {
                     is_split_state = no
                     state_population >= 250000
                 }
@@ -268,11 +268,11 @@ manifest_mexico = {
 		hidden_trigger = {
 			OR = {
 				NOT = {
-					c:ELY = {
+					c:br_elysium = {
 						is_country_alive = yes 
 					}
 				}
-				c:ELY = {
+				c:br_elysium = {
 					country_rank <= rank_value:major_power
 				}
 			}
@@ -285,8 +285,8 @@ american_territory = {
         has_variable = american_territory_ach_possible
     }
     happened = {
-        exists = c:ELY
-        c:ELY ={
+        exists = c:br_elysium
+        c:br_elysium ={
             is_subject_of = ROOT
             any_scope_state = {
                 count <= 3
@@ -673,8 +673,8 @@ star_swarmed_banner = {
     happened = {
         custom_tooltip = {
             text = star_swarmed_banner_tt
-            exists = c:ELY
-            this = c:ELY
+            exists = c:br_elysium
+            this = c:br_elysium
             any_scope_state = {
                 hidden_trigger = {
                     state_region = { NOT = { has_variable = usa_state_flag_block } }

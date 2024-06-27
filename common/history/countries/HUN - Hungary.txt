@@ -40,7 +40,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.50
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -50,8 +50,17 @@
 			years = 99
 		}
 		add_modifier = {
-			name = noble_privileges
+			name = br_modifier_noble_privileges
 			months = -1
+		}
+	#	add_modifier = {
+	#		name = br_modifier_power_bloc_bonus
+	#		months = 1
+	#	}
+
+		trigger_event = {
+			id = br_nation_startup_event.7
+			days = 10
 		}
 		
 		ig:ig_devout = { 
@@ -60,6 +69,7 @@
 	}
 	c:CRO = {
 		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = br_tech_murano_glass
 
 		effect_starting_politics_conservative = yes
 		
@@ -93,7 +103,7 @@
 			add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.25
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -103,7 +113,7 @@
 		}
 
 		add_modifier = {
-			name = noble_privileges
+			name = br_modifier_noble_privileges
 			months = -1
 		}
 		
@@ -113,6 +123,7 @@
 	}
 	c:TRS = {
 		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = br_tech_murano_glass
 
 		effect_starting_politics_conservative = yes
 
@@ -144,7 +155,7 @@
 			add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.25
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -163,7 +174,7 @@
 		}
 
 		add_modifier = {
-			name = noble_privileges
+			name = br_modifier_noble_privileges
 			months = -1
 		}
 		
@@ -225,7 +236,7 @@
 		}
 
 	#	add_modifier = {
-	#		name = cossacks
+	#		name = br_modifier_cossacks
 	#		months = -1
 	#	}
 		

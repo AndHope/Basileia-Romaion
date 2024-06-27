@@ -1,8 +1,8 @@
 ﻿COUNTRIES = {
-	c:NAF = {
+	c:br_afrika = {
 
 		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
 		
 		effect_starting_politics_traditional = yes
 
@@ -38,6 +38,12 @@
 			set_interest_group_name = ig_themata_patricians
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_armed_forces = {
@@ -45,7 +51,7 @@
 			add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -53,19 +59,13 @@
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agrotikos
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 100
-				is_decaying = yes
-			}
 		}
 		ig:ig_petty_bourgeoisie = {
 			set_interest_group_name = ig_merchant_guilds
 			add_ideology = ideology_frontier_expansionist
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.50
+				multiplier = 0.25
 				years = 100
 				is_decaying = yes
 			}
@@ -83,7 +83,13 @@
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
 				years = 100
 				is_decaying = yes
 			}
@@ -92,24 +98,30 @@
 			set_interest_group_name = ig_syndikalistai
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.5
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
 				years = 100
 				is_decaying = yes
 			}
 		}
 
 		add_modifier = {
-			name = romaioi_reformed_pronoia #romaioi_themata_primacy
+			name = br_modifier_reformed_pronoia #br_modifier_themata_primacy
 			months = -1
 		}
 
 		add_modifier = {
-			name = latin_privileges
+			name = br_modifier_latin_privileges
 			months = -1
 		}
 
 		add_modifier = {
-			name = romaioi_culture_supremacy
+			name = br_modifier_romaioi_culture_supremacy
 			months = -1
 		}
 		add_modifier = {
@@ -121,10 +133,6 @@
 			name = br_modifier_african_colony
 			months = -1
 		}
-		#add_modifier = {
-		#	name = linguistic_discrimination
-		#	months = -1
-		#}
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_oriental_orthodox_church
@@ -135,9 +143,9 @@
 
 	}
 
-	c:CYR = {
+	c:br_kyrenaica = {
 		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
 		
 		effect_starting_politics_traditional = yes
 
@@ -171,6 +179,12 @@
 			set_interest_group_name = ig_themata_patricians
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_armed_forces = {
@@ -178,7 +192,7 @@
 			add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -188,12 +202,6 @@
 			set_interest_group_name = ig_agrotikos
 			#remove_ideology = ideology_isolationist
 			#add_ideology = ideology_isolationist_expansionism
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 100
-				is_decaying = yes
-			}
 		}
 		ig:ig_petty_bourgeoisie = {
 			set_interest_group_name = ig_merchant_guilds
@@ -213,12 +221,24 @@
 				years = 100
 				is_decaying = yes
 			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
 				years = 100
 				is_decaying = yes
 			}
@@ -227,24 +247,30 @@
 			set_interest_group_name = ig_syndikalistai
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.5
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
 				years = 100
 				is_decaying = yes
 			}
 		}
 
 		add_modifier = {
-			name = romaioi_reformed_pronoia #romaioi_themata_primacy
+			name = br_modifier_reformed_pronoia #br_modifier_themata_primacy
 			months = -1
 		}
 
 		add_modifier = {
-			name = latin_privileges
+			name = br_modifier_latin_privileges
 			months = -1
 		}
 
 		add_modifier = {
-			name = romaioi_culture_supremacy
+			name = br_modifier_romaioi_culture_supremacy
 			months = -1
 		}
 		add_modifier = {
@@ -256,16 +282,17 @@
 			name = br_modifier_african_colony
 			months = -1
 		}
-		#add_modifier = {
-		#	name = linguistic_discrimination
-		#	months = -1
-		#}
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_oriental_orthodox_church
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_oriental_orthodox_patriarch
-			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 	}

@@ -1,11 +1,84 @@
 ﻿DIPLOMACY = {
+
+	c:ETH = {
+		set_relations = { country = c:BYZ value = 75 }
+		set_relations = { country = c:MJT value = -95 }
+		create_diplomatic_pact = {
+			country = c:KFA
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:KFA
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:SDM
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:SDM
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:BRN
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:TGR
+			type = tributary
+		}
+	}
+
+	c:MJT = {
+		create_diplomatic_pact = {
+			country = c:GLD
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:HAR
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:WSG
+			type = tributary
+		}
+
+	}
+
+	c:ZAN = {
+		set_owes_obligation_to = {
+			country = c:OMA
+			setting = yes
+		}
+
+	}
+
 	c:MAL = {
-		set_relations = { country = c:VAC value = 25 }
-		set_relations = { country = c:GAC value = 25 }
+		set_relations = { country = c:br_venice_africa_company value = 25 }
+		set_relations = { country = c:br_genonese_africa_company value = 25 }
 		set_relations = { country = c:ANL value = 25 }
+		set_relations = { country = c:MOR value = 50 }
+		set_relations = { country = c:ALD value = 50 }
 		set_relations = { country = c:VEN value = 25 }
-		set_relations = { country = c:GEN value = 25 }
-		set_relations = { country = c:SOK value = -25 }
+		set_relations = { country = c:br_genoa value = 25 }
+		set_relations = { country = c:SOK value = -50 }
+
+		create_unidirectional_truce = {
+			country = c:OUA
+			months = 240
+		}
+		create_unidirectional_truce = {
+			country = c:ADG
+			months = 240
+		}
+	}
+	c:SOK = {
+		set_relations = { country = c:ARA value = 50 }
+
+		create_unidirectional_truce = {
+			country = c:AIR
+			months = 240
+		}
 	}
 
 }

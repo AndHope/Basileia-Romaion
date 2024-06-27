@@ -41,20 +41,20 @@ greek_revolt.1 = {
 			s:STATE_ATTICA.region_state:BYZ = { set_state_owner = c:GRE }
 		}
 		if = {
-			limit = { exists = s:STATE_ATTICA.region_state:EPR }
-			s:STATE_ATTICA.region_state:EPR = { set_state_owner = c:GRE }
+			limit = { exists = s:STATE_ATTICA.region_state:br_epiros }
+			s:STATE_ATTICA.region_state:br_epiros = { set_state_owner = c:GRE }
 		}
 		if = {
-			limit = { exists = s:STATE_WESTERN_THRACE.region_state:GEN }
-			s:STATE_WESTERN_THRACE.region_state:GEN = { set_state_owner = c:GRE }
+			limit = { exists = s:STATE_WESTERN_THRACE.region_state:br_genoa }
+			s:STATE_WESTERN_THRACE.region_state:br_genoa = { set_state_owner = c:GRE }
 		}
 		if = {
 			limit = { exists = s:STATE_PELOPONNESE.region_state:BYZ }
 			s:STATE_PELOPONNESE.region_state:BYZ = { set_state_owner = c:GRE }
 		}
 		if = {
-			limit = { exists = s:STATE_PELOPONNESE.region_state:MRE }
-			s:STATE_PELOPONNESE.region_state:MRE = { set_state_owner = c:GRE }
+			limit = { exists = s:STATE_PELOPONNESE.region_state:br_morea }
+			s:STATE_PELOPONNESE.region_state:br_morea = { set_state_owner = c:GRE }
 		}
 		if = {
 			limit = { exists = s:STATE_WEST_AEGEAN_ISLANDS.region_state:BYZ }
@@ -114,12 +114,12 @@ greek_revolt.1 = {
 		if = {
 			limit = {
 				NOT = { exists = c:ION }
-				exists = s:STATE_IONIAN_ISLANDS.region_state:EPR
+				exists = s:STATE_IONIAN_ISLANDS.region_state:br_epiros
 			}
 			create_country = {
 				tag = ION
-				origin = c:EPR
-				state = s:STATE_IONIAN_ISLANDS.region_state:EPR
+				origin = c:br_epiros
+				state = s:STATE_IONIAN_ISLANDS.region_state:br_epiros
 			}
 		}
 		else_if = {

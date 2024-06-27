@@ -85,8 +85,8 @@ je_palaiologos_reforms_syria = {
 #			limit = {
 #				OR = {
 #					AND = {
-#						exists = c:AGY
-#						c:AGY = {
+#						exists = c:br_aegypt
+#						c:br_aegypt = {
 #							is_subject_of = ROOT
 #						}
 #					}
@@ -147,8 +147,8 @@ je_palaiologos_reforms_egypt = {
 	complete = {
 		OR = {
 			AND = {
-				exists = c:AGY
-				c:AGY = {
+				exists = c:br_aegypt
+				c:br_aegypt = {
 					is_subject_of = ROOT
 				}
 			}
@@ -167,7 +167,7 @@ je_palaiologos_reforms_egypt = {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
 			add_modifier = {
-				name = patriarch_alexandria
+				name = br_modifier_patriarch_alexandria
 				years = -1
 			}
 		}
@@ -266,8 +266,8 @@ je_palaiologos_reforms_africa = {
 	complete = {
 		OR = {
 			AND = {
-				exists = c:NAF
-				c:NAF = {
+				exists = c:br_afrika
+				c:br_afrika = {
 					is_subject_of = ROOT
 				}
 			}
@@ -309,7 +309,7 @@ je_palaiologos_reforms_economy = {
 	group = je_group_internal_affairs
 
 	complete = {
-		NOT = { has_modifier = latin_privileges }
+		NOT = { has_modifier = br_modifier_latin_privileges }
 		taking_loans = no
 		any_scope_state = {
 			is_incorporated = yes
@@ -514,7 +514,7 @@ je_palaiologos_reforms_army = {
 		}
 		if = {
 			limit = {
-				has_modifier = romaioi_corrupt_pronoia
+				has_modifier = br_modifier_corrupt_pronoia
 			}
 			trigger_event = {
 				id = palaiologos_events.3
@@ -619,7 +619,7 @@ je_palaiologos_reforms_bureaucracy = {
 			has_law = law_type:law_land_based_taxation
 			has_law = law_type:law_consumption_based_taxation
 		}
-		NOT = { has_modifier = romaioi_bureaucratic_corruption }
+		NOT = { has_modifier = br_modifier_romaioi_bureaucratic_corruption }
 		bureaucracy >= 0 
 		approaching_bureaucracy_shortage = no
 	}
@@ -768,7 +768,7 @@ je_palaiologos_reforms_end_curruption = {
 		custom_tooltip = palaiologos.3.tt2
 		custom_tooltip = palaiologos.3.tt1
         custom_tooltip = je_palaiologos_reforms_advance
-		remove_modifier = romaioi_bureaucratic_corruption
+		remove_modifier = br_modifier_romaioi_bureaucratic_corruption
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -776,21 +776,21 @@ je_palaiologos_reforms_end_curruption = {
 
 		ig:ig_intelligentsia = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
 
 		ig:ig_landowners = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
-				name = romaioi_ig_angry
+				name = br_modifier_ig_angry
 				months = normal_modifier_time
 			}
 		}
@@ -850,14 +850,14 @@ je_palaiologos_reforms_end_latin_privileges = {
 
 	on_complete = {
         custom_tooltip = je_palaiologos_reforms_advance
-		remove_modifier = latin_privileges
+		remove_modifier = br_modifier_latin_privileges
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
-				name = romaioi_ig_very_angry
+				name = br_modifier_ig_very_angry
 				months = normal_modifier_time
 			}
 		}
@@ -880,7 +880,7 @@ je_palaiologos_reforms_end_latin_privileges = {
 				}
 				change_infamy = 20
 				add_modifier = {
-					name = anti_latin_policies
+					name = br_modifier_anti_latin_policies
 					months = 52
 				}
 			}

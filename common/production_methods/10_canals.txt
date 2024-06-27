@@ -4,7 +4,13 @@
 	country_modifiers = {
 		workforce_scaled = {
 			country_prestige_add = 100
-			#country_minting_add = 500
+		}
+	}
+
+	state_modifiers = {
+		level_scaled = {
+			state_migration_pull_mult = 0.05
+			state_market_access_price_impact = 0.05 #added
 		}
 	}
 
@@ -16,21 +22,12 @@
 			goods_input_paper_add = 5
 			## Added
 			goods_output_transportation_add = 25
-			goods_output_canalToll_add = 25
+			goods_output_canal_toll_add = 25 
 		}
 
 		level_scaled = {
 			building_employment_clerks_add = 2000
 			building_employment_machinists_add = 2500
-
-			goods_output_transportation_add = 10
-			goods_output_canalToll_add = 10
-		}
-	}
-
-	state_modifiers = {
-		unscaled = {
-			state_market_access_price_impact = 0.05 #added
 		}
 	}
 
@@ -57,107 +54,11 @@ pm_tugging_building_canals = {
 			goods_input_coal_add = 5
 			## Added
 			goods_output_transportation_add = 25
-			goods_output_canalToll_add = 25
+			goods_output_canal_toll_add = 25
 		}
 
 		level_scaled = {
 			building_employment_machinists_add = 500
 		}
 	}
-}
-
-## Canal Ownership
-
-pm_partially_privatized_building_canals = {
-	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
-
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
-
-	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add = 250
-			building_employment_bureaucrats_add = 250
-		}
-		unscaled = {
-			building_capitalists_shares_add = 20
-			building_government_shares_add = 1
-		}
-	}
-
-	country_modifiers = {
-		workforce_scaled = {
-			country_bureaucracy_add = -50
-		}
-	}	
-}
-
-pm_publicly_traded_building_canals = {
-	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
-
-	unlocking_technologies = {
-		mutual_funds
-	}
-
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
-
-	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add = 500
-		}
-		unscaled = {
-			building_capitalists_shares_add = 10
-		}
-	}
-}
-
-pm_government_run_building_canals = {
-	texture = "gfx/interface/icons/production_method_icons/government_run.dds"
-	
-	disallowing_laws = {
-		law_laissez_faire
-	}
-	
-	building_modifiers = {
-		level_scaled = {
-			building_employment_bureaucrats_add = 500
-		}
-		unscaled = {
-			building_government_shares_add = 1
-		}
-	}
-
-	country_modifiers = {
-		workforce_scaled = {
-			country_bureaucracy_add = -100
-		}
-	}	
-}
-
-pm_worker_cooperative_building_canals = {
-	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
-
-	unlocking_laws = {
-		law_cooperative_ownership
-	}
-
-	building_modifiers = {
-		level_scaled = {
-			building_employment_shopkeepers_add = 500
-		}
-		unscaled = {
-			building_workforce_shares_add = 1
-		}
-	}
-
-	country_modifiers = {
-		workforce_scaled = {
-			country_bureaucracy_add = -50
-		}
-	}	
 }

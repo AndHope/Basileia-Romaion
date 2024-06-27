@@ -1,6 +1,6 @@
 ﻿### ERA 1
 
-tech_mercantilism = {
+br_tech_mercantilism = {
 	# Placeholder for earlier trade techs
 	# https://en.wikipedia.org/wiki/Mercantilism#History
 	era = era_1
@@ -12,7 +12,7 @@ tech_mercantilism = {
 	}
 }
 
-public_sphere = {
+br_tech_public_sphere = {
 	# Placeholder for earlier enlightenment techs
 	# https://en.wikipedia.org/wiki/Public_sphere
 	# https://en.wikipedia.org/wiki/The_Structural_Transformation_of_the_Public_Sphere
@@ -23,7 +23,6 @@ public_sphere = {
 	modifier = {
 		state_infrastructure_from_population_add = 1
 		state_infrastructure_from_population_max_add = 10
-		state_building_construction_sector_max_level_add = 2
 		country_max_weekly_construction_progress_add = 5
 		market_land_trade_capacity_add = 10
 	}
@@ -33,7 +32,7 @@ public_sphere = {
 	}
 }
 
-constabulary = {
+br_tech_constabulary = {
 	# Early police tech. Placeholder for earlier law enforcement techs
 	# https://en.wikipedia.org/wiki/Constabulary
 	# https://en.wikipedia.org/wiki/Police#Early_modern
@@ -47,7 +46,7 @@ constabulary = {
 	}
 
 	unlocking_technologies = {
-		public_sphere
+		br_tech_public_sphere
 	}
 
 	ai_weight = {
@@ -55,7 +54,7 @@ constabulary = {
 	}
 }
 
-municipal_charter = {
+br_tech_municipal_charter = {
 	# Placeholder for earlier "city" techs
 	# https://en.wikipedia.org/wiki/Municipal_charter
 	era = era_1
@@ -65,13 +64,12 @@ municipal_charter = {
 	modifier = {
 		state_infrastructure_from_population_add = 1
 		state_infrastructure_from_population_max_add = 10
-		state_building_construction_sector_max_level_add = 2
 		country_max_weekly_construction_progress_add = 5
 		market_land_trade_capacity_add = 10
 	}
 
 	unlocking_technologies = {
-		constabulary
+		br_tech_constabulary
 	}
 
 	ai_weight = {
@@ -79,7 +77,7 @@ municipal_charter = {
 	}
 }
 
-silver_standard = {
+br_tech_silver_standard = {
 	# Placeholder for earlier currency techs
 	# Should provide a small bonus to interest rate
 	# https://en.wikipedia.org/wiki/Silver_standard
@@ -96,7 +94,7 @@ silver_standard = {
 	}
 }
 
-insurance_companies = {
+br_tech_insurance_companies = {
 	# Placeholder for earlier trade techs
 	# https://en.wikipedia.org/wiki/Insurance#History
 	era = era_2 
@@ -109,7 +107,7 @@ insurance_companies = {
 	}
 
 	unlocking_technologies = {
-		smithian_economics
+		br_tech_smithian_economics
 	}
 
 	ai_weight = {
@@ -117,7 +115,7 @@ insurance_companies = {
 	}
 }
 
-tech_agrarianism = {
+br_tech_agrarianism = {
 	# Provides the agrarianism law, but it should probably be adjusted to bridge
 	# the gap between traditionalism and agrarianism
 	# https://en.wikipedia.org/wiki/Agrarianism#History
@@ -126,7 +124,7 @@ tech_agrarianism = {
 	category = society
 
 	unlocking_technologies = {
-		tech_mercantilism
+		br_tech_mercantilism
 	}
 
 	ai_weight = {
@@ -134,7 +132,7 @@ tech_agrarianism = {
 	}
 }
 
-frontier_expansion = {
+br_tech_frontier_expansion = {
 	# Earliest colonization tech
 	# https://en.wikipedia.org/wiki/Frontier#History
 	era = era_2
@@ -147,7 +145,7 @@ frontier_expansion = {
 	}
 
 	unlocking_technologies = {
-		tech_agrarianism
+		br_tech_agrarianism
 	}
 
 	ai_weight = {
@@ -155,7 +153,7 @@ frontier_expansion = {
 	}
 }
 
-smithian_economics = {
+br_tech_smithian_economics = {
 	# Tech that tries to bridges the mercantilist past and free trade future
 	# https://en.wikipedia.org/wiki/Classical_economics#
 	era = era_1
@@ -167,8 +165,8 @@ smithian_economics = {
 	}
 
 	unlocking_technologies = {
-		tech_mercantilism
-		silver_standard
+		br_tech_mercantilism
+		br_tech_silver_standard
 	}
 
 	ai_weight = {
@@ -176,7 +174,7 @@ smithian_economics = {
 	}
 }
 
-early_modern_universities = {
+br_tech_early_modern_universities = {
 	# Placeholder for older knowledge techs.
 	# Should probably use a different PM than vanilla
 	era = era_1
@@ -190,7 +188,7 @@ early_modern_universities = {
 	}
 
 	unlocking_technologies = {
-		skepticism
+		br_tech_skepticism
 	}
 
 	ai_weight = {
@@ -198,9 +196,9 @@ early_modern_universities = {
 	}
 }
 
-skepticism = {
+br_tech_skepticism = {
 	# Placeholder for older society techs.
-	# https://en.wikipedia.org/wiki/Philosophical_skepticism#Skepticism_in_the_Age_of_Enlightenment
+	# https://en.wikipedia.org/wiki/Philosophical_br_tech_skepticism#Skepticism_in_the_Age_of_Enlightenment
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
 	category = society
@@ -211,7 +209,7 @@ skepticism = {
 	}
 
 	unlocking_technologies = {
-		divine_right
+		br_tech_divine_right
 	}
 
 	ai_weight = {
@@ -220,7 +218,7 @@ skepticism = {
 }
 
 
-divine_right = {
+br_tech_divine_right = {
 	# Should probably be one of the earliest starting techs
 	# https://en.wikipedia.org/wiki/Divine_right_of_kings#
 	era = era_1
@@ -236,7 +234,7 @@ divine_right = {
 	}
 }
 
-rights_of_man = {
+br_tech_rights_of_man = {
 	# Should be a relatively new tech with expected standard of living increaes from literacy
 	# https://en.wikipedia.org/wiki/Rights_of_Man#
 	era = era_1
@@ -249,8 +247,8 @@ rights_of_man = {
 	}
 
 	unlocking_technologies = {
-		skepticism
-		public_sphere
+		br_tech_skepticism
+		br_tech_public_sphere
 	}
 
 	ai_weight = {
@@ -272,7 +270,7 @@ br_tech_separation_of_powers = {
 	}
 
 	unlocking_technologies = {
-		rights_of_man
+		br_tech_rights_of_man
 	}
 
 	ai_weight = {
@@ -280,7 +278,7 @@ br_tech_separation_of_powers = {
 	}
 }
 
-natural_history = {
+br_tech_natural_history = {
 	# Should be a relatively recent tech to bridge theology and science
 	# https://en.wikipedia.org/wiki/Natural_history#Modern
 	era = era_1
@@ -293,7 +291,7 @@ natural_history = {
 	}
 
 	unlocking_technologies = {
-		early_modern_universities
+		br_tech_early_modern_universities
 	}
 
 	ai_weight = {

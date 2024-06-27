@@ -7,72 +7,103 @@ DIPLOMACY = {
 			type = protectorate
 		}
 		create_diplomatic_pact = {
+			country = c:GEO	
+			type = decrease_payments
+		}
+		create_diplomatic_pact = {
 			country = c:ARM
 			type = protectorate
 		}
 		create_diplomatic_pact = {
-			country = c:MES
-			type = puppet
+			country = c:ARM	
+			type = decrease_payments
 		}
 		create_diplomatic_pact = {
-			country = c:THE
-			type = puppet
+			country = c:br_mesopotamia
+			type = dominion
 		}
 		create_diplomatic_pact = {
-			country = c:ALB
+			country = c:br_taurica
+			type = dominion
+		}
+		create_diplomatic_pact = {
+			country = c:br_albania
+			type = dominion
+		}
+		create_diplomatic_pact = {
+			country = c:br_syria
 			type = protectorate
 		}
 		create_diplomatic_pact = {
-			country = c:SYR
-			type = protectorate
+			country = c:br_trebizond
+			type = dominion
 		}
 		create_diplomatic_pact = {
-			country = c:TBZ
-			type = puppet
+			country = c:br_epiros
+			type = dominion
 		}
 		create_diplomatic_pact = {
-			country = c:EPR
-			type = puppet
+			country = c:br_morea
+			type = dominion
 		}
 		create_diplomatic_pact = {
-			country = c:MRE
-			type = puppet
+			country = c:br_bulgaria
+			type = tributary
 		}
-		create_diplomatic_pact = {
-			country = c:BUL
-			type = protectorate
-		}
-		create_truce = {
+		create_bidirectional_truce = {
 			country = c:PER
 			months = 16
 		}
-		create_truce = {
-			country = c:AGY
+		create_unidirectional_truce = {
+			country = c:SER
 			months = 16
 		}
-		create_truce = {
-			country = c:NAF
+		create_unidirectional_truce = {
+			country = c:br_aegypt
+			months = 12
+		}
+		create_unidirectional_truce = {
+			country = c:br_afrika
 			months = 24
 		}
-		create_truce = {
-			country = c:TAT
+		create_bidirectional_truce = {
+			country = c:br_tartaria
 			months = 36
 		}
-		set_relations = { country = c:JAP value = 30 }
-		set_relations = { country = c:CHI value = 30 }
-		set_relations = { country = c:AGY value = -75 }
-		set_relations = { country = c:NAF value = -75 }
-		set_relations = { country = c:EOT value = -75 }
-		set_relations = { country = c:ETH value = 75 }
-		set_relations = { country = c:DEN value = 50 }
-		set_relations = { country = c:HRE value = 25 }
-		set_relations = { country = c:TAT value = 25 }
-		set_relations = { country = c:CH1 value = 25 }
+		set_relations = { country = c:JAP value = 20 }
+		set_relations = { country = c:CHI value = 20 }
+		set_relations = { country = c:br_aegypt value = -50 }
+		set_relations = { country = c:br_afrika value = -50 }
+		set_relations = { country = c:EOT value = -40 }
+		set_relations = { country = c:ETH value = 65 }
+		set_relations = { country = c:DEN value = 40 }
+		set_relations = { country = c:HRE value = 10 }
+		set_relations = { country = c:br_tartaria value = 20 }
+		set_relations = { country = c:br_great_yuan value = 20 }
 	}
 
 	c:SER = {
+		set_owes_obligation_to = {
+			country = c:WAL
+			setting = yes
+		}
+		create_diplomatic_pact = {
+			country = c:BOS
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:HUM
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:MON
+			type = tributary
+		}
+		set_relations = { country = c:BOS value = 5 }
+		set_relations = { country = c:MON value = 15 }
+		set_relations = { country = c:HUM value = 15 }
 		set_relations = { country = c:BYZ value = -25 }
-		set_relations = { country = c:HUN value = -75 }
+		set_relations = { country = c:HUN value = -50 }
 	}
 
 	c:WAL = {
@@ -81,30 +112,29 @@ DIPLOMACY = {
 			type = defensive_pact #alliance
 		}
 		set_owes_obligation_to = {
+			country = c:MOL
+			setting = yes
+		}
+		set_owes_obligation_to = {
 			country = c:SER
 			setting = yes
 		}
-		set_relations = { country = c:HUN value = -75 }
+		set_relations = { country = c:HUN value = -50 }
 		set_relations = { country = c:BYZ value = 25 }
-		set_relations = { country = c:TRS value = -25 }
+		set_relations = { country = c:TRS value = -50 }
 		set_relations = { country = c:MOL value = 75 }
 		set_relations = { country = c:SER value = 75 }
 	}
 
 	c:GEO = {
-		set_owes_obligation_to = {
-			country = c:TBZ
-			setting = yes
-		}
 		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:PER value = -50 }
-		set_relations = { country = c:TAT value = -75 }
+		set_relations = { country = c:br_tartaria value = -75 }
 		set_relations = { country = c:ARM value = 75 }
-	}
-
-	c:ETH = {
-		set_relations = { country = c:BYZ value = 75 }
-		set_relations = { country = c:MJT value = -95 }
+		set_owes_obligation_to = {
+			country = c:ARM
+			setting = yes
+		}
 	}
 
 	c:MOL = {
@@ -131,134 +161,78 @@ DIPLOMACY = {
 			country = c:GEO
 			setting = yes
 		}
-		set_owes_obligation_to = {
-			country = c:MES
-			setting = yes
-		}
 		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:PER value = -75 }
 		set_relations = { country = c:GEO value = 75 }
-		set_relations = { country = c:MES value = 75 }
+		set_relations = { country = c:br_mesopotamia value = 75 }
 	}
 
-	c:AGY = {
+	c:br_aegypt = {
 		create_diplomatic_pact = {
-			country = c:RIC
-			type = puppet #SWITCHED SO BR doesn't need to naval land
-		}
-		create_diplomatic_pact = {
-			country = c:CYR
-			type = puppet
-		}
-		create_diplomatic_pact = {
-			country = c:ETH
-			type = customs_union
-		}
-		create_diplomatic_pact = {
-			country = c:AOS
-			type = customs_union
-		}
-		create_diplomatic_pact = {
-			country = c:W01
+			country = c:br_romaioi_india_company
 			type = protectorate
 		}
 		create_diplomatic_pact = {
-			country = c:R01
+			country = c:br_romaioi_india_company	
+			type = decrease_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_kyrenaica
+			type = dominion
+		}
+		create_diplomatic_pact = {
+			country = c:br_makuria
 			type = protectorate
 		}
-		create_truce = {
+		create_diplomatic_pact = {
+			country = c:br_makuria
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_alodia
+			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:br_alodia
+			type = raise_payments
+		}
+		create_unidirectional_truce = {
 			country = c:BJA
-			months = 96 # 96 months = 8 years
+			months = 60
 		}
 		set_owes_obligation_to = {
 			country = c:VEN
 			setting = yes
 		}
-		set_relations = { country = c:RIC value = 75 }
-		set_relations = { country = c:AOS value = 75 }
-		set_relations = { country = c:NAF value = 75 }
+		set_relations = { country = c:br_romaioi_india_company value = 75 }
+		set_relations = { country = c:br_australis value = 75 }
+		set_relations = { country = c:br_afrika value = 75 }
 		set_relations = { country = c:MYS value = 50 }
 		set_relations = { country = c:ETH value = 100 }
-		set_relations = { country = c:W01 value = -75 }
-		set_relations = { country = c:R01 value = -75 }
+		set_relations = { country = c:br_makuria value = -75 }
+		set_relations = { country = c:br_alodia value = -75 }
 		set_relations = { country = c:DEI value = -75 }
 		set_relations = { country = c:NET value = -75 }
 
-		create_truce = {
-			country = c:SIW
-			months = 96 # 96 months = 8 years
-		}
 	}
 
-	c:NAF = {
-	#	create_diplomatic_pact = {
-	#		country = c:AWL
-	#		type = colonization_rights
-	#	}
+	c:br_afrika = {
 		set_owes_obligation_to = {
-			country = c:GEN
+			country = c:br_genoa
 			setting = yes
 		}
-		create_truce = {
-			country = c:SIW
-			months = 96 # 96 months = 8 years
-		}
-		create_truce = {
-			country = c:SAH
-			months = 60 # 60 months = 5 years
-		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:TUG
 			months = 60 # 60 months = 5 years
 		}
-		create_truce = {
-			country = c:AHG
-			months = 60 # 60 months = 5 years
-		}
-		create_truce = {
-			country = c:ZJR
-			months = 60 # 60 months = 5 years
-		}
-		create_truce = {
-			country = c:TBI
-			months = 60 # 60 months = 5 years
-		}
-		create_truce = {
-			country = c:MJB
-			months = 24
-		}
-		create_truce = {
-			country = c:ZUW
-			months = 24
-		}
-		set_owes_obligation_to = {
-			country = c:GEN
-			setting = yes
-		}
 	}
 	
-	c:RIC = {	
-		set_owes_obligation_to = {
-			country = c:GEN
-			setting = yes
-		}
-		set_owes_obligation_to = {
-			country = c:VEN
-			setting = yes
-		}
-		set_owes_obligation_to = {
-			country = c:AGY
-			setting = yes
-		}
-		set_owes_obligation_to = {
-			country = c:ETH
-			setting = yes
-		}
+	c:br_romaioi_india_company = {	
 		set_relations = { country = c:CEY value = 75 }
 		set_relations = { country = c:MYS value = 75 }
 		set_relations = { country = c:ETH value = 75 }
 		set_relations = { country = c:VEN value = 100 }
-		set_relations = { country = c:GEN value = 100 }
+		set_relations = { country = c:br_genoa value = 100 }
 		set_relations = { country = c:LOM value = 100 }
 		set_relations = { country = c:TUS value = 100 }
 		set_relations = { country = c:BYZ value = 100 }
@@ -271,49 +245,42 @@ DIPLOMACY = {
 		set_relations = { country = c:MJT value = -100 }
 		set_relations = { country = c:LAN value = -100 }
 
-		create_truce = {
-			country = c:BJA
-			months = 60 # 60 months = 5 years
-		}
-
 	}
 
-	c:EPR = {
-		set_owes_obligation_to = {
-			country = c:VEN
-			setting = yes
-		}
-		set_owes_obligation_to = {
-			country = c:SIC
-			setting = yes
-		}
-		set_relations = { country = c:BYZ value = -75 }
+	c:br_epiros = {
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:VEN value = 75 }
-		set_relations = { country = c:GEN value = 75 }
+		set_relations = { country = c:br_genoa value = 75 }
 	}
 
-	c:MRE = {
-		set_owes_obligation_to = {
-			country = c:VEN
-			setting = yes
-		}
-		set_owes_obligation_to = {
-			country = c:SIC
-			setting = yes
-		}
-		set_relations = { country = c:BYZ value = -75 }
+	c:br_morea = {
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:VEN value = 75 }
-		set_relations = { country = c:GEN value = 75 }
+		set_relations = { country = c:br_genoa value = 75 }
 	}
 
-	c:TBZ = {
-		set_owes_obligation_to = {
-			country = c:GEO
-			setting = yes
-		}
-		set_relations = { country = c:BYZ value = -75 }
+	c:br_trebizond = {
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:GEO value = 75 }
 		set_relations = { country = c:ARM value = 75 }
+	}
+
+	c:br_albania = {
+		set_relations = { country = c:BYZ value = -75 }
+	}
+	c:br_bulgaria = {
+		set_relations = { country = c:BYZ value = -75 }
+		create_diplomatic_pact = {
+			country = c:SER2
+			type = dominion
+		}
+		create_diplomatic_pact = {
+			country = c:br_vidin
+			type = dominion
+		}
+	}
+	c:br_syria = {
+		set_relations = { country = c:BYZ value = -75 }
 	}
 
 }

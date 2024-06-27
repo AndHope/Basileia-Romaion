@@ -4,111 +4,12 @@ GLOBAL = {
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:protestant 
+					pop_type = slaves
 				}
 			}
 			add_radicals = {
-				religion = rel:protestant
-				value = 0.1
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:serb
-				}
-			}
-			add_radicals = {
-				culture = cu:serb
+				pop_type = slaves
 				value = 0.5
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:ukrainian
-				}
-			}
-			add_radicals = {
-				culture = cu:ukrainian
-				value = 0.99
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:pashtun
-				}
-			}
-			add_radicals = {
-				culture = cu:pashtun
-				value = 0.5
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:sudanese
-				}
-			}
-			add_radicals = {
-				culture = cu:sudanese
-				value = 0.5
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:frankish
-				}
-			}
-			add_radicals = {
-				culture = cu:frankish
-				value = 0.33
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:alemannic
-				}
-			}
-			add_radicals = {
-				culture = cu:alemannic
-				value = 0.33
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:bulgarian
-				}
-			}
-			add_radicals = {
-				culture = cu:bulgarian
-				value = 0.75
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:berber
-				}
-			}
-			add_radicals = {
-				culture = cu:berber
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:misri
-				}
-			}
-			add_radicals = {
-				culture = cu:misri
-				value = 0.25
 			}
 		}
 		if = {
@@ -125,12 +26,23 @@ GLOBAL = {
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:shiite 
+					religion = rel:br_religion_bogomilist
 				}
 			}
 			add_radicals = {
-				religion = rel:shiite
-				value = 0.15
+				religion = rel:br_religion_bogomilist
+				value = 0.5
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:br_religion_hellenic
+				}
+			}
+			add_radicals = {
+				religion = rel:br_religion_hellenic
+				value = 0.5
 			}
 		}
 		if = {
@@ -145,4 +57,449 @@ GLOBAL = {
 			}
 		}
 	}
+
+	c:HRE ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:french
+		}
+		add_radicals = {
+			religion = rel:protestant
+			value = 0.25
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:catholic
+			}
+		}
+	}
+	c:PLC ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:polish
+		}
+		add_radicals = {
+			religion = rel:protestant
+			value = 0.35
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = 0.35
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:catholic
+			}
+		}
+	}
+	c:HUN ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:hungarian
+		}
+		add_radicals = {
+			religion = rel:protestant
+			value = 0.25
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = 0.25
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:catholic
+			}
+		}
+	}
+	c:DEN ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:danish
+		}
+		add_radicals = {
+			religion = rel:catholic
+			value = 0.25
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:protestant
+			}
+		}
+	}
+	c:NET ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:dutch
+		}
+		add_radicals = {
+			religion = rel:catholic
+			value = 0.25
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:protestant
+			}
+		}
+	}
+	c:ANL ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:andalusian
+		}
+		add_radicals = {
+			religion = rel:catholic
+			value = 0.5
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:sunni
+			}
+		}
+	}
+	c:PER ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:persian
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:sunni
+			}
+		}
+	}
+	c:MUG ?= {
+		add_loyalists = {
+			value = 0.75
+			culture = cu:mughal
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:sunni
+			}
+		}
+	}
+	c:br_great_yuan ?= {
+		add_loyalists = {
+			value = 0.75
+			culture = cu:mongol
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:han
+			}
+		}
+	}
+	c:CHI ?= {
+		add_loyalists = {
+			value = 0.1
+			religion = rel:br_religion_confucian
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = large_radicals
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:br_religion_confucian
+			}
+		}
+	}
+	c:JAP ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:japanese
+		}
+	}
+	c:br_elysium ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:elysian
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:elysian
+			}
+		}
+	}
+	c:BYZ ?= {
+		add_loyalists = {
+			value = 0.1
+			culture = cu:greek
+		}
+		add_loyalists = {
+			value = 0.1
+			culture = cu:latinoi
+		}
+		add_loyalists = {
+			value = 0.1
+			culture = cu:varangian
+		}
+		add_radicals = {
+			culture = cu:bulgarian
+			value = 0.5
+		}
+		add_radicals = {
+			culture = cu:serb
+			value = 0.5
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.75
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.75
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.5
+				religion = rel:orthodox
+			}
+		}
+	}
+	c:br_bulgaria ?= {
+		add_loyalists = {
+			value = 0.15
+			culture = cu:greek
+		}
+		add_radicals = {
+			culture = cu:bulgarian
+			value = 0.5
+		}
+		add_radicals = {
+			culture = cu:serb
+			value = 0.75
+		}
+	}
+	c:br_albania ?= {
+		add_loyalists = {
+			value = 0.2
+			culture = cu:greek
+		}
+		add_radicals = {
+			culture = cu:bulgarian
+			value = 0.5
+		}
+		add_radicals = {
+			culture = cu:serb
+			value = 0.75
+		}
+	}
+
+	c:ARM ?= {
+		add_loyalists = {
+			value = 0.1
+			religion = rel:oriental_orthodox
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.75
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.75
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.1
+				religion = rel:oriental_orthodox
+			}
+		}
+	}
+	c:GEO ?= {
+		add_loyalists = {
+			value = 0.1
+			religion = rel:orthodox
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.5
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.5
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.1
+				religion = rel:orthodox
+			}
+		}
+	}
+	c:br_afrika ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:greek
+		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:latinoi
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.75
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.5
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:oriental_orthodox
+			}
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:greek
+			}
+		}
+	}
+	c:br_kyrenaica ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:greek
+		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:latinoi
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.75
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.75
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:oriental_orthodox
+			}
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:greek
+			}
+		}
+	}
+	c:br_aegypt ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:greek
+		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:latinoi
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.75
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.75
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:oriental_orthodox
+			}
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:greek
+			}
+		}
+	}
+	c:br_syria ?= {
+		add_loyalists = {
+			value = 0.25
+			religion = rel:oriental_orthodox
+		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:latinoi
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.75
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.75
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:oriental_orthodox
+			}
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:greek
+			}
+		}
+	}
+	c:br_tartaria ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:tatar
+		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:mongol
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = 0.75
+		}
+		add_radicals = {
+			culture = cu:north_caucasian
+			value = 0.75
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:tatar
+			}
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:mongol
+			}
+		}
+	}
+	c:NAH ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:nahua
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.5
+				culture = cu:nahua
+			}
+		}
+	}
+	c:TWT ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:quechua
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.5
+				culture = cu:quechua
+			}
+		}
+	}
+
 }	

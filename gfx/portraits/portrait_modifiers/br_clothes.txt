@@ -1,0 +1,733 @@
+﻿br_clothes = {
+	usage = game
+	selection_behavior = weighted_random
+
+    #Clothes for the Byzantium Royals
+    br_BYZ_royal_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = com_military_coats
+                template = com_BYZ_noble_coats
+                accessory = com_male_military_coat_BYZ_royal_01
+                #range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = com_legwear
+                template = com_all_legwear
+                accessory = com_male_legwear_european_black_red_stripe
+            }
+            accessory = {
+                mode = add
+                gene = com_sashes
+                template = com_BYZ_sashes
+                accessory = com_male_sash_BYZ_2
+                #range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = medals
+                template = generic_medals
+                accessory = male_medals_generic_01_03
+                #range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = belts
+                template = all_belts
+                #accessory = male_belts_sash_power_bloc_01_sovereign
+                #range = { 0.1 0.7 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = epaulettes
+                template = all_epaulettes
+                accessory = male_epaulettes_03
+            }
+            accessory = {
+                mode = add
+                gene = aiguillettes
+                template = all_aiguillettes
+                range = { 0 0.5 }
+            }
+
+            #Remove
+            accessory = {
+                mode = add
+                gene = coats
+                template = no_coat
+                range = { 0 0.27 } # limiting the set to single-breasted coats, so aiguillettes work
+            }
+            accessory = {
+                mode = add
+                gene = top_layer
+                template = no_top_layer #male_top_layer_historical_napoleon_03_entity
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = no_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = sashes
+                template = no_sash
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1500
+                
+                AND = {
+                    exists = scope:character
+                    scope:character = {
+                        owner ?= {
+                            OR = {
+                                c:BYZ ?= this
+                                was_formed_from = BYZ
+                            }
+                        }
+                        monarchy_clothes_trigger = yes
+                        is_female = no
+                        age >= 13
+                    }
+                }
+            }
+        }
+    }
+
+    #########################################
+    # Outfits for Generals and Soldier Pops #
+    #########################################
+
+    #Outfit Byzantine Admiral Characters
+    br_BYZ_admiral_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = com_military_coats
+                template = com_BYZ_military_coats_early
+                accessory = com_male_military_coat_BYZ_early_10_a
+            }
+            accessory = {
+                mode = add
+                gene = com_legwear
+                template = com_all_legwear
+                accessory = com_male_legwear_european_dark_blue
+            }
+            accessory = {
+                mode = add
+                gene = com_sashes
+                template = com_BYZ_military_sashes
+                range = { 0.5 0.5 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = medals
+                template = generic_medals
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = belts
+                template = all_belts
+                range = { 0.1 0.7 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = epaulettes
+                template = all_epaulettes
+                accessory = male_epaulettes_01
+            }
+        #    accessory = {
+        #        mode = add
+        #        gene = headgear
+        #        template = european_admiral_headgear
+        #        accessory = male_headgear_european_military_05
+        #    }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = british_military_headgear
+                range = { 0.5 0.5 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = aiguillettes
+                template = all_aiguillettes
+                range = { 0 0.5 }
+            }
+
+            #Remove
+            accessory = {
+                mode = add
+                gene = coats
+                template = no_coat
+                range = { 0 0.27 } # limiting the set to single-breasted coats, so aiguillettes work
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = no_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = top_layer
+                template = no_top_layer
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = sashes
+                template = no_sash
+                range = { 0 1 }
+            }
+        #    accessory = {
+        #        mode = add
+        #        gene = aiguillettes
+        #        template = no_aiguillettes
+        #        range = { 0 1 } # For the randomness to work correctly
+        #    }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                OR = {
+                    scope:character ?= {
+                        AND = {
+                            exists = home_country
+                            OR = {
+                                AND = {
+                                    exists = c:BYZ
+                                    home_country = c:BYZ
+                                }
+                                home_country = {
+                                    was_formed_from = BYZ
+                                }
+                            }
+                            has_role = admiral
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #Outfit Byzantine General Characters
+    br_BYZ_general_rank_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = com_military_coats
+                template = com_BYZ_military_coats_early
+                accessory = com_male_military_coat_BYZ_early_10_a
+            }
+            accessory = {
+                mode = add
+                gene = com_legwear
+                template = com_all_legwear
+                accessory = com_male_legwear_european_black_red_stripe
+            }
+            accessory = {
+                mode = add
+                gene = com_sashes
+                template = com_BYZ_military_sashes
+                range = { 1 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = medals
+                template = generic_medals
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = belts
+                template = all_belts
+                range = { 0.1 0.7 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = epaulettes
+                template = all_epaulettes
+                accessory = male_epaulettes_03
+            }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = british_military_headgear #russian_military_headgear
+                #accessory = male_headgear_european_military_02
+                range = { 0.5 0.5 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = aiguillettes
+                template = all_aiguillettes
+                range = { 0 0.5 }
+            }
+
+            #Remove
+            accessory = {
+                mode = add
+                gene = coats
+                template = no_coat
+                range = { 0 0.27 } # limiting the set to single-breasted coats, so aiguillettes work
+            }
+            accessory = {
+                mode = add
+                gene = top_layer
+                template = no_top_layer
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = no_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = sashes
+                template = no_sash
+                range = { 0 1 }
+            }
+        #    accessory = {
+        #        mode = add
+        #        gene = headgear
+        #        template = no_headgear
+        #        range = { 0 1 }
+        #    }
+        #    accessory = {
+        #        mode = add
+        #        gene = aiguillettes
+        #        template = no_aiguillettes
+        #        range = { 0 1 } # For the randomness to work correctly
+        #    }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                exists = scope:character
+                scope:character = {
+                    exists = home_country
+                    OR = {
+                        AND = {
+                            exists = c:BYZ
+                            home_country = c:BYZ
+                        }
+                        home_country = {
+                            was_formed_from = BYZ
+                        }
+                    }
+                    OR = {
+                        AND = {
+                            has_role = politician
+                            is_ruler = no
+                            is_interest_group_type = ig_armed_forces
+                        }
+                        has_role = general
+                    }
+                }
+            }
+        }
+    }
+   
+    #Outfit Byzantine Officer Pops
+    br_BYZ_officer_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = com_military_coats
+                template = com_BYZ_military_coats_early
+                accessory = com_male_military_coat_BYZ_early_10_a
+            }
+            accessory = {
+                mode = add
+                gene = com_legwear
+                template = com_all_legwear
+                accessory = com_male_legwear_european_black_red_stripe
+            }
+            accessory = {
+                mode = add
+                gene = belts
+                template = all_belts
+                range = { 0.1 0.7 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = medals
+                template = generic_medals
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = epaulettes
+                template = all_epaulettes
+                accessory = male_epaulettes_02
+            }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = british_military_headgear
+                range = { 0.5 0.5 } # For the randomness to work correctly
+            }
+
+            #Remove
+            accessory = {
+                mode = add
+                gene = coats
+                template = no_coat
+                range = { 0 0.27 } # limiting the set to single-breasted coats, so aiguillettes work
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = no_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = top_layer
+                template = no_top_layer
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        #    accessory = {
+        #        mode = add
+        #        gene = epaulettes
+        #        template = no_epaulette
+        #        range = { 0 1 }
+        #    }
+            accessory = {
+                mode = add
+                gene = sashes
+                template = no_sash
+                range = { 0 1 }
+            }
+        #    accessory = {
+        #        mode = add
+        #        gene = headgear
+        #        template = no_headgear
+        #        range = { 0 1 }
+        #    }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                exists = scope:pop
+                scope:pop = {
+                    is_pop_type = officers
+                    AND = {
+                        exists = c:BYZ
+                        exists = home_country
+                        OR = {
+                            home_country = c:BYZ
+                            home_country = {
+                                was_formed_from = BYZ
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #Outfit Byzantine Soldier Pops
+    br_BYZ_soldier_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = com_military_coats
+                template = com_BYZ_military_coats_early
+                accessory = com_male_military_coat_BYZ_early_10_a
+            }
+            accessory = {
+                mode = add
+                gene = com_legwear
+                template = com_all_legwear
+                accessory = com_male_legwear_european_black_red_stripe
+            }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = russian_military_headgear
+                accessory = male_headgear_russian_military_01
+            }
+
+            #Remove
+            accessory = {
+                mode = add
+                gene = coats
+                template = no_coat
+                range = { 0 0.27 } # limiting the set to single-breasted coats, so aiguillettes work
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = no_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = top_layer
+                template = no_top_layer
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = sashes
+                template = no_sash
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = epaulettes
+                template = no_epaulette
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = belts
+                template = no_belt
+                range = { 0.1 0.7 } # For the randomness to work correctly
+            }
+        #    accessory = {
+        #        mode = add
+        #        gene = headgear
+        #        template = no_headgear
+        #        range = { 0 1 }
+        #    }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                exists = scope:pop
+                scope:pop = {
+                    is_pop_type = soldiers
+                    exists = home_country
+                    OR = {
+                        home_country = {
+                            was_formed_from = BYZ
+                        }
+                        AND = {
+                            exists = c:BYZ
+                            home_country = c:BYZ
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #Edited SOI outfits
+    br_chokha_cherkeska_cossack_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = cossack_headgear
+                range = { 0 1 }
+            }
+             accessory = {
+                mode = add
+                gene = coats
+                template = cossack_coat
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = belts
+                template = cossack_belt
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_late_military_legwear
+                range = { 0 1 } 
+             }
+            accessory = {
+                mode = add
+                gene = epaulettes
+                template = cossack_epaulettes
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+
+                has_dlc_feature = ep1_cosmetics
+
+                scope:character ?= {
+                    age > 12
+                    culture = {
+                        has_discrimination_trait = east_slavic
+                    }
+                }
+                OR = {
+                    scope:character ?= {
+                        is_ruler = yes
+                        owner ?= {
+                            has_law = law_type:law_monarchy
+                        }
+                    }
+                    military_clothes_trigger = yes
+                    AND = {
+                        armed_forces_clothes_trigger = yes
+                        politician_clothes_trigger = yes
+                    }
+                }
+            }
+            modifier = {
+                add = 20000
+
+                has_dlc_feature = ep1_cosmetics
+
+                scope:pop ?= {
+                    OR = {
+                        AND = {
+                            culture = {
+                                has_discrimination_trait = east_slavic
+                            }
+                            OR = {
+                                is_pop_type = soldiers
+                                is_pop_type = officers
+                                is_pop_type = farmers
+                            }
+                        }
+                        AND = {
+                            culture = {
+                                has_discrimination_trait = caucasus_group
+                            }
+                            state = {
+                                OR = {
+                                    state_region = s:STATE_KUBAN
+                                    state_region = s:STATE_STAVROPOL
+                                    state_region = s:STATE_DAGESTAN
+                                    state_region = s:STATE_NORTH_CAUCASUS
+                                    state_region = s:STATE_ROSTOV
+                                    state_region = s:STATE_KALMYKIA
+                                    state_region = s:STATE_ASTRAKHAN
+                                }
+                            }
+                            OR = {
+                                is_pop_type = soldiers
+                                is_pop_type = officers
+                                is_pop_type = farmers
+                            }
+                        }
+                    }
+                }
+            }
+            modifier = {
+                add = 20000
+
+                has_dlc_feature = ep1_cosmetics
+
+                scope:character ?= {
+                    age > 12
+                    culture = {
+                        has_discrimination_trait = east_slavic
+                    }
+                    owner ?= {
+                        c:RUS ?= this
+                    }
+                    is_ruler = no
+                    is_heir = no
+                    OR = {
+                        has_trait = bandit
+                        AND = {
+                            has_role = general
+                            OR = {
+                                has_trait = celebrity_commander
+                                has_trait = pillager
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    br_persian_landowners_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_landowners_hat
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = outfits
+                template = male_outfit_arabic_royal_01
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = slavic_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = belts
+                template = no_belt
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 5000
+
+                OR = {
+                    scope:pop ?= {
+                        is_pop_type = aristocrats
+                        culture = {
+                            has_discrimination_trait = iranian_turanian_culture_group
+                            has_discrimination_trait = caucasus_group
+                        }
+                    }
+                    scope:character ?= {
+                        is_interest_group_type = ig_landowners
+                        age > 12
+                        has_role = politician
+                        NAND = {    # monarchs wear other stuff
+                            is_ruler = yes
+                            owner ?={
+                                has_law = law_type:law_monarchy
+                            }
+                        }
+                        culture = {
+                            has_discrimination_trait = iranian_turanian_culture_group
+                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait = caucasus_group
+                        }
+                    }
+                    scope:character ?= {
+                        is_ruler = yes
+                        age > 12
+                        culture = {
+                            has_discrimination_trait = iranian_turanian_culture_group
+                            has_discrimination_trait = central_asian_heritage
+                            has_discrimination_trait = caucasus_group
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

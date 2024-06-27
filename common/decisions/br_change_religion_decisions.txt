@@ -79,7 +79,7 @@ hellenic_decision = {
 			is_in_government = no
 			#is_marginal = no
 		}
-		#NOT = { has_modifier = religious_chaos }
+		#NOT = { has_modifier = br_modifier_religious_chaos }
 		has_law = law_type:law_freedom_of_conscience
 		NOT = { has_law = law_type:law_religious_schools }
 		has_law = law_type:law_monarchy
@@ -93,7 +93,7 @@ hellenic_decision = {
 			add_ideology = ideology_hellenic_clergy
 		}
 		#add_modifier = {
-		#	name = religious_chaos
+		#	name = br_modifier_religious_chaos
 		#	months = 52
 		#}		
 		random_scope_state = {
@@ -179,6 +179,10 @@ orthodox_decision = {
 		set_state_religion = rel:orthodox
 		ig:ig_devout = {
 			hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+		}
+		add_modifier = {
+			name = autocephalous_patriarchate_elysium
+			months = -1
 		}
 		random_scope_state = {
 			limit = {

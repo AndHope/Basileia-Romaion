@@ -1,8 +1,8 @@
 ﻿COUNTRIES = {
-	c:AGY = {
+	c:br_aegypt = {
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
 
 		effect_starting_politics_traditional = yes
 
@@ -37,20 +37,25 @@
 			set_interest_group_name = ig_themata_patricians
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 		ig:ig_armed_forces = {
 			set_interest_group_name = ig_tagmata_strategos
 			add_ruling_interest_group = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.25
 				years = 100
 				is_decaying = yes
 			}
 		}
 
 		ig:ig_rural_folk = {
-			
 			set_interest_group_name = ig_agrotikos
 		}
 		ig:ig_petty_bourgeoisie = {
@@ -70,7 +75,13 @@
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
 				years = 100
 				is_decaying = yes
 			}
@@ -79,23 +90,29 @@
 			set_interest_group_name = ig_syndikalistai
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.50
+				multiplier = -0.5
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
 				years = 100
 				is_decaying = yes
 			}
 		}
 
 		add_modifier = {
-			name = romaioi_reformed_pronoia #romaioi_themata_primacy
+			name = br_modifier_reformed_pronoia #br_modifier_themata_primacy
 			months = -1
 		}
 
 		add_modifier = {
-			name = latin_privileges
+			name = br_modifier_latin_privileges
 			months = -1
 		}
 		add_modifier = {
-			name = romaioi_culture_supremacy
+			name = br_modifier_romaioi_culture_supremacy
 			months = -1
 		}
 		add_modifier = {
@@ -107,10 +124,11 @@
 			name = br_modifier_african_colony
 			months = -1
 		}
-		#add_modifier = {
-		#	name = linguistic_discrimination
-		#	months = -1
-		#}
+
+		add_modifier = {
+			name = autocephalous_patriarchate_alexandria
+			months = -1
+		}
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_oriental_orthodox_church
@@ -124,7 +142,7 @@
 
 	}
 
-	c:SYR = {
+	c:br_syria = {
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 
@@ -155,10 +173,22 @@
 		ig:ig_landowners = {
 			set_interest_group_name = ig_themata_patricians
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 		ig:ig_armed_forces = {
 			set_interest_group_name = ig_tagmata_strategos
 			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_rural_folk = {
@@ -168,6 +198,12 @@
 		}
 		ig:ig_petty_bourgeoisie = {
 			set_interest_group_name = ig_merchant_guilds
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
@@ -180,19 +216,15 @@
 		}
 
 		add_modifier = {
-			name = romaioi_themata_primacy
+			name = br_modifier_themata_primacy
 			months = -1
 		}
 
 		add_modifier = {
-			name = latin_privileges
+			name = br_modifier_latin_privileges
 			months = -1
 		}
 
-		add_modifier = {
-			name = linguistic_discrimination
-			months = -1
-		}
 		add_modifier = {
 			name = br_modifier_muslim_cultural_discrimination
 			months = -1
@@ -211,7 +243,7 @@
 
 	}
 
-	c:RIC = {
+	c:br_romaioi_india_company = {
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_3_tech = yes
@@ -247,13 +279,6 @@
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_republican_paternalistic
 			add_ideology = ideology_frontier_expansionist
-			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 100
-				is_decaying = yes
-			}
 		}
 
 		ig:ig_armed_forces = {
@@ -267,10 +292,15 @@
 		}
 
 		ig:ig_rural_folk = {
-			
 			set_interest_group_name = ig_agrotikos
 			add_modifier = {
 				name = ig_influence_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 100
 				is_decaying = yes
@@ -284,7 +314,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -308,6 +338,12 @@
 				years = 100
 				is_decaying = yes
 			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_trade_unions = {
@@ -315,6 +351,12 @@
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -328,17 +370,17 @@
 		}
 
 		add_modifier = {
-			name = merchant_republic
+			name = br_modifier_merchant_republic
 			months = -1
 		}
 
 		add_modifier = {
-			name = spice_income
+			name = br_modifier_spice_trade
 			years = 75
 		}
 
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_subsidies
 			months = 124
 		}
 		add_modifier = {
@@ -350,17 +392,26 @@
 			name = br_modifier_african_colony
 			months = -1
 		}
+		add_modifier = {
+			name = br_modifier_italy_gunboat_trade_diplomacy
+			months = -1
+		}
 
 		#effect_starting_wealthy_merchants = yes
 
 		add_company = company_type:company_suez_company
 		add_company = company_type:company_byz_ric
 
+		trigger_event = {
+			id = br_nation_startup_event.8
+			days = 1
+		}
+
 	}
 
-	c:AOS = {
+	c:br_australis = {
 		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = hostile_climate_colonization
+		add_technology_researched = br_tech_hostile_climate_colonization
 		add_technology_researched = colonization
 		activate_law = law_type:law_national_militia
 		
@@ -381,11 +432,15 @@
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_homesteading
-		activate_law = law_type:law_colonial_resettlement #law_frontier_colonization
+		activate_law = law_type:law_colonial_resettlement
 		
 
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_ferver
+			months = 124
+		}
+		add_modifier = {
+			name = br_modifier_colonial_subsidies
 			months = 124
 		}
 		add_modifier = {
@@ -421,6 +476,12 @@
 			set_interest_group_name = ig_oriental_orthodox_church
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_oriental_orthodox_patriarch
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
@@ -442,20 +503,27 @@
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 		ig:ig_trade_unions = {
-			#remove_ideology = ideology_anti_slavery
 			set_interest_group_name = ig_syndikalistai
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
+			}
 		}
 
 
 		add_modifier = {
-			name = romaioi_themata_primacy
-			months = -1
-		}
-		add_modifier = {
-			name = linguistic_discrimination
+			name = br_modifier_themata_primacy
 			months = -1
 		}
 

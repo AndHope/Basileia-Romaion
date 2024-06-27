@@ -8,36 +8,36 @@ GLOBAL = {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_EASTERN_THRACE } }
 			add_modifier = {
-				name = romaioi_pentarchy
+				name = br_modifier_ecumenical_patriarch
 				years = -1
 			}
 			add_modifier = {
-				name = city_worlds_desire_state
+				name = br_state_modifier_city_worlds_desire_state
 				years = -1
 			}
 			add_modifier = {
-				name = merchant_state
+				name = br_state_modifier_grand_port
 				years = -1
 			}
 		}
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_ALEPPO } }
 			add_modifier = {
-				name = patriarch_antioch
+				name = br_modifier_patriarch_antioch
 				years = -1
 			}
 		}
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_PALESTINE } }
 			add_modifier = {
-				name = patriarch_jerusalem
+				name = br_modifier_patriarch_jerusalem
 				years = -1
 			}
 		}
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
 			add_modifier = {
-				name = patriarch_alexandria
+				name = br_modifier_patriarch_alexandria
 				years = -1
 			}
 		}
@@ -57,7 +57,7 @@ GLOBAL = {
 		} 
 		}
 			add_modifier = {
-				name = great_city_state
+				name = br_state_modifier_magnificent_city
 				years = -1
 			}
 		}
@@ -65,7 +65,7 @@ GLOBAL = {
 #		every_scope_state = {
 #			limit = { OR = { state_region = s:STATE_HEDJAZ } }
 #			add_modifier = {
-#				name = hajj
+#				name = br_modifier_hajj
 #				years = -1
 #			}
 #		}
@@ -75,17 +75,17 @@ GLOBAL = {
 		} 
 		}
 			add_modifier = {
-				name = merchant_state
+				name = br_state_modifier_grand_port
 				years = -1
 			}
 		}
 
 		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_VOLHYNIA state_region = s:STATE_KIEV state_region = s:STATE_KURSK state_region = s:STATE_EAST_GALICIA
-			 } #state_region = s:STATE_MINSK  state_region = s:STATE_BREST 
+			limit = { OR = { state_region = s:STATE_BESSARABIA state_region = s:STATE_KIEV state_region = s:STATE_KURSK state_region = s:STATE_EAST_GALICIA state_region = s:STATE_KHARKOV state_region = s:STATE_CHERSON
+			 } 
 		}
 			add_modifier = {
-				name = cossacks
+				name = br_modifier_cossacks
 				years = -1
 			}
 		#	add_modifier = {
@@ -94,22 +94,24 @@ GLOBAL = {
 		#	}
 		}
 
-	#	every_scope_state = {
-	#		limit = { OR = { state_region = s:STATE_GALICIA state_region = s:STATE_ASTURIAS state_region = s:STATE_NAVARRA state_region = s:STATE_KARS state_region = s:STATE_AZERBAIJAN state_region = s:STATE_GREATER_CAUCASUS state_region = s:STATE_ERZURUM
-	#		state_region = s:STATE_ARMENIA state_region = s:STATE_WALLACHIA state_region = s:STATE_MOLDAVIA } }
-	#		add_modifier = {
-	#			name = defensive_mod
-	#			years = -1
-	#		}
-	#	}
 
 	}	
 
-	c:GEN = {
+	c:br_genoa = {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_PIEDMONT } }
 			add_modifier = {
-				name = merchant_state
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+	}
+
+	c:NET = {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_HOLLAND } }
+			add_modifier = {
+				name = br_state_modifier_grand_port
 				years = -1
 			}
 		}
@@ -119,7 +121,7 @@ GLOBAL = {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_VENETIA } }
 			add_modifier = {
-				name = merchant_state
+				name = br_state_modifier_grand_port
 				years = -1
 			}
 			add_modifier = {
@@ -127,7 +129,7 @@ GLOBAL = {
 				years = -1
 			}
 			add_modifier = {
-				name = great_city_state
+				name = br_state_modifier_magnificent_city
 				years = -1
 			}
 		}
@@ -137,7 +139,7 @@ GLOBAL = {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_EAST_JAVA } }
 			add_modifier = {
-				name = merchant_state
+				name = br_state_modifier_grand_port
 				years = -1
 			}
 		}
@@ -147,110 +149,11 @@ GLOBAL = {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_DELHI } }
 			add_modifier = {
-				name = great_city_state
+				name = br_state_modifier_magnificent_city
 				years = -1
 			}
 		}
 	}
-
-	#Defensive 
-
-	c:CAS = {
-		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_CASTILE } }
-			add_modifier = {
-				name = defensive_mod
-				years = -1
-			}
-		}
-	}
-
-	c:CAT = {
-		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_ARAGON state_region = s:STATE_CATALONIA } }
-			add_modifier = {
-				name = defensive_mod
-				years = -1
-			}
-		}
-	}
-
-	c:GAL = {
-		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_EAST_GALICIA  } }
-			add_modifier = {
-				name = defensive_mod
-				years = -1
-			}
-		}
-	}
-
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_LOWER_EGYPT
-#		}
-#		add_modifier = {
-#			name = lepsius_lower_egypt_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_UPPER_EGYPT
-#		}
-#		add_modifier = {
-#			name = lepsius_upper_egypt_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_YUCATAN
-#		}
-#		add_modifier = {
-#			name = lepsius_yucatan_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_BAGHDAD
-#		}
-#		add_modifier = {
-#			name = lepsius_babylonia_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_MOSUL
-#		}
-#		add_modifier = {
-#			name = lepsius_assyria_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_PELOPONNESE
-#		}
-#		add_modifier = {
-#			name = lepsius_argolis_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_CRETE
-#		}
-#		add_modifier = {
-#			name = lepsius_crete_modifier
-#		}
-#	}
-#	every_state = {
-#		limit = {
-#			state_region = s:STATE_ICA
-#		}
-#		add_modifier = {
-#			name = lepsius_peru_modifier
-#		}
-#	}
-
-
 
 	if = {
         limit = {
@@ -264,7 +167,7 @@ GLOBAL = {
             set_country_type = unrecognized
 			remove_modifier = native_conscription_8
         }
-		c:CRK ?= {
+		c:br_creek ?= {
             set_country_type = unrecognized
 			remove_modifier = native_conscription_6
         }
@@ -295,11 +198,11 @@ GLOBAL = {
         }
         c:MUG ?= {
             set_country_type = unrecognized
-			remove_modifier = inward_perfection
+			remove_modifier = br_modifier_inward_perfection
         }
 		c:JAP ?= {
             set_country_type = unrecognized
-			remove_modifier = inward_perfection
+			remove_modifier = br_modifier_inward_perfection
         }
     }
 

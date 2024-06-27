@@ -125,22 +125,22 @@ annex_bedouins = {
 annex_RIC = {
 	is_shown = {
 		exists = c:BYZ
-		exists = c:RIC
+		exists = c:br_romaioi_india_company
 		ROOT = c:BYZ
-		#c:RIC = { is_subject_of = c:BYZ }
+		#c:br_romaioi_india_company = { is_subject_of = c:BYZ }
 	}
 
 	possible = {
 		exists = c:BYZ
-		exists = c:RIC
+		exists = c:br_romaioi_india_company
 		ROOT = c:BYZ
-		c:RIC = { is_subject_of = c:BYZ }
+		c:br_romaioi_india_company = { is_subject_of = c:BYZ }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
-		c:RIC = {
+		c:br_romaioi_india_company = {
 			relations:root >= 50
 		}
 		ROOT = {
@@ -149,7 +149,7 @@ annex_RIC = {
 	}
 
 	when_taken = {
-		annex = c:RIC
+		annex = c:br_romaioi_india_company
 		change_infamy = 10
 	}
 
@@ -163,7 +163,7 @@ annex_DEI = {
 		exists = c:NET
 		exists = c:DEI
 		ROOT = c:NET
-		#c:RIC = { is_subject_of = c:BYZ }
+		#c:br_romaioi_india_company = { is_subject_of = c:BYZ }
 	}
 
 	possible = {
@@ -194,27 +194,27 @@ annex_DEI = {
 annex_ATC = {
 	is_shown = {
 		exists = c:NET
-		exists = c:ATC
+		exists = c:br_dutch_west_indies
 		ROOT = c:NET
 	}
 
 	possible = {
 		exists = c:NET
-		exists = c:ATC
+		exists = c:br_dutch_west_indies
 		ROOT = c:NET
-		c:ATC = { is_subject_of = c:NET }
+		c:br_dutch_west_indies = { is_subject_of = c:NET }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
-		c:ATC = {
+		c:br_dutch_west_indies = {
 			relations:root >= 50
 		}
 	}
 
 	when_taken = {
-		annex = c:ATC
+		annex = c:br_dutch_west_indies
 		change_infamy = 10
 	}
 
@@ -226,15 +226,15 @@ annex_ATC = {
 annex_JSB = {
 	is_shown = {
 		exists = c:JAP
-		exists = c:JSB
+		exists = c:br_japanese_siberia
 		ROOT = c:JAP
 	}
 
 	possible = {
 		exists = c:JAP
-		exists = c:JSB
+		exists = c:br_japanese_siberia
 		ROOT = c:JAP
-		c:JSB = { is_subject_of = c:JAP }
+		c:br_japanese_siberia = { is_subject_of = c:JAP }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
@@ -247,7 +247,7 @@ annex_JSB = {
 	}
 
 	when_taken = {
-		annex = c:JSB
+		annex = c:br_japanese_siberia
 		annex = c:AIN
 		change_infamy = 15
 	}
@@ -260,17 +260,17 @@ annex_JSB = {
 annex_JPI = {
 	is_shown = {
 		exists = c:JAP
-		exists = c:JPI
+		exists = c:br_japanese_pacific_islands
 		ROOT = c:JAP
 	}
 
 	possible = {
 		exists = c:JAP
-		exists = c:JPI
-		exists = c:RYU
+		exists = c:br_japanese_pacific_islands
+		exists = c:br_ryukyu
 		ROOT = c:JAP
-		c:JPI = { is_subject_of = c:JAP }
-		c:RYU = { is_subject_of = c:JAP }
+		c:br_japanese_pacific_islands = { is_subject_of = c:JAP }
+		c:br_ryukyu = { is_subject_of = c:JAP }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
@@ -283,9 +283,9 @@ annex_JPI = {
 	}
 
 	when_taken = {
-		annex = c:JPI
-		annex = c:RYU
-		annex = c:FRI
+		annex = c:br_japanese_pacific_islands
+		annex = c:br_ryukyu
+		annex = c:br_formosa_natives
 		change_infamy = 15
 	}
 
@@ -296,28 +296,28 @@ annex_JPI = {
 
 annex_NWC = {
 	is_shown = {
-		exists = c:VIN
-		exists = c:NWC
-		ROOT = c:VIN
+		exists = c:br_vinland
+		exists = c:br_new_world_company
+		ROOT = c:br_vinland
 	}
 
 	possible = {
-		exists = c:VIN
-		exists = c:NWC
-		ROOT = c:VIN
-		c:NWC = { is_subject_of = c:VIN }
+		exists = c:br_vinland
+		exists = c:br_new_world_company
+		ROOT = c:br_vinland
+		c:br_new_world_company = { is_subject_of = c:br_vinland }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
-		c:NWC = {
+		c:br_new_world_company = {
 			relations:root >= 45
 		}
 	}
 
 	when_taken = {
-		annex = c:NWC
+		annex = c:br_new_world_company
 		#annex = c:N14
 		change_infamy = 10
 	}
@@ -329,24 +329,24 @@ annex_NWC = {
 
 annex_russians = {
 	is_shown = {
-		exists = c:MUS
-		exists = c:RYA
-		exists = c:SMO
-		exists = c:NZH
-		exists = c:TVE
-		exists = c:UGG
-		ROOT = c:MUS
+		exists = c:br_muscovy
+		exists = c:br_ryazan
+		exists = c:br_smolensk
+		exists = c:br_nizhny_novgorod
+		exists = c:br_tver
+		exists = c:br_yaroslavl
+		ROOT = c:br_muscovy
 	}
 
 	possible = {
-		exists = c:MUS
-		exists = c:RYA
-		exists = c:SMO
-		exists = c:NZH
-		exists = c:TVE
-		exists = c:UGG
-		ROOT = c:MUS
-		c:TAT = {
+		exists = c:br_muscovy
+		exists = c:br_ryazan
+		exists = c:br_smolensk
+		exists = c:br_nizhny_novgorod
+		exists = c:br_tver
+		exists = c:br_yaroslavl
+		ROOT = c:br_muscovy
+		c:br_tartaria = {
 			relations:root >= 45
 		}
 		ROOT = {
@@ -356,11 +356,11 @@ annex_russians = {
 	}
 
 	when_taken = {
-		annex = c:SMO
-		annex = c:RYA
-		annex = c:NZH
-		annex = c:TVE
-		annex = c:UGG
+		annex = c:br_smolensk
+		annex = c:br_ryazan
+		annex = c:br_nizhny_novgorod
+		annex = c:br_tver
+		annex = c:br_yaroslavl
 		change_infamy = 25
 	}
 
@@ -372,15 +372,15 @@ annex_russians = {
 annex_VAC = {
 	is_shown = {
 		exists = c:VEN
-		exists = c:VAC
+		exists = c:br_venice_africa_company
 		ROOT = c:VEN
 	}
 
 	possible = {
 		exists = c:VEN
-		exists = c:VAC
+		exists = c:br_venice_africa_company
 		ROOT = c:VEN
-		c:VAC = { is_subject_of = c:VEN }
+		c:br_venice_africa_company = { is_subject_of = c:VEN }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
@@ -389,7 +389,7 @@ annex_VAC = {
 	}
 
 	when_taken = {
-		annex = c:VAC
+		annex = c:br_venice_africa_company
 		change_infamy = 10
 	}
 
@@ -399,16 +399,16 @@ annex_VAC = {
 }
 annex_GAC = {
 	is_shown = {
-		exists = c:GEN
-		exists = c:GAC
-		ROOT = c:GEN
+		exists = c:br_genoa
+		exists = c:br_genonese_africa_company
+		ROOT = c:br_genoa
 	}
 
 	possible = {
-		exists = c:GEN
-		exists = c:GAC
-		ROOT = c:GEN
-		c:GAC = { is_subject_of = c:GEN }
+		exists = c:br_genoa
+		exists = c:br_genonese_africa_company
+		ROOT = c:br_genoa
+		c:br_genonese_africa_company = { is_subject_of = c:br_genoa }
 		#has_technology_researched = civilizing_mission
 		OR = {
 			has_law = law_type:law_colonial_resettlement
@@ -417,7 +417,7 @@ annex_GAC = {
 	}
 
 	when_taken = {
-		annex = c:GAC
+		annex = c:br_genonese_africa_company
 		change_infamy = 10
 	}
 
