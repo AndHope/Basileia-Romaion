@@ -20,7 +20,6 @@
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
 }
  
- 
 building_iron_mine = {
 	building_group = bg_iron_mining
 	texture = "gfx/interface/icons/building_icons/iron_mine.dds"
@@ -28,7 +27,7 @@ building_iron_mine = {
 	levels_per_mesh = 5
 	required_construction = construction_cost_medium
 	terrain_manipulator = mining
-
+	
 	unlocking_technologies = {
 		br_tech_surface_mining
 	}
@@ -95,12 +94,13 @@ building_gold_mine = {
 	levels_per_mesh = 5
 	required_construction = construction_cost_medium
 	terrain_manipulator = mining
-
+	
 	unlocking_technologies = {
 		br_tech_surface_mining
 	}
-
+	
 	ai_value = 3000 # Gold mines are very nice for minting revenue
+	ai_nationalization_desire = 1.0 # AI should be keen on nationalizing these
 
 	production_method_groups = {
 		pmg_mining_equipment_building_gold_mine
@@ -120,8 +120,10 @@ building_gold_fields = {
 	levels_per_mesh = 5
 	buildable = no
 	expandable = no
+	downsizeable = no
+	cannot_switch_owner = yes
 	terrain_manipulator = mining
-
+	
 	unlocking_technologies = {
 		br_tech_surface_mining
 	}
