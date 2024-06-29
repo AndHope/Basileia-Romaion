@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:GEN = {
+	c:br_genoa = {
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_1_tech = yes
@@ -63,23 +63,19 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
 		}
 
 		add_modifier = {
-			name = merchant_republic
+			name = br_modifier_merchant_republic
 			months = -1
 		}
 
 		add_modifier = {
-			name = eet_spice_dividends
-			years = 20
-		}
-		add_modifier = {
-			name = br_modifier_italy_foreign_policy
+			name = br_modifier_diplomatic_missions
 			months = -1
 		}
 		add_modifier = {
@@ -106,10 +102,14 @@
 
 		add_company = company_type:company_gen_trade
 		add_company = company_type:company_gen_arsenal
+		trigger_event = {
+			id = br_nation_startup_event.3
+			days = 1
+		}
 
 	}
 
-	c:PIS = {
+	c:br_pisa = {
 		effect_starting_technology_tier_1_tech = yes
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_presidential_republic
@@ -147,7 +147,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -170,6 +170,59 @@
 		add_modifier = {
 			name = br_modifier_mediterranean_merchant_republic
 			months = -1
+		}
+
+	}
+
+	c:br_blacksea_colonies = {
+		effect_starting_technology_tier_1_tech = yes
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_tenant_farmers
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+
+
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+			remove_ideology = ideology_reactionary
+			add_ideology = ideology_plutocratic
+			set_ig_bolstering = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
+		}
+		
+		ig:ig_landowners = { 
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+			add_ruling_interest_group = yes
+		}
+
+		add_modifier = {
+			name = br_modifier_colonial_ferver
+			months = 124
+		}
+		add_modifier = {
+			name = br_modifier_colonial_subsidies
+			months = 124
+		}
+		add_modifier = {
+			name = br_modifier_new_world_colony
+			months = 124
 		}
 
 	}

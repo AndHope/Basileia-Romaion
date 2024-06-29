@@ -2,180 +2,139 @@
 	c:NAH = {
 		create_diplomatic_pact = {
 			country = c:PUE
-			type = vassal
+			type = dominion
 		}
 		create_diplomatic_pact = {
 			country = c:MAY
-			type = vassal
+			type = dominion
 		}
 	}
 	c:HRE = {
 		create_diplomatic_pact = {
-			country = c:LOU
+			country = c:br_louisiane
 			type = dominion
 		}
 		create_diplomatic_pact = {
-			country = c:FAZ
+			country = c:br_antarctique
 			type = dominion
 		}
 	}
 	c:DEN = {
 		create_diplomatic_pact = {
-			country = c:NEN
+			country = c:br_new_angland
 			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:br_new_world_company
+			type = dominion
 		}
 	}
 
-	c:NEN = {
+	c:br_new_angland = {
 		set_relations = { country = c:DEN value = -100 }
 		set_relations = { country = c:NET value = 100 }
 		set_relations = { country = c:SWE value = 100 }
 		set_relations = { country = c:HRE value = 50 }
 		set_relations = { country = c:ANL value = 25 }
-		set_relations = { country = c:BYZ value = 50 }
+		set_relations = { country = c:BYZ value = 25 }
 
 	}
 
-	c:VIN = {
-	#	create_diplomatic_pact = {
-	#		country = c:A06
-	#		type = colonization_rights
-	#	}
-		create_diplomatic_pact = {
-			country = c:NWC
-			type = puppet
-		}
-		create_truce = {
-			country = c:CON
-			months = 240
-		}
-		create_truce = {
-			country = c:M09
-			months = 240
-		}
-		create_truce = {
+	c:br_vinland = {
+		create_unidirectional_truce = {
 			country = c:CTF
-			months = 240
+			months = 80
 		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:IRO
-			months = 240
+			months = 80
 		}
-
+		create_diplomatic_pact = {
+			country = c:A06
+			type = colonization_rights
+		}
 	}
 
-	c:NWC = {
-	#	create_truce = {
-	#		country = c:DH5
-	#		months = 480
-	#	}
-	#	create_truce = {
-	#		country = c:M09
-	#		months = 480
-	#	}
-	#	create_truce = {
-	#		country = c:IRC
-	#		months = 480
-	#	}
-	#	create_truce = {
-	#		country = c:CON
-	#		months = 480
-	#	}
-
-	}
-
-	c:LOU = {
-		create_truce = {
-			country = c:CRK
-			months = 200
+	c:br_louisiane = {
+		create_unidirectional_truce = {
+			country = c:br_creek
+			months = 50
 		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:CHE
-			months = 240
+			months = 120
 		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:COM
-			months = 140
+			months = 90
 		}
 
 	}
 
-	c:ELY = { 
-		set_relations = { country = c:BYZ value = 55 }
-		set_relations = { country = c:VEN value = 45 }
-		set_relations = { country = c:GEN value = 45 }
+	c:br_elysium = { 
+		set_relations = { country = c:BYZ value = 60 }
+		set_relations = { country = c:VEN value = 40 }
+		set_relations = { country = c:br_genoa value = 40 }
 		set_relations = { country = c:ANL value = 25 }
-		set_relations = { country = c:GCA value = 20 }
+		set_relations = { country = c:br_giamaica value = 25 }
 		set_relations = { country = c:HRE value = 25 }
-		set_relations = { country = c:VCA value = 25 }
-		set_relations = { country = c:ACA value = 20 }
+		set_relations = { country = c:br_atlantica value = 25 }
+		set_relations = { country = c:br_new_granada value = 20 }
 		set_relations = { country = c:NAH value = 75 }
-		set_relations = { country = c:LOU value = -100 }
-		set_relations = { country = c:VIN value = -100 }
-		set_relations = { country = c:LOU value = -100 }
+		set_relations = { country = c:br_louisiane value = -100 }
+		set_relations = { country = c:br_vinland value = -100 }
 		set_relations = { country = c:IRO value = -100 }
 		set_relations = { country = c:CTF value = -100 }
 		set_relations = { country = c:CHE value = -100 }
 
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:IRO
 			months = 6
 		}
-#		create_truce = {
-#			country = c:CTF
-#			months = 240
-#		}
-		create_truce = {
-			country = c:CRK
-			months = 200
+		create_unidirectional_truce = {
+			country = c:br_creek
+			months = 80
 		}
-#		create_truce = {
-#			country = c:CHE
-#			months = 200
-#		}
 
 			
 	}
 
-	c:NEN = {
-		create_truce = {
+	c:br_new_angland = {
+		create_unidirectional_truce = {
 			country = c:GNI
-			months = 240
+			months = 24
 		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:G1A
-			months = 140
+			months = 14
 		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:PAT
-			months = 240
+			months = 24
 		}
 	}
 
-	c:FAZ = {
+	c:br_antarctique = {
 	#	create_diplomatic_pact = {
 	#		country = c:CT1
 	#		type = colonization_rights
 	#	}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:GJ1
-			months = 240
+			months = 24
 		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:AC1
-			months = 240
+			months = 24
 		}
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:GJ1
-			months = 320
+			months = 32
 		}
 	}
 
-	c:CNW = {
-		create_truce = {
-			country = c:YKT
-			months = 180
-		}
+	c:br_chinese_new_world = {
+
 	}
 
 }

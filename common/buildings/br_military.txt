@@ -11,7 +11,7 @@ building_barracks = {
 	levels_per_mesh = 25
 
 	unlocking_technologies = {
-		military_levy
+		br_tech_military_levy
 	}
 
 	production_method_groups = {
@@ -19,6 +19,8 @@ building_barracks = {
 	}
 
 	required_construction = construction_cost_very_low
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_military.dds"
 }
 
 building_conscription_center = {
@@ -26,8 +28,8 @@ building_conscription_center = {
 	buildable = no
 	expandable = no
 	downsizeable = no
-
-	has_max_level = yes
+	
+	has_max_level = yes	
 
 	levels_per_mesh = 0
 	residence_points_per_level = 0
@@ -39,6 +41,8 @@ building_conscription_center = {
 	production_method_groups = {
 		pmg_training_conscription
 	}
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_military.dds"
 }
 
 building_naval_base = {
@@ -52,7 +56,7 @@ building_naval_base = {
 	texture = "gfx/interface/icons/building_icons/naval_base.dds"
 	naval = yes
 	unlocking_technologies = {
-		tech_frigate
+		br_tech_frigate
 	}
 
 	production_method_groups = {
@@ -63,9 +67,8 @@ building_naval_base = {
 
 	# Can only build naval bases on the coast
 	possible = {
-		error_check = {
-			severity = fail
-			is_coastal = yes
-		}
+		is_coastal = yes
 	}
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_military.dds"
 }

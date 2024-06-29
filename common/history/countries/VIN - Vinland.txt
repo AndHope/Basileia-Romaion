@@ -1,7 +1,7 @@
 ﻿COUNTRIES = {
-	c:VIN = {
+	c:br_vinland = {
 		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
 		effect_starting_politics_conservative = yes
 
 		add_technology_researched = napoleonic_warfare
@@ -31,6 +31,7 @@
 		activate_law = law_type:law_homesteading
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_schools
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -38,8 +39,11 @@
 		}
 
 		ig:ig_rural_folk = {
-			
 			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ideology = ideology_frontier_expansionist
 		}
 
 		ig:ig_devout = {
@@ -49,22 +53,22 @@
 		}
 
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_ferver
 			months = 124
 		}
 
 		add_modifier = {
-			name = norse_naval_tradition
+			name = br_modifier_naval_tradition
 			months = -1
 		}
 
 		add_modifier = {
-			name = norse_competitive_traders
+			name = br_modifier_norse_competitive_traders
 			months = -1
 		}
 
 		add_modifier = {
-			name = norse_military_doctrine
+			name = br_modifier_norse_military_doctrine
 			months = -1
 		}
 		add_modifier = {
@@ -77,10 +81,10 @@
 		}
 	}
 
-	c:NWC = {
+	c:br_new_world_company = {
 		effect_starting_technology_tier_3_tech = yes
 		
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
 		effect_starting_politics_conservative = yes
 
 		set_tax_level = medium
@@ -100,13 +104,14 @@
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_agrarianism
-		activate_law = law_type:law_frontier_colonization
+		#activate_law = law_type:law_frontier_colonization #May re add these later.
     	activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_guaranteed_liberties
 		activate_law = law_type:law_no_migration_controls	
 		activate_law = law_type:law_commercialized_agriculture #law_homesteading
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_schools
 
 		ig:ig_rural_folk = {
 			
@@ -118,27 +123,27 @@
 		}
 
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_ferver
 			months = 124
 		}
 
 		add_modifier = {
-			name = fur_income
+			name = br_modifier_fur_trade
 			years = 50
 		}
 
 		add_modifier = {
-			name = norse_naval_tradition
+			name = br_modifier_naval_tradition
 			months = -1
 		}
 
 		add_modifier = {
-			name = norse_competitive_traders
+			name = br_modifier_norse_competitive_traders
 			months = -1
 		}
 
 		add_modifier = {
-			name = norse_military_doctrine
+			name = br_modifier_norse_military_doctrine
 			months = -1
 		}
 		add_modifier = {
@@ -147,7 +152,7 @@
 		}
 		
 		ig:ig_landowners = {
-			add_ruling_interest_group = yes
+			add_ideology = ideology_frontier_expansionist
 		}
 	}
 }

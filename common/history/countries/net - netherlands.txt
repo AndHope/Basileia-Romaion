@@ -2,7 +2,7 @@
 	c:NET = {
 		effect_starting_technology_tier_2_tech = yes
 		
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
 		effect_starting_politics_liberal = yes
 
 		ig:ig_petty_bourgeoisie = {
@@ -36,8 +36,28 @@
 		}	
 
 		add_modifier = {
-			name = spice_income
+			name = br_modifier_spice_trade
 			years = 75
+		}
+		add_modifier = {
+			name = br_modifier_italy_gunboat_trade_diplomacy
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_corporate_reforms
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_power_bloc_bonus
+			months = 1
+		}
+		add_modifier = {
+			name = br_modifier_power_bloc_bonus
+			months = 1
+		}
+		trigger_event = {
+			id = br_nation_startup_event.7
+			days = 1
 		}
 	}
 
@@ -49,7 +69,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -74,14 +94,20 @@
 		ig:ig_devout = {
 			set_interest_group_name = ig_evangelical_church
 		}	
+
+		add_modifier = {
+			name = br_modifier_corporate_reforms
+			months = -1
+		}
+
 	}
 
-	c:ATC = {
+	c:br_dutch_west_indies = {
 		set_next_election_date = 1737.11.4
 		
 		effect_starting_technology_tier_3_tech = yes
 		
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
 		
 		
 		
@@ -105,7 +131,7 @@
 		
 		activate_law = law_type:law_agrarianism
 		
-		activate_law = law_type:law_censorship # The July Monarchy was already backtracking on promises made in 1830
+		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_no_migration_controls
 		activate_law = law_type:law_commercialized_agriculture #law_homesteading
@@ -114,12 +140,23 @@
 			add_ruling_interest_group = yes
 		}
 
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+
 		ig:ig_rural_folk = {
 			
 		}
 		
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_subsidies
 			months = 124
 		}
 		add_modifier = {
@@ -137,10 +174,6 @@
 		set_next_election_date = 1737.11.4
 		
 		effect_starting_technology_tier_3_tech = yes
-		
-		
-		
-		
 		add_technology_researched = colonization
 
 		set_tax_level = medium
@@ -162,13 +195,14 @@
 		activate_law = law_type:law_commercialized_agriculture
 		activate_law = law_type:law_censorship # The July Monarchy was already backtracking on promises made in 1830
 		activate_law = law_type:law_colonial_exploitation #0.34 test
+		activate_law = law_type:law_no_migration_controls
 
 		ig:ig_landowners = { # Victor de Broglie was Prime Minister until February 22, 1836
 			add_ruling_interest_group = yes
 			add_ideology = ideology_frontier_expansionist
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.75
+				multiplier = -0.25
 				years = 50
 			}
 		}
@@ -178,7 +212,7 @@
 			add_ideology = ideology_frontier_expansionist
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 2
+				multiplier = 1
 				years = 100
 				is_decaying = yes
 			}
@@ -187,17 +221,23 @@
 		ig:ig_rural_folk = {
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.75
+				multiplier = -0.5
 				years = 50
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 100
+				is_decaying = yes
 			}
 		}
 		
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_subsidies
 			months = 124
 		}
 		add_modifier = {
-			name = spice_income
+			name = br_modifier_spice_trade
 			years = 75
 		}
 		
@@ -205,7 +245,7 @@
 			set_interest_group_name = ig_evangelical_church
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.75
+				multiplier = -0.5
 				years = 50
 			}
 		}
@@ -217,6 +257,14 @@
 		add_modifier = {
 			name = br_modifier_african_colony
 			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_italy_gunboat_trade_diplomacy
+			months = -1
+		}
+		trigger_event = {
+			id = br_nation_startup_event.7
+			days = 1
 		}
 
 	}

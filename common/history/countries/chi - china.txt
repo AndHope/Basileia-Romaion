@@ -1,9 +1,11 @@
 ﻿COUNTRIES = {
-	c:CH1 = {
+	c:br_great_yuan = {
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = sericulture
 		add_technology_researched = law_enforcement
+		add_technology_researched = centralization
+		add_technology_researched = urban_planning
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
@@ -16,7 +18,8 @@
 		activate_law = law_type:law_censorship	
 		#activate_law = law_type:law_national_guard
 		activate_law = law_type:law_professional_army
-		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
 		
 		set_government_wage_level = high
 		set_tax_level = low
@@ -32,7 +35,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 2
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -51,40 +54,29 @@
 		}
 
 		#change_infamy = 50
-	#	add_modifier = {
-	#		name = war_for_china
-	#		months = 48
-	#	}
-	#	add_modifier = {
-	#		name = decentralized_khanate
-	#		months = -1
-	#	}
-	#	add_modifier = {
-	#		name = tribal_warriors
-	#		months = -1
-	#	}
-	add_modifier = {
-		name = inward_perfection
-		years = 150
-	}
 
 		add_modifier = {
-			name = mongol_religious_tolerance
+			name = br_modifier_inward_perfection
+			years = 150
+		}
+
+		add_modifier = {
+			name = br_modifier_religious_tolerance
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_political_turmoil
+			name = br_modifier_china_political_turmoil
 			months = -1
 		}
 		add_modifier = {
@@ -99,17 +91,17 @@
 			name = br_modifier_horde_reactionary_social_policies
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_horde_army_prowess
-			months = -1
-		}
+	#	add_modifier = {
+	#		name = br_modifier_horde_army_prowess
+	#		months = -1
+	#	}
 
 
 
 
 	}
 
-	c:IMG = {
+	c:br_inner_mongolia = {
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = mandatory_service
@@ -127,6 +119,7 @@
 		#activate_law = law_type:law_national_guard
 		
 		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
 		
 
 		ig:ig_armed_forces = {
@@ -134,7 +127,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -146,7 +139,7 @@
 			add_ideology = ideology_semi_nomadic
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -161,31 +154,31 @@
 		}
 
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			months = -1
 		}
 		add_modifier = {
-			name = mongol_religious_tolerance
+			name = br_modifier_religious_tolerance
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
 
 	}
 
-	c:OMG = {
+	c:br_outer_mongolia = {
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = mandatory_service
@@ -202,7 +195,8 @@
 		activate_law = law_type:law_censorship	
 		#activate_law = law_type:law_national_guard
 		
-		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
 		
 
 		ig:ig_armed_forces = {
@@ -210,7 +204,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -222,7 +216,7 @@
 			add_ideology = ideology_semi_nomadic
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -237,24 +231,24 @@
 		}
 
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			months = -1
 		}
 		add_modifier = {
-			name = mongol_religious_tolerance
+			name = br_modifier_religious_tolerance
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
@@ -266,7 +260,7 @@
 		effect_starting_technology_tier_4_tech = yes
 		add_technology_researched = urban_planning
 		add_technology_researched = sericulture
-		add_technology_researched = academia
+		add_technology_researched = centralization
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -278,9 +272,16 @@
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_censorship	
 		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
 		
 		set_government_wage_level = high
-		set_tax_level = low
+		#set_tax_level = low
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:luxury_clothes
+		add_taxed_goods = g:luxury_furniture
+		add_taxed_goods = g:porcelain
+		add_taxed_goods = g:services
 
 		ig:ig_landowners = { 
 			set_interest_group_name = ig_scholar_officials
@@ -301,36 +302,29 @@
 		}
 
 		add_modifier = {
-			name = mandate_of_heaven
+			name = br_modifier_mandate_of_heaven
 			months = -1
 		}
 		add_modifier = {
-			name = inward_perfection
+			name = br_modifier_inward_perfection
 			years = 150
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_political_turmoil
+			name = br_modifier_china_political_turmoil
 			months = -1
 		}
 
-	#	add_modifier = {
-	#		name = war_for_china
-	#		months = 48
-	#	}
-	#	add_modifier = {
-	#		name = righteous_cause
-	#		months = 48
-	#	}
+
 
 	#	set_variable = {
 	#		name = china_warlord_explosion
@@ -343,6 +337,8 @@
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = sericulture
+		add_technology_researched = urbanization
+		add_technology_researched = urban_planning
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -352,6 +348,7 @@
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
 		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_confucian
@@ -360,12 +357,12 @@
 			add_ideology = ideology_confucian
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 	}
@@ -374,7 +371,9 @@
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = sericulture
-		add_technology_researched = standardized_shipbuilding
+		add_technology_researched = urbanization
+		add_technology_researched = urban_planning
+		add_technology_researched = br_tech_standardized_shipbuilding
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -383,7 +382,8 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_confucian
@@ -392,12 +392,12 @@
 			add_ideology = ideology_confucian
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 	}
@@ -406,6 +406,8 @@
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = sericulture
+		add_technology_researched = urbanization
+		add_technology_researched = urban_planning
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -414,7 +416,8 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_confucian
@@ -423,12 +426,12 @@
 			add_ideology = ideology_confucian
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 	}
@@ -437,6 +440,8 @@
 		effect_starting_technology_tier_5_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = sericulture
+		add_technology_researched = urbanization
+		add_technology_researched = urban_planning
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -445,7 +450,8 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_confucian
@@ -454,20 +460,21 @@
 			add_ideology = ideology_confucian
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 	}
 
-	c:CNW = {
+	c:br_chinese_new_world = {
 		effect_starting_technology_tier_4_tech = yes
 		
-		add_technology_researched = frontier_expansion
+		add_technology_researched = br_tech_frontier_expansion
+		add_technology_researched = br_tech_separation_of_powers #Required for law_presidential_republic
 	
 		set_tax_level = medium
 		add_taxed_goods = g:services
@@ -484,9 +491,11 @@
 		activate_law = law_type:law_frontier_colonization
 		
 		activate_law = law_type:law_national_militia
-		activate_law = law_type:law_censorship # The July Monarchy was already backtracking on promises made in 1830
+		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -502,6 +511,7 @@
 			set_interest_group_name = ig_scholar_officials
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_scholar_paternalistic
+			add_ideology = ideology_frontier_expansionist
 		}
 		
 		ig:ig_intelligentsia = { 
@@ -517,7 +527,7 @@
 		}
 
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_subsidies
 			months = 124
 		}
 		add_modifier = {
@@ -528,9 +538,11 @@
 	}
 
 	c:FRS = {
-		effect_starting_technology_tier_4_tech = yes
+		effect_starting_technology_tier_5_tech = yes
 		add_technology_researched = sericulture
-		add_technology_researched = frontier_expansion
+		add_technology_researched = urbanization
+		add_technology_researched = urban_planning
+		add_technology_researched = br_tech_frontier_expansion
 
 		effect_starting_politics_traditional = yes
 	
@@ -543,7 +555,8 @@
 		
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_frontier_colonization
-		activate_law = law_type:law_censorship # The July Monarchy was already backtracking on promises made in 1830
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -570,16 +583,16 @@
 		}
 
 		add_modifier = {
-			name = colonial_ferver
+			name = br_modifier_colonial_ferver
 			months = 248
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
@@ -611,6 +624,7 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_sunni_madrasahs
@@ -622,7 +636,7 @@
 			add_ideology = ideology_semi_nomadic
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -641,27 +655,27 @@
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			years = -1
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
 
 	}
 
-	c:KUM = {
+	c:br_dzungaria = {
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
@@ -687,6 +701,7 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_sunni_madrasahs
@@ -698,7 +713,7 @@
 			add_ideology = ideology_semi_nomadic
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -717,27 +732,27 @@
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			years = -1
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
 
 	}
 
-	c:QIN = {
+	c:br_qinghai = {
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
@@ -764,6 +779,7 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_sunni_madrasahs
@@ -775,7 +791,7 @@
 			add_ideology = ideology_semi_nomadic
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -794,20 +810,20 @@
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			years = -1
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 
@@ -841,6 +857,7 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_steppe_nomads
@@ -848,7 +865,7 @@
 			add_ideology = ideology_semi_nomadic
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -864,20 +881,20 @@
 
 
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			years = -1
 		}
 		add_modifier = {
-			name = china_insufficient_infrastructure
+			name = br_modifier_insufficient_infrastructure
 			months = -1
 		}
 
 		add_modifier = {
-			name = china_rampant_corruption
+			name = br_modifier_rampant_corruption
 			months = -1
 		}
 

@@ -69,7 +69,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -81,16 +81,12 @@
 		}
 
 		add_modifier = {
-			name = merchant_republic
+			name = br_modifier_merchant_republic
 			months = -1
 		}
 
 		add_modifier = {
-			name = eet_spice_dividends
-			years = 20
-		}
-		add_modifier = {
-			name = br_modifier_italy_foreign_policy
+			name = br_modifier_diplomatic_missions
 			months = -1
 		}
 		add_modifier = {
@@ -116,10 +112,14 @@
 
 		add_company = company_type:company_ven_trade
 		add_company = company_type:company_ven_arsenal
+		trigger_event = {
+			id = br_nation_startup_event.2
+			days = 1
+		}
 
 	}
 
-	c:DLM = {
+	c:br_dalmatia = {
 		effect_starting_technology_tier_2_tech = yes
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
@@ -154,7 +154,7 @@
 			set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}

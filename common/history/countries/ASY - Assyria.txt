@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:ASY = {
+	c:br_assyria = {
 	
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -35,7 +35,7 @@
 		}
 
 		add_modifier = {
-			name = persian_satraps
+			name = br_modifier_persian_satraps
 			months = -1
 		}
 
@@ -83,7 +83,7 @@
 			add_ideology = ideology_semi_nomadic
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -102,18 +102,18 @@
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			months = -1
 		}
 
 
 	}
 
-	c:ARD = {
+	c:br_ardalan = {
 	
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -144,6 +144,17 @@
 		activate_law = law_type:law_migration_controls	
 		
 
+		ig:ig_rural_folk = {
+			remove_ideology = ideology_agrarian
+			add_ideology = ideology_semi_nomadic
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 100
+				is_decaying = yes
+			}
+		}
+
 		ig:ig_devout = {
 			set_interest_group_name = ig_sunni_madrasahs
 		}
@@ -153,11 +164,11 @@
 			months = -1
 		}
 		add_modifier = {
-			name = nomad_heritage
+			name = br_modifier_nomad_heritage
 			months = -1
 		}
 		add_modifier = {
-			name = tribal_warriors
+			name = br_modifier_tribal_warriors
 			months = -1
 		}
 

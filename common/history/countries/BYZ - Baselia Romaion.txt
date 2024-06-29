@@ -7,7 +7,7 @@ COUNTRIES = {
 		#Custom set-up tech
 
 		#Society
-		add_technology_researched = fiat_currency
+		add_technology_researched = br_tech_fiat_currency
 		add_technology_researched = centralization
 		add_technology_researched = sericulture
 
@@ -15,12 +15,10 @@ COUNTRIES = {
 		add_technology_researched = intensive_agriculture
 
 		#Warfare
-		
-		add_technology_researched = field_works 
 		add_technology_researched = flamethrowers #GreekFire
 
 		set_tariffs_import_priority = g:wood
-		set_tariffs_import_priority = g:iron
+		#set_tariffs_import_priority = g:iron
 		set_tariffs_import_priority = g:spices
 		set_tariffs_import_priority = g:dye	
 		set_tariffs_import_priority = g:hardwood
@@ -116,7 +114,7 @@ COUNTRIES = {
 
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -129,12 +127,6 @@ COUNTRIES = {
 			remove_ideology = ideology_orthodox_patriarch
 			add_ideology = ideology_romaioi_patriarch
 
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 100
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_latin_priviledges
 				years = 25
@@ -152,7 +144,7 @@ COUNTRIES = {
 			
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 1
+				multiplier = 0.75
 				years = 100
 				is_decaying = yes
 			}
@@ -202,7 +194,13 @@ COUNTRIES = {
 
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.75
+				multiplier = -0.5
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
 				years = 100
 				is_decaying = yes
 			}
@@ -218,35 +216,41 @@ COUNTRIES = {
 				years = 100
 				is_decaying = yes
 			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -1
+				years = 100
+				is_decaying = yes
+			}
 
 		}
 
 		add_modifier = {
-			name = romaioi_culture_supremacy
+			name = br_modifier_romaioi_culture_supremacy
 			months = -1
 		}
 		add_modifier = {
-			name = latin_privileges
+			name = br_modifier_latin_privileges
 			months = -1
 		}
 		add_modifier = {
-			name = romaioi_bureaucratic_corruption
+			name = br_modifier_romaioi_bureaucratic_corruption
 			months = -1
 		}
 		add_modifier = {
-			name = roman_senate
+			name = br_modifier_roman_senate
 			months = -1
 		}
 		add_modifier = {
-			name = eastern_roman_empire
+			name = br_modifier_eastern_roman_emperor
 			months = -1
 		}
 		add_modifier = {
-			name = romaioi_corrupt_pronoia
+			name = br_modifier_corrupt_pronoia
 			months = -1
 		}
 		add_modifier = {
-			name = br_modifier_romaioi_roman_roads #make into state modifiers or buildings
+			name = br_modifier_roman_roads #make into state modifiers or buildings
 			months = -1
 		}
 		add_modifier = {

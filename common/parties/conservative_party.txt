@@ -118,6 +118,135 @@ conservative_party = {
 				}
 			}
 			triggered_desc = {
+				desc = party_moderate_party
+				trigger = {
+					country_has_primary_culture = cu:brazilian
+					has_law = law_type:law_monarchy
+					OR = {
+						game_date <= 1837.1.1
+						has_modifier = brz_regency
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_conservative
+				trigger = {
+					country_has_primary_culture = cu:brazilian
+					has_law = law_type:law_monarchy
+					NOT = {
+						has_modifier = brz_regency
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_bahia_republican_party
+				trigger = {
+					country_has_primary_culture = cu:brazilian
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+					any_scope_state = {
+						state_region = s:STATE_BAHIA
+					}
+					trigger_if = {
+						limit = {
+							any_scope_state = {
+								state_region = s:STATE_SAO_PAULO
+							}
+						}
+						s:STATE_BAHIA.region_state:BRZ.gdp > s:STATE_SAO_PAULO.region_state:BRZ.gdp
+					}
+					trigger_if = {
+						limit = {
+							any_scope_state = {
+								state_region = s:STATE_MINAS_GERAIS
+							}
+						}
+						s:STATE_BAHIA.region_state:BRZ.gdp > s:STATE_MINAS_GERAIS.region_state:BRZ.gdp
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_sao_paulo_republican_party
+				trigger = {
+					country_has_primary_culture = cu:brazilian
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+					any_scope_state = {
+						state_region = s:STATE_SAO_PAULO
+					}
+					trigger_if = {
+						limit = {
+							any_scope_state = {
+								state_region = s:STATE_MINAS_GERAIS
+							}
+						}
+						s:STATE_SAO_PAULO.region_state:BRZ.gdp > s:STATE_MINAS_GERAIS.region_state:BRZ.gdp
+					}
+					trigger_if = {
+						limit = {
+							any_scope_state = {
+								state_region = s:STATE_BAHIA
+							}
+						}
+						s:STATE_SAO_PAULO.region_state:BRZ.gdp > s:STATE_BAHIA.region_state:BRZ.gdp
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_minas_gerais_republican_party
+				trigger = {
+					country_has_primary_culture = cu:brazilian
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+					any_scope_state = {
+						state_region = s:STATE_MINAS_GERAIS
+					}
+					trigger_if = {
+						limit = {
+							any_scope_state = {
+								state_region = s:STATE_SAO_PAULO
+							}
+						}
+						s:STATE_MINAS_GERAIS.region_state:BRZ.gdp > s:STATE_SAO_PAULO.region_state:BRZ.gdp
+					}
+					trigger_if = {
+						limit = {
+							any_scope_state = {
+								state_region = s:STATE_BAHIA
+							}
+						}
+						s:STATE_MINAS_GERAIS.region_state:BRZ.gdp > s:STATE_BAHIA.region_state:BRZ.gdp
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_federal_republican_party
+				trigger = {
+					country_has_primary_culture = cu:brazilian
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+					NOR = {
+						any_scope_state = {
+							state_region = s:STATE_SAO_PAULO
+						}
+						any_scope_state = {
+							state_region = s:STATE_MINAS_GERAIS
+						}
+						any_scope_state = {
+							state_region = s:STATE_BAHIA
+						}
+					}
+				}
+			}
+			triggered_desc = {
 				desc = party_octobrist_party
 				trigger = {
 					exists = c:RUS
@@ -149,7 +278,20 @@ conservative_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_russian_party
+				desc = party_napist_party
+				trigger = {
+					exists = c:GRE
+					THIS = c:GRE
+					has_law = law_type:law_monarchy
+					ruler = {
+						culture = {
+							has_discrimination_trait = german_speaking
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_ethnikon_komma
 				trigger = {
 					exists = c:GRE
 					THIS = c:GRE
@@ -274,6 +416,7 @@ conservative_party = {
 						has_ideology = ideology:ideology_legitimist
 						has_ideology = ideology:ideology_theocrat
 						has_ideology = ideology:ideology_slaver
+						has_ideology = ideology:ideology_corporatist_leader
 					}
 				}
 			}
@@ -289,6 +432,7 @@ conservative_party = {
 					has_ideology = ideology:ideology_stratocratic
 					has_ideology = ideology:ideology_patriarchal
 					has_ideology = ideology:ideology_moralist
+					has_ideology = ideology:ideology_corporatist
 				}
 			}
 			add = {
@@ -333,6 +477,7 @@ conservative_party = {
 						has_ideology = ideology:ideology_pacifist
 						has_ideology = ideology:ideology_reformer
 						has_ideology = ideology:ideology_humanitarian
+						has_ideology = ideology:ideology_humanitarian_royalist
 					}
 				}
 			}
@@ -750,47 +895,57 @@ conservative_party = {
 		}
 		if = {
 			limit = {
-				owner = {
-					country_is_in_north_america = yes
-					OR = {
-						country_has_primary_culture = cu:yankee
-						country_has_primary_culture = cu:dixie
-					}
-					has_law = law_type:law_presidential_republic
-				}
 				leader = {
-					NOR = {
-						has_socialist_ideology = yes
-						has_progressive_ideology = yes
+					has_ideology = ideology:ideology_jacksonian_democrat
+				}
+			}
+			add = {
+				value = 1000
+				desc = "from_jacksonian_democrat"
+			}
+		}
+		if = { # Brazil
+			limit = {
+				is_interest_group_type = ig_landowners
+				owner = {
+					OR = {
+						has_journal_entry = je_coffee_with_milk
+						has_journal_entry = je_populist_unrest
 					}
 				}
 			}
 			add = {
-				value = 3
-				desc = "usa_two_party_system"
+				value = 10
+				desc = "from_milk_coffee"
 			}
 		}
 		if = {
 			limit = {
 				owner = {
-					OR = {
-						country_has_primary_culture = cu:yankee
-						country_has_primary_culture = cu:dixie
-					}
-					OR = {
-						NOT = {
-							has_law = law_type:law_slavery_banned
-						}
-						has_modifier = missouri_compromise
+					country_is_in_south_america = yes
+					any_primary_culture = {
+						has_discrimination_trait = hispanophone
 					}
 				}
-				leader = {
-					culture = cu:dixie
+				OR = {
+					is_interest_group_type = ig_landowners
+					is_interest_group_type = ig_devout
 				}
 			}
 			add = {
-				value = 3
-				desc = "from_southern_interests"
+				value = 10
+				desc = "south_america_two_party_system"
+			}
+		}
+		if = {
+			limit = {
+				leader = {
+					has_variable = caudillo_conservative
+				}
+			}
+			add = {
+				value = 20
+				desc = "caudillo_support"
 			}
 		}
 		if = {
@@ -814,6 +969,29 @@ conservative_party = {
 			add = {
 				value = -5
 				desc = "from_northern_interests"
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						country_has_primary_culture = cu:yankee
+						country_has_primary_culture = cu:dixie
+					}
+					OR = {
+						NOT = {
+							has_law = law_type:law_slavery_banned
+						}
+						has_modifier = missouri_compromise
+					}
+				}
+				leader = {
+					culture = cu:dixie
+				}
+			}
+			add = {
+				value = 3
+				desc = "from_southern_interests"
 			}
 		}
 		if = {
@@ -871,6 +1049,18 @@ conservative_party = {
 			add = {
 				value = 3
 				desc = "from_only_legal_party"
+			}
+		}
+		if = { # Also Brazil
+			limit = {
+				is_interest_group_type = ig_petty_bourgeoisie
+				owner = {
+					has_journal_entry = je_populist_unrest
+				}
+			}
+			add = {
+				value = -1000
+				desc = "from_populist_discontent"
 			}
 		}
 	}

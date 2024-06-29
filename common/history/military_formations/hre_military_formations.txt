@@ -9,24 +9,24 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_ILE_DE_FRANCE
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_NORMANDY
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_FRENCH_LOW_COUNTRIES
-				count = 5
+				count = 8
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_ORLEANS
-				count = 5
+				count = 10
 			}
 
 			combat_unit = {
@@ -65,7 +65,7 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_ILE_DE_FRANCE
-				count = 5
+				count = 6
 			}
 		}
 
@@ -77,19 +77,19 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_PICARDY
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_ALSACE_LORRAINE
-				count = 5
+				count = 10
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_CHAMPAGNE
-				count = 5
+				count = 10
 			}
 
 			combat_unit = {
@@ -122,7 +122,7 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_MAINE_ANJOU
-				count = 5
+				count = 8
 			}
 
 		}
@@ -136,25 +136,25 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_LORRAINE
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_NORTH_RHINE
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_RHINELAND
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_WALLONIA
-				count = 5
+				count = 4
 			}
 
 			combat_unit = {
@@ -190,11 +190,21 @@
 				state_region = s:STATE_BURGUNDY
 				count = 5
 			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_ILE_DE_FRANCE
+				count = 5
+			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_ILE_DE_FRANCE
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_WALLONIA
-				count = 5
+				count = 6
 			}
 
 		}
@@ -210,19 +220,19 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_LANGUEDOC
-				count = 5
+				count = 6
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_GUYENNE
-				count = 5
+				count = 6
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_AUVERGNE_LIMOUSIN
-				count = 5
+				count = 6
 			}
 
 			combat_unit = {
@@ -262,7 +272,7 @@
 
 	}
 
-	c:PRO = {
+	c:br_provence = {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_occitania
@@ -773,13 +783,13 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_ANHALT
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_ELBE
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
@@ -838,19 +848,19 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_HANNOVER
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_SAXONY
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_BRUNSWICK
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
@@ -873,35 +883,62 @@
 		}
 	}
 
+	c:MEI = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "II. Armee-Korps"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript # Jägers
+				state_region = s:STATE_SAXONY
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAXONY
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SAXONY
+				count = 3
+			}
+
+		}
+	}
+
 	c:HUN = {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_danubia
-			name = "I. Korpskommando"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_CENTRAL_HUNGARY
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_BEKES
-				count = 5
+				count = 6
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_TRANSDANUBIA
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_CENTRAL_HUNGARY
-				count = 10
+				count = 12
 			}
 
 			combat_unit = {
@@ -919,15 +956,38 @@
 			}
 
 			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BEKES
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TRANSDANUBIA
+				count = 4
+			}
+
+			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_CENTRAL_HUNGARY
-				count = 10
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CENTRAL_HUNGARY
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CENTRAL_HUNGARY
+				count = 4
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_CENTRAL_HUNGARY
-				count = 5
+				count = 6
 			}
 
 		}
@@ -935,12 +995,11 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_danubia
-			name = "II. Korpskommando"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_DELVIDEK
-				count = 5
+				count = 6
 			}
 
 			combat_unit = {
@@ -961,17 +1020,42 @@
 				state_region = s:STATE_BANAT
 				count = 5
 			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_DELVIDEK
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_WEST_SLOVAKIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BANAT
+				count = 2
+			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_BANAT
-				count = 5
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_TRANSDANUBIA
+				count = 2
 			}
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
+				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_WEST_SLOVAKIA
-				count = 5
+				count = 8
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CENTRAL_HUNGARY
+				count = 6
 			}
 		}
 
@@ -979,12 +1063,11 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_balkans
-			name = "III. Korpskommando"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_EAST_SLOVAKIA
-				count = 5
+				count = 8
 			}
 
 			combat_unit = {
@@ -996,25 +1079,38 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
-				state_region = s:STATE_WEST_GALICIA
+				state_region = s:STATE_SLAVONIA
 				count = 5
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_SLAVONIA
-				count = 5
+				state_region = s:STATE_EAST_SLOVAKIA
+				count = 2
 			}
-
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SLAVONIA
+				count = 2
+			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_WEST_GALICIA
-				count = 5
+				state_region = s:STATE_TRANSDANUBIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CENTRAL_HUNGARY
+				count = 2
 			}
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
+				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_SLAVONIA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CENTRAL_HUNGARY
 				count = 5
 			}
 		}
@@ -1025,7 +1121,6 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_balkans
-			name = "I. Armee-Korps"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -1075,24 +1170,23 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_rhine
-			name = "I. Korpskommando"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_HOLLAND
-				count = 5
+				count = 10
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_FRIESLAND
-				count = 5
+				count = 6
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_GELRE
-				count = 5
+				count = 6
 			}
 
 			combat_unit = {
@@ -1121,11 +1215,46 @@
 				state_region = s:STATE_FRIESLAND
 				count = 2
 			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_HOLLAND
+				count = 2
+			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_HOLLAND
 				count = 4
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_rhine
+			name = Koninklijke_Marine
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_HOLLAND
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_FRIESLAND
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_HOLLAND
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_FRIESLAND
+				count = 6
 			}
 		}
 

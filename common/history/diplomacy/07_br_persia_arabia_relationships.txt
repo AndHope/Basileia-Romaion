@@ -1,20 +1,64 @@
 ﻿DIPLOMACY = {
 	c:PER = {
 		create_diplomatic_pact = {
-			country = c:PAM
+			country = c:br_arevelyan
 			type = tributary
 		}
 		create_diplomatic_pact = {
-			country = c:ASY
+			country = c:br_arevelyan
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_assyria
 			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:br_assyria
+			type = raise_payments
 		}
 		create_diplomatic_pact = {
 			country = c:KUR
-			type = puppet
+			type = dominion
 		}
 		create_diplomatic_pact = {
-			country = c:ARD
-			type = puppet
+			country = c:KUR
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_ardalan
+			type = dominion
+		}
+		create_diplomatic_pact = {
+			country = c:br_ardalan
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:HER
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:HER
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:KAN
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:KAN
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:KAL
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:KAL
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:KOK
+			type = tributary
 		}
 		create_diplomatic_pact = {
 			country = c:KHI
@@ -25,11 +69,15 @@
 			type = tributary
 		}
 		create_diplomatic_pact = {
-			country = c:AFG
+			country = c:KAB
 			type = tributary
 		}
 		create_diplomatic_pact = {
-			country = c:KUW
+			country = c:KAB
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_kuwait
 			type = tributary
 		}
 		set_relations = { country = c:ANL value = 35 }
@@ -37,8 +85,24 @@
 		set_relations = { country = c:HUN value = 45 }
 		set_relations = { country = c:BYZ value = -75 }
 		set_relations = { country = c:MUG value = -95 }
-		set_relations = { country = c:AFG value = -75 }
 		set_relations = { country = c:OMA value = -95 }
+
+		create_unidirectional_truce = {
+			country = c:JAB
+			months = 600
+		}
+		create_unidirectional_truce = {
+			country = c:NEJ
+			months = 600
+		}
+		create_bidirectional_truce = {
+			country = c:MUG
+			months = 24
+		}
+		create_bidirectional_truce = {
+			country = c:br_tartaria
+			months = 24
+		}
 
 		create_diplomatic_pact = {
 			country = c:BYZ
@@ -51,11 +115,19 @@
 
 	}
 
-	c:BUK = {
+	c:KAB = {
 		create_diplomatic_pact = {
-			country = c:KOK
+			country = c:KUN
 			type = tributary
-		}	
+		}
+		create_diplomatic_pact = {
+			country = c:MAI
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:CHT
+			type = tributary
+		}
 
 	}
 
@@ -66,26 +138,34 @@
 		}
 		create_diplomatic_pact = {
 			country = c:EOT
-			type = puppet
+			type = dominion
 		}
 		create_diplomatic_pact = {
 			country = c:ABU
-			type = puppet
+			type = dominion
 		}
 		create_diplomatic_pact = {
 			country = c:YEM
-			type = puppet
+			type = dominion
 		}
 		create_diplomatic_pact = {
 			country = c:OMA
 			type = dominion
 		}
+		create_diplomatic_pact = {
+			country = c:OMA	
+			type = decrease_payments
+		}
+		create_diplomatic_pact = {
+			country = c:OMA	
+			type = grant_own_market
+		}
 
-		set_relations = { country = c:BYZ value = -75 }
-		set_relations = { country = c:AGY value = -50 }
+		set_relations = { country = c:BYZ value = -45 }
+		set_relations = { country = c:br_aegypt value = -50 }
 		set_relations = { country = c:PER value = -50 }
-		set_relations = { country = c:NAF value = -25 }
-		set_relations = { country = c:ANL value = -35 }
+		set_relations = { country = c:br_afrika value = -25 }
+		set_relations = { country = c:ANL value = -15 }
 
 	}
 
@@ -93,6 +173,10 @@
 		create_diplomatic_pact = {
 			country = c:ZAN
 			type = personal_union
+		}
+		create_diplomatic_pact = {
+			country = c:ZAN
+			type = raise_payments
 		}
 		set_owes_obligation_to = {
 			country = c:ACE
@@ -103,16 +187,8 @@
 	c:ACE = {
 		create_diplomatic_pact = {
 			country = c:JOH
-			type = vassal
+			type = tributary
 		}
-		set_owes_obligation_to = {
-			country = c:OMA
-			setting = yes
-		}
-
-	}
-
-	c:ZAN = {
 		set_owes_obligation_to = {
 			country = c:OMA
 			setting = yes

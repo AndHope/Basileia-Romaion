@@ -39,13 +39,18 @@
 			}
 			create_pop = {
 				pop_type = slaves
-				culture = sephardic
+				culture = mizrahi
+				size = 5000
+			}
+			create_pop = {
+				pop_type = slaves
+				culture = north_caucasian
 				size = 2000
 			}
 		}
 	}
 	s:STATE_PALESTINE = {
-		region_state:SYR = {
+		region_state:br_syria = {
 			create_pop = {
 				culture = latinoi
 				size = 8000
@@ -111,47 +116,17 @@
 				size = 58000
 			}
 			create_pop = {
-				culture = sephardic
-				religion = jewish
+				culture = romaniote
 				size = 25000
 			}
 			create_pop = {
 				culture = armenian
 				size = 4400
 			}
-			create_pop = {
-				pop_type = slaves
-				culture = sephardic
-				size = 4200
-			}
 		}
-#		region_state:VEN = {
-#			create_pop = {
-#				culture = latinoi
-#				size = 3500
-#			}
-#			create_pop = {
-#				culture = syriac
-#				size = 56800
-#			}
-#			create_pop = {
-#				culture = bedouin
-#				religion = sunni
-#				size = 1100
-#			}
-#			create_pop = {
-#				culture = sephardic
-#				religion = jewish
-#				size = 5000
-#			}
-#			create_pop = {
-#				culture = armenian
-#				size = 1400
-#			}
-#		}
 	}
 	s:STATE_LEBANON = {
-		region_state:SYR = {
+		region_state:br_syria = {
 			create_pop = {
 				culture = latinoi
 				size = 10000
@@ -208,8 +183,8 @@
 				size = 98000
 			}
 			create_pop = {
-				culture = sephardic
-				size = 6000
+				culture = romaniote
+				size = 12000
 			}
 			create_pop = {
 				culture = syriac
@@ -228,11 +203,6 @@
 				culture = greek
 				religion = oriental_orthodox
 				size = 8000
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = sephardic
-				size = 7000
 			}
 		}
 	}
@@ -289,18 +259,23 @@
 				size = 512000
 			}
 			create_pop = {
-				culture = sephardic
+				culture = mizrahi
 				size = 8000
 			}
 			create_pop = {
 				pop_type = slaves
-				culture = sephardic
+				culture = mizrahi
+				size = 6000
+			}
+			create_pop = {
+				pop_type = slaves
+				culture = north_caucasian
 				size = 6000
 			}
 		}
 	}
 	s:STATE_ALEPPO = {
-		region_state:SYR = {
+		region_state:br_syria = {
 			create_pop = {
 				culture = greek
 				religion = oriental_orthodox
@@ -382,7 +357,7 @@
 				size = 120000
 			}
 			create_pop = {
-				culture = sephardic
+				culture = romaniote
 				size = 12000
 			}
 		}
@@ -401,7 +376,7 @@
 			}
 			create_pop = {
 				culture = greek
-				size = 720396
+				size = 820396
 			}
 			create_pop = {
 				culture = armenian
@@ -412,7 +387,7 @@
 				size = 42996
 			}
 			create_pop = {
-				culture = sephardic
+				culture = romaniote
 				size = 6000
 			}
 		}
@@ -421,7 +396,7 @@
 		region_state:BYZ = {
 			create_pop = {
 				culture = greek
-				size = 1008900
+				size = 908900
 			}
 			create_pop = {
 				culture = armenian
@@ -442,7 +417,7 @@
 				pop_type = clerks
 			}
 			create_pop = {
-				culture = sephardic
+				culture = romaniote
 				size = 12000
 			}
 		}
@@ -550,7 +525,7 @@
 				size = 15000
 			}
 		}
-		region_state:TBZ = {
+		region_state:br_trebizond = {
 			create_pop = {
 				culture = latinoi
 				size = 2500
@@ -700,7 +675,7 @@
 		}
 	}
 	s:STATE_DIYARBAKIR = {
-		region_state:MES = {
+		region_state:br_mesopotamia = {
 			create_pop = {
 				culture = greek
 				size = 4000
@@ -763,7 +738,7 @@
 				pop_type = slaves
 			}
 		}
-		region_state:ASY = {
+		region_state:br_assyria = {
 			create_pop = {
 				culture = assyrian
 				size = 2500
@@ -899,22 +874,54 @@
 			}
 		}
 	}
-	s:STATE_ARMENIA = {
-		region_state:PAM = {
+	s:STATE_ARMENIA = { #DONE
+		region_state:br_arevelyan = {
 			create_pop = {
 				culture = armenian
-				size = 6000
+				size = 110996
+			}
+			create_pop = {
+				culture = azerbaijani
+				religion = sunni
+				size = 36000
+				pop_type = slaves
+			}
+			create_pop = {
+				culture = azerbaijani
+				size = 20100
+			}
+			create_pop = {
+				culture = kurdish
+				size = 12004
+				pop_type = slaves
+			}
+			create_pop = {
+				culture = georgian
+				size = 22000
+			}
+			create_pop = {
+				culture = assyrian
+				size = 2891
+			}
+			create_pop = {
+				culture = greek
+				size = 1000
 				pop_type = aristocrats
 			}
 			create_pop = {
-				culture = armenian
-				size = 11000
+				culture = greek
+				size = 1000
 				pop_type = clergymen
 			}
 			create_pop = {
 				culture = armenian
-				size = 600
-				pop_type = officers
+				size = 2000
+				pop_type = aristocrats
+			}
+			create_pop = {
+				culture = armenian
+				size = 5000
+				pop_type = clergymen
 			}
 			create_pop = {
 				culture = armenian
@@ -927,49 +934,54 @@
 				pop_type = shopkeepers
 			}
 			create_pop = {
-				culture = armenian
+				culture = persian
 				size = 2000
 				pop_type = bureaucrats
 			}
 			create_pop = {
-				culture = armenian
-				size = 19000
+				culture = persian
+				size = 10000
 				pop_type = soldiers
 			}
 			create_pop = {
-				culture = armenian
-				size = 210996
-			}
-			create_pop = {
-				culture = azerbaijani
-				religion = sunni
-				size = 56000
-				pop_type = slaves
-			}
-			create_pop = {
-				culture = azerbaijani
-				size = 20100
-			}
-			create_pop = {
-				culture = kurdish
-				size = 15004
-				pop_type = slaves
-			}
-			create_pop = {
-				culture = georgian
-				size = 22000
+				culture = persian
+				size = 2000
+				pop_type = aristocrats
 			}
 			create_pop = {
 				culture = persian
-				size = 7960
+				size = 600
+				pop_type = officers
 			}
 		}
 	}
-	s:STATE_AZERBAIJAN = {
-		region_state:PAM = {
+	s:STATE_ELIZAVETPOL = { #DONE
+		region_state:br_arevelyan = {
+			create_pop = {
+				culture = azerbaijani
+				size = 95100
+			}
 			create_pop = {
 				culture = armenian
-				size = 2700
+				size = 115000
+			}
+			create_pop = {
+				culture = georgian
+				size = 8000
+			}
+			create_pop = {
+				culture = azerbaijani
+				size = 9604
+				pop_type = slaves
+			}
+			create_pop = {
+				culture = north_caucasian
+				size = 4604
+				pop_type = slaves
+			}
+			create_pop = {
+				culture = armenian
+				size = 2000
 				pop_type = aristocrats
 			}
 			create_pop = {
@@ -979,32 +991,25 @@
 			}
 			create_pop = {
 				culture = armenian
-				size = 600
-				pop_type = officers
-			}
-			create_pop = {
-				culture = armenian
 				size = 8000
 				pop_type = farmers
 			}
 			create_pop = {
-				culture = armenian
-				size = 19000
+				culture = persian
+				size = 10000
 				pop_type = soldiers
 			}
 			create_pop = {
-				culture = azerbaijani
-				size = 19604
-				pop_type = slaves
+				culture = persian
+				size = 2000
+				pop_type = aristocrats
 			}
 			create_pop = {
-				culture = armenian
-				size = 115000
+				culture = persian
+				size = 600
+				pop_type = officers
 			}
-			create_pop = {
-				culture = georgian
-				size = 18000
-			}
+
 		}
 		region_state:GEO = {
 			create_pop = {
@@ -1013,12 +1018,17 @@
 				pop_type = slaves
 			}
 			create_pop = {
+				culture = north_caucasian
+				size = 604
+				pop_type = slaves
+			}
+			create_pop = {
 				culture = armenian
-				size = 25000
+				size = 5000
 			}
 			create_pop = {
 				culture = georgian
-				size = 28000
+				size = 8000
 			}
 		}
 	}
@@ -1070,7 +1080,7 @@
 				size = 421996
 			}
 			create_pop = {
-				culture = sephardic
+				culture = romaniote
 				size = 2996
 			}
 			create_pop = {

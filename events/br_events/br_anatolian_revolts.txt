@@ -2,7 +2,7 @@
 
 anatolian_revolt.1 = {
 	type = country_event
-	placement = c:ANA.capital
+	placement = c:br_anatolia.capital
 
 	title = anatolian_revolt.1.t
 	desc = anatolian_revolt.1.d
@@ -22,46 +22,54 @@ anatolian_revolt.1 = {
 	trigger = {   
 	}
 	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = constantinople_scope
+				owner = {
+					save_scope_as = constantinople_owner_scope
+				}
+			}
+		}
 		if = {
 			limit = {
-				NOT = { exists = c:ANA }
+				NOT = { exists = c:br_anatolia }
 				exists = s:STATE_KONYA.region_state:BYZ
 			}
 			create_country = {
-				tag = ANA
+				tag = br_anatolia
 				origin = c:BYZ
 				state = s:STATE_KONYA.region_state:BYZ
 			}
 		}
 		if = {
 			limit = { exists = s:STATE_ALEPPO.region_state:BYZ }
-			s:STATE_ALEPPO.region_state:BYZ = { set_state_owner = c:ANA }
+			s:STATE_ALEPPO.region_state:BYZ = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = { exists = s:STATE_DIYARBAKIR.region_state:BYZ }
-			s:STATE_DIYARBAKIR.region_state:BYZ = { set_state_owner = c:ANA }
+			s:STATE_DIYARBAKIR.region_state:BYZ = { set_state_owner = c:br_anatolia }
 		}
 		if = {
-			limit = { exists = s:STATE_DIYARBAKIR.region_state:MES }
-			s:STATE_DIYARBAKIR.region_state:MES = { set_state_owner = c:ANA }
+			limit = { exists = s:STATE_DIYARBAKIR.region_state:br_mesopotamia }
+			s:STATE_DIYARBAKIR.region_state:br_mesopotamia = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = { exists = s:STATE_ADANA.region_state:BYZ }
-			s:STATE_ADANA.region_state:BYZ = { set_state_owner = c:ANA }
+			s:STATE_ADANA.region_state:BYZ = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = { exists = s:STATE_KONYA.region_state:BYZ }
-			s:STATE_KONYA.region_state:BYZ = { set_state_owner = c:ANA }
+			s:STATE_KONYA.region_state:BYZ = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = { exists = s:STATE_ANKARA.region_state:BYZ }
-			s:STATE_ANKARA.region_state:BYZ = { set_state_owner = c:ANA }
+			s:STATE_ANKARA.region_state:BYZ = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = {
 				NOT = {
 					any_diplomatic_play = {
-						any_scope_play_involved = { this = c:ANA }
+						any_scope_play_involved = { this = c:br_anatolia }
 						any_scope_play_involved = { this = c:BYZ }
 						#is_diplomatic_play_type = dp_annex_subject
 					}
@@ -69,9 +77,9 @@ anatolian_revolt.1 = {
 			}
 
 		}
-		c:ANA = {
+		c:br_anatolia = {
 			add_modifier = {
-				name = romaioi_themata_primacy
+				name = br_modifier_themata_primacy
 				months = -1
 			}
 			activate_law = law_type:law_monarchy
@@ -120,20 +128,32 @@ anatolian_revolt.1 = {
 		name = anatolian_revolt.1.a
 		default_option = yes
 
-		c:ANA = {
+		c:br_anatolia = {
 			add_modifier = {
 				name = war_for_independence
 				months = normal_modifier_time
 			}
 		}
 
-		create_diplomatic_play = {
-			name = anatolian_Rebellion
-			war = yes
-			type = dp_annex_subject #dp_secession
-
-			target_state = s:STATE_KONYA.region_state:ANA
-
+		scope:constantinople_owner_scope = {
+			create_diplomatic_play = {
+				name = anatolian_Rebellion
+				target_country = c:br_anatolia
+				type = dp_annex_subject #dp_secession
+			}
+		}
+		hidden_effect = {
+			random_diplomatic_play = {
+				limit = {
+					scope:constantinople_owner_scope = {
+						is_diplomatic_play_initiator = yes
+					}
+					c:br_anatolia = {
+						is_diplomatic_play_target = yes
+					}
+				}
+				add_diplomatic_play_war_support = { target = c:br_anatolia value = 100 }
+			}
 		}
 		
 		ai_chance = {
@@ -141,7 +161,6 @@ anatolian_revolt.1 = {
 		}
 
 		hidden_effect = {
-			change_infamy = -15
 			trigger_event = {
 				id = romaion_emp_rally.1
 				days = 7
@@ -154,11 +173,11 @@ anatolian_revolt.1 = {
 
 		c:BYZ = {
 			create_diplomatic_pact = {
-				country = c:ANA
+				country = c:br_anatolia
 				type = puppet
 			}
 			change_relations = {
-				country = c:ANA
+				country = c:br_anatolia
 				value = 50
 			}
 		}
@@ -171,7 +190,7 @@ anatolian_revolt.1 = {
 
 anatolian_revolt.2 = {
 	type = country_event
-	placement = c:ANA.capital
+	placement = c:br_anatolia.capital
 
 	title = anatolian_revolt.2.t
 	desc = anatolian_revolt.2.d
@@ -191,34 +210,42 @@ anatolian_revolt.2 = {
 	trigger = {   
 	}
 	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = constantinople_scope
+				owner = {
+					save_scope_as = constantinople_owner_scope
+				}
+			}
+		}
 		if = {
 			limit = {
-				NOT = { exists = c:PNT }
+				NOT = { exists = c:br_pontos }
 				exists = s:STATE_TRABZON.region_state:BYZ
 			}
 			create_country = {
-				tag = PNT
+				tag = br_pontos
 				origin = c:BYZ
 				state = s:STATE_TRABZON.region_state:BYZ
 			}
 		}
 		if = {
 			limit = { exists = s:STATE_TRABZON.region_state:BYZ }
-			s:STATE_TRABZON.region_state:BYZ = { set_state_owner = c:PNT }
+			s:STATE_TRABZON.region_state:BYZ = { set_state_owner = c:br_pontos }
 		}
 		if = {
-			limit = { exists = s:STATE_TRABZON.region_state:TBZ }
-			s:STATE_TRABZON.region_state:TBZ = { set_state_owner = c:PNT }
+			limit = { exists = s:STATE_TRABZON.region_state:br_trebizond }
+			s:STATE_TRABZON.region_state:br_trebizond = { set_state_owner = c:br_pontos }
 		}
 		if = {
 			limit = { exists = s:STATE_KASTAMONU.region_state:BYZ }
-			s:STATE_KASTAMONU.region_state:BYZ = { set_state_owner = c:PNT }
+			s:STATE_KASTAMONU.region_state:BYZ = { set_state_owner = c:br_pontos }
 		}
 		if = {
 			limit = {
 				NOT = {
 					any_diplomatic_play = {
-						any_scope_play_involved = { this = c:PNT }
+						any_scope_play_involved = { this = c:br_pontos }
 						any_scope_play_involved = { this = c:BYZ }
 						#is_diplomatic_play_type = dp_annex_subject
 					}
@@ -226,9 +253,9 @@ anatolian_revolt.2 = {
 			}
 
 		}
-		c:PNT = {
+		c:br_pontos = {
 			add_modifier = {
-				name = romaioi_themata_primacy
+				name = br_modifier_themata_primacy
 				months = -1
 			}
 			activate_law = law_type:law_monarchy
@@ -277,21 +304,32 @@ anatolian_revolt.2 = {
 		name = anatolian_revolt.2.a
 		default_option = yes
 
-		c:PNT = {
+		c:br_pontos = {
 			add_modifier = {
 				name = war_for_independence
 				months = normal_modifier_time
 			}
 		}
 
-
-		create_diplomatic_play = {
-			name = Pontic_Rebellion
-			war = yes
-			type = dp_annex_subject #dp_secession
-
-			target_state = s:STATE_TRABZON.region_state:PNT
-
+		scope:constantinople_owner_scope = {
+			create_diplomatic_play = {
+				name = Pontic_Rebellion
+				target_country = c:br_pontos
+				type = dp_annex_subject #dp_secession
+			}
+		}
+		hidden_effect = {
+			random_diplomatic_play = {
+				limit = {
+					scope:constantinople_owner_scope = {
+						is_diplomatic_play_initiator = yes
+					}
+					c:br_pontos = {
+						is_diplomatic_play_target = yes
+					}
+				}
+				add_diplomatic_play_war_support = { target = c:br_pontos value = 100 }
+			}
 		}
 		
 		hidden_effect = {
@@ -312,11 +350,11 @@ anatolian_revolt.2 = {
 
 		c:BYZ = {
 			create_diplomatic_pact = {
-				country = c:PNT
+				country = c:br_pontos
 				type = puppet
 			}
 			change_relations = {
-				country = c:PNT
+				country = c:br_pontos
 				value = 50
 			}
 		}

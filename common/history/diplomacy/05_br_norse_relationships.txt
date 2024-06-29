@@ -1,8 +1,12 @@
 ﻿DIPLOMACY = {
 	c:DEN = {
 		create_diplomatic_pact = {
-			country = c:VIN
+			country = c:br_vinland
 			type = dominion
+		}
+		create_diplomatic_pact = {
+			country = c:br_vinland	
+			type = decrease_payments
 		}
 		create_diplomatic_pact = {
 			country = c:NOR
@@ -17,35 +21,46 @@
 			type = protectorate
 		}
 		create_diplomatic_pact = {
+			country = c:SCO
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
 			country = c:IRE
 			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:IRE
+			type = raise_payments
 		}
 		create_diplomatic_pact = {
 			country = c:WLS
 			type = protectorate
 		}
 		create_diplomatic_pact = {
-			country = c:ENG
-			type = protectorate
+			country = c:WLS
+			type = raise_payments
 		}
-		
+		create_diplomatic_pact = {
+			country = c:ENG
+			type = personal_union
+		}
 		create_diplomatic_pact = {
 			country = c:SWE
 			type = rivalry
 		}
 
-		create_truce = {
+		create_unidirectional_truce = {
 			country = c:ASH
-			months = 120
+			months = 60
 		}
 
 		set_relations = { country = c:ENG value = -75 }
-		set_relations = { country = c:SCO value = -75 }
-		set_relations = { country = c:IRE value = -75 }
-		set_relations = { country = c:WLS value = -75 }
-		set_relations = { country = c:SWE value = -75 }
+		set_relations = { country = c:SCO value = -25 }
+		set_relations = { country = c:IRE value = -25 }
+		set_relations = { country = c:WLS value = -25 }
+		set_relations = { country = c:SWE value = -50 }
 		set_relations = { country = c:HRE value = -75 }
-		set_relations = { country = c:NOR value = 65 }
+		set_relations = { country = c:NOR value = 60 }
 	}
 
 	c:SWE = {
@@ -54,20 +69,40 @@
 			type = personal_union
 		}
 		create_diplomatic_pact = {
-			country = c:UBD
+			country = c:br_jamland_harjedalen
 			type = puppet
+		}
+		create_diplomatic_pact = {
+			country = c:UBD
+			type = dominion
+		}
+		create_diplomatic_pact = {
+			country = c:UBD
+			type = raise_payments
 		}
 		create_diplomatic_pact = {
 			country = c:POM
-			type = puppet
+			type = dominion
 		}
 		create_diplomatic_pact = {
-			country = c:PSK	
-			type = puppet #vassal
+			country = c:POM
+			type = raise_payments
 		}
 		create_diplomatic_pact = {
-			country = c:NOV
-			type = protectorate #tributary
+			country = c:br_novgorod
+			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:br_novgorod
+			type = raise_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_pskov	
+			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:br_pskov
+			type = raise_payments
 		}
 		set_relations = { country = c:FIN value = 50 }
 		set_relations = { country = c:UBD value = 60 }

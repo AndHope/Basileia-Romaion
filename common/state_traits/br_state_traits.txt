@@ -70,7 +70,7 @@ state_trait_genoa_harbor = {
 state_trait_hostile_climate = {
     icon = "gfx/interface/icons/state_trait_icons/dry_climate.dds"
 	
-	disabling_technologies = { "civilizing_mission" "hostile_climate_colonization" }
+	disabling_technologies = { "civilizing_mission" "br_tech_hostile_climate_colonization" }
 	
 	modifier = {
 		state_non_homeland_colony_growth_speed_mult = -0.75
@@ -82,7 +82,7 @@ state_trait_hostile_climate = {
 state_trait_hostile_climate_cold = {
     icon = "gfx/interface/icons/state_trait_icons/cold_climate.dds"
 	
-	disabling_technologies = { "civilizing_mission" "hostile_climate_colonization" }
+	disabling_technologies = { "civilizing_mission" "br_tech_hostile_climate_colonization" }
 	
 	modifier = {
 		state_non_homeland_colony_growth_speed_mult = -0.75
@@ -90,14 +90,6 @@ state_trait_hostile_climate_cold = {
 		state_migration_pull_mult = -0.15
 	}
 }
-
-#state_trait_mesopotamian_floodplain = {
-#	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
-#
-#	modifier = {
-#		building_group_bg_agriculture_throughput_add = 0.15
-#	}
-#}
 
 state_trait_pannonian_plain = {
 	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
@@ -114,6 +106,14 @@ state_trait_spice_islands = {
 	
 	modifier = {
 		building_group_bg_spices_plantations_throughput_add = 0.5
+	}
+}
+
+state_trait_caribbean_islands = {
+	icon = "gfx/interface/icons/state_trait_icons/tropical_climate.dds"
+	
+	modifier = {
+		building_group_bg_sugar_plantations_throughput_add = 0.25
 	}
 }
 
@@ -136,13 +136,20 @@ state_trait_anatolian_plateau = {
 	}
 }
 
+state_trait_thessalian_plain = {
+	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
+
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.15
+	}
+}
+
 state_trait_caspian_sea = {
 	icon = "gfx/interface/icons/state_trait_icons/river.dds"
 	
 	modifier = {
 		state_infrastructure_add = 10
 		state_market_access_price_impact = 0.05
-		#building_group_bg_fishing_throughput_add = 0.10
 	}	
 }
 
@@ -200,5 +207,6 @@ state_trait_major_river_systems = {
 	modifier = {
 		state_infrastructure_add = 15
 		state_market_access_price_impact = 0.05
+		building_group_bg_agriculture_throughput_add = 0.05
 	}
 }

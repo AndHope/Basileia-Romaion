@@ -2,7 +2,7 @@
 
 bulgarian_revolt.1 = {
 	type = country_event
-	placement = c:BUL.capital
+	placement = c:br_bulgaria.capital
 
 	title = bulgarian_revolt.1.t
 	desc = bulgarian_revolt.1.d
@@ -22,40 +22,48 @@ bulgarian_revolt.1 = {
 	trigger = {   
 	}
 	immediate = {
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = constantinople_scope
+				owner = {
+					save_scope_as = constantinople_owner_scope
+				}
+			}
+		}
 		if = {
 			limit = {
-				NOT = { exists = c:BUL }
+				NOT = { exists = c:br_bulgaria }
 				exists = s:STATE_BULGARIA.region_state:BYZ
 			}
 			create_country = {
-				tag = BUL
+				tag = br_bulgaria
 				origin = c:BYZ
 				state = s:STATE_BULGARIA.region_state:BYZ
 			}
 		}
 		else_if = {
 			limit = {
-				exists = c:BUL
+				exists = c:br_bulgaria
 				exists = s:STATE_BULGARIA.region_state:BYZ
 			}
-			s:STATE_BULGARIA.region_state:BYZ = { set_state_owner = c:BUL }
+			s:STATE_BULGARIA.region_state:BYZ = { set_state_owner = c:br_bulgaria }
 		}
 		if = {
 			limit = { exists = s:STATE_DOBRUDJA.region_state:BYZ }
-			s:STATE_DOBRUDJA.region_state:BYZ = { set_state_owner = c:BUL }
+			s:STATE_DOBRUDJA.region_state:BYZ = { set_state_owner = c:br_bulgaria }
 		}
 		if = {
 			limit = {
 				NOT = {
 					any_diplomatic_play = {
-						any_scope_play_involved = { this = c:BUL }
+						any_scope_play_involved = { this = c:br_bulgaria }
 						any_scope_play_involved = { this = c:BYZ }
 						#is_diplomatic_play_type = dp_secession
 					}
 				}
 			}
 		}
-		c:BUL = {
+		c:br_bulgaria = {
 			activate_law = law_type:law_monarchy
 			activate_law = law_type:law_oligarchy
 			create_character = {
@@ -103,33 +111,48 @@ bulgarian_revolt.1 = {
 		default_option = yes
 
 	
-		c:BUL = {
+		c:br_bulgaria = {
 			add_modifier = {
 				name = war_for_independence
 				months = normal_modifier_time
 			}
 			add_modifier = {
-				name = romaioi_themata_primacy
+				name = br_modifier_themata_primacy
 				months = -1
 			}
 			#save_scope_as = is_secessionist
 		}
 
-		create_diplomatic_play = {
-			name = Bulgarian_Rebellion
-			war = yes
-			type = dp_annex_subject #dp_secession
-
-			target_state = s:STATE_BULGARIA.region_state:BUL
-
-			#add_war_goal = {
-			#	holder = c:BUL
-			#	type = conquer_state
-			#	target_state = s:STATE_NORTHERN_THRACE.region_state:BYZ
-			#}
+		scope:constantinople_owner_scope = {
+			create_diplomatic_play = {
+				name = Bulgarian_Rebellion
+				target_country = c:br_bulgaria
+				type = dp_secession
+			}
 		}
 		hidden_effect = {
-			change_infamy = -15
+			random_diplomatic_play = {
+				limit = {
+					scope:constantinople_owner_scope = {
+						is_diplomatic_play_initiator = yes
+					}
+					c:br_bulgaria = {
+						is_diplomatic_play_target = yes
+					}
+				}
+				add_diplomatic_play_war_support = { target = c:br_bulgaria value = 100 }
+			}
+		}
+
+	#	create_diplomatic_play = {
+	#		name = Bulgarian_Rebellion
+	#		war = yes
+	#		type = dp_annex_subject #dp_secession
+	#
+	#		target_state = s:STATE_BULGARIA.region_state:br_bulgaria
+	#
+	#	}
+		hidden_effect = {
 			trigger_event = {
 				id = romaion_emp_rally.1
 				days = 7
@@ -153,11 +176,11 @@ bulgarian_revolt.1 = {
 
 		c:BYZ = {
 			create_diplomatic_pact = {
-				country = c:BUL
+				country = c:br_bulgaria
 				type = puppet
 			}
 			change_relations = {
-				country = c:BUL
+				country = c:br_bulgaria
 				value = 50
 			}
 		}
