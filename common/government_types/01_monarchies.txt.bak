@@ -487,30 +487,6 @@ gov_hakimate = {
 	}
 }
 
-gov_chitrali_monarchy = {
-	transfer_of_power = hereditary
-	
-	male_ruler = "RULER_TITLE_MEHTAR"
-	female_ruler = "" # Empty on purpose
-
-	male_heir = "RULER_TITLE_PRINCE"
-	female_heir = "" # Empty on purpose
-	
-	possible = {
-		country_tier = principality
-		has_law = law_type:law_monarchy
-		exists = c:CHT
-		c:CHT = ROOT
-	}
-
-	on_government_type_change = {
-		change_to_hereditary = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_hereditary = yes
-	}
-}
-
 gov_sheikhdom = {
 	transfer_of_power = hereditary
 	
@@ -525,7 +501,6 @@ gov_sheikhdom = {
 		has_law = law_type:law_monarchy
 		OR = {
 			AND = { exists = c:ABU c:ABU = ROOT }
-			AND = { exists = c:ARB c:ARB = ROOT }
 		}
 	}
 
@@ -1095,28 +1070,6 @@ gov_princely_state_muslim = {
 	}
 }
 
-gov_nawabate = {
-	transfer_of_power = hereditary
-
-	male_ruler = "RULER_TITLE_NAWAB"
-	female_ruler = "RULER_TITLE_BEGUM"
-	
-	male_heir = "RULER_TITLE_NAWABZADA"
-	female_heir = "RULER_TITLE_NAWABZADI"
-	
-	possible = {
-		has_law = law_type:law_monarchy
-		AND = { exists = c:BHW c:BHW = ROOT }
-	}
-
-	on_government_type_change = {
-		change_to_hereditary = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_hereditary = yes
-	}
-}
-
 gov_khanate = {
 	transfer_of_power = hereditary
 
@@ -1129,14 +1082,10 @@ gov_khanate = {
 	possible = {
 		has_law = law_type:law_monarchy
 		OR = {
-			AND = { exists = c:TAT c:TAT = ROOT }
 			AND = { exists = c:KHI c:KHI = ROOT }
 			AND = { exists = c:KOK c:KOK = ROOT }
 			AND = { exists = c:KAZ c:KAZ = ROOT }
 			AND = { exists = c:KAL c:KAL = ROOT }
-			AND = { exists = c:MAI c:MAI = ROOT }
-			AND = { exists = c:KUN c:KUN = ROOT }
-			AND = { exists = c:MAZ c:MAZ = ROOT }
 		}
 	}
 
@@ -1147,33 +1096,6 @@ gov_khanate = {
 		post_change_to_hereditary = yes
 	}
 }
-
-gov_ilkhanate = {
-	transfer_of_power = hereditary
-
-	male_ruler = "RULER_TITLE_ILKHAN"
-	female_ruler = "" # Empty on purpose
-	
-	male_heir = "RULER_TITLE_PRINCE"
-	female_heir = "RULER_TITLE_PRINCESS"
-	
-	possible = {
-		has_law = law_type:law_monarchy
-		is_country_type = unrecognized
-		NOT = {
-			has_technology_researched = nationalism
-		}
-		AND = { exists = c:LUR c:LUR = ROOT }
-	}
-
-	on_government_type_change = {
-		change_to_hereditary = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_hereditary = yes
-	}
-}
-
 
 gov_zhuz = {
 	transfer_of_power = hereditary
@@ -1245,10 +1167,7 @@ gov_absolute_empire = {
 			country_tier = hegemony
 			country_tier = empire
 		}
-		NOR = {
-			has_variable = orleanist_restoration_var
-			has_variable = legitimist_restoration_var
-		}
+
 	}
 
 	on_government_type_change = {
@@ -1277,10 +1196,7 @@ gov_feudal_empire = {
 			country_tier = hegemony
 			country_tier = empire
 		}
-		NOR = {
-			has_variable = orleanist_restoration_var
-			has_variable = legitimist_restoration_var
-		}
+
 	}
 
 	on_government_type_change = {
@@ -1307,10 +1223,7 @@ gov_empire = {
 			country_tier = hegemony
 			country_tier = empire
 		}
-		NOR = {
-			has_variable = orleanist_restoration_var
-			has_variable = legitimist_restoration_var
-		}
+
 	}
 
 	on_government_type_change = {
@@ -1338,10 +1251,7 @@ gov_constitutional_empire = {
 			country_tier = hegemony
 			country_tier = empire
 		}
-		NOR = {
-			has_variable = orleanist_restoration_var
-			has_variable = legitimist_restoration_var
-		}
+
 	}
 
 	on_government_type_change = {

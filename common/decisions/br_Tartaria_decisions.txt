@@ -192,3 +192,33 @@ sunni_decision = {
 		base = 25
 	}
 }
+
+br_mongol_army_prowess_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:tatar
+			country_has_primary_culture = cu:mongol
+		}
+		NOT = { has_modifier = br_modifier_horde_army_prowess }
+
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:tatar
+			country_has_primary_culture = cu:mongol
+		}
+		NOT = { has_modifier = br_modifier_horde_army_prowess }
+	}
+
+	when_taken = {
+		add_modifier = {
+			name = br_modifier_horde_army_prowess
+			years = 15
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}

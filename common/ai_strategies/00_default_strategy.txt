@@ -1768,6 +1768,18 @@ ai_strategy_default = {
 			limit =  { has_modifier = br_modifier_spice_trade }
 			multiply = 2
 		}
+		if = {
+			limit =  { has_modifier = br_modifier_exarchate }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_varangian_primacy }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_tagmata_primacy }
+			multiply = 2
+		}
 
 		# Factor in strategies
 		if = {
@@ -1947,7 +1959,11 @@ ai_strategy_default = {
 			else_if = {
 				limit = { has_law = law_type:law_peasant_levies }
 				multiply = 1.5
-			}				
+			}	
+			else_if = {
+				limit = { has_law = law_type:law_tribal_armies }
+				multiply = 2.5
+			}		
 		}
 		combat_unit_group_light_ship = {
 			value = 100				
@@ -2001,7 +2017,59 @@ ai_strategy_default = {
 		else_if = {
 			limit = { has_law = law_type:law_mass_conscription }
 			add = 2
-		}		
+		}	
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine }
+			multiply = 2
+		}	
+		if = {
+			limit =  { has_modifier = br_modifier_anti_colonialism }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_horde_khanate } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_tribal_warriors } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_warriors } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_jihad_called } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_defensive_bonus } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_moscow } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = war_for_independence } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_exarchate }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_themata_primacy }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_elysium }
+			multiply = 2
+		}
 	}
 	
 	# What's the base AI desire to nationalize/privatize buildings
