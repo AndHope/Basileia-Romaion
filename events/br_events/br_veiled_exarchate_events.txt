@@ -41,27 +41,37 @@ veiled_exarchate.1 = {
 	option = {
 		name = veiled_exarchate.1.a
 		default_option = yes
+		change_infamy = -5
 		add_modifier = {
-			name = veiled_influence
-			months = normal_modifier_time
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		change_relations = {
+			country = c:br_aegypt
+			value = 50
+		}
+		change_relations = {
+			country = c:br_kyrenaica
+			value = 25
+		}
+		change_relations = {
+			country = c:br_romaioi_india_company
+			value = 25
 		}
 	}
 
 	option = {
 		name = veiled_exarchate.1.b
+		change_infamy = 5
 		c:br_aegypt = {
 			set_state_religion = rel:orthodox
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+			}
 			add_modifier = {
 				name = br_modifier_exarchate
 				months = -1
 			}
-			add_modifier = {
-				name = subservient_patriarch
-				years = 50
-			}
-		#	remove_modifier = {
-		#		name = autocephalous_patriarchate_alexandria
-		#	}
 			if = {
 				limit = {
 					any_scope_pop = { 
@@ -77,12 +87,11 @@ veiled_exarchate.1 = {
 		scope:aegypt_ruler = {
 			kill_character = yes
 		}
-		change_relations = {
-			country = c:br_aegypt
-			value = 50
-		}
 		c:br_kyrenaica = {
 			set_state_religion = rel:orthodox
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+			}
 			add_modifier = {
 				name = br_modifier_exarchate
 				months = -1
@@ -102,6 +111,9 @@ veiled_exarchate.1 = {
 		c:br_romaioi_india_company = {
 			add_primary_culture = cu:greek
 			set_state_religion = rel:orthodox
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+			}
 			if = {
 				limit = {
 					any_scope_pop = { 
@@ -114,19 +126,9 @@ veiled_exarchate.1 = {
 				}
 			}
 		}
-		c:br_romaioi_india_company = {
-			set_state_religion = rel:orthodox
-			if = {
-				limit = {
-					any_scope_pop = { 
-						religion = rel:oriental_orthodox 
-					}
-				}
-				add_radicals = {
-					religion = rel:oriental_orthodox
-					value = 0.1
-				}
-			}
+		change_relations = {
+			country = c:VEN
+			value = -25
 		}
 	}
 }
@@ -171,19 +173,24 @@ veiled_exarchate.2 = {
 	option = {
 		name = veiled_exarchate.2.a
 		default_option = yes
+		change_infamy = -5
 		add_modifier = {
-			name = veiled_influence
-			months = normal_modifier_time
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		change_relations = {
+			country = c:br_afrika
+			value = 50
 		}
 	}
 
 	option = {
 		name = veiled_exarchate.2.b
+		change_infamy = 5
 		c:br_afrika = {
 			set_state_religion = rel:orthodox
-			add_modifier = {
-				name = subservient_patriarch
-				years = 50
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
 			}
 			add_modifier = {
 				name = br_modifier_exarchate
@@ -205,8 +212,8 @@ veiled_exarchate.2 = {
 			kill_character = yes
 		}
 		change_relations = {
-			country = c:br_afrika
-			value = 50
+			country = c:br_genoa
+			value = -25
 		}
 	}
 }
@@ -251,20 +258,24 @@ veiled_exarchate.3 = {
 	option = {
 		name = veiled_exarchate.3.a
 		default_option = yes
+		change_infamy = -5
 		add_modifier = {
-			name = veiled_influence
-			months = normal_modifier_time
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		change_relations = {
+			country = c:SIC
+			value = 50
 		}
 	}
 
 	option = {
 		name = veiled_exarchate.3.b
+		change_infamy = 5
 		c:SIC = {
-			add_primary_culture = cu:greek
 			set_state_religion = rel:orthodox
-			add_modifier = {
-				name = subservient_patriarch
-				years = 50
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
 			}
 			add_modifier = {
 				name = br_modifier_exarchate
@@ -286,8 +297,8 @@ veiled_exarchate.3 = {
 			kill_character = yes
 		}
 		change_relations = {
-			country = c:SIC
-			value = 50
+			country = c:PAP
+			value = -25
 		}
 	}
 }
@@ -332,19 +343,24 @@ veiled_exarchate.4 = {
 	option = {
 		name = veiled_exarchate.4.a
 		default_option = yes
+		change_infamy = -5
 		add_modifier = {
-			name = veiled_influence
-			months = normal_modifier_time
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		change_relations = {
+			country = c:br_syria
+			value = 50
 		}
 	}
 
 	option = {
 		name = veiled_exarchate.4.b
+		change_infamy = 5
 		c:br_syria = {
 			set_state_religion = rel:orthodox
-			add_modifier = {
-				name = subservient_patriarch
-				years = 50
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
 			}
 			add_modifier = {
 				name = br_modifier_exarchate
@@ -364,10 +380,6 @@ veiled_exarchate.4 = {
 		}
 		scope:syria_ruler = {
 			kill_character = yes
-		}
-		change_relations = {
-			country = c:br_syria
-			value = 50
 		}
 	}
 }
@@ -412,16 +424,25 @@ veiled_exarchate.5 = {
 	option = {
 		name = veiled_exarchate.5.a
 		default_option = yes
+		change_infamy = -5
 		add_modifier = {
-			name = veiled_influence
-			months = normal_modifier_time
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		change_relations = {
+			country = c:br_elysium
+			value = 50
 		}
 	}
 
 	option = {
 		name = veiled_exarchate.5.b
+		change_infamy = 5
 		c:br_elysium = {
 			set_state_religion = rel:orthodox
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+			}
 			add_modifier = {
 				name = autocephalous_patriarchate_elysium
 				months = -1
@@ -441,10 +462,84 @@ veiled_exarchate.5 = {
 		scope:elysium_ruler = {
 			kill_character = yes
 		}
+	}
+}
+
+veiled_exarchate.6 = {
+	type = country_event
+	placement = root
+	title = veiled_exarchate.6.t
+	desc = veiled_exarchate.6.d
+	flavor = veiled_exarchate.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		save_scope_as = australis_overlord_country
+		c:br_australis = {
+			save_scope_as = australis_country
+			ruler = {
+				save_scope_as = australis_ruler
+			}
+		}
+		c:BYZ = {
+			save_scope_as = romaioi_country
+			ruler = {
+				save_scope_as = romaioi_ruler
+			}
+		}
+	}
+
+	option = {
+		name = veiled_exarchate.6.a
+		default_option = yes
+		change_infamy = -5
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
 		change_relations = {
-			country = c:br_elysium
+			country = c:br_australis
 			value = 50
 		}
 	}
+
+	option = {
+		name = veiled_exarchate.6.b
+		change_infamy = 5
+		c:br_australis = {
+			set_state_religion = rel:orthodox
+			ig:ig_devout = {
+				hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						religion = rel:oriental_orthodox 
+					}
+				}
+				add_radicals = {
+					religion = rel:oriental_orthodox
+					value = 0.1
+				}
+			}
+		}
+		scope:australis_ruler = {
+			kill_character = yes
+		}
+	}
 }
+
 

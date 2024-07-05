@@ -62,16 +62,19 @@ NDiplomacy = {
 	INFAMY_THRESHOLD_PARIAH = 250	#was 100	# Above this, countries are considered pariah and get related penalties 100 
 	BASE_YEARLY_INFAMY_DECAY_RATE = 2.5 #was 5  # Decay rate of infamy per year 5
 	
-	WAR_GOAL_INCREASE_AUTONOMY_MIN_LIBERTY_DESIRE = 65 # 75 A subject must have at least this much LD to use the increase autonomy wargoal
-	WAR_GOAL_INDEPENDENCE_MIN_LIBERTY_DESIRE = 75 # 90 A subject must have at least this much LD to use the independence wargoal
+	#WAR_GOAL_INCREASE_AUTONOMY_MIN_LIBERTY_DESIRE = 65 # 75 A subject must have at least this much LD to use the increase autonomy wargoal
+	#WAR_GOAL_INDEPENDENCE_MIN_LIBERTY_DESIRE = 75 # 90 A subject must have at least this much LD to use the independence wargoal
 	
 	#WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE = 25 # 5 Infamy population multiplier can't be higher than this for each state affected
 	#WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL = 100 # 50 Infamy population multiplier can't be higher than this, regardless of number of states affected
 	#WAR_GOAL_INFAMY_HOMELAND_FACTOR = -0.5 # -0.25 Infamy is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
-	#WAR_GOAL_INFAMY_OWN_SUBJECT_MULT = 0.5 # 0.25 Infamy is multiplied by this for wargoals targeting your own subject
+	WAR_GOAL_INFAMY_OWN_SUBJECT_MULT = 0.5 # 0.25 Infamy is multiplied by this for wargoals targeting your own subject
 
 	WAR_GOAL_INFAMY_CONQUER_STATE = 7.5 #5.0
 	WAR_GOAL_INFAMY_ANNEX_COUNTRY = 10.0 #5.0
+	WAR_GOAL_INFAMY_RETURN_STATE = 1.5 #2.0
+	WAR_GOAL_INFAMY_TAKE_TREATY_PORT = 1.5 #2.0
+	WAR_GOAL_INFAMY_MAKE_TRIBUTARY = 1.5 #2.0
 
 	# Tension is used instead of relations by colonizable countries
 	TENSION_DECAY_RATE = 2.5 # Per year was 5
@@ -116,8 +119,8 @@ NMilitary = {
 	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MIN = 0.01 #0.04 	# The minimum percentage of manpower a unit can lose each week due to attrition
 	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MAX = 0.04 #0.12 	# The maximum percentage of manpower a unit can lose each week due to attrition
 
-	BATTLE_BASE_MIN_PROVINCES_TAKEN = 2 #4
-	BATTLE_BASE_MAX_PROVINCES_TAKEN = 6 #12
+	BATTLE_BASE_MIN_PROVINCES_TAKEN = 1 #4
+	BATTLE_BASE_MAX_PROVINCES_TAKEN = 5 #12
 	#BATTLE_PROVINCES_TAKEN_FRONT_PROVINCES_NUM_DIVISOR = 25		# Attacker takes (num provinces in front) divided by this as extra, clamped to BATTLE_BASE_MIN_PROVINCES_TAKEN and BATTLE_BASE_MAX_PROVINCES_TAKEN
 	#BATTLE_PROVINCES_TAKEN_THEATER_PROVINCES_NUM_DIVISOR = 250	# Attacker takes (num provinces in theater) divided by this as extra, clamped to BATTLE_BASE_MIN_PROVINCES_TAKEN and BATTLE_BASE_MAX_PROVINCES_TAKEN
 	#BATTLE_PROVINCES_TAKEN_ATTACKING_UNIT_SCALE = 0.02			# Multiply provinces taken by ( 1 + this * number of attacking units left at end of battle)

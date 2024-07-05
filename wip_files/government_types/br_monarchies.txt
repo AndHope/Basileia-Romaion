@@ -1,0 +1,247 @@
+﻿gov_exarchate = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_EXARCH"
+	female_ruler = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:BYZ
+		is_subject_of = c:BYZ
+
+		OR = {
+			country_tier = kingdom
+			country_tier = grand_principality
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_themata = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_STRATEGOS"
+	female_ruler = "" # Empty on purpose
+
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:BYZ
+		is_subject_of = c:BYZ
+
+		OR = {
+			country_tier = principality
+			country_tier = city_state
+		}
+	}	
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_independent_themata = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_STRATEGOS"
+	female_ruler = "" # Empty on purpose
+
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			country_tier = grand_principality
+			country_tier = principality
+			country_tier = city_state
+		}
+		or = {
+			AND = { exists = c:br_kyrenaica c:br_kyrenaica = ROOT }
+		}
+	}	
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_independent_exarchate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EXARCH"
+	female_ruler = "" # Empty on purpose
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			country_tier = kingdom
+			country_tier = principality
+			country_tier = grand_principality
+		}
+		or = {
+			AND = { exists = c:br_aegypt c:br_aegypt = ROOT }
+			AND = { exists = c:br_afrika c:br_afrika = ROOT }
+			AND = { exists = c:br_albania c:br_albania = ROOT }
+			AND = { exists = c:SER c:SER = ROOT }
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_satrapy = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_SATRAP"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:PER
+		is_subject_of = c:PER
+
+		OR = {
+			country_tier = principality
+			country_tier = grand_principality
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_byz_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_BASILEUS"
+	female_ruler = "RULER_TITLE_BASILISSA"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_law = law_type:law_monarchy
+		or = {
+			AND = { exists = c:BYZ c:BYZ = ROOT }
+			AND = { exists = c:br_elysium c:br_elysium = ROOT }
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_celestial_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR"
+	female_ruler = "RULER_TITLE_EMPRESS"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		exists = c:CHI
+		c:CHI = ROOT
+		has_law = law_type:law_monarchy
+		or = {
+			AND = { exists = c:CHI c:CHI = ROOT }
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_katepano = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KATEPANO"
+	female_ruler = "RULER_TITLE_KATEPANO"
+	
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		#has_law = law_type:law_autocracy 
+		country_tier = grand_principality
+		exists = c:SIC
+		c:SIC = ROOT
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_caliphate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_CALIPH"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:ARA
+		c:ARA = ROOT
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}

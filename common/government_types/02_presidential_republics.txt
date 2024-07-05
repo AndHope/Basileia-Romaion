@@ -77,15 +77,6 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
-				exists = c:br_blacksea_colonies
-				c:br_blacksea_colonies = ROOT
-				is_country_type = colonial
-				any_primary_culture = {
-					has_discrimination_trait = european_heritage
-				}
-				country_is_in_europe = no
-			}
-			AND = {
 				exists = c:br_new_world_company
 				c:br_new_world_company = ROOT
 				is_country_type = colonial
@@ -123,7 +114,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:NET
 				is_subject_of = c:NET
-				#is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -134,7 +125,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:GBR
 				is_subject_of = c:GBR
-				#is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -145,7 +136,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:VEN
 				is_subject_of = c:VEN
-				#is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -156,7 +147,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:br_genoa
 				is_subject_of = c:br_genoa
-				#is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -167,7 +158,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:HRE
 				is_subject_of = c:HRE
-				#is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -178,7 +169,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:ANL
 				is_subject_of = c:ANL
-				#is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -189,7 +180,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:SAX
 				is_subject_of = c:SAX
-				#is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_dominion
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -211,7 +202,7 @@ gov_colonial_administration = {
 			AND = {
 				exists = c:CHI
 				is_subject_of = c:CHI
-				#is_subject_type = subject_type_tributary
+				is_subject_type = subject_type_tributary
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
@@ -281,6 +272,213 @@ gov_crown_colony = {
 		post_change_to_presidential_elective = yes
 	}
 
+}
+
+
+gov_francocracia = {
+	transfer_of_power = hereditary
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_PERPETUAL_DICTATOR"
+	female_ruler = "RULER_TITLE_PERPETUAL_DICTATOR"
+
+	male_heir = "RULER_TITLE_SECRETARY"
+	female_heir = "RULER_TITLE_SECRETARY"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		country_has_voting_franchise = no
+		has_law = law_type:law_isolationism
+		has_variable = francocracia_paraguay_var
+		has_dlc_feature = rp1_content
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_francocracia_presidential = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_PERPETUAL_DICTATOR"
+	female_ruler = "RULER_TITLE_PERPETUAL_DICTATOR"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		country_has_voting_franchise = no
+		has_law = law_type:law_isolationism
+		has_variable = patino_paraguay_var
+		has_dlc_feature = rp1_content
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_peru_bolivia_confederal_state_bolivia = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_SUPREME_PROTECTOR"
+	female_ruler = "RULER_TITLE_SUPREME_PROTECTOR"
+	
+	possible = {
+		country_has_voting_franchise = yes
+		has_journal_entry = je_peru_bolivia
+		is_country_type = colonial
+		is_subject = no
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+}
+
+gov_peru_bolivia_confederal_state_bolivia_dictatorship = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_SUPREME_PROTECTOR"
+	female_ruler = "RULER_TITLE_SUPREME_PROTECTOR"
+	
+	possible = {
+		OR = {
+			has_law = law_type:law_autocracy 
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_technocracy 
+		}
+		has_journal_entry = je_peru_bolivia
+		is_country_type = colonial
+		is_subject = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_peru_bolivia_confederal_state = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+	
+	possible = {
+		country_has_voting_franchise = yes
+		has_journal_entry = je_peru_bolivia
+		is_country_type = colonial
+		is_subject = yes
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+}
+
+gov_peru_bolivia_confederal_state_dictatorship = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+	
+	possible = {
+		OR = {
+			has_law = law_type:law_autocracy 
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_technocracy 
+		}
+		has_journal_entry = je_peru_bolivia
+		is_country_type = colonial
+		is_subject = yes
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_peru_bolivia_confederal_autonomy = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_SUPREME_CHIEF"
+	female_ruler = "RULER_TITLE_SUPREME_CHIEF"
+	
+	possible = {
+		country_has_voting_franchise = yes
+		has_journal_entry = je_peru_bolivia
+		is_country_type = unrecognized
+		is_subject = yes
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+}
+
+gov_peru_bolivia_confederal_autonomy_dictatorship = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_SUPREME_CHIEF"
+	female_ruler = "RULER_TITLE_SUPREME_CHIEF"
+	
+	possible = {
+		OR = {
+			has_law = law_type:law_autocracy 
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_technocracy 
+		}
+		has_journal_entry = je_peru_bolivia
+		is_country_type = unrecognized
+		is_subject = yes
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_brazil_oligarchic_republic_presidential = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+	
+	possible = {
+		country_has_primary_culture = cu:brazilian
+		has_law = law_type:law_presidential_republic
+		has_law = law_type:law_landed_voting
+		OR = {
+			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_serfdom
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
 }
 
 gov_french_2nd_republic_presidential = {
@@ -502,6 +700,56 @@ gov_bhutanese_dual_system_temporal = {
 	}
 }
 
+gov_indian_territory_life_term = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_PRINCIPAL_CHIEF"
+	female_ruler = "RULER_TITLE_PRINCIPAL_CHIEF"
+	
+	possible = {
+		exists = c:SEQ
+		c:SEQ = ROOT
+
+		exists = c:USA
+		is_subject_of = c:USA
+
+		has_law = law_type:law_presidential_republic
+		country_has_voting_franchise = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_indian_territory_elected_term = {
+	transfer_of_power = presidential_elective
+
+	male_ruler = "RULER_TITLE_PRINCIPAL_CHIEF"
+	female_ruler = "RULER_TITLE_PRINCIPAL_CHIEF"
+	
+	possible = {
+		exists = c:SEQ
+		c:SEQ = ROOT
+
+		exists = c:USA
+		is_subject_of = c:USA
+
+		has_law = law_type:law_presidential_republic
+		country_has_voting_franchise = yes
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
 gov_free_city = {
 	transfer_of_power = presidential_elective
 
@@ -582,97 +830,6 @@ gov_fascist_state = {
 	}
 	on_post_government_type_change = {
 		post_change_to_dictatorial = yes
-	}
-}
-
-gov_chartered_company = {
-	transfer_of_power = presidential_elective
-	new_leader_on_reform_government = no
-
-	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
-	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
-	
-	possible = {
-		has_law = law_type:law_presidential_republic
-		OR = {
-			AND = {
-				exists = c:GBR 
-				is_subject_of = c:GBR
-				OR = {
-					AND = { exists = c:HBC c:HBC = ROOT }
-					AND = { exists = c:BIC c:BIC = ROOT }
-				}
-				is_subject_type = subject_type_dominion
-			}
-			AND = {
-				has_variable = african_chartered_company_var
-				is_subject = yes
-			}
-		}
-	}
-
-	on_government_type_change = {
-		change_to_presidential_elective = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_presidential_elective = yes
-	}
-}
-
-gov_colonial_administration = {
-	transfer_of_power = presidential_elective
-	new_leader_on_reform_government = no
-
-	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
-	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
-	
-	possible = {
-		has_law = law_type:law_presidential_republic
-		OR = {
-			AND = {
-				AND = { exists = c:NET is_subject_of = c:NET }
-				AND = { exists = c:DEI c:DEI = ROOT }
-				is_subject_type = subject_type_dominion
-			}
-			AND = {
-				exists = c:SPA
-				is_subject_of = c:SPA
-				is_subject_type = subject_type_puppet
-				is_country_type = colonial
-				top_overlord = { NOT = { is_country_type = colonial } }
-				any_primary_culture = {
-					has_discrimination_trait = european_heritage
-				}
-				country_is_in_europe = no
-			}
-			AND = {
-				has_variable = senegal_subject_var
-				is_subject = yes
-			}
-			AND = {
-				has_variable = niger_subject_var
-				is_subject = yes
-			}
-			AND = {
-				has_variable = ethiopia_subject_var
-				is_subject = yes
-			}
-			AND = {
-				has_variable = zanj_subject_var
-				is_subject = yes
-			}
-			AND = {
-				has_variable = congo_subject_var
-				is_subject = yes
-			}
-		}
-	}
-
-	on_government_type_change = {
-		change_to_presidential_elective = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_presidential_elective = yes
 	}
 }
 

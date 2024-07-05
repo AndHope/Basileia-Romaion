@@ -84,9 +84,6 @@ je_palaiologos_reforms_syria = {
 		add_journal_entry = {
 			type = je_palaiologos_reforms_africa
 		}
-		add_journal_entry = {
-			type = je_palaiologos_reforms_elysium
-		}
 #		if = {
 #			limit = {
 #				OR = {
@@ -188,6 +185,9 @@ je_palaiologos_reforms_egypt = {
 			id = pentarchy.1
 			days = 5
 		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_australis
+		}
 		custom_tooltip = palaiologos_reforms_syria_egypt
 	}
 
@@ -242,6 +242,9 @@ je_palaiologos_reforms_italy = {
 		}
 		trigger_event = {
 			id = veiled_exarchate.3
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_elysium
 		}
 	}
 
@@ -357,6 +360,53 @@ je_palaiologos_reforms_elysium = {
 	weight = 5000
 }
 
+je_palaiologos_reforms_australis = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:greek
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:br_australis
+				c:br_australis = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_palaiologos_reforms_advance
+
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+		trigger_event = {
+			id = veiled_exarchate.6
+		}
+		#custom_tooltip = palaiologos_reforms_elysium
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
 
 je_palaiologos_reforms_economy = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
