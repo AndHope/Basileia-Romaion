@@ -76,7 +76,15 @@
 	on_character_ig_membership = {}
 
 	pop_potential = {
-		#pop_has_primary_culture = yes
+		custom_tooltip = {
+			text = would_be_accepted_under_national_supremacy_tt
+			this.culture = {
+				AND = {
+					shares_heritage_trait_with_any_primary_culture = prev.owner
+					shares_non_heritage_trait_with_any_primary_culture = prev.owner
+				}
+			}
+		}
 		NOR = {
 			is_pop_type = aristocrats
 			#is_pop_type = capitalists
@@ -86,8 +94,11 @@
 			pop_employment_building_group = bg_service
 			pop_employment_building_group = bg_urban_facilities
 			pop_employment_building_group = bg_government
-			pop_employment_building_group = bg_mining
 			pop_employment_building_group = bg_logging
+			pop_employment_building_group = bg_mining
+			pop_employment_building_group = bg_fishing
+			pop_employment_building_group = bg_whaling
+			pop_employment_building_group = bg_oil_extraction
 			AND = {
 				custom_tooltip = {
 					text = owner_has_homesteading_tt
@@ -141,6 +152,23 @@
 			}
 		}
 
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_elected_bureaucrats
+				}
+			}
+			add = {
+				desc = "POP_BUREAUCRATS_ELECTED"
+				if = {
+					limit = {
+						is_pop_type = bureaucrats
+					}
+					value = 50
+				}
+			}
+		}
+
 		add = {
 			desc = "HOMESTEADING_LAW"
 			if = {
@@ -174,6 +202,7 @@
 					}
 				}
 				value = 25
+				add = this.standard_of_living
 			}
 		}
 

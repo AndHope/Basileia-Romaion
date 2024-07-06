@@ -7,7 +7,19 @@
                 is_country_type = unrecognized
             }
         }
-        country_rank >= rank_value:major_power
+        #country_rank >= rank_value:major_power
+        is_country_type = recognized
+            prestige >= { 
+                add = {
+                    ordered_country = {
+                        order_by = prestige
+                        position = 0
+                        
+                        add = prestige
+                        multiply = 0.1
+                    }
+                }
+            }
     }
     trigger_else = {
         country_rank >= rank_value:unrecognized_major_power
@@ -23,7 +35,7 @@
                         position = 0
                         
                         add = prestige
-                        multiply = 0.75
+                        multiply = 0.50
                     }
                 }
             }
