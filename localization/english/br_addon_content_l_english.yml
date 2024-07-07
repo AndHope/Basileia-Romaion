@@ -55,43 +55,6 @@
  potential_target_state33: "[SCOPE.sState('potential_target_state33').GetName]"
  potential_target_state34: "[SCOPE.sState('potential_target_state34').GetName]"
 
-
-
- increase_autonomy: "Increase Autonomy"
- increase_autonomy_action_name: "Increase Autonomy"
- increase_autonomy_action_propose_name: "Propose Increase Autonomy"
- increase_autonomy_action_break_name: "End Increase Autonomy"
- increase_autonomy_action_notification_name: "Increase Autonomy Formed"
- increase_autonomy_action_notification_desc: "We have formed a Increase Autonomy with [INITIATOR_COUNTRY.GetName]."
- increase_autonomy_desc: "#header $increase_autonomy$#!\n$TOOLTIP_DELIMITER$\nA [concept_diplomatic_pact] that establishes a Increase Autonomy between two [Concept('concept_country', '$concept_countries$')]."
- increase_autonomy_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] and [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] have a Increase Autonomy."
- increase_autonomy_proposal_notification_name: "Proposal for Increase Autonomy"
- increase_autonomy_proposal_notification_desc: "[INITIATOR_COUNTRY.GetName] wishes to enter into an Increase Autonomy with us."
- increase_autonomy_proposal_notification_effects_desc: "$increase_autonomy_desc$"
- increase_autonomy_proposal_accepted_name: "Increase Autonomy Accepted"
- increase_autonomy_proposal_accepted_desc: "[TARGET_COUNTRY.GetName] accepted our proposal for an Increase Autonomy."
- increase_autonomy_proposal_declined_name: "Increase Autonomy Declined"
- increase_autonomy_proposal_declined_desc: "[TARGET_COUNTRY.GetName] declined our proposal for an Increase Autonomy."
- increase_autonomy_action_notification_break_name: "Increase Autonomy Broken"
- increase_autonomy_action_notification_break_desc: "[INITIATOR_COUNTRY.GetName] have broken off their Increase Autonomy with us."
- increase_autonomy_proposal_third_party_accepted_name: "Increase Autonomy Signed"
- increase_autonomy_proposal_third_party_accepted_desc: "[INITIATOR_COUNTRY.GetName] and [TARGET_COUNTRY.GetName] entered into a Increase Autonomy."
- increase_autonomy_proposal_third_party_declined_name: "Increase Autonomy Rejected"
- increase_autonomy_proposal_third_party_declined_desc: "[TARGET_COUNTRY.GetName] refused to enter into an Increase Autonomy with [INITIATOR_COUNTRY.GetName]."
- increase_autonomy_action_notification_third_party_break_name: "Increase Autonomy Broken"
- increase_autonomy_action_notification_third_party_break_desc: "[INITIATOR_COUNTRY.GetName] broke off their Increase Autonomy with [TARGET_COUNTRY.GetName]."
-
- increase_autonomy_effect_desc_global: "Establishes a Increase Autonomy"
- increase_autonomy_effect_desc_first: "[COUNTRY.GetAdjectiveNoFlag] establishes a Increase Autonomy with [TARGET_COUNTRY.GetName]"
- increase_autonomy_effect_desc_third: "[COUNTRY.GetName] establishes a Increase Autonomy with [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
- 
- increase_autonomy_trigger_desc_global: "Has a Increase Autonomy"
- increase_autonomy_trigger_false_desc_global: "Does #b not#! have a Increase Autonomy"
- increase_autonomy_trigger_desc_first: "[COUNTRY.GetAdjectiveNoFlag] has a Increase Autonomy with [TARGET_COUNTRY.GetName]"
- increase_autonomy_trigger_false_desc_first: "[COUNTRY.GetAdjectiveNoFlag] does #b not#! have a Increase Autonomy with [TARGET_COUNTRY.GetName]"
- increase_autonomy_trigger_desc_third: "[COUNTRY.GetName] has a Increase Autonomy with [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
- increase_autonomy_trigger_false_desc_third: "[COUNTRY.GetName] does #b not#! have a Increase Autonomy with [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
- 
  change_primary_culture: "Change Primary Culture"
  change_primary_culture_action_name: "$change_primary_culture$"
  change_primary_culture_action_propose_name: "Initiate Primary Culture Change"
@@ -119,13 +82,36 @@
  ib_events.01.f: "\"Hail [ROOT.GetCountry.GetName]!\""
  ib_events.01.a: "Well done."
 
- ib_events.02.t: "Grant Autonomy"
- ib_events.02.d: "The proud [ROOT.GetCountry.GetName] has successfully completed the autonomy grant for [SCOPE.sCountry('autonomy_target_country').GetName]. [SCOPE.sCountry('autonomy_target_country').GetName] will now thrive forever under the indirect rule of the homeland."
- ib_events.02.f: "\"Hail [ROOT.GetCountry.GetName]!\""
+ change_primary_culture_monthly_effect: "Complete primary culture change with a 5% chance each month."
+
+ change_state_religion: "State Religion Conversion"
+ change_state_religion_action_name: "$change_state_religion$"
+ change_state_religion_action_propose_name: "Initiate Religious Conversion"
+ change_state_religion_action_break_name: "Stop Religious Conversion"
+ change_state_religion_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] is changing the state religion of [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName]."
+ change_state_religion_desc: "#header $change_state_religion$#!\n$TOOLTIP_DELIMITER$\nChange the state religion of the target country."
+ change_state_religion_action_notification_name: "[INITIATOR_COUNTRY.GetName] is changing our country's state religion."
+ change_state_religion_action_notification_desc: "[INITIATOR_COUNTRY.GetName] is changing the state religion in our country."
+ change_state_religion_action_notification_break_name: "State Religion Conversion Stopped by [INITIATOR_COUNTRY.GetName]"
+ change_state_religion_action_notification_break_desc: "[INITIATOR_COUNTRY.GetName] has terminated the state religion change for our nation."
+ 
+ change_state_religion_effect_desc_global: "Initiate State Religion Conversion"
+ change_state_religion_effect_desc_first: "[COUNTRY.GetAdjectiveNoFlag] is initiating state religion change in [TARGET_COUNTRY.GetName]."
+ change_state_religion_effect_desc_third: "[COUNTRY.GetName] is initiating Religious Conversion in [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]."
+ 
+ change_state_religion_trigger_desc_global: "Religious Conversion in Progress"
+ change_state_religion_trigger_false_desc_global: "Not in the process of Religious Conversion #b anymore#!"
+ change_state_religion_trigger_desc_first: "[COUNTRY.GetAdjectiveNoFlag] is changing the state religion in [TARGET_COUNTRY.GetName]."
+ change_state_religion_trigger_false_desc_first: "[COUNTRY.GetAdjectiveNoFlag] is not changing the state religion in [TARGET_COUNTRY.GetName] #b anymore#!"
+ change_state_religion_trigger_desc_third: "[COUNTRY.GetName] is changing the state religion in [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]."
+ change_state_religion_trigger_false_desc_third: "[COUNTRY.GetName] is not changing the state religion in [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)] #b anymore#!"
+ 
+ ib_events.02.t: "State Religion Change"
+ ib_events.02.d: "The proud [ROOT.GetCountry.GetName] has successfully completed the Religious Conversion for [SCOPE.sCountry('religion_target_country').GetName]. [SCOPE.sCountry('religion_target_country').GetName] will now prosper forever, embracing the religion of the homeland."
+ ib_events.02.f: ""Hail [ROOT.GetCountry.GetName]!""
  ib_events.02.a: "Well done."
 
- increase_autonomy_monthly_effect: "Complete autonomy grant with a 5% chance each month."
- change_primary_culture_monthly_effect: "Complete primary culture change with a 5% chance each month."
+ change_state_religion_monthly_effect: "Complete alignment of state religion with a 5% chance each month."
 
 
  #new homelands

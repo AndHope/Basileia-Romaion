@@ -1,4 +1,6 @@
-﻿namespace = ib_events
+﻿# Updated and included from: Koa's Change Subject Culture
+
+namespace = ib_events
 
 ib_events.01 = {
 	type = country_event
@@ -50,11 +52,6 @@ ib_events.01 = {
 				}
 			}
 		}
-		
-		scope:culture_target_country = {
-			set_state_religion = root.religion
-			
-		}
 
 		every_primary_culture = {
 			scope:culture_target_country = {
@@ -84,14 +81,12 @@ ib_events.01 = {
 				every_scope_character = {
 					kill_character = yes
 				}
-
 			}
 		}
-
-		
 	}
 }
 
+# 02 in the original mod was autonomy but this is not needed so replaced with religion separately
 ib_events.02 = {
 	type = country_event
 	title = ib_events.02.t
@@ -118,31 +113,40 @@ ib_events.02 = {
 				root = {
 					has_diplomatic_pact = {
 						who = prev
-						type = increase_autonomy
+						type = change_state_religion
 					}
 				}
 			}
-			save_scope_as = autonomy_target_country
+			save_scope_as = religion_target_country
 		}	
 	}
 
 	option = {
 		name = ib_events.02.a
-
-		change_infamy = -5
-		remove_diplomatic_pact = {
-			country = scope:autonomy_target_country
-			type = puppet
+		scope:religion_target_country = {
+			set_state_religion = root.religion
+			capital = {
+				convert_population = {
+					target = root.religion
+					value = 0.05
+				}
+			}
 		}
-		create_diplomatic_pact = {
-			country = scope:autonomy_target_country
-			type = dominion
-		}
-		scope:autonomy_target_country = {
-	        change_relations = {
-				country = root
-				value = 20
+		
+		hidden_effect = {
+			scope:religion_target_country = {
+				every_scope_pop = {
+					limit = {
+						is_pop_type = aristocrats
+						pop_has_primary_culture = yes
+					}
+					convert_population = { target = scope:target_culture value = 0.5 }
+				}
+				every_scope_character = {
+					kill_character = yes
+				}
 			}
 		}
 	}
 }
+

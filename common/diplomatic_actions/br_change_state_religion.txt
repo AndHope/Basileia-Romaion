@@ -1,10 +1,13 @@
-﻿change_primary_culture = {
+﻿# Brought up to date, separated from culture, and included from: Koa's Change Subject Culture
+
+change_state_religion = {
 	groups= {
 		overlord
 	}
+	
 	requires_approval = no
 	should_notify_third_parties = no
-
+	
 	unlocking_technologies = {
 		nationalism
 	}
@@ -15,47 +18,52 @@
 			NOT = { is_country_type = decentralized }
 			is_direct_subject_of = root
 		}
-		any_primary_culture = {
-			NOT = { is_primary_culture_of = scope:target_country }
+		scope:target_country = {
+			NOT = { religion = root.religion }
 		}
-		
 		is_player = yes
 	}
 	
 	possible = {
 		is_revolutionary = no
 		in_default = no
-		NOT = { has_war_with = scope:target_country }
+		NOT = {
+			has_war_with = scope:target_country
+			has_law = law_type:law_state_atheism
+		}
+		scope:target_country = {
+			NOT = { has_law = law_type:law_state_atheism }
+		}
 		scope:target_country.relations:root > relations_threshold:cordial
 		has_diplomatic_relevance = scope:target_country
 	}
 	
-	pact = {	
+	pact = {
 		cost = 50
-	
+		
 		is_two_sided_pact = no
 		show_in_outliner = yes
-
+		
 		income_transfer = 0.10
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = yes
-
+		
 		monthly_effect = {
 			custom_tooltip = {
-				text = change_primary_culture_monthly_effect
+				text =  change_state_religion_monthly_effect
 				random_list = { 
 					19 = {}
 					1 = { 
 						root = {
 							trigger_event = {
-					            id = ib_events.01
-					        }
-					    }
+								id = ib_events.02
+							}
+						}
 					}
-				}								
+				}
 			}
-		} 	
-	
+		}
+		
 		requirement_to_maintain = {
 			trigger = {
 				custom_tooltip = {
@@ -73,33 +81,25 @@
 			trigger = {
 				scope:target_country = { liberty_desire <= 80 }
 			}
-
 			show_about_to_break_warning = {
 				scope:target_country = { liberty_desire <= 75 }
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
 				custom_tooltip = {
 					text = DIPLOMATIC_PACT_REQUIREMENT_AT_PEACE
 					NOT = { has_war_with = scope:target_country }
-				}
+				}			
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
-#				any_primary_culture = { 
-#					NOT = {
-#						is_primary_culture_of = scope:target_country
-#					}
-#				}
-				scope:target_country = { 
-					NOT = {
-						any_primary_culture = { is_primary_culture_of = root }
-					}
-				} 
+				scope:target_country = {
+					NOT = { religion = root.religion }
+				}
 			}
 		}
 		
@@ -108,13 +108,13 @@
 				scope:target_country = { is_direct_subject_of = root }
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
 				NOT = { in_default = yes }
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
 				custom_tooltip = {

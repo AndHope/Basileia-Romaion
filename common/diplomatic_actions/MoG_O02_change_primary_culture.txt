@@ -1,10 +1,13 @@
-﻿change_primary_culture = {
+﻿# Brought up to date and included from: Koa's Change Subject Culture
+
+change_primary_culture = {
 	groups= {
 		overlord
 	}
+	
 	requires_approval = no
 	should_notify_third_parties = no
-
+	
 	unlocking_technologies = {
 		nationalism
 	}
@@ -18,7 +21,6 @@
 		any_primary_culture = {
 			NOT = { is_primary_culture_of = scope:target_country }
 		}
-		
 		is_player = yes
 	}
 	
@@ -30,16 +32,16 @@
 		has_diplomatic_relevance = scope:target_country
 	}
 	
-	pact = {	
+	pact = {
 		cost = 50
-	
+		
 		is_two_sided_pact = no
 		show_in_outliner = yes
-
+		
 		income_transfer = 0.10
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = yes
-
+		
 		monthly_effect = {
 			custom_tooltip = {
 				text = change_primary_culture_monthly_effect
@@ -48,14 +50,14 @@
 					1 = { 
 						root = {
 							trigger_event = {
-					            id = ib_events.01
-					        }
-					    }
+								id = ib_events.01
+							}
+						}
 					}
-				}								
+				}
 			}
-		} 	
-	
+		}
+		
 		requirement_to_maintain = {
 			trigger = {
 				custom_tooltip = {
@@ -73,21 +75,20 @@
 			trigger = {
 				scope:target_country = { liberty_desire <= 80 }
 			}
-
 			show_about_to_break_warning = {
 				scope:target_country = { liberty_desire <= 75 }
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
 				custom_tooltip = {
 					text = DIPLOMATIC_PACT_REQUIREMENT_AT_PEACE
 					NOT = { has_war_with = scope:target_country }
-				}
+				}			
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
 #				any_primary_culture = { 
@@ -108,13 +109,13 @@
 				scope:target_country = { is_direct_subject_of = root }
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
 				NOT = { in_default = yes }
 			}
 		}
-
+		
 		requirement_to_maintain = {
 			trigger = {
 				custom_tooltip = {
