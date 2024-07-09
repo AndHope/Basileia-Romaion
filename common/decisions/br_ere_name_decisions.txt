@@ -1,8 +1,54 @@
-﻿ere_re_name_decision = {
+﻿br_show_ere_name_decisions = {
 	is_shown = {
 		exists = c:BYZ
 		c:BYZ = ROOT
 		is_player = yes
+		
+		NOT = {
+			has_variable = showing_latinized_names
+		}
+	}
+
+	possible = {
+		is_at_war = no
+	}
+
+	when_taken = {
+		set_variable = showing_latinized_names
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_hide_ere_name_decisions = {
+	is_shown = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		is_player = yes
+		has_variable = showing_latinized_names
+	}
+
+	possible = {
+		is_at_war = no
+	}
+
+	when_taken = {
+		remove_variable = showing_latinized_names
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+ere_re_name_decision = {
+	is_shown = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		is_player = yes
+		has_variable = showing_latinized_names
 		NOR = {
 			has_variable = re_name_chosen_var
 			has_variable = ere_name_chosen_var
@@ -28,6 +74,7 @@ ere_ere_name_decision = {
 	is_shown = {
 		exists = c:BYZ
 		c:BYZ = ROOT
+		has_variable = showing_latinized_names
 		is_player = yes
 		NOR = {
 			has_variable = re_name_chosen_var

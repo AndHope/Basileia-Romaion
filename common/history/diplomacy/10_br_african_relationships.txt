@@ -13,22 +13,6 @@
 			country = c:br_kyrenaica
 			type = dominion
 		}
-		create_diplomatic_pact = {
-			country = c:br_makuria
-			type = protectorate
-		}
-		create_diplomatic_pact = {
-			country = c:br_makuria
-			type = raise_payments
-		}
-		create_diplomatic_pact = {
-			country = c:br_alodia
-			type = protectorate
-		}
-		create_diplomatic_pact = {
-			country = c:br_alodia
-			type = raise_payments
-		}
 		create_unidirectional_truce = {
 			country = c:BJA
 			months = 60
@@ -41,7 +25,7 @@
 		set_relations = { country = c:br_australis value = 75 }
 		set_relations = { country = c:br_afrika value = 75 }
 		set_relations = { country = c:MYS value = 50 }
-		set_relations = { country = c:ETH value = 100 }
+		set_relations = { country = c:ETH value = 25 }
 		set_relations = { country = c:br_makuria value = -75 }
 		set_relations = { country = c:br_alodia value = -75 }
 		set_relations = { country = c:DEI value = -75 }
@@ -70,6 +54,12 @@
 	c:ETH = {
 		set_relations = { country = c:BYZ value = 75 }
 		set_relations = { country = c:MJT value = -95 }
+		set_relations = { country = c:br_makuria value = 75 }
+		set_relations = { country = c:br_alodia value = 75 }
+		set_relations = { country = c:KFA value = 25 }
+		set_relations = { country = c:SDM value = 25 }
+		set_relations = { country = c:BRN value = 25 }
+		set_relations = { country = c:TGR value = 25 }
 		create_diplomatic_pact = {
 			country = c:KFA
 			type = tributary
@@ -81,10 +71,6 @@
 		create_diplomatic_pact = {
 			country = c:SDM
 			type = tributary
-		}
-		create_diplomatic_pact = {
-			country = c:SDM
-			type = raise_payments
 		}
 		create_diplomatic_pact = {
 			country = c:BRN
@@ -94,6 +80,47 @@
 			country = c:TGR
 			type = tributary
 		}
+
+		create_diplomatic_pact = {
+			country = c:br_alodia
+			type = defensive_pact
+		}
+		create_diplomatic_pact = {
+			country = c:br_makuria
+			type = defensive_pact
+		}
+
+	}
+
+	c:br_alodia = {
+		set_owes_obligation_to = {
+			country = c:ETH
+			setting = yes
+		}
+		set_owes_obligation_to = {
+			country = c:br_makuria
+			setting = yes
+		}
+		create_diplomatic_pact = {
+			country = c:br_makuria
+			type = defensive_pact
+		}
+		set_relations = { country = c:ETH value = 100 }
+		set_relations = { country = c:br_makuria value = 100 }
+
+	}
+	c:br_makuria = {
+		set_owes_obligation_to = {
+			country = c:ETH
+			setting = yes
+		}
+		set_owes_obligation_to = {
+			country = c:br_alodia
+			setting = yes
+		}
+		set_relations = { country = c:ETH value = 100 }
+		set_relations = { country = c:br_alodia value = 100 }
+
 	}
 
 	c:MJT = {
