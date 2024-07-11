@@ -9,7 +9,7 @@
         }
         #country_rank >= rank_value:major_power
         is_country_type = recognized
-            prestige >= { # Within 90% of prestige of top unrecognized country
+            prestige >= { # Within 90% of prestige of top recognized country
                 add = {
                     ordered_country = {
                         order_by = prestige
@@ -25,7 +25,7 @@
         country_rank >= rank_value:unrecognized_regional_power
         OR = {
             is_country_type = recognized # Just to make it clear to the user that it's an option
-            prestige >= { # Within 75% of prestige of top unrecognized country
+            prestige >= { # Within 75% of prestige of top recognized country
                 add = {
                     ordered_country = {
                         limit = {
@@ -40,5 +40,25 @@
                 }
             }
         }
+    }
+    trigger_else = {
+        limit = {
+            NOT = {
+                is_country_type = unrecognized
+                is_country_type = recognized
+            }
+        }
+        is_country_type = colonial
+            prestige >= { # Within 85% of prestige of top recognized country
+                add = {
+                    ordered_country = {
+                        order_by = prestige
+                        position = 0
+                        
+                        add = prestige
+                        multiply = 0.15
+                    }
+                }
+            }
     }
 }
