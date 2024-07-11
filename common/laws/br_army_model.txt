@@ -67,6 +67,19 @@ law_peasant_levies = {
 		state_building_conscription_center_max_level_add = 25
 	}
 	
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_army_model_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+	
 	on_enact = {
 		custom_tooltip = QUALIFICATIONS_OFFICERS_PEASANT_LEVIES_DESC
 		if = {
@@ -142,6 +155,19 @@ law_professional_army = {
 		law_mass_conscription
 	}
 
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_army_model_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+	
 	on_enact = {
 		if = {
 			limit = {
@@ -191,6 +217,28 @@ law_professional_army = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_sick_man_army
+				has_law = law_type:law_peasant_levies
+			}
+			add = 1000
+		}			
+		
+		# AI should really try to get out of Peasant Levies under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_peasant_levies
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_professional_army }	
+					has_technology_researched = napoleonic_warfare
+				}	
+			}
+			add = 1000
+		}		
 	}
 }
 
@@ -216,6 +264,15 @@ law_national_militia = {
 		law_mass_conscription
 	}
 
+	can_enact = {
+		OR = {
+			is_power_bloc_leader = no
+			power_bloc ?= {
+				NOT = { has_identity = identity:identity_military_treaty_organization }
+			}
+		}
+	}
+	
 	on_enact = {
 		if = {
 			limit = {
@@ -279,6 +336,19 @@ law_mass_conscription = {
 		state_building_conscription_center_max_level_add = 100
 	}
 
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_army_model_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+	
 	on_enact = {
 		if = {
 			limit = {
@@ -310,5 +380,27 @@ law_mass_conscription = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_sick_man_army
+				has_law = law_type:law_peasant_levies
+			}
+			add = 1000
+		}			
+		
+		# AI should really try to get out of Peasant Levies under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_peasant_levies
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_professional_army }	
+					has_technology_researched = napoleonic_warfare
+				}	
+			}
+			add = 1000
+		}		
 	}
 }

@@ -54,6 +54,14 @@ law_mercantilism = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_meiji_diplomacy
+				has_law = law_type:law_isolationism
+			}
+			add = 1000
+		}		
 	}
 }
 
@@ -96,6 +104,14 @@ law_protectionism = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_meiji_diplomacy
+				has_law = law_type:law_isolationism
+			}
+			add = 1000
+		}				
 	}
 }
 
@@ -147,6 +163,14 @@ law_free_trade = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_meiji_diplomacy
+				has_law = law_type:law_isolationism
+			}
+			add = 1000
+		}		
 	}
 }
 
@@ -159,7 +183,11 @@ law_isolationism = {
 	
 	disallowing_laws = {
 		law_laissez_faire
-	}		
+	}
+	
+	can_enact = {
+		is_in_power_bloc = no
+	}
 	
 	modifier = {
 		country_authority_mult = 0.5
@@ -167,6 +195,7 @@ law_isolationism = {
 		country_tech_spread_mult = -0.5 #was -0.15
 
 		country_leverage_resistance_mult = 1.0
+		
 		country_max_declared_interests_mult = -0.5
 		
 		market_disallow_trade_routes_bool = yes

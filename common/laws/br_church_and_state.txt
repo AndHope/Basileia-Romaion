@@ -226,6 +226,15 @@ law_total_separation = {
 		law_theocracy
 	}
 	
+	can_enact = {
+		OR = {
+			is_power_bloc_leader = no
+			power_bloc ?= {
+				NOT = { has_identity = identity:identity_religious }
+			}
+		}
+	}
+	
 	on_enact = {
 		recalculate_pop_ig_support = yes
 		if = {
@@ -301,7 +310,7 @@ law_total_separation = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
-		}
+		}			
 	}
 }
 
@@ -320,16 +329,22 @@ law_state_atheism = {
 		law_theocracy
 	}
 
-	modifier = {
-		interest_group_ig_devout_pol_str_mult = -0.5
-		state_conversion_mult = 0.25
-		country_authority_add = 200
-	}
-	
 	can_enact = {
 		ig:ig_devout = {
 			is_in_government = no
 		}
+		OR = {
+			is_power_bloc_leader = no
+			power_bloc ?= {
+				NOT = { has_identity = identity:identity_religious }
+			}
+		}
+	}
+	
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = -0.5
+		state_conversion_mult = 0.25
+		country_authority_add = 200
 	}
 	
 	on_enact = {

@@ -118,6 +118,31 @@ law_interventionism = {
 				value = 0.33
 			}
 		}
+		
+		# Literate pops support getting out of Traditionalism once you have Empiricism
+		add = {
+			desc = "empiricism"
+			
+			if = {
+				limit = { 
+					owner = { 
+						has_technology_researched = empiricism 
+						has_law = law_type:law_traditionalism
+					}
+					
+					# Aristocrats/Farmers/Peasants want agrarianism instead
+					NOR = { 
+						is_pop_type = aristocrats 
+						is_pop_type = farmers 
+						is_pop_type = peasants
+					}
+				}
+				add = {
+					value = literacy_rate
+					divide = 2
+				}
+			}
+		}		
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -126,6 +151,31 @@ law_interventionism = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+		
+		if = {
+			limit = { 
+				OR = {
+					has_journal_entry = je_sick_man_bureaucracy
+					has_modifier = shogun_ig_forced_to_open_market
+					has_journal_entry = je_meiji_main
+				}
+				has_law = law_type:law_traditionalism
+			}
+			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
+		}
+
+		# AI should really try to get out of Traditionalism under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_traditionalism
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_interventionism }				
+				}	
+			}
+			add = 1000
 		}
 	}
 }
@@ -201,6 +251,29 @@ law_agrarianism = {
 				value = 0.33
 			}
 		}
+		
+		# Literate pops support getting out of Traditionalism once you have Empiricism
+		add = {
+			desc = "empiricism"
+			
+			if = {
+				limit = { 
+					owner = { 
+						has_technology_researched = empiricism 
+						has_law = law_type:law_traditionalism
+					}				
+					OR = { 
+						is_pop_type = aristocrats
+						is_pop_type = farmers
+						is_pop_type = peasants
+					} 
+				}
+				add = {
+					value = literacy_rate
+					divide = 2
+				}
+			}
+		}			
 	}
 		
 	ai_will_do = {
@@ -217,6 +290,27 @@ law_agrarianism = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_sick_man_bureaucracy
+				has_law = law_type:law_traditionalism
+			}
+			add = 10000 # Top priority for Tanzimat AI is to get out of Traditionalism
+		}	
+
+		# AI should really try to get out of Traditionalism under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_traditionalism
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_agrarianism }				
+				}	
+			}
+			add = 1000
+		}		
 	}
 }
 
@@ -399,6 +493,31 @@ law_laissez_faire = {
 				value = 0.5
 			}
 		}
+		
+		# Literate pops support getting out of Traditionalism once you have Empiricism
+		add = {
+			desc = "empiricism"
+			
+			if = {
+				limit = { 
+					owner = { 
+						has_technology_researched = empiricism
+						has_law = law_type:law_traditionalism
+					}
+					
+					# Aristocrats/Farmers/Peasants want agrarianism instead
+					NOR = { 
+						is_pop_type = aristocrats 
+						is_pop_type = farmers 
+						is_pop_type = peasants
+					}
+				}
+				add = {
+					value = literacy_rate
+					divide = 2
+				}
+			}
+		}			
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -408,6 +527,28 @@ law_laissez_faire = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_modifier = shogun_ig_forced_to_open_market
+				has_journal_entry = je_meiji_main
+				has_law = law_type:law_traditionalism
+			}
+			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
+		}	
+
+		# AI should really try to get out of Traditionalism under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_traditionalism
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_laissez_faire }				
+				}	
+			}
+			add = 1000
+		}		
 	}	
 }
 
