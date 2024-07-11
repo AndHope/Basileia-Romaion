@@ -1,4 +1,5 @@
 ﻿DIPLOMACY = {
+	
 	c:br_tartaria = {
 		create_diplomatic_pact = {
 			country = c:br_muscovy	
@@ -22,10 +23,6 @@
 		}
 		create_diplomatic_pact = {
 			country = c:PRM
-			type = tributary
-		}
-		create_diplomatic_pact = {
-			country = c:br_nizhny_novgorod
 			type = tributary
 		}
 
@@ -71,9 +68,15 @@
 			months = 600
 		}
 
-		#Muscovy
-
 	}
+
+	c:br_muscovy = {	
+		add_liberty_desire = 35
+	}
+	c:PRM = {	
+		add_liberty_desire = 25
+	}
+
 
 	c:br_muscovy = {
 		create_diplomatic_pact = {
@@ -108,8 +111,14 @@
 			country = c:br_tver
 			type = raise_payments
 		}
-		
-	
+		create_diplomatic_pact = {
+			country = c:br_nizhny_novgorod
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:br_nizhny_novgorod
+			type = raise_payments
+		}
 		set_relations = { country = c:br_tartaria value = -75 }
 		set_relations = { country = c:br_novgorod value = -75 }
 		set_relations = { country = c:PLC value = -75 }
@@ -122,6 +131,7 @@
 		set_relations = { country = c:br_novgorod value = 25 }
 		set_relations = { country = c:BYZ value = 75 }
 		set_relations = { country = c:PLC value = -75 }
+		add_liberty_desire = -15
 	}
 
 	c:br_yaroslavl = {
@@ -130,6 +140,7 @@
 		set_relations = { country = c:br_novgorod value = 25 }
 		set_relations = { country = c:BYZ value = 75 }
 		set_relations = { country = c:PLC value = -75 }
+		add_liberty_desire = -15
 	}
 
 	c:br_tver = {
@@ -138,6 +149,7 @@
 		set_relations = { country = c:br_novgorod value = 25 }
 		set_relations = { country = c:BYZ value = 75 }
 		set_relations = { country = c:PLC value = -75 }
+		add_liberty_desire = -15
 	}
 
 	c:br_nizhny_novgorod = {
@@ -146,6 +158,7 @@
 		set_relations = { country = c:br_novgorod value = 25 }
 		set_relations = { country = c:BYZ value = 75 }
 		set_relations = { country = c:PLC value = -75 }
+		add_liberty_desire = -15
 	}
 
 	c:br_ryazan = {
@@ -154,12 +167,14 @@
 		set_relations = { country = c:br_novgorod value = 25 }
 		set_relations = { country = c:BYZ value = 75 }
 		set_relations = { country = c:PLC value = -75 }
+		add_liberty_desire = -15
 	}
 
 c:br_novgorod = {
 	set_relations = { country = c:br_tartaria value = -75 }
 	set_relations = { country = c:SWE value = 75 }
 	set_relations = { country = c:PLC value = -75 }
+	add_liberty_desire = 15
 }
 
 c:br_pskov = {
@@ -168,6 +183,7 @@ c:br_pskov = {
 	set_relations = { country = c:br_novgorod value = 75 }
 	set_relations = { country = c:SWE value = 75 }
 	set_relations = { country = c:PLC value = -75 }
+	add_liberty_desire = 15
 }
 
 c:br_alania = {
@@ -177,6 +193,7 @@ c:br_alania = {
 	set_relations = { country = c:ARM value = 95 }
 	set_relations = { country = c:br_arevelyan value = 75 }
 	set_relations = { country = c:PER value = 75 }
+	add_liberty_desire = 30
 }
 
 c:br_circassia = {
@@ -185,6 +202,7 @@ c:br_circassia = {
 	set_relations = { country = c:ARM value = 25 }
 	set_relations = { country = c:br_arevelyan value = 75 }
 	set_relations = { country = c:PER value = 75 }
+	add_liberty_desire = 30
 }
 
 c:br_dagestan = {
@@ -192,6 +210,7 @@ c:br_dagestan = {
 	set_relations = { country = c:ARM value = 25 }
 	set_relations = { country = c:br_arevelyan value = 75 }
 	set_relations = { country = c:PER value = 75 }
+	add_liberty_desire = 20
 }
 
 }

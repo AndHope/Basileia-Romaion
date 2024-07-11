@@ -85,19 +85,19 @@
 			type = decrease_payments
 		}
 		set_relations = { country = c:SAR value = -25 }
-		set_relations = { country = c:LOM value = -60 }
-		set_relations = { country = c:VEN value = -60 }
-		set_relations = { country = c:TUS value = -50 }
+		set_relations = { country = c:LOM value = -30 }
+		set_relations = { country = c:VEN value = -30 }
+		set_relations = { country = c:TUS value = -20 }
 		set_relations = { country = c:BAV value = -25 }
 		set_relations = { country = c:OCC value = -25 }
 		set_relations = { country = c:BRI value = -25 }
 		set_relations = { country = c:FLA value = -15 }
-		set_relations = { country = c:SAX value = -50 }
+		set_relations = { country = c:SAX value = -30 }
 		set_relations = { country = c:br_tartaria value = -100 }
-		set_relations = { country = c:WUR value = -75 }
-		set_relations = { country = c:HES value = -75 }
-		set_relations = { country = c:BRG value = -50 }
-		set_relations = { country = c:PAP value = -75 }
+		set_relations = { country = c:WUR value = -25 }
+		set_relations = { country = c:HES value = -25 }
+		set_relations = { country = c:BRG value = -25 }
+		set_relations = { country = c:PAP value = 75 }
 		
 		create_diplomatic_pact = {
 			country = c:br_genoa
@@ -143,7 +143,16 @@
 		set_relations = { country = c:CAT value = 100 }
 		set_relations = { country = c:NAV value = 100 }
 		set_relations = { country = c:CAS value = 100 }
+		set_relations = { country = c:HRE value = -50 }
+		add_liberty_desire = 25
+	}
 
+	c:FLA = {	
+		set_relations = { country = c:SWE value = 50 }
+		set_relations = { country = c:NET value = 50 }
+		set_relations = { country = c:ENG value = 50 }
+		set_relations = { country = c:SAX value = 50 }
+		add_liberty_desire = 25
 	}
 
 	c:NET = {
@@ -219,14 +228,6 @@
 	}
 
 	c:HUN = {		
-	#	create_diplomatic_pact = {
-	#		country = c:BOH
-	#		type = tributary
-	#	}
-	#	create_diplomatic_pact = {
-	#		country = c:BOH	
-	#		type = grant_own_market
-	#	}
 		create_diplomatic_pact = {
 			country = c:TRS
 			type = dominion
@@ -270,15 +271,22 @@
 		set_relations = { country = c:br_tartaria value = -100 }
 
 	}
+	c:CRO = {
+		add_liberty_desire = -30
+	}
+	c:TRA = {
+		add_liberty_desire = -40
+	}
+
 
 	c:WUR = {
-		set_relations = { country = c:HRE value = -80 }
+		add_liberty_desire = -30
 	}
 	c:HES = {
-		set_relations = { country = c:HRE value = -80 }
+		add_liberty_desire = -30
 	}
 	c:BRG = {
-		set_relations = { country = c:HRE value = -80 }
+		add_liberty_desire = -30
 	}
 
 	c:BOH = {
@@ -290,6 +298,14 @@
 			country = c:br_silesia
 			type = dominion
 		}
+		set_relations = { country = c:MEI value = 50 }
+		set_relations = { country = c:br_silesia value = 50 }
+	}
+	c:MEI = {
+		add_liberty_desire = -30
+	}
+	c:br_silesia = {
+		add_liberty_desire = -30
 	}
 
 }

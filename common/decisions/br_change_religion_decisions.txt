@@ -180,10 +180,6 @@ orthodox_decision = {
 		ig:ig_devout = {
 			hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
 		}
-		add_modifier = {
-			name = autocephalous_patriarchate_elysium
-			months = -1
-		}
 		random_scope_state = {
 			limit = {
 				owner = ROOT
@@ -231,6 +227,84 @@ orthodox_decision = {
 
 	ai_chance = {
 		base = 0
+	}
+}
+
+elysian_orthodox_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:elysian
+		}
+		NOT = { country_has_state_religion = rel:br_religion_elysian_orthodox }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:elysian
+		}
+		ig:ig_devout = {
+			is_in_government = no
+			#is_marginal = no
+		}
+		has_law = law_type:law_monarchy
+	}
+
+	when_taken = {
+		set_state_religion = rel:br_religion_elysian_orthodox
+		ig:ig_devout = {
+			hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+		}
+		add_modifier = {
+			name = autocephalous_patriarchate_elysium
+			months = -1
+		}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:br_religion_elysian_orthodox
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:br_religion_elysian_orthodox
+				value = 0.15
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:br_religion_elysian_orthodox 
+				}
+			}
+			add_loyalists = {
+				religion = rel:br_religion_elysian_orthodox
+				value = 0.50
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:br_religion_hellenic
+				}
+			}
+			add_radicals = {
+				religion = rel:br_religion_hellenic
+				value = 0.75
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 25
 	}
 }
 

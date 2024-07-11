@@ -24,28 +24,6 @@
 			type = dominion
 		}
 	}
-	c:DEN = {
-		create_diplomatic_pact = {
-			country = c:br_new_world_company
-			type = dominion
-		}
-	}
-	c:ENG = {
-		create_diplomatic_pact = {
-			country = c:br_new_angland
-			type = tributary
-		}
-	}
-
-	c:br_new_angland = {
-		set_relations = { country = c:DEN value = -100 }
-		set_relations = { country = c:NET value = 100 }
-		set_relations = { country = c:SWE value = 100 }
-		set_relations = { country = c:HRE value = 50 }
-		set_relations = { country = c:ANL value = 25 }
-		set_relations = { country = c:BYZ value = 25 }
-
-	}
 
 	c:br_vinland = {
 		create_unidirectional_truce = {
@@ -60,9 +38,24 @@
 			country = c:A06
 			type = colonization_rights
 		}
+		create_diplomatic_pact = {
+			country = c:br_new_world_company
+			type = dominion
+		}
+		set_relations = { country = c:br_vinland value = 25 }
+		set_relations = { country = c:br_elysium value = 25 }
+		add_liberty_desire = 10
+	}
+	c:A06 = {
+		create_unidirectional_truce = {
+			country = c:br_vinland
+			months = 50
+		}
 	}
 
 	c:br_louisiane = {
+		set_relations = { country = c:br_giamaica value = 25 }
+		set_relations = { country = c:br_atlantica value = 25 }
 		create_unidirectional_truce = {
 			country = c:br_creek
 			months = 50
@@ -75,24 +68,34 @@
 			country = c:COM
 			months = 90
 		}
-
+		add_liberty_desire = 10
 	}
 
 	c:br_elysium = { 
-		set_relations = { country = c:BYZ value = 60 }
-		set_relations = { country = c:VEN value = 40 }
-		set_relations = { country = c:br_genoa value = 40 }
-		set_relations = { country = c:ANL value = 25 }
-		set_relations = { country = c:br_giamaica value = 25 }
-		set_relations = { country = c:HRE value = 25 }
-		set_relations = { country = c:br_atlantica value = 25 }
-		set_relations = { country = c:br_new_granada value = 20 }
+		set_relations = { country = c:BYZ value = 35 }
+		set_relations = { country = c:VEN value = 35 }
+		set_relations = { country = c:br_genoa value = 35 }
+		set_relations = { country = c:ANL value = 15 }
+		set_relations = { country = c:br_giamaica value = 35 }
+		set_relations = { country = c:HRE value = 15 }
+		set_relations = { country = c:br_atlantica value = 35 }
+		set_relations = { country = c:br_new_granada value = 35 }
 		set_relations = { country = c:NAH value = 75 }
-		set_relations = { country = c:br_louisiane value = -100 }
-		set_relations = { country = c:br_vinland value = -100 }
+		set_relations = { country = c:br_louisiane value = -15 }
+		set_relations = { country = c:br_vinland value = 50 }
+		set_relations = { country = c:br_new_angland value = 50 }
 		set_relations = { country = c:IRO value = -100 }
 		set_relations = { country = c:CTF value = -100 }
 		set_relations = { country = c:CHE value = -100 }
+
+		create_diplomatic_pact = {
+			country = c:br_new_angland
+			type = defensive_pact
+		}	
+		create_diplomatic_pact = {
+			country = c:br_vinland
+			type = defensive_pact
+		}
 
 		create_unidirectional_truce = {
 			country = c:IRO
@@ -107,6 +110,19 @@
 	}
 
 	c:br_new_angland = {
+		set_relations = { country = c:DEN value = -100 }
+		set_relations = { country = c:NET value = 75 }
+		set_relations = { country = c:SWE value = 75 }
+		set_relations = { country = c:HRE value = 35 }
+		set_relations = { country = c:ANL value = 25 }
+		set_relations = { country = c:BYZ value = 25 }
+		set_relations = { country = c:br_vinland value = 50 }
+		set_relations = { country = c:br_elysium value = 50 }
+		set_relations = { country = c:br_giamaica value = 35 }
+		set_relations = { country = c:br_atlantica value = 35 }
+		set_relations = { country = c:br_new_granada value = 15 }
+		set_relations = { country = c:NAH value = 25 }
+		set_relations = { country = c:TWT value = 25 }
 		create_unidirectional_truce = {
 			country = c:GNI
 			months = 24
@@ -119,13 +135,12 @@
 			country = c:PAT
 			months = 24
 		}
+		add_liberty_desire = 30
 	}
 
 	c:br_antarctique = {
-	#	create_diplomatic_pact = {
-	#		country = c:CT1
-	#		type = colonization_rights
-	#	}
+		set_relations = { country = c:br_giamaica value = 25 }
+		set_relations = { country = c:br_atlantica value = 25 }
 		create_unidirectional_truce = {
 			country = c:GJ1
 			months = 24
@@ -138,10 +153,11 @@
 			country = c:GJ1
 			months = 32
 		}
+		add_liberty_desire = 10
 	}
 
 	c:br_chinese_new_world = {
-
+		add_liberty_desire = 10
 	}
 
 }
