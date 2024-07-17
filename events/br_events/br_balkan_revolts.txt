@@ -1,12 +1,2322 @@
-﻿namespace = bulgarian_revolt
+﻿namespace = br_balkan_revolt
 
-bulgarian_revolt.1 = {
+br_balkan_revolt.1 = {
+	type = country_event
+	hidden = yes
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		OR = {
+			AND = {
+				NOT = { has_variable = palaiologos_reforms_separatist_var }
+				OR = {
+					AND = {
+						NOT = { exists = c:GRE }
+						any_scope_state = { state_region = s:STATE_ATTICA }
+					}
+					AND = {
+						NOT = { exists = c:BUL }
+						any_scope_state = { state_region = s:STATE_BULGARIA }
+					}
+					AND = {
+						NOT = { exists = c:SER }
+						NOT = { exists = c:YUG }
+						any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA }
+					}
+					AND = {
+						NOT = { exists = c:MON }
+						NOT = { exists = c:YUG }
+						any_scope_state = { state_region = s:STATE_MONTENEGRO }
+					}
+					AND = {
+						NOT = { exists = c:BOS }
+						NOT = { exists = c:YUG }
+						any_scope_state = { state_region = s:STATE_BOSNIA }
+					}
+					AND = {
+						NOT = { exists = c:CRO }
+						NOT = { exists = c:YUG }
+						OR = {
+							any_scope_state = { state_region = s:STATE_CROATIA }
+							any_scope_state = { state_region = s:STATE_SLAVONIA }
+							any_scope_state = { state_region = s:STATE_DALMATIA }
+						}
+					}
+					AND = {
+						NOT = { exists = c:WAL }
+						NOT = { exists = c:ROM }
+						any_scope_state = {
+							OR = {
+								cu:romanian = { has_homeland = PREV }
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+					AND = {
+						NOT = { exists = c:MOL }
+						NOT = { exists = c:ROM }
+						any_scope_state = {
+							OR = {
+								cu:romanian = { has_homeland = PREV }
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+					AND = {
+						NOT = { exists = c:HUN }
+						any_scope_state = {
+							OR = {
+								cu:hungarian = { has_homeland = PREV }
+								cu:south_german = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+			}
+			AND = {
+				has_variable = palaiologos_reforms_separatist_var
+				NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+				NOT = { any_scope_state = { state_region = s:STATE_ATTICA } }
+				NOT = { any_scope_state = { state_region = s:STATE_BULGARIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_BOSNIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_CROATIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_SLAVONIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_DALMATIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_WALLACHIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_MOLDAVIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_CENTRAL_HUNGARY } }
+				OR = {
+					exists = c:MOL
+					exists = c:WAL
+					exists = c:ROM
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							OR = {
+								cu:romanian = { has_homeland = PREV }
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+				OR = {
+					exists = c:HUN
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							OR = {
+								cu:hungarian = { has_homeland = PREV }
+								cu:south_german = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+				OR = {
+					exists = c:GRE
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							cu:greek = { has_homeland = PREV }
+						}
+					}
+				}
+				OR = {
+					exists = c:BUL
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							cu:bulgarian = { has_homeland = PREV }
+						}
+					}
+				}
+				OR = {
+					exists = c:SER
+					exists = c:YUG
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							cu:serb = { has_homeland = PREV }
+						}
+					}
+				}
+			}
+		}
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_variable = palaiologos_reforms_separatist_var }
+				OR = {
+					AND = {
+						NOT = { exists = c:GRE }
+						any_scope_state = { state_region = s:STATE_ATTICA }
+					}
+					AND = {
+						NOT = { exists = c:BUL }
+						any_scope_state = { state_region = s:STATE_BULGARIA }
+					}
+					AND = {
+						NOT = { exists = c:SER }
+						NOT = { exists = c:YUG }
+						any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA }
+					}
+					AND = {
+						NOT = { exists = c:MON }
+						NOT = { exists = c:YUG }
+						any_scope_state = { state_region = s:STATE_MONTENEGRO }
+					}
+					AND = {
+						NOT = { exists = c:BOS }
+						NOT = { exists = c:YUG }
+						any_scope_state = { state_region = s:STATE_BOSNIA }
+					}
+					AND = {
+						NOT = { exists = c:CRO }
+						NOT = { exists = c:YUG }
+						OR = {
+							any_scope_state = { state_region = s:STATE_CROATIA }
+							any_scope_state = { state_region = s:STATE_SLAVONIA }
+							any_scope_state = { state_region = s:STATE_DALMATIA }
+						}
+					}
+					AND = {
+						NOT = { exists = c:WAL }
+						NOT = { exists = c:ROM }
+						any_scope_state = {
+							OR = {
+								cu:romanian = { has_homeland = PREV }
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+					AND = {
+						NOT = { exists = c:MOL }
+						NOT = { exists = c:ROM }
+						any_scope_state = {
+							OR = {
+								cu:romanian = { has_homeland = PREV }
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+					AND = {
+						NOT = { exists = c:HUN }
+						any_scope_state = {
+							OR = {
+								cu:hungarian = { has_homeland = PREV }
+								cu:south_german = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+			}
+			set_variable = palaiologos_reforms_separatist_var
+		}
+		if = {
+			limit = {
+				has_variable = palaiologos_reforms_separatist_var
+				NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+				NOT = { any_scope_state = { state_region = s:STATE_ATTICA } }
+				NOT = { any_scope_state = { state_region = s:STATE_BULGARIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_BOSNIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_CROATIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_SLAVONIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_DALMATIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_WALLACHIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_MOLDAVIA } }	
+				NOT = { any_scope_state = { state_region = s:STATE_CENTRAL_HUNGARY } }
+				OR = {
+					exists = c:MOL
+					exists = c:WAL
+					exists = c:ROM
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							OR = {
+								cu:romanian = { has_homeland = PREV }
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+				OR = {
+					exists = c:HUN
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							OR = {
+								cu:hungarian = { has_homeland = PREV }
+								cu:south_german = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+				OR = {
+					exists = c:GRE
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							cu:greek = { has_homeland = PREV }
+						}
+					}
+				}
+				OR = {
+					exists = c:BUL
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							cu:bulgarian = { has_homeland = PREV }
+						}
+					}
+				}
+				OR = {
+					exists = c:SER
+					exists = c:YUG
+					NOT = {
+						any_scope_state = {
+							is_capital = no
+							state_is_in_europe = yes
+							cu:serb = { has_homeland = PREV }
+						}
+					}
+				}
+			}
+			set_variable = completed_separatism_palaiologos_reforms_je
+		}
+	}
+}
+
+
+# Balkan Crisis: The Hellas Pronoia Uprising
+br_balkan_revolt.2 = {
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { exists = c:GRE } 
+		any_scope_state = { state_region = s:STATE_ATTICA }
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = { state_region = s:STATE_ATTICA }
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = GRE
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = { 
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = athens_uprising
+					add_loyalists = { value = 0.5 }
+					activate_law = law_type:law_monarchy
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+				}
+			}
+			random_country = {
+				limit = { has_variable = athens_uprising }
+				save_scope_as = athens_uprising_scope
+			}
+			create_diplomatic_play = {
+	            target_country = scope:athens_uprising_scope
+	            type = dp_annex_war
+				war = yes
+			}
+			change_infamy = -15
+			every_state = {
+				limit = {
+					owner = { OR = { ROOT = THIS is_subject_of = ROOT } }
+					OR = {
+						state_region = s:STATE_PELOPONNESE
+						state_region = s:STATE_WEST_AEGEAN_ISLANDS
+						state_region = s:STATE_IONIAN_ISLANDS
+					}
+				}
+				set_state_owner = scope:athens_uprising_scope
+			}
+		}
+	}
+}
+
+# Balkan Crisis: The Bulgarian Pronoia Uprising
+br_balkan_revolt.3 = { 
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { has_global_variable = BUL_already_revolted }
+		NOT = { exists = c:BUL }
+		any_scope_state = { state_region = s:STATE_BULGARIA }
+	}
+
+	immediate = {
+		set_global_variable = BUL_already_revolted
+		random_scope_state = {
+			limit = { state_region = s:STATE_BULGARIA }
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = BUL
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = { 
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = sofia_uprising
+					add_loyalists = { value = 0.8 }
+					activate_law = law_type:law_monarchy
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+				}
+			}
+			random_country = {
+				limit = { has_variable = sofia_uprising }
+				save_scope_as = sofia_uprising_scope
+				create_military_formation = {
+					type = army
+					hq_region = scope:rebelling_state_scope.region
+		
+					combat_unit = {
+						type = unit_type:combat_unit_type_irregular_infantry
+						state_region = scope:rebelling_state_scope
+						count = 15
+					}
+					
+					combat_unit = {
+						type = unit_type:combat_unit_type_hussars
+						state_region = scope:rebelling_state_scope
+						count = 15
+					}
+				}
+			}
+			create_diplomatic_play = {
+	            target_country = scope:sofia_uprising_scope
+	            type = dp_annex_war
+				war = yes
+			}
+			change_infamy = -15
+			if = {
+				limit = { any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
+				s:STATE_SOUTHERN_SERBIA = {
+					set_owner_of_provinces = {
+						country = c:BUL
+						provinces = { x18B761 }
+					}
+				}
+			}
+			if = {
+				limit = { any_state = { state_region = s:STATE_DOBRUDJA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
+				s:STATE_DOBRUDJA = {
+					set_owner_of_provinces = {
+						country = c:BUL
+						provinces = {
+							x940C8D
+							xA3D7CE
+							x316021
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					any_state = { state_region = s:STATE_EASTERN_THRACE owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } 
+					any_state = { state_region = s:STATE_NORTHERN_THRACE owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } 
+				}
+				s:STATE_NORTHERN_THRACE = {
+					set_owner_of_provinces = {
+						country = c:BUL
+						provinces = {
+							x15CDCD
+							x9D0D6C
+							x455522
+							xAF56D0
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_state = { state_region = s:STATE_NORTHERN_THRACE owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } 
+				}
+				every_state = {
+					limit = {
+						owner = { OR = { ROOT = THIS is_subject_of = ROOT } }
+						state_region = s:STATE_NORTHERN_THRACE 
+					}
+					set_state_owner = scope:sofia_uprising_scope
+				}
+			}
+		}
+	}
+}
+
+# Balkan Crisis: The Serbian Pronoia Uprising 
+br_balkan_revolt.4 = {
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { exists = c:SER }
+		NOT = { exists = c:YUG }
+		any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA }
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = { state_region = s:STATE_NORTHERN_SERBIA }
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = SER
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = { 
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = belgrade_uprising
+					add_loyalists = { value = 0.8 }
+					activate_law = law_type:law_monarchy
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+				}
+			}
+			random_country = {
+				limit = { has_variable = belgrade_uprising }
+				save_scope_as = belgrade_uprising_scope
+			}
+			create_diplomatic_play = {
+	            target_country = scope:belgrade_uprising_scope
+	            type = dp_annex_war
+				war = yes
+			}
+			change_infamy = -15
+			if = {
+				limit = { any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
+				s:STATE_SOUTHERN_SERBIA = {
+					set_owner_of_provinces = {
+						country = c:SER
+						provinces = { 
+							xAC083C
+							x334B53
+							x62A730
+							xD021E0
+							x4773E6
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Balkan Crisis: The Montenegrin Pronoia Uprising 
+br_balkan_revolt.5 = {
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { exists = c:MON }
+		NOT = { exists = c:YUG }
+		any_scope_state = { state_region = s:STATE_MONTENEGRO }
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = { state_region = s:STATE_MONTENEGRO }
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = MON
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = { 
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = montenegro_uprising
+					add_loyalists = { value = 0.8 }
+					activate_law = law_type:law_monarchy
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+				}
+			}
+			random_country = {
+				limit = { has_variable = montenegro_uprising }
+				save_scope_as = montenegro_uprising_scope
+			}
+			if = {
+				limit = { 
+					any_state = { state_region = s:STATE_EASTERN_THRACE owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } 
+					OR = {
+						any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } 
+						any_state = { state_region = s:STATE_ALBANIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } }
+					}
+				}
+				s:STATE_MONTENEGRO = {
+					set_owner_of_provinces = {
+						country = c:BYZ
+						provinces = { xA12F82 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Balkan Crisis: The Bosnian Pronoia Uprising 
+br_balkan_revolt.6 = {
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		NOT = { has_global_variable = BOS_already_revolted }
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { exists = c:BOS }
+		NOT = { exists = c:YUG }
+		any_scope_state = { state_region = s:STATE_BOSNIA }
+	}
+
+	immediate = {
+		set_global_variable = BOS_already_revolted
+		random_scope_state = {
+			limit = { state_region = s:STATE_BOSNIA }
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = BOS
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = {
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = herzegovina_uprising
+					add_loyalists = { value = 0.8 }
+					activate_law = law_type:law_monarchy
+				}
+			}
+			random_country = {
+				limit = { has_variable = herzegovina_uprising }
+				save_scope_as = herzegovina_uprising_scope
+			}
+			create_diplomatic_play = {
+	            target_country = scope:herzegovina_uprising_scope
+	            type = dp_annex_war
+				war = yes
+			}
+			change_infamy = -15
+		}
+	}
+}
+
+# Balkan Crisis: The Croatian Pronoia Uprising 
+br_balkan_revolt.7 = {
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { exists = c:CRO }
+		NOT = { exists = c:YUG }
+		AND = {
+			year <= 1900
+			NOT = { exists = c:AUS }
+		}
+		OR = {
+			any_scope_state = { state_region = s:STATE_CROATIA }
+			any_scope_state = { state_region = s:STATE_SLAVONIA }
+			any_scope_state = { state_region = s:STATE_DALMATIA }
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = { 
+				OR = {
+					state_region = s:STATE_CROATIA
+					state_region = s:STATE_SLAVONIA
+					state_region = s:STATE_DALMATIA
+				}
+			}
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = CRO
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = { 
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = croatia_uprising
+					add_loyalists = { value = 0.8 }
+					activate_law = law_type:law_monarchy
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+				}
+			}
+			random_country = {
+				limit = { has_variable = croatia_uprising }
+				save_scope_as = croatia_uprising_scope
+			}
+			create_diplomatic_play = {
+	            target_country = scope:croatia_uprising_scope
+	            type = dp_annex_war
+				war = yes
+			}
+			change_infamy = -15
+			every_state = {
+				limit = {
+					owner = { OR = { ROOT = THIS is_subject_of = ROOT } }
+					OR = {
+						state_region = s:STATE_CROATIA
+						state_region = s:STATE_SLAVONIA
+						state_region = s:STATE_DALMATIA
+						state_region = s:STATE_SLOVENIA
+						state_region = s:STATE_ISTRIA
+					}
+				}
+				set_state_owner = scope:croatia_uprising_scope
+			}
+		}
+	}
+}
+
+# Balkan Crisis: The Hungarian Pronoia Uprising 
+br_balkan_revolt.8 = {
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { exists = c:HUN }
+		AND = {
+			year <= 1900
+			NOT = { exists = c:AUS }
+		}
+		any_scope_state = {
+			OR = {
+				cu:hungarian = { has_homeland = PREV }
+				cu:south_german = { has_homeland = PREV }
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = { 
+				OR = {
+					cu:hungarian = { has_homeland = PREV }
+					cu:south_german = { has_homeland = PREV }
+				}
+			}
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = HUN
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = { 
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = budapest_uprising
+					add_loyalists = { value = 0.8 }
+					activate_law = law_type:law_monarchy
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+				}
+			}
+			random_country = {
+				limit = { has_variable = budapest_uprising }
+				save_scope_as = budapest_uprising_scope
+			}
+			create_diplomatic_play = {
+	            target_country = scope:budapest_uprising_scope
+	            type = dp_annex_war
+				war = yes
+			}
+			change_infamy = -15
+			every_state = {
+				limit = {
+					owner = { OR = { ROOT = THIS is_subject_of = ROOT } }
+					OR = {
+						cu:hungarian = { has_homeland = PREV }
+						cu:south_german = { has_homeland = PREV }
+					}
+				}
+				set_state_owner = scope:budapest_uprising_scope
+			}
+		}
+	}
+}
+
+# Balkan Crisis: The Vlachian Pronoia Uprising 
+br_balkan_revolt.9 = {
+	type = country_event
+	placement = scope:rebelling_state_scope
+	title = br_balkan_revolt.2.t
+	desc = br_balkan_revolt.2.d
+	flavor = br_balkan_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
+		NOT = { exists = c:WAL }
+		NOT = { exists = c:MOL }
+		NOT = { exists = c:ROM }
+		any_scope_state = {
+			NOT = { state_region = s:STATE_DOBRUDJA }
+			OR = {
+				cu:romanian = { has_homeland = PREV }
+				cu:ukrainian = { has_homeland = PREV }
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = { 
+				NOT = { state_region = s:STATE_DOBRUDJA }
+				OR = {
+					cu:romanian = { has_homeland = PREV }
+					cu:ukrainian = { has_homeland = PREV }
+				}
+			}
+			save_scope_as = rebelling_state_scope
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = revolt_in_state_tt
+			create_country = {
+				tag = ROM
+				origin = this
+				state = scope:rebelling_state_scope
+				on_created = { 
+					set_variable = br_balkan_potential_warcrime_target
+					set_variable = bucharest_uprising
+					add_loyalists = { value = 0.8 }
+					activate_law = law_type:law_monarchy
+					add_modifier = {
+						name = war_for_independence
+						months = 36
+					}
+				}
+			}
+			random_country = {
+				limit = { has_variable = bucharest_uprising }
+				save_scope_as = bucharest_uprising_scope
+			}
+			create_diplomatic_play = {
+	            target_country = scope:bucharest_uprising_scope
+	            type = dp_annex_war
+				war = yes
+			}
+			change_infamy = -15
+			every_state = {
+				limit = {
+					owner = { OR = { ROOT = THIS is_subject_of = ROOT } }
+					NOT = { state_region = s:STATE_DOBRUDJA }
+					OR = {
+						cu:romanian = { has_homeland = PREV }
+						cu:ukrainian = { has_homeland = PREV }
+					}
+				}
+				set_state_owner = scope:bucharest_uprising_scope
+			}
+			if = {
+				limit = { any_state = { state_region = s:STATE_DOBRUDJA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
+				s:STATE_DOBRUDJA = {
+					set_owner_of_provinces = {
+						country = c:ROM
+						provinces = {
+							xB06121
+							x50F5CB
+							x7763F3
+							x7F25CD
+							xD9E021
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Balkan Crisis: Independent/Vassal Balkans make demands
+br_balkan_revolt.10 = {
+	type = country_event
+	placement = c:BYZ
+	title = br_balkan_revolt.10.t
+	desc = br_balkan_revolt.10.d
+	flavor = br_balkan_revolt.10.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:BYZ
+		NOT = { c:BYZ = ROOT }
+		NOT = { has_variable = br_balkan_already_got_dogpile_opportunity }
+		NOT = { any_country = { has_variable = br_balkan_currently_removing_overlord } }
+		OR = {
+			is_subject = no
+			is_subject_of = c:BYZ
+		}
+		c:BYZ = { 
+			OR = {
+				NOT = { has_variable = palaiologos_reforms_separatist_var  }
+				AND = {
+					has_variable = palaiologos_reforms_separatist_var 
+					has_variable = completed_separatism_palaiologos_reforms_je
+				}
+			}
+		}
+		OR = {
+			AND = {
+				exists = c:GRE
+				c:GRE = ROOT
+				NOT = { has_variable = athens_uprising }
+				OR = {
+					is_player = yes
+					c:BYZ = { has_variable = br_balkan_did_a_little_trolling }
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_ATTICA
+							state_region = s:STATE_PELOPONNESE
+							state_region = s:STATE_WEST_AEGEAN_ISLANDS
+							state_region = s:STATE_IONIAN_ISLANDS
+							state_region = s:STATE_THESSALIA
+						}
+					}
+				}
+			}
+			AND = {
+				exists = c:BUL
+				c:BUL = ROOT
+				NOT = { has_variable = sofia_uprising }
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_BULGARIA
+							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_DOBRUDJA
+							state_region = s:STATE_NORTHERN_THRACE
+						}
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						exists = c:SER
+						c:SER = ROOT
+						NOT = { has_variable = belgrade_uprising }
+					}
+					AND = {
+						NOT = { exists = c:SER }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_NORTHERN_SERBIA
+							state_region = s:STATE_SOUTHERN_SERBIA
+						}
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						exists = c:MON
+						c:MON = ROOT
+						NOT = { has_variable = montenegro_uprising }
+					}
+					AND = {
+						NOT = { exists = c:MON }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_MONTENEGRO
+						}
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						exists = c:BOS
+						c:BOS = ROOT
+						NOT = { has_variable = herzegovina_uprising }
+					}
+					AND = {
+						NOT = { exists = c:BOS }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_BOSNIA
+						}
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						exists = c:CRO
+						c:CRO = ROOT
+						NOT = { has_variable = croatia_uprising }
+					}
+					AND = {
+						NOT = { exists = c:CRO }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+					AND = {
+						year <= 1900
+						NOT = { exists = c:CRO }
+						NOT = { exists = c:YUG }
+						exists = c:AUS
+						c:AUS = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_CROATIA
+							state_region = s:STATE_SLAVONIA
+							state_region = s:STATE_DALMATIA
+							state_region = s:STATE_SLOVENIA
+							state_region = s:STATE_ISTRIA
+						}
+					}
+				}
+			}
+			AND = {
+				exists = c:WAL
+				c:WAL = ROOT
+				exists = c:MOL
+				NOT = { c:MOL = { is_subject_of = ROOT } }
+				OR = {
+					is_subject = no
+					any_overlord_or_above = { THIS = c:BYZ }
+				}
+				OR = {
+					any_overlord_or_above = { THIS = c:BYZ }
+					c:BYZ = {
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_WALLACHIA
+								state_region = s:STATE_DOBRUDJA
+							}
+						}
+					}
+				}
+			}
+			AND = {
+				exists = c:MOL
+				c:MOL = ROOT
+				exists = c:WAL
+				NOT = { c:WAL = { is_subject_of = ROOT } }
+				OR = {
+					is_subject = no
+					any_overlord_or_above = { THIS = c:BYZ }
+				}
+				OR = {
+					any_overlord_or_above = { THIS = c:BYZ }
+					c:BYZ = {
+						any_scope_state = {
+							OR = {
+								cu:romanian = { has_homeland = PREV }
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						exists = c:ROM
+						c:ROM = ROOT
+						NOT = { has_variable = bucharest_uprising }
+					}
+					AND = {
+						exists = c:WAL
+						c:WAL = ROOT
+						OR = {
+							NOT = { exists = c:MOL }
+							AND = {
+								exists = c:MOL
+								c:MOL = { is_subject_of = ROOT }
+							}
+						}
+					}
+					AND = {
+						exists = c:MOL
+						c:MOL = ROOT
+						OR = {
+							NOT = { exists = c:WAL }
+							AND = {
+								exists = c:WAL
+								c:WAL = { is_subject_of = ROOT }
+							}
+						}
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							cu:romanian = { has_homeland = PREV }
+							cu:ukrainian = { has_homeland = PREV }
+						}
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						exists = c:HUN
+						c:HUN = ROOT
+						NOT = { has_variable = budapest_uprising }
+					}
+					AND = {
+						year <= 1900
+						NOT = { exists = c:HUN }
+						exists = c:AUS
+						c:AUS = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							cu:hungarian = { has_homeland = PREV }
+							cu:south_german = { has_homeland = PREV }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = br_balkan_already_got_dogpile_opportunity
+	}
+
+	option = {
+		name = br_balkan_revolt.10.a
+		default_option = yes
+		ai_chance = { base = 1 }
+		if = {
+			limit = { 
+				NAND = {
+					exists = c:MON
+					c:MON = ROOT
+					any_scope_state = { count=1 }
+				}
+			}
+			set_variable = br_balkan_currently_removing_overlord
+		}
+		if = {
+			limit = { is_subject_of = c:BYZ }
+			set_variable = br_balkan_demanding_independence
+		}
+		if = {
+			limit = {
+				exists = c:GRE
+				c:GRE = ROOT
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_ATTICA
+							state_region = s:STATE_PELOPONNESE
+							state_region = s:STATE_WEST_AEGEAN_ISLANDS
+							state_region = s:STATE_IONIAN_ISLANDS
+							state_region = s:STATE_THESSALIA
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							state_region = s:STATE_ATTICA
+							state_region = s:STATE_PELOPONNESE
+							state_region = s:STATE_WEST_AEGEAN_ISLANDS
+							state_region = s:STATE_IONIAN_ISLANDS
+							state_region = s:STATE_THESSALIA
+						}
+					}
+					set_state_owner = ROOT
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							state_region = s:STATE_ATTICA
+							state_region = s:STATE_PELOPONNESE
+							state_region = s:STATE_WEST_AEGEAN_ISLANDS
+							state_region = s:STATE_IONIAN_ISLANDS
+							state_region = s:STATE_THESSALIA
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:greek
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:greek
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:BUL
+				c:BUL = ROOT
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_BULGARIA
+							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_DOBRUDJA
+							state_region = s:STATE_NORTHERN_THRACE
+						}
+					}
+				}
+			}
+			if = {
+				limit = { any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } }
+				s:STATE_SOUTHERN_SERBIA = {
+					set_owner_of_provinces = {
+						country = c:BUL
+						provinces = { x18B761 }
+					}
+				}
+			}
+			if = {
+				limit = { any_state = { state_region = s:STATE_DOBRUDJA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } }
+				s:STATE_DOBRUDJA = {
+					set_owner_of_provinces = {
+						country = c:BUL
+						provinces = {
+							x940C8D
+							xA3D7CE
+							x316021
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					any_state = { state_region = s:STATE_EASTERN_THRACE owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+					any_state = { state_region = s:STATE_NORTHERN_THRACE owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+				}
+				s:STATE_NORTHERN_THRACE = {
+					set_owner_of_provinces = {
+						country = c:BUL
+						provinces = {
+							x15CDCD
+							x9D0D6C
+							x455522
+							xAF56D0
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_state = { state_region = s:STATE_NORTHERN_THRACE owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+				}
+				every_state = {
+					limit = {
+						owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } }
+						state_region = s:STATE_NORTHERN_THRACE 
+					}
+					set_state_owner = scope:sofia_uprising_scope
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							state_region = s:STATE_BULGARIA
+							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_DOBRUDJA
+							state_region = s:STATE_NORTHERN_THRACE
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:bulgarian
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:bulgarian
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = c:SER
+						c:SER = ROOT
+					}
+					AND = {
+						NOT = { exists = c:SER }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_NORTHERN_SERBIA
+							state_region = s:STATE_SOUTHERN_SERBIA
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = {
+						OR = { state_region = s:STATE_NORTHERN_SERBIA }
+					}
+					set_state_owner = ROOT
+				}
+			}
+			if = {
+				limit = { 
+					exists = c:SER
+					c:SER = ROOT
+					any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+				}
+				s:STATE_SOUTHERN_SERBIA = {
+					set_owner_of_provinces = {
+						country = c:SER
+						provinces = { 
+							xAC083C
+							x334B53
+							x62A730
+							xD021E0
+							x4773E6
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { 
+					NOT = { exists = c:SER }
+					exists = c:YUG
+					c:YUG = ROOT
+					any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+				}
+				s:STATE_SOUTHERN_SERBIA = {
+					set_owner_of_provinces = {
+						country = c:YUG
+						provinces = { 
+							xAC083C
+							x334B53
+							x62A730
+							xD021E0
+							x4773E6
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							state_region = s:STATE_NORTHERN_SERBIA
+							state_region = s:STATE_SOUTHERN_SERBIA
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:serb
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:serb
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = c:MON
+						c:MON = ROOT
+					}
+					AND = {
+						NOT = { exists = c:MON }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = { state_region = s:STATE_MONTENEGRO }
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = { OR = { state_region = s:STATE_MONTENEGRO } }
+					set_state_owner = ROOT
+				}
+			}
+			if = {
+				limit = { 
+					any_state = { state_region = s:STATE_EASTERN_THRACE owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+					OR = {
+						any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+						any_state = { state_region = s:STATE_ALBANIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } }
+					}
+				}
+				s:STATE_MONTENEGRO = {
+					set_owner_of_provinces = {
+						country = c:BYZ
+						provinces = { xA12F82 }
+					}
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = { state_region = s:STATE_MONTENEGRO }
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:serb
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:serb
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = c:BOS
+						c:BOS = ROOT
+					}
+					AND = {
+						NOT = { exists = c:BOS }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_BOSNIA
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = { OR = { state_region = s:STATE_BOSNIA } }
+					set_state_owner = ROOT
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = { state_region = s:STATE_BOSNIA }
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:bosniak
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:bosniak
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = c:CRO
+						c:CRO = ROOT
+					}
+					AND = {
+						NOT = { exists = c:CRO }
+						exists = c:YUG
+						c:YUG = ROOT
+					}
+					AND = {
+						year <= 1900
+						NOT = { exists = c:CRO }
+						NOT = { exists = c:YUG }
+						exists = c:AUS
+						c:AUS = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_CROATIA
+							state_region = s:STATE_SLAVONIA
+							state_region = s:STATE_DALMATIA
+							state_region = s:STATE_SLOVENIA
+							state_region = s:STATE_ISTRIA
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = { 
+						OR = {
+							state_region = s:STATE_CROATIA
+							state_region = s:STATE_SLAVONIA
+							state_region = s:STATE_DALMATIA
+							state_region = s:STATE_SLOVENIA
+							state_region = s:STATE_ISTRIA
+						}
+					}
+					set_state_owner = ROOT
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							state_region = s:STATE_CROATIA
+							state_region = s:STATE_SLAVONIA
+							state_region = s:STATE_DALMATIA
+							state_region = s:STATE_SLOVENIA
+							state_region = s:STATE_ISTRIA
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:croat
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:croat
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:WAL
+				c:WAL = ROOT
+				exists = c:MOL
+				NOT = { c:MOL = { is_subject_of = ROOT } }
+				OR = {
+					is_subject = no
+					any_overlord_or_above = { THIS = c:BYZ }
+				}
+				OR = {
+					any_overlord_or_above = { THIS = c:BYZ }
+					c:BYZ = {
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_WALLACHIA
+								state_region = s:STATE_DOBRUDJA
+							}
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = { OR = { state_region = s:STATE_WALLACHIA } }
+					set_state_owner = ROOT
+				}
+			}
+			if = {
+				limit = { any_state = { state_region = s:STATE_DOBRUDJA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } }
+				s:STATE_DOBRUDJA = {
+					set_owner_of_provinces = {
+						country = c:WAL
+						provinces = {
+							xB06121
+							x50F5CB
+							x7763F3
+							x7F25CD
+							xD9E021
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							state_region = s:STATE_WALLACHIA
+							state_region = s:STATE_DOBRUDJA
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:romanian
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:romanian
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:MOL
+				c:MOL = ROOT
+				exists = c:WAL
+				NOT = { c:WAL = { is_subject_of = ROOT } }
+				OR = {
+					is_subject = no
+					any_overlord_or_above = { THIS = c:BYZ }
+				}
+				OR = {
+					any_overlord_or_above = { THIS = c:BYZ }
+					c:BYZ = {
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_MOLDAVIA
+								cu:ukrainian = { has_homeland = PREV }
+							}
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = { 
+						OR = {
+							state_region = s:STATE_MOLDAVIA
+							cu:ukrainian = { has_homeland = PREV }
+						}
+					}
+					set_state_owner = ROOT
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							state_region = s:STATE_MOLDAVIA
+							cu:ukrainian = { has_homeland = PREV }
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:romanian
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:romanian
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = c:ROM
+						c:ROM = ROOT
+						NOT = { has_variable = bucharest_uprising }
+					}
+					AND = {
+						exists = c:WAL
+						c:WAL = ROOT
+						OR = {
+							NOT = { exists = c:MOL }
+							AND = {
+								exists = c:MOL
+								c:MOL = { is_subject_of = ROOT }
+							}
+						}
+					}
+					AND = {
+						exists = c:MOL
+						c:MOL = ROOT
+						OR = {
+							NOT = { exists = c:WAL }
+							AND = {
+								exists = c:WAL
+								c:WAL = { is_subject_of = ROOT }
+							}
+						}
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							cu:romanian = { has_homeland = PREV }
+							cu:ukrainian = { has_homeland = PREV }
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = {
+						NOT = { state_region = s:STATE_DOBRUDJA }
+						OR = {
+							cu:romanian = { has_homeland = PREV }
+							cu:ukrainian = { has_homeland = PREV }
+						}
+					}
+					set_state_owner = ROOT
+				}
+			}
+			if = {
+				limit = { 
+					any_state = { state_region = s:STATE_DOBRUDJA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+					exists = c:ROM
+					c:ROM = ROOT
+				}
+				s:STATE_DOBRUDJA = {
+					set_owner_of_provinces = {
+						country = c:ROM
+						provinces = {
+							xB06121
+							x50F5CB
+							x7763F3
+							x7F25CD
+							xD9E021
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_state = { state_region = s:STATE_DOBRUDJA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+					exists = c:WAL
+					c:WAL = ROOT
+					OR = {
+						NOT = { exists = c:MOL }
+						AND = {
+							exists = c:MOL
+							c:MOL = { is_subject_of = ROOT }
+						}
+					}
+				}
+				s:STATE_DOBRUDJA = {
+					set_owner_of_provinces = {
+						country = c:WAL
+						provinces = {
+							xB06121
+							x50F5CB
+							x7763F3
+							x7F25CD
+							xD9E021
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_state = { state_region = s:STATE_DOBRUDJA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+					exists = c:MOL
+					c:MOL = ROOT
+					OR = {
+						NOT = { exists = c:WAL }
+						AND = {
+							exists = c:WAL
+							c:WAL = { is_subject_of = ROOT }
+						}
+					}
+				}
+				s:STATE_DOBRUDJA = {
+					set_owner_of_provinces = {
+						country = c:MOL
+						provinces = {
+							xB06121
+							x50F5CB
+							x7763F3
+							x7F25CD
+							xD9E021
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							cu:romanian = { has_homeland = PREV }
+							cu:ukrainian = { has_homeland = PREV }
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:romanian
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:romanian
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = c:HUN
+						c:HUN = ROOT
+					}
+					AND = {
+						year <= 1900
+						NOT = { exists = c:HUN }
+						exists = c:AUS
+						c:AUS = ROOT
+					}
+				}
+				c:BYZ = {
+					any_scope_state = {
+						OR = {
+							cu:hungarian = { has_homeland = PREV }
+							cu:south_german = { has_homeland = PREV }
+						}
+					}
+				}
+			}
+			c:BYZ = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							cu:hungarian = { has_homeland = PREV }
+							cu:south_german = { has_homeland = PREV }
+						}
+					}
+					set_state_owner = ROOT
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						OR = {
+							cu:hungarian = { has_homeland = PREV }
+							cu:south_german = { has_homeland = PREV }
+						}
+					}
+					add_radicals_in_state = {
+						value = -0.2
+						culture = cu:romanian
+					}
+					add_loyalists_in_state = {
+						value = 0.1
+						culture = cu:romanian
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				NAND = {
+					exists = c:MON
+					c:MON = ROOT
+					any_scope_state = { count=1 }
+				}
+			}
+			c:BYZ = {
+				trigger_event = { id = br_balkan_revolt.11 days = 1 }
+			}
+		}
+	}
+	option = {
+		name = br_balkan_revolt.10.b
+		ai_chance = { base = 0 }
+		add_modifier = {
+			name = withdrew_from_colonial_incident
+			months = long_modifier_time
+		}
+	}
+}
+
+br_balkan_revolt.11 = {
+	type = country_event
+	placement = scope:current_overlord_remover_scope
+	title = br_balkan_revolt.11.t
+	flavor = br_balkan_revolt.11.f
+	desc = br_balkan_revolt.11.d
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+	}
+	
+	immediate = {
+		random_country = {
+			limit = { has_variable = br_balkan_currently_removing_overlord }
+			save_scope_as = current_overlord_remover_scope
+			remove_variable = br_balkan_currently_removing_overlord
+		}
+	}
+
+	option = {
+		name = br_balkan_revolt.11.a
+		default_option = yes
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				any_country = { country_rank >= rank_value:major_power is_diplomatic_play_enemy_of = ROOT }
+			}
+		}
+		if = {
+			limit = { scope:current_overlord_remover_scope = { is_subject_of = ROOT } }
+			scope:current_overlord_remover_scope = { make_independent = yes }
+		}
+		scope:current_overlord_remover_scope = { 
+			set_variable = br_balkan_potential_warcrime_target 
+			hidden_effect = {
+				add_modifier = {
+					name = war_for_independence
+					months = 36
+				}
+			}
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOT = { THIS = scope:current_overlord_remover_scope }
+					has_variable = br_balkan_potential_warcrime_target
+					is_diplomatic_play_enemy_of = c:BYZ
+				}
+				create_diplomatic_pact = {
+					country = scope:current_overlord_remover_scope
+					type = alliance
+				}
+			}
+			every_diplomatic_play = {
+				limit = {
+					any_scope_play_involved = {
+						exists = c:BYZ
+						THIS = c:BYZ
+					}
+					any_scope_play_involved = {
+						NOT = { THIS = scope:current_overlord_remover_scope }
+						has_variable = br_balkan_potential_warcrime_target
+						is_diplomatic_play_enemy_of = c:BYZ
+						PREV = { target_is = PREV }
+					}
+				}
+				add_target_backers = { scope:current_overlord_remover_scope }
+			}
+			every_diplomatic_play = {
+				limit = {
+					any_scope_play_involved = {
+						exists = c:BYZ
+						THIS = c:BYZ
+					}
+					any_scope_play_involved = {
+						NOT = { THIS = scope:current_overlord_remover_scope }
+						has_variable = br_balkan_potential_warcrime_target
+						is_diplomatic_play_enemy_of = c:BYZ
+						PREV = { initiator_is = PREV }
+					}
+				}
+				add_initiator_backers = { scope:current_overlord_remover_scope }
+			}
+		}
+		create_diplomatic_play = {
+            target_country = scope:current_overlord_remover_scope
+            type = dp_annex_war
+			war = yes
+		}
+		change_infamy = -15
+	}
+
+	option = {
+		name = br_balkan_revolt.11.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				NOT = { any_country = { country_rank >= rank_value:major_power is_diplomatic_play_enemy_of = ROOT } }
+			}
+		}
+
+		if = {
+			limit = { 
+				scope:current_overlord_remover_scope = { has_variable = br_balkan_demanding_independence } 
+				c:BYZ = { NOT = { is_country_type = recognized } }
+			}
+			scope:current_overlord_remover_scope = { make_independent = yes }
+		}
+		else_if = {
+			limit = { scope:current_overlord_remover_scope = { has_variable = br_balkan_demanding_independence } }
+			if = {
+				limit = { scope:current_overlord_remover_scope = { NOT = { is_subject_type = subject_type_protectorate } } }
+				create_diplomatic_pact = {
+					country = scope:current_overlord_remover_scope
+					type = protectorate
+				}
+			}
+			scope:current_overlord_remover_scope = { 
+				set_mutual_secret_goal = {
+					country = ROOT
+					secret_goal = none
+				}
+				change_relations = {
+					country = ROOT
+					value = 25
+				}
+			}
+		}
+		else = {
+			scope:current_overlord_remover_scope = { 
+				change_relations = {
+					country = ROOT
+					value = 15
+				}
+			}
+		}
+		add_modifier = {
+			name = withdrew_from_colonial_incident
+			months = short_modifier_time
+		}
+	}	
+}
+
+#Balkan Crisis: Prevent troops from behaving atrociously?
+br_balkan_revolt.12 = {
+	type = country_event
+	placement = scope:br_war_crime_victim
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_fire.bk2"
+	}
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/american_civil_war"
+	
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	
+	title = br_balkan_revolt.12.t
+	desc = br_balkan_revolt.12.d 
+	flavor = br_balkan_revolt.12.f 
+	
+	duration = 3
+	
+	trigger = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = palaiologos_reforms_separatist_var
+		has_variable = completed_separatism_palaiologos_reforms_je
+		NOT = { has_variable = br_balkan_atrocities_dont_ask }
+		NOT = { has_variable = br_balkan_did_a_little_trolling }
+		any_country = {
+			has_variable = br_balkan_potential_warcrime_target
+			has_war_with = ROOT
+			any_scope_state = {
+				devastation > 0.025
+			}
+		}
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = br_balkan_potential_warcrime_target
+				has_war_with = ROOT
+				any_scope_state = {
+					devastation > 0.025
+				}
+			}
+			set_variable = br_balkan_warcrime_victim
+			save_scope_as = br_war_crime_victim
+		}
+	}
+	
+	option = {
+		name = br_balkan_revolt.12.a
+		default_option = yes
+		ai_chance = {
+			base = 3
+		}
+		create_incident = { country = root value = 25 }
+		set_variable = br_balkan_did_a_little_trolling
+		add_modifier = {
+			name = br_balkan_modifier_encouraging_attrocities
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = br_balkan_revolt.12.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				NOT = { is_country_type = recognized }
+			}
+		}
+		set_variable = { name = br_balkan_atrocities_dont_ask days = 15 }
+		add_modifier = {
+			name = br_balkan_modifier_preventing_attrocities
+			months = short_modifier_time
+		}
+	}
+}
+
+br_balkan_revolt.13 = {
 	type = country_event
 	placement = c:br_bulgaria.capital
 
-	title = bulgarian_revolt.1.t
-	desc = bulgarian_revolt.1.d
-	flavor = bulgarian_revolt.1.f
+	title = br_balkan_revolt.13.t
+	desc = br_balkan_revolt.13.d
+	flavor = br_balkan_revolt.13.f
 
 	duration = 3
 
@@ -107,18 +2417,15 @@ bulgarian_revolt.1 = {
 	}
 
 	option = {
-		name = bulgarian_revolt.1.a
+		name = br_balkan_revolt.13.a
 		default_option = yes
 
 	
 		c:br_bulgaria = {
+			add_loyalists = { value = 0.5 }
 			add_modifier = {
 				name = war_for_independence
-				months = normal_modifier_time
-			}
-			add_modifier = {
-				name = br_modifier_themata_primacy
-				months = -1
+				months = 36
 			}
 			#save_scope_as = is_secessionist
 		}
@@ -165,7 +2472,7 @@ bulgarian_revolt.1 = {
 
 	}
 	option = {
-		name = bulgarian_revolt.1.b
+		name = br_balkan_revolt.13.b
 
 		c:SER = {
 			change_relations = {

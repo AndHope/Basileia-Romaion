@@ -1,1 +1,79 @@
-﻿# These achivements have been disabled
+﻿# some of these achivements have been disabled/removed kept the ones still relevant 
+
+achievement_desteapta_te_romane = {
+	possible = {
+		country_has_primary_culture = cu:romanian
+	}
+	happened = {
+		custom_tooltip = {
+			text = achievement_desteapta_te_romane_tt
+			c:ROM ?= this
+		}
+		custom_tooltip = {
+			text = achievement_desteapta_te_romane_2_tt
+			any_state = {
+				filter = {
+					state_region = {
+						is_homeland = cu:romanian
+					}
+				}
+				is_split_state = no
+				owner = ROOT
+				count = all
+			}
+		}
+	}
+}
+
+achievement_stonks = {
+	happened = {
+		hidden_trigger = {
+			any_company = {
+				prosperity >= 100
+				count >= 3
+			}
+		}
+	}
+}
+
+achievement_spqr = {
+	possible = {
+		c:PAP ?= THIS
+	}
+	happened = {
+		OR = {
+			has_law = law_type:law_parliamentary_republic
+			has_law = law_type:law_presidential_republic
+			has_law = law_type:law_council_republic
+		}
+		custom_tooltip = {
+			text = achievement_spqr_tt
+			c:ITA ?= THIS
+		}
+	}
+}
+
+achievement_devils_railroad = {
+	happened = {
+		custom_tooltip = {
+			text = achievement_devils_railroad_tt
+			has_variable = je_amazonas_complete_variable
+		}
+		custom_tooltip = {
+			text = achievement_devils_railroad_2_tt
+			any_state = {
+				filter = {
+					OR = {
+						has_state_trait = state_trait_amazon_rainforest_level_2
+						has_state_trait = state_trait_amazon_rainforest_level_1
+						has_state_trait = state_trait_amazon_rainforest
+					}
+				}
+				owner = ROOT
+				has_building = building_railway
+				count = all
+			}
+		}
+	}
+}
+
