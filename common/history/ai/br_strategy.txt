@@ -75,7 +75,7 @@
 	}
 	c:LAN = {
 		set_strategy = ai_strategy_colony_plantation_economy #ai_strategy_plantation_economy
-		set_strategy = ai_strategy_trade_imperialism
+		set_strategy = ai_strategy_subject_strengthen_self
 		set_strategy = ai_strategy_trade_republic_agenda
 	}
 	c:JAV = {
@@ -86,27 +86,39 @@
 	c:br_elysium = {
 		set_strategy = ai_strategy_colony_plantation_economy #ai_strategy_plantation_economy
 		set_strategy = ai_strategy_colonial_expansion
-		set_strategy = ai_strategy_progressive_agenda
+		random_list = {
+			25 = { set_strategy = ai_strategy_conservative_agenda }
+			75 = { set_strategy = ai_strategy_progressive_agenda }
+		}
 	}
 	c:br_australis = {
-		set_strategy = ai_strategy_colony_plantation_economy #ai_strategy_plantation_economy
-		set_strategy = ai_strategy_colonial_expansion
+		set_strategy = ai_strategy_colony_resource_expansion
+		set_strategy = ai_strategy_subject_strengthen_self
 		set_strategy = ai_strategy_progressive_agenda
 	}
 	c:br_louisiane = {
 		set_strategy = ai_strategy_colony_plantation_economy #ai_strategy_plantation_economy
-		set_strategy = ai_strategy_colonial_expansion
-		set_strategy = ai_strategy_conservative_agenda
+		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {
+			50 = { set_strategy = ai_strategy_conservative_agenda }
+			50 = { set_strategy = ai_strategy_progressive_agenda }
+		}
 	}
 	c:SAF = {
 		set_strategy = ai_strategy_agricultural_expansion
-		set_strategy = ai_strategy_colonial_expansion
-		set_strategy = ai_strategy_conservative_agenda
+		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {
+			50 = { set_strategy = ai_strategy_conservative_agenda }
+			50 = { set_strategy = ai_strategy_progressive_agenda }
+		}
 	}
 	c:br_vinland = {
-		set_strategy = ai_strategy_colony_resource_expansion #ai_strategy_resource_expansion
-		set_strategy = ai_strategy_colonial_expansion
-		set_strategy = ai_strategy_conservative_agenda
+		set_strategy = ai_strategy_colony_resource_expansion
+		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {
+			50 = { set_strategy = ai_strategy_conservative_agenda }
+			50 = { set_strategy = ai_strategy_progressive_agenda }
+		}
 	}
 	c:br_tartaria = {
 		random_list = {	
@@ -128,7 +140,7 @@
 	}
 	c:br_muscovy = {
 		set_strategy = ai_strategy_resource_expansion
-		set_strategy = ai_strategy_territorial_expansion
+		set_strategy = ai_strategy_subject_break_free
 		set_strategy = ai_strategy_conservative_agenda
 	}
 	c:SWE = {
@@ -145,12 +157,15 @@
 	c:SAR = {
 		set_strategy = ai_strategy_industrial_expansion		
 		set_strategy = ai_strategy_maintain_power_balance
-		set_strategy = ai_strategy_progressive_agenda
+		random_list = {
+			50 = { set_strategy = ai_strategy_conservative_agenda }
+			50 = { set_strategy = ai_strategy_progressive_agenda }
+		}
 	}	
 	c:SIC = {
-		set_strategy = ai_strategy_resource_expansion
+		set_strategy = ai_strategy_agricultural_expansion
 		set_strategy = ai_strategy_maintain_power_balance
-		set_strategy = ai_strategy_conservative_agenda 
+		set_strategy = ai_strategy_reactionary_agenda
 	}	
 	c:FIN = {
 		set_strategy = ai_strategy_colony_resource_expansion #ai_strategy_resource_expansion	
@@ -205,201 +220,319 @@
 
 	#ANL
 	c:CAS = {
-		set_strategy = ai_strategy_resource_expansion
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 		set_strategy = ai_strategy_subject_break_free
 		set_strategy = ai_strategy_conservative_agenda
 	}	
 	c:NAV = {
-		set_strategy = ai_strategy_resource_expansion
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 		set_strategy = ai_strategy_subject_break_free
 		set_strategy = ai_strategy_conservative_agenda
 	}	
 	c:CAT = {
-		set_strategy = ai_strategy_resource_expansion
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 		set_strategy = ai_strategy_subject_break_free
 		set_strategy = ai_strategy_conservative_agenda
 	}	
 
 	c:MOR = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:ALD = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 
 	#ERE
 
 	c:ARM = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:GEO = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:br_mesopotamia = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_taurica = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_trebizond = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
+
 	}
 	c:br_epiros = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_morea = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:br_bulgaria = {
 		set_strategy = ai_strategy_subject_break_free
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_albania = {
 		set_strategy = ai_strategy_subject_break_free
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_syria = {
 		set_strategy = ai_strategy_subject_break_free
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:WAL = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:MOL = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:SER = {
 		set_strategy = ai_strategy_subject_break_free
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:MON = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:BOS = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 
 	#RUS br_tartaria
 	c:br_circassia = {
 		set_strategy = ai_strategy_subject_break_free
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_alania = {
 		set_strategy = ai_strategy_subject_break_free
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_dagestan = {
 		set_strategy = ai_strategy_subject_break_free
-	}
-	c:br_muscovy = {
-		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:PRM = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
-	}
-	c:OZH = {
-		set_strategy = ai_strategy_subject_overlord_compliance
-	}
-	c:KZH = {
-		set_strategy = ai_strategy_subject_overlord_compliance
-	}
-	c:UZH = {
-		set_strategy = ai_strategy_subject_overlord_compliance
-	}
-	c:br_sibir = {
-		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_smolensk = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_ryazan = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_nizhny_novgorod = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_yaroslavl = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_tver = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 
 	#HRE
-	c:SAR = {
-		set_strategy = ai_strategy_subject_strengthen_self
-	}
 	c:br_provence = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:BAV = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:OCC = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:BRI = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:HES = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:WUR = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:FLA = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
-	}
-	c:br_louisiane = {
-		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_industrial_expansion
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 
 #ITA
 	c:br_dalmatia = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:br_pisa = {
 		set_strategy = ai_strategy_subject_overlord_compliance
 	}
 	c:br_venice_africa_company = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:br_atlantica = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:br_giamaica = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:br_genonese_africa_company = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 
 #PLC
 	c:br_silesia = {
-		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			15 = { set_strategy = ai_strategy_resource_expansion }		
+		}
+	}
+	c:MEI = {
+		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:PRU = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			25 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }	
+		}
 	}
 	c:br_kiev = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			25 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_agricultural_expansion }	
+		}
 	}
 	c:br_polotsk = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion
 	}
 	c:br_turov_pinsk = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion
 	}
 	c:br_chernigov = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion
 	}
 	c:GAL = {
-		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_resource_expansion
 	}
 
 	#HUN
-	c:BOH = {
-		set_strategy = ai_strategy_subject_strengthen_self
+	c:HUN = {
+		random_list = {	
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+			65 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_resource_expansion }		
+		}	
+		random_list = {	
+			75 = { set_strategy = ai_strategy_territorial_expansion }
+			25 = { set_strategy = ai_strategy_economic_imperialism }	
+		}
+		random_list = {	
+			50 = { set_strategy = ai_strategy_conservative_agenda }
+			50 = { set_strategy = ai_strategy_reactionary_agenda }
+		}				
 	}
 	c:TRS = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}	
 	}
 	c:CRO = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 
 	#NET
@@ -410,20 +543,17 @@
 	}
 	c:br_dutch_west_indies = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
-	}
-	c:SAF = {
-		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 
 	#DEN
-	c:br_vinland = {
-		set_strategy = ai_strategy_subject_maintain_autonomy
-	}
 	c:NOR = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:IRE = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:SCO = {
 		set_strategy = ai_strategy_subject_strengthen_self
@@ -433,225 +563,370 @@
 	}
 	c:br_new_angland = {
 		set_strategy = ai_strategy_subject_break_free
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 
 	#SWE
-	c:FIN = {
-		set_strategy = ai_strategy_subject_overlord_compliance
-	}
 	c:POM = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:UBD = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_novgorod = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:br_pskov = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 
 #PER
 	c:KUR = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_ardalan = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_arevelyan = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			25 = { set_strategy = ai_strategy_agricultural_expansion }
+			75 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:br_assyria = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:BUK = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:KHI = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:KOK = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_kuwait = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:HER = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:KAN = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:KAL = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:KAB = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:MAI = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:CHT = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 
 
 #ARA
 	c:EOT = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:MJT = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:YEM = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:OMA = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:ABU = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
-	}
-	c:ZAN = {
-		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:JOH = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 
 #CHINA
 	c:br_chinese_new_world = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:KOR = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:TIB = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:MCH = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:br_kham = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:XIN = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:br_outer_mongolia = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:br_inner_mongolia = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:br_qinghai = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:br_dzungaria = {
 		set_strategy = ai_strategy_subject_strengthen_self
-	}
-	c:LAN = {
-		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:FRS = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:HNA = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:SIH = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:YUE = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:YUN = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 
 
 #Japan
 	c:br_japanese_new_world = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:HAW = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:br_japanese_pacific_islands = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:PHI = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:br_japanese_siberia = {
 		set_strategy = ai_strategy_subject_overlord_compliance
-	}
-	c:br_japanese_siberia = {
-		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_resource_expansion
 	}
 	c:br_ryukyu = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 
 #SIA
 	c:CHP = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:CMI = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:LUA = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:CAM = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 
 #JAV
 	c:BAL = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:BNJ = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 
 #Mug
 	c:NEP = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:BHU = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:LAD = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:SIK = {
 		set_strategy = ai_strategy_subject_strengthen_self
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:BGL = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:AWA = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 	c:BER = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:SIN = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		random_list = {	
+			75 = { set_strategy = ai_strategy_agricultural_expansion }
+			25 = { set_strategy = ai_strategy_colony_plantation_economy }		
+		}
 	}
 	c:ORI = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_colony_plantation_economy
 	}
 	c:IND = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:MEW = {
 		set_strategy = ai_strategy_subject_overlord_compliance
+		set_strategy = ai_strategy_agricultural_expansion 
 	}
 	c:KAS = {
 		set_strategy = ai_strategy_subject_maintain_autonomy
+		random_list = {	
+			50 = { set_strategy = ai_strategy_agricultural_expansion }
+			50 = { set_strategy = ai_strategy_resource_expansion }		
+		}
 	}
 
 

@@ -1,12 +1,13 @@
-﻿namespace = anatolian_revolt
+﻿namespace = br_anatolian_revolt
 
-anatolian_revolt.1 = {
+#Anatolian Dynatói Revolts
+br_anatolian_revolt.1 = {
 	type = country_event
 	placement = c:br_anatolia.capital
 
-	title = anatolian_revolt.1.t
-	desc = anatolian_revolt.1.d
-	flavor = anatolian_revolt.1.f
+	title = br_anatolian_revolt.1.t
+	desc = br_anatolian_revolt.1.d
+	flavor = br_anatolian_revolt.1.f
 
 	duration = 3
 
@@ -125,7 +126,7 @@ anatolian_revolt.1 = {
 	}
 
 	option = {
-		name = anatolian_revolt.1.a
+		name = br_anatolian_revolt.1.a
 		default_option = yes
 
 		c:br_anatolia = {
@@ -169,7 +170,7 @@ anatolian_revolt.1 = {
 
 	}
 	option = {
-		name = anatolian_revolt.1.b
+		name = br_anatolian_revolt.1.b
 
 		c:BYZ = {
 			create_diplomatic_pact = {
@@ -186,15 +187,14 @@ anatolian_revolt.1 = {
 
 }
 
-#Pontic Revolt
-
-anatolian_revolt.2 = {
+#Pontic Dynatói Revolts
+br_anatolian_revolt.2 = {
 	type = country_event
 	placement = c:br_anatolia.capital
 
-	title = anatolian_revolt.2.t
-	desc = anatolian_revolt.2.d
-	flavor = anatolian_revolt.2.f
+	title = br_anatolian_revolt.2.t
+	desc = br_anatolian_revolt.2.d
+	flavor = br_anatolian_revolt.2.f
 
 	duration = 3
 
@@ -301,7 +301,7 @@ anatolian_revolt.2 = {
 	}
 
 	option = {
-		name = anatolian_revolt.2.a
+		name = br_anatolian_revolt.2.a
 		default_option = yes
 
 		c:br_pontos = {
@@ -346,7 +346,7 @@ anatolian_revolt.2 = {
 
 	}
 	option = {
-		name = anatolian_revolt.2.b
+		name = br_anatolian_revolt.2.b
 
 		c:BYZ = {
 			create_diplomatic_pact = {
@@ -361,4 +361,192 @@ anatolian_revolt.2 = {
 
 	}
 
+}
+
+#Armenian Rebellions #not set up yet
+br_anatolian_revolt.3 = {
+	type = country_event
+	placement = s:STATE_ERZURUM.region_state:BYZ
+	title = br_anatolian_revolt.3.t
+	desc = br_anatolian_revolt.3.d
+	flavor = br_anatolian_revolt.3.f
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	duration = 3
+	trigger = {
+		exists = c:BYZ
+		this = c:BYZ
+		NOT = { exists = c:ARM }
+		exists = s:STATE_ERZURUM.region_state:BYZ
+		NOT = { has_variable = arm_res_event_completed }
+	}
+	immediate = {
+		save_scope_as = byz_scope
+		set_variable = armenian_resistance_start
+		set_variable = arm_res_event_completed
+	}
+	option = {
+		name = br_anatolian_revolt.3.a
+	}
+}
+
+br_anatolian_revolt.4 = {
+	type = country_event
+	placement = scope:armenian_rebel_state
+	title = br_anatolian_revolt.4.t
+	desc = br_anatolian_revolt.4.d
+	flavor = br_anatolian_revolt.4.f
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	duration = 3
+	trigger = {
+		exists = c:BYZ
+		this = c:BYZ
+		NOT = { exists = c:ARM }
+		exists = s:STATE_ERZURUM.region_state:BYZ
+		has_variable = armenian_resistance_start 
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				owner = c:BYZ
+				state_region = {
+					is_homeland = cu:armenian
+				}
+			}
+			save_scope_as = armenian_rebel_state
+		}
+	}
+	option = {
+		name = br_anatolian_revolt.4.a
+		default_option = yes
+		hidden_effect = {
+			scope:armenian_rebel_state = {
+				add_modifier = {
+					name = br_modifier_local_separatism
+					months = normal_modifier_time
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.1
+						target = cu:greek
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					owner = c:BYZ
+					state_region = {
+						is_homeland = cu:bedouin
+					}
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.05
+						target = cu:armenian
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = br_anatolian_revolt.4.b
+		hidden_effect = {
+			scope:armenian_rebel_state = {
+				add_modifier = {
+					name = br_modifier_local_separatism_2
+					months = normal_modifier_time
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.05
+						target = cu:greek
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					owner = c:BYZ
+					state_region = {
+						is_homeland = cu:bedouin
+					}
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.05
+						target = cu:armenian
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = br_anatolian_revolt.4.c
+		add_modifier = {
+			name = br_prevent_separatism_modifier
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = br_anatolian_revolt.4.dd
+		hidden_effect = {
+			scope:armenian_rebel_state = {
+				add_modifier = {
+					name = br_modifier_local_separatism_2
+					months = normal_modifier_time
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.15
+						target = cu:armenian
+					}
+				}
+			}
+		}
+	}
+}
+
+br_anatolian_revolt.5 = {
+	type = country_event
+	placement = s:STATE_ERZURUM.region_state:BYZ
+	title = br_anatolian_revolt.5.t
+	desc = br_anatolian_revolt.5.d
+	flavor = br_anatolian_revolt.5.f
+	event_image = {
+		video = "gfx/event_pictures/public_assasination_test.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	duration = 2
+	trigger = {
+		exists = c:BYZ
+		this = c:BYZ
+		NOT = { exists = c:ARM }
+		exists = s:STATE_ERZURUM.region_state:BYZ
+		has_variable = armenian_resistance_start 
+	}
+	option = {
+		name = br_anatolian_revolt.5.a
+		default_option = yes
+		add_radicals = {
+			culture = cu:armenian
+			value = 0.1
+		}
+	}
+	option = {
+		name = br_anatolian_revolt.5.b
+		add_loyalists = {
+			culture = cu:armenian
+			value = 0.05
+		}
+	}
 }

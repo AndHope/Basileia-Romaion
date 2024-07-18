@@ -426,7 +426,7 @@ br_balkan_revolt.3 = {
 				state = scope:rebelling_state_scope
 				on_created = { 
 					set_variable = br_balkan_potential_warcrime_target
-					set_variable = sofia_uprising
+					set_variable = bulgar_uprising
 					add_loyalists = { value = 0.8 }
 					activate_law = law_type:law_monarchy
 					add_modifier = {
@@ -436,8 +436,8 @@ br_balkan_revolt.3 = {
 				}
 			}
 			random_country = {
-				limit = { has_variable = sofia_uprising }
-				save_scope_as = sofia_uprising_scope
+				limit = { has_variable = bulgar_uprising }
+				save_scope_as = bulgar_uprising_scope
 				create_military_formation = {
 					type = army
 					hq_region = scope:rebelling_state_scope.region
@@ -456,7 +456,7 @@ br_balkan_revolt.3 = {
 				}
 			}
 			create_diplomatic_play = {
-	            target_country = scope:sofia_uprising_scope
+	            target_country = scope:bulgar_uprising_scope
 	            type = dp_annex_war
 				war = yes
 			}
@@ -509,7 +509,7 @@ br_balkan_revolt.3 = {
 						owner = { OR = { ROOT = THIS is_subject_of = ROOT } }
 						state_region = s:STATE_NORTHERN_THRACE 
 					}
-					set_state_owner = scope:sofia_uprising_scope
+					set_state_owner = scope:bulgar_uprising_scope
 				}
 			}
 		}
@@ -733,17 +733,17 @@ br_balkan_revolt.6 = {
 						months = 36
 					}
 					set_variable = br_balkan_potential_warcrime_target
-					set_variable = herzegovina_uprising
+					set_variable = bosna_uprising
 					add_loyalists = { value = 0.8 }
 					activate_law = law_type:law_monarchy
 				}
 			}
 			random_country = {
-				limit = { has_variable = herzegovina_uprising }
-				save_scope_as = herzegovina_uprising_scope
+				limit = { has_variable = bosna_uprising }
+				save_scope_as = bosna_uprising_scope
 			}
 			create_diplomatic_play = {
-	            target_country = scope:herzegovina_uprising_scope
+	            target_country = scope:bosna_uprising_scope
 	            type = dp_annex_war
 				war = yes
 			}
@@ -1112,7 +1112,7 @@ br_balkan_revolt.10 = {
 			AND = {
 				exists = c:BUL
 				c:BUL = ROOT
-				NOT = { has_variable = sofia_uprising }
+				NOT = { has_variable = bulgar_uprising }
 				c:BYZ = {
 					any_scope_state = {
 						OR = {
@@ -1172,7 +1172,7 @@ br_balkan_revolt.10 = {
 					AND = {
 						exists = c:BOS
 						c:BOS = ROOT
-						NOT = { has_variable = herzegovina_uprising }
+						NOT = { has_variable = bosna_uprising }
 					}
 					AND = {
 						NOT = { exists = c:BOS }
@@ -1464,7 +1464,7 @@ br_balkan_revolt.10 = {
 						owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } }
 						state_region = s:STATE_NORTHERN_THRACE 
 					}
-					set_state_owner = scope:sofia_uprising_scope
+					set_state_owner = scope:bulgar_uprising_scope
 				}
 			}
 			hidden_effect = {
@@ -2286,7 +2286,7 @@ br_balkan_revolt.12 = {
 		ai_chance = {
 			base = 3
 		}
-		create_incident = { country = root value = 25 }
+		create_incident = { country = root value = 10 }
 		set_variable = br_balkan_did_a_little_trolling
 		add_modifier = {
 			name = br_balkan_modifier_encouraging_attrocities

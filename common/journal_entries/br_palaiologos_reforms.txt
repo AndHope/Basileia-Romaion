@@ -28,7 +28,7 @@
 		}
 	}
 
-	timeout = 35700
+	timeout = 36500
 
 	on_timeout = {
 		#remove_modifier = palaiologos_reforms_of_europe
@@ -42,7 +42,7 @@
 	}
 
 	goal_add_value = {
-		add = 10
+		add = 12
 	}
 
 	progressbar = yes
@@ -154,6 +154,7 @@ je_palaiologos_reforms_egypt = {
 				c:br_aegypt = {
 					is_subject_of = ROOT
 				}
+				c:br_aegypt = { liberty_desire <= 50 }
 			}
 			AND = {
 				owns_entire_state_region = STATE_SINAI
@@ -222,6 +223,7 @@ je_palaiologos_reforms_italy = {
 				c:SIC = {
 					is_subject_of = ROOT
 				}
+				c:SIC = { liberty_desire <= 50 }
 			}
 			AND = {
 				owns_entire_state_region = STATE_SICILY
@@ -279,6 +281,7 @@ je_palaiologos_reforms_africa = {
 				c:br_afrika = {
 					is_subject_of = ROOT
 				}
+				c:br_afrika = { liberty_desire <= 50 }
 			}
 			AND = {
 				owns_entire_state_region = STATE_TUNISIA
@@ -331,6 +334,7 @@ je_palaiologos_reforms_elysium = {
 				c:br_elysium = {
 					is_subject_of = ROOT
 				}
+				c:br_elysium = { liberty_desire <= 50 }
 			}
 		}
 	}
@@ -379,6 +383,7 @@ je_palaiologos_reforms_australis = {
 				c:br_australis = {
 					is_subject_of = ROOT
 				}
+				c:br_australis = { liberty_desire <= 50 }
 			}
 		}
 	}
@@ -564,8 +569,12 @@ je_palaiologos_reforms_separatism = {
 			16 = br_balkan_revolt.5			# Montenegrin Pronoia Revolt
 			15 = br_balkan_revolt.6 		# Bosnian Pronoia Revolt
 			14 = br_balkan_revolt.3 		# Bulgarian Pronoia Revolt
-			#13 = br_balkan_revolt.2 		# Greek Pronoia Revolt
-			
+			5 = br_balkan_revolt.2 			# Greek Pronoia Revolt
+
+			13 = br_anatolian_revolt.3		# Resistance from the Armenians
+			12 = br_anatolian_revolt.4		# Local Armenian Revolt
+			11 = br_anatolian_revolt.5		# Assassination of a Local Governor
+
 			10 = palaiologos_events.5 		# Paranoia Event
 
 			20 = br_balkan_revolt.10 		# Balkan free/vassal country wars
@@ -779,10 +788,58 @@ je_palaiologos_reforms_centralization_west = {
 
 	complete = {
 		AND = {
+			OR = {
+				AND = {
+					exists = c:SER
+					c:SER = {
+						is_subject_of = ROOT
+						is_subject_type = subject_type_puppet
+					}
+					c:SER = { liberty_desire <= 50 }
+				}
+				AND = {
+					owns_entire_state_region = STATE_NORTHERN_SERBIA
+					owns_entire_state_region = STATE_SOUTHERN_SERBIA
+					owns_entire_state_region = STATE_MONTENEGRO
+				}
+			}
+		}
+		AND = {
+			OR = {
+				AND = {
+					exists = c:BOS
+					c:BOS = {
+						is_subject_of = ROOT
+						is_subject_type = subject_type_puppet
+					}
+					c:BOS = { liberty_desire <= 50 }
+				}
+				AND = {
+					owns_entire_state_region = STATE_BOSNIA
+				}
+			}
+		}
+		AND = {
 			owns_entire_state_region = STATE_ALBANIA
 			owns_entire_state_region = STATE_ATTICA
 			owns_entire_state_region = STATE_THESSALIA
 			owns_entire_state_region = STATE_PELOPONNESE
+			owns_entire_state_region = STATE_BULGARIA
+			owns_entire_state_region = STATE_DOBRUDJA
+		}
+		AND = {
+			exists = c:WAL
+			c:WAL = {
+				is_subject_of = ROOT
+			}
+			c:WAL = { liberty_desire <= 50 }
+		}
+		AND = {
+			exists = c:MOL
+			c:MOL = {
+				is_subject_of = ROOT
+			}
+			c:MOL = { liberty_desire <= 50 }
 		}
 	}
 
@@ -813,15 +870,40 @@ je_palaiologos_reforms_centralization_east= {
 
 	complete = {
 		AND = {
-			exists = c:ARM
-			c:ARM = {
-				is_subject_of = ROOT
+			OR = {
+				AND = {
+					exists = c:ARM
+					c:ARM = {
+						is_subject_of = ROOT
+						is_subject_type = subject_type_puppet
+					}
+					c:ARM = { liberty_desire <= 50 }
+				}
+				AND = {
+					owns_entire_state_region = STATE_ANKARA
+					owns_entire_state_region = STATE_ERZURUM
+					owns_entire_state_region = STATE_KARS
+					owns_entire_state_region = STATE_DIYARBAKIR
+				}
 			}
+			
 		}
 		AND = {
-			exists = c:GEO
-			c:GEO = {
-				is_subject_of = ROOT
+			AND = {
+				OR = {
+					AND = {
+						exists = c:GEO
+						c:GEO = {
+							is_subject_of = ROOT
+							is_subject_type = subject_type_puppet
+						}
+						c:GEO = { liberty_desire <= 50 }
+					}
+					AND = {
+						owns_entire_state_region = STATE_GREATER_CAUCASUS
+					}
+				}
+				
 			}
 		}
 		AND = {
@@ -876,12 +958,12 @@ je_palaiologos_reforms_end_curruption = {
         }
     }
 
-#	on_monthly_pulse = {
-#		random_events = {
-#			100 = 0
-#			10 = palaiologos_events.1 # Tax Farming
-#		}
-#	}
+	on_monthly_pulse = {
+		random_events = {
+			100 = 0
+			10 = palaiologos_events.1 # Tax Farming
+		}
+	}
 
 	on_complete = {
 		custom_tooltip = palaiologos.3.tt2
@@ -917,20 +999,16 @@ je_palaiologos_reforms_end_curruption = {
 
 		hidden_effect = {
 			trigger_event = {
-				id = bulgarian_revolt.1
+				id = br_balkan_revolt.13
 				days = 14
 			}
-
 			every_scope_state = {
-				limit = { OR = { state_region = s:STATE_BULGARIA state_region = s:STATE_KONYA state_region = s:STATE_ANKARA state_region = s:STATE_KASTAMONU state_region = s:STATE_TRABZON 
-				} 
+				limit = { OR = { state_region = s:STATE_BULGARIA state_region = s:STATE_KONYA state_region = s:STATE_ANKARA state_region = s:STATE_KASTAMONU state_region = s:STATE_TRABZON } }
+				add_radicals_in_state = {
+					pop_type = aristocrats
+					value = large_radicals
+				}
 			}
-			add_radicals_in_state = {
-				pop_type = aristocrats
-				value = large_radicals
-			}
-		}
-
 		}
 
 	}
