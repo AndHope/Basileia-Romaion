@@ -324,9 +324,11 @@ br_balkan_revolt.2 = {
 		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
 		NOT = { exists = c:GRE } 
 		any_scope_state = { state_region = s:STATE_ATTICA }
+		NOT = { has_global_variable = GRE_already_revolted }
 	}
 
 	immediate = {
+		set_global_variable = GRE_already_revolted
 		random_scope_state = {
 			limit = { state_region = s:STATE_ATTICA }
 			save_scope_as = rebelling_state_scope
@@ -543,9 +545,11 @@ br_balkan_revolt.4 = {
 		NOT = { exists = c:SER }
 		NOT = { exists = c:YUG }
 		any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA }
+		NOT = { has_global_variable = SER_already_revolted }
 	}
 
 	immediate = {
+		set_global_variable = SER_already_revolted
 		random_scope_state = {
 			limit = { state_region = s:STATE_NORTHERN_SERBIA }
 			save_scope_as = rebelling_state_scope
@@ -628,9 +632,11 @@ br_balkan_revolt.5 = {
 		NOT = { exists = c:MON }
 		NOT = { exists = c:YUG }
 		any_scope_state = { state_region = s:STATE_MONTENEGRO }
+		NOT = { has_global_variable = MON_already_revolted }
 	}
 
 	immediate = {
+		set_global_variable = MON_already_revolted
 		random_scope_state = {
 			limit = { state_region = s:STATE_MONTENEGRO }
 			save_scope_as = rebelling_state_scope
@@ -661,21 +667,12 @@ br_balkan_revolt.5 = {
 				limit = { has_variable = montenegro_uprising }
 				save_scope_as = montenegro_uprising_scope
 			}
-			if = {
-				limit = { 
-					any_state = { state_region = s:STATE_EASTERN_THRACE owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } 
-					OR = {
-						any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } 
-						any_state = { state_region = s:STATE_ALBANIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } }
-					}
-				}
-				s:STATE_MONTENEGRO = {
-					set_owner_of_provinces = {
-						country = c:BYZ
-						provinces = { xA12F82 }
-					}
-				}
+			create_diplomatic_play = {
+	            target_country = scope:montenegro_uprising_scope
+	            type = dp_annex_war
+				war = yes
 			}
+			change_infamy = -15
 		}
 	}
 }
@@ -778,18 +775,16 @@ br_balkan_revolt.7 = {
 		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
 		NOT = { exists = c:CRO }
 		NOT = { exists = c:YUG }
-		AND = {
-			year <= 1900
-			NOT = { exists = c:AUS }
-		}
 		OR = {
 			any_scope_state = { state_region = s:STATE_CROATIA }
 			any_scope_state = { state_region = s:STATE_SLAVONIA }
 			any_scope_state = { state_region = s:STATE_DALMATIA }
 		}
+		NOT = { has_global_variable = CRO_already_revolted }
 	}
 
 	immediate = {
+		set_global_variable = CRO_already_revolted
 		random_scope_state = {
 			limit = { 
 				OR = {
@@ -874,25 +869,17 @@ br_balkan_revolt.8 = {
 		has_variable = palaiologos_reforms_separatist_var
 		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
 		NOT = { exists = c:HUN }
-		AND = {
-			year <= 1900
-			NOT = { exists = c:AUS }
-		}
 		any_scope_state = {
-			OR = {
-				cu:hungarian = { has_homeland = PREV }
-				cu:south_german = { has_homeland = PREV }
-			}
+			cu:hungarian = { has_homeland = PREV }
 		}
+		NOT = { has_global_variable = HUN_already_revolted }
 	}
 
 	immediate = {
+		set_global_variable = HUN_already_revolted
 		random_scope_state = {
 			limit = { 
-				OR = {
-					cu:hungarian = { has_homeland = PREV }
-					cu:south_german = { has_homeland = PREV }
-				}
+				cu:hungarian = { has_homeland = PREV }
 			}
 			save_scope_as = rebelling_state_scope
 		}
@@ -931,10 +918,7 @@ br_balkan_revolt.8 = {
 			every_state = {
 				limit = {
 					owner = { OR = { ROOT = THIS is_subject_of = ROOT } }
-					OR = {
-						cu:hungarian = { has_homeland = PREV }
-						cu:south_german = { has_homeland = PREV }
-					}
+					cu:hungarian = { has_homeland = PREV }
 				}
 				set_state_owner = scope:budapest_uprising_scope
 			}
@@ -976,9 +960,11 @@ br_balkan_revolt.9 = {
 				cu:ukrainian = { has_homeland = PREV }
 			}
 		}
+		NOT = { has_global_variable = ROM_already_revolted }
 	}
 
 	immediate = {
+		set_global_variable = ROM_already_revolted
 		random_scope_state = {
 			limit = { 
 				NOT = { state_region = s:STATE_DOBRUDJA }
@@ -2450,20 +2436,12 @@ br_balkan_revolt.13 = {
 				add_diplomatic_play_war_support = { target = c:br_bulgaria value = 100 }
 			}
 		}
-
-	#	create_diplomatic_play = {
-	#		name = Bulgarian_Rebellion
-	#		war = yes
-	#		type = dp_annex_subject #dp_secession
-	#
-	#		target_state = s:STATE_BULGARIA.region_state:br_bulgaria
-	#
-	#	}
 		hidden_effect = {
 			trigger_event = {
 				id = romaion_emp_rally.1
 				days = 7
 			}
+			change_infamy = -15
 		}
 
 		ai_chance = {

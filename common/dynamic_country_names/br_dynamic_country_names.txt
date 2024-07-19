@@ -150,4 +150,39 @@ BYZ = {
 			}
 		}
 	}
+
+	KUR = {
+		dynamic_country_name = {
+			name = dyn_c_kurd_princes
+			adjective = dyn_c_kurd_princes_adj
+	
+			is_main_tag_only = yes
+			priority = 5
+			
+			trigger = {
+				exists = c:PER
+				scope:actor ?= {
+					is_subject_of = c:PER
+				}
+			}
+		}
+	}
+
+	ENG = {
+		dynamic_country_name = {
+			name = dyn_c_english_lords
+			adjective = dyn_c_english_lords_adj
+	
+			is_main_tag_only = yes
+			priority = 5
+			
+			trigger = {
+				exists = c:DEN
+				scope:actor ?= {
+					is_subject_of = c:DEN
+				}
+			}
+		}
+	}
+
 }
