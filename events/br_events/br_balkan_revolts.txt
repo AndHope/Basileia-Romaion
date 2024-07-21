@@ -11,7 +11,7 @@ br_balkan_revolt.1 = {
 				NOT = { has_variable = palaiologos_reforms_separatist_var }
 				OR = {
 					AND = {
-						NOT = { exists = c:GRE }
+						NOT = { exists = c:ATH }
 						any_scope_state = { state_region = s:STATE_ATTICA }
 					}
 					AND = {
@@ -115,7 +115,7 @@ br_balkan_revolt.1 = {
 					}
 				}
 				OR = {
-					exists = c:GRE
+					exists = c:ATH
 					NOT = {
 						any_scope_state = {
 							is_capital = no
@@ -154,7 +154,7 @@ br_balkan_revolt.1 = {
 				NOT = { has_variable = palaiologos_reforms_separatist_var }
 				OR = {
 					AND = {
-						NOT = { exists = c:GRE }
+						NOT = { exists = c:ATH }
 						any_scope_state = { state_region = s:STATE_ATTICA }
 					}
 					AND = {
@@ -261,7 +261,7 @@ br_balkan_revolt.1 = {
 					}
 				}
 				OR = {
-					exists = c:GRE
+					exists = c:ATH
 					NOT = {
 						any_scope_state = {
 							is_capital = no
@@ -322,7 +322,7 @@ br_balkan_revolt.2 = {
 		c:BYZ = ROOT
 		has_variable = palaiologos_reforms_separatist_var
 		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
-		NOT = { exists = c:GRE } 
+		NOT = { exists = c:ATH } 
 		any_scope_state = { state_region = s:STATE_ATTICA }
 		NOT = { has_global_variable = GRE_already_revolted }
 	}
@@ -341,7 +341,7 @@ br_balkan_revolt.2 = {
 		custom_tooltip = {
 			text = revolt_in_state_tt
 			create_country = {
-				tag = GRE
+				tag = ATH
 				origin = this
 				state = scope:rebelling_state_scope
 				on_created = { 
@@ -1076,8 +1076,8 @@ br_balkan_revolt.10 = {
 		}
 		OR = {
 			AND = {
-				exists = c:GRE
-				c:GRE = ROOT
+				exists = c:ATH
+				c:ATH = ROOT
 				NOT = { has_variable = athens_uprising }
 				OR = {
 					is_player = yes
@@ -1337,8 +1337,8 @@ br_balkan_revolt.10 = {
 		}
 		if = {
 			limit = {
-				exists = c:GRE
-				c:GRE = ROOT
+				exists = c:ATH
+				c:ATH = ROOT
 				c:BYZ = {
 					any_scope_state = {
 						OR = {

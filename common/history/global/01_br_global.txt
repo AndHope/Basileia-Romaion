@@ -88,10 +88,16 @@ GLOBAL = {
 				name = br_modifier_cossacks
 				years = 75
 			}
-		#	add_modifier = {
-		#		name = autonomous_state
-		#		years = -1
-		#	}
+		}
+
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_NEW_YORK state_region = s:STATE_DISTRICT_OF_COLUMBIA state_region = s:STATE_QUEBEC state_region = s:STATE_BUENOS_AIRES state_region = s:STATE_CAPE_COLONY state_region = s:STATE_VICTORIA
+			 } 
+		}
+			add_modifier = {
+				name = teeming_shore
+				years = 25
+			}
 		}
 
 
@@ -151,6 +157,41 @@ GLOBAL = {
 			add_modifier = {
 				name = br_state_modifier_magnificent_city
 				years = -1
+			}
+		}
+	}
+
+
+
+	c:br_australis = {
+		every_scope_state = {
+			add_modifier = {
+				name = indies_migration
+				years = 25
+			}
+		}
+	}
+	c:br_romaioi_india_company = {
+		every_scope_state = {
+			add_modifier = {
+				name = indies_migration
+				years = 10
+			}
+		}
+	}
+	c:DEI = {
+		every_scope_state = {
+			add_modifier = {
+				name = indies_migration
+				years = 10
+			}
+		}
+	}
+	c:br_dutch_west_indies = {
+		every_scope_state = {
+			add_modifier = {
+				name = indies_migration
+				years = 5
 			}
 		}
 	}
@@ -233,6 +274,60 @@ GLOBAL = {
 				country = c:br_romaioi_india_company
 				type = protectorate
 			}
+        }
+    }
+
+	if = {
+        limit = {
+            has_game_rule = moscovy_game_rule_medium
+        }
+        c:br_muscovy ?= {
+			annex = c:br_smolensk
+			annex = c:br_ryazan
+			annex = c:br_yaroslavl
+			annex = c:br_tver
+			annex = c:br_nizhny_novgorod
+        }
+		c:br_tartaria ?= {
+			remove_diplomatic_pact = {
+				country = c:br_muscovy
+				type = tributary
+			}
+        }
+    }
+
+	if = {
+        limit = {
+            has_game_rule = moscovy_game_rule_large
+        }
+        c:br_muscovy ?= {
+			annex = c:br_smolensk
+			annex = c:br_ryazan
+			annex = c:br_yaroslavl
+			annex = c:br_tver
+			annex = c:br_nizhny_novgorod
+			annex = c:br_novgorod
+			annex = c:PRM
+			annex = c:br_pskov
+        }
+		c:br_tartaria ?= {
+			remove_diplomatic_pact = {
+				country = c:br_muscovy
+				type = tributary
+			}
+        }
+		c:PLC ?= {
+			annex = c:br_kiev
+			annex = c:br_polotsk
+			annex = c:br_turov_pinsk
+			annex = c:br_chernigov
+			annex = c:GAL
+        }
+		c:SWE ?= {
+			annex = c:FIN
+			annex = c:br_jamland_harjedalen
+			annex = c:UBD
+			annex = c:POM
         }
     }
 
