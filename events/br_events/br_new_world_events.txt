@@ -1,0 +1,807 @@
+﻿namespace = br_new_world_events
+
+#Elysium
+br_new_world_events.1 = {
+	type = country_event
+	placement = root
+	title = br_new_world_events.1.t
+	desc = br_new_world_events.1.d
+	flavor = br_new_world_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = br_new_world_events.1.a
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		c:BYZ = {
+			create_diplomatic_pact = {
+				country = c:br_elysium
+				type = protectorate
+			}
+			create_diplomatic_pact = {
+				country = c:br_elysium	
+				type = grant_own_market
+			}
+			change_relations = {
+				country = c:br_elysium
+				value = 50
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.1.b
+		default_option = yes
+		change_relations = {
+			country = c:BYZ
+			value = -25
+		}
+	}
+}
+
+br_new_world_events.2 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = greek_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = greek_migration_began_variable
+		set_variable = already_has_greek_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_greek_migration_variable }
+				any_scope_state = {
+					cu:greek = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:elysian } 
+				any_scope_state = {
+					state_region = s:STATE_MARYLAND
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_MARYLAND
+				}
+				save_scope_as = random_elysian_greek_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:greek = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_elysian_greek_city = {
+				create_mass_migration = {
+					origin = c:BYZ
+					culture = cu:greek
+				}
+			}
+			scope:random_australian_greek_city = {
+				create_mass_migration = {
+					origin = c:BYZ
+					culture = cu:greek
+				}
+			}
+		}
+	}
+
+}
+
+br_new_world_events.7 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = serb_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = serb_migration_began_variable
+		set_variable = already_has_serb_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_serb_migration_variable }
+				any_scope_state = {
+					cu:serb = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:elysian } 
+				any_scope_state = {
+					state_region = s:STATE_WEST_VIRGINIA
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_WEST_VIRGINIA
+				}
+				save_scope_as = random_elysian_serb_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:serb = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_elysian_serb_city = {
+				create_mass_migration = {
+					origin = c:HUN
+					culture = cu:serb
+				}
+			}
+		}
+	}
+
+}
+
+br_new_world_events.9 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = sicilian_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = sicilian_migration_began_variable
+		set_variable = already_has_sicilian_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_sicilian_migration_variable }
+				any_scope_state = {
+					cu:south_italian = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:elysian } 
+				any_scope_state = {
+					state_region = s:STATE_VIRGINIA
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_VIRGINIA
+				}
+				save_scope_as = random_elysian_sicilian_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:south_italian = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_elysian_sicilian_city = {
+				create_mass_migration = {
+					origin = c:SIC
+					culture = cu:south_italian
+				}
+			}
+		}
+	}
+
+}
+
+#Australis Migration
+br_new_world_events.10 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = greek_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = greek_migration_began_variable
+		set_variable = already_has_greek_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_greek_migration_variable }
+				any_scope_state = {
+					cu:greek = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:apoikoi } 
+				any_scope_state = { state_region = s:STATE_VICTORIA }
+			}
+			random_scope_state = {
+				limit = { state_region = s:STATE_VICTORIA }
+				save_scope_as = random_australian_greek_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:greek = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_australian_greek_city = {
+				create_mass_migration = {
+					origin = c:BYZ
+					culture = cu:greek
+				}
+			}
+		}
+	}
+
+}
+
+br_new_world_events.11 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = sicilian_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = sicilian_migration_began_variable
+		set_variable = already_has_sicilian_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_sicilian_migration_variable }
+				any_scope_state = {
+					cu:south_italian = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:apoikoi } 
+				any_scope_state = { state_region = s:STATE_VICTORIA }
+			}
+			random_scope_state = {
+				limit = { state_region = s:STATE_VICTORIA }
+				save_scope_as = random_australian_sicilian_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:south_italian = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_australian_sicilian_city = {
+				create_mass_migration = {
+					origin = c:SIC
+					culture = cu:south_italian
+				}
+			}
+		}
+	}
+
+}
+
+
+#New Angland Migration
+br_new_world_events.3 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = english_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = english_migration_began_variable
+		set_variable = already_has_english_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_english_migration_variable }
+				any_scope_state = {
+					cu:british = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:colonial_british } 
+				any_scope_state = {
+					state_region = s:STATE_BUENOS_AIRES
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_BUENOS_AIRES
+				}
+				save_scope_as = random_angland_english_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:british = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_angland_english_city = {
+				create_mass_migration = {
+					origin = c:ENG
+					culture = cu:british
+				}
+			}
+		}
+	}
+
+}
+
+br_new_world_events.4 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = english_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = english_migration_began_variable
+		set_variable = already_has_english_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_english_migration_variable }
+				any_scope_state = {
+					cu:british = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:colonial_british } 
+				any_scope_state = {
+					state_region = s:STATE_URUGUAY
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_URUGUAY
+				}
+				save_scope_as = random_angland_english_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:british = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_angland_english_city = {
+				create_mass_migration = {
+					origin = c:ENG
+					culture = cu:british
+				}
+			}
+		}
+	}
+
+}
+
+br_new_world_events.8 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = irish_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = irish_migration_began_variable
+		set_variable = irish_has_english_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_irish_migration_variable }
+				any_scope_state = {
+					cu:irish = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:colonial_british } 
+				any_scope_state = {
+					state_region = s:STATE_RIO_GRANDE_DO_SUL
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_RIO_GRANDE_DO_SUL
+				}
+				save_scope_as = random_angland_irish_city
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:vinlander } 
+				any_scope_state = { state_region = s:STATE_NEW_BRUNSWICK }
+			}
+			random_scope_state = {
+				limit = { state_region = s:STATE_NEW_BRUNSWICK }
+				save_scope_as = random_vinlander_irish_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				cu:irish = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_angland_irish_city = {
+				create_mass_migration = {
+					origin = c:IRE
+					culture = cu:irish
+				}
+			}
+			scope:random_vinlander_irish_city = {
+				create_mass_migration = {
+					origin = c:IRE
+					culture = cu:irish
+				}
+			}
+		}
+	}
+
+}
+
+#Vinland Migration
+br_new_world_events.5 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = danish_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = danish_migration_began_variable
+		set_variable = already_has_danish_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_danish_migration_variable }
+				any_scope_state = {
+					cu:danish = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:vinlander } 
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_ONTARIO
+						state_region = s:STATE_QUEBEC
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					OR = {
+						state_region = s:STATE_ONTARIO
+						state_region = s:STATE_QUEBEC
+					}
+				}
+				save_scope_as = random_vinlander_danish_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				any_scope_state = {
+					cu:danish = { has_homeland = PREV }
+				}
+			}
+		}
+		hidden_effect = {
+			scope:random_vinlander_danish_city = {
+				create_mass_migration = {
+					origin = c:DEN
+					culture = cu:danish
+				}
+			}
+		}
+	}
+
+}
+
+br_new_world_events.6 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = norse_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = norse_migration_began_variable
+		set_variable = already_has_norse_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_norse_migration_variable }
+				any_scope_state = {
+					cu:norwegian = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:vinlander } 
+				any_scope_state = {
+					state_region = s:STATE_NEWFOUNDLAND
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_NEWFOUNDLAND
+				}
+				save_scope_as = random_vinlander_norse_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 2 }
+		every_scope_state = {
+			limit = {
+				any_scope_state = {
+					cu:norwegian = { has_homeland = PREV }
+				}
+			}
+		}
+		hidden_effect = {
+			scope:random_vinlander_norse_city = {
+				create_mass_migration = {
+					origin = c:NOR
+					culture = cu:norwegian
+				}
+			}
+		}
+	}
+
+}

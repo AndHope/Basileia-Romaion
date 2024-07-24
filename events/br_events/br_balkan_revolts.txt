@@ -2473,3 +2473,195 @@ br_balkan_revolt.13 = {
 	}
 
 }
+
+#Bulgarian ethnic Rebellions
+br_balkan_revolt.14 = {
+	type = country_event
+	placement = s:STATE_BULGARIA.region_state:BYZ
+	title = br_balkan_revolt.14.t
+	desc = br_balkan_revolt.14.d
+	flavor = br_balkan_revolt.14.f
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	duration = 3
+	trigger = {
+		exists = c:BYZ
+		this = c:BYZ
+		NOT = { exists = c:BUL }
+		exists = s:STATE_BULGARIA.region_state:BYZ
+		NOT = { has_variable = bul_res_event_completed }
+	}
+	immediate = {
+		save_scope_as = byz_scope
+		set_variable = bulgar_resistance_start
+		set_variable = bul_res_event_completed
+	}
+	option = {
+		name = br_balkan_revolt.14.a
+		add_radicals = {
+			culture = cu:bulgarian
+			value = 0.1
+		}
+	}
+}
+
+br_balkan_revolt.15 = {
+	type = country_event
+	placement = scope:bulgar_rebel_state
+	title = br_balkan_revolt.15.t
+	desc = br_balkan_revolt.15.d
+	flavor = br_balkan_revolt.15.f
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	duration = 3
+	trigger = {
+		exists = c:BYZ
+		this = c:BYZ
+		NOT = { exists = c:BUL }
+		exists = s:STATE_BULGARIA.region_state:BYZ
+		has_variable = bulgar_resistance_start 
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				owner = c:BYZ
+				state_region = {
+					is_homeland = cu:bulgarian
+				}
+			}
+			save_scope_as = bulgar_rebel_state
+		}
+	}
+	option = {
+		name = br_balkan_revolt.15.a
+		default_option = yes
+		hidden_effect = {
+			scope:bulgar_rebel_state = {
+				add_modifier = {
+					name = br_modifier_local_separatism
+					months = normal_modifier_time
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.1
+						target = cu:greek
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					owner = c:BYZ
+					state_region = {
+						is_homeland = cu:bedouin
+					}
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.05
+						target = cu:bulgarian
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = br_balkan_revolt.15.b
+		hidden_effect = {
+			scope:bulgar_rebel_state = {
+				add_modifier = {
+					name = br_modifier_local_separatism_2
+					months = normal_modifier_time
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.05
+						target = cu:greek
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					owner = c:BYZ
+					state_region = {
+						is_homeland = cu:bedouin
+					}
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.05
+						target = cu:bulgarian
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = br_balkan_revolt.15.c
+		add_modifier = {
+			name = br_prevent_separatism_modifier
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = br_balkan_revolt.15.dd
+		hidden_effect = {
+			scope:bulgar_rebel_state = {
+				add_modifier = {
+					name = br_modifier_local_separatism_2
+					months = normal_modifier_time
+				}
+				every_scope_pop = {
+					change_pop_culture = {
+						value = 0.15
+						target = cu:bulgarian
+					}
+				}
+			}
+		}
+	}
+}
+
+br_balkan_revolt.16 = {
+	type = country_event
+	placement = s:STATE_BULGARIA.region_state:BYZ
+	title = br_balkan_revolt.16.t
+	desc = br_balkan_revolt.16.d
+	flavor = br_balkan_revolt.16.f
+	event_image = {
+		video = "gfx/event_pictures/public_assasination_test.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	duration = 2
+	trigger = {
+		exists = c:BYZ
+		this = c:BYZ
+		NOT = { exists = c:BUL }
+		exists = s:STATE_BULGARIA.region_state:BYZ
+		has_variable = bulgar_resistance_start 
+	}
+	option = {
+		name = br_balkan_revolt.16.a
+		default_option = yes
+		add_radicals = {
+			culture = cu:bulgarian
+			value = 0.1
+		}
+	}
+	option = {
+		name = br_balkan_revolt.16.b
+		add_loyalists = {
+			culture = cu:bulgarian
+			value = 0.05
+		}
+	}
+}
