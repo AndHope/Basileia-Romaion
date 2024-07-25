@@ -28,10 +28,6 @@ br_new_world_events.1 = {
 
 	option = {
 		name = br_new_world_events.1.a
-		add_modifier = {
-			name = br_modifier_autonomous_march
-			years = 50
-		}
 		c:BYZ = {
 			create_diplomatic_pact = {
 				country = c:br_elysium
@@ -46,14 +42,23 @@ br_new_world_events.1 = {
 				value = 50
 			}
 		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:greek
+		}
 	}
 
 	option = {
 		name = br_new_world_events.1.b
 		default_option = yes
+		ai_chance = { base = 99 }
 		change_relations = {
 			country = c:BYZ
-			value = -25
+			value = -10
+		}
+		add_radicals = {
+			value = 0.25
+			culture = cu:greek
 		}
 	}
 }

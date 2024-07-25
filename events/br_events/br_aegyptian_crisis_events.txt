@@ -2,127 +2,111 @@
 
 aegyptian_crisis_events.1 = {
 	type = country_event
-	placement = scope:aegyptian_crisis_state
-
+	placement = c:br_aegypt
 	title = aegyptian_crisis_events.1.t
 	desc = aegyptian_crisis_events.1.d
 	flavor = aegyptian_crisis_events.1.f
 
+	duration = 3
+
+	is_popup = yes
+
 	event_image = {
-		video = "middleeast_courtroom_upheaval"
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
 
-	icon = "gfx/interface/icons/event_icons/event_default.dds"
-
-	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
 	trigger = {
+		NOT = { has_variable = aegyptian_crisis }
 		exists = c:br_aegypt
-		any_diplomatic_play = {
-			initiator = root
-			target = c:br_aegypt
-			OR = {
-				has_play_goal = conquer_state
-				has_play_goal = return_state
-				has_play_goal = reduce_autonomy
-				has_play_goal = make_tributary
-				has_play_goal = make_protectorate
+		c:br_aegypt = {
+			aggressive_diplomatic_plays_permitted = yes
+			any_scope_state = {
+				has_claim_by = c:BYZ
+				OR = {
+					state_region = s:STATE_ALEPPO
+					state_region = s:STATE_LEBANON
+					state_region = s:STATE_PALESTINE
+				}
 			}
-		}
-		NOT = {
-			has_variable = aegyptian_crisis
 		}
 	}
 
 	immediate = {
-		set_variable = {
-			name = aegyptian_crisis
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				save_scope_as = constantinople_scope
+				owner = {
+					save_scope_as = constantinople_owner_scope
+				}
+			}
 		}
-		if = {
-			limit = { exists = s:STATE_LOWER_EGYPT.region_state:br_aegypt }
-			s:STATE_LOWER_EGYPT.region_state:br_aegypt = { save_scope_as = aegyptian_crisis_state }
-		}
-		else = {
-			c:br_aegypt.capital = { save_scope_as = aegyptian_crisis_state }
-		}
+		set_variable = aegyptian_crisis
 	}
 
 	option = {
 		name = aegyptian_crisis_events.1.a
-		# country_influence_mult
-		add_modifier = {
-			name = working_with_the_great_powers
-			months = long_modifier_time
+		default_option = yes
+		ai_chance = 100
+
+		scope:constantinople_owner_scope = {
+			create_diplomatic_play = {
+				name = oriental_crisis_name
+				target_country = c:br_aegypt
+				type = dp_make_protectorate
+			}
 		}
-		every_country = {
-			limit = {
-				country_rank = rank_value:great_power
-				country_is_in_europe = yes
-				NOR = {
-					c:br_aegypt = this
-					c:BYZ = this
-					has_war_with = c:BYZ
-					has_war_with = c:br_aegypt
-					has_diplomatic_pact = {
-						who = root
-						type = rivalry
+
+		hidden_effect = {
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:BYZ
+					target_is = c:br_aegypt
+				}
+				add_escalation = 80
+				add_initiator_backers = { c:ARM c:GEO }
+				add_target_backers = { VEN }
+				if = {
+					limit = { NOT = { s:STATE_LEBANON.region_state:br_aegypt = { is_target_of_wargoal = c:BYZ } } }
+					add_war_goal = {
+						holder = c:BYZ
+						type = return_state
+						target_state = s:STATE_LEBANON.region_state:br_aegypt
+						primary_demand = yes
+					}
+				}
+				if = {
+					limit = { NOT = { s:STATE_PALESTINE.region_state:br_aegypt = { is_target_of_wargoal = c:BYZ } } }
+					add_war_goal = {
+						holder = c:BYZ
+						type = return_state
+						target_state = s:STATE_PALESTINE.region_state:br_aegypt
+						primary_demand = yes
 					}
 				}
 			}
-			change_relations = {
-				country = root
-				value = 40
-			}
 		}
-		every_country = {
-			limit = {
-				country_rank = rank_value:great_power
-				country_is_in_europe = yes
-				NOR = {
-					has_interest_marker_in_region = region_arabic
-					c:br_aegypt = this
-					c:BYZ = this
-					has_war_with = c:BYZ
-					has_war_with = c:br_aegypt
-				}
+		hidden_effect = {
+			trigger_event = {
+				id = romaion_emp_rally.1
+				days = 30
 			}
-			hidden_effect = { trigger_event = { id = aegyptian_crisis_events.4 } }
-			custom_tooltip = aegyptian_crisis_events.1.a.tt
+			change_infamy = -75
 		}
+	
 		c:br_aegypt = {
 			trigger_event = { id = aegyptian_crisis_events.2 }
 		}
-	}
-
-    option = {
-		name = aegyptian_crisis_events.1.b
-        default_option = yes
-        every_country = {
-        	limit = {
-        		country_rank = rank_value:great_power
-        		country_is_in_europe = yes
-        		NOR = {
-        			has_interest_marker_in_region = region_arabic
-        			c:br_aegypt = this
-        			c:BYZ = this
-        			has_war_with = c:BYZ
-        			has_war_with = c:br_aegypt
-        		}
-        	}
-        	hidden_effect = { trigger_event = { id = aegyptian_crisis_events.4 } }
-        	custom_tooltip = aegyptian_crisis_events.1.a.tt
-        }
-        c:br_aegypt = {
-        	trigger_event = { id = aegyptian_crisis_events.2 }
-        }
 	}
 }
 
 aegyptian_crisis_events.2 = {
 	type = country_event
-	placement = scope:aegyptian_crisis_state
+	placement = c:br_aegypt
 
 	title = aegyptian_crisis_events.2.t
 	desc = aegyptian_crisis_events.2.d
@@ -152,12 +136,13 @@ aegyptian_crisis_events.2 = {
 		name = aegyptian_crisis_events.2.a
         default_option = yes
 		custom_tooltip = aegyptian_crisis_events.2.a.tt
+		add_target_backers = { VEN }
 	}
 }
 
 aegyptian_crisis_events.4 = {
 	type = country_event
-	placement = scope:aegyptian_crisis_state
+	placement = c:br_aegypt
 
 	title = aegyptian_crisis_events.4.t
 	desc = aegyptian_crisis_events.4.d
@@ -174,23 +159,19 @@ aegyptian_crisis_events.4 = {
 	duration = 3
 
 	immediate = {
-		if = {
-			limit = { exists = s:STATE_LOWER_EGYPT.region_state:br_aegypt }
-			s:STATE_LOWER_EGYPT.region_state:br_aegypt = { save_scope_as = aegyptian_crisis_state }
-		}
-		else = {
-			c:br_aegypt.capital = { save_scope_as = aegyptian_crisis_state }
-		}
+		s:STATE_ALEPPO.region_state:br_syria = { set_state_owner = c:BYZ }
+		s:STATE_LEBANON.region_state:br_syria = { set_state_owner = c:br_aegypt }
+		s:STATE_PALESTINE.region_state:br_syria = { set_state_owner = c:br_aegypt }
 	}
 
 	option = {
 		name = aegyptian_crisis_events.4.a
         default_option = yes
-
-        add_declared_interest = region_arabic
+		trigger_event = { id = aegyptian_crisis_events.1 }
 	}
 
 	option = {
 		name = aegyptian_crisis_events.4.b
 	}
+
 }
