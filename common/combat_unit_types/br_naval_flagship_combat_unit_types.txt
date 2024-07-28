@@ -1,5 +1,37 @@
 ﻿### Flagship group
 
+combat_unit_type_carrack = {
+    group = combat_unit_group_capital_ship
+
+    upkeep_modifier = {
+        goods_input_manowars_add = 1
+    }
+    battle_modifier = {
+        unit_offense_add = 10
+        unit_defense_add = 10
+        unit_morale_loss_add = 10
+        unit_convoy_raiding_mult = -0.5
+    }
+
+	unlocking_technologies = { }
+
+    combat_unit_image = {
+        trigger = {
+            has_culture_graphics = east_asian
+        }
+        texture = "gfx/unit_illustrations/capital_ships_carracks_east_asia.dds"
+    }
+
+    combat_unit_image = {
+        texture = "gfx/unit_illustrations/capital_ships_carracks.dds"
+    }
+
+	upgrades = {
+		combat_unit_type_man_o_war
+	}
+}
+
+
 combat_unit_type_man_o_war = {
 	group = combat_unit_group_capital_ship
 
@@ -34,6 +66,7 @@ combat_unit_type_ironclad = {
 		goods_input_ironclads_add = 3
 		goods_input_artillery_add = 3
 		goods_input_ammunition_add = 3
+		goods_input_coal_add = 1
 	}
 
 	battle_modifier = {
@@ -62,6 +95,7 @@ combat_unit_type_dreadnought = {
 		goods_input_artillery_add = 6
 		goods_input_ammunition_add = 6
 		goods_input_radios_add = 2
+		goods_input_coal_add = 2
 	}
 
 	battle_modifier = {
@@ -90,6 +124,7 @@ combat_unit_type_battleship = {
 		goods_input_artillery_add = 8
 		goods_input_ammunition_add = 8
 		goods_input_radios_add = 3
+		goods_input_oil_add = 2
 	}
 
 	battle_modifier = {
