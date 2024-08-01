@@ -57,16 +57,25 @@ je_palaiologos_reforms_syria = {
 	group = je_group_foreign_affairs
 
 	complete = {
-		owns_entire_state_region = STATE_ALEPPO
-		owns_entire_state_region = STATE_LEBANON
-		owns_entire_state_region = STATE_PALESTINE
-		#country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
-		#country_or_subject_owns_entire_state_region = STATE_SYRIA
+		OR = {
+			AND = {
+				exists = c:br_syria
+				c:br_syria = {
+					is_subject_of = ROOT
+					is_subject_type = subject_type_puppet
+				}
+				c:br_syria = { liberty_desire <= 50 }
+			}
+			AND = {
+				owns_entire_state_region = STATE_ALEPPO
+				owns_entire_state_region = STATE_LEBANON
+				owns_entire_state_region = STATE_PALESTINE
+			}
+		}
 	}
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -84,37 +93,6 @@ je_palaiologos_reforms_syria = {
 		add_journal_entry = {
 			type = je_palaiologos_reforms_africa
 		}
-#		if = {
-#			limit = {
-#				OR = {
-#					AND = {
-#						exists = c:br_aegypt
-#						c:br_aegypt = {
-#							is_subject_of = ROOT
-#						}
-#					}
-#					AND = {
-#						owns_entire_state_region = STATE_SINAI
-#						owns_entire_state_region = STATE_UPPER_EGYPT
-#						owns_entire_state_region = STATE_MIDDLE_EGYPT
-#						owns_entire_state_region = STATE_LOWER_EGYPT
-#					}
-#				}
-#			}
-#			custom_tooltip = je_palaiologos_reforms_advance
-#			change_variable = {
-#				name = palaiologos_reforms_var
-#				add = 1
-#			}
-#		}
-#		else = {
-#			add_journal_entry = {
-#				type = je_palaiologos_reforms_africa
-#				type = je_palaiologos_reforms_italy
-#				type = je_palaiologos_reforms_egypt
-#			}
-#		}
-		
 	}
 
 	invalid = {
@@ -167,7 +145,6 @@ je_palaiologos_reforms_egypt = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
 			add_modifier = {
@@ -237,7 +214,6 @@ je_palaiologos_reforms_italy = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -293,7 +269,6 @@ je_palaiologos_reforms_africa = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -390,7 +365,6 @@ je_palaiologos_reforms_australis = {
 
 	on_complete = {
 		custom_tooltip = je_palaiologos_reforms_advance
-
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -434,7 +408,6 @@ je_palaiologos_reforms_economy = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_economy_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -488,7 +461,6 @@ je_palaiologos_reforms_education = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_education_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -539,7 +511,6 @@ je_palaiologos_reforms_separatism = {
 	on_complete = {
 		set_variable = completed_separatism_palaiologos_reforms_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -639,7 +610,6 @@ je_palaiologos_reforms_army = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_army_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -653,9 +623,9 @@ je_palaiologos_reforms_army = {
 				days = 1
 			}
 		}
-#		add_journal_entry = {
-#			type = je_palaiologos_reforms_navy
-#		}
+	#	add_journal_entry = {
+	#		type = je_palaiologos_reforms_navy
+	#	}
 	}
 
 	on_monthly_pulse = {
@@ -683,13 +653,6 @@ je_palaiologos_reforms_navy = {
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 
 	group = je_group_internal_affairs
-	
-#	is_shown_when_inactive = {
-#		country_has_primary_culture = cu:greek
-#		NOT = {
-#			has_variable = palaiologos_reforms_complete
-#		}
-#	}
 
 	complete = {
 		navy_size >= 125
@@ -712,7 +675,6 @@ je_palaiologos_reforms_navy = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_navy_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
@@ -759,7 +721,6 @@ je_palaiologos_reforms_bureaucracy = {
 	on_complete = {
 		set_variable = completed_palaiologos_reforms_bureaucracy_je
 		custom_tooltip = je_palaiologos_reforms_advance
-		#change_infamy = -5
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
