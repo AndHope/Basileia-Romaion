@@ -1519,15 +1519,15 @@ ai_strategy_default = {
 		}
 		if = {
 			limit =  { has_modifier = br_modifier_jihad_called } 
-			add = 10
+			add = 15
 		}
 		if = {
 			limit =  { has_modifier = br_modifier_aggressive_bonus } 
 			add = 5
 		}
 		if = {
-			limit =  { has_modifier = autocephalous_patriarchate_moscow } 
-			add = 5
+			limit =  { has_modifier = br_modifier_russia_buff_1 } 
+			add = 10
 		}
 		if = {
 			limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
@@ -1719,7 +1719,11 @@ ai_strategy_default = {
 		if = {
 			limit =  { has_modifier = br_modifier_norse_military_doctrine }
 			multiply = 2.5
-		}	
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine_2 }
+			multiply = 3
+		}
 		if = {
 			limit =  { has_modifier = br_modifier_anti_colonialism }
 			multiply = 2.5
@@ -1749,7 +1753,11 @@ ai_strategy_default = {
 			multiply = 3
 		}
 		if = {
-			limit =  { has_modifier = autocephalous_patriarchate_moscow } 
+			limit =  { has_modifier = br_modifier_russia_buff_1 } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_2 } 
 			multiply = 2
 		}
 		if = {
@@ -1864,6 +1872,10 @@ ai_strategy_default = {
 		if = {
 			limit =  { has_modifier = br_modifier_naval_tradition }
 			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_decentralized_khanate }
+			multiply = -1
 		}
 
 		# Factor in strategies
@@ -2023,8 +2035,13 @@ ai_strategy_default = {
 		}	
 		if = {
 			limit =  { has_modifier = br_modifier_norse_military_doctrine }
-			multiply = 2
-		}	
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine_2 }
+			multiply = 3
+		}
+			
 		if = {
 			limit =  { has_modifier = br_modifier_anti_colonialism }
 			multiply = 2
@@ -2042,6 +2059,10 @@ ai_strategy_default = {
 			multiply = 2.5
 		}
 		if = {
+			limit =  { has_modifier = br_modifier_arab_caliphate } 
+			multiply = 2.5
+		}
+		if = {
 			limit =  { has_modifier = br_modifier_jihad_called } 
 			multiply = 5
 		}
@@ -2050,8 +2071,12 @@ ai_strategy_default = {
 			multiply = 2.5
 		}
 		if = {
-			limit =  { has_modifier = autocephalous_patriarchate_moscow } 
-			multiply = 2.5
+			limit =  { has_modifier = br_modifier_russia_buff_1 } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_2 } 
+			multiply = 2
 		}
 		if = {
 			limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
@@ -2067,11 +2092,15 @@ ai_strategy_default = {
 		}
 		if = {
 			limit =  { has_modifier = br_modifier_themata_primacy }
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_corrupt_pronoia }
 			multiply = 2
 		}
 		if = {
 			limit =  { has_modifier = br_modifier_eastern_roman_emperor }
-			multiply = 2.5
+			multiply = 2
 		}
 		if = {
 			limit =  { has_modifier = br_modifier_holy_roman_emperor }
