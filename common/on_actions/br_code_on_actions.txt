@@ -119,3 +119,17 @@ on_monthly_pulse_country = {
 	}
 }
 
+on_revolution_start = { on_actions = { br_ig_on_action } }
+on_secession_start = { on_actions = { br_ig_on_action } }
+on_country_released_as_own_subject = { on_actions = { br_ig_on_action } }
+on_country_released_as_overlord_subject = { on_actions = { br_ig_on_action } }
+on_country_released_as_independent = { on_actions = { br_ig_on_action } }
+
+br_ig_on_action = {
+	effect = {
+		scope:target ?= { 
+			br_apply_ideologies_and_traits = yes		
+		}
+	}
+}
+

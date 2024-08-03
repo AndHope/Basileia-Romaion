@@ -1,0 +1,68 @@
+﻿br_apply_ideologies_and_traits = {
+	#Central Asian countries
+	if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:pashtun
+				country_has_primary_culture = cu:persian
+				country_has_primary_culture = cu:uzbek
+				country_has_primary_culture = cu:kirgiz
+				country_has_primary_culture = cu:kazak
+				country_has_primary_culture = cu:tajik
+				country_has_primary_culture = cu:turkmen
+			}
+		}
+		br_central_asian_rural_folk_effect = yes
+	}
+	#Japan
+	if = {
+		limit = { country_has_primary_culture = cu:japanese }
+		br_japanese_ig_traits_effect = yes
+	}
+	#Patrician countries
+	if = {
+		limit = {
+			OR = {
+				c:OMA ?= this
+				was_formed_from = OMA
+				c:br_genoa ?= this
+				was_formed_from = br_genoa
+				c:VEN ?= this
+				was_formed_from = VEN
+				c:NET ?= this
+				was_formed_from = NET
+				c:FLA ?= this
+				was_formed_from = FLA
+			} 
+		}
+		br_patrician_landowners_effect = yes
+	}
+	#Lanfang shouldn't be monarchist
+	if = {
+		limit = {
+			OR = {
+				this = c:LAN 
+				was_formed_from = LAN
+			} 
+		}
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic	
+		}
+	}
+	#Chinese IGs
+	if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:han
+				c:CHI ?= this
+			} 
+		}
+		br_chinese_igs_effect = yes
+	}
+	#Confucian countries
+	if = {
+		limit = { country_has_state_religion = rel:confucian }
+		br_confucian_devout_effect = yes 
+	}
+}

@@ -1,0 +1,61 @@
+﻿br_japanese_ig_traits_effect = {
+	ig:ig_rural_folk = {
+		set_ig_trait = ig_trait:br_ig_trait_ikki
+	}
+	ig:ig_armed_forces = {
+		if = {
+			limit = { has_ideology = ideology:ideology_bakufu }
+			set_ig_trait = ig_trait:br_ig_trait_ronin
+		} else = {
+			set_ig_trait = ig_trait:br_ig_trait_interservice_rivalry
+		}
+	}
+	ig:ig_intelligentsia = {
+		set_ig_trait = ig_trait:br_ig_trait_rangaku
+	}
+}
+
+br_central_asian_rural_folk_effect = {
+	ig:ig_rural_folk = {
+		set_ig_trait = ig_trait:br_ig_trait_tribal_militias
+		set_ig_trait = ig_trait:br_ig_trait_alienated_tribes
+	}
+	#special Pashtun trait
+	if = {
+		limit = { 
+			country_has_primary_culture = cu:pashtun
+		}
+		ig:ig_rural_folk = {
+			set_ig_trait = ig_trait:br_ig_trait_pashtunwali
+		}
+	}
+}
+
+
+br_patrician_landowners_effect = {
+	ig:ig_landowners = {
+		remove_ideology = ideology_paternalistic
+		remove_ideology = ideology_republican_paternalistic
+		add_ideology = ideology_patrician
+	}
+}
+
+br_chinese_igs_effect = {
+	ig:ig_intelligentsia = {
+		set_ig_trait = ig_trait:br_ig_trait_imperial_examinations
+	}
+
+	ig:ig_landowners = {
+		set_ig_trait = ig_trait:br_ig_trait_junzi
+		set_ig_trait = ig_trait:br_ig_trait_scholar_bureaucrats
+		set_ig_trait = ig_trait:br_ig_trait_palace_intrigue
+	}
+}
+
+br_confucian_devout_effect = {
+	ig:ig_devout = {
+		set_ig_trait = ig_trait:br_ig_trait_mandate_of_heaven
+		set_ig_trait = ig_trait:br_ig_trait_meritocracy
+		set_ig_trait = ig_trait:br_ig_trait_right_of_rebellion
+	}
+}
