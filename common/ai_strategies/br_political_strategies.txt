@@ -8,47 +8,39 @@
 	}
 	
 	min_law_chance_to_pass = {
-		value = 50
-		
+		value = 30
 		if = {
-			limit = { 				
-				OR = {
-					any_political_movement = {
-						desired_law ?= scope:law.type
-						political_movement_radicalism >= 75
-					}
-					AND = {
-						has_journal_entry = je_government_petition
-						var:desired_law_var	?= scope:law			
-					}
-				}
-			}
-			
-			multiply = 0.25
-		}		
+			limit = { ai_has_reasons_to_not_oppose_law = yes }			
+			multiply = 0.33
+		}			
 	}
 	
 	max_progressiveness = {
-		value = 25
+		value = 50
 	}
 	
 	max_regressiveness = {
-		value = 10
+		value = 25
 	}
 	
 	change_law_chance = { 
-		value = 1
-		
-		if = {
-			limit = { has_journal_entry = je_government_petition  }
-			add = 10
-		}	
+		value = 2.5
 		
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
-			add = 10
+			add = 7.5
 		}
-	}	
+
+		if = {
+			limit = { 
+				OR = {
+					has_journal_entry = je_government_petition  
+					has_journal_entry = je_law_imposition
+				}
+			}
+			add = 25
+		}			
+	}
 
 	pro_interest_groups = {
 		ig_landowners
@@ -107,21 +99,8 @@ ai_strategy_trade_republic_agenda = {
 	
 	min_law_chance_to_pass = {
 		value = 20
-		
 		if = {
-			limit = { 				
-				OR = {
-					any_political_movement = {
-						desired_law ?= scope:law.type
-						political_movement_radicalism >= 75
-					}
-					AND = {
-						has_journal_entry = je_government_petition
-						var:desired_law_var	?= scope:law			
-					}
-				}
-			}
-			
+			limit = { ai_has_reasons_to_not_oppose_law = yes }			
 			multiply = 0.5
 		}	
 	}
