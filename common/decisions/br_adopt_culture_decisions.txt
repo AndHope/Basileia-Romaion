@@ -226,3 +226,45 @@ azerbaijani_decision = {
 		base = 5
 	}
 }
+
+accept_baltic_german_decision = {
+	is_shown = {
+		OR = {
+			# country_has_primary_culture = cu:swedish
+			root = {
+				owned_any_baltic_states_region_states = yes
+			}
+		}
+		NOT = { country_has_primary_culture = cu:baltic_german }
+	}
+
+	possible = {
+		OR = {
+			# country_has_primary_culture = cu:swedish
+			cu:baltic_german = { 
+				shares_trait_with_any_primary_culture = root
+			}
+		}
+		# root = {
+		# 	owned_any_baltic_states_region_states = yes
+		# }
+		NOT = {
+			has_law = law_type:law_national_supremacy 
+			has_law = law_type:law_ethnostate 
+			country_has_primary_culture = cu:baltic_german
+		}
+	}
+
+	when_taken = {
+		add_primary_culture = cu:baltic_german
+
+		add_loyalists = {
+			culture = cu:baltic_german
+			value = 0.1
+		}
+	}
+
+	ai_chance = {
+		base = 1
+	}
+}
