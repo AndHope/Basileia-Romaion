@@ -1,0 +1,154 @@
+﻿# Union of the Romanian Principalities
+je_the_revolution = {
+
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+	
+	group = je_group_internal_affairs
+
+	is_shown_when_inactive = {
+		root = c:HRE
+	}
+
+	possible = {
+		root = c:HRE
+	}
+
+	immediate = {
+		add_journal_entry = {
+			type = je_revolution_reform
+		}
+		add_journal_entry = {
+			type = je_revolution_suppress
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = finished_revolution_tt
+			has_variable = revolution_complete
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = wallachia_events.3
+			popup = yes
+		}
+
+		hidden_effect = {
+			set_variable = revolution_complete
+		}
+	}
+
+	fail = {
+		has_law = law_type:law_presidential_republic
+	}
+	
+	on_fail = {
+		trigger_event = red_scare.20 #temp event replace with correct one
+	}
+
+	timeout = 27375  #75 years
+
+	#on_timeout the revolution happens
+	on_timeout = {
+		trigger_event = { id = red_scare.20 } #temp event replace with correct one
+	}
+
+	weight = 9000
+
+	should_be_pinned_by_default = yes
+}
+
+# reform the state
+je_revolution_reform = {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		NOT = {
+			has_law = law_type:law_autocracy
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_landed_voting
+			has_law = law_type:law_hereditary_bureaucrats
+			has_law = law_type:law_serfdom
+			has_law = law_type:law_traditionalism
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = wallachia_events.6   #temp event replace with correct one
+			popup = no
+		}
+		add_modifier = {
+			name = br_peoples_monarchy
+			years = -1
+		}
+		remove_modifier = br_modifier_noble_privileges
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_revolution_tt
+			has_variable = revolution_complete
+		}
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+# Suppress the revolution
+je_revolution_suppress = {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		has_law = law_type:law_autocracy
+		has_law = law_type:law_censorship
+		OR = {
+			has_law = law_type:law_national_guard
+			has_law = law_type:law_professional_army
+		}
+		NOT = {
+			has_law = law_type:law_peasant_levies
+		}
+		ig:ig_landowners = {
+			is_powerful = yes
+			is_in_government = yes
+		}
+		ig:ig_armed_forces = {
+			is_powerful = yes
+			is_in_government = yes
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = wallachia_events.6   #temp event replace with correct one
+			popup = no
+		}
+		add_modifier = {
+			name = br_heir_of_augustus
+			years = -1
+		}
+		remove_modifier = br_modifier_noble_privileges
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_revolution_tt
+			has_variable = revolution_complete
+		}
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
