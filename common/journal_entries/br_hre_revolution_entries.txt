@@ -14,10 +14,7 @@ je_the_revolution = {
 	}
 
 	immediate = {
-<<<<<<< Updated upstream
-=======
 		trigger_event = { id = hre_revolution_events.1 }
->>>>>>> Stashed changes
 		add_journal_entry = {
 			type = je_revolution_reform
 		}
@@ -35,7 +32,7 @@ je_the_revolution = {
 
 	on_complete = {
 		trigger_event = {
-			id = wallachia_events.3
+			id = hre_revolution_events.2
 			popup = yes
 		}
 
@@ -49,41 +46,47 @@ je_the_revolution = {
 	}
 	
 	on_fail = {
-<<<<<<< Updated upstream
-		trigger_event = red_scare.20 #temp event replace with correct one
-=======
 		hidden_effect = {
 			set_variable = revolution_complete
 		}
 		trigger_event = { id = hre_revolution_events.2 } #temp event replace with correct one
-		add_modifier = {
-			name = br_roman_republicanism
-			years = -1
+
+		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+		show_as_tooltip = {
+			add_modifier = {
+				name = br_roman_republicanism
+				years = -1
+			}
+			remove_modifier = br_modifier_noble_privileges
+			activate_law = law_type:law_presidential_republic
+			activate_law = law_type:law_wealth_voting #or anarchy
+			activate_law = law_type:law_tenant_farmers
 		}
-		remove_modifier = br_modifier_noble_privileges
->>>>>>> Stashed changes
 	}
 
 	timeout = 27375  #75 years
 
 	#on_timeout the revolution happens
 	on_timeout = {
-<<<<<<< Updated upstream
-		trigger_event = { id = red_scare.20 } #temp event replace with correct one
-=======
 		hidden_effect = {
 			set_variable = revolution_complete
 		}
 		trigger_event = { id = hre_revolution_events.2 } #temp event replace with correct one
-		add_modifier = {
-			name = br_roman_republicanism
-			years = -1
-		}
-		remove_modifier = br_modifier_noble_privileges
->>>>>>> Stashed changes
+
+		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+		# show_as_tooltip = {
+		# 	add_modifier = {
+		# 		name = br_roman_republicanism
+		# 		years = -1
+		# 	}
+		# 	remove_modifier = br_modifier_noble_privileges
+		# 	activate_law = law_type:law_presidential_republic
+		# 	activate_law = law_type:law_wealth_voting #or anarchy
+		# 	activate_law = law_type:law_tenant_farmers
+		# }
 	}
 
-	weight = 9000
+	weight = 10000
 
 	should_be_pinned_by_default = yes
 }
@@ -108,11 +111,7 @@ je_revolution_reform = {
 
 	on_complete = {
 		trigger_event = {
-<<<<<<< Updated upstream
-			id = wallachia_events.6   #temp event replace with correct one
-=======
-			id = hre_revolution_events.2   #temp event replace with correct one
->>>>>>> Stashed changes
+			id = hre_revolution_events.3   #temp event replace with correct one
 			popup = no
 		}
 		add_modifier = {
@@ -129,9 +128,9 @@ je_revolution_reform = {
 		}
 	}
 
-	weight = 10000
+	weight = 8000
 
-	should_be_pinned_by_default = yes
+	#should_be_pinned_by_default = yes
 }
 
 # Suppress the revolution
@@ -163,11 +162,7 @@ je_revolution_suppress = {
 
 	on_complete = {
 		trigger_event = {
-<<<<<<< Updated upstream
-			id = wallachia_events.6   #temp event replace with correct one
-=======
-			id = hre_revolution_events.2   #temp event replace with correct one
->>>>>>> Stashed changes
+			id = hre_revolution_events.4   #temp event replace with correct one
 			popup = no
 		}
 		add_modifier = {
@@ -184,7 +179,7 @@ je_revolution_suppress = {
 		}
 	}
 
-	weight = 10000
+	weight = 8000
 
-	should_be_pinned_by_default = yes
+	#should_be_pinned_by_default = yes
 }
