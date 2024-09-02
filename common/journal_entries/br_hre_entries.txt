@@ -14,6 +14,10 @@ je_the_revolution = {
 	}
 
 	immediate = {
+<<<<<<< Updated upstream
+=======
+		trigger_event = { id = hre_revolution_events.1 }
+>>>>>>> Stashed changes
 		add_journal_entry = {
 			type = je_revolution_reform
 		}
@@ -45,14 +49,38 @@ je_the_revolution = {
 	}
 	
 	on_fail = {
+<<<<<<< Updated upstream
 		trigger_event = red_scare.20 #temp event replace with correct one
+=======
+		hidden_effect = {
+			set_variable = revolution_complete
+		}
+		trigger_event = { id = hre_revolution_events.2 } #temp event replace with correct one
+		add_modifier = {
+			name = br_roman_republicanism
+			years = -1
+		}
+		remove_modifier = br_modifier_noble_privileges
+>>>>>>> Stashed changes
 	}
 
 	timeout = 27375  #75 years
 
 	#on_timeout the revolution happens
 	on_timeout = {
+<<<<<<< Updated upstream
 		trigger_event = { id = red_scare.20 } #temp event replace with correct one
+=======
+		hidden_effect = {
+			set_variable = revolution_complete
+		}
+		trigger_event = { id = hre_revolution_events.2 } #temp event replace with correct one
+		add_modifier = {
+			name = br_roman_republicanism
+			years = -1
+		}
+		remove_modifier = br_modifier_noble_privileges
+>>>>>>> Stashed changes
 	}
 
 	weight = 9000
@@ -80,7 +108,11 @@ je_revolution_reform = {
 
 	on_complete = {
 		trigger_event = {
+<<<<<<< Updated upstream
 			id = wallachia_events.6   #temp event replace with correct one
+=======
+			id = hre_revolution_events.2   #temp event replace with correct one
+>>>>>>> Stashed changes
 			popup = no
 		}
 		add_modifier = {
@@ -131,7 +163,11 @@ je_revolution_suppress = {
 
 	on_complete = {
 		trigger_event = {
+<<<<<<< Updated upstream
 			id = wallachia_events.6   #temp event replace with correct one
+=======
+			id = hre_revolution_events.2   #temp event replace with correct one
+>>>>>>> Stashed changes
 			popup = no
 		}
 		add_modifier = {

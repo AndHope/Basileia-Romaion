@@ -1,0 +1,135 @@
+﻿namespace = hre_revolution_events
+
+# The revolution looms
+hre_revolution_events.1 = {
+	type = country_event
+	placement = root
+	title = hre_revolution_events.1.t  #loc needed
+	desc = hre_revolution_events.1.d
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/courtroom_upheaval"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = hre_revolution_events.1.a
+
+		show_as_tooltip = {
+			add_journal_entry = {
+				type = je_revolution_reform
+			}
+			add_journal_entry = {
+				type = je_revolution_suppress
+			}
+		}
+	}
+}
+
+# The revolution erupts
+hre_revolution_events.2 = {
+
+	type = country_event
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	title = hre_revolution_events.2.t
+	desc = hre_revolution_events.2.d
+	flavor = hre_revolution_events.2.f
+
+	duration = 3
+
+	option = {
+		name = hre_revolution_events.2.a
+		
+		show_as_tooltip = {
+			add_modifier = {
+				name = br_roman_republicanism
+				years = -1
+			}
+			remove_modifier = br_modifier_noble_privileges
+		}
+	}
+}
+
+# The revolution is prevented thru reform
+hre_revolution_events.3 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	title = hre_revolution_events.3.t
+	desc = hre_revolution_events.3.d
+	flavor = hre_revolution_events.3.f
+
+	duration = 3
+
+	option = {
+		name = hre_revolution_events.3.a
+		
+		show_as_tooltip = {
+			add_modifier = {
+				name = br_peoples_monarchy
+				years = -1
+			}
+			remove_modifier = br_modifier_noble_privileges
+		}
+	}
+}
+
+# The revolution is suppressed
+hre_revolution_events.4 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	title = hre_revolution_events.4.t
+	desc = hre_revolution_events.4.d
+	flavor = hre_revolution_events.4.f
+
+	duration = 3
+
+	option = {
+		name = hre_revolution_events.4.a
+		
+		show_as_tooltip = {
+			add_modifier = {
+				name = br_heir_of_augustus
+				years = -1
+			}
+			remove_modifier = br_modifier_noble_privileges
+		}
+	}
+}
