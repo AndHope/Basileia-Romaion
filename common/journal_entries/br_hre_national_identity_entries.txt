@@ -1,0 +1,126 @@
+﻿# Decide over the HRE's National Identity
+je_national_identity = {
+
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+	
+	group = je_group_internal_affairs
+
+	# is_shown_when_inactive = {
+	# 	root = c:HRE
+	# }
+
+	# possible = {
+	# 	root = c:HRE
+	# }
+
+	immediate = {
+		trigger_event = { id = hre_national_identity_events.1 }
+		add_journal_entry = {
+			type = je_identity_embrace_our_roman_identity
+		}
+		add_journal_entry = {
+			type = je_identity_embrace_french
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = enbraced_an_identity_tt
+			has_variable = enbraced_an_identity
+		}
+	}
+
+	on_complete = {
+		# trigger_event = {
+		# 	id = hre_national_identity_events.2
+		# 	popup = yes
+		# }
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+# Embrace our “Roman” Identity
+je_identity_embrace_our_roman_identity = {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		NOT = {
+			has_law = law_type:law_national_supremacy
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_state_atheism
+		}
+		country_has_primary_culture = cu:frankish
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = hre_national_identity_events.3
+			popup = no
+		}
+		add_modifier = {
+			name = br_romantic_multiculturalism
+			years = -1
+		}
+		remove_modifier = linguistic_discrimination
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = enbraced_an_identity_tt
+			has_variable = enbraced_an_identity
+		}
+	}
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
+
+# Embrace French
+je_identity_embrace_french = {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		OR = {
+			has_law = law_type:law_national_supremacy
+			has_law = law_type:law_ethnostate
+		}
+		has_law = law_type:law_state_religion
+		NOT = {
+			country_has_primary_culture = cu:frankish
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = hre_national_identity_events.4
+			popup = no
+		}
+		add_modifier = {
+			name = br_enforced_franconization
+			years = -1
+		}
+		remove_modifier = linguistic_discrimination
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = enbraced_an_identity_tt
+			has_variable = enbraced_an_identity
+		}
+	}
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}

@@ -57,6 +57,10 @@ hre_revolution_events.2 = {
 
 	duration = 3
 
+	immediate = {
+		set_variable = revolution_complete
+	}
+
 	option = {
 		name = hre_revolution_events.2.a
 		
@@ -68,6 +72,10 @@ hre_revolution_events.2 = {
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting #or anarchy
 		activate_law = law_type:law_tenant_farmers
+		
+		add_journal_entry = {
+			type = je_national_identity
+		}
 	}
 }
 
@@ -90,6 +98,10 @@ hre_revolution_events.3 = {
 
 	duration = 3
 
+	immediate = {
+		set_variable = revolution_complete
+	}
+
 	option = {
 		name = hre_revolution_events.3.a
 		
@@ -98,7 +110,7 @@ hre_revolution_events.3 = {
 				name = br_peoples_monarchy
 				years = -1
 			}
-			remove_modifier = br_modifier_noble_privileges
+			#remove_modifier = br_modifier_noble_privileges
 		}
 	}
 }
@@ -122,6 +134,10 @@ hre_revolution_events.4 = {
 
 	duration = 3
 
+	immediate = {
+		set_variable = revolution_complete
+	}
+
 	option = {
 		name = hre_revolution_events.4.a
 		
@@ -130,7 +146,7 @@ hre_revolution_events.4 = {
 				name = br_heir_of_augustus
 				years = -1
 			}
-			remove_modifier = br_modifier_noble_privileges
+			#remove_modifier = br_modifier_noble_privileges
 		}
 	}
 }

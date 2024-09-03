@@ -1,0 +1,330 @@
+﻿# We must reconquer the western roman empire
+je_roman_reconquest = {
+
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+	
+	group = je_group_internal_affairs
+
+	# is_shown_when_inactive = {
+	# 	root = c:HRE
+	# }
+
+	# possible = {
+	# 	root = c:HRE
+	# }
+
+	immediate = {
+		trigger_event = { id = hre_roman_reconquest_events.1 }
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = hre_roman_reconquest_events.2
+			popup = yes
+		}
+		add_modifier = {
+			name = br_senatus_populusque_romanus
+			years = -1
+		}
+	}
+
+	current_value = {
+		value = var:roman_reconquest_var
+	}
+
+	goal_add_value = {
+		add = 7
+	}
+
+	progressbar = yes
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+# Retaking the Heart of Roman Civilization
+je_retaking_the_heart_of_roman_civilization = {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owned_all_north_italian_region_states = yes
+	}
+
+	on_complete = {
+		custom_tooltip = je_roman_reconquest_advance_tt
+		change_variable = {
+			name = roman_reconquest_var
+			add = 1
+		}
+		trigger_event = {
+			id = hre_roman_reconquest_events.3
+			popup = no
+		}
+		add_modifier = {
+			name = br_the_holy_see
+			years = -1
+		}
+	}
+
+	# invalid = {
+	# 	custom_tooltip = {
+	# 		text = enbraced_an_identity_tt
+	# 		has_variable = enbraced_an_identity
+	# 	}
+	# }
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
+
+# Retaking the Heart of Roman Civilization
+je_retaking_southern_italy = {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owned_all_south_italian_region_states = yes
+	}
+
+	on_complete = {
+		custom_tooltip = je_roman_reconquest_advance_tt
+		change_variable = {
+			name = roman_reconquest_var
+			add = 1
+		}
+		trigger_event = {
+			id = hre_roman_reconquest_events.5
+			popup = no
+		}
+		# add_modifier = {
+		# 	name = br_the_holy_see
+		# 	years = -1
+		# }
+	}
+
+	# invalid = {
+	# 	custom_tooltip = {
+	# 		text = enbraced_an_identity_tt
+	# 		has_variable = enbraced_an_identity
+	# 	}
+	# }
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
+
+
+# Reconquer Iberia
+je_reconquer_iberia= {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owned_all_iberian_region_states = yes
+	}
+
+	on_complete = {
+		custom_tooltip = je_roman_reconquest_advance_tt
+		change_variable = {
+			name = roman_reconquest_var
+			add = 1
+		}
+		trigger_event = {
+			id = hre_roman_reconquest_events.6
+			popup = no
+		}
+		# add_modifier = {
+		# 	name = br_enforced_franconization
+		# 	years = -1
+		# }
+		# remove_modifier = linguistic_discrimination
+	}
+
+	# invalid = {
+	# 	custom_tooltip = {
+	# 		text = enbraced_an_identity_tt
+	# 		has_variable = enbraced_an_identity
+	# 	}
+	# }
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
+
+# Reconquer North Africa
+je_reconquer_roman_north_africa= {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owned_all_roman_north_africa_region_states = yes
+	}
+
+	on_complete = {
+		custom_tooltip = je_roman_reconquest_advance_tt
+		change_variable = {
+			name = roman_reconquest_var
+			add = 1
+		}
+		trigger_event = {
+			id = hre_roman_reconquest_events.7
+			popup = no
+		}
+		# add_modifier = {
+		# 	name = br_enforced_franconization
+		# 	years = -1
+		# }
+		# remove_modifier = linguistic_discrimination
+	}
+
+	# invalid = {
+	# 	custom_tooltip = {
+	# 		text = enbraced_an_identity_tt
+	# 		has_variable = enbraced_an_identity
+	# 	}
+	# }
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
+
+# Reconquer England and Wales
+je_reconquer_england_and_wales= {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owned_all_english_region_states = yes
+		country_or_subject_owned_all_welsch_region_states = yes
+	}
+
+	on_complete = {
+		custom_tooltip = je_roman_reconquest_advance_tt
+		change_variable = {
+			name = roman_reconquest_var
+			add = 1
+		}
+		trigger_event = {
+			id = hre_roman_reconquest_events.8
+			popup = no
+		}
+		# add_modifier = {
+		# 	name = br_enforced_franconization
+		# 	years = -1
+		# }
+		# remove_modifier = linguistic_discrimination
+	}
+
+	# invalid = {
+	# 	custom_tooltip = {
+	# 		text = enbraced_an_identity_tt
+	# 		has_variable = enbraced_an_identity
+	# 	}
+	# }
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
+
+# Conquer Scotland
+je_reconquer_scotland= {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owned_all_scottish_region_states = yes
+	}
+
+	on_complete = {
+		custom_tooltip = je_roman_reconquest_advance_tt
+		change_variable = {
+			name = roman_reconquest_var
+			add = 1
+		}
+		trigger_event = {
+			id = hre_roman_reconquest_events.9
+			popup = no
+		}
+		# add_modifier = {
+		# 	name = br_enforced_franconization
+		# 	years = -1
+		# }
+		# remove_modifier = linguistic_discrimination
+	}
+
+	# invalid = {
+	# 	custom_tooltip = {
+	# 		text = enbraced_an_identity_tt
+	# 		has_variable = enbraced_an_identity
+	# 	}
+	# }
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
+
+# Conquer Ireland
+je_reconquer_ireland= {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owned_all_irish_region_states = yes
+	}
+
+	on_complete = {
+		custom_tooltip = je_roman_reconquest_advance_tt
+		change_variable = {
+			name = roman_reconquest_var
+			add = 1
+		}
+		trigger_event = {
+			id = hre_roman_reconquest_events.10
+			popup = no
+		}
+		# add_modifier = {
+		# 	name = br_enforced_franconization
+		# 	years = -1
+		# }
+		# remove_modifier = linguistic_discrimination
+	}
+
+	# invalid = {
+	# 	custom_tooltip = {
+	# 		text = enbraced_an_identity_tt
+	# 		has_variable = enbraced_an_identity
+	# 	}
+	# }
+
+	weight = 8000
+
+	#should_be_pinned_by_default = yes
+}
