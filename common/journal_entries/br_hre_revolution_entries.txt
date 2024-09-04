@@ -66,10 +66,15 @@ je_the_revolution = {
 		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
 		show_as_tooltip = {
 			add_modifier = {
-				name = br_roman_republicanism
+				name = br_modifier_vive_la_revolution
+				years = -1
+			}
+			add_modifier = {
+				name = br_modifier_roman_republicanism
 				years = -1
 			}
 			remove_modifier = br_modifier_noble_privileges
+			remove_modifier = br_modifier_feudalism
 			activate_law = law_type:law_presidential_republic
 			activate_law = law_type:law_wealth_voting #or anarchy
 			activate_law = law_type:law_tenant_farmers
@@ -88,7 +93,7 @@ je_the_revolution = {
 		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
 		# show_as_tooltip = {
 		# 	add_modifier = {
-		# 		name = br_roman_republicanism
+		# 		name = br_modifier_roman_republicanism
 		# 		years = -1
 		# 	}
 		# 	remove_modifier = br_modifier_noble_privileges
@@ -119,6 +124,7 @@ je_revolution_reform = {
 			has_law = law_type:law_serfdom
 			has_law = law_type:law_traditionalism
 			has_modifier = br_modifier_noble_privileges
+			has_modifier = br_modifier_feudalism
 		}
 	}
 
@@ -128,7 +134,7 @@ je_revolution_reform = {
 			popup = no
 		}
 		add_modifier = {
-			name = br_peoples_monarchy
+			name = br_modifier_peoples_monarchy
 			years = -1
 		}
 		#remove_modifier = br_modifier_noble_privileges
@@ -179,7 +185,7 @@ je_revolution_suppress = {
 			popup = no
 		}
 		add_modifier = {
-			name = br_heir_of_augustus
+			name = br_modifier_heir_of_augustus
 			years = -1
 		}
 		#remove_modifier = br_modifier_noble_privileges

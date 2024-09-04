@@ -26,6 +26,7 @@ hre_revolution_events.1 = {
 
 	option = {
 		name = hre_revolution_events.1.a
+		default_option = yes
 
 		show_as_tooltip = {
 			add_journal_entry = {
@@ -63,12 +64,18 @@ hre_revolution_events.2 = {
 
 	option = {
 		name = hre_revolution_events.2.a
-		
+		default_option = yes
+
 		add_modifier = {
-			name = br_roman_republicanism
+			name = br_modifier_vive_la_revolution
+			years = -1
+		}
+		add_modifier = {
+			name = br_modifier_roman_republicanism
 			years = -1
 		}
 		remove_modifier = br_modifier_noble_privileges
+		remove_modifier = br_modifier_feudalism
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting #or anarchy
 		activate_law = law_type:law_tenant_farmers
@@ -104,10 +111,11 @@ hre_revolution_events.3 = {
 
 	option = {
 		name = hre_revolution_events.3.a
+		default_option = yes
 		
 		show_as_tooltip = {
 			add_modifier = {
-				name = br_peoples_monarchy
+				name = br_modifier_peoples_monarchy
 				years = -1
 			}
 			#remove_modifier = br_modifier_noble_privileges
@@ -140,10 +148,11 @@ hre_revolution_events.4 = {
 
 	option = {
 		name = hre_revolution_events.4.a
+		default_option = yes
 		
 		show_as_tooltip = {
 			add_modifier = {
-				name = br_heir_of_augustus
+				name = br_modifier_heir_of_augustus
 				years = -1
 			}
 			#remove_modifier = br_modifier_noble_privileges
