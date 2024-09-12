@@ -1,0 +1,34 @@
+﻿
+request_merge_east_indies_decision = {
+	is_shown = {
+		root = c:EOC
+		exists = c:DEI
+	}
+
+	possible = {
+		root = {
+			overlord = {
+				has_subject_relation_with = c:DEI
+			}
+		}
+		custom_tooltip = {
+			text = not_already_requesting_east_indies_unification_tt
+			not = {
+				has_variable =  requesting_east_indies_unification
+			}
+		}
+	}
+
+	when_taken = {
+		overlord = {
+			trigger_event = { id = request_east_indies_unification.1 days = 0 popup = no }
+		}
+		set_variable = requesting_east_indies_unification	
+	}
+
+	#change_infamy = 50
+
+	ai_chance = {
+		base = 0
+	}
+}
