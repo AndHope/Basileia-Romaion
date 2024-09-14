@@ -47,10 +47,28 @@ HRE = {
 		}
 	}
 	flag_definition = {
-		coa = HRE_communist
+		coa = HRE_western_roman_republic_comunism
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = HRE_western_roman_republic_junta
+		priority = 1000
+		trigger = { 
+			coa_def_military_junta_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = HRE_western_roman_republic_french
+		priority = 1100
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+			coa_def_communist_flag_trigger = no
+			scope:actor ?= {
+				has_variable = enbraced_french_identity
+			}			
 		}
 	}
 }

@@ -43,81 +43,23 @@ remove_noble_privileges_decision = {
 	}
 }
 
-remove_boyar_privileges_decision = {
+remove_frankish_as_primary_culture_decision = {
 	is_shown = {
-		has_modifier = br_modifier_boyars
+		root = c:HRE
+		country_has_primary_culture = cu:frankish
 	}
 
 	possible = {
-		NOT = { 
-			has_law = law_type:law_hereditary_bureaucrats
-			has_law = law_type:law_oligarchy
-			has_law = law_type:law_traditionalism 
-		}
-		has_modifier = br_modifier_boyars
+		country_has_primary_culture = cu:frankish
 	}
 
 	when_taken = {
 		
-		remove_modifier = br_modifier_boyars
-
-		add_radicals = {
-			pop_type = clergymen
-			value = medium_radicals
-		}
-
-		add_radicals = {
-			pop_type = aristocrats
-			value = large_radicals
-		}
-
-		ig:ig_landowners = {
-			add_modifier = {
-				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
+		remove_primary_culture = cu:frankish
 
 	}
 
 	ai_chance = {
-		base = 1
-	}
-}
-
-remove_cossack_privileges_decision = {
-	is_shown = {
-		has_modifier = br_modifier_cossacks
-	}
-
-	possible = {
-		NOT = { 
-			has_law = law_type:law_peasant_levies
-			has_law = law_type:law_no_home_affairs
-			has_law = law_type:law_traditionalism 
-		}
-		has_modifier = br_modifier_cossacks
-	}
-
-	when_taken = {
-
-		remove_modifier = br_modifier_cossacks
-
-		add_radicals = {
-			pop_type = clergymen
-			value = medium_radicals
-		}
-
-		add_radicals = {
-			pop_type = farmers
-			value = large_radicals
-		}
-
-	}
-
-	#change_infamy = 50
-
-	ai_chance = {
-		base = 1
+		base = 0.5
 	}
 }
