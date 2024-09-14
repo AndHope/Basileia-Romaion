@@ -63,8 +63,10 @@ religious_party = {
 			triggered_desc = {
 				desc = party_clerical_party
 				trigger = {
-					exists = c:FRA
-					THIS = c:FRA
+					OR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:frankish
+					}
 				}
 			}
 			triggered_desc = {
