@@ -1,0 +1,138 @@
+﻿# UI can obtain a datamodel with all the scripted buttons via "[JournalEntry.GetScriptedButtons]". Each scripted button can be referred to via "ScriptedButton".
+# Scripted buttons' properties can be accessed by UI via
+# - [ScriptedButton.GetName] -> provides a string
+# - [ScriptedButton.GetDesc] -> provides a string
+# - [ScriptedButton.GetEffectDesc] -> provides a string
+# - [ScriptedButton.IsVisible] -> provides a bool
+# - [ScriptedButton.IsPossible] -> provides a bool
+# - [ScriptedButton.ExecuteEffect] -> provides nothing, executes the effect
+
+je_create_germanic_league_button = {
+	name = "je_create_germanic_league_button"
+	desc = "je_create_germanic_league_button_desc"
+
+	#TODO write custom tooltips for the buttons effect
+
+	visible = { always = yes }
+
+	#Country scope
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { bureaucracy > 0 }
+			add = 5
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = germanic_league_not_formed_tt
+			NOT = { has_variable = germanic_league_formed }
+		}
+	}
+
+	effect = {
+
+		set_variable = created_germanic_league #variable for the country that formed the league
+		
+		add_modifier = {
+			name = br_modifier_germanic_league_leader
+			years = -1
+		}
+
+		root = {
+			save_scope_as = league_leader
+		}
+
+		overlord = {
+			create_unidirectional_truce = {
+				country = root
+				months = 60
+			} 
+		}
+
+		custom_tooltip = {
+			text = germanic_league_being_formed_tt
+			every_country = {
+				limit = {
+					country_is_in_europe = yes #every european state gets notefied
+					# NOT = {
+					# 	this = root
+					# }
+				}
+				set_variable = germanic_league_formed
+				if = {
+					limit = { 
+						overlord = c:HRE
+						not = { this = c:HRE }
+				 	}
+					trigger_event = { id = germanic_league_formation.2 popup = yes } #event for League candidates
+				}
+				else = {
+					trigger_event = { id = germanic_league_formation.1 popup = yes } #event for bystanders
+				}
+			}
+		}
+	}
+}
+
+je_invite_members_to_league_button = {
+	name = "je_invite_members_to_league_button"
+	desc = "je_invite_members_to_league_button_desc"
+
+	#TODO write custom tooltips for the buttons effect
+
+	visible = { always = yes }
+
+	#Country scope
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { bureaucracy > 0 }
+			add = 5
+		}
+	}
+
+	possible = {
+		# not = {
+		# 	has_variable = inviting_members_to_league
+		# }
+		has_modifier = br_modifier_germanic_league_leader
+		custom_tooltip = {
+			text = formed_germanic_league_tt
+			has_variable = created_germanic_league
+		}
+	}
+
+	effect = {
+		set_variable = inviting_members_to_league
+		
+		root = {
+			save_scope_as = league_leader
+		}
+
+		# overlord = {
+		# 	create_unidirectional_truce = {  
+		# 		country = root
+		# 		months = 36
+		# 	} 
+		# }
+
+		every_country = {
+			limit = {
+				country_is_in_europe = yes
+				is_subject = yes
+				NOT = { this = root }
+				overlord = c:HRE
+				liberty_desire > 75
+				NOT = {
+					has_diplomatic_pact = {
+						who = scope:league_leader
+						type = support_independence
+					}
+				}
+			}
+			trigger_event = { id = germanic_league_invitation.1 popup = yes }
+		}
+	}
+}

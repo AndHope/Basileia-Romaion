@@ -1,0 +1,128 @@
+﻿je_control_the_lowlands_main = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+	
+	group = je_group_foreign_affairs
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:flemish
+		owns_entire_state_region = STATE_FLANDERS
+		NOT = {
+			has_variable = lowland_expansion_complete
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = control_the_lowlands_progress
+			value = 0
+		}
+	}
+	
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+	
+	on_complete = {
+		change_infamy = -5
+		trigger_event = {
+			id = complete_control_the_lowlands.1
+		}
+	}
+
+	current_value = {
+		value = var:control_the_lowlands_progress
+	}
+
+	goal_add_value = {
+		add = 2
+	}
+	
+	progressbar = yes
+
+	transferable = no
+
+	weight = 5000
+	should_be_pinned_by_default = yes
+}
+
+je_control_the_northern_lowlands = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+	
+	group = je_group_foreign_affairs
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:flemish
+		owns_entire_state_region = STATE_FLANDERS
+		NOT = {
+			has_variable = lowland_expansion_complete
+		}
+		exists = c:NET
+	}
+	
+	complete = {
+		AND = {
+			country_or_subject_owns_entire_state_region = STATE_HOLLAND
+			country_or_subject_owns_entire_state_region = STATE_GELRE
+			country_or_subject_owns_entire_state_region = STATE_FRIESLAND
+		}
+	}
+	
+	on_complete = {
+		custom_tooltip = je_control_the_lowlands_advance
+		change_infamy = -5
+		change_variable = {
+			name = control_the_lowlands_progress
+			add = 1
+		}
+	}
+	
+	transferable = no
+
+	weight = 5000
+}
+
+je_control_the_southern_lowlands = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+	
+	group = je_group_foreign_affairs
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:flemish
+		owns_entire_state_region = STATE_FLANDERS
+		NOT = {
+			OR = {
+				has_variable = lowland_expansion_complete
+				
+				AND = {
+					country_or_subject_owns_entire_state_region = STATE_FRENCH_LOW_COUNTRIES
+					country_or_subject_owns_entire_state_region = STATE_WALLONIA
+				}
+			}
+		}
+	}
+
+	scripted_button = je_request_french_low_countries_button
+	scripted_button = je_request_wallonia_button
+
+	complete = {
+		AND = {
+			country_or_subject_owns_entire_state_region = STATE_FRENCH_LOW_COUNTRIES
+			country_or_subject_owns_entire_state_region = STATE_WALLONIA
+		}
+	}
+	
+	on_complete = {
+		custom_tooltip = je_control_the_lowlands_advance
+		change_infamy = -5
+		change_variable = {
+			name = control_the_lowlands_progress
+			add = 1
+		}
+	}
+	
+	transferable = no
+
+	weight = 5000
+}

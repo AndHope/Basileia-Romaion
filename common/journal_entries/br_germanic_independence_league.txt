@@ -1,0 +1,51 @@
+﻿je_germanic_independence_league_main = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds" #change later
+	
+	group = je_group_foreign_affairs
+	
+	is_shown_when_inactive = {
+		country_is_in_europe = yes
+		is_subject_of = c:HRE
+		NOT = {
+			has_variable = germanic_independence_league_complete
+		}
+	}
+
+	possible = {
+		country_is_in_europe = yes
+	}
+
+	immediate = {
+		# add_modifier = {
+		# 	name = br_modifier_germanic_league
+		# 	years = 75
+		# }
+	}
+
+	scripted_button = je_create_germanic_league_button
+	scripted_button = je_invite_members_to_league_button
+	
+	complete = {
+		custom_tooltip = {
+			text = germanic_league_exists_tt
+			has_variable = germanic_league_formed
+		}
+		NOT = {
+			is_subject_of = c:HRE
+		}
+	}
+	
+	on_complete = {
+		trigger_event = {
+			id = germanic_league_completion.1 #complete custom event
+			popup = yes
+		}
+	}
+
+	#add fail condition
+
+	transferable = no
+
+	weight = 5000
+	should_be_pinned_by_default = yes
+}
