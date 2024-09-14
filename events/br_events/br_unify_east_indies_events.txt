@@ -1,0 +1,110 @@
+﻿namespace = request_east_indies_unification
+
+# Request to unify DEI with EOC
+# Event is for the overlord
+request_east_indies_unification.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = request_east_indies_unification.1.t
+	desc = request_east_indies_unification.1.d
+	flavor = request_east_indies_unification.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	immediate = {
+		
+	}
+
+	# Allow unification
+	option = {
+		name = request_east_indies_unification.1.a
+		default_option = yes
+		c:EOC = {
+			trigger_event = { id = request_east_indies_unification.2 days = 0 popup = yes }
+			annex = c:DEI
+		}
+		ai_chance = {
+			base = 75
+		}
+	}
+	# Refuse unification
+	option = {
+		name = request_east_indies_unification.1.b
+		c:EOC = {
+			trigger_event = { id = request_east_indies_unification.3 days = 0 popup = yes }
+		}
+		show_as_tooltip = {
+			change_relations = {
+				country = c:EOC
+				value = -20
+			}
+		}
+	}
+}
+
+# Unification granted
+request_east_indies_unification.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = request_east_indies_unification.2.t
+	desc = request_east_indies_unification.2.d
+	flavor = request_east_indies_unification.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	option = {
+		name = request_east_indies_unification.2.a
+		default_option = yes
+		# c:EOC = {
+		# 	set_variable = successfully_demanded_state
+		# }
+	}
+}
+
+# Unification refused
+request_east_indies_unification.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = request_east_indies_unification.3.t
+	desc = request_east_indies_unification.3.d
+	flavor = request_east_indies_unification.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	option = {
+		name = request_east_indies_unification.3.a
+		default_option = yes
+		remove_variable = requesting_east_indies_unification
+		change_relations = {
+			country = overlord
+			value = -20
+		}
+	}
+}

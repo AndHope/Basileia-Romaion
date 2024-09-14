@@ -1,0 +1,86 @@
+﻿namespace = germanic_league_invitation
+
+
+# An Offer to join the germanic league
+germanic_league_invitation.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = germanic_league_invitation.1.t
+	desc = germanic_league_invitation.1.d
+	flavor = germanic_league_invitation.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		country_is_in_europe = yes
+		is_subject = yes
+		NOT = { this = scope:league_leader }
+		overlord = c:HRE
+	}
+
+	# Join League
+	option = {
+		name = germanic_league_invitation.1.a
+		default_option = yes
+		this = {
+
+			#give all members who join extra intrests in the hre region otherwise the diplo pact will break
+			add_modifier = {
+				name = br_germanic_league_region_intrests
+				years = 100
+			}
+			add_declared_interest = region_rhine
+			add_declared_interest = region_france
+			add_declared_interest = region_occitania
+			add_declared_interest = region_south_germany
+			add_declared_interest = region_iberia
+
+			#create the support_independence diplo pact with the league leader
+			create_diplomatic_pact = {
+				country = scope:league_leader
+				type = support_independence
+			}
+
+			#set the ai strategy to seak independence
+			set_strategy = ai_strategy_subject_break_free
+			add_modifier = {
+				name = br_germanic_league
+				years = 75
+			}
+
+			#set unidirectional_truce with the overlord so the league has time to prepare
+			overlord = {
+				create_unidirectional_truce = {  
+					country = root
+					months = 36
+				} 
+			}
+		}
+		scope:league_leader = {
+			create_diplomatic_pact = {
+				country = root
+				type = support_independence
+			}
+		}
+		ai_chance = {
+			base = 75
+		}
+	}
+	# Refuse tojoin League
+	option = {
+		name = germanic_league_invitation.1.b
+		change_relations = {
+			country = scope:league_leader
+			value = -50
+		}
+	}
+}

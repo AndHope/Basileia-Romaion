@@ -1,0 +1,156 @@
+﻿namespace = request_lowlands_state
+
+# An Offer for the state
+request_lowlands_state.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = request_lowlands_state.1.t
+	desc = request_lowlands_state.1.d
+	flavor = request_lowlands_state.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	immediate = {
+		set_variable = requesting_state
+	}
+
+	# Give up State
+	option = {
+		name = request_lowlands_state.1.a
+		default_option = yes
+		scope:state_demander = {
+			trigger_event = { id = request_lowlands_state.2 days = 0 popup = yes }
+		}
+		show_as_tooltip = {
+			scope:state_scope = {
+				set_state_owner = scope:state_demander
+			}
+		}
+		ai_chance = {
+			base = 75
+		}
+	}
+	# Refuse to give up state
+	option = {
+		name = request_lowlands_state.1.b
+		scope:state_demander = {
+			trigger_event = { id = request_lowlands_state.3 days = 0 popup = yes }
+		}
+		show_as_tooltip = {
+			change_relations = {
+				country = scope:state_demander
+				value = -20
+			}
+		}
+	}
+}
+
+# Gives up state
+request_lowlands_state.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = request_lowlands_state.2.t
+	desc = request_lowlands_state.2.d
+	flavor = request_lowlands_state.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	option = {
+		name = request_lowlands_state.2.a
+		default_option = yes
+		scope:state_demander = {
+			set_variable = successfully_demanded_state
+		}
+		scope:state_scope = {
+			set_state_owner = root
+		}
+	}
+}
+
+# Refuses to give up state
+request_lowlands_state.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = request_lowlands_state.3.t
+	desc = request_lowlands_state.3.d
+	flavor = request_lowlands_state.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	#Press claim for State
+	option = {
+		name = request_lowlands_state.3.a
+		default_option = yes
+		scope:state_scope = {
+			add_claim = ROOT
+		}
+		change_relations = {
+			country = scope:state_owner
+			value = -50
+		}
+	}
+	#Accept defeat
+	option = {
+		name = request_lowlands_state.3.b
+		default_option = yes
+		change_relations = {
+			country = scope:state_owner
+			value = -20
+		}
+	}
+}
+
+# Control the entire lowlands
+complete_control_the_lowlands.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = complete_control_the_lowlands.1.t
+	desc = complete_control_the_lowlands.1.d
+	flavor = complete_control_the_lowlands.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	option = {
+		name = complete_control_the_lowlands.1.a
+		default_option = yes
+		ai_chance = {
+			base = 1
+		}
+	}
+}
