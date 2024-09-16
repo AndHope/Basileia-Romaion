@@ -7,9 +7,9 @@
 # - [ScriptedButton.IsPossible] -> provides a bool
 # - [ScriptedButton.ExecuteEffect] -> provides nothing, executes the effect
 
-je_create_league_of_electors_button = {
-	name = "je_create_league_of_electors_button"
-	desc = "je_create_league_of_electors_button_desc"
+je_create_princely_league_button = {
+	name = "je_create_princely_league_button"
+	desc = "je_create_princely_league_button_desc"
 
 	#TODO write custom tooltips for the buttons effect
 
@@ -26,17 +26,17 @@ je_create_league_of_electors_button = {
 
 	possible = {
 		custom_tooltip = {
-			text = league_of_electors_not_formed_tt
-			NOT = { has_variable = league_of_electors_formed }
+			text = princely_league_not_formed_tt
+			NOT = { has_variable = princely_league_formed }
 		}
 	}
 
 	effect = {
 
-		set_variable = created_league_of_electors #variable for the country that formed the league
+		set_variable = created_princely_league #variable for the country that formed the league
 		
 		add_modifier = {
-			name = br_modifier_league_of_electors_leader
+			name = br_modifier_princely_league_leader
 			years = -1
 		}
 
@@ -52,7 +52,7 @@ je_create_league_of_electors_button = {
 		}
 
 		custom_tooltip = {
-			text = league_of_electors_being_formed_tt
+			text = princely_league_being_formed_tt
 			every_country = {
 				limit = {
 					country_is_in_europe = yes #every european state gets notefied
@@ -60,16 +60,16 @@ je_create_league_of_electors_button = {
 					# 	this = root
 					# }
 				}
-				set_variable = league_of_electors_formed
+				set_variable = princely_league_formed
 				if = {
 					limit = { 
 						overlord = c:HRE
 						not = { this = c:HRE }
 				 	}
-					trigger_event = { id = league_of_electors_formation.2 popup = yes } #event for League candidates
+					trigger_event = { id = princely_league_formation.2 popup = yes } #event for League candidates
 				}
 				else = {
-					trigger_event = { id = league_of_electors_formation.1 popup = yes } #event for bystanders
+					trigger_event = { id = princely_league_formation.1 popup = yes } #event for bystanders
 				}
 			}
 		}
@@ -97,10 +97,10 @@ je_invite_members_to_league_button = {
 		# not = {
 		# 	has_variable = inviting_members_to_league
 		# }
-		has_modifier = br_modifier_league_of_electors_leader
+		has_modifier = br_modifier_princely_league_leader
 		custom_tooltip = {
-			text = formed_league_of_electors_tt
-			has_variable = created_league_of_electors
+			text = formed_princely_league_tt
+			has_variable = created_princely_league
 		}
 	}
 
@@ -132,7 +132,7 @@ je_invite_members_to_league_button = {
 					}
 				}
 			}
-			trigger_event = { id = league_of_electors_invitation.1 popup = yes }
+			trigger_event = { id = princely_league_invitation.1 popup = yes }
 		}
 	}
 }

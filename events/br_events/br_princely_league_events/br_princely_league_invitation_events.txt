@@ -1,14 +1,14 @@
-﻿namespace = germanic_league_invitation
+﻿namespace = princely_league_invitation
 
 
-# An Offer to join the germanic league
-germanic_league_invitation.1 = {
+# An Offer to join the princely league
+princely_league_invitation.1 = {
 	type = country_event
 	placement = ROOT
 
-	title = germanic_league_invitation.1.t
-	desc = germanic_league_invitation.1.d
-	flavor = germanic_league_invitation.1.f
+	title = princely_league_invitation.1.t
+	desc = princely_league_invitation.1.d
+	flavor = princely_league_invitation.1.f
 
 	duration = 3
 
@@ -29,13 +29,13 @@ germanic_league_invitation.1 = {
 
 	# Join League
 	option = {
-		name = germanic_league_invitation.1.a
+		name = princely_league_invitation.1.a
 		default_option = yes
 		this = {
 
 			#give all members who join extra intrests in the hre region otherwise the diplo pact will break
 			add_modifier = {
-				name = br_germanic_league_region_intrests
+				name = br_modifier_princely_league_region_intrests
 				years = 100
 			}
 			add_declared_interest = region_rhine
@@ -53,7 +53,7 @@ germanic_league_invitation.1 = {
 			#set the ai strategy to seak independence
 			set_strategy = ai_strategy_subject_break_free
 			add_modifier = {
-				name = br_germanic_league
+				name = br_modifier_princely_league
 				years = 75
 			}
 
@@ -77,7 +77,7 @@ germanic_league_invitation.1 = {
 	}
 	# Refuse tojoin League
 	option = {
-		name = germanic_league_invitation.1.b
+		name = princely_league_invitation.1.b
 		change_relations = {
 			country = scope:league_leader
 			value = -50
