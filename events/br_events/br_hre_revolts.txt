@@ -48,13 +48,6 @@ frankish_revolt.1 = {
 			}
 		}
 
-		c:SAR = {
-			remove_diplomatic_pact = {
-				country = c:HRE
-				type = puppet
-			}
-		}
-
 	}
 
 	option = {
@@ -79,14 +72,10 @@ frankish_revolt.1 = {
 
 		}
 
-		create_diplomatic_play = {
-			name = Frankish_Rebellion3
-			war = yes
-			type = dp_annex_subject
-
-			target_state = s:STATE_PIEDMONT.region_state:SAR
-
+		hidden_effect = {
+			change_infamy = -75 #Should equal what is gained from the annex plays
 		}
+
 	
 		ai_chance = {
 			base = 100
@@ -101,8 +90,9 @@ frankish_revolt.1 = {
 			add_primary_culture = cu:frankish
 			add_loyalists = {
 				culture = cu:frankish
-				value = 0.2
+				value = 0.15
 			}
+			
 			remove_modifier = linguistic_discrimination
 			create_diplomatic_pact = {
 				country = c:HES
@@ -110,10 +100,6 @@ frankish_revolt.1 = {
 			}
 			create_diplomatic_pact = {
 				country = c:WUR
-				type = dominion
-			}
-			create_diplomatic_pact = {
-				country = c:SAR
 				type = dominion
 			}
 		}

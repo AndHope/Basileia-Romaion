@@ -51,11 +51,28 @@ remove_frankish_as_primary_culture_decision = {
 
 	possible = {
 		country_has_primary_culture = cu:frankish
+		OR = {
+			has_law = law_type:law_national_supremacy
+			has_law = law_type:law_ethnostate
+		}
 	}
 
 	when_taken = {
-		
 		remove_primary_culture = cu:frankish
+		add_radicals = {
+			culture = cu:frankish
+			value = 0.15
+		}
+		add_modifier = {
+			name = linguistic_discrimination
+			years = -1
+		}
+		hidden_effect = {
+			trigger_event = {
+				id = frankish_revolt.1
+				days = 50
+			}
+		}
 
 	}
 
