@@ -34,15 +34,16 @@ princely_league_invitation.1 = {
 		this = {
 
 			#give all members who join extra intrests in the hre region otherwise the diplo pact will break
-			add_modifier = {
-				name = br_modifier_princely_league_region_intrests
-				years = 100
-			}
-			add_declared_interest = region_rhine
-			add_declared_interest = region_france
-			add_declared_interest = region_occitania
-			add_declared_interest = region_south_germany
-			add_declared_interest = region_iberia
+			# add_modifier = {
+			# 	name = br_modifier_princely_league_region_intrests
+			# 	years = 100
+			# }
+			#declared_interest commented out because it will give an error if they already have an interest
+			# add_declared_interest = region_rhine
+			# add_declared_interest = region_france
+			# add_declared_interest = region_occitania
+			# add_declared_interest = region_south_germany
+			# add_declared_interest = region_iberia
 
 			#create the support_independence diplo pact with the league leader
 			create_diplomatic_pact = {
@@ -52,10 +53,18 @@ princely_league_invitation.1 = {
 
 			#set the ai strategy to seak independence
 			set_strategy = ai_strategy_subject_break_free
-			add_modifier = {
-				name = br_modifier_princely_league
-				years = 75
-			}
+
+			# if = {
+			# 	limit = { 
+			# 		NOT = {
+			# 			has_modifier = { br_modifier_princely_league }
+			# 		}
+			# 	}
+			# 	add_modifier = {
+			# 		name = br_modifier_princely_league
+			# 		years = 75
+			# 	}
+			# }
 
 			#set unidirectional_truce with the overlord so the league has time to prepare
 			overlord = {
