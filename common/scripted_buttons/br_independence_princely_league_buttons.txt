@@ -22,7 +22,7 @@ je_create_princely_league_button = {
 			trigger = {
 				country_rank >= rank_value:major_power
 			}
-			add = 2
+			add = 5
 		}
 	}
 
@@ -90,7 +90,9 @@ je_invite_members_to_league_button = {
 	ai_chance = {
 		base = 0
 		modifier = {
-			trigger = { bureaucracy > 0 }
+			trigger = {
+				c:FLA = { liberty_desire >= 50 }
+			}
 			add = 5
 		}
 	}
