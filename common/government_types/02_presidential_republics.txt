@@ -77,6 +77,15 @@ gov_chartered_company = {
 				country_is_in_europe = no
 			}
 			AND = {
+				exists = c:EOC
+				c:EOC = ROOT
+				is_country_type = colonial
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+			AND = {
 				exists = c:br_new_world_company
 				c:br_new_world_company = ROOT
 				is_country_type = colonial

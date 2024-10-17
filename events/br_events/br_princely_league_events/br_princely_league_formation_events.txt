@@ -1,0 +1,86 @@
+﻿namespace = princely_league_formation
+
+# League formation
+# For All countries
+princely_league_formation.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = princely_league_formation.1.t
+	desc = princely_league_formation.1.d
+	flavor = princely_league_formation.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	option = {
+		name = princely_league_formation.1.a
+		default_option = yes
+		#add effects!!!
+	}
+}
+#For League candidates
+princely_league_formation.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = princely_league_formation.2.t
+	desc = princely_league_formation.2.d
+	flavor = princely_league_formation.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	option = {
+		name = princely_league_formation.2.a
+		default_option = yes
+		add_liberty_desire = 25
+		add_modifier = {
+			name = br_modifier_princely_league
+			years = 100
+		}
+
+		#TODO try to create a anti HRE lobby if the country does not have one already.
+		# every_political_lobby = {
+		# 	limit = { 
+		# 		is_political_lobby_type = lobby_anti_country
+		# 		can_lobbies_target = c:HRE
+		# 	}
+		# 	remove_lobby_member = ig:ig_armed_forces
+		# 	remove_lobby_member = ig:ig_landowners
+		# 	remove_lobby_member = ig:ig_petty_bourgeoisie
+		# }
+		# if = {
+		# 	limit = { 
+		# 		NOT = {
+		# 			any_political_lobby = {
+		# 				is_political_lobby_type = lobby_anti_country
+		# 				can_lobbies_target = c:HRE
+		# 			}
+		# 		}
+		# 	}
+		# create_political_lobby = {
+		# 	type = lobby_anti_country
+		# 	target = c:HRE
+		# 	add_interest_group = ig:ig_armed_forces
+		# 	add_interest_group = ig:ig_landowners
+		# 	add_interest_group = ig:ig_petty_bourgeoisie
+		# }
+		#add effects!!!
+		#}
+	}
+}

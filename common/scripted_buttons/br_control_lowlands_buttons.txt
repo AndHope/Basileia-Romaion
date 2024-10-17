@@ -1,0 +1,132 @@
+﻿# UI can obtain a datamodel with all the scripted buttons via "[JournalEntry.GetScriptedButtons]". Each scripted button can be referred to via "ScriptedButton".
+# Scripted buttons' properties can be accessed by UI via
+# - [ScriptedButton.GetName] -> provides a string
+# - [ScriptedButton.GetDesc] -> provides a string
+# - [ScriptedButton.GetEffectDesc] -> provides a string
+# - [ScriptedButton.IsVisible] -> provides a bool
+# - [ScriptedButton.IsPossible] -> provides a bool
+# - [ScriptedButton.ExecuteEffect] -> provides nothing, executes the effect
+
+je_request_french_low_countries_button = {
+	name = "je_request_french_low_countries"
+	desc = "je_request_french_low_countries_desc"
+
+	visible = { always = yes }
+
+	#Country scope
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				c:FLA = { liberty_desire >= 50 }
+			}
+			add = 5
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = not_already_requesting_french_low_countries_tt
+			not = {
+				has_variable = requesting_french_low_countries
+				# has_state_in_state_region = STATE_FRENCH_LOW_COUNTRIES
+			}
+		}
+	}
+
+	effect = {
+		set_variable = requesting_french_low_countries
+		
+		root = {
+			save_scope_as = state_demander
+		}
+
+		random_state = {
+			limit = {
+				state_region = s:STATE_FRENCH_LOW_COUNTRIES
+				owner = {
+					NOT = {
+						this = c:FLA
+					}
+				}
+			}
+			save_scope_as = state_scope
+			owner = {
+				save_scope_as = state_owner
+				trigger_event = { id = request_lowlands_state.1 popup = yes }
+			}
+		}
+
+		# #owner of Crete loses relations with the invader
+		# change_relations = {
+		# 	country = scope:crete_owner
+		# 	value = -50
+		# }
+
+		# scope:crete_scope = {
+		# 	set_state_owner = root
+		# }
+	}
+}
+
+je_request_wallonia_button = {
+	name = "je_request_wallonia_button"
+	desc = "je_request_wallonia_button_desc"
+
+	visible = { always = yes }
+
+	#Country scope
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				c:FLA = { liberty_desire >= 50 }
+			}
+			add = 5
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = not_already_requesting_wallonia_tt
+			not = {
+				has_variable = requesting_wallonia
+				#  has_state_in_state_region = STATE_WALLONIA
+			}
+		}
+	}
+
+	effect = {
+		set_variable = requesting_wallonia
+		
+		root = {
+			save_scope_as = state_demander
+		}
+
+		random_state = {
+			limit = {
+				state_region = s:STATE_WALLONIA
+				owner = {
+					NOT = {
+						this = c:FLA
+					}
+				}
+			}
+			save_scope_as = state_scope
+			owner = {
+				save_scope_as = state_owner
+				trigger_event = { id = request_lowlands_state.1 popup = yes }
+			}
+		}
+
+		# #owner of Crete loses relations with the invader
+		# change_relations = {
+		# 	country = scope:crete_owner
+		# 	value = -50
+		# }
+
+		# scope:crete_scope = {
+		# 	set_state_owner = root
+		# }
+	}
+}

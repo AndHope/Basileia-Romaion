@@ -62,10 +62,164 @@
 		add_declared_interest = region_england
 		add_declared_interest = region_nile_basin
 		add_declared_interest = region_baltic
-		add_declared_interest = region_south_china
+		#add_declared_interest = region_south_china
 	}
-	c:OCC = {
-	}	
+	#HRE vassals have these intrests so they can support independence
+	#does not work for some reason.
+	# every_country = {
+	# 	limit = {
+	# 		is_subject_of = c:HRE
+	# 		country_is_in_europe = yes
+	# 	}
+	# 	# save_scope_as = region_country
+	# 	#so it does not try to add an intrest in a state it already has one, because than it will give an error
+	# 	if = {
+	# 		limit = {
+	# 			NOT = { has_interest_marker_in_region = region_rhine }
+	# 			# sr:region_rhine = {
+	# 			# 	can_have_declared_interest_here = scope:region_country
+	# 			# }
+	# 		}
+	# 		add_declared_interest = region_rhine
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			NOT = { has_interest_marker_in_region = region_france }
+	# 			# sr:region_rhine = {
+	# 			# 	can_have_declared_interest_here = scope:region_country
+	# 			# }
+	# 		}
+	# 		add_declared_interest = region_france
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			NOT = { has_interest_marker_in_region = region_occitania }
+	# 			# sr:region_rhine = {
+	# 			# 	can_have_declared_interest_here = scope:region_country
+	# 			# }
+	# 		}
+	# 		add_declared_interest = region_occitania
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			NOT = { has_interest_marker_in_region = region_south_germany }
+	# 			# sr:region_rhine = {
+	# 			# 	can_have_declared_interest_here = scope:region_country
+	# 			# }
+	# 		}
+	# 		add_declared_interest = region_south_germany
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			NOT = { has_interest_marker_in_region = region_iberia }
+	# 			# sr:region_rhine = {
+	# 			# 	can_have_declared_interest_here = scope:region_country
+	# 			# }
+	# 		}
+	# 		add_declared_interest = region_iberia
+	# 	}
+	# }
+	#comment out the regions that will cause errors (done mannualy because I could not make the code above work).
+	c:FLA = {	
+		#add_declared_interest = region_rhine
+		#add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		add_declared_interest = region_south_germany
+		add_declared_interest = region_iberia
+	}
+	c:OCC = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		#add_declared_interest = region_occitania
+		add_declared_interest = region_south_germany
+		add_declared_interest = region_iberia
+	}
+	c:br_provence = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		#add_declared_interest = region_occitania
+		add_declared_interest = region_south_germany
+		add_declared_interest = region_iberia
+	}
+	# c:br_lorraine = {	#lorraine does not exist at game start
+	# 	add_declared_interest = region_rhine
+	# 	add_declared_interest = region_france
+	# 	add_declared_interest = region_occitania
+	# 	add_declared_interest = region_south_germany
+	# 	add_declared_interest = region_iberia
+	# }
+	c:BRG = {	
+		add_declared_interest = region_rhine
+		#add_declared_interest = region_france
+		#add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		add_declared_interest = region_iberia
+	}
+	c:HES = {	
+		#add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		#add_declared_interest = region_occitania
+		add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	c:WUR = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	c:BAD = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	c:BAV = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	c:BRI = {	
+		add_declared_interest = region_rhine
+		#add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		add_declared_interest = region_south_germany
+		add_declared_interest = region_iberia
+	}
+	c:SAR = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	c:CAT = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	c:NAV = {	
+		#add_declared_interest = region_rhine
+		#add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	c:CAS = {	
+		add_declared_interest = region_rhine
+		add_declared_interest = region_france
+		add_declared_interest = region_occitania
+		#add_declared_interest = region_south_germany
+		#add_declared_interest = region_iberia
+	}
+	
+
 	c:NET = {
 		add_declared_interest = region_north_germany
 		add_declared_interest = region_england

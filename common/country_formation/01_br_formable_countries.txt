@@ -1,0 +1,29 @@
+﻿BEL = {
+	states = {
+		STATE_HOLLAND
+		STATE_FLANDERS
+		STATE_WALLONIA
+		STATE_FRIESLAND
+		STATE_GELRE
+		STATE_FRENCH_LOW_COUNTRIES
+	}
+
+	required_states_fraction = 0.8
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		NOT = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+			this = c:NET
+		}
+		# has_technology_researched = nationalism
+		# NOR = {
+		# 	c:PRU ?= this
+		# 	c:AUS ?= this
+		# 	c:NGF ?= this
+		# 	c:SGF ?= this
+		# }
+	}
+}
