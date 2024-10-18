@@ -174,3 +174,34 @@ br_mandate_heaven_decision = {
 		base = 99
 	}
 }
+
+
+br_remove_insufficient_infrastructure_decision = {
+	is_shown = {
+		has_modifier = br_modifier_insufficient_infrastructure
+	}
+
+	possible = {
+		has_modifier = br_modifier_insufficient_infrastructure
+		has_technology_researched = paved_roads
+	}
+
+	when_taken = {
+		remove_modifier = br_modifier_insufficient_infrastructure
+
+		add_loyalists = {
+			pop_type = peasants
+			value = large_radicals
+		}
+		add_loyalists = {
+			pop_type = peasants
+			value = large_radicals
+		}
+
+		
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
