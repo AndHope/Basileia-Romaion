@@ -21,6 +21,26 @@
                 }
             }
     }
+    trigger_else_if = {
+        limit = {
+            NOT = {
+                is_country_type = unrecognized
+                is_country_type = recognized
+            }
+        }
+        is_country_type = colonial
+            prestige >= { # Within 85% of prestige of top recognized country
+                add = {
+                    ordered_country = {
+                        order_by = prestige
+                        position = 0
+                        
+                        add = prestige
+                        multiply = 0.15
+                    }
+                }
+            }
+    }
     trigger_else = {
         country_rank >= rank_value:unrecognized_regional_power
         OR = {
@@ -40,25 +60,5 @@
                 }
             }
         }
-    }
-    trigger_else = {
-        limit = {
-            NOT = {
-                is_country_type = unrecognized
-                is_country_type = recognized
-            }
-        }
-        is_country_type = colonial
-            prestige >= { # Within 85% of prestige of top recognized country
-                add = {
-                    ordered_country = {
-                        order_by = prestige
-                        position = 0
-                        
-                        add = prestige
-                        multiply = 0.15
-                    }
-                }
-            }
     }
 }
