@@ -255,6 +255,13 @@ atmospheric_engine = {
 
 		if = {
 			limit = {
+				country_rank >= rank_value:unrecognized_major_power
+			}
+			add = 2
+		}
+
+		if = {
+			limit = {
 				OR = {
 					 has_strategy = ai_strategy_industrial_expansion
 					 has_strategy = ai_strategy_resource_expansion
@@ -285,6 +292,13 @@ railways = {
 
 	ai_weight = {
 		value = 2 # Important tech for everyone
+
+		if = {
+			limit = {
+				country_rank >= rank_value:unrecognized_major_power
+			}
+			add = 2
+		}
 
 		if = {
 			limit = {
