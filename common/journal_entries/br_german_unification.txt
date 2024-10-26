@@ -113,15 +113,15 @@ je_german_unification_idea = {
 
 	is_shown_when_inactive = {
 		OR = {
-			country_has_primary_culture = cu:saxon
-			country_has_primary_culture = cu:baltic_german
+			country_has_a_north_german_primary_culture = yes
+			country_has_a_south_german_primary_culture = yes
 		}
 	}
 
 	possible = {
 		OR = {
-			country_has_primary_culture = cu:saxon
-			country_has_primary_culture = cu:baltic_german
+			country_has_a_north_german_primary_culture = yes
+			country_has_a_south_german_primary_culture = yes
 		}	
 	}
  
@@ -314,7 +314,7 @@ je_german_unification_idea = {
 		}	
 		
 		hidden_effect = { set_variable = je_german_unification_idea }
-		#trigger_event = { id = german_unification.5 } # German National Identity #TODO
+		trigger_event = { id = br_german_unification.5 } # German National Identity
 	}
 
 	status_desc = {
@@ -329,61 +329,61 @@ je_german_unification_idea = {
 	should_be_pinned_by_default = yes
 }
 
-# je_north_german_unification = {
-# 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+je_north_german_unification = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
-# 	group = je_group_historical_content
+	group = je_group_historical_content
 	
-# 	complete = {
-# 		custom_tooltip = {
-# 			has_global_variable = pomerania_question_solved
-# 			text = je_pomerania_question_solved_trigger_desc
-# 		}
-# 		hidden_trigger = {
-# 			has_variable = je_unification_progress
-# 		}	
-# 		has_technology_researched = nationalism
-# 		is_unification_candidate = GER
-# 		custom_tooltip = {
-# 			text = je_german_unification_sole_candidate_trigger_desc
-# 			NOT = {
-# 				any_country = {
-# 					NOT = { this = root }				
-# 					is_unification_candidate = GER
-# 				}
-# 			}	
-# 		}				
-# 	}
+	complete = {
+		custom_tooltip = {
+			has_global_variable = pomerania_question_solved
+			text = je_pomerania_question_solved_trigger_desc
+		}
+		hidden_trigger = {
+			has_variable = je_unification_progress
+		}	
+		has_technology_researched = nationalism
+		is_unification_candidate = GER
+		custom_tooltip = {
+			text = je_german_unification_sole_candidate_trigger_desc #loc form vanilla
+			NOT = {
+				any_country = {
+					NOT = { this = root }				
+					is_unification_candidate = GER
+				}
+			}	
+		}				
+	}
 
-# 	on_monthly_pulse = {
-# 		events = {
-# 			german_unification.3 # Bismarck
-# 		}
+	on_monthly_pulse = {
+		# events = {
+		# 	german_unification.3 # Bismarck
+		# }
 	
-# 		effect = {
-# 			if = { 
-# 				limit = { NOT = { has_variable = je_unification_progress } } 
-# 				set_variable = je_unification_progress
-# 			}
-# 		}	
-# 	}
+		effect = {
+			if = { 
+				limit = { NOT = { has_variable = je_unification_progress } } 
+				set_variable = je_unification_progress
+			}
+		}	
+	}
 
-# 	on_complete = {
-# 		trigger_event = { id = german_unification.1 } # North German Confederation
-# 		remove_variable = je_unification_progress
-# 	}
+	on_complete = {
+		trigger_event = { id = br_german_unification.1 } # North German Confederation
+		remove_variable = je_unification_progress
+	}
 
-# 	status_desc = {
-# 		first_valid = {
-# 			triggered_desc = { 
-# 				desc = je_north_german_status
-# 			}
-# 		}
-# 	}
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_north_german_status
+			}
+		}
+	}
 
-# 	weight = 1000
-# 	should_be_pinned_by_default = yes
-# }
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
 
 # je_south_german_unification = {
 # 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
@@ -401,7 +401,7 @@ je_german_unification_idea = {
 # 		has_technology_researched = nationalism
 # 		is_unification_candidate = GER
 # 		custom_tooltip = {
-# 			text = je_german_unification_sole_candidate_trigger_desc
+# 			text = je_german_unification_sole_candidate_trigger_desc #loc form vanilla
 # 			NOT = {
 # 				any_country = {
 # 					NOT = { this = root }				

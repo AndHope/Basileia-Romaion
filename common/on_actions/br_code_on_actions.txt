@@ -10,6 +10,9 @@ on_law_checkpoint_debate = {
 }
 
 on_monthly_pulse_country = {
+	events = {
+		new_homelands.1
+	}
 	on_actions = {
 		romaioi_monthly_pulse
 		chariot_racing_pulse_1
@@ -17,11 +20,11 @@ on_monthly_pulse_country = {
 	}
 }
 
-on_monthly_pulse_country = {
-	events = {
-		new_homelands.1
-	}
-}
+# on_monthly_pulse_country = {
+# 	events = {
+# 		new_homelands.1
+# 	}
+# }
 
 romaioi_monthly_pulse = {
 	trigger = {
@@ -88,6 +91,13 @@ chariot_racing_pulse_2 = {
 		 5 = chariot_racing.57 # sporting riot
 		 5 = chariot_racing.58 # ruler tries to join race
 		 1 = chariot_racing.59 # team gets caught cheating
+	}
+}
+
+on_yearly_pulse_country = {
+	on_actions = { # delay ensures events won't fire simultaneously
+		yearly_add_modifiers
+		delay = { days = 1 }
 	}
 }
 
