@@ -20,3 +20,63 @@
 		}
 	}
 }
+SWI = {
+	states = {
+		STATE_EAST_SWITZERLAND
+		STATE_WEST_SWITZERLAND
+
+		# STATE_BURGUNDY
+		# STATE_FRANCHE_COMTE
+		# STATE_RHONE
+		# STATE_PROVENCE
+		# STATE_SAVOY
+		# STATE_WEST_SWITZERLAND
+
+		# STATE_PIEDMONT
+		# STATE_LOMBARDY
+		# STATE_VENETIA
+		# STATE_TYROL
+		# STATE_SOUTH_TYROL
+		# STATE_BADEN
+		# STATE_WURTTEMBERG
+		# STATE_ALSACE_LORRAINE
+		# STATE_LORRAINE
+		# STATE_BAVARIA
+		# STATE_AUSTRIA
+		# STATE_STYRIA
+		# STATE_ISTRIA
+		# STATE_SLOVENIA
+
+	}
+
+	required_states_fraction = 0.8
+	
+	ai_will_do = { always = no }
+
+	possible = {
+		NOT = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+			country_has_primary_culture = cu:frankish #to prevent the german frankish states from forming it	
+		}
+	}
+}
+br_arelat = {
+	states = {
+		STATE_BURGUNDY
+		STATE_FRANCHE_COMTE
+		STATE_RHONE
+		STATE_PROVENCE
+		STATE_SAVOY
+		STATE_WEST_SWITZERLAND
+	}
+
+	possible = {
+		this = c:BUR
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+
+}
