@@ -1,4 +1,20 @@
 ﻿AI = {
+	# Default AI subject starting strategy depends on LD
+	every_country = {
+		limit = { is_subject = yes }
+		if = {
+			limit = { liberty_desire >= 60 }
+			set_strategy = ai_strategy_subject_strengthen_self
+		}
+		else_if = {
+			limit = { liberty_desire <= 20 }
+			set_strategy = ai_strategy_subject_overlord_compliance
+		}
+		else = {
+			set_strategy = ai_strategy_subject_maintain_autonomy
+		}
+	}
+
 	c:BYZ ?= {
 		random_list = {	
 			50 = { set_strategy = ai_strategy_industrial_expansion }
@@ -120,7 +136,7 @@
 			50 = { set_strategy = ai_strategy_progressive_agenda }
 		}
 	}
-	c:br_tartaria = {
+	c:br_tartaria ?= {
 		random_list = {	
 			55 = { set_strategy = ai_strategy_agricultural_expansion }
 			35 = { set_strategy = ai_strategy_placate_population }
