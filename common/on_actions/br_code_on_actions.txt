@@ -143,3 +143,80 @@ br_ig_on_action = {
 	}
 }
 
+br_oa_var_debug_silencer = { #oa is on action
+	trigger = {
+		##BR variables
+		has_variable = is_byz_gen1
+		has_variable = is_byz_gen2
+		has_variable = is_byz_gen3
+		has_variable = br_balkan_warcrime_victim
+		has_variable = br_side_rus_progress_var
+		has_variable = br_irish_has_english_migration_variable
+		# has_variable = br_requesting_state
+		has_variable = br_successfully_demanded_state
+		has_variable = br_enbraced_roman_identity_var
+		has_variable = completed_palaiologos_reforms_navy_je
+
+		##Vanilla variables
+		has_variable = sino_japanese_war
+		has_variable = haiti_stops_paying_france_aggressor
+		has_variable = haiti_stops_paying_france_target
+		has_variable = positivism_happened
+	}
+	effect = {
+		##BR variables
+		set_local_variable = br_already_has_irish_migration_variable
+		set_local_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
+
+		##Vanilla variables
+		set_local_variable = owned_by_pan_nationalist_radicals
+		set_local_variable = sulistas_integrated
+		set_local_variable = fra_republic_counter
+		set_local_variable = china_warlord_explosion
+		set_local_variable = national_identity_progress_var
+		set_local_variable = national_liberation_alliance_variable
+		set_local_variable = caudillo_communist
+		set_local_variable = caudillo_conservative
+		set_local_variable = caudillo_fascist
+		set_local_variable = caudillo_liberal
+		set_local_variable = francocracia_paraguay_var
+		set_local_variable = patino_paraguay_var
+		set_local_variable = district_of_columbia
+		set_local_variable = greater_commonwealth_var
+		set_local_variable = rsm_friendship
+		set_local_variable = risorgimento_anti_unifying_stance
+		set_local_variable = algeria_constantine_var
+		set_local_variable = algeria_mascara_var
+		set_local_variable = algeria_ait_abbas_var
+		set_local_variable = algeria_touggourt_var
+		set_local_variable = garibaldi_is_alive_global_var
+		set_local_variable = john_frost_var
+		set_local_variable = is_pedro
+		set_local_variable = bismarck_variable
+		set_local_variable = je_amazonas_complete_variable
+		set_local_variable = cant_touch_this_achievement_possible
+		set_local_variable = risorgimento_unifying_stance
+		set_local_variable = ismail_var
+		set_local_variable = hawduqo_var
+		set_local_variable = east_indies_revolt_var
+		set_local_variable = labour_movement_researched
+	}
+}
+
+br_oa_event_debug_silencer = {
+	effect = {
+		#BR events should best be orphaned manually (orphan = yes #not yet in use) in the event it self, 
+		#that way an error is given when the event is eventualy used and then it can be deorphaned.
+		#example: (poland.5 is scripted as an orphan, but has callers)
+
+		##Vanilla events which are orphaned by overwriting vanilla code, they are triggered here to prevent an orphan error
+		trigger_event = { id = greece.1 }
+		trigger_event = { id = greece.2 }
+		trigger_event = { id = native_resettlement.1 }
+		trigger_event = { id = sick_man.1 }
+		trigger_event = { id = acw_events.9 }
+		trigger_event = { id = caucasuswar.5 }
+		trigger_event = { id = kazakhstan_events.2 }
+		trigger_event = { id = persia_events.5 }
+	}
+}

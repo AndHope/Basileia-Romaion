@@ -10,7 +10,7 @@
 			is_subject_of = c:HRE
 		}
 		NOT = {
-			has_variable = princely_league_complete
+			has_global_variable = princely_league_complete
 		}
 	}
 
@@ -42,6 +42,11 @@
 		trigger_event = {
 			id = princely_league_completion.1 #complete custom event
 			popup = yes
+		}
+		hidden_effect = {
+			set_global_variable = {
+				name = princely_league_complete
+			}
 		}
 	}
 

@@ -20,7 +20,7 @@ request_lowlands_state.1 = {
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 
 	immediate = {
-		set_variable = requesting_state
+		set_variable = br_requesting_state
 	}
 
 	# Give up State
@@ -83,10 +83,13 @@ request_lowlands_state.2 = {
 		name = request_lowlands_state.2.a
 		default_option = yes
 		scope:state_demander = {
-			set_variable = successfully_demanded_state
+			set_variable = br_successfully_demanded_state
 		}
 		scope:state_scope = {
 			set_state_owner = root
+		}
+		hidden_effect = {
+			remove_variable = br_requesting_state
 		}
 	}
 }
@@ -121,6 +124,9 @@ request_lowlands_state.3 = {
 			country = scope:state_owner
 			value = -50
 		}
+		hidden_effect = {
+			remove_variable = br_requesting_state
+		}
 	}
 	#Accept defeat
 	option = {
@@ -129,6 +135,9 @@ request_lowlands_state.3 = {
 		change_relations = {
 			country = scope:state_owner
 			value = -20
+		}
+		hidden_effect = {
+			remove_variable = br_requesting_state
 		}
 	}
 }
