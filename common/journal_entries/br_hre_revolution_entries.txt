@@ -29,7 +29,7 @@ je_the_revolution = {
 	complete = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = revolution_complete
+			has_variable = br_revolution_complete_var
 		}
 	}
 
@@ -40,7 +40,7 @@ je_the_revolution = {
 		# }
 
 		# hidden_effect = {
-		# 	set_variable = revolution_complete
+		# 	set_variable = br_revolution_complete_var
 		# }
 		add_journal_entry = {
 			type = je_national_identity
@@ -52,14 +52,14 @@ je_the_revolution = {
 			has_law = law_type:law_presidential_republic
 			custom_tooltip = {
 				text = if_journal_timeout_tt
-				has_variable = revolution_timeout #var that does not exit so that the condition is not checked
+				has_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
 			}
 		}
 	}
 	
 	on_fail = {
 		# hidden_effect = {
-		# 	set_variable = revolution_complete #done in the event now
+		# 	set_variable = br_revolution_complete_var #done in the event now
 		# }
 		trigger_event = { id = hre_revolution_events.2 }
 
@@ -87,7 +87,7 @@ je_the_revolution = {
 	#on_timeout the revolution happens
 	on_timeout = {
 		# hidden_effect = {
-		# 	set_variable = revolution_complete
+		# 	set_variable = br_revolution_complete_var
 		# }
 		trigger_event = { id = hre_revolution_events.2 }
 
@@ -144,7 +144,7 @@ je_revolution_reform = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = revolution_complete
+			has_variable = br_revolution_complete_var
 		}
 	}
 
@@ -195,7 +195,7 @@ je_revolution_suppress = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = revolution_complete
+			has_variable = br_revolution_complete_var
 		}
 	}
 
