@@ -207,7 +207,12 @@ GER = { # Germany
 		
 		trigger = {
 			coa_def_north_german_state_trigger = yes
-			# has_variable = br_saxon_state
+			scope:actor = {
+				or = {
+					has_variable = br_saxon_state
+					has_variable = br_baltic_german_state
+				}
+			}
 		}
 	}
 
@@ -221,11 +226,13 @@ GER = { # Germany
 		
 		trigger = {
 			coa_def_south_german_state_trigger = yes
-			has_variable = br_bavarian_state
+			scope:actor = {
+				has_variable = br_bavarian_state
+			}
 		}
 	}
 	dynamic_country_name = {
-		name = dyn_c_allemania_germany_name
+		name = dyn_c_alemannia_germany_name
 		adjective = GER_ADJ
 		
 		is_main_tag_only = yes
@@ -233,7 +240,9 @@ GER = { # Germany
 		
 		trigger = {
 			coa_def_south_german_state_trigger = yes
-			has_variable = br_alemannic_state
+			scope:actor = {
+				has_variable = br_alemannic_state
+			}
 		}
 	}
 	dynamic_country_name = {
@@ -245,7 +254,9 @@ GER = { # Germany
 		
 		trigger = {
 			coa_def_south_german_state_trigger = yes
-			has_variable = br_frankish_state
+			scope:actor = {
+				has_variable = br_frankish_state
+			}
 		}
 	}
 }
