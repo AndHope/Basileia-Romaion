@@ -1,0 +1,77 @@
+﻿#            | existing country | releasing a country | country formation |
+# |==========|==================|=====================|===================|
+# |root      | definition       | definition          | definition        |
+# |----------|------------------|---------------------|-------------------|
+# |target    | country          | N/A                 | N/A               |
+# |----------|------------------|---------------------|-------------------|
+# |initiator | N/A              | player              | player            |
+# |----------|------------------|---------------------|-------------------|
+# |actor     | country          | player              | player            |
+# |----------|------------------|---------------------|-------------------|
+# |          | country's        |                     | player's          |
+# |overlord  | direct overlord  | player              | direct overlord   |
+# |          | if it exists     |                     | if it exists      |
+# |----------|------------------|---------------------|-------------------|
+
+### scope is COUNTRY ###
+
+#example
+# coa_monarchy_trigger = {
+# 	OR = {
+# 		has_law = law_type:law_chiefdom
+# 		has_law = law_type:law_monarchy
+# 	}
+# }
+
+
+### scope is COUNTRY DEFINITION ###
+
+#example
+# coa_def_independent_trigger = {
+# 	exists = scope:actor
+# 	scope:actor ?= { is_subject = no }
+# }
+
+
+# Government
+
+#example
+# coa_def_monarchy_flag_trigger = {
+# 	exists = scope:actor
+# 	scope:actor ?= { coa_monarchy_trigger = yes }
+# }
+
+
+# Overlord
+
+#example
+# coa_def_ensign_trigger = {
+# 	NOT = { has_game_rule = no_subject_flags }
+# 	exists = scope:overlord
+# 	scope:overlord ?= {
+# 		OR = {
+# 			this = scope:custom_overlord
+# 			any_overlord_or_above ?= {
+# 				this = scope:custom_overlord
+# 			} 
+# 		}
+# 	}
+# }
+
+
+# Cultural
+
+#example
+# coa_def_african_trigger = {
+#     any_primary_culture = {
+#         has_discrimination_trait = african_heritage
+#     }
+# }
+
+coa_def_north_german_state_trigger = {
+    has_variable = br_north_german_state
+}
+
+coa_def_south_german_state_trigger = {
+    has_variable = br_south_german_state
+}
