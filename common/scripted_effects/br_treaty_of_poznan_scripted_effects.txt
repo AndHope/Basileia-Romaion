@@ -1,0 +1,164 @@
+﻿enforce_treaty_of_poznan = {
+	if = {
+		limit = {
+			has_global_variable = br_request_poznan_global_var
+		}
+		if = {
+			limit = {
+				exists = c:LUX
+			}
+			c:BEL = {
+				annex = c:LUX
+			}
+		}
+		if = {
+			limit = {
+				c:NET = {
+					any_scope_state = {
+						state_region = s:STATE_WALLONIA
+					}
+				}
+			}
+			c:NET = {
+				random_scope_state = {
+					limit = {
+						state_region = s:STATE_WALLONIA
+					}
+					set_state_owner = c:BEL
+				}
+			}
+		}
+		c:BEL = {
+			take_on_scaled_debt = {
+				who = c:NET
+				value = c:NET.scaled_debt
+			}	
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_variable = br_request_pomorze_global_var
+		}
+		if = {
+			limit = {
+				exists = c:LUX
+			}
+			s:STATE_WALLONIA = {
+				set_owner_of_provinces = {
+					country = c:LUX
+					provinces = {
+						x5180a0 x3a5fb9
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					exists = c:LUX
+				}
+			}
+			s:STATE_WALLONIA = {
+				set_owner_of_provinces = {
+					country = c:NET
+					provinces = {
+						x5180a0 x3a5fb9
+					}
+				}
+			}		
+		}
+		s:STATE_FLANDERS = {
+			set_owner_of_provinces = {
+				country = c:NET
+				provinces = {
+					x808061
+				}
+			}
+		}
+		if = {
+			limit = {
+				c:BEL = {
+					any_scope_state = {
+						state_region = s:STATE_GELRE
+					}
+				}
+			}
+			c:BEL = {
+				random_scope_state = {
+					limit = {
+						state_region = s:STATE_GELRE
+					}
+					set_state_owner = c:NET
+				}
+			}
+		}
+		c:NET = {
+			take_on_scaled_debt = {
+				who = c:BEL
+				value = c:BEL.scaled_debt
+			}	
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_variable = br_fate_of_prussia_global_var
+		}
+		s:STATE_WALLONIA = {
+			set_owner_of_provinces = {
+				country = c:LUX
+				provinces = {
+					x5180a0
+				}
+			}
+		}
+		create_country = {  
+			tag = LIM
+			origin = c:NET
+			state = s:STATE_GELRE.region_state:BEL
+			on_created = {
+				c:NET = {
+					create_diplomatic_pact = {
+						country = prev
+						type = personal_union
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_variable = br_counter_offer_global_var
+		}
+		if = {
+			limit = {
+				exists = c:LUX
+			}
+			s:STATE_WALLONIA = {
+				set_owner_of_provinces = {
+					country = c:LUX
+					provinces = {
+						x5180a0 x3a5fb9
+					}
+				}
+			}
+		}
+		else = {
+			s:STATE_WALLONIA = {
+				set_owner_of_provinces = {
+					country = c:NET
+					provinces = {
+						x5180a0 x3a5fb9
+					}
+				}
+			}
+		}
+	}
+}
+br_remove_prussian_fate_variables_scripted_effect = {
+	remove_variable = br_propose_independence_of_prussia_var
+	remove_variable = br_propose_plc_subjugation_of_prussia_var
+	remove_variable = br_propose_ngf_subjugation_of_prussia_var
+	remove_variable = br_propose_plc_annexation_of_prussia_var
+	remove_variable = br_propose_ngf_annexation_of_prussia_var
+	# remove_variable = br_propose_prussian_annexation_of_memel_var #this one is not removed because it is not mutualy exclusive with the others
+}

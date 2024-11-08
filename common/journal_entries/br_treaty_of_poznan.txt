@@ -1,0 +1,396 @@
+﻿br_je_conference_of_poznan = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_historical_content
+
+	scripted_button = br_request_poznan_button
+    scripted_button = br_request_pomorze_button
+    scripted_button = br_fate_of_prussia_button
+    scripted_button = br_counter_offer_button
+    scripted_button = poznan_conference_approve_button
+    scripted_button = poznan_conference_disapprove_button
+
+	is_shown_when_inactive = {
+		OR = {
+			country_has_primary_culture = cu:saxon
+			country_has_primary_culture = cu:baltic_german
+		}
+	}
+
+	possible = {	
+		c:NGF ?= this
+		OR = {
+			country_has_primary_culture = cu:saxon
+			country_has_primary_culture = cu:baltic_german
+		}
+	}
+
+	immediate = {
+		c:NGF ?= {
+			save_scope_as = br_north_german_federation_scope
+		}
+		c:PLC ?= {
+			save_scope_as = br_commonwealth_scope
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_poznan_proposal_1
+				}
+			}
+			set_global_variable = {
+				name = br_je_conference_of_poznan_proposal_1
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_poznan_proposal_2
+				}
+			}	
+			set_global_variable = {
+				name = br_je_conference_of_poznan_proposal_2
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_poznan_proposal_3
+				}
+			}
+			set_global_variable = {
+				name = br_je_conference_of_poznan_proposal_3
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_poznan_proposal_4
+				}
+			}
+			set_global_variable = {
+				name = br_je_conference_of_poznan_proposal_4
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_poznan_timer
+				}
+			}
+			set_global_variable = {
+				name = br_je_conference_of_poznan_timer
+				value = 6 #months
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = br_je_conference_of_poznan_tt_1
+			has_global_variable = br_poznan_treaty_has_concluded_global_var
+
+		}
+		custom_tooltip = {
+			text = br_je_conference_of_poznan_tt_2
+			has_global_variable = br_poznan_treaty_signed_plc_global_var
+		}
+		custom_tooltip = {
+			text = br_je_conference_of_poznan_tt_4
+			has_global_variable = br_poznan_treaty_signed_ngf_global_var
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = treaty_of_poznan_events.4 popup = yes }
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = br_je_conference_of_poznan_tt_3
+				OR = {
+					has_global_variable = br_poznan_treaty_not_signed_ngf_global_var
+					has_global_variable = br_poznan_treaty_not_signed_plc_global_var
+				}
+			}
+			custom_tooltip = {
+				text = br_je_conference_of_poznan_tt_5
+				c:NGF = {
+					has_war_with = c:PLC
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		# trigger_event = { id = treaty_of_poznan_events.5 popup = yes }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = { # Only one country can actually modify this, or the congress will end after one month
+					c:NGF ?= this
+					global_var:br_je_conference_of_poznan_timer >= 1
+				}
+				change_global_variable = {
+					name = br_je_conference_of_poznan_timer
+					add = -1
+				}
+			}
+			if = { #if the timer runs out, give the chance to extend the deadline ones
+				limit = { # Only one country can actually modify this, or the congress will end after one month
+					c:NGF ?= this
+					global_var:br_je_conference_of_poznan_timer <= 0
+				}
+				trigger_event = { id = treaty_of_poznan_events.6 popup = yes }
+			}
+			if = { #if the treaty is over
+				limit = {
+					c:NGF ?= this
+					global_var:br_je_conference_of_poznan_timer <= 0
+				}
+				#then tally the score
+				if = {
+					limit = {
+						NOT = {
+							has_global_variable = br_poznan_treaty_has_concluded_global_var
+						}
+					}
+					set_global_variable = br_poznan_treaty_has_concluded_global_var
+				}
+				if = {
+					limit = {
+						NOR = {
+							has_global_variable = br_request_poznan_global_var
+							has_global_variable = br_request_pomorze_global_var
+							has_global_variable = br_fate_of_prussia_global_var
+							has_global_variable = br_counter_offer_global_var
+						}
+					}
+					# Clear winners
+					if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_2
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_3
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_4
+						}
+						set_global_variable = br_request_poznan_global_var
+					}
+					else_if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_2 > global_var:br_je_conference_of_poznan_proposal_1
+							global_var:br_je_conference_of_poznan_proposal_2 > global_var:br_je_conference_of_poznan_proposal_3
+							global_var:br_je_conference_of_poznan_proposal_2 > global_var:br_je_conference_of_poznan_proposal_4
+						}
+						set_global_variable = br_request_pomorze_global_var
+					}
+					else_if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_3 > global_var:br_je_conference_of_poznan_proposal_1
+							global_var:br_je_conference_of_poznan_proposal_3 > global_var:br_je_conference_of_poznan_proposal_2
+							global_var:br_je_conference_of_poznan_proposal_3 > global_var:br_je_conference_of_poznan_proposal_4
+						}
+						set_global_variable = br_fate_of_prussia_global_var
+					}
+					else_if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_4 > global_var:br_je_conference_of_poznan_proposal_2
+							global_var:br_je_conference_of_poznan_proposal_4 > global_var:br_je_conference_of_poznan_proposal_3
+							global_var:br_je_conference_of_poznan_proposal_4 > global_var:br_je_conference_of_poznan_proposal_1
+						}
+						set_global_variable = br_counter_offer_global_var
+					}
+					# Tiebreakers
+					if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_1 = global_var:br_je_conference_of_poznan_proposal_2
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_3
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_4
+						}
+						ordered_country = {
+							limit = {
+							    has_journal_entry = br_je_conference_of_poznan
+							    OR = {
+							    	has_variable = br_request_poznan_button_var # proposal 1
+							    	has_variable = br_request_pomorze_button_var #proposal 2
+							    }
+							}
+						    order_by = country_rank
+						    if = {
+						        limit = {
+						            has_variable = br_request_poznan_button_var
+						        }
+						        set_global_variable = br_request_poznan_global_var
+						    }
+						    else_if = {
+						        limit = {
+						            has_variable = br_request_pomorze_button_var
+						        }
+						        set_global_variable = br_request_pomorze_global_var
+						    }
+						}
+					}
+					if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_1 = global_var:br_je_conference_of_poznan_proposal_3
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_2
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_4
+						}
+						ordered_country = {
+							limit = {
+							    has_journal_entry = br_je_conference_of_poznan
+							    OR = {
+							    	has_variable = br_request_poznan_button_var # proposal 1
+							    	has_variable = br_fate_of_prussia_button_var # proposal 3
+							    }
+							}
+						    order_by = country_rank
+						    if = {
+						        limit = {
+						            has_variable = br_request_poznan_button_var
+						        }
+						        set_global_variable = br_request_poznan_global_var
+						    }
+						    else_if = {
+						        limit = {
+						            has_variable = br_fate_of_prussia_button_var
+						        }
+						        set_global_variable = br_fate_of_prussia_global_var
+						    }
+						}
+					}
+					if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_1 = global_var:br_je_conference_of_poznan_proposal_4
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_2
+							global_var:br_je_conference_of_poznan_proposal_1 > global_var:br_je_conference_of_poznan_proposal_3
+						}
+						ordered_country = {
+							limit = {
+							    has_journal_entry = br_je_conference_of_poznan
+							    OR = {
+							    	has_variable = br_request_poznan_button_var # proposal 1
+							    	has_variable = br_counter_offer_button_var # proposal 4
+							    }
+							}
+						    order_by = country_rank
+						    if = {
+						        limit = {
+						            has_variable = br_request_poznan_button_var
+						        }
+						        set_global_variable = br_request_poznan_global_var
+						    }
+						    else_if = {
+						        limit = {
+						            has_variable = br_counter_offer_button_var
+						        }
+						        set_global_variable = br_counter_offer_global_var
+						    }
+						}
+					}
+					if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_2 = global_var:br_je_conference_of_poznan_proposal_4
+							global_var:br_je_conference_of_poznan_proposal_2 > global_var:br_je_conference_of_poznan_proposal_3
+							global_var:br_je_conference_of_poznan_proposal_2 > global_var:br_je_conference_of_poznan_proposal_1
+						}
+						ordered_country = {
+							limit = {
+							    has_journal_entry = br_je_conference_of_poznan
+							    OR = {
+							    	has_variable = br_request_pomorze_button_var # proposal 2
+							    	has_variable = br_counter_offer_button_var # proposal 4
+							    }
+							}
+						    order_by = country_rank
+						    if = {
+						        limit = {
+						            has_variable = br_request_pomorze_button_var
+						        }
+						        set_global_variable = br_request_pomorze_global_var
+						    }
+						    else_if = {
+						        limit = {
+						            has_variable = br_counter_offer_button_var
+						        }
+						        set_global_variable = br_counter_offer_global_var
+						    }
+						}
+					}
+					if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_2 = global_var:br_je_conference_of_poznan_proposal_3
+							global_var:br_je_conference_of_poznan_proposal_2 > global_var:br_je_conference_of_poznan_proposal_4
+							global_var:br_je_conference_of_poznan_proposal_2 > global_var:br_je_conference_of_poznan_proposal_1
+						}
+						ordered_country = {
+							limit = {
+							    has_journal_entry = br_je_conference_of_poznan
+							    OR = {
+							    	has_variable = br_request_pomorze_button_var # proposal 2
+							    	has_variable = br_fate_of_prussia_button_var # proposal 3
+							    }
+							}
+						    order_by = country_rank
+						    if = {
+						        limit = {
+						            has_variable = br_request_pomorze_button_var
+						        }
+						        set_global_variable = br_request_pomorze_global_var
+						    }
+						    else_if = {
+						        limit = {
+						            has_variable = br_fate_of_prussia_button_var
+						        }
+						        set_global_variable = br_fate_of_prussia_global_var
+						    }
+						}
+					}
+					if = {
+						limit = {
+							global_var:br_je_conference_of_poznan_proposal_3 = global_var:br_je_conference_of_poznan_proposal_4
+							global_var:br_je_conference_of_poznan_proposal_3 > global_var:br_je_conference_of_poznan_proposal_2
+							global_var:br_je_conference_of_poznan_proposal_3 > global_var:br_je_conference_of_poznan_proposal_1
+						}
+						ordered_country = {
+							limit = {
+							    has_journal_entry = br_je_conference_of_poznan
+							    OR = {
+							    	has_variable = br_request_pomorze_button_var # proposal 3
+							    	has_variable = br_counter_offer_button_var # proposal 4
+							    }
+							}
+						    order_by = country_rank
+						    if = {
+						        limit = {
+						            has_variable = br_fate_of_prussia_button_var
+						        }
+						        set_global_variable = br_fate_of_prussia_global_var
+						    }
+						    else_if = {
+						        limit = {
+						            has_variable = br_counter_offer_button_var
+						        }
+						        set_global_variable = br_counter_offer_global_var
+						    }
+						}
+					}
+				}
+			}
+		}
+	}
+	on_yearly_pulse = {
+	}
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+
+}

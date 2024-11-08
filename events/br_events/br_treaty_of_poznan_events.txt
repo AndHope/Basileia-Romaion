@@ -1,0 +1,712 @@
+﻿namespace = treaty_of_poznan_events
+
+#event for NGF
+treaty_of_poznan_events.1 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.1.t
+	desc = treaty_of_poznan_events.1.d
+	flavor = treaty_of_poznan_events.1.f
+
+	cooldown = { months = normal_modifier_time }
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+		c:NGF ?= this
+		NOT = {
+			has_variable = treaty_of_poznan_initiation_var
+		}
+		year >= 1738
+	}
+
+	immediate = {
+		set_variable = treaty_of_poznan_initiation_var
+		c:PLC = {
+			save_scope_as = br_commonwealth_scope
+		}
+	}
+
+	option = {
+		name = treaty_of_poznan_events.1.a
+		default_option = yes
+		ai_chance = {
+			base = 95
+		}
+		c:PLC ?= {
+			trigger_event = { id = treaty_of_poznan_events.2 popup = yes } 
+		}
+		custom_tooltip = if_they_accept_tt
+		custom_tooltip = treaty_of_poznan_explanation_tt
+		show_as_tooltip = {
+			add_journal_entry = {
+				type = br_je_conference_of_poznan
+			}
+			c:PLC = {
+				add_journal_entry = {
+					type = br_je_conference_of_poznan
+				}
+			}
+			every_country = {
+				limit = {
+					country_rank >= rank_value:great_power
+					NOR = { 
+						root ?= this
+						c:PLC ?= this
+					}
+					country_is_in_europe = yes
+				}
+				trigger_event = { id = treaty_of_poznan_events.3 popup = yes } 
+			}
+		}
+	}
+
+
+	option = {
+		name = treaty_of_poznan_events.1.b
+		ai_chance = {
+			base = 5
+		}
+		c:PLC = {
+			change_relations = { country = root value = -80 }
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_negative
+				target = root
+			}
+		}
+		every_country = {
+			limit = {
+				country_rank >= rank_value:great_power
+				NOT = { this = root }
+				country_is_in_europe = yes
+			}
+			change_relations = { country = root value = -40 }
+		}
+		hidden_effect = {
+			set_secret_goal = {
+				country = c:PLC
+				secret_goal = conquer
+			}
+			c:PLC = {
+				set_secret_goal = {
+					country = c:PRU
+					secret_goal = conquer
+				}
+			}
+		}
+	}
+}
+
+#event for PLC
+treaty_of_poznan_events.2 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.2.t
+	desc = treaty_of_poznan_events.2.d
+	flavor = treaty_of_poznan_events.2.f
+
+	cooldown = { months = normal_modifier_time }
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+		# triggered by treaty_of_poznan_events.1
+	}
+
+	immediate = {
+		c:NGF = {
+			save_scope_as = br_north_german_federation_scope
+		}
+	}
+
+	option = {
+		name = treaty_of_poznan_events.2.a
+		default_option = yes
+		ai_chance = {
+			base = 95
+		}
+		c:NGF = {
+			add_journal_entry = {
+				type = br_je_conference_of_poznan
+			}
+		}
+		add_journal_entry = {
+			type = br_je_conference_of_poznan
+		}
+		custom_tooltip = treaty_of_poznan_explanation_tt
+		every_country = {
+			limit = {
+				country_rank >= rank_value:great_power
+				NOT = { 
+					this = root
+					# c:NGF = this
+				}
+				country_is_in_europe = yes
+			}
+			trigger_event = { id = treaty_of_poznan_events.3 popup = yes } 
+		}
+	}
+
+
+	option = {
+		name = treaty_of_poznan_events.2.b
+		ai_chance = {
+			base = 5
+		}
+		c:NGF = {
+			change_relations = { country = root value = -80 }
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_negative
+				target = root
+			}
+		}
+		every_country = {
+			limit = {
+				country_rank >= rank_value:great_power
+				NOT = { this = root }
+				country_is_in_europe = yes
+			}
+			change_relations = { country = root value = -40 }
+		}
+		hidden_effect = {
+			set_secret_goal = {
+				country = c:PRU
+				secret_goal = conquer
+			}
+			c:NGF = {
+				set_secret_goal = {
+					country = c:PLC
+					secret_goal = conquer
+				}
+			}
+		}
+	}
+}
+
+treaty_of_poznan_events.3 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.3.t
+	desc = treaty_of_poznan_events.3.d
+	flavor = treaty_of_poznan_events.3.f
+
+	cooldown = { months = normal_modifier_time }
+	
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		c:NGF ?= {
+			save_scope_as = br_north_german_federation_scope
+		}
+		c:PLC ?= {
+			save_scope_as = br_commonwealth_scope
+		}
+	}
+
+	option = {
+		name = treaty_of_poznan_events.3.a
+		default_option = yes
+		ai_chance = {
+			base = 95
+		}
+		add_journal_entry = {
+			type = br_je_conference_of_poznan
+		}
+		custom_tooltip = treaty_of_poznan_explanation_tt
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_poznan_participants_var
+				}
+			}
+			set_global_variable = {
+				name = br_je_conference_of_poznan_participants_var
+				value = 1
+			}
+		}
+		else = {
+			change_global_variable = {
+				name = br_je_conference_of_poznan_participants_var
+				add = 1
+			}
+		}
+	}
+
+
+	option = {
+		name = treaty_of_poznan_events.3.b
+		ai_chance = {
+			base = 5
+		}
+		c:NGF = {
+			change_relations = { country = root value = -20 }
+		}
+		c:PLC = {
+			change_relations = { country = root value = -20 }
+		}
+	}
+}
+
+#The treaty is accepted
+treaty_of_poznan_events.4 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.4.t
+	desc = treaty_of_poznan_events.4.d
+	flavor = treaty_of_poznan_events.4.f
+
+	cooldown = { months = normal_modifier_time }
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		c:NGF ?= {
+			save_scope_as = br_north_german_federation_scope
+		}
+		c:PLC ?= {
+			save_scope_as = br_commonwealth_scope
+		}
+	}
+
+	option = {
+		name = treaty_of_poznan_events.4.a
+		default_option = yes
+		ai_chance = {
+			base = 95
+		}
+		if = {
+			limit = {
+				c:NGF ?= this
+			}
+			custom_tooltip = {
+				text = treaty_of_poznan_outcome_tt
+				enforce_treaty_of_poznan = yes
+			}
+		}
+		else = {
+			show_as_tooltip = {
+				custom_tooltip = {
+					text = treaty_of_poznan_outcome_tt
+					enforce_treaty_of_poznan = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					c:NGF ?= this
+					c:PLC ?= this
+				}
+				NOT = {
+					has_diplomatic_pact = {
+						who = c:PRU
+						type = guarantee_independence						
+					}
+				}
+			}
+			create_diplomatic_pact = {
+				country = c:PRU
+				type = guarantee_independence
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					c:NGF ?= this
+					c:PLC ?= this
+				}
+			}
+			add_modifier = {
+				name = guarantors_of_peace_modifier
+				months = normal_modifier_time
+			}
+		}
+		# show_as_tooltip = {
+		# 	if = {
+		# 		limit = {
+		# 			has_global_variable = br_request_poznan_global_var
+		# 		}
+		# 		c:BEL = {
+		# 			take_on_scaled_debt = {
+		# 				who = c:NET
+		# 				value = c:NET.scaled_debt
+		# 			}	
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_global_variable = br_request_pomorze_global_var
+		# 		}
+		# 		c:NET = {
+		# 			take_on_scaled_debt = {
+		# 				who = c:BEL
+		# 				value = c:BEL.scaled_debt
+		# 			}	
+		# 		}
+		# 	}
+		# }
+	}
+}
+
+#The treaty has failed
+treaty_of_poznan_events.5 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.5.t
+	desc = treaty_of_poznan_events.5.d
+	flavor = treaty_of_poznan_events.5.f
+
+	cooldown = { months = normal_modifier_time }
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		c:NGF ?= {
+			save_scope_as = br_north_german_federation_scope
+		}
+		c:PLC ?= {
+			save_scope_as = br_commonwealth_scope
+		}
+	}
+
+	option = {
+		name = treaty_of_poznan_events.5.a
+		default_option = yes
+		add_radicals = {
+			value = small_radicals
+		}
+	}
+}
+
+#The treaty can be extended
+treaty_of_poznan_events.6 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.6.t
+	desc = treaty_of_poznan_events.6.d
+	flavor = treaty_of_poznan_events.6.f
+
+	cooldown = { months = normal_modifier_time }
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		c:NGF ?= {
+			save_scope_as = br_north_german_federation_scope
+		}
+		c:PLC ?= {
+			save_scope_as = br_commonwealth_scope
+		}
+	}
+
+	option = {
+		name = treaty_of_poznan_events.6.a
+		default_option = yes
+		change_global_variable = {
+			name = br_je_conference_of_poznan_timer
+			add = 3 		#extend the deadline with a couple of months
+		}
+	}
+	option = {
+		name = treaty_of_poznan_events.6.b
+		default_option = yes
+		#chose to not extend the deadline
+		custom_tooltip = br_the_poznan_conference_will_end_tt
+	}
+}
+
+#The fate of Prussia
+treaty_of_poznan_events.7 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.7.t
+	desc = treaty_of_poznan_events.7.d
+	flavor = treaty_of_poznan_events.7.f
+
+	cooldown = { months = normal_modifier_time }
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = br_deciding_the_fate_of_prussia_button_var
+		if = {
+			limit = {
+				exists = c:GER
+			}
+			c:GER ?= {
+				save_scope_as = br_north_german_federation_scope
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:NGF
+			}
+			c:NGF ?= {
+				save_scope_as = br_north_german_federation_scope
+			}
+		}
+		c:PLC ?= {
+			save_scope_as = br_commonwealth_scope
+		}
+	}
+
+	option = {
+		name = treaty_of_poznan_events.7.a
+		default_option = yes
+		if = {
+			limit = { 
+				not = { has_variable != br_propose_independence_of_prussia_var }
+			}
+			show_as_tooltip = {
+				c:NGF ?= {
+					create_diplomatic_pact = {
+						country = c:NGF
+						type = puppet
+					}
+				}
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes #remove event options var that are mutualy exclusive (ex: pru can not gain indendence and be subjugated)
+				set_variable = br_propose_independence_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_variable = br_propose_independence_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+		}
+	}
+	option = {
+		name = treaty_of_poznan_events.7.b
+		default_option = yes
+		if = {
+			limit = { 
+				not = { has_variable = br_propose_plc_subjugation_of_prussia_var }
+			}
+			show_as_tooltip = {
+				c:NGF ?= {
+					create_diplomatic_pact = {
+						country = c:NGF
+						type = puppet
+					}
+				}
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_variable = br_propose_plc_subjugation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_variable = br_propose_plc_subjugation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+		}
+	}
+	option = {
+		name = treaty_of_poznan_events.7.c
+		default_option = yes
+		if = {
+			limit = { 
+				not = { has_variable = br_propose_ngf_subjugation_of_prussia_var }
+			}
+			show_as_tooltip = {
+				c:NGF ?= {
+					create_diplomatic_pact = {
+						country = c:NGF
+						type = puppet
+					}
+				}
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_variable = br_propose_ngf_subjugation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_variable = br_propose_ngf_subjugation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+		}
+	}
+	# .d and .f can not be used as they are used for discription an flavor
+	option = {
+		name = treaty_of_poznan_events.7.e
+		default_option = yes
+		if = {
+			limit = { 
+				not = { has_variable = br_propose_plc_annexation_of_prussia_var }
+			}
+			show_as_tooltip = {
+				c:NGF ?= {
+					annex = c:PRU
+				}
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_variable = br_propose_plc_annexation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_variable = br_propose_plc_annexation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
+		}
+	}
+	option = {
+		name = treaty_of_poznan_events.7.g
+		default_option = yes
+		if = {
+			limit = { 
+				not = { has_variable = br_propose_ngf_annexation_of_prussia_var }
+			}
+			show_as_tooltip = {
+				c:NGF ?= {
+					annex = c:PRU
+				}
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_variable = br_propose_ngf_annexation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_variable = br_propose_ngf_annexation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
+		}
+	}
+	option = {
+		name = treaty_of_poznan_events.7.h
+		default_option = yes
+		if = {
+			limit = { 
+				not = { has_variable = br_propose_prussian_annexation_of_memel_var }
+			}
+			show_as_tooltip = {
+				c:PRU ?= {
+					s:STATE_EAST_PRUSSIA = {
+						random_scope_state = {
+							limit = {
+								owner = c:PLC
+							}
+							set_state_owner = c:PRU
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				set_variable = br_propose_prussian_annexation_of_memel_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_variable = br_propose_prussian_annexation_of_memel_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
+		}
+	}
+	option = {
+		name = treaty_of_poznan_events.7.i
+		default_option = yes
+		custom_tooltip = br_finished_deciding_prussia_tt
+	}
+	after = {
+		remove_variable = br_deciding_the_fate_of_prussia_button_var
+	}
+}
