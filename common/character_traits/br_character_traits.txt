@@ -38,21 +38,28 @@ purple_born = {
 	}
 
 	possible = {
-		#c:BYZ ?= THIS
+		always = no # reserved for events
+	#	OR = {
+	#		is_heir = yes
+	#		is_ruler = yes
+	#		has_role = general
+	#		has_role = admiral
+	#	}
 	}
 
 
 
-	weight = {
-		value = 0
-		if = {
-			c:BYZ ?= THIS
-			limit = {
-				is_heir = yes
-			}
-			multiply = 100
-		}
-	}
+#	weight = {
+#		value = 0
+#		if = {
+#			has_law = law_type:law_monarchy
+#			c:BYZ ?= THIS
+#			limit = {
+#				is_heir = yes
+#			}
+#			multiply = 1000
+#		}
+#	}
 
 
 }
@@ -147,7 +154,7 @@ exarchate_trait = {
 		country_bureaucrats_pol_str_mult = 0.25
 		#country_aristocrats_pol_str_mult = 0.1
 		#country_clergymen_pol_str_mult = 0.1
-		#country_officers_pol_str_mult = 0.1
+		country_officers_pol_str_mult = 0.25
         #country_soldiers_pol_str_mult = 0.05
 	}
 
@@ -157,8 +164,18 @@ exarchate_trait = {
 	}
 
 	possible = {
+		#is_ruler = yes
 		always = no # reserved for events
 	}
+
+#	weight = {
+#		value = 0
+#		if = {
+#			AND = { exists = c:BYZ is_subject_of = c:BYZ }
+#			multiply = 1000
+#		}
+#	}
+
 }
 
 corrupt_offical_trait = {
