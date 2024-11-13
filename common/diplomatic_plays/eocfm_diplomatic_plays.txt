@@ -1,0 +1,86 @@
+﻿dp_crusade = {
+	texture = "gfx/interface/icons/war_goals/crusade.dds"
+	
+	war_goal = make_protectorate
+	
+	initiator_can_add_war_goals = no
+	
+	
+	selectable_in_lens = {
+		has_global_variable = eocfm_crusades_unlocked
+		country_has_state_religion = rel:orthodox
+	}
+	
+	possible = {
+		aggressive_diplomatic_plays_permitted = yes
+		hidden_trigger = {
+			has_global_variable = eocfm_crusades_unlocked
+			country_has_state_religion = rel:orthodox
+		}
+		NOT = { is_country_type = decentralized }
+		NOT = { has_modifier = modifier_eocfm_crusade_launched }
+		scope:target_country = {
+			OR = {
+				religion = rel:sunni
+				religion = rel:shiite
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_dp_crusade_tt
+			hidden_trigger = {
+				NOT = {	has_global_variable = eocfm_crusade_var	}
+			}
+		}
+	}
+
+	on_weekly_pulse = {
+		if = {
+			limit = {
+				NOT = {	has_global_variable = eocfm_crusade_var	}
+			}
+			set_global_variable = eocfm_crusade_var
+		}
+		scope:initiator = {
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_crusade_initiator
+					}
+				}
+				set_variable = eocfm_crusade_initiator
+			}
+		}
+		scope:target_country = {
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_crusade_target
+					}
+				}
+				set_variable = eocfm_crusade_target
+			}
+		}
+	}
+
+	on_war_begins = {
+		scope:initiator = {
+			add_modifier = {
+				name = modifier_eocfm_crusade_launched
+				months = normal_modifier_time
+			}
+		}
+		every_country = {
+			limit = {
+				has_variable = eocfm_crusade_attacker
+			}
+			add_modifier = {
+				name = modifier_eocfm_crusade_launched
+				months = 24
+			}
+		}
+	}
+
+	on_war_end = {
+	}
+	
+}

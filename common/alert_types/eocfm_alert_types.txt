@@ -1,0 +1,50 @@
+﻿eocfm_no_focus_alert = {
+	script_context = player_country
+	texture = "gfx/interface/icons/alert_icons/eocfm_alert.dds"
+
+	valid = {
+		country_has_state_religion = rel:orthodox
+		NOR = {
+			has_modifier = modifier_eocfm_emphasize_unity
+			has_modifier = modifier_eocfm_enforce_attendance
+			has_modifier = modifier_eocfm_theologize_dogma
+			has_modifier = modifier_eocfm_promote_ecumenism
+		}
+	}
+
+#	open_panel = eocfm_main # commented in case pdx add this functionality for scripted widgets
+	type = important_action
+	alert_group = eocfm_alerts
+}
+
+eocfm_icon_possible_alert = {
+	script_context = player_country
+	texture = "gfx/interface/icons/alert_icons/eocfm_alert.dds"
+
+	valid = {
+		country_has_state_religion = rel:orthodox
+		eocfm_caesaropapism_capacity_value >= 200
+		eocfm_has_icon_trigger = no
+		has_technology_researched = romanticism
+	}
+
+#	open_panel = eocfm_main # commented in case pdx add this functionality for scripted widgets
+	type = important_action
+	alert_group = eocfm_alerts
+}
+
+eocfm_integration_possible_alert = {
+	script_context = player_country
+	texture = "gfx/interface/icons/alert_icons/eocfm_alert.dds"
+
+	valid = {
+		country_has_state_religion = rel:orthodox
+		eocfm_caesaropapism_capacity_value >= 500
+		eocfm_is_integrating_seat_trigger = no
+		eocfm_can_integrate_seat_trigger = yes
+	}
+
+#	open_panel = eocfm_main # commented in case pdx add this functionality for scripted widgets
+	type = important_action
+	alert_group = eocfm_alerts
+}

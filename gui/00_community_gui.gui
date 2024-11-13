@@ -1,0 +1,23 @@
+template fullscreen_hide {
+	visible = "[Not(
+		Or(
+			Or(
+				Or(
+					Or(
+						Or(
+							Or(
+								InformationPanelBar.IsPanelOpen('politics'),
+								InformationPanelBar.IsPanelOpen('politics_panel_change_law')
+							), 
+							InformationPanelBar.IsPanelOpen('tech_tree')
+						), 
+						InformationPanelBar.IsPanelOpen('pop_browser')
+					), 
+					InformationPanelBar.IsPanelOpen('building_browser')
+				), 
+				InformationPanelBar.IsPanelOpen('countries')
+			), 
+			GetScriptedGui('eocfm_window_visible_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)
+		)
+	)]"
+}
