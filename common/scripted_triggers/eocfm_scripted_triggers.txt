@@ -212,7 +212,11 @@ eocfm_has_low_relations_with_any_patriarch_trigger = {
 		AND = {
 			any_country = {
 				has_variable = eocfm_controls_rome
-				country_has_state_religion = rel:orthodox
+				OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 			}
 			var:eocfm_rome_relations_var < 20
 		}
@@ -256,7 +260,11 @@ eocfm_is_condemnation_target_trigger = { # This feels like bad scripting, idk
 		AND = {
 			any_country = {
 				has_variable = eocfm_controls_rome
-				country_has_state_religion = rel:orthodox
+				OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 			}
 			var:eocfm_rome_relations_var < 20
 			NOT = {

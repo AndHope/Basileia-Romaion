@@ -25,7 +25,6 @@
 		set_variable = eocfm_controls_antioch
 		eocfm_initialize_patriarchs_effect = yes # Greece is loadbearing too now bois
 
-
 	}
 	
 	c:br_muscovy ?= {
@@ -34,12 +33,22 @@
 		set_variable = eocfm_controls_moscow
 	}
 
-		
-	
-	
 	c:br_aegypt ?= {
+		set_variable = eocfm_is_autocephalous
 		set_variable = eocfm_controls_alexandria
 		set_variable = eocfm_controls_jerusalem
+	}
+
+	c:ARM ?= {
+		set_variable = eocfm_is_autocephalous
+	}
+
+	c:GEO ?= {
+		set_variable = eocfm_is_autocephalous
+	}
+
+	c:SER ?= {
+		set_variable = eocfm_is_autocephalous
 	}
 	
 	c:PAP ?= {
@@ -50,7 +59,11 @@
 	# This should fire AFTER all other setup
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+				country_has_state_religion = rel:orthodox
+				country_has_state_religion = rel:oriental_orthodox
+				country_has_state_religion = rel:br_religion_elysian_orthodox
+			}
 		}
 		if = {
 			limit = {
@@ -77,7 +90,11 @@
 	
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+				country_has_state_religion = rel:orthodox
+				country_has_state_religion = rel:oriental_orthodox
+				country_has_state_religion = rel:br_religion_elysian_orthodox
+			}
 		}
 		set_variable = {
 			name = eocfm_window_is_active_var

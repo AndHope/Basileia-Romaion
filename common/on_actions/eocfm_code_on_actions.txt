@@ -18,7 +18,11 @@ on_monthly_pulse_country = {
 
 eocfm_monthly_pulse = {
 	trigger = {
-		country_has_state_religion = rel:orthodox
+		OR = {
+			country_has_state_religion = rel:orthodox
+			country_has_state_religion = rel:oriental_orthodox
+			country_has_state_religion = rel:br_religion_elysian_orthodox
+		}
 	}
 	on_actions = {
 		eocfm_schism_monthly_pulse

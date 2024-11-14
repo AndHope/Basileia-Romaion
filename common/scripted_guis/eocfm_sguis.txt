@@ -16,7 +16,11 @@ eocfm_button_sgui = {
 	
 	is_shown = {
 		community_gui_is_active = no
-		country_has_state_religion = rel:orthodox
+		OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 	}
 	
 	effect = {
@@ -633,7 +637,11 @@ eocfm_mend_schism_sgui = {
 		hidden_effect = {
 			every_country = {
 				limit = {
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 					NOT = {
 						has_variable = eocfm_mending_var
 					}
@@ -1384,7 +1392,11 @@ eocfm_integrate_rome_sgui = {
 				limit = {
 					OR = {
 						country_has_state_religion = rel:catholic
+						OR = {
 						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 					}
 				}
 				trigger_event = {
@@ -1424,7 +1436,11 @@ eocfm_start_sway_rome_sgui = {
 			text = eocfm_rome_reclaimed_tt
 			hidden_trigger = {
 				any_country = {
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 					has_variable = eocfm_controls_rome
 				}
 			}

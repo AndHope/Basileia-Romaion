@@ -297,13 +297,21 @@ eocfm_replace_patriarchs_effect = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_rome
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 			}
 			random_country = {
 				limit = {
 					has_variable = eocfm_controls_rome
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 				create_character = {
 					template = template_eocfm_rome_patriarch
@@ -340,13 +348,21 @@ eocfm_replace_patriarchs_effect = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_constantinople
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 			}
 			random_country = {
 				limit = {
 					has_variable = eocfm_controls_constantinople
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 				create_character = {
 					template = template_eocfm_constantinople_patriarch
@@ -381,13 +397,21 @@ eocfm_replace_patriarchs_effect = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_antioch
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 			}
 			random_country = {
 				limit = {
 					has_variable = eocfm_controls_antioch
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 				create_character = {
 					template = template_eocfm_antioch_patriarch
@@ -422,13 +446,21 @@ eocfm_replace_patriarchs_effect = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_jerusalem
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 			}
 			random_country = {
 				limit = {
 					has_variable = eocfm_controls_jerusalem
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 				create_character = {
 					template = template_eocfm_jerusalem_patriarch
@@ -463,13 +495,21 @@ eocfm_replace_patriarchs_effect = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_alexandria
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 			}
 			random_country = {
 				limit = {
 					has_variable = eocfm_controls_alexandria
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 				create_character = {
 					template = template_eocfm_alexandria_patriarch
@@ -504,13 +544,21 @@ eocfm_replace_patriarchs_effect = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_moscow
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 			}
 			random_country = {
 				limit = {
 					has_variable = eocfm_controls_moscow
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 				create_character = {
 					template = template_eocfm_moscow_patriarch
@@ -545,13 +593,21 @@ eocfm_replace_ecumenical_patriarch_effect = {
 		limit = {
 			any_country = {
 				has_variable = eocfm_controls_constantinople
-				country_has_state_religion = rel:orthodox
+				OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 			}
 		}
 		random_country = {
 			limit = {
 				has_variable = eocfm_controls_constantinople
-				country_has_state_religion = rel:orthodox
+				OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 			}
 			create_character = {
 				template = template_eocfm_constantinople_patriarch
@@ -1298,7 +1354,11 @@ eocfm_select_random_seat_effect = {
 			trigger = { # Rome only participates if part of the Orthodox sphere
 				any_country = {
 					has_variable = eocfm_controls_rome
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 			}
 			set_variable = eocfm_rome_event_var
@@ -1409,7 +1469,11 @@ eocfm_select_random_condemnation_seat_effect = {
 			trigger = {
 				any_country = {
 					has_variable = eocfm_controls_rome
-					country_has_state_religion = rel:orthodox
+					OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 				}
 				var:eocfm_rome_relations_var < 20
 				NOT = {
@@ -1470,14 +1534,22 @@ eocfm_select_random_condemnation_seat_effect = {
 eocfm_select_random_schism_condemnation_seat_effect = {
 	if = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 		}
 		random_list = {
 			5 = {
 				trigger = {
 					any_country = {
 						has_variable = eocfm_controls_rome
+						OR = {
 						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 					}
 					var:eocfm_rome_relations_var < 20
 				}
@@ -1519,7 +1591,11 @@ eocfm_select_random_schism_condemnation_seat_effect = {
 	else_if = {
 		limit = {
 			NOT = {
-				country_has_state_religion = rel:orthodox
+				OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 			}
 		}
 		random_list = {
@@ -1527,7 +1603,11 @@ eocfm_select_random_schism_condemnation_seat_effect = {
 				trigger = {
 					any_country = {
 						has_variable = eocfm_controls_rome
+						OR = {
 						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 					}
 				}
 				set_variable = eocfm_rome_event_var
@@ -1857,7 +1937,11 @@ eocfm_add_condemnation_effect = {
 eocfm_rome_replace_effect = {
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 		}
 		if = {
 			limit = {
@@ -1886,7 +1970,11 @@ eocfm_rome_replace_effect = {
 eocfm_constantinople_replace_effect = {
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 		}
 		if = {
 			limit = {
@@ -1915,7 +2003,11 @@ eocfm_constantinople_replace_effect = {
 eocfm_antioch_replace_effect = {
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 		}
 		if = {
 			limit = {
@@ -1944,7 +2036,11 @@ eocfm_antioch_replace_effect = {
 eocfm_jerusalem_replace_effect = {
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 		}
 		if = {
 			limit = {
@@ -1973,7 +2069,11 @@ eocfm_jerusalem_replace_effect = {
 eocfm_alexandria_replace_effect = {
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 		}
 		if = {
 			limit = {
@@ -2002,7 +2102,11 @@ eocfm_alexandria_replace_effect = {
 eocfm_moscow_replace_effect = {
 	every_country = {
 		limit = {
-			country_has_state_religion = rel:orthodox
+			OR = {
+						country_has_state_religion = rel:orthodox
+						country_has_state_religion = rel:oriental_orthodox
+						country_has_state_religion = rel:br_religion_elysian_orthodox
+					}
 		}
 		if = {
 			limit = {
