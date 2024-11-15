@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Declare files that end in .gui will always have LF line endings on checkout. 
+#This is nessesary otherwise the gui will break, because GUI scripts only handles multi-line trigger blocks if it is in Unix (LF) endings
+#otherwise it has to be an unreable single-line block
+*.gui text eol=lf
