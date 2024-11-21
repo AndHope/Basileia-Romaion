@@ -12,13 +12,6 @@ law_ethnostate = {
 	on_enact = {
 		recalculate_pop_ig_support = yes
 	}
-	
-	cultural_acceptance_rule = {
-		OR = {
-			is_primary_culture_of = scope:country
-		    is_primary_culture_of = scope:country.overlord
-		}
-	}
 
 	unlocking_technologies = {
 		nationalism
@@ -32,7 +25,7 @@ law_ethnostate = {
 		country_acceptance_shared_heritage_and_cultural_trait_add = 30 #40
 		country_acceptance_shared_heritage_trait_add = 15 #20
 		country_acceptance_shared_cultural_trait_add = 0
-		country_acceptance_culture_base_add = - -30 #-25
+		country_acceptance_culture_base_add = -25 #0
 	}
 
 	acceptance_modifier = {
@@ -107,25 +100,15 @@ law_national_supremacy = {
 		recalculate_pop_ig_support = yes
 	}
 	
-	cultural_acceptance_rule = {
-		OR = {
-			AND = {
-			    shares_heritage_trait_with_any_primary_culture = scope:country
-			    shares_non_heritage_trait_with_any_primary_culture = scope:country
-		    }
-            is_primary_culture_of = scope:country.overlord
-		}
-	}
-	
 	modifier = {
 		country_authority_add = 150
 
 		#From this block, we only apply the highest value a Pop qualifies for
 		country_acceptance_primary_culture_add = 100
-		country_acceptance_shared_heritage_and_cultural_trait_add = 40 #60
+		country_acceptance_shared_heritage_and_cultural_trait_add = 50 #60
 		country_acceptance_shared_heritage_trait_add = 25 #40
 		country_acceptance_shared_cultural_trait_add = 15 #20
-		country_acceptance_culture_base_add = -15 #-10
+		country_acceptance_culture_base_add = -10 #0
 	}
 
 	acceptance_modifier = {
@@ -279,13 +262,6 @@ law_cultural_exclusion = {
 	
 	on_enact = {
 		recalculate_pop_ig_support = yes
-	}
-
-	cultural_acceptance_rule = {
-		OR = {
-		    shares_trait_with_any_primary_culture = scope:country
-			is_primary_culture_of = scope:country.overlord
-		}
 	}
 	
 	modifier = {
