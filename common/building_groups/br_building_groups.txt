@@ -39,6 +39,7 @@ bg_monuments = {
 	parent_group = bg_government
 	lens = special
 	inheritable_construction = yes
+	economy_of_scale = no
 
 	urbanization = 100 #was 0
 }
@@ -74,10 +75,14 @@ bg_owner_buildings = {
 	lens = trade
 
 	always_possible = yes
+	
 	can_use_slaves = yes
+
 	auto_place_buildings = yes
 
 	owns_other_buildings = yes
+	
+	always_self_owning = yes
 
 	min_hiring_rate = 1.0
 	max_hiring_rate = 1.0
@@ -92,7 +97,7 @@ bg_owner_buildings = {
 
 	cash_reserves_max = 10000
 
-	urbanization = 1 #was 0
+	urbanization = 0
 
 	infrastructure_usage_per_level = 0.05 #was 0.1
 
@@ -114,4 +119,9 @@ bg_manor_houses = {
 	parent_group = bg_owner_buildings
 	
 	infrastructure_usage_per_level = 0.0
+}
+
+bg_company_headquarter = {
+	parent_group = bg_owner_buildings
+	urbanization = 5 #was 0
 }

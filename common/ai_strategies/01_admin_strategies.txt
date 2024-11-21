@@ -352,7 +352,10 @@ ai_strategy_industrial_expansion = {
 		
 		if = {
 			limit = {
-				has_variable = japan_forced_to_open_market
+				OR = {
+					has_modifier = shogun_ig_forced_to_open_market
+					has_journal_entry = je_meiji_main					
+				}
 			}
 			add = 1000
 		}		

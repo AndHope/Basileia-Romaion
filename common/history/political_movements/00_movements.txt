@@ -1,0 +1,94 @@
+﻿POLITICAL_MOVEMENTS = {
+	every_country = {
+		limit = { NOT = { is_country_type = decentralized } }
+		### Royalist movements
+		if = {
+			create_political_movement = { type = movement_royalist_absolutist }
+		}
+		else_if = {
+			create_political_movement = { type = movement_royalist_constitutional }
+		}
+
+		### Abolitionist movements
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_slavery_banned }
+			}
+			create_political_movement = { type = movement_pro_slavery }
+			
+		}		
+
+		### Religious movements
+		if = {
+			limit = {
+				c:MUG ?= this
+			}
+			create_political_movement = { type = movement_religious_minority religion = rel:hindu }
+			create_political_movement = { type = movement_religious_minority religion = rel:sikh }
+		}
+
+		if = {
+			limit = {
+				c:BYZ ?= this
+			}
+			create_political_movement = { type = movement_religious_minority religion = rel:oriental_orthodox }
+			#create_political_movement = { type = movement_religious_minority religion = rel:catholic }
+			#create_political_movement = { type = movement_religious_minority religion = rel:jewish }
+		}
+
+		### Cultural majority movements
+		create_political_movement = { type = movement_cultural_majority }
+
+		### Labour movements
+		if = {
+			limit = {
+				has_technology_researched = labor_movement
+			}
+			create_political_movement = { type = movement_labor }
+		}
+
+		### Liberal movements
+		if = {
+			limit = {
+				has_technology_researched = democracy
+				OR = {
+					has_law = law_type:law_landed_voting
+					has_law = law_type:law_wealth_voting
+					has_law = law_type:law_census_voting
+					has_law = law_type:law_universal_suffrage
+				}
+				NOT = { c:FRA ?= this }
+			}
+			create_political_movement = { type = movement_liberal }
+		}
+	}	
+	#c:FRA ?= {
+	#	create_political_movement = { type = movement_orleanist }
+	#	create_political_movement = { type = movement_legitimist }
+	#	create_political_movement = { type = movement_bonapartist }
+	#	create_political_movement = { type = movement_radical }
+	#}
+	c:BYZ ?= {
+		create_political_movement = { type = movement_cultural_minority culture = cu:latinoi }
+		create_political_movement = { type = movement_cultural_minority culture = cu:armenian }
+		create_political_movement = { type = movement_cultural_minority culture = cu:serb }
+		create_political_movement = { type = movement_cultural_minority culture = cu:bulgarian }
+		create_political_movement = { type = movement_cultural_minority culture = cu:syriac }
+	}
+	c:PLC ?= {
+		create_political_movement = { type = movement_cultural_minority culture = cu:lithuanian }
+		create_political_movement = { type = movement_cultural_minority culture = cu:ukrainian }
+	}
+	c:br_tartaria ?= {
+		create_political_movement = { type = movement_modernizer }
+	}
+	c:NAH ?= {
+		create_political_movement = { type = movement_modernizer }
+	}
+	c:TWT ?= {
+		create_political_movement = { type = movement_modernizer }
+	}
+	#c:BIC ?= {
+	#	create_political_movement = { type = movement_utilitarian }
+	#}
+}

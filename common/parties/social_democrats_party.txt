@@ -208,6 +208,15 @@ social_democrat_party = {
 				}
 			}
 			triggered_desc = {
+				desc = party_inc
+				trigger = {
+					OR = {
+						c:BIC ?= this
+						c:BHT ?= this
+					}
+				}
+			}
+			triggered_desc = {
 				desc = party_social_democrats
 				trigger = {
 					always = yes
@@ -258,16 +267,6 @@ social_democrat_party = {
 				has_ideology = ideology:ideology_theocrat
 			}
 		}
-		OR = {
-	     	NOT = {
-	         	owner = {
-	         		has_variable = only_valid_party
-	         	}
-	        }
-	        owner.var:only_valid_party = {
-	        	is_party_type = social_democrat_party
-	        }
-	    }
 	}
 	
 	# Root - IG considering joining
@@ -276,6 +275,26 @@ social_democrat_party = {
 		value = {
 			value = -5
 			desc = "base_value"
+		}
+		if = {
+			limit = {
+				owner = {
+					c:BIC ?= this
+					is_subject = yes
+					OR = {
+						has_modifier = modifier_india_crown_rule
+						has_modifier = modifier_india_company_rule
+					}
+				}
+				OR = {
+					is_interest_group_type = ig_industrialists
+					is_interest_group_type = ig_armed_forces
+				}
+			}
+			add = {
+				value = -100
+				desc = "india_colonial_government"
+			}
 		}
 		if = { # social democrats love social democracy
 			limit = {
@@ -320,7 +339,7 @@ social_democrat_party = {
 				}
 			}
 			add = {	
-				value = 5
+				value = -5
 				desc = from_powerful_communists
 			}
 		}
@@ -630,55 +649,20 @@ social_democrat_party = {
 				desc = "from_slavery"
 			}
 		}
-		if = {
+		if = { # early Trade Unions
 			limit = {
 				is_interest_group_type = ig_trade_unions
-				is_powerful = yes
-			}
-			multiply = {
-				value = 2
-				desc = "from_archetype_party"
-			}
-		}
-		if = {
-			limit = {
-				scope:number = 1
 				is_powerful = no
-				is_marginal = no
+				NOT = {
+					has_ideology = ideology:ideology_socialist
+				}
 			}
-			multiply = {
-				value = 2
-				desc = "from_influential_supporting_member"
-			}
-		}
-		else_if = {
-			limit = {
-				scope:number = 2
-			}
-			multiply = {
-				value = 0.5
-				desc = "from_two_prior_members"
+			add = {
+				value = -3
+				desc = "from_early_trade_unions"
 			}
 		}
-		else_if = {
-			limit = {
-				scope:number = 3
-			}
-			multiply = {
-				value = 0.25
-				desc = "from_three_prior_members"
-			}
-		}
-		else_if = {
-			limit = {
-				scope:number > 3
-			}
-			multiply = {
-				value = 0.1
-				desc = "from_more_than_three_prior_members"
-			}
-		}
-		if = { # againt free trade
+		if = { # against free trade
 			limit = {
 				owner = {
 					has_law = law_type:law_free_trade
@@ -717,30 +701,37 @@ social_democrat_party = {
 		}
 		if = {
 			limit = {
-				owner = {
-	         		has_variable = only_valid_party
-	         	}
-	         	NOT = {
-			        owner.var:only_valid_party = {
-			        	is_party_type = social_democrat_party
-			        }
-			    }
+				is_interest_group_type = ig_trade_unions
+				is_powerful = yes
 			}
 			multiply = {
-				value = 0
+				value = 2
+				desc = "from_archetype_party"
 			}
 		}
 		if = {
 			limit = {
-				owner = {
-	         		has_variable = only_valid_party
-	         	}
-				owner.var:only_valid_party = {
-					is_party_type = social_democrat_party
-				}
-	         	owner.ruler = {
-					this.interest_group = prev
-				}
+				scope:number = 1
+				is_powerful = no
+				is_marginal = no
+			}
+			multiply = {
+				value = 2
+				desc = "from_influential_supporting_member"
+			}
+		}
+		else_if = {
+			limit = {
+				scope:number = 2
+			}
+			multiply = {
+				value = 0.5
+				desc = "from_two_prior_members"
+			}
+		}
+		else_if = {
+			limit = {
+				scope:number = 3
 			}
 			add = {
 				value = 1000

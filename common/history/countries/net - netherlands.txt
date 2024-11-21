@@ -49,18 +49,18 @@
 			name = br_modifier_corporate_reforms
 			months = -1
 		}
-		#	add_modifier = {
-	#		name = br_modifier_power_bloc_bonus
-	#		months = 1
-	#	}
-		#	add_modifier = {
-	#		name = br_modifier_power_bloc_bonus
-	#		months = 1
-	#	}
+
 		trigger_event = {
 			id = br_nation_startup_event.7
 			days = 1
 		}
+
+		add_company = company_type:company_net_trade
+		company:company_net_trade = {
+			set_company_establishment_date = 1325.1.1
+			set_company_state_region = s:STATE_HOLLAND
+		}
+
 	}
 
 	c:br_dutch_west_indies ?= {
@@ -90,7 +90,7 @@
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_racial_segregation
 		
-		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_extraction_economy
 		
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
@@ -152,7 +152,7 @@
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_racial_segregation
 		
-		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_commercialized_agriculture
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_colonial_exploitation

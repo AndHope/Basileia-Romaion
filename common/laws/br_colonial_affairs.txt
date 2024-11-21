@@ -5,8 +5,11 @@
 	
 	progressiveness = 0	
 	
-	pop_support = {
-		value = 0
+	can_enact = {
+		custom_tooltip = {
+			modifier:country_disallow_law_no_colonial_affairs_bool = no
+			text = disallow_law_no_colonial_affairs_tt
+		}
 	}
 	
 	ai_will_do = {
@@ -34,6 +37,23 @@
 			multiply = 2
 		}
 	}
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {	
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
 }
 
 law_frontier_colonization = {
@@ -58,8 +78,6 @@ law_frontier_colonization = {
 		br_tech_frontier_expansion
 	}
 
-	#limited_to_frontier_colonization = yes #removed 1.7?
-	
 	modifier = {
 		state_colony_growth_speed_mult = 0.35
 		state_migration_pull_unincorporated_mult = 0.5
@@ -67,17 +85,16 @@ law_frontier_colonization = {
 	
 	institution = institution_colonial_affairs
 
-	pop_support = {
-		value = 0
-		# Farmers like frontiers
-		add = {
-			desc = "POP_FARMERS"			
-			if = {
-				limit = {
-					is_pop_type = farmers
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_colonization_in_power_bloc_bool = yes
+					has_law = scope:law
 				}
-				value = 0.25
 			}
+			can_impose_law_default = yes
 		}
 	}
 	
@@ -85,6 +102,47 @@ law_frontier_colonization = {
 		NOR = {
 			has_law = law_type:law_colonial_exploitation
 			has_law = law_type:law_colonial_resettlement
+		}
+	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_colonial_resettlement
+					has_law = law_type:law_frontier_colonization
+				}
+				scope:target_country = {
+					has_law = law_type:law_no_colonial_affairs
+				}
+				power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {	
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
 		}
 	}
 }
@@ -107,20 +165,16 @@ law_colonial_resettlement = {
 	
 	institution = institution_colonial_affairs
 
-	pop_support = {
-		value = 0
-		# Officers like colonialism
-		add = {
-			desc = "POP_OFFICERS"			
-			if = {
-				limit = {
-					owner = { 
-						has_law = law_type:law_no_colonial_affairs 
-					} 
-					is_pop_type = officers
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_colonization_in_power_bloc_bool = yes
+					has_law = scope:law
 				}
-				value = 0.25
 			}
+			can_impose_law_default = yes
 		}
 	}
 	
@@ -137,6 +191,38 @@ law_colonial_resettlement = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_colonial_resettlement
+					has_law = law_type:law_frontier_colonization
+				}
+				scope:target_country = {
+					has_law = law_type:law_no_colonial_affairs
+				}
+				power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {	
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
 		}
 	}
 }
@@ -165,18 +251,16 @@ law_colonial_exploitation = {
 	
 	institution = institution_colonial_affairs 
 
-	pop_support = {
-		value = 0
-		# Officers like colonialism
-		add = {
-			desc = "POP_OFFICERS"			
-			if = {
-				limit = {
-					owner = { has_law = law_type:law_no_colonial_affairs } 
-					is_pop_type = officers
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_colonization_in_power_bloc_bool = yes
+					has_law = scope:law
 				}
-				value = 0.25
 			}
+			can_impose_law_default = yes
 		}
 	}
 
@@ -193,6 +277,35 @@ law_colonial_exploitation = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_colonial_exploitation
+				scope:target_country = {
+					has_law = law_type:law_no_colonial_affairs
+				}
+				power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {	
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
 		}
 	}
 }

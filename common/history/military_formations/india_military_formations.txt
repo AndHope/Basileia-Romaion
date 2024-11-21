@@ -1,13 +1,18 @@
 ﻿#All great/major powers start with a few line infantry even if they don't have the tech this is to repesent their elite units, givng them the tech will bankrupt their ai as they upgrade all their units even without the goods.
 
 MILITARY_FORMATIONS = {
-	c:MUG = {
+	c:MUG ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_india
+			hq_region = sr:region_punjab
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_DELHI
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_DELHI
 				count = 15
 			}
@@ -52,28 +57,27 @@ MILITARY_FORMATIONS = {
 			}
 
 			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_DELHI
+				count = 2
+			}
+
+			combat_unit = {
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_DELHI
-				count = 5
+				count = 4
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_DELHI
-				count = 4
+				count = 5
 			}
 		}
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_india
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_CENTRAL_INDIA
-				count = 15
-			}
+			hq_region = sr:region_central_india
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -84,9 +88,10 @@ MILITARY_FORMATIONS = {
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_CENTRAL_INDIA
-				count = 12
+				state_region = s:STATE_HILL_PUNJAB
+				count = 10
 			}
+
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -100,22 +105,12 @@ MILITARY_FORMATIONS = {
 				count = 5
 			}
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_CENTRAL_INDIA
-				count = 5
-			}
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_CENTRAL_INDIA
-				count = 4
-			}
 		}
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_india
+			hq_region = sr:region_bengal
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -139,6 +134,12 @@ MILITARY_FORMATIONS = {
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_AGRA
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_RAJPUTANA
 				count = 12
 			}
@@ -158,9 +159,741 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_PUNJAB
-				count = 4
+				count = 5
 			}
 		}
 
 	}
+
+	c:BGL ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_bengal
+			name = Bengal_Army
+
+			# Infantry
+			combat_unit = { # Bengal Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_WEST_BENGAL
+				count = 15
+			}
+			combat_unit = { # Bengal Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EAST_BENGAL
+				count = 15
+			}
+			combat_unit = { # Bengal Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_WEST_BENGAL
+				count = 15
+			}
+			combat_unit = { # Bengal Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_EAST_BENGAL
+				count = 20
+			}
+			# Cavalry
+			combat_unit = { # General's Bodyguard
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_WEST_BENGAL
+				count = 2
+			}
+			# Artillery
+			combat_unit = { # Bengal Artillery, Foot + Horse
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_WEST_BENGAL
+				count = 5
+			}
+		}
+	}
+	
+	c:BUN ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_india
+			name = BundelkhandArmy
+
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BUNDELKHAND
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_BUNDELKHAND
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_BUNDELKHAND
+				count = 1
+			}
+		}
+	}
+
+	c:KAS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_himalayas
+			name = JammuArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KASHMIR
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KASHMIR
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KASHMIR
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KASHMIR
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_KASHMIR
+				count = 1
+			}
+			save_scope_as = dogra_army
+		}
+		
+		create_character = {
+			is_general = yes
+			first_name = Zorawar
+			last_name = Singh
+			interest_group = ig_armed_forces
+			age = 50
+			hq = region_himalayas
+			commander_rank = commander_rank_2
+			traits = {
+				reserved
+				mountain_commander
+			}
+			save_scope_as = zorawar_gen
+		}
+
+		scope:zorawar_gen = {
+			transfer_to_formation = scope:dogra_army
+		}
+	}
+
+	c:SIN ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_bombay
+			name = SindhArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SINDH
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SINDH
+				count = 12
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_SINDH
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SINDH
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_SINDH
+				count = 1
+			}
+		}
+	}
+	
+	c:GUJ ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_bombay
+			#name = BarodaArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GUJARAT
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_GUJARAT
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_GUJARAT
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_GUJARAT
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_GUJARAT
+				count = 2
+			}
+		}
+		create_military_formation = { # One of very few princely states to operate a navy
+			type = fleet
+			hq_region = sr:region_bombay
+			name = BarodaNavy
+
+			combat_unit = { # Nothing the size of a frigate, four earlier frigates were no longer in commision as of 1830
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GUJARAT	
+				count = 2
+			}
+		}
+	}
+
+	c:ORI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_bengal
+			#name = MayurbhanjArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ORISSA
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_ORISSA
+				count = 10
+			}
+		}
+	}
+
+	#Marathra
+	c:MHR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_bombay
+			#name = Bombay_Army
+
+			# Infantry
+			combat_unit = { # Elite Regiments
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BOMBAY
+				count = 10
+			}
+			combat_unit = { 
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BOMBAY
+				count = 30
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HYDERABAD
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_BOMBAY
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_HYDERABAD
+				count = 5
+			}
+
+			# Cavalry
+			combat_unit = { # Bombay Light Cavalry
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_BOMBAY
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_BOMBAY
+				count = 4
+			}
+			# Artillery
+			combat_unit = { # Bombay Native Artillery
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BOMBAY
+				count = 5
+			}
+		}
+
+	}
+
+	c:NAG ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_india
+			name = NagpurArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 14
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 1
+			}
+		}
+	}
+	
+	#Chola
+
+	c:CEY ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_madras
+			#name = Madras_Army
+
+			# Infantry
+			combat_unit = { # European Regiments
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MADRAS
+				count = 5
+			}
+			combat_unit = { # Madras Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MADRAS
+				count = 20
+			}
+			combat_unit = { # Madras Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CEYLON
+				count = 10
+			}
+			combat_unit = { # Madras Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CIRCARS
+				count = 15
+			}
+			# Artillery
+			combat_unit = { # Madras Native Artillery
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_MADRAS
+				count = 4
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_madras
+			name = Indian_Navy
+
+			combat_unit = { # Nothing the size of a frigate
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CEYLON	
+				count = 1
+			}
+		}	
+	}
+	
+	c:JEY ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_madras
+			name = JeyporeArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CIRCARS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CIRCARS
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CIRCARS
+				count = 1
+			}
+		}
+	}
+
+	c:BAS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_india
+			name = BastarArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 3
+			}
+		}
+	}
+	
+	c:TRA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_madras
+			name = TravancoreArmy
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TRAVANCORE
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_TRAVANCORE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TRAVANCORE
+				count = 1
+			}
+		}
+		create_military_formation = { # One of very few princely states to operate a navy
+			type = fleet
+			hq_region = sr:region_madras
+			name = TravancoreNavy
+
+			combat_unit = { # Nothing the size of a frigate
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_TRAVANCORE	
+				count = 1
+			}
+		}
+	}
+	
+
+	#Independent India
+
+	c:RAJ ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_punjab
+			#name = JaisalmerArmy
+
+			combat_unit = { # Elite Regiments
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_RAJPUTANA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_RAJPUTANA
+				count = 35
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_RAJPUTANA
+				count = 35
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_RAJPUTANA
+				count = 8
+			}
+			combat_unit = { # Bombay Native Artillery
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_RAJPUTANA
+				count = 5
+			}
+		}
+	}
+
+	c:HYD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_madras
+			name = sarf_e_khas
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HYDERABAD
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HYDERABAD
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_HYDERABAD
+				count = 25
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_HYDERABAD
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_HYDERABAD
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HYDERABAD
+				count = 2
+			}
+		}
+	}
+
+	c:MYS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_madras
+			name = MysoreArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MYSORE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MYSORE
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MYSORE
+				count = 15
+			}
+
+			combat_unit = { # Madras Native Infantry
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KURNOOL
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KURNOOL
+				count = 10
+			}
+
+			# Cavalry
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MYSORE
+				count = 2
+			}
+		}
+	}
+	
+	c:ASM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_bengal
+			name = AhomArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ASSAM
+				count = 12
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_ASSAM
+				count = 1
+			}
+		}
+	}
+	
+	c:GAR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_punjab
+			name = GarhwalArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HILL_PUNJAB
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_AGRA
+				count = 3
+			}
+		}
+	}
+	
+	c:MNP ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_bengal
+			name = ManipurArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ASSAM
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_ASSAM
+				count = 1
+			}
+		}
+	}
+	
+	c:LAD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_himalayas
+			name = NamgyalArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KASHMIR
+				count = 4
+			}
+		}
+	}
+
+	c:BUR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_indochina
+			name = tatmadaw
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_PEGU
+				count = 9
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MANDALAY
+				count = 13
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KACHIN
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_PEGU
+				count = 9
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MANDALAY
+				count = 13
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KACHIN
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_KACHIN
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MANDALAY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_MANDALAY
+				count = 1
+			}
+		}
+	}
+
 }
+
+

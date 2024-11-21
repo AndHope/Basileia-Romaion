@@ -1,40 +1,115 @@
 ﻿COUNTRIES = {
+
+	c:GUJ ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+		activate_law = law_type:law_hindu_caste_not_enforced #Islam not enforced
+	}
+	c:BGL ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+		activate_law = law_type:law_hindu_caste_not_enforced #Islam not enforced
+	}
+	c:HYD ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+		activate_law = law_type:law_hindu_caste_not_enforced #Islam not enforced
+	}
+	c:MYS ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+		activate_law = law_type:law_hindu_caste_not_enforced #Islam not enforced
+	}
+	c:SIN ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+		activate_law = law_type:law_hindu_caste_not_enforced #Islam not enforced
+	}
 	c:KAS ?= {
-		effect_starting_technology_tier_5_tech = yes
-		add_technology_researched = br_tech_skepticism
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+		activate_law = law_type:law_hindu_caste_not_enforced #Islam not enforced
+	}
+	c:RAJ ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
 
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
-
-
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
 		add_modifier = {
-			name = cizye_tax
-			years = 99
+			name = br_modifier_holy_warriors
+			years = 65
+		}
+
+		add_modifier = {
+			name = br_rajputs_modifier
+			years = 100
+		}
+
+		add_technology_researched = br_tech_supply_train
+		add_technology_researched = br_tech_lines_of_communication
+		add_technology_researched = tech_cavalry_specialization
+		add_technology_researched = line_infantry
+		add_technology_researched = br_tech_field_guns
+		add_technology_researched = standing_army
+		add_technology_researched = mandatory_service
+		add_technology_researched = military_drill
+		
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_professional_army
+		
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 75
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 1
+				years = 75
+				is_decaying = yes
+			}
 		}
 	}
+	c:NAG ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:TRA ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:BUN ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:ORI ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:JEY ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:BAS ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:GAR ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:ASM ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+	c:GWA ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_princely_state = yes
+	}
+
 	c:LAD ?= {
 		effect_starting_technology_tier_5_tech = yes
 		add_technology_researched = br_tech_skepticism
@@ -48,7 +123,7 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
+		activate_law = law_type:law_traditionalism
 
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_migration_controls
@@ -57,50 +132,12 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
 	}
-	c:BGL ?= {
-		effect_starting_technology_tier_5_tech = yes
-		add_technology_researched = br_tech_skepticism
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
 
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
-		add_modifier = {
-			name = cizye_tax
-			years = 99
-		}
-	}
 	c:MNP ?= {
 		effect_starting_technology_tier_5_tech = yes
 		activate_law = law_type:law_monarchy
@@ -113,7 +150,7 @@
 		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
+		activate_law = law_type:law_traditionalism
 
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_migration_controls
@@ -122,218 +159,12 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
 	}
-	c:BER ?= {
-		effect_starting_technology_tier_5_tech = yes
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
 
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
 
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
-		add_modifier = {
-			name = cizye_tax
-			years = 99
-		}
-	}
-	c:SIN ?= {
-		effect_starting_technology_tier_5_tech = yes
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
 
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
-		add_modifier = {
-			name = cizye_tax
-			years = 99
-		}
-	}
-	c:ORI ?= {
-		effect_starting_technology_tier_5_tech = yes
-		add_technology_researched = br_tech_skepticism
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
-
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
-
-		add_modifier = {
-			name = cizye_tax
-			years = 99
-		}
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
-	}
-	c:MEW ?= {
-		effect_starting_technology_tier_5_tech = yes
-		add_technology_researched = br_tech_skepticism
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
-
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
-
-		add_modifier = {
-			name = cizye_tax
-			years = 99
-		}
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
-	}
-	c:IND ?= {
-		effect_starting_technology_tier_5_tech = yes
-		add_technology_researched = br_tech_skepticism
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
-
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
-
-		add_modifier = {
-			name = cizye_tax
-			years = 99
-		}
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
-	}
-	c:AWA ?= {
-		effect_starting_technology_tier_5_tech = yes
-		add_technology_researched = br_tech_skepticism
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_land_based_taxation	
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_traditionalism #law_agrarianism
-
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_migration_controls
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-		ig:ig_intelligentsia = { 
-			#set_ig_suppression = yes
-		}
-		add_modifier = {
-			name = cizye_tax
-			years = 99
-		}
-	}
 }

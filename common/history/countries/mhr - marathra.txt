@@ -1,0 +1,62 @@
+﻿COUNTRIES = {
+	c:MHR ?= {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+
+		set_tax_level = high
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		add_technology_researched = br_tech_supply_train
+		add_technology_researched = br_tech_lines_of_communication
+		add_technology_researched = tech_cavalry_specialization
+		add_technology_researched = line_infantry
+		add_technology_researched = br_tech_field_guns
+		add_technology_researched = standing_army
+		add_technology_researched = mandatory_service
+		add_technology_researched = military_drill
+		
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_professional_army
+		
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 75
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 1
+				years = 75
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+
+		add_modifier = {
+			name = br_modifier_holy_warriors
+			years = 65
+		}
+
+		add_modifier = {
+			name = br_maratha_modifier
+			years = 100
+		}
+
+	}
+
+}
