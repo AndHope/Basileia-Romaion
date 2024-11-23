@@ -21,38 +21,6 @@ br_ideology_oligarchic_leader = {
 		law_hereditary_bureaucrats = approve
 	}
 
-	possible = {
-		# Agitator ideologies should disapprove of a current law
-		NAND = {
-			has_role = agitator
-			owner = {
-				has_law = law_type:law_oligarchy
-			}
-		}
-		scope:interest_group = {
-			OR = {
-				is_interest_group_type = ig_landowners
-				is_interest_group_type = ig_industrialists
-				is_interest_group_type = ig_armed_forces
-				is_interest_group_type = ig_devout
-			}
-			is_powerful = yes #only the ruling class
-			NOR = {
-				has_variable = chose_vanguardism
-				has_variable = communist_ig_var
-				has_variable = chose_fascism
-				has_variable = chose_conservatism
-				has_variable = chose_ethno_nationalism
-			}
-		}
-		NAND = {
-			is_ruler = yes
-			owner = {
-				has_law = law_type:law_autocracy
-			}
-		}
-	}
-
 	interest_group_leader_weight = {
 		value = 75 #not that interesting
 		# less likely if issues are not relevant
@@ -148,34 +116,6 @@ br_ideology_absolutist = {
 		law_single_party_state = disapprove
 	}
 	
-	possible = {
-		# Agitators should have an ideology at odds with current laws
-		NAND = {
-			has_role = agitator
-			owner = {
-				has_law = law_type:law_monarchy
-			}
-		}
-		# no monarchists in countries with strong republican tradition
-		#only possible for the monarch's IG
-		owner = {
-			has_law = law_type:law_monarchy
-			any_scope_character = {
-				is_ruler = yes
-				this.interest_group = scope:interest_group
-			}
-		}
-		scope:interest_group = {
-			NOR = {
-				has_variable = communist_ig_var
-				has_variable = chose_vanguardism
-				has_variable = chose_fascism
-				has_variable = chose_conservatism
-				has_variable = chose_ethno_nationalism
-			}
-		}
-	}
-	
 	interest_group_leader_weight = {
 		value = 10 #not that interesting to spawn
 	}
@@ -211,45 +151,6 @@ br_ideology_aristocratic_leader = {
 		law_professional_army = neutral
 		law_national_militia = disapprove
 		law_peasant_levies = approve
-	}
-
-	possible = {
-		# Agitator ideologies should disapprove of a current law
-		NAND = {
-			has_role = agitator
-			owner = {
-				has_law = law_type:law_oligarchy
-			}
-		}
-		scope:interest_group = {
-			OR = {
-				#only in IGs that could be in support of aristocracy
-				#Landowners are already inherently this
-				is_interest_group_type = ig_armed_forces
-				is_interest_group_type = ig_devout
-				is_interest_group_type = ig_intelligentsia
-			}
-			NOR = {
-				has_variable = chose_vanguardism
-				has_variable = communist_ig_var
-				has_variable = chose_fascism
-				has_variable = chose_conservatism
-				has_variable = chose_ethno_nationalism
-			}
-		}
-		#only in countries with actual nobility
-		owner = {
-			OR = {
-				has_law = law_type:law_hereditary_bureaucrats
-				has_law = law_type:law_tenant_farmers
-				has_law = law_type:law_serfdom
-				has_law = law_type:law_peasant_levies
-			}
-			#goes away with Human Rights
-			NOT = {
-				has_technology_researched = human_rights
-			}
-		}
 	}
 
 	interest_group_leader_weight = {
