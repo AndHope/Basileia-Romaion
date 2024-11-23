@@ -443,6 +443,18 @@ ai_strategy_colonial_expansion = {
 			}			
 		}
 
+		if = {
+			limit = {
+				scope:target_country = {
+					is_subject = yes
+					top_overlord ?= {
+						NOT = { is_country_type = unrecognized }
+					}
+				}
+			}
+			multiply = 0.1
+		}
+
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
 		if = {
 			limit = {
@@ -869,6 +881,18 @@ ai_strategy_economic_imperialism = {
 			add = 20
 		}
 
+		if = {
+			limit = {
+				scope:target_country = {
+					is_subject = yes
+					top_overlord ?= {
+						NOT = { is_country_type = unrecognized }
+					}
+				}
+			}
+			multiply = 0.1
+		}		
+
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
 		if = {
 			limit = {
@@ -878,7 +902,7 @@ ai_strategy_economic_imperialism = {
 				}					
 			}
 			multiply = 0.25
-		}	
+		}
 
 		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
 		multiply = {
@@ -1233,18 +1257,32 @@ ai_strategy_unify_germany = {
 
 	recklessness = {
 		value = 0.5
+
+		if = {
+			limit = {
+				has_technology_researched = enlistment_offices
+			}
+			add = 0.25
+		}		
 	}
 	
 	aggression = {
 		value = 0.25
 		
 		if = {
-			limit = { 
+			limit = {
 				scope:target_country = {			
 					is_unification_candidate = GER
 				}
 			}
-			add = 10
+			add = 0.5
+
+			if = {
+				limit = {
+					has_technology_researched = enlistment_offices
+				}
+				add = 5
+			}	
 		}
 		else_if = {
 			limit = { 
@@ -1255,8 +1293,17 @@ ai_strategy_unify_germany = {
 					}
 				}
 			}
-			add = 2.75
-		}		
+			add = 0.25
+
+			if = {
+				limit = {
+					has_technology_researched = enlistment_offices
+				}
+				add = 2
+			}				
+		}
+
+
 
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
 		if = {
@@ -1281,6 +1328,9 @@ ai_strategy_unify_germany = {
 
 	building_group_weights = {
 		bg_army = 1.5
+		bg_artillery_foundaries = 1.5
+		bg_arms_industries = 1.5
+		bg_munition_plants = 1.5
 	}
 	
 	state_value = {
@@ -1349,7 +1399,7 @@ ai_strategy_unify_germany = {
 			if = {
 				limit = {
 					scope:target_country = {				
-						is_unification_candidate =GER
+						is_unification_candidate = GER
 					}
 				}
 				add = 1000
