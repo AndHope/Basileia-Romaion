@@ -582,6 +582,64 @@ on_monthly_pulse_country = {
 			}
 		}
 		
+		if = {
+			limit = {
+				NOT = {
+					has_variable = cant_touch_this_achievement_possible
+				}
+				any_country = {
+					NOT = {
+					   THIS = ROOT
+					}
+					ROOT = {
+						"gdp_ownership_ratio(prev)" > 0.10
+					}	
+			    }
+			}
+			set_variable = cant_touch_this_achievement_possible
+		}
+
+		if = {
+			limit = {
+				is_country_type = colonial # The colonial country type, for now, is only used for colonies whilst they are subjects of another power
+				is_subject = no
+			}
+			set_country_type = recognized
+		}
+		
+		if = { # Creates Petrograd
+			limit = {
+				country_has_primary_culture = cu:russian
+				has_technology_researched = nationalism
+				NOT = { has_law = law_type:law_council_republic }
+
+				OR = {
+					any_rival_country = {
+						any_primary_culture = {
+							has_discrimination_trait = german_speaking
+						}
+					}
+					any_rivaling_country = {
+						any_primary_culture = {
+							has_discrimination_trait = german_speaking
+						}					
+					}
+				}
+				any_scope_state = {
+					state_region = s:STATE_INGRIA
+				}
+				NOT = {
+					has_variable = petrograd_var
+				}
+			}
+			set_variable = petrograd_var
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_INGRIA
+				}
+				STATE_INGRIA_state_name_assign = yes
+			}
+		}
 	}
 	on_actions = { # delay ensures events won't fire simultaneously
 		coup_monthly_events
@@ -632,7 +690,7 @@ on_yearly_pulse_country = {
 		if = {
 			limit = {
 				NOR = {
-					#has_journal_entry = je_sick_man_main # Ottomans have enough required reforms to worry about
+					has_journal_entry = je_sick_man_main # Ottomans have enough required reforms to worry about
 					has_journal_entry = je_meiji_restoration # Ditto for Japan
 					has_variable = gov_petition_fired
 					has_variable = gov_petition_cooldown
@@ -1135,7 +1193,6 @@ on_diplomatic_play_started = {
 				scope:initiator = { annex = prev }
 			}
 		}
-		
 		if = {
 			limit = { is_diplomatic_play_type = dp_unify_italy }
 			every_country = {
@@ -1146,7 +1203,6 @@ on_diplomatic_play_started = {
 				scope:initiator = { annex = prev }
 			}
 		}
-
 		if = {
 			limit = { is_diplomatic_play_type = dp_unify_scandinavia }
 			every_country = {
@@ -1156,7 +1212,34 @@ on_diplomatic_play_started = {
 				
 				scope:initiator = { annex = prev }
 			}
-		}		
+		}
+		if = {
+			limit = {
+				is_diplomatic_play_type = dp_annex_subject
+				scope:initiator = {
+					has_variable = selected_federal_solution_var
+				}
+				scope:target = {
+					has_variable = indian_federation_member
+				}
+			}
+			scope:initiator = {
+				add_radicals = {
+					religion = rel:shiite
+					value = very_large_radicals
+				}
+				add_radicals = {
+					religion = rel:sunni
+					value = very_large_radicals
+				}
+				every_subject_or_below = {
+					limit = {
+						has_variable = indian_federation_member
+					}
+					change_relations = { country = root value = -50 }
+				}
+			}
+		}
 	}
 }
 
@@ -1269,6 +1352,43 @@ on_character_death = {
 			}
 			remove_global_variable = garibaldi_is_alive_global_var
 		}
+		### Caudillo Kingmaker
+		if = {
+			limit = {
+				NOT = { has_variable = caudillo_kingmaker }
+				has_role = politician
+				interest_group = {
+					is_interest_group_type = ig_armed_forces
+					is_marginal = no
+				}
+				owner = {
+					in_election_campaign = no
+					country_has_voting_franchise = yes
+					OR = {
+						has_journal_entry = je_caudillo
+						has_modifier = age_of_caudillos_modifier
+					}
+				}
+			}
+			owner = {
+				trigger_event = { id = caudillo.5 days = 1 }
+			}
+		}
+
+		if = { # Override to make the ruler of British India always an Industrialist
+			limit = {
+				is_ruler = yes
+				c:BIC ?= owner
+			}
+			owner = {
+				ig:ig_industrialists = {
+					leader = {
+						set_character_as_ruler = yes
+					}
+				}
+				generate_new_eic_government_leader = yes
+			}
+		}
 	}
 }
 
@@ -1286,6 +1406,25 @@ on_new_ruler = {
 			post_notification = new_ruler
 		}
 
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = sikh_maharaja_enthroned
+					}
+				}
+				owner = {
+					je:je_sikh_sovereignty = {
+						set_bar_progress = { value = 0 name = sikh_empire_progress_bar }
+					}
+				}
+				set_variable = sikh_maharaja_enthroned
+				owner = {
+					change_variable = { name = sikh_dead_maharajas_var add = 1 }
+				}
+			}
+		}
 	}
 }
 
@@ -1502,6 +1641,18 @@ on_country_released_as_independent = {
 	effect = {
 		if = {
 			limit = {
+				c:NEN ?= scope:target
+			}
+			scope:target = {
+				create_character = {
+					ig_leader = yes
+					interest_group = ig_rural_folk
+					ideology = ideology_luddite
+				}
+			}
+		}
+		if = {
+			limit = {
 				scope:target = {
 					country_has_primary_culture = cu:ashkenazi
 				}
@@ -1544,6 +1695,18 @@ on_country_released_as_independent = {
 # scope:target = Released Country
 on_country_released_as_own_subject = {
 	effect = {
+		if = {
+			limit = {
+				c:NEN ?= scope:target
+			}
+			scope:target = {
+				create_character = {
+					ig_leader = yes
+					interest_group = ig_rural_folk
+					ideology = ideology_luddite
+				}
+			}
+		}
 		if = {
 			limit = {
 				scope:target = {
@@ -3831,6 +3994,24 @@ on_wargoal_enforced = {
         		remove_modifier = modifier_herat_inspiration
         	}
         }
+        if = { # India - Capture of the Koh-i-Noor
+        	limit = {
+        		owner = {
+        			NOT = {
+        				has_variable = punjab_captured
+        			}
+	        		c:BIC ?= this
+					is_subject = yes
+					country_or_subject_owns_entire_state_region = STATE_PUNJAB
+				}
+        	}
+        	owner = {
+        		set_variable = punjab_captured
+        		trigger_event = { id = india_events.3 days = 7 popup = yes }
+        	}
+        }
+
+		### Earning Recognition functions
 		if = {
 			limit = {
 				scope:target = {
@@ -4135,7 +4316,7 @@ on_state_incorporation = {
 		
 	}
 }
-on_state_owner_change = { # All dynamic names should be applied on a strategic region level for ease of use and to avoid overlapping script
+on_state_owner_change = {
 	effect = {
 		assign_state_hub_dynamic_names = yes # All dynamic naming is handled by this scripted effect
 	}
