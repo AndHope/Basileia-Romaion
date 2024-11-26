@@ -1353,27 +1353,6 @@ on_character_death = {
 			remove_global_variable = garibaldi_is_alive_global_var
 		}
 		### Caudillo Kingmaker
-		if = {
-			limit = {
-				NOT = { has_variable = caudillo_kingmaker }
-				has_role = politician
-				interest_group = {
-					is_interest_group_type = ig_armed_forces
-					is_marginal = no
-				}
-				owner = {
-					in_election_campaign = no
-					country_has_voting_franchise = yes
-					OR = {
-						has_journal_entry = je_caudillo
-						has_modifier = age_of_caudillos_modifier
-					}
-				}
-			}
-			owner = {
-				trigger_event = { id = caudillo.5 days = 1 }
-			}
-		}
 
 		if = { # Override to make the ruler of British India always an Industrialist
 			limit = {
@@ -1406,6 +1385,12 @@ on_new_ruler = {
 			post_notification = new_ruler
 		}
 
+		if = {
+			limit = {
+				owner = {
+					c:PAN ?= this
+					has_journal_entry = je_sikh_sovereignty
+
 				}
 			}
 			if = {
@@ -1427,6 +1412,7 @@ on_new_ruler = {
 		}
 	}
 }
+
 
 # Root = Country
 on_country_default = {

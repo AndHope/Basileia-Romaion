@@ -21,6 +21,42 @@
 #	}
 #}
 
+kalmar_union = {
+	color = "kalmar_orange"
+
+	possible = {
+		exists = c:SCA
+		THIS = c:SCA
+		has_law = law_type:law_monarchy
+		ruler = {
+			has_culture = cu:danish
+		}
+	}
+}
+
+fennoscandia = {
+	color = "finnish_brown"
+
+	possible = {
+		exists = c:SCA
+		THIS = c:SCA
+		has_law = law_type:law_monarchy
+		ruler = {
+			has_culture = cu:finnish
+		}
+	}
+}
+
+yellow_prussia = {
+	color = "yellow"
+
+	possible = {
+		exists = c:PRU
+		THIS = c:PRU
+		has_law = law_type:law_anarchy
+	}
+}
+
 imperial_korea = {
 	color = "korean_empire_purple"
 
@@ -54,6 +90,23 @@ japanese_shogunate = {
 	}
 }
 
+united_netherlands = {
+	color = "united_netherlands_orange"
+	possible = {
+		exists = c:NET
+		THIS = c:NET
+		owns_entire_state_region = STATE_FLANDERS
+		owns_entire_state_region = STATE_WALLONIA
+	}
+}
+dark_khmer = {
+	color = "khmer_green"
+	possible = {
+		exists = c:CAM
+		THIS = c:CAM
+		NOT = { is_country_type = unrecognized }
+	}
+}
 imperial_japan = {
 	color = "white"
 
@@ -116,24 +169,7 @@ unpleasant_germany = {
 	possible = {
 		exists = c:GER
 		THIS = c:GER
-		coa_dictatorship_trigger = yes
-		NOT = {
-			OR = {
-				py:communist_party ?= {
-					any_member = {
-						is_in_government = yes
-					}
-				}
-				any_scope_character = {
-					is_ruler = yes
-					OR = {
-						has_ideology = ideology:ideology_communist
-						has_ideology = ideology:ideology_vanguardist
-						has_ideology = ideology:ideology_anarchist
-					}
-				}
-			}
-		}
+		coa_fascist_trigger = yes
 	}
 }
 
@@ -241,16 +277,47 @@ empire_france = {
 	}
 }
 
-republican_india = {
+hindu_india = {
 	color = "orange_india"
 
 	possible = {
 		exists = c:BHT
 		THIS = c:BHT
+		country_has_state_religion = rel:hindu
 		OR = {
-			has_law = law_type:law_parliamentary_republic
-			has_law = law_type:law_presidential_republic
-			has_law = law_type:law_council_republic
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_freedom_of_conscience
+		}
+	}
+}
+
+muslim_india = {
+	color = "green_india"
+
+	possible = {
+		exists = c:BHT
+		THIS = c:BHT
+		OR = {
+			country_has_state_religion = rel:shiite
+			country_has_state_religion = rel:sunni
+		}
+		OR = {
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_freedom_of_conscience
+		}
+	}
+}
+
+sikh_india = {
+	color = "blue_india"
+
+	possible = {
+		exists = c:BHT
+		THIS = c:BHT
+		country_has_state_religion = rel:sikh
+		OR = {
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_freedom_of_conscience
 		}
 	}
 }
