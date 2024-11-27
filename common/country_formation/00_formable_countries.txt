@@ -148,6 +148,7 @@ PLC = {
 		STATE_EAST_GALICIA
 		STATE_GREATER_POLAND
 		STATE_LESSER_POLAND
+		STATE_KAUNAS
 		STATE_VILNIUS
 		STATE_MAZOVIA
 		STATE_POSEN
@@ -306,7 +307,7 @@ BLH = {
 	ai_will_do = { always = yes }
 	
 	possible = {
-		has_technology_researched = pan-nationalism
+		has_technology_researched = nationalism
 	}
 }
 
@@ -365,19 +366,7 @@ SAF = {
 }
 
 TRH = {
-	states = { 
-		STATE_UZBEKIA
-		STATE_KIRGHIZIA
-		STATE_TAJIKISTAN
-		STATE_TURKMENIA
-		STATE_KHIVA
-		STATE_SEMIRECHE
-		STATE_AKMOLINSK
-		STATE_URALSK
-		STATE_TIANSHAN
-		STATE_DZUNGARIA
-		STATE_JETISY
-	}
+	use_culture_states = yes
 
 	required_states_fraction = 0.5
 	
@@ -423,7 +412,7 @@ BHT = {
 		STATE_BALUCHISTAN
 		STATE_BIHAR 
 		STATE_BOMBAY 
-		STATE_CENTRAL_INDIA 
+		STATE_MALWA 
 		STATE_CEYLON 
 		STATE_CIRCARS
 		STATE_DELHI 
@@ -432,15 +421,19 @@ BHT = {
 		STATE_KASHMIR 
 		STATE_MADRAS 
 		STATE_MYSORE 
-		STATE_NAGPUR 
-		STATE_NORTH_BENGAL 
+		STATE_CENTRAL_PROVINCES 
+		STATE_WEST_BENGAL 
 		STATE_ORISSA 
 		STATE_PASHTUNISTAN
 		STATE_PUNJAB 
 		STATE_RAJPUTANA 
 		STATE_SINDH 
-		STATE_SOUTH_BENGAL 
+		STATE_EAST_BENGAL 
 		STATE_TRAVANCORE
+		STATE_KURNOOL
+		STATE_BUNDELKHAND
+		STATE_AGRA
+		STATE_HILL_PUNJAB
 	}
 
 	required_states_fraction = 0.75
@@ -497,6 +490,8 @@ KAZ = {
 		STATE_AKMOLINSK
 		STATE_JETISY
 		STATE_URALSK
+		STATE_AKTOBE
+		STATE_SYRDARYA
 	}
 
 	required_states_fraction = 0.75	
@@ -543,56 +538,69 @@ HRE = {
 	
 	possible = {
 		NOT = { has_game_rule = plausible_formable_nations }
+		country_is_in_europe = yes
 	}
 }
 
-# CLI = {
-# 	states = {
-# 		STATE_NORTH_CAROLINA
-# 		STATE_SOUTH_CAROLINA
-# 	}
-
-# 	required_states_fraction = 1
+AFG = {
+	states = {
+		STATE_HERAT
+		STATE_KANDAHAR
+		STATE_KABUL 
+		STATE_CENTRAL_HIGHLANDS
+	}
 	
-# 	ai_will_do = { always = yes }
+	required_states_fraction = 1
 
-# 	possible = {
-# 		OR = {
-# 			c:NCR ?= this
-# 			c:SCR ?= this
-# 		}
-# 		NOT = { has_game_rule = plausible_formable_nations }
-# 	}
-# }
+	ai_will_do = { always = yes }
+}
 
-# AFG = { #if it can't be formed than there will always be an error
-# 	states = {
-# 		STATE_HERAT
-# 		STATE_KANDAHAR
-# 		STATE_KABUL 
-# 		STATE_CENTRAL_HIGHLANDS
-# 	}
+TWT = {
+	use_culture_states = yes
 	
-# 	required_states_fraction = 1
+	required_states_fraction = 0.5
 
-# 	possible = {
-# 		always = no
-# 	}
+	ai_will_do = { always = no }
 
-# 	ai_will_do = { always = yes }
-# }
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
 
-# TWT = {
-# 	use_culture_states = yes
+PAK = {
+	states = {
+		STATE_BALUCHISTAN
+		STATE_PASHTUNISTAN
+		STATE_KASHMIR
+		STATE_PUNJAB
+		STATE_SINDH
+		STATE_QUETTA
+	}
+
+	required_states_fraction = 0.80 # 5/6 states needed
 	
-# 	required_states_fraction = 0.5
+	ai_will_do = { always = yes }
 
-# 	ai_will_do = { always = no }
+	possible = {
+		has_technology_researched = pan-nationalism
+		country_has_state_religion = rel:sunni
+	}
+}
 
-# 	possible = {
-# 		has_technology_researched = nationalism
-# 	}
-# }
+RAJ = {
+	use_culture_states = yes
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
+
+GUJ = {
+	use_culture_states = yes
 
 # PLT = {
 # 	states = {
@@ -610,42 +618,59 @@ HRE = {
 # 		STATE_CORRIENTES
 # 	}
 
-# 	required_states_fraction = 0.85
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
+
+MHR = {
+	use_culture_states = yes
+
+	required_states_fraction = 1
 	
-# 	ai_will_do = { always = yes }
+	ai_will_do = { always = yes }
+}
+
+PAN = {
+	use_culture_states = yes
+
+	required_states_fraction = 1
 	
-# 	possible = {
-# 		has_technology_researched = nationalism
-# 	}
-# }
+	ai_will_do = { always = yes }
+}
 
-# PAK = {
-# 	states = {
-# 		STATE_BALUCHISTAN
-# 		STATE_PASHTUNISTAN
-# 		STATE_KASHMIR
-# 		STATE_PUNJAB
-# 		STATE_SINDH
-# 	}
+MUG = {
+	use_culture_states = yes
 
-# 	required_states_fraction = 0.80 # 4/5 states needed
+	required_states_fraction = 1
 	
-# 	ai_will_do = { always = yes }
+	ai_will_do = { always = yes }
+}
 
-# 	possible = {
-# 		has_technology_researched = pan-nationalism
-# 		country_has_state_religion = rel:sunni
-# 	}
-# }
-
-# MGB = {
-# 	use_culture_states = yes
+DRA = {
+	use_culture_states = yes
 	
-# 	required_states_fraction = 0.5
+	required_states_fraction = 0.75
 
-# 	ai_will_do = { always = no }
+	ai_will_do = { always = yes }
 
-# 	possible = {
-# 		has_technology_researched = pan-nationalism
-# 	}
-# }
+	possible = {
+		has_technology_researched = pan-nationalism
+	}
+}
+
+CAR = {
+	use_culture_states = yes
+	
+	required_states_fraction = 0.75
+
+	ai_will_do = { always = yes }
+}
+
+BGL = {
+	use_culture_states = yes
+
+	required_states_fraction = 0.5
+	
+	ai_will_do = { always = yes }
+}

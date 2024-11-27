@@ -34,27 +34,6 @@ law_consumption_based_taxation = {
 		tax_consumption_add = 0.50
 	}	
 	
-	possible_political_movements = {
-		law_per_capita_based_taxation
-		law_land_based_taxation
-	}
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_PEASANTS"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_land_based_taxation
-					}
-					is_pop_type = peasants
-				}
-				value = 0.75
-			}
-		}
-	}
-	
 	# AI shouldn't change to consumption-based-taxation as it's likely to wreck their economy
 	ai_will_do = {
 		always = no
@@ -79,24 +58,24 @@ law_land_based_taxation = {
 	
 	tax_modifier_very_low = {
 		tax_consumption_add = 0.20
-		tax_land_add = 0.50
-		tax_income_add = 0.05
+		tax_land_add = 0.40
+		tax_income_add = 0.04
 	}	
 	
 	tax_modifier_low = {
 		tax_consumption_add = 0.275
-		tax_land_add = 0.60
-		tax_income_add = 0.06
+		tax_land_add = 0.55
+		tax_income_add = 0.055
 	}
 	
 	tax_modifier_medium = {
 		tax_consumption_add = 0.35
-		tax_land_add = 0.75
+		tax_land_add = 0.7
 		tax_income_add = 0.07
 	}	
 	
 	tax_modifier_high = {
-		tax_consumption_add = 0.45
+		tax_consumption_add = 0.425
 		tax_land_add = 0.85
 		tax_income_add = 0.085
 	}
@@ -105,25 +84,6 @@ law_land_based_taxation = {
 		tax_consumption_add = 0.50
 		tax_land_add = 1.00
 		tax_income_add = 0.10
-	}	
-	
-	possible_political_movements = {
-		law_per_capita_based_taxation
-		law_proportional_taxation
-	}
-
-	pop_support = {
-		value = 0
-		
-		add = {
-			desc = "POP_ARISTOCRATS"
-			if = {
-				limit = { 
-					is_pop_type = aristocrats
-				}
-				value = 0.33
-			}
-		}
 	}
 
 	# AI shouldn't change to land based taxation from more advanced taxation forms
@@ -159,57 +119,36 @@ law_per_capita_based_taxation = {
 	tax_modifier_very_low = {
 		tax_consumption_add = 0.20
 		tax_per_capita_add = 0.40
-		tax_land_add = 0.25
+		tax_land_add = 0.20
 		tax_income_add = 0.10
 	}	
 	
 	tax_modifier_low = {
 		tax_consumption_add = 0.275
 		tax_per_capita_add = 0.55
-		tax_land_add = 0.3
+		tax_land_add = 0.275
 		tax_income_add = 0.125
 	}
 	
 	tax_modifier_medium = {
 		tax_consumption_add = 0.35
 		tax_per_capita_add = 0.70
-		tax_land_add = 0.40
+		tax_land_add = 0.35
 		tax_income_add = 0.15
 	}	
 	
 	tax_modifier_high = {
 		tax_consumption_add = 0.425
 		tax_per_capita_add = 0.85
-		tax_land_add = 0.45
+		tax_land_add = 0.425
 		tax_income_add = 0.175
 	}
 	
 	tax_modifier_very_high = {
 		tax_consumption_add = 0.50
 		tax_per_capita_add = 1.0
-		tax_land_add = 0.65
+		tax_land_add = 0.50
 		tax_income_add = 0.20
-	}	
-	
-	possible_political_movements = {
-		law_graduated_taxation
-		law_proportional_taxation
-	}
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_PEASANTS"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_land_based_taxation
-					}
-					is_pop_type = peasants
-				}
-				value = 0.75
-			}
-		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -219,6 +158,19 @@ law_per_capita_based_taxation = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				OR = {
+					has_journal_entry = je_sick_man_bureaucracy
+					has_modifier = shogun_ig_forced_to_open_market
+					has_journal_entry = je_meiji_main
+					has_journal_entry = je_great_reforms_bureaucratic
+				}
+				has_law = law_type:law_land_based_taxation
+			}
+			add = 5000
+		}			
 	}
 }
 
@@ -265,28 +217,7 @@ law_proportional_taxation = {
 		tax_consumption_add = 0.50
 		tax_income_add = 0.35
 		tax_dividends_add = 0.20
-	}	
-
-	possible_political_movements = {
-		law_per_capita_based_taxation
-		law_proportional_taxation
-	}	
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_PEASANTS"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_land_based_taxation
-					}
-					is_pop_type = peasants
-				}
-				value = 0.75
-			}
-		}
-	}
+	}		
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -295,6 +226,19 @@ law_proportional_taxation = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				OR = {
+					has_journal_entry = je_sick_man_bureaucracy
+					has_modifier = shogun_ig_forced_to_open_market
+					has_journal_entry = je_meiji_main
+					has_journal_entry = je_great_reforms_bureaucratic
+				}
+				has_law = law_type:law_land_based_taxation
+			}
+			add = 5000
+		}		
 	}
 }
 
@@ -341,26 +285,6 @@ law_graduated_taxation = {
 		tax_consumption_add = 0.50
 		tax_income_add = 0.20
 		tax_dividends_add = 0.3
-	}
-
-	possible_political_movements = {
-		law_proportional_taxation
-	}	
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_PEASANTS"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_land_based_taxation
-					}
-					is_pop_type = peasants
-				}
-				value = 0.75
-			}
-		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions

@@ -1,278 +1,453 @@
-﻿# Why do some state entries have quote marks around them, when others don't?
-# It's because of differing methods of editing throughout the production of the game. Quote marks are unnecessary, but harmless if present.
+﻿# "Why do some state entries have quote marks around them, when others don't?"
+# "It's because of differing methods of editing throughout the production of the game. Quote marks are unnecessary, but harmless if present."
 
 STATES = {
-	s:STATE_ORISSA = {
-		create_state = {
-			country = c:ORI
-			owned_provinces = { xBAE4B3 xA15F01 xB6E5C1 x323B8A x0CE6EA xCCE5B7 x22B96B x30C2D5 xA0A8E0 x11D169 x404EEA xFBF096 x1504AD x1622F2 x5BC5C8 x5031A0 xB07FDD xBB9552 x597E99 xFFBC41 x38A6E6 xD031A0 xA2EF24 }		
-		}
-		add_claim = c:MUG
-		add_homeland = cu:oriya
-	}
-	s:STATE_SINDH = {
-		create_state = {
-			country = c:SIN
-			owned_provinces = { x56F6E9 x105356 x5AF594 x1A04E6 x705060 x8C4F5A x11152D x16F3F6 x3FFB31 xF90BDE x23DFA9 x02BBA0 x268E58 x808515 xDD447A x1507B8 xD7517F x8FC69D x60B021 x73A9E3 xDB079F xF5592F xB2850D x315160 xAE1ED1 xFBDCF5 xE4B4A2 x59EE31 xCC14D7 x882A58 xC7D26A }	
-		}
-		create_state = {
-			country = c:PER
-			owned_provinces = { x6E9D54 }	
-			state_type = unincorporated
-			state_type = treaty_port
-		}
 
-		add_claim = c:MUG
-		add_homeland = cu:sindi
-	}
-	s:STATE_RAJPUTANA = {
-		create_state = {
-			country = c:MEW #W94
-			owned_provinces = { 
-				x37D8C4 x61F021 xA9F108 xBC1373 xE27278 xE95A9E
-				x0A34C2 x0C11FE x166BD9 x22627C x25467F x3FF532 x40881F x425430 x4922B9 x4CEAC0 x5C95B5 x604D2F x67EA54 x6E01FB x7B1C30 xA2025E xA389C9 xA614CA xBD1F80 xC28B1B xCA50D5 xCBE6C4 xCC8FF3 xD76ACC xD77479 xDCFF99 xDD12D2 xE0B020 xE0F021 xF051DF xF671B7 xFFFB3C }
-		}
-		create_state = {
-			country = c:MUG #U33 W45 NAG JAS BIK
-			owned_provinces = { xBA06BC
-				x01F0E0 x214E7A x53A30A x5DACF4 x6A103F x84F1F8 xA99FB3 xC40894 xEBA05F xF3C5EA xF591B3
-				x006D72 x1031A8 x3C6F90 x599EC5 x6031A0 x6E8BCD x77810B xBD0984 xD0F7A0
-				x2A57A1 x5A410D x9601FD x9A6A95 xB9580C xBAD851 xEB0422
-				x0A43D0 x0170B1 x0710F5 x4EA8C5 x82B440 xC7EF85 }
-		}	
-		add_claim = c:MUG
-		add_homeland = cu:rajput
-	}
-	s:STATE_CIRCARS = {
-		create_state = {
-			country = c:CEY
-			owned_provinces = { xCDFBE6 xC744F9 xD19AD8 x477063 x7166FA xB3DED5 xB00B6B x3EC5D1 x9070A0 x6B15F1 x73B187 xEBBB7A xE2CF64 xF8BB81 x8B1F32 x207C4F x11F0A0 x9193B1 x42F4F2 x365CC3 xE9BCE7 x180640 xCFF020 x0AC82E x338BFB x0F1912 xF2F82A x063403 x34BB3B x5170A0 xF46AEC x84EE56 x35AB0E xF91482 x54D463 x461A00 x59BBE1 x669373 }
-		}
-		
-		add_homeland = cu:telegu
-	}
+	#Punjab
 	s:STATE_PUNJAB = {
 		create_state = {
 			country = c:KAS
-			owned_provinces = { x051899 x1D3609 x97232F xA0B0A0 xD458B6 }
+			owned_provinces = { x051899 x1D3609 x97232F xA0B0A0 xD458B6 x7074E3 }
 		}
 		create_state = {
 			country = c:MUG
-			owned_provinces = { x30122F x022D2B x706940 x2DBD82
-				x572FB9 x8FF69F x251424 x9CEEC1 xF58253 x713583 xE3CCA0 xA6DAD0 x3631C3 x80F0E0 x50D414 xE03121 xD921CB x91DEAB xAA60D3 xE2230E x918140 x9B38C0 xCD3942 x67DD93 xCD3E9A xB94359 xE0C4D2 x4E722C x0EC528 x9AB208 x19E5C0 xD597DC xCF602F  xEFC3B4 xCA516D xB4E322 xCA5BC1 xDB08EC x7074E3 x61F7C9 x767A66 x36E637 x12D43A xA1CA4A xF8614B x6C44CE x8F5440 x402C84 x94A5A8 xCEAF5E xA07020 x96E54B xA98EF8 x280F05 xA0F0A0 x5A5F96 xDEFFE6 x0C25D9 x394B7F x66C9D9 xDB91D3 }
+			owned_provinces = { x022D2B xD597DC x30122F xCF602F x706940 x2DBD82 x19E5C0 xEFC3B4 xCA516D xB4E322 x9CEEC1 xF58253 x713583 xE3CCA0 xA6DAD0 x3631C3 x80F0E0 x50D414 xE03121 xD921CB x91DEAB xAA60D3 xE2230E x918140 x9B38C0 xCD3942 x67DD93 xCD3E9A xB94359 xE0C4D2 x4E722C x0EC528 x9AB208 xCA5BC1 xDB08EC x61F7C9 x767A66 x36E637 x12D43A xA1CA4A xF8614B x6C44CE x8F5440 x402C84 x94A5A8 xCEAF5E }
 		}
-		create_state = {
-			country = c:AWA
-			owned_provinces = { x0003C6 xF202E0 xE60F80 xE31B4E xD52082 x3264B7 x607020 x45AF2E x59BBCE xE0C455 xF4C868 }
-		}
+		
 		add_homeland = cu:panjabi
 	}
-	s:STATE_NAGPUR = {
+	s:STATE_HILL_PUNJAB = {
+	    create_state = {
+	    	country = c:GAR
+	    	owned_provinces = { xF202E0 xE31B4E xD52082 x3264B7 xE0C455 xE60F80 xF4C868 x0003C6 x607020 x45AF2E x59BBCE x8FF69F x251424 x572FB9 xA07020 }
+		}
+	    create_state = {
+	    	country = c:MUG
+	    	owned_provinces = { x5A5F96 xDB91D3 xA0F0A0 x66C9D9 x0C25D9 x394B7F xDEFFE6 x280F05 x96E54B xA98EF8 }
+		}
+
+	    add_homeland = cu:pahari
+	    add_homeland = cu:panjabi
+	}
+	s:STATE_DELHI = {
 		create_state = {
-			country = c:MYS #BAS X93 X49
-			owned_provinces = { 
-				x015F11 x03614F x745647 x8B8B4D x96CDBD x9CDEF7 xA939B9 xCC1F79 xD42EF4 xD51B8A xDA84A6 xE167A8 xE67BF6 xF036D0 xFE794D
-				x4B7422 x66F24C x958AC3 x9B0E9E x9C673D xA11B88 xD03120
-				x013159 x1170A0 x20BC2C x274E94 x2F70FB x8ECE82 xB56E8E xC38F66 xF09DA1 }
+			country = c:MUG
+			owned_provinces = { x945283 xE0EFA0 x1DC68F x1EA5F8 x45756F x4E70D0 x947B18 xB39D42 xB949B4 xE07020  xE4F817 }
+		}	
+
+		add_homeland = cu:avadhi
+	}
+	s:STATE_RAJPUTANA = {
+		create_state = {
+			country = c:RAJ
+			owned_provinces = { xEB0422 x9601FD x01F0E0 xFFFB3C xE0F021 x3C6F90 x77810B xD0F7A0 x6E8BCD xBD0984 x6031A0 x1031A8 x599EC5 x006D72 x40881F xF051DF xCC8FF3 x0A34C2 xF671B7 x6E01FB xA614CA xDCFF99 xBD1F80 x9A6A95 x7B1C30 x22627C xDD12D2 xD77479 xCA50D5 x4CEAC0 xCBE6C4 x0C11FE x425430 xD76ACC xA389C9 xBAD851 xC28B1B x4922B9 xE0B020 x2A57A1 x25467F x3FF532 x166BD9 x5C95B5 }
+		}
+
+		create_state = {
+			country = c:MUG
+			owned_provinces = { x604D2F xE95A9E x37D8C4 xA9F108 xE27278 xBC1373 x61F021
+				xC7EF85 x0170B1 x67EA54 xA2025E x4EA8C5 x5A410D xB9580C x82B440 x0A43D0 x0710F5 xBA06BC xF3C5EA x84F1F8 xA99FB3 xC40894 xF591B3 x53A30A xEBA05F x214E7A x6A103F x5DACF4 }
+			state_type = unincorporated
+		}
+
+		add_claim = c:RAJ
+		add_homeland = cu:rajput
+	}
+	
+
+	#Central India
+	s:STATE_CENTRAL_PROVINCES = {
+		create_state = {
+			country = c:NAG
+			owned_provinces = { x9C673D x4B7422 x8B8B4D x9B0E9E x958AC3 xF036D0 x015F11 xA939B9 xA11B88 xD51B8A xD03120 x96CDBD xBDB272 x53D2AE x9473DC xBE1F55 x90F020 xE1911A xE9111A xED9802 x78E85C x4A2157 x0E41BA x471CDC x51B021 }
 		}
 		create_state = {
-			country = c:ORI #T71 T89 U86
-			owned_provinces = { 
-				x4605A8 x52001D x5CBFF7 x6B7184 x7884D6 xD64336
-				x0E41BA x471CDC x4A2157 x51B021 x53D2AE x9473DC xBDB272 xBE1F55 xE9111A xED9802 
-				x66337F x78E85C x90F020 xE1911A }
+			country = c:BAS
+			owned_provinces = { x8ECE82 x013159 xF09DA1 x1170A0 xB56E8E x2F70FB x274E94 x66F24C x20BC2C xC38F66 }
 		}
-		add_homeland = cu:telegu
+		create_state = {
+			country = c:MHR
+			owned_provinces = { x03614F x745647 x9CDEF7 xD42EF4 xDA84A6 xFE794D xE167A8 xE67BF6 xCC1F79
+			x10B021 x19F551 x1A0456 x650D91 x6D9182 x6E192A x903020 x987B84 x9D79AD xA06520 xA14BC3 xAAE528 xAD6D79 xD93D0D x26C3A2 }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:BUN
+			owned_provinces = { xDB0DEC x0D7633 x58E042 xEB362A x68D277 x5FEE46 }
+			state_type = unincorporated
+		}
+
+		add_claim = c:NAG
 		add_homeland = cu:marathi
-		add_claim = c:MUG
+		add_homeland = cu:chhattisgarhi
+		add_homeland = cu:gondi
+		add_homeland = cu:deccani
+		add_homeland = cu:bageli
 	}
-	s:STATE_MYSORE = {
+	s:STATE_AWADH = {
 		create_state = {
-			country = c:MYS
-			owned_provinces = { xE5A1AC x2A60B3 xB4ABD5 x903060 x8E3C9D x102D8B x25CBCC xBFDC26 xA26314 x16AA78 x9FE13F x1B7225 xEDFC06 x696049 x189045 xD0F0A0 }
-		}
-		
-		add_homeland = cu:kannada
+			country = c:MUG
+			owned_provinces = { x26284F x4020A0 x4333C1 x4AAE9F x63A78D x7F01B0 xA03160 xA3C721 xBEE076 xC8BC69 xD0B0A0 xEC8496 xFD9E2F #AWA
+			xBBC0A2 x4E84EF x0CE121 x923D4D x669ECB xACD960 x9EA436 x1405D1 xD99008 x564B78 x337F6C x43F651 xE070A0 x7D9692 x41D87C }
+		}		
+
+		add_homeland = cu:avadhi
 	}
-	s:STATE_TRAVANCORE = {
+	s:STATE_MALWA = {
 		create_state = {
-			country = c:CEY
-			owned_provinces = { xEC8405 xE4EB67 x2121D0 xFD0A78 xA11A79 x21A0D0 xA0A050 xB0934C xCCDC34 }
-		}
-		
-		add_homeland = cu:malayalam
-	}
-	s:STATE_MADRAS = {
-		create_state = {
-			country = c:CEY
-			owned_provinces = { xABADB1 x99B424 x61FE06 x07104C x56456B x9A2EF3 xAEAE4C x0E2990 x10B060 xA3158E x2EAD15 x7CCE50 xA02050 x620762 xA021D0 x1FF7C6 x0559B3 x5AF5BE x20A050 x9E4F00 xEC1945 xB278DD x2D75FD x486310 xA63901 x6A381C }
-		}
-		
-		add_homeland = cu:tamil
-		add_homeland = cu:kannada
-	}
-	s:STATE_KASHMIR = {
-		create_state = {
-			country = c:KAS
-			owned_provinces = { x217021 x24EF26 x3FDA5A x808216 x874936 x964219 xA875F3 xB0FE2D xD107A3 xF469BC xFD692B }
+			country = c:MHR
+			owned_provinces = { x70D0E0 x0E199B x82DEEF x4CA2A3 }
 		}
 		create_state = {
-			country = c:LAD
-			owned_provinces = { x00161D x07D342 x150D2C x15F552 x18CED8 x1F1AF7 x21F020 x2969A3 x2B6E7C x2D5D46 x2DDFDB x2FF385 x37C3E4 x43B99F x504561 x56684E x5990A7 x5A0252 x6326A6 x6AA44A x72F7C2 x963360 x9666D9 xA09736 xAA60FC xB4AA65 xB637A4 xC49B8C xCCD333 xCDB7DB xD25436 xD71AAB xEDCC3E xF28F90 xF48515 xF8D822 }
+			country = c:GWA
+			owned_provinces = {  x2A9BFB xE9D03F xC0F1B9 x585F79 xB8A7B3 x51E979 xEFD0DF  xC77D13 x6A8538 xCD2556 xDCAFE4 xFBDCC9 x346A50 x87DE7B x897F27 xE3AF55 xAA246A x983C0D x0A05FF xF6BCF1 xC4F4E4 x1E9A75 x14EB25 xFA701B xA9E591 x746A39 }
 		}
-		
-		add_homeland = cu:kashmiri
-		add_homeland = cu:tibetan
-	}
-	s:STATE_HYDERABAD = {
-		create_state = {
-			country = c:MYS
-			owned_provinces = { xC5F1D7 x75599C xD07020 x990C20 x4FCA8A x5E950F xE2709D x782368 xACAC7B xB4928F x90B0A0 x6C4C5A xC90323 x6B578E x9257D2 xD7D0CD x0607C9 xDE9FE5 x0B9150 x293762 x8729D5 x01F273 xE7E1D9 x774B02 x507020 xD0440A x1E32E0 x2B94C1 x25B964 xE3DECE xFFACEF xF189CD x49EAE4 xB08536 xA1516D x67DBD9 x50F020 xFDC9AD x511610 x78A5B6 x5EC767 xB83EA4 x90F0A0 xDF9BF7 xD9F23D }
-		}
-		add_homeland = cu:telegu
-	}
-	s:STATE_GUJARAT = {
-		create_state = {
-			country = c:BER
-			owned_provinces = { xB3D1CD xC0310F xF64FA2 xB05060 xEB6009 x5B6745 x8F568D xB89EF0 xC7C3FD x31D0E0 xADD2A3 x9C8D06 x3151E0 xB0D060 xF87E91 xCC1D23 xD31590 x3FFA53 x128888 x73656F xEB1229 xD8CEF7 xECB4F5 x90B589 x7E0401 x03C674 x4133D4 x90052D xF01160 x4EB354 xD77765 x30D060 xB11F7B x0A4C7A x164DBB x697511 xB9D851 xBBB2BD x0C6CB1 x49DDB8 xFC0FC1 x075A8E x30E365 }		
-		}
-		add_claim = c:MUG
-		add_homeland = cu:gujarati
-		add_homeland = cu:sindi
-	}
-	s:STATE_CENTRAL_INDIA = {
-		create_state = {
-			country = c:IND #U55 W74
-			owned_provinces = { x1E9A75
-				x0D7633 x0E5FEA x58E042 x5FEE46 x6170A0 x68D277 x987B84 x9D79AD xD0B021 xDB0DEC xEB362A
-				x14EB25 x19F551 x1A0456 x2A9BFB x346A50 x51E979 x585F79 x650D91 x6D9182 x6E192A x746A39 x897F27 x903020 x983C0D xA06520 xA14BC3 xA9E591 xAA246A xAD6D79 xB8A7B3 xC0F1B9 xC77D13 xD93D0D xE9D03F xEFD0DF xF6BCF1 xFA701B }
-		}
-		create_state = {
-			country = c:MYS #V55 W20
-			owned_provinces = { x82DEEF x0E199B x10B021 x26C3A2 x4CA2A3 x70D0E0 xAAE528 }
-		}
-		create_state = {
-			country = c:MUG #X55 T41 BUN GWA
-			owned_provinces = { x5272B3 x0A05FF x6A8538 x87DE7B x9E6DB9 xC4F4E4 xCD2556 xDCAFE4 xE3AF55 xFBDCC9 x907021 xE81D4F x114EAE x355332 x618D5B x845EA7 xBC06E9 xD0F986 xEB50A4 xFE11FD }
-		}
-		add_claim = c:MUG
+		add_claim = c:RAJ
+		add_claim = c:MHR
 		add_homeland = cu:marathi
 		add_homeland = cu:avadhi
 	}
-	s:STATE_BOMBAY = {
-		create_state = {
-			country = c:MYS
-			owned_provinces = { x51F0A0 xB0D0E0 xEBE18C x5B30D1 xF8B0CF xEBD7BE x90B021 x195332 x2D4B90 x6CC5CE xDDFDE6 x53A379 x3E5505 x1B071A xD4CACE x1C8B97 x9031A0 xCC722D xB863FE xE01853 xC9CD8E x11B0A0 xCF3817 x187C37 xD6660F x4F5C91 x40CE40 xE73C3C x1131A0 x7629BF x47EE55 x33E560 x4D118A x052B29 xD04F5D x405FB4 xD070A0 xED0654 x42ACA6 }
+	s:STATE_AGRA = {	
+	    create_state = {
+	    	country = c:MUG
+	    	owned_provinces = { x048AD9 x117021 x11EE65 x13E50E x4B6538 x4E8563 x51177D x53EF28 x5432BC x61F0A0 x63AA19 x6738CF x7D8325 x8E6FE7 x98BACD x99FE9A xA4A19F  xB050DF xB4FE19 xBF1DC0 xC26B82 xDC471F xDCAA17 xF37EE6 xFB8F08 }
+			state_type = unincorporated
 		}
+	    create_state = {
+	    	country = c:GAR
+	    	owned_provinces = { xE3A5A5 xFBA109 x03A411 x49337F x733AB7 x584C9B x6B646E x037AF5 xE77282 xAD283F xCF1974 xF15B70 }
+		}
+	    add_homeland = cu:hindustani
+	    add_homeland = cu:pathan
+	}
+	s:STATE_BUNDELKHAND = {
+	    create_state = {
+	    	country = c:BUN
+	    	owned_provinces = { x5272B3 xE81D4F xEB50A4 x907021 x52F672 x277419 x9E6DB9 x6170A0 x355332 xFE11FD xBC06E9 x0E5FEA x114EAE x618D5B x845EA7 xD0B021 xD0F986 x66337F x6B7184 x7884D6 x52001D x4605A8 xD64336 x5CBFF7 }
+		}
+
+	    add_homeland = cu:bundeli
+	    add_homeland = cu:bageli
+	    add_homeland = cu:chhattisgarhi
+	}
+	
+
+	#Bombay
+	s:STATE_BOMBAY = {
 		create_state = {
 			country = c:br_romaioi_india_company
 			owned_provinces = { x51F0A0 }
 			state_type = unincorporated
 			state_type = treaty_port
 		}
-		
+		create_state = {
+			country = c:MHR
+			owned_provinces = { 
+			x40CE40 x42ACA6 x1131A0 #KHP
+			x3E5505 x33E560 xE73C3C x47EE55 x4F5C91 xCC722D xE01853 x187C37 xCF3817 xD6660F #SAT
+			xB0D0E0 xEBE18C x5B30D1 xF8B0CF xEBD7BE x90B021 x195332 x2D4B90 x6CC5CE xDDFDE6 x53A379 x1B071A xD4CACE x1C8B97 x9031A0 xB863FE xC9CD8E x11B0A0 x7629BF x4D118A x052B29 xD04F5D x405FB4 xD070A0 xED0654 }
+		}
+
 		add_homeland = cu:marathi
 		add_homeland = cu:kannada
+	    add_homeland = cu:deccani
 	}
+	s:STATE_GUJARAT = {
+		create_state = {
+			country = c:OMA
+			owned_provinces = { x0C6CB1 }
+		}
+		create_state = {
+			country = c:GUJ
+			owned_provinces = { x697511 xB11F7B xBBB2BD x30D060 x075A8E xB3D1CD x3151E0 x73656F xEB1229 xD8CEF7 xECB4F5 x90B589 x03C674 x30E365 xC0310F xF64FA2 xB05060 xEB6009 x5B6745 x8F568D xB89EF0 x4EB354 x7E0401 x3FFA53 x128888 x90052D x4133D4 xADD2A3 xFC0FC1 x164DBB xD77765 xB9D851 x49DDB8 x0A4C7A xD31590 xF01160 x31D0E0 x9C8D06 xCC1D23 xF87E91 xC7C3FD xB0D060 }
+		}
+
+		add_homeland = cu:gujarati
+		add_homeland = cu:sindi
+	}
+	s:STATE_SINDH = {
+		create_state = {
+			country = c:SIN
+			owned_provinces = { x56F6E9 x105356 x6E9D54 x5AF594 x1A04E6 x705060 x8C4F5A x11152D x16F3F6 x3FFB31 xF90BDE x23DFA9 x02BBA0 x268E58 x808515 xDD447A x1507B8 xD7517F x8FC69D x60B021 x73A9E3 xDB079F xF5592F xB2850D x315160 xAE1ED1 xFBDCF5 xE4B4A2 x59EE31 xCC14D7 x882A58 xC7D26A }
+		}
+		
+		add_claim = c:PER
+		add_homeland = cu:sindi
+	}
+	
+
+	#Bengal
 	s:STATE_BIHAR = {
 		create_state = {
 			country = c:MUG
-			owned_provinces = { x5FCB1C xE3326D x01F1CD x21B060 x7FC191 xAEDA4D x951929 x590FA7 xF767B3 x04D4E4 x9B7C7A x534D04 x93C09D xBA3A4F x8079C0 x50B0A0 xF4E206 x4B33C1 xCEC816 x1C310A xA462B0 xAC9392 x11F020 x1DE14C x66A6A3 x70BE78 x79438B xABBB11 xD3AFD6 x8B9115 x3521C5 xE0B0A0 x3DDDBF xD5188D x172E64 x2DDA9A x48B87D x5F1E9B x303EFE }
+			owned_provinces = { x01F1CD x04D4E4 x11F020 x172E64 x1C310A x1DE14C x21B060 x2DDA9A x303EFE x3521C5 x3DDDBF x48B87D x4B33C1 x50B0A0 x534D04 x590FA7 x5F1E9B x5FCB1C x66A6A3 x70BE78 x79438B x7FC191 x8079C0 x8B9115 x93C09D x951929 x9B7C7A xA462B0 xABBB11 xAC9392 xAEDA4D xBA3A4F xCEC816 xD3AFD6 xD5188D xE0B0A0 xE3326D xF4E206 xF767B3 }
 		}
 		
 		add_homeland = cu:bihari
 	}
-	s:STATE_NORTH_BENGAL = {
+	s:STATE_EAST_BENGAL = {
 		create_state = {
 			country = c:BGL
-			owned_provinces = {  x71E2DE xD2FEA1 xE2E92B x89538D x397092 x272AEE xEF5060 x82150A x1DBB94 x8F846C xDA53DA x475FC4 x117060 x3E5D45 xAC2CB6 xD2E951 xCB5C0A x0C82AB xD06FA1 xE6CD14 xF04684 xD28E5F x30B0A0 xF3A964 }
+			owned_provinces = { x025A94 x0C82AB x117060 x1E0385 x30B0A0 x3C68C9 x3E5D45 x40F5CE x4123FE x474C54 x475FC4 x55F631 x6F1170 x71E2DE x92DA2C x93E9F4 xA605E3 xAC2CB6 xB06FC2 xC81678 xCA47BA xCB5C0A xD06FA1 xD28E5F xD2E951 xDA53DA xDFA414 xE6CD14 xF04684 xF3A964 }
 		}
+		
+		add_homeland = cu:bengali
+	}
+	s:STATE_WEST_BENGAL = {
 		create_state = {
-			country = c:SIK
-			owned_provinces = {  xBF385A x844FCF x13A493 x2FF791 }
-		}
-		add_claim = c:MUG
+			country = c:BGL
+			owned_provinces = { x13A493 x0A2277 x1DBB94 x272AEE x2FF791 x397092 x802A5E x82150A x844FCF x89538D x89D769 x8F846C xBF385A xD0B0DF xE2E92B xEF5060 xD2FEA1 }
+		}	
+
 		add_homeland = cu:bengali
 	}
 	s:STATE_ASSAM = {
 		create_state = {
-			country = c:MNP #V42 S90 ASM #S20
-			owned_provinces = { x344BF5 x3FD07D xF71958 x3D8CD6 x4803C7 x9700B9 x9A1864 xA030E0 xA458FC xCC2DA0 xFB1561
-				x337820 x5D1160 xC6301B xD9940E xF3B09A
-				x1B997A x30B15A x4CCA97 x6030DF x8C6C79 x8F90F5 xB238B2 xE101DA xF9B21B
-				x8C53B3 xA17DC4 xB03121 xCB0893 }
+			country = c:BGL
+			owned_provinces = { x86D527 x954C46 x17E33F x12647B }
+			state_type = unincorporated
 		}
 		create_state = {
-			country = c:BGL #X61 V70
-			owned_provinces = { x408BEB x9419F5 x0BB5E2 x12647B x17E33F x1D0302 x70069E x86D527 x954C46 xA77996 }
+			country = c:ASM
+			owned_provinces = { x344BF5 xF71958 x3FD07D x9700B9 xCC2DA0 x6030DF x4803C7 x70069E xA458FC xFB1561 }
 		}
-		add_claim = c:BGL
-		add_claim = c:BUR
+		create_state = {
+			country = c:NGA
+			owned_provinces = { xEE6A3D x673438 x7DC31D xDF30DF x1B997A xE101DA xF9B21B x8F90F5 x30B15A x3D8CD6 x4CCA97 }
+		}
+		create_state = {
+			country = c:MNP
+			owned_provinces = { x8C6C79 x8C53B3 xCB0893 xB03121 xA17DC4 xB238B2 }
+		}
+		create_state = {
+			country = c:TIP
+			owned_provinces = { x9419F5 x408BEB xC6301B }
+		}
+		create_state = {
+			country = c:KKI
+			owned_provinces = { x337820 xF3B09A x5D1160 xD9940E }
+		}
+		create_state = {
+			country = c:MGH
+			owned_provinces = { xA030E0 x9A1864 xA77996 x0BB5E2 x1D0302 }
+		}	
 		add_homeland = cu:assamese
 		add_homeland = cu:bengali
 		add_homeland = cu:manipuri
+		add_claim = c:ASM
+		add_claim = c:BGL
 	}
-	s:STATE_AWADH = {
+	s:STATE_ORISSA = {
 		create_state = {
-			country = c:MUG
-			owned_provinces = { xD0B0A0 x26284F x4020A0 x61F0A0 xB4FE19 x7D8325 x6738CF x52F672 x277419 x048AD9 x63A78D xBF1DC0 xDC471F x117021 x63AA19 x4333C1 xEC8496 x7F01B0 xE070A0 xBBC0A2 x923D4D x0CE121 x7D9692 x4E84EF x669ECB xACD960 x43F651 x41D87C x564B78 x9EA436 xD99008 x1405D1 x337F6C xA03160 xA3C721 xC8BC69 xBEE076 x4AAE9F xFD9E2F }
-		}			
+			country = c:ORI
+			owned_provinces = { xA0A8E0 xA15F01 x30C2D5 xBB9552 x597E99 xFFBC41 x38A6E6 xD031A0 xA2EF24 x0CE6EA xCCE5B7 x323B8A x11D169 x22B96B xBAE4B3 xB6E5C1 x1504AD x5031A0 x1622F2 x404EEA xFBF096 x5BC5C8 xB07FDD }
+		}
 
-		add_homeland = cu:kanauji
-		add_homeland = cu:avadhi
+		add_homeland = cu:oriya
 	}
-	s:STATE_DELHI = {
-		create_state = {
-			country = c:MUG
-			owned_provinces = { xB39D42 xE0EFA0 xB949B4 xE07020 x45756F xE4F817 x4E70D0 x947B18 x1DC68F x1EA5F8 x945283 xDCAA17 x5432BC x53EF28 xB050DF xC26B82 x98BACD xA4A19F x4B6538 x11EE65 x8E6FE7 x51177D x4E8563 xF37EE6 x99FE9A xFB8F08 x13E50E }
-		}
-		create_state = {
-			country = c:AWA
-			owned_provinces = { x49337F x733AB7 x584C9B x6B646E x037AF5 xE77282 xAD283F xCF1974 x03A411 xF15B70 xFBA109 xE3A5A5 }
-		}	
-		
-		add_homeland = cu:kanauji
-		add_homeland = cu:avadhi
-	}
-	s:STATE_SOUTH_BENGAL = {
-		create_state = {
-			country = c:BGL
-			owned_provinces = { x89D769 xD0B0DF x802A5E x0A2277 x40F5CE xCA47BA x55F631 x92DA2C xA605E3 x1E0385 x6F1170 x474C54 xDFA414 x025A94 x93E9F4 xC81678 xB06FC2 x4123FE }
-		}
-		create_state = {
-			country = c:DEI
-			owned_provinces = { x3C68C9 }
-			state_type = unincorporated
-			state_type = treaty_port
-		}
-		add_claim = c:MUG
-		add_homeland = cu:bengali
-	}
+	
+
+	#Madras
 	s:STATE_CEYLON = {
 		create_state = {
 			country = c:CEY
 			owned_provinces = { xA0EFCC x23CE5A x8D6FA8 xDF2050 xDAB923 x1DA090 xC18817 x8A707A x967CCE x602050 xC23350 x47B038 }
+			state_type = unincorporated
 		}
+
 		create_state = {
 			country = c:OMA
 			owned_provinces = { x95AAA3 }
 			state_type = unincorporated
 		}
+
 		create_state = {
 			country = c:DEI
 			owned_provinces = { x5B5C22 }
 			state_type = unincorporated
 		}
+
 		create_state = {
 			country = c:EOC
 			owned_provinces = { xA0A0D0 }
 			state_type = incorporated
 			state_type = treaty_port
 		}
+
+		add_claim = c:CEY
+		add_claim = c:DEI
+		add_claim = c:EOC
 		add_claim = c:br_romaioi_india_company
 		add_homeland = cu:tamil
 		add_homeland = cu:sinhala
 	}
+	s:STATE_CIRCARS = {
+		create_state = {
+			country = c:CEY
+			owned_provinces = { x0AC82E x11F0A0 x180640 x207C4F x365CC3 x42F4F2 x477063 x8B1F32 x9070A0 x9193B1 xCDFBE6 xCFF020 xE2CF64 xE9BCE7 xEBBB7A xF8BB81 x73B187 }
+		}
+		create_state = {
+			country = c:JEY
+			owned_provinces = { x6B15F1 x7166FA xC744F9 x3EC5D1 xB3DED5 xD19AD8 xB00B6B }
+		}
+
+		add_homeland = cu:telegu
+	}
+	s:STATE_MYSORE = {
+		create_state = {
+			country = c:MYS
+			owned_provinces = { x189045 xD0F0A0
+			xE5A1AC x2A60B3 xB4ABD5 x903060 x8E3C9D x102D8B x25CBCC xBFDC26 xA26314 x16AA78 x9FE13F x1B7225 xEDFC06 x696049 }
+		}
+		
+		add_claim = c:MHR
+		add_homeland = cu:kannada
+	    add_homeland = cu:deccani
+	}
+	s:STATE_TRAVANCORE = {
+		create_state = {
+			country = c:TRA
+			owned_provinces = { xE4EB67
+			xA0A050 xB0934C xCCDC34 
+			xEC8405 x2121D0 xFD0A78 xA11A79 x21A0D0 }
+		}
+
+		add_homeland = cu:malayalam
+	}
+	s:STATE_MADRAS = {
+		create_state = {
+			country = c:EOC
+			owned_provinces = { xABADB1 }
+			state_type = treaty_port
+		}
+		create_state = {
+			country = c:DEN
+			owned_provinces = { x10B060 }
+		}
+		create_state = {
+			country = c:CEY
+			owned_provinces = { xA02050 x0559B3 x07104C x0E2990 x1FF7C6 x20A050 x2D75FD x2EAD15 x486310 x56456B x5AF5BE x61FE06 x620762 x6A381C x7CCE50 x99B424 x9A2EF3 x9E4F00 xA021D0 xA3158E xA63901 xAEAE4C xB278DD xEC1945 }
+		}
+
+		add_claim = c:CEY
+		add_homeland = cu:tamil
+		add_homeland = cu:kannada
+	}
+	s:STATE_HYDERABAD = {
+		create_state = {
+			country = c:MHR
+			owned_provinces = { xD7D0CD x782368 x5E950F xE2709D x0607C9 x6C4C5A xACAC7B }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:HYD
+			owned_provinces = { xC5F1D7 x75599C xD07020 x990C20 x4FCA8A xB4928F x90B0A0 xC90323 x6B578E x9257D2 xDE9FE5 x0B9150 x293762 x8729D5 x01F273 xE7E1D9 x774B02 x507020 xD0440A x1E32E0 x2B94C1 x25B964 xE3DECE xFFACEF xF189CD x49EAE4 xB08536 xA1516D x67DBD9 x50F020 xFDC9AD x511610 x78A5B6 x5EC767 xB83EA4 x90F0A0 xDF9BF7 xD9F23D }
+		}
+
+		add_claim = c:MHR
+		add_homeland = cu:telegu
+	    add_homeland = cu:deccani
+	    add_homeland = cu:marathi
+	    add_homeland = cu:kannada
+	}
+	s:STATE_KURNOOL = {
+	    create_state = {
+	    	country = c:MYS
+	    	owned_provinces = { x84EE56 xF91482 
+			x063403 x0F1912 x338BFB x34BB3B x35AB0E x461A00 x5170A0 x54D463 x59BBE1 x669373 xF2F82A xF46AEC  }
+		}
+
+		add_claim = c:MHR
+	    add_homeland = cu:telegu
+	    add_homeland = cu:kannada
+	    add_homeland = cu:deccani
+	}
+	
+
+	#Himalayas
+	s:STATE_HIMALAYAS = {
+		create_state = {
+			country = c:NEP
+			owned_provinces = { xBCD18E x29576A x4DE9D5 xC6179B x920B51 xC1C87A x812FBE xAF5B29 x25994F x11C815 x6E233E xE18F72 xAF11F0 x4874D9 x4D5FC1 xC13072 xA2C234 x605021 x833D63 x73C2C6 x23C36A xCE4DAE xA5D1EB x1C3876 xA228F8 x218FFE x515E66 x213060 x1619ED xDA8130 xC1DA32 xE51929 xC6D4A8 }
+		}
+		
+		add_homeland = cu:tibetan
+		add_homeland = cu:nepali
+	}
+	s:STATE_EASTERN_HIMALAYAS = {
+		create_state = {
+			country = c:SIK
+			owned_provinces = { xE0B0E0 }
+		}
+		create_state = {
+			country = c:TIB
+			owned_provinces = { xA1341A x186F38 x525CC9 xA5D54A xF8346B x373402 xD238D2 x8FE067 xD2139B xEB2EA9 x83DFE3 xADDE52 x84F73C x665E5B xF5C0FC x4CBB7C x28F81E xBC0BCD xD2C34D }
+		}
+		create_state = {
+			country = c:BHU
+			owned_provinces = { x388D2C xDA7F32 x665E5B x01C109 xD10C8F x4F99DC x84F73C xE5D3E0 x60B0DF }
+		}
+	    add_homeland = cu:tibetan
+	}
+	s:STATE_LHASA = {
+		create_state = {
+			country = c:TIB
+			owned_provinces = { x03644A x06698A x082947 x095F32 x099AD7 x0A6115 x0BCE33 x0FA96A x1371AA x15C347 x1A5F8B x1A87DA x1B383B x1E3E6C x207060 x2070E0 x20F060 x216771 x256241 x25DC9E x286514 x2BB5C6 x2CC414 x2CE40E x2CE52F x2CFED9 x3A3E53 x3B96A1 x3DD93C x422487 x445E17 x466F9F x4A0FD0 x4B57BE x4C1EF6 x4E1FF2 x4E8A60 x4F2329 x4FD34F x503FF4 x50C058 x527BB9 x5327D3 x54B9E5 x5B12BD x5C42DC x5CB50A x5E58A8 x61CFD5 x63DA08 x644AF9 x6464CF x656DDC x672210 x67344F x6E4FEF x71143F x72C382 x737CBB x75AFE7 x76E336 x79D100 x7B33F1 x7C0E53 x80DA49 x85295B x891526 x892162 x8A8982 x8BB70D x8D0D90 x92480A x934A5C x9640C8 x9BEF82 x9F73DC xA07060 xA21042 xA78672 xAC5C8D xADFAA4 xB02837 xB2F3ED xB5B0EE xB5EF16 xBAB31D xBD45E4 xBDF268 xC17AA1 xC268D2 xC3B349 xCA11A0 xCCCA27 xCE3261 xCEA5FB xD06F1B xD2D422 xD73CA3 xDD2AAD xDE11E9 xE0BE04 xE2D3FC xE47ADC xE701F3 xEC7BB2 xEEE60B xF520AD xF658E0 xFC33A4 xFE3A7A }
+		}
+		
+		add_homeland = cu:tibetan
+	}
+	s:STATE_NGARI = {
+		create_state = {
+			country = c:TIB
+			owned_provinces = { x49DA7A xB3B12D xAF48A8 xB1FB06 x5118D9 x079122 x87A015 x98B829 x757EC9 x2EED68 x63CF7D xB53246 xE6122E x6A1D9E xEC796C xCA8101 xCE4141 x0E1739 x0AF6C3 x245D66 x92D428 x971123 xC5F98E x1F7ABA x8A52C8 x0C63E4 xAE2370 x4E0F52 xDB00C4 x47086E x7E6B07 x7F8A68 x319D88 x181275 x3673C3 x93B8A1 x0A15CB x1CFF92 x376EF5 xA2DDBC x76854B x57E79A x1F1D7F x3B2A91 x712371 x5B57ED x91C023 xFF92B9 xC26410 x9DADD1 x0E4CEA x7F19F5 x4CA3AB xBA5131 xF7AD84 xBFC102 x3CB9E1 x466E81 xE03D5D xAFCD47 xE4D2EB xB48B92 xCA37D3 xF2DD04 xF43E98 xD131AF x390A85 x3F45B6 x10A70E xA070A0 x2DCE44 xF52146 x1AA558 xBF3208 x11E671 x347CA5 xF33F0A x79ACD9 xE89BB3 xAD51C7 x6E1A6F x834650 xEC07F3 xFC7168 xEC346C x6C636E xABBEE1 x5F0A6B x3ED427 xD0DEBB xDAA8C5 xF0E6C2 x48393E x5F0C75 x59FA24 xB02EEE x3F866E x1EE05B x20771F xC66B24 xDE0FA1 xC8A273 x068080 x41CAED xCC4CCB xFB8251 xCB9F59 xC2996A xE1C6E3 x4EA762 xAD3B3E xDB6487 x55DF74 x3242A4 xEC9086 x51AF41 xC46618 x95F294 xDCB233 x85C67F x0CA02F x606587 x8847CC x26D4BC x5FCA48 x8F8A0A x06C5A5 xDAE696 x6DC955 x821542 x4F7572 x519C2B xA16534 x14902D x805380 x1FF09F x2D753F xA45941 xB9B797 xC7C56B x1D347B x18089F x020A13 xEC6359 x3ABF14 x0DDF07 x5D87C2 x48F15F xC39437 x69B840 x46B9A4 xBB32F7 }
+		}
+		
+		add_homeland = cu:tibetan
+	}		
+	s:STATE_QINGHAI = {
+		create_state = {
+			country = c:br_qinghai
+			owned_provinces = { x0C669D x0F110A x4EF4E7 x9B47C8 x84D005 x77631B xA65827 xA65C2D xAB96DC xB56153 xD386AD xF24B9B xCDA5B8 xF564BF xF8355E
+				x023DAA x059EA0 x098A48 x0CCB8F x101FD6 x111768 x118595 x16B891 x1835D1 x1B5D55 x207F70 x20B0E0 x23738C x23998A x24E110 x2F0405 x2FFEAA x351164 x41E71B x438218 x4382DA x4F7F80 x53C731 x5476D4 x5538A6 x5782C6 x578717 x5ADB03 x5B452E x5E0C1F x60BB6E x6144EE x65C7FB x66E588 x6A29B3 x7384EB x82F9A2 x8B7006 x8FA6BB x950F2F x9A3932 xA0B0E0 xA43247 xA5B235 xA65852 xAB9B7F xB05071 xB179AA xB7A66A xB7EAA8 xBF0F3F xBF3B4E xC14095 xC2E1A3 xC63AA0 xC6F997 xC8B3E2 xC909EC xCE8D54 xCEF931 xD81ABC xD85009 xDCCF57 xDD43E0 xE75D52 xEA9D45 xF0D030 xF27128 xF2CD54 xF396BA xF58A1A xF79E07 xF813D9 xFB6246
+			}	
+		}
+		create_state = {
+			country = c:br_kham
+			owned_provinces = {
+				x21632D x48C531 x592A1D xE297F2 xF19D57 x843F30 xF5ECB0 x635113 x7C1B07 x52D6EF xFC7955 xB8062C xC3A077 xDF82D2 x7102E1 xCF5578 xACBB53 x1C7488 xCC0798 xF8163B x752E9C x6450DE x39205F x97D0F7 xAE2378 x51E934 x713CDF x4037B8 xCDBBBB xF7EAC3 x95EBD6 x3A7DD1 xB6FDB8 x55AD3D x1BF6D6 x1AB66B xE487C8 xE2B866
+			}
+		}
+		create_state = {
+			country = c:TIB
+			owned_provinces = {
+				x1FBFBC x6EE031 x3B8905 xCDCC17 x2599E5 xC3B802 xD438C6 x7C70E2 xBE9BED x8638AC xA005D5 xF71E73 x649DE3 xFFE05D x283C64 x73716C x9911F6 x4374C9 xD88595 x5F6C64 x4BA0B6 x2CAFE8 x947C19 x183BC0 x069EBD x0E7AF6 x934412 x2821E5 x01EA55 xAFA6D4 xF67C16 x603060 x879B7B x30AAC3
+			}
+		}
+		
+		add_homeland = cu:mongol
+		add_homeland = cu:tibetan
+	}
+	s:STATE_KASHMIR = {
+		create_state = {
+			country = c:KAS
+			owned_provinces = { x217021 x24EF26 x3FDA5A x808216 x874936 x964219 xA875F3 xD107A3 xF469BC xFD692B  }
+		}
+		create_state = {
+			country = c:CHT
+			owned_provinces = { x2FF385 x5A0252 xF8D822 x00161D x504561 x150D2C xF48515 x1F1AF7 x963360 x37C3E4 }
+		}
+		create_state = {
+			country = c:LAD
+			owned_provinces = { xD71AAB x6326A6 xCDB7DB xB0FE2D x07D342 xF28F90 x15F552 x2969A3 xB4AA65 xD25436 x43B99F x9666D9 xAA60FC x72F7C2 xB637A4 x56684E xCCD333 xC49B8C x2B6E7C x2D5D46 x5990A7 xEDCC3E x21F020 xA09736 x6AA44A x2DDFDB x18CED8  }
+		}
+		
+		add_claim = c:KAS
+		add_homeland = cu:kashmiri
+		add_homeland = cu:tibetan
+	}
+	
+
 	s:STATE_INDIAN_OCEAN_TERRITORY = {
 		create_state = {
 			country = c:DEI
@@ -289,6 +464,11 @@ STATES = {
 			owned_provinces = { xD0E090 }
 			state_type = incorporated
 		}
+
+		add_claim = c:DEI
+		add_claim = c:EOC
 		add_claim = c:br_romaioi_india_company
+
 	}
-}	
+
+}

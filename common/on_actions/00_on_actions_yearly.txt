@@ -261,6 +261,14 @@ bp1_misc_yearly_events = {
 	}
 }
 
+# Man Who Would Be King
+ep1_misc_yearly_events = {	
+	random_events = { 
+		chance_of_no_event = 50
+		1 = gg_afghanistan.7
+	}
+}
+
 # Indochina JE start
 indochina_yearly_events = {
 	random_events = {
@@ -324,6 +332,9 @@ historical_agitators_yearly_events = {
 		10 = historical_agitators.21
 		10 = historical_agitators.22
 		100 = gg_korea.3
+		100 = sikh_empire.9
+		100 = india_nationalism_events.4
+		100 = india_nationalism_events.5
 	}
 }
 
@@ -395,7 +406,7 @@ lobby_yearly_events = {
 # Krakatoa
 krakatoa_yearly_events = {
 	random_events = {
-		chance_of_no_event = 95
+		chance_of_no_event = 98
 		1 = krakatoa.1
 	}
 }
@@ -405,5 +416,138 @@ tunguska_yearly_events = {
 	random_events = {
 		chance_of_no_event = 90
 		1 = tunguska.1
+	}
+}
+
+# British Dictates 
+#british_dictate_yearly_events = {
+#	random_events = {
+#		chance_of_no_event = 75
+#		1 = british_dictates.1
+#		1 = british_dictates.2
+#		1 = british_dictates.4
+#	}
+#}
+
+# IP2 misc. yearly events 
+ip2_misc_yearly_events = {
+	random_events = {
+		chance_of_no_event = 50
+		5 = india_events.1
+		1 = india_events.5
+		1 = india_events.6
+		5 = india_events.9
+		1 = india_events.10
+		8 = india_events.12
+		10 = india_events.13
+		5 = india_events.14
+		5 = india_events.15
+		5 = india_events.16
+		10 = india_events.17
+	}
+}
+
+# Famine Yearly Events 
+famine_yearly_events = {
+	random_events = {
+		chance_of_no_event = 75
+		1 = famine_events.3
+		1 = famine_events.4
+		1 = famine_political.1
+		1 = famine_political.2
+		1 = famine_political.3
+		1 = famine_political.4
+		1 = famine_political.5
+	}
+}
+
+# IG Leader death
+on_memento_mori = {
+	trigger = {
+		any_interest_group = {
+			NOT = { has_variable = memento_mori }
+			leader = {
+				is_ruler = no
+				is_heir = no
+				is_busy = no
+				NOT = { has_variable = memento_mori_immunity }
+			}
+		}
+	}
+	effect = {
+		random_list = {
+			50 = {}
+			50 = {
+				# Kill IG leaders occasionally, but not too often per IG
+				random_interest_group = {
+					limit = {
+						NOT = { has_variable = memento_mori }
+						leader = {
+							is_ruler = no
+							is_heir = no
+							is_busy = no
+							is_immortal = no
+							NOT = { has_variable = memento_mori_immunity }
+						}
+					}
+					save_scope_as = memento_mori_ig
+					leader = {
+						save_scope_as = memento_mori_leader
+					}
+					set_variable = {
+						name = memento_mori
+						years = 10
+					}
+				}
+				scope:memento_mori_leader = {
+					kill_character = {
+						hidden = yes
+					}
+				}
+				post_notification = ig_leader_memento_mori
+				# Kill an Agitator occasionally, but not too often
+				if = {
+					limit = {
+						any_scope_character = {
+							has_role = agitator
+							NOT = { has_variable = memento_mori_immunity }
+						}
+						NOT = { has_variable = agitator_kill_var }
+					}
+					random_list = {
+						1 = {
+							random_scope_character = {
+								limit = {
+									has_role = agitator
+									is_immortal = no
+									NOT = { has_variable = memento_mori_immunity }
+								}
+								kill_character = yes
+							}
+							set_variable = {
+								name = agitator_kill_var
+								years = 5
+							}
+						}
+						4 = { }
+					}
+				}
+			}
+		}
+	}
+}
+
+# On wounded
+on_wounded = {
+	trigger = {
+		has_trait = wounded
+	}
+	effect = {
+		random_list = {
+			80 = {}
+			20 = {
+				remove_trait = wounded
+			}
+		}
 	}
 }

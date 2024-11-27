@@ -20,7 +20,7 @@ base_values = {
 	country_secession_progress_add = 0.1
 	
 	state_education_access_wealth_add = 0 #was 0.005 these are given via tech and laws.
-	state_peasants_education_access_add = -0.1 #added
+	#state_peasants_education_access_add = -0.1 #added to laws
 	
 	country_law_enactment_max_setbacks_add = 3
 	
@@ -31,9 +31,9 @@ base_values = {
 	state_infrastructure_add = 3
 	state_infrastructure_from_automobiles_consumption_add = 0.25
 	
-	state_poor_expected_sol = 5
-	state_middle_expected_sol = 10
-	state_rich_expected_sol = 15
+	state_lower_strata_expected_sol_add = 5
+	state_middle_strata_expected_sol_add = 10
+	state_upper_strata_expected_sol_add = 15
 	state_expected_sol_from_literacy = 5
 	
 	state_farmers_investment_pool_contribution_add = 0.05
@@ -159,14 +159,14 @@ unincorporated_state = {
 tax_modifier_very_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	country_legitimacy_base_add = 10
-	state_radicals_from_sol_change_mult = -0.2
+	state_radicals_from_political_movements_mult = -0.2
 	state_birth_rate_mult = 0.04 #added
 }
 
 tax_modifier_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	country_legitimacy_base_add = 5
-	state_radicals_from_sol_change_mult = -0.1
+	state_radicals_from_political_movements_mult = -0.1
 	state_birth_rate_mult = 0.02 #added
 }	
 
@@ -176,7 +176,7 @@ tax_modifier_medium = {
 tax_modifier_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	country_legitimacy_base_add = -10
-	state_radicals_from_sol_change_mult = 0.5
+	state_radicals_from_political_movements_mult = 0.5
 	interest_group_in_government_attraction_mult = -0.2
 	state_birth_rate_mult = -0.02 #added
 }	
@@ -184,7 +184,7 @@ tax_modifier_high = {
 tax_modifier_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	country_legitimacy_base_add = -20
-	state_radicals_from_sol_change_mult = 1
+	state_radicals_from_political_movements_mult = 1
 	interest_group_in_government_attraction_mult = -0.5
 	state_birth_rate_mult = -0.04 #added
 }	
@@ -195,19 +195,19 @@ infamy_reputable = {}
 infamy_infamous = {
 	country_radicals_from_conquest_mult = 0.25
 	country_trade_route_competitiveness_mult = -0.1 #added
-	state_radicals_from_sol_change_mult = 0.05 #added
+	state_radicals_from_political_movements_mult = 0.05 #added
 }
 
 infamy_notorious = {
 	country_radicals_from_conquest_mult = 0.5
 	country_trade_route_competitiveness_mult = -0.25 #added
-	state_radicals_from_sol_change_mult = 0.1 #added
+	state_radicals_from_political_movements_mult = 0.1 #added
 }
 
 infamy_pariah = {
 	country_radicals_from_conquest_mult = 1.0
 	country_trade_route_competitiveness_mult = -0.5 #added
-	state_radicals_from_sol_change_mult = 0.25 #added
+	state_radicals_from_political_movements_mult = 0.25 #added
 }
 
 # This is multiplied with country_prestige_per_subject_add and the number of direct subjects of the country
