@@ -17,13 +17,13 @@ ai_strategy_default = {
 	# The AI will avoid getting this much infamy unless it's a wargoal it really wants
 	# Using a different value in a strategy will override this value
 	undesirable_infamy_level = {
-		value = 50
+		value = 100
 	}
 	
 	# The AI will never deliberately add wargoals that will bring its infamy this high
 	# Using a different value in a strategy will override this value
 	unacceptable_infamy_level = {
-		value = 100
+		value = 200
 	}
 
 	# How much is the AI's diplomatic acceptance, etc affected by government ideological differences
@@ -40,8 +40,8 @@ ai_strategy_default = {
 		# Ottomans should avoid getting into revolutions before they deal with Egypt
 		if = {
 			limit = { 
-				has_journal_entry = je_sick_man_syria 
-				game_date < 1845.1.1
+				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+				game_date < 1743.1.1
 			}
 			add = 100
 		}	
@@ -153,6 +153,7 @@ ai_strategy_default = {
 		}
 		
 		### Ottomans vs Egypt - Great Powers pick sides
+		#BR TODO use this code to make the show down perhaps happen in Italy.
 		if = {
 			limit = {
 				OR = {
@@ -245,6 +246,7 @@ ai_strategy_default = {
 		}	
 
 		### The Great Game
+		#BR TODO use this code to make three way stuggle tartaria, Persia, Mughals
 
 		if = { # Great Powers will tend to meddle if you directly declare war on enemy countries to easily subjugate them.
 			limit = {
@@ -539,15 +541,16 @@ ai_strategy_default = {
 		# Ottomans should avoid unnecessary entanglements while trying to pursue the Tanzimat reforms
 		if = {
 			limit = {
-				has_journal_entry = je_sick_man_main
+				has_journal_entry = je_palaiologos_reforms_main #BR Edited
 			}
 			
-			add = 50
+			add = 25
 		}
 	}
 	
 	# Added to base boldness in diplomatic plays	
 	# Using this value in other strategies will function additively
+	#BR TODO use this code to make the show down perhaps happen in Italy.
 	diplomatic_play_boldness = {
 		value = 50
 		
@@ -596,22 +599,7 @@ ai_strategy_default = {
 			add = 1000
 		}
 
-		if = { # Paraguay Should never surrender if they have the relevant JE
-			limit = {
-				c:PRG ?= this
-				has_journal_entry = je_expanding_paraguay
-				scope:diplomatic_play = {
-	                OR = {
-	                    has_play_goal = conquer_state
-	                    has_play_goal = return_state
-	                    has_play_goal = make_tributary
-	                    has_play_goal = make_dominion
-	                    has_play_goal = make_protectorate
-	                }
-				}
-			}
-			add = 1000
-		}
+		# Paraguay Should never surrender if they have the relevant JE
 
 		if = { #Caucasian states & Kazakhstan should never surrender against Russia
 			limit = {
@@ -645,12 +633,6 @@ ai_strategy_default = {
 		}
 
         # Paraguay should be bold while they have the war JE.
-        if = {
-            limit = {
-            	has_journal_entry = je_expanding_paraguay
-            }
-            add = 25
-        }
 
 		# Italian minors should be willing to fight Austria
 		if = { 
@@ -683,7 +665,7 @@ ai_strategy_default = {
 		# Ottomans should want Syria back
 		if = {
 			limit = {
-				has_journal_entry = je_sick_man_syria
+				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
 				scope:enemy_country = {
 					OR = {
 						owns_entire_state_region = STATE_ALEPPO
@@ -1147,30 +1129,6 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_expanding_paraguay
-					scope:target_country = {
-						has_state_in_state_region = STATE_CORRIENTES
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_expanding_paraguay
-					scope:target_country = {
-						OR = {
-							has_state_in_state_region = STATE_SANTA_FE
-							has_state_in_state_region = STATE_PARANA
-							has_state_in_state_region = STATE_RIO_GRANDE_DO_SUL
-						}
-					}
-				}
-				add = 25
 			}
 
 			if = {
@@ -2248,7 +2206,7 @@ ai_strategy_default = {
 			limit = {
 				OR = {
 					AND = {
-						has_journal_entry = je_sick_man_syria
+						has_journal_entry = je_palaiologos_reforms_syria #BR Edited
 						scope:target_country = {
 							OR = {
 								owns_entire_state_region = STATE_ALEPPO
@@ -2261,7 +2219,7 @@ ai_strategy_default = {
 						}
 					}
 					AND = {
-						has_journal_entry = je_sick_man_egypt
+						has_journal_entry = je_palaiologos_reforms_egypt #BR Edited
 						scope:target_country = {
 							OR = {
 								owns_entire_state_region = STATE_SINAI
@@ -2454,21 +2412,8 @@ ai_strategy_default = {
 		}
 			
         # Paraguay should be very bold while they have the war JE.
-        if = {
-            limit = {
-                has_journal_entry = je_expanding_paraguay
-                scope:target_country = {
-                    any_scope_state = {
-                        OR = {
-                            state_region = s:STATE_SANTA_FE
-                            state_region = s:STATE_PARANA
-                            state_region = s:STATE_RIO_GRANDE_DO_SUL
-                        }
-                    }
-                }
-            }
-            add = 2
-        }	
+
+
 	}
 	
 	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
@@ -2573,13 +2518,12 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				OR = {
-					has_journal_entry = je_sick_man_syria
-					has_journal_entry = je_sick_man_egypt
-					has_journal_entry = je_veiled_protectorate
+					has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+					has_journal_entry = je_palaiologos_reforms_egypt
 				}
-				exists = c:EGY
+				exists = c:br_aegypt
 				scope:target_country = {
-					THIS = c:EGY
+					THIS = c:br_aegypt
 				}
 			}
 			add = 100
@@ -3013,20 +2957,8 @@ ai_strategy_default = {
 		}		
 		
         # Paraguay should be highly aggressive while they have the war JE.
-        if = {
-            limit = {
-                has_journal_entry = je_expanding_paraguay
-                scope:target_country = {
-					OR = {
-						has_state_in_state_region = STATE_SANTA_FE
-						has_state_in_state_region = STATE_PARANA
-						has_state_in_state_region = STATE_RIO_GRANDE_DO_SUL
-					}
-                }
-            }
-            add = 25
-        }
-		
+
+
 		# Acre claimant wants Acre
 		if = {
 			limit = {
@@ -3394,6 +3326,81 @@ ai_strategy_default = {
 			multiply = 0.8
 		}	
 
+	#BR Added Start
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine }
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine_2 }
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_anti_colonialism }
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_horde_khanate } 
+			multiply = 1.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_tribal_warriors } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_warriors } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_jihad_called } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_aggressive_bonus } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_defensive_bonus } 
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_1 } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_2 } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = war_for_independence } 
+			multiply = 10
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_african_colony } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_spice_trade }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_exarchate }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_varangian_primacy }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_tagmata_primacy }
+			multiply = 2
+		}
+	#BR Added End
+
 		# Factor in strategies
 		if = {
 			limit = { 
@@ -3434,7 +3441,7 @@ ai_strategy_default = {
 
 		if = {
 			limit = { 
-				has_journal_entry = je_sick_man_army
+				has_journal_entry = je_palaiologos_reforms_army #BR Edited
 			}
 			min = 125
 		}	
@@ -3534,6 +3541,30 @@ ai_strategy_default = {
 			multiply = 0.75
 		}
 
+	#BR Added Start
+		if = {
+			limit = { has_strategy = ai_strategy_trade_imperialism }
+			multiply = 5
+		}
+
+		if = {
+			limit =  { has_modifier = br_modifier_italy_gunboat_trade_diplomacy }
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_spice_trade }
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_naval_tradition }
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_decentralized_khanate }
+			multiply = -1
+		}
+	#BR Added End
+
 		# Factor in strategies
 		if = {
 			limit = { 
@@ -3627,7 +3658,11 @@ ai_strategy_default = {
 			else_if = {
 				limit = { has_law = law_type:law_peasant_levies }
 				multiply = 1.5
-			}				
+			}	
+			else_if = {
+				limit = { has_law = law_type:law_tribal_armies }
+				multiply = 3.5
+			}		
 		}
 		combat_unit_group_light_ship = {
 			value = 100				
@@ -3674,6 +3709,110 @@ ai_strategy_default = {
 			limit = { has_law = law_type:law_mass_conscription }
 			add = 0.5
 		}	
+
+	#BR Added Start
+		if = {
+			limit = { has_law = law_type:law_national_militia }
+			add = 5
+		}
+		else_if = {
+			limit = { has_law = law_type:law_professional_army }
+			add = 0.5
+		}			
+		else_if = {
+			limit = { has_law = law_type:law_peasant_levies }
+			add = 1
+		}	
+		else_if = {
+			limit = { has_law = law_type:law_tribal_armies }
+			add = 2
+		}
+		else_if = {
+			limit = { has_law = law_type:law_mass_conscription }
+			add = 2
+		}	
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine }
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine_2 }
+			multiply = 3
+		}
+			
+		if = {
+			limit =  { has_modifier = br_modifier_anti_colonialism }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_horde_khanate } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_tribal_warriors } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_warriors } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_arab_caliphate } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_jihad_called } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_defensive_bonus } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_1 } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_2 } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = war_for_independence } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_exarchate }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_themata_primacy }
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_corrupt_pronoia }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_eastern_roman_emperor }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_roman_emperor }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_elysium }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_independent_new_world_colony }
+			multiply = 2
+		}
+	#BR Added End
 
 		if = {
 			limit = { 
@@ -3744,6 +3883,14 @@ ai_strategy_default = {
 	# How should the AI plan for production and trade of specific goods
 	# Using a different value in a strategy will override this value
 	goods_stances = {
+	#BR Added Start
+		horse = {
+			stance = wants_high_supply
+			trigger = {
+				country_rank >= rank_value:major_power
+			}
+		}
+	#BR Added End
 		small_arms = {
 			stance = wants_high_supply
 			trigger = {
