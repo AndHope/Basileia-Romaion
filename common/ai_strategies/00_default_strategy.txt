@@ -152,71 +152,6 @@ ai_strategy_default = {
 			}
 		}
 		
-		### Ottomans vs Egypt - Great Powers pick sides
-		#BR TODO use this code to make the show down perhaps happen in Italy.
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						scope:country = { c:TUR ?= this }
-						scope:enemy_country = { c:EGY ?= this }
-					}
-					AND = {
-						scope:country = { c:EGY ?= this }
-						scope:enemy_country = { c:TUR ?= this }
-					}				
-				}
-				c:TUR ?= {
-					OR = {
-						has_journal_entry = je_sick_man_syria
-						has_journal_entry = je_sick_man_egypt
-						has_journal_entry = je_veiled_protectorate
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					has_variable = veiled_protectorate_support_ottomans
-					OR = {
-						AND = {
-							NOT = { exists = scope:is_initiator }
-							scope:enemy_country = { c:TUR ?= this }
-						}
-						AND = {
-							exists = scope:is_initiator
-							scope:country = { c:TUR ?= this }
-						}
-					}
-				}
-				
-				add = {
-					value = 100
-					desc = "veiled_protectorate_ottomans_support"
-				}
-			}
-			else_if = {
-				limit = {
-					has_variable = veiled_protectorate_support_egypt
-					OR = {
-						AND = {
-							NOT = { exists = scope:is_initiator }
-							scope:enemy_country = { c:EGY ?= this }
-						}
-						AND = {
-							exists = scope:is_initiator
-							scope:country = { c:EGY ?= this }
-						}
-					}
-				}
-				
-				add = {
-					value = 100
-					desc = "veiled_protectorate_egypt_support"
-				}
-			}							
-		}	
-		
 		### Risorgimento
 
 		if = {
@@ -251,15 +186,15 @@ ai_strategy_default = {
 		if = { # Great Powers will tend to meddle if you directly declare war on enemy countries to easily subjugate them.
 			limit = {
 				OR = {
-					c:GBR ?= this
-					c:RUS ?= this
+					c:PER ?= this
+					c:MUG ?= this
 				}
 				has_journal_entry = je_great_game_control
 				has_diplomatic_relevance = scope:enemy_country
 				scope:enemy_country = { # enemy_country is the rival Great Power
 					OR = {
-						c:GBR ?= this
-						c:RUS ?= this
+						c:PER ?= this
+						c:MUG ?= this
 					}
 					NOT = {
 						this = root
@@ -443,7 +378,7 @@ ai_strategy_default = {
 
 		if = { # Modernised Japan and Russia will defend Korea from one another
 			limit = {
-				c:RUS ?= this
+				c:CHI ?= this
 				scope:country = {
 					country_has_primary_culture = cu:korean
 				}
@@ -468,7 +403,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:korean
 				}
 				scope:enemy_country = {
-					country_has_primary_culture = cu:russian
+					country_has_primary_culture = cu:han
 				}
 			}
 			add = {
@@ -552,28 +487,7 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	#BR TODO use this code to make the show down perhaps happen in Italy.
 	diplomatic_play_boldness = {
-		value = 50
-		
-		# Great Powers with the appropriate flags should get involved in Egypt vs Ottomans
-		if = {
-			limit = {
-				OR = {
-					has_variable = veiled_protectorate_support_ottomans
-					has_variable = veiled_protectorate_support_egypt
-				}	
-					
-				OR = {
-					scope:diplomatic_play.initiator = { c:TUR ?= this }
-					scope:diplomatic_play.target = { c:TUR ?= this }
-				}
-				OR = {
-					scope:diplomatic_play.initiator = { c:EGY ?= this }
-					scope:diplomatic_play.target = { c:EGY ?= this }
-				}
-			}
-			
-			add = 100
-		}		
+		value = 50		
 		
 		if = { # Isolationist Japan should tend to back down against market opening plays
 			limit = {
@@ -598,36 +512,12 @@ ai_strategy_default = {
 			}
 			add = 1000
 		}
-
-		# Paraguay Should never surrender if they have the relevant JE
-
-		if = { #Caucasian states & Kazakhstan should never surrender against Russia
-			limit = {
-				OR = {
-					c:CIR ?= THIS
-					c:CHC ?= THIS
-					c:KAZ ?= THIS
-				}
-				exists = c:RUS
-				is_diplomatic_play_enemy_of = c:RUS
-			}
-			add = 1000
-		}
-
-		if = { #Bribery
-			limit = {
-				has_modifier = modifier_central_asian_bribe_payments
-				exists = c:RUS
-				is_diplomatic_play_enemy_of = c:RUS
-			}
-			add = -25
-		}
 		
 		if = { #Likewise for Mughals.
 			limit = {
 				c:MUG ?= THIS
-				exists = c:BIC
-				is_diplomatic_play_enemy_of = c:BIC
+				exists = c:MHR
+				is_diplomatic_play_enemy_of = c:MHR
 			}
 			add = 1000
 		}
@@ -1099,7 +989,7 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_journal_entry = je_greek_nationalism
+					c:BYZ ?= this
 					scope:target_state.state_region = { is_homeland = cu:greek }
 				}
 				add = 50
@@ -1241,7 +1131,7 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_journal_entry = je_conquest_of_algeria
+					c:ANL ?= this
 					scope:target_state = {
 						OR = {
 							state_region = s:STATE_ALGIERS
@@ -1252,12 +1142,12 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 100
+				add = 50
 			}
 
 			if = { #Russian Central Asia
 				limit = {
-					has_journal_entry = je_conquest_of_central_asia
+					country_has_primary_culture = cu:tatar
 					scope:target_state = {
 						region = sr:region_central_asia
 					}
@@ -1267,7 +1157,7 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					country_has_primary_culture = cu:russian
+					country_has_primary_culture = cu:tatar
 					has_law = law_type:law_national_supremacy
 					has_technology_researched = nationalism
 					scope:target_state = {
@@ -1293,11 +1183,85 @@ ai_strategy_default = {
 				}
 				add = 50
 			}
+
+			if = { # HRE wishes to consolidate
+				limit = {
+					country_has_primary_culture = cu:french
+					scope:target_state = {
+						region = sr:region_france
+						region = sr:region_occitania
+						region = sr:region_rhine
+					}
+					scope:target_country = {
+						OR = {
+							country_has_primary_culture = cu:french
+							country_has_primary_culture = cu:frankish
+						}	
+					}
+				}
+				add = 50
+			}
+
+			if = { # Aim should take states in Balkans/Anatolia first
+				limit = {
+					country_has_primary_culture = cu:greek
+					scope:target_state = {
+						region = sr:region_balkans
+						region = sr:region_anatolia
+					}
+					scope:target_country = {
+						OR = {
+							country_has_primary_culture = cu:greek
+							country_has_primary_culture = cu:south_italian
+						}	
+					}
+				}
+				add = 50
+			}
+
+			if = { # Secondary objectives
+				limit = {
+					country_has_primary_culture = cu:greek
+					scope:target_state = {
+						region = sr:region_italy
+						region = sr:region_north_africa
+						region = sr:region_nile_basin
+					}
+				}
+				add = 25
+			}
+
+			if = { # ELY wishes to consolidate
+				limit = {
+					c:br_elysium ?= this
+					scope:target_state = {
+						region = sr:region_new_england
+						region = sr:region_great_plains
+						region = sr:region_the_midwest
+						region = sr:region_dixie
+					}
+				}
+				add = 25
+			}
+
+			if = { # PER wishes to consolidate
+				limit = {
+					country_has_primary_culture = cu:persian
+					scope:target_state = {
+						region = sr:region_persia
+						region = sr:region_central_asia
+						region = sr:region_caucasus
+						region = sr:region_bombay
+						region = sr:region_arabic
+					}
+				}
+				add = 25
+			}
 			
 			# French Natural Borders
 			if = {
 				limit = {
-					has_journal_entry = je_french_natural_borders
+					country_has_primary_culture = cu:french
 					OR = {
 						has_strategy = ai_strategy_territorial_expansion
 						has_strategy = ai_strategy_restore_natural_borders
@@ -1364,7 +1328,7 @@ ai_strategy_default = {
 
 			if = { # Portugal wants Gaza
 				limit = {
-					country_has_primary_culture = cu:portuguese
+					country_has_primary_culture = cu:bedouin
 					has_technology_researched = malaria_prevention
 					OR = {
 						has_state_in_state_region = STATE_MOCAMBIQUE
@@ -1782,15 +1746,14 @@ ai_strategy_default = {
 				}
 				add = 50
 			}
-			
 			if = {
 				limit = {
 					OR = {
-						has_journal_entry = je_sick_man_egypt
-						has_journal_entry = je_veiled_protectorate
+						has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+						has_journal_entry = je_palaiologos_reforms_egypt
 					}
-					exists = c:EGY
-					scope:target_country = c:EGY
+					exists = c:br_aegypt
+					scope:target_country = c:br_aegypt
 				}
 				add = 100
 			}			
@@ -1798,7 +1761,7 @@ ai_strategy_default = {
 			# Russian expansion into Central Asia
 			if = {
 				limit = {
-					country_has_primary_culture = cu:russian
+					country_has_primary_culture = cu:tatar
 					has_law = law_type:law_national_supremacy
 					has_technology_researched = nationalism
 					OR = {
@@ -1846,7 +1809,7 @@ ai_strategy_default = {
 			if = { #Indian suzerain will be aggressive against Afganistan, if Afghanistan is threatened by Russia.
 				limit = {
 					AND = {
-						c:RUS ?= {
+						c:PER ?= {
 							OR = {
 								has_state_in_state_region = STATE_UZBEKIA
 								has_state_in_state_region = STATE_KIRGHIZIA
@@ -2258,7 +2221,7 @@ ai_strategy_default = {
 		# Greek Nationalism
 		if = {
 			limit = {
-				has_journal_entry = je_greek_nationalism
+				c:BYZ ?= this
 				scope:target_country = {
 					any_state = {
 						state_region = { is_homeland = cu:greek }
@@ -2439,7 +2402,7 @@ ai_strategy_default = {
 					scope:target_country = { is_subject_of = root }
 				}				
 			}
-			add = 5
+			add = 15
 		}		
 		
 		# Very high aggression against pariah countries by Great Powers
@@ -2474,7 +2437,7 @@ ai_strategy_default = {
 		# Greek Nationalism
 		if = {
 			limit = {
-				has_journal_entry = je_greek_nationalism
+				c:BYZ ?= this
 				scope:target_country = {
 					any_state = {
 						state_region = { is_homeland = cu:greek }
@@ -2483,7 +2446,7 @@ ai_strategy_default = {
 				}
 			}
 			add = 10
-		}			
+		}	
 		
 		# Schleswig-Holstein question
 		if = {
@@ -2552,54 +2515,10 @@ ai_strategy_default = {
 			add = 5
 		}
 
-		# Extra french aggression for Haiti renouncing debt payments
-		if = {
-			limit = {
-				has_variable = haiti_stops_paying_france_aggressor				
-				scope:target_country = {
-					has_variable = haiti_stops_paying_france_target
-					any_state = {
-						has_claim_by = root
-					}
-				}				
-			}
-			add = 5
-		}
-
-		# Extra aggression against Peru-Bolivia in general
-		if = {
-			limit = {
-				scope:target_country = {
-					has_journal_entry = je_peru_bolivia
-				}
-				OR = {
-					country_has_primary_culture = cu:south_andean
-					country_has_primary_culture = cu:north_andean
-					country_has_primary_culture = cu:platinean
-					country_has_primary_culture = cu:argentine
-					country_has_primary_culture = cu:chilean
-					country_has_primary_culture = cu:colombian
-					country_has_primary_culture = cu:ecuadorian
-				}
-			}
-			add = 5
-		}
-
-		# Even more aggression if you have the War of the Confederation JE
-		if = {
-			limit = {
-				has_journal_entry = je_war_of_the_confederation
-				scope:target_country = {
-					has_journal_entry = je_peru_bolivia
-				}
-			}
-			add = 75
-		}
-
 		# East India Company vs its neighbors
 		if = {
 			limit = {
-				has_journal_entry = je_consolidate_colonial_rule
+				c:MUG ?= this
 				scope:target_country = {
 					is_country_type = unrecognized
 					target_is_our_or_fellow_subject = no
@@ -2624,73 +2543,10 @@ ai_strategy_default = {
 			add = 3
 		}
 
-		# Britain consolidating South Asia
-		if = {
-			limit = {
-				c:GBR ?= this
-				has_variable = british_raj_var
-				exists = c:BIC
-				scope:target_country = {
-					NOT = { is_subject_of = ROOT }
-					any_scope_state = {
-						OR = {
-							region = sr:region_madras
-							region = sr:region_bombay
-							region = sr:region_bengal
-							region = sr:region_central_india
-							region = sr:region_punjab
-							region = sr:region_himalayas
-							state_region = s:STATE_MANDALAY
-							state_region = s:STATE_KACHIN
-							state_region = s:STATE_SHAN_STATES
-							state_region = s:STATE_PEGU
-							state_region = s:STATE_PASHTUNISTAN
-							state_region = s:STATE_QUETTA
-						}
-					}
-				}
-			}
-			add = 3
-		}
-
-
-		if = { #Russian Caucasus
-			limit = {
-	            has_journal_entry = je_caucasian_war
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_KUBAN
-							state_region = s:STATE_DAGESTAN
-						}
-					}
-				}
-				can_reach_target_country = yes
-			}
-			add = 10
-		}
-
-		if = { #Russian Far East
-			limit = {
-				has_journal_entry = je_the_eastern_border
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_OUTER_MANCHURIA
-							state_region = s:STATE_JETISY
-							state_region = s:STATE_TOMSK
-							state_region = s:STATE_KIRGHIZIA
-						}
-					}
-				}
-				can_reach_target_country = yes
-			}
-			add = 10
-		}
 
 		if = { #Russian Central Asia
 			limit = {
-				has_journal_entry = je_conquest_of_central_asia
+				country_has_primary_culture = cu:tatar
 				scope:target_country = {
 					any_scope_state = {
 						OR = {
@@ -2704,12 +2560,12 @@ ai_strategy_default = {
 				}
 				can_reach_target_country = yes
 			}
-			add = 15
+			add = 10
 		}
 		
 		if = { #Russian Central Asia
 			limit = {
-				country_has_primary_culture = cu:russian
+				country_has_primary_culture = cu:tatar
 				has_law = law_type:law_national_supremacy
 				scope:target_country = {
 					any_scope_state = {
@@ -2722,21 +2578,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 15
-		}
-
-		if = { #Russia wants Korea
-			limit = {
-				country_has_primary_culture = cu:russian
-				any_scope_state = {
-					state_region = s:STATE_OUTER_MANCHURIA
-					is_incorporated = yes
-				}
-				scope:target_country = {
-					is_country_type = unrecognized
-					country_has_primary_culture = cu:korean
-				}
-			}
-			add = 5
 		}
 		
 		if = { #Japan also wants Korea
@@ -2754,9 +2595,9 @@ ai_strategy_default = {
 			add = 5
 		}
 
-		if = { # Britain consolidating South Africa
+		if = { # consolidating South Africa
 			limit = {
-				country_has_primary_culture = cu:british
+				country_has_primary_culture = cu:dutch
 				has_technology_researched = malaria_prevention
 				any_subject_or_below = {
 					capital.region = sr:region_southern_africa
@@ -2779,9 +2620,9 @@ ai_strategy_default = {
 			add = 10
 		}
 		
-		if = { # Portugal wishes to eat Gaza
+		if = { # wishes to eat Gaza
 			limit = {
-				country_has_primary_culture = cu:portuguese
+				country_has_primary_culture = cu:swahili
 				has_technology_researched = malaria_prevention
 				OR = {
 					any_scope_state = {
@@ -2839,7 +2680,7 @@ ai_strategy_default = {
 		if = { #Indian suzerain will be aggressive against Russia
 			limit = {
 				AND = {
-					c:RUS ?= {
+					c:PER ?= {
 						has_journal_entry = je_conquest_of_central_asia
 					}
 					ROOT = {
@@ -2884,7 +2725,7 @@ ai_strategy_default = {
         # France should very aggressively go for Algeria.
 		if = {
 			limit = {
-				has_journal_entry = je_conquest_of_algeria
+				c:ANL ?= this
 				scope:target_country = {
 					OR = {
 						has_state_in_state_region = STATE_ALGIERS
@@ -2901,8 +2742,8 @@ ai_strategy_default = {
 		# Russia should very aggressively go for the Caucasus if it's still a great power.
 		if = {
 			limit = {
-				exists = c:RUS
-                THIS = c:RUS
+				exists = c:PER
+                THIS = c:PER
                 country_rank = rank_value:great_power
                 OR = {
                 	exists = c:CIR
@@ -2955,8 +2796,6 @@ ai_strategy_default = {
 			}
 			add = 5
 		}		
-		
-        # Paraguay should be highly aggressive while they have the war JE.
 
 
 		# Acre claimant wants Acre
@@ -3112,30 +2951,6 @@ ai_strategy_default = {
 			add = 35
 		}
 
-        # Neutral Switzerland
-        if = {
-            limit = {
-				exists = c:SWI
-				this = c:SWI
-            }
-            multiply = 0.1
-        }	
-
-        # Isolationist Paraguay under Francia should not go awol.
-        if = {
-            limit = {
-            	has_journal_entry = je_francocracia
-            }
-            multiply = 0.1
-        }
-        # Paraguay is less likely to be aggressive when modernizing.
-        if = {
-            limit = {
-            	has_journal_entry = je_modernizing_paraguay
-            }
-			multiply = 0.25
-        }
-		
 		if = { # The EIC/Raj should never go against its suzerain, as doing so is suicide
 			limit = {
 				exists = c:BIC
@@ -3399,6 +3214,14 @@ ai_strategy_default = {
 			limit =  { has_modifier = br_modifier_tagmata_primacy }
 			multiply = 2
 		}
+		if = {
+			limit =  { has_modifier = br_rajputs_modifier }
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_maratha_modifier }
+			multiply = 2
+		}
 	#BR Added End
 
 		# Factor in strategies
@@ -3561,7 +3384,7 @@ ai_strategy_default = {
 		}
 		if = {
 			limit =  { has_modifier = br_modifier_decentralized_khanate }
-			multiply = -1
+			multiply = -2
 		}
 	#BR Added End
 
@@ -3812,6 +3635,14 @@ ai_strategy_default = {
 			limit =  { has_modifier = br_modifier_independent_new_world_colony }
 			multiply = 2
 		}
+		if = {
+			limit =  { has_modifier = br_rajputs_modifier }
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_maratha_modifier }
+			multiply = 2
+		}
 	#BR Added End
 
 		if = {
@@ -4047,102 +3878,41 @@ ai_strategy_default = {
 				navy_size >= 75 				
 			}
 			add = 0.1
-		}		
+		}
+		
+		if = {
+			limit =  { has_modifier = br_modifier_italy_gunboat_trade_diplomacy }
+			add = 0.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_spice_trade }
+			add = 0.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_naval_tradition }
+			add = 0.25
+		}
+
 	}
 
 	# How important is it that the AI maintains an interest in a specific strategic region (added on top of region value calculations set in defines)
 	# Using this value in other strategies will function additively
 	strategic_region_scores = {
-		region_anatolia = {
-			if = {
-				limit = { # Certain Great Powers care about Egyptian-Ottoman conflict in the early game
-					OR = {
-						has_variable = veiled_protectorate_support_ottomans
-						has_variable = veiled_protectorate_support_egypt
-					}
-					OR = {
-						navy_size >= 25
-						is_adjacent_to_country = c:TUR
-						is_adjacent_to_country = c:EGY
-					}					
-				}
-				add = 1000
-			}
-		}	
-		region_caucasus = {
-			if = {
-				limit = { # Britain is participating in the Caucasian War in a certain capacity early game.
-					c:GBR ?= this
-					exists = c:CIR
-					country_rank = rank_value:great_power
-					navy_size >= 50
-				}
-				add = 500
-			}
-		}
-		region_arabic = {
-			if = {
-				limit = { # Certain Great Powers care about Egyptian-Ottoman conflict in the early game
-					OR = {
-						has_variable = veiled_protectorate_support_ottomans
-						has_variable = veiled_protectorate_support_egypt
-					}
-					OR = {
-						navy_size >= 25
-						is_adjacent_to_country = c:TUR
-						is_adjacent_to_country = c:EGY
-					}					
-				}
-				add = 1000
-			}
-		}
 		region_oceania = {	
 			if = {
-				limit = {				
+				limit = {
 					OR = {
-						has_variable = hawaii_interest
 						AND = {
-							exists = c:USA
-							this = c:USA
-						}
-						AND = {
-							has_global_variable = gp_hawaii_interest
 							country_rank = rank_value:great_power
-							OR = {
-								country_is_in_north_america = yes 
-								country_is_in_south_america = yes 
-							}
+							has_technology_researched = malaria_prevention
 						}
-					}								
+						has_journal_entry = je_scramble_for_africa
+					}		
 				}
 				add = 200
-			}				
-		}			
-		region_japan = {	
-			if = {
-				limit = {
-					exists = c:JAP
-					c:JAP = { has_law = law_type:law_isolationism }
-					NOT = { country_rank = rank_value:great_power }
-				}
-				add = -50
-			}				
-		}				
-		region_nile_basin = {
-			if = {
-				limit = { # Certain Great Powers care about Egyptian-Ottoman conflict in the early game
-					OR = {
-						has_variable = veiled_protectorate_support_ottomans
-						has_variable = veiled_protectorate_support_egypt
-					}
-					OR = {
-						navy_size >= 25
-						is_adjacent_to_country = c:TUR
-						is_adjacent_to_country = c:EGY
-					}					
-				}
-				add = 1000
 			}		
+		}							
+		region_nile_basin = {		
 			if = {
 				limit = {
 					OR = {
@@ -4287,21 +4057,7 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_balkans = {
-			if = {
-				limit = { # Certain Great Powers care about Egyptian-Ottoman conflict in the early game
-					OR = {
-						has_variable = veiled_protectorate_support_ottomans
-						has_variable = veiled_protectorate_support_egypt
-					}
-					OR = {
-						navy_size >= 25
-						is_adjacent_to_country = c:TUR
-						is_adjacent_to_country = c:EGY
-					}					
-				}
-				add = 1000
-			}		
+		region_balkans = {		
 			if = {
 				limit = {
 					country_is_in_europe = yes
@@ -4342,8 +4098,8 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_great_game_control
 					OR = {
-						c:GBR ?= this
-						c:RUS ?= this
+						c:PER ?= this
+						c:br_tartaria ?= this
 					}
 				}
 				add = 500
@@ -4357,8 +4113,8 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_great_game_control
 					OR = {
-						c:GBR ?= this
-						c:RUS ?= this
+						c:PER ?= this
+						c:br_tartaria ?= this
 					}
 				}
 				add = 500
@@ -4406,7 +4162,7 @@ ai_strategy_default = {
 		region_pacific_coast = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 1000
 			}			
@@ -4414,7 +4170,7 @@ ai_strategy_default = {
 		region_great_plains = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4422,7 +4178,7 @@ ai_strategy_default = {
 		region_dixie = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4430,7 +4186,7 @@ ai_strategy_default = {
 		region_new_england = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4438,7 +4194,7 @@ ai_strategy_default = {
 		region_canada = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4446,7 +4202,7 @@ ai_strategy_default = {
 		region_the_midwest = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4454,7 +4210,7 @@ ai_strategy_default = {
 		region_central_america = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4462,7 +4218,7 @@ ai_strategy_default = {
 		region_brazil = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4470,7 +4226,7 @@ ai_strategy_default = {
 		region_andes = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4478,7 +4234,7 @@ ai_strategy_default = {
 		region_la_plata = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4486,7 +4242,7 @@ ai_strategy_default = {
 		region_gran_colombia = {
 			if = {
 				limit = {
-					has_variable = monroe_doctrine	
+					c:br_elysium ?= this
 				}
 				add = 100
 			}			
@@ -4724,14 +4480,6 @@ ai_strategy_default = {
 				}
 				multiply = 0.5
 			}
-
-			if = {
-				limit = {
-					c:HAI ?= ROOT
-					scope:target_country = { has_variable = haiti_friend }
-				}
-				multiply = 3
-			}
 			
 			# AI implications for Power Blocs: 'befriend' secret goal is more likely towards the Bloc members
 			if = {
@@ -4811,24 +4559,6 @@ ai_strategy_default = {
 					add = 200				
 				}					
 			}		
-
-			if = {
-				limit = {
-					scope:target_country = {
-						has_journal_entry = je_peru_bolivia
-					}
-					OR = {
-						country_has_primary_culture = cu:south_andean
-						country_has_primary_culture = cu:north_andean
-						country_has_primary_culture = cu:platinean
-						country_has_primary_culture = cu:argentine
-						country_has_primary_culture = cu:chilean
-						country_has_primary_culture = cu:colombian
-						country_has_primary_culture = cu:ecuadorian
-					}
-				}
-				add = -50
-			}
 
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
@@ -4957,7 +4687,7 @@ ai_strategy_default = {
 			# Historical enemies shouldn't start as conciliatory unless we explicitly script this in history
 			if = {
 				limit = {
-					game_date < 1836.1.2 
+					game_date < 1736.1.2 
 				}
 				multiply = 0
 			}
@@ -5360,7 +5090,7 @@ ai_strategy_default = {
 			# Countries scripted to have a friendly pact or same power bloc shouldn't start with hostile goals
 			if = {
 				limit = { 
-					game_date < 1836.1.2
+					game_date < 1736.1.2
 					OR = {
 						is_in_same_power_bloc = scope:target_country
 						has_friendly_diplomatic_pact = { TARGET = scope:target_country } 			
@@ -5375,24 +5105,6 @@ ai_strategy_default = {
 			if = {
 				limit = { has_je_conquest_reason = { TARGET = scope:target_country } }
 				add = 10000
-			}
-			
-			if = {
-				limit = {
-					scope:target_country = {
-						has_journal_entry = je_peru_bolivia
-					}
-					OR = {
-						country_has_primary_culture = cu:south_andean
-						country_has_primary_culture = cu:north_andean
-						country_has_primary_culture = cu:platinean
-						country_has_primary_culture = cu:argentine
-						country_has_primary_culture = cu:chilean
-						country_has_primary_culture = cu:colombian
-						country_has_primary_culture = cu:ecuadorian
-					}				
-				}
-				add = 100
 			}			
 
 			if = {
@@ -5611,7 +5323,7 @@ ai_strategy_default = {
 			# Countries scripted to have a friendly pact or same power bloc shouldn't start with hostile goals
 			if = {
 				limit = { 
-					game_date < 1836.1.2
+					game_date < 1736.1.2
 					OR = {
 						is_in_same_power_bloc = scope:target_country
 						has_friendly_diplomatic_pact = { TARGET = scope:target_country } 			
@@ -5904,7 +5616,7 @@ ai_strategy_default = {
 			# Countries scripted to have a friendly pact, historical overlord status or same power bloc shouldn't start with randomly generated hostile goals
 			if = {
 				limit = { 
-					game_date < 1836.1.2
+					game_date < 1736.1.2
 					OR = {
 						is_in_same_power_bloc = scope:target_country
 						has_friendly_diplomatic_pact = { TARGET = scope:target_country }
@@ -6065,6 +5777,17 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					c:DEI ?= this
+					scope:target_country = {
+						capital.region = sr:region_indonesia
+						is_country_type = unrecognized
+					}
+				}
+				add = 25
+			}
+
+			if = {
+				limit = {
+					c:EOC ?= this
 					scope:target_country = {
 						capital.region = sr:region_indonesia
 						is_country_type = unrecognized
@@ -6433,29 +6156,6 @@ ai_strategy_default = {
 					max = 2.0
 				}				
 			}
-			# Britain will prioritize ending slavery in Brazil if they have the Aberdeen Act JE
-			if = {
-				limit = {
-					has_journal_entry = je_aberdeen_act
-					scope:target_country = {
-						c:BRZ ?= this
-					}
-				}
-				add = 50
-			}
-			# Great Powers with slavery banned will prioritize ending slavery in Brazil if that country failed its slavery JE
-			if = {
-				limit = {
-					has_law = law_type:law_slavery_banned
-					country_rank >= rank_value:great_power
-					scope:target_country = {
-						c:BRZ ?= this
-						has_modifier = brazil_slaving_pariah_modifier
-						has_law = law_type:law_slave_trade
-					}
-				}
-				add = 30
-			}
 
 			min = 0
 			max = 100
@@ -6739,6 +6439,14 @@ ai_strategy_default = {
 				limit = { # Likewise for the Dutch East Indies.
 					exists = c:DEI
 					this = c:DEI
+				}
+				multiply = 0.0
+			}
+
+			if = {
+				limit = { # Likewise for the Dutch East Indies.
+					exists = c:EOC
+					this = c:EOC
 				}
 				multiply = 0.0
 			}
