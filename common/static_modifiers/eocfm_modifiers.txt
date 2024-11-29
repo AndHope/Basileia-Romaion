@@ -4,8 +4,8 @@ modifier_eocfm_base = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_blue.dds
 	country_improve_relations_speed_mult = 0.025
 	country_clergymen_pol_str_mult = -0.01
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.01
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.01
+	state_loyalism_increases_full_acceptance_mult = 0.01
+	state_radicalism_increases_full_acceptance_mult = -0.01
 }
 
 #### JOURNAL ENTRY MODIFIERS ####
@@ -20,8 +20,8 @@ modifier_eocfm_ecumenical_aspirations = {
 
 modifier_eocfm_emphasize_unity = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.10
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.10
+	state_radicalism_increases_full_acceptance_mult = -0.10
+	state_loyalism_increases_full_acceptance_mult = 0.10
 }
 
 modifier_eocfm_enforce_attendance = {
@@ -48,7 +48,7 @@ modifier_eocfm_promote_ecumenism = {
 modifier_eocfm_reformed_synod = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_caesaropapism_add = 200
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.10
+	state_radicalism_increases_full_acceptance_mult = -0.10
 	interest_group_ig_devout_pol_str_mult = -0.05
 	interest_group_ig_devout_approval_add = -5
 }
@@ -108,7 +108,9 @@ modifier_eocfm_icon_christ_pantocrator = {
 modifier_eocfm_icon_eleusa = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_iconostasis_positive.dds
 	country_caesaropapism_add = -200
-	#state_radicals_from_discrimination_mult = -0.10
+	state_radicalism_increases_open_prejudice_mult = -0.10
+	state_radicalism_increases_cultural_erasure_mult = -0.10
+	state_radicalism_increases_violent_hostility_mult = -0.10
 	state_turmoil_effects_mult = -0.25
 }
 
@@ -173,7 +175,7 @@ modifier_eocfm_schismatic = {
 modifier_eocfm_ignored_dissent = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_monthly_schism_progress_add = 1
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.05
+	state_loyalism_increases_full_acceptance_mult = -0.05
 	interest_group_ig_devout_approval_add = -5
 	interest_group_ig_devout_pop_attraction_mult = 0.05
 }
@@ -204,22 +206,25 @@ modifier_eocfm_sidelined_church = {
 modifier_eocfm_minority_protections = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_influence_mult = 0.05
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.05
-	#state_radicals_from_discrimination_mult = -0.05
+	state_radicalism_increases_open_prejudice_mult = -0.05
+	state_radicalism_increases_cultural_erasure_mult = -0.05
+	state_radicalism_increases_violent_hostility_mult = -0.05
 }
 
 modifier_eocfm_orthodox_supremacy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_authority_mult = 0.05
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.05
-	#state_radicals_from_discrimination_mult = 0.05
+	state_loyalism_increases_full_acceptance_mult = 0.05
+	state_radicalism_increases_open_prejudice_mult = 0.05
+	state_radicalism_increases_cultural_erasure_mult = 0.05
+	state_radicalism_increases_violent_hostility_mult = 0.05
 }
 
 modifier_eocfm_schism_denounced = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	country_prestige_mult = -0.05
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.01
-	#state_radicals_from_sol_change_accepted_religion_mult = 0.01
+	state_loyalism_increases_full_acceptance_mult = -0.01
+	state_radicalism_increases_full_acceptance_mult = 0.01
 }
 
 modifier_eocfm_local_language = {
@@ -351,8 +356,8 @@ modifier_eocfm_mended_schism = {
 	country_caesaropapism_add = 1000
 	country_prestige_mult = 0.10
 	state_conversion_mult = 0.50
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.25
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.25
+	state_loyalism_increases_full_acceptance_mult = 0.25
+	state_radicalism_increases_full_acceptance_mult = -0.25
 }
 
 #### MANDATE MODIFIERS ####
@@ -361,8 +366,8 @@ modifier_eocfm_lex_animata = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_blue.dds
 	country_caesaropapism_add = 200
 	country_legitimacy_base_add = 10
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.10
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.10
+	state_loyalism_increases_full_acceptance_mult = 0.10
+	state_radicalism_increases_full_acceptance_mult = -0.10
 }
 
 modifier_eocfm_divine_mandate = {
@@ -427,9 +432,10 @@ modifier_eocfm_controls_jerusalem = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_positive.dds
 	country_caesaropapism_add = 100
 	state_conversion_mult = 0.25
-	#state_radicals_from_discrimination_mult = -0.05
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.05
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.05
+	state_loyalism_increases_full_acceptance_mult = 0.05
+	state_radicalism_increases_open_prejudice_mult = -0.05
+	state_radicalism_increases_cultural_erasure_mult = -0.05
+	state_radicalism_increases_violent_hostility_mult = -0.05
 }
 
 modifier_eocfm_controls_alexandria = {
@@ -442,7 +448,7 @@ modifier_eocfm_controls_moscow = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_positive.dds
 	country_caesaropapism_add = 100
 	country_authority_mult = 0.05
-	#state_radicals_from_sol_change_mult = -0.05
+	state_radicals_from_sol_change_mult = -0.05
 	state_turmoil_effects_mult = -0.05
 }
 
@@ -521,37 +527,37 @@ modifier_eocfm_moscow_blessing = {
 modifier_eocfm_condemned_by_rome = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	interest_group_ig_devout_approval_add = -2
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.01
+	state_loyalism_increases_full_acceptance_mult = -0.01
 }
 
 modifier_eocfm_condemned_by_constantinople = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	interest_group_ig_devout_approval_add = -2
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.01
+	state_loyalism_increases_full_acceptance_mult = -0.01
 }
 
 modifier_eocfm_condemned_by_antioch = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	interest_group_ig_devout_approval_add = -2
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.01
+	state_loyalism_increases_full_acceptance_mult = -0.01
 }
 
 modifier_eocfm_condemned_by_jerusalem = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	interest_group_ig_devout_approval_add = -2
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.01
+	state_loyalism_increases_full_acceptance_mult = -0.01
 }
 
 modifier_eocfm_condemned_by_alexandria = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	interest_group_ig_devout_approval_add = -2
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.01
+	state_loyalism_increases_full_acceptance_mult = -0.01
 }
 
 modifier_eocfm_condemned_by_moscow = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	interest_group_ig_devout_approval_add = -2
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.01
+	state_loyalism_increases_full_acceptance_mult = -0.01
 }
 
 #### COUNCIL MODIFIERS ####
@@ -585,14 +591,18 @@ modifier_eocfm_condemned_phyletism = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_prestige_add = 25
 	state_assimilation_mult = 0.10
-	#state_radicals_from_discrimination_mult = 0.05
+	state_radicalism_increases_open_prejudice_mult = 0.05
+	state_radicalism_increases_cultural_erasure_mult = 0.05
+	state_radicalism_increases_violent_hostility_mult = 0.05
 }
 	
 modifier_eocfm_endorsed_phyletism = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_influence_mult = 0.05
 	state_conversion_mult = 0.10
-	#state_radicals_from_discrimination_mult = -0.05
+	state_radicalism_increases_open_prejudice_mult = -0.05
+	state_radicalism_increases_cultural_erasure_mult = -0.05
+	state_radicalism_increases_violent_hostility_mult = -0.05
 }
 
 modifier_eocfm_revised_julian_calendar = {
@@ -617,7 +627,9 @@ modifier_eocfm_crusade_launched = {
 modifier_eocfm_forced_conversion = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_negative.dds
 	country_legitimacy_base_add = -10
-	#state_radicals_from_discrimination_mult = 0.05
+	state_radicalism_increases_open_prejudice_mult = 0.05
+	state_radicalism_increases_cultural_erasure_mult = 0.05
+	state_radicalism_increases_violent_hostility_mult = 0.05
 	state_conversion_mult = 100
 }
 
@@ -632,8 +644,8 @@ modifier_eocfm_failed_crusade = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_capitulate_negative.dds
 	country_legitimacy_base_add = -20
 	state_conversion_mult = -0.50
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.25
-	#state_radicals_from_sol_change_accepted_religion_mult = 0.25
+	state_loyalism_increases_full_acceptance_mult = -0.25
+	state_radicalism_increases_full_acceptance_mult = 0.25
 }
 
 modifier_eocfm_resisted_conversion = {
@@ -664,51 +676,53 @@ modifier_eocfm_asserted_caesaropapism = {
 
 modifier_eocfm_recognized_pious_donations = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.10
+	state_radicalism_increases_full_acceptance_mult = -0.10
 }
 
 modifier_eocfm_discouraged_pious_donations = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.05
+	state_loyalism_increases_full_acceptance_mult = 0.05
 }
 
 modifier_eocfm_backed_reforms = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_caesaropapism_add = 50
-	#state_radicals_from_sol_change_accepted_religion_mult = 0.05
+	state_radicalism_increases_full_acceptance_mult = 0.05
 	state_conversion_mult = 0.10
 }
 
 modifier_eocfm_clung_to_tradition = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_negative.dds
 	country_tech_spread_mult = -0.05
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.05	
+	state_radicalism_increases_full_acceptance_mult = -0.05	
 	interest_group_ig_devout_approval_add = 2	
 }
 
 modifier_eocfm_published_vulgar_bible = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.10
+	state_radicalism_increases_full_acceptance_mult = -0.10
 	state_conversion_mult = 0.10
 	interest_group_ig_devout_approval_add = -3
 }
 	
 modifier_eocfm_banned_vulgar_bible = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_negative.dds
-	#state_radicals_from_discrimination_mult = 0.05
+	state_radicalism_increases_open_prejudice_mult = 0.05
+	state_radicalism_increases_cultural_erasure_mult = 0.05
+	state_radicalism_increases_violent_hostility_mult = 0.05
 	state_assimilation_mult = 0.05
 	interest_group_ig_devout_approval_add = 3
 }
 
 modifier_eocfm_new_cathedral = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.05
+	state_radicalism_increases_full_acceptance_mult = -0.05
 	state_conversion_mult = 0.10
 }
 
 modifier_eocfm_grand_cathedral = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.15
+	state_radicalism_increases_full_acceptance_mult = -0.15
 	state_conversion_mult = 0.50
 }
 
@@ -725,16 +739,18 @@ modifier_eocfm_refused_conversion = {
 modifier_eocfm_ruler_accepted_conversion = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
 	country_authority_add = -100
-	#state_loyalists_from_sol_change_accepted_religion_mult = 0.10
-	#state_radicals_from_sol_change_accepted_religion_mult = -0.10
+	state_loyalism_increases_full_acceptance_mult = 0.10
+	state_radicalism_increases_full_acceptance_mult = -0.10
 }
 
 modifier_eocfm_ruler_refused_conversion = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_negative.dds
 	country_authority_add = 100
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.05
-	#state_radicals_from_sol_change_accepted_religion_mult = 0.05
-	#state_radicals_from_discrimination_mult = -0.10
+	state_loyalism_increases_full_acceptance_mult = -0.05
+	state_radicalism_increases_full_acceptance_mult = 0.05
+	state_radicalism_increases_open_prejudice_mult = -0.10
+	state_radicalism_increases_cultural_erasure_mult = -0.10
+	state_radicalism_increases_violent_hostility_mult = -0.10
 }
 
 modifier_eocfm_expelled_metropolitan = {
@@ -787,8 +803,8 @@ modifier_eocfm_secularism_denounced = {
 modifier_eocfm_immoral_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_negative.dds
 	country_prestige_mult = -0.05
-	#state_radicals_from_sol_change_accepted_religion_mult = 0.05
-	#state_loyalists_from_sol_change_accepted_religion_mult = -0.05
+	state_radicalism_increases_full_acceptance_mult = 0.05
+	state_loyalism_increases_full_acceptance_mult = -0.05
 }
 
 modifier_eocfm_conceded_doctrine = {
