@@ -1,0 +1,30 @@
+﻿# Romaioi Mod - This is executed last among all history
+GLOBAL = {
+	every_country = {
+		if = {
+			limit = {
+				is_subject_of = c:HRE
+			}
+			add_modifier = {
+				name = br_modifier_hre_intrests
+				years = 75
+			}
+		}
+		if = {
+			limit = {
+				country_has_a_german_primary_culture = yes
+				is_subject = no
+				NOT = {
+					OR = {
+						country_has_primary_culture = cu:french
+						has_modifier = br_modifier_independent_german_state
+					}
+				}
+			}
+			add_modifier = {
+				name = br_modifier_independent_german_state
+				months = -1
+			}
+		}
+	}
+}

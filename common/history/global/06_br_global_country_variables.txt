@@ -1,0 +1,53 @@
+﻿# Romaioi Mod - This is executed last among all history
+GLOBAL = {
+	every_country = {
+		#set a variable to keep track if a state is north or south german
+		if = {
+			limit = {
+				country_has_a_german_primary_culture = yes
+				NOT = {
+					OR = {
+						country_has_primary_culture = cu:french
+						any_primary_culture = {
+							NOT = {
+								has_discrimination_trait = german_speaking
+							}
+						}
+						has_variable = br_north_german_state
+						has_variable = br_south_german_state
+					}
+				}
+			}
+			if = {
+				limit = { country_has_a_north_german_primary_culture = yes }
+				set_variable = br_north_german_state
+
+				if = {
+					limit = { country_has_primary_culture = cu:saxon }
+					set_variable = br_saxon_state
+				}
+				if = {
+					limit = { country_has_primary_culture = cu:baltic_german }
+					set_variable = br_baltic_german_state
+				}
+			}
+			if = {
+				limit = { country_has_a_south_german_primary_culture = yes }
+				set_variable = br_south_german_state
+				
+				if = {
+					limit = { country_has_primary_culture = cu:frankish }
+					set_variable = br_frankish_state
+				}
+				if = {
+					limit = { country_has_primary_culture = cu:alemannic }
+					set_variable = br_alemannic_state
+				}
+				if = {
+					limit = { country_has_primary_culture = cu:bavarian }
+					set_variable = br_bavarian_state
+				}
+			}
+		}
+	}
+}

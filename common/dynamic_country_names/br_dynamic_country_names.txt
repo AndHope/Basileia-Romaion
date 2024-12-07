@@ -1,25 +1,5 @@
 ﻿### Try to keep tags in alphabetical order if it's not too far gone, please.
 
-FIN = { # Finland
-	dynamic_country_name = {
-		name = dyn_c_grand_duchy_of_finland
-		
-		is_main_tag_only = yes
-		priority = 0
-		
-		trigger = {
-			exists = c:SWE
-			c:SWE = {
-				has_diplomatic_pact = {
-					who = c:FIN
-					type = personal_union
-					is_initiator = yes
-				}
-			}
-		}
-	}
-}
-
 ARA = { 
 	dynamic_country_name = { # Abbasid Calipate
 		name = dyn_c_abbasid
@@ -152,23 +132,6 @@ BYZ = {
 	}
 }
 
-KUR = {
-	dynamic_country_name = {
-		name = dyn_c_kurd_princes
-		adjective = dyn_c_kurd_princes_adj
-
-		is_main_tag_only = yes
-		priority = 5
-		
-		trigger = {
-			exists = c:PER
-			scope:actor ?= {
-				is_subject_of = c:PER
-			}
-		}
-	}
-}
-
 ENG = {
 	dynamic_country_name = {
 		name = dyn_c_english_lords
@@ -181,6 +144,135 @@ ENG = {
 			exists = c:DEN
 			scope:actor ?= {
 				is_subject_of = c:DEN
+			}
+		}
+	}
+}
+
+FIN = { # Finland
+	dynamic_country_name = {
+		name = dyn_c_grand_duchy_of_finland
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = c:SWE
+			c:SWE = {
+				has_diplomatic_pact = {
+					who = c:FIN
+					type = personal_union
+					is_initiator = yes
+				}
+			}
+		}
+	}
+}
+
+GER = { # Germany
+	# dynamic_country_name = {
+	# 	name = dyn_c_german_empire
+	# 	adjective = GER_ADJ
+		
+	# 	is_main_tag_only = yes
+	# 	priority = 0
+		
+	# 	trigger = {
+	# 		coa_def_monarchy_flag_trigger = yes
+	# 		scope:actor ?= { 
+	# 			country_rank >= rank_value:major_power
+	# 		}
+	# 	}
+	# }
+	
+	# dynamic_country_name = {
+	# 	name = nihilist_germany_name
+	# 	adjective = nihilist_germany_name_adj
+		
+	# 	is_main_tag_only = yes
+	# 	priority = 10
+		
+	# 	trigger = {
+	# 		coa_def_nihilist_flag_trigger = yes
+	# 	}
+	# }
+
+	#north german country names
+	dynamic_country_name = {
+		name = dyn_c_deutschland_germany_name
+		adjective = GER_ADJ
+		
+		is_main_tag_only = yes
+		priority = 10
+		
+		trigger = {
+			coa_def_north_german_state_trigger = yes
+			scope:actor = {
+				or = {
+					has_variable = br_saxon_state
+					has_variable = br_baltic_german_state
+				}
+			}
+		}
+	}
+
+	#south german country names
+	dynamic_country_name = {
+		name = dyn_c_germania_germany_name
+		adjective = GER_ADJ
+		
+		is_main_tag_only = yes
+		priority = 10
+		
+		trigger = {
+			coa_def_south_german_state_trigger = yes
+			scope:actor = {
+				has_variable = br_bavarian_state
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_alemannia_germany_name
+		adjective = GER_ADJ
+		
+		is_main_tag_only = yes
+		priority = 10
+		
+		trigger = {
+			coa_def_south_german_state_trigger = yes
+			scope:actor = {
+				has_variable = br_alemannic_state
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_lotharingia_germany_name
+		adjective = GER_ADJ
+		
+		is_main_tag_only = yes
+		priority = 10
+		
+		trigger = {
+			coa_def_south_german_state_trigger = yes
+			scope:actor = {
+				has_variable = br_frankish_state
+			}
+		}
+	}
+}
+
+KUR = {
+	dynamic_country_name = {
+		name = dyn_c_kurd_princes
+		adjective = dyn_c_kurd_princes_adj
+
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = c:PER
+			scope:actor ?= {
+				is_subject_of = c:PER
 			}
 		}
 	}

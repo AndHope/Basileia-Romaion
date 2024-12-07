@@ -1202,6 +1202,32 @@ ai_strategy_default = {
 				add = 50
 			}
 
+			#German Unification Strategies:
+			if = { # Saxony wishes to conquer schleswig
+                limit = {
+                    has_journal_entry = je_schleswig_holstein_question
+                    scope:target_state = {
+                        OR = {
+							state_region = s:STATE_SCHLESWIG_HOLSTEIN
+                            state_region = s:STATE_ELBE
+                        }
+                    }
+                }
+                add = 100
+            }
+			if = { # Saxony wishes to conquer pomerania
+                limit = {
+                    has_journal_entry = je_pomerania_question
+                    scope:target_state = {
+                        OR = {
+                            state_region = s:STATE_POMERANIA
+                            state_region = s:STATE_MECKLENBURG
+                        }
+                    }
+                }
+                add = 100
+            }
+
 			if = { # Aim should take states in Balkans/Anatolia first
 				limit = {
 					country_has_primary_culture = cu:greek

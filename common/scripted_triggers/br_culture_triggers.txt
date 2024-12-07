@@ -1,0 +1,35 @@
+﻿#	Example:
+# 
+#	example_trigger = {
+#		x = 100
+#		y = 50
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_trigger = yes
+#	}
+#
+
+#these are grouped following culture groups
+country_has_a_north_german_primary_culture = {
+	or = {
+		country_has_primary_culture = cu:saxon
+		country_has_primary_culture = cu:baltic_german
+	}
+}
+country_has_a_south_german_primary_culture = {
+	or = {
+		country_has_primary_culture = cu:frankish
+		country_has_primary_culture = cu:alemannic
+		country_has_primary_culture = cu:bavarian
+	}
+}
+country_has_a_german_primary_culture = {
+	or = {
+		country_has_a_north_german_primary_culture = yes
+		country_has_a_south_german_primary_culture = yes
+	}
+}

@@ -1,0 +1,22 @@
+﻿# Fired off on_yearly_pulse_country
+
+yearly_add_modifiers = {
+	effect = {
+		if = {
+			limit = {
+				country_has_a_german_primary_culture = yes
+				is_subject = no
+				NOT = {
+					OR = {
+						country_has_primary_culture = cu:french
+						has_modifier = br_modifier_independent_german_state
+					}
+				}
+			}
+			add_modifier = {
+				name = br_modifier_independent_german_state
+				months = -1
+			}
+		}
+	}
+}
