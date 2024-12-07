@@ -57,10 +57,11 @@
 			}
 		}
 
-		# add_company = company_type:company_john_cockerill
-		# company:company_john_cockerill = {
-		# 	set_company_establishment_date = 1825.1.1
-		# }
+		add_company = company_type:company_fla_trade
+		company:company_fla_trade = {
+			set_company_establishment_date = 1325.1.1
+			set_company_state_region = s:STATE_FLANDERS
+		}
 
 		add_modifier = {
 			name = br_modifier_corporate_reforms
@@ -104,7 +105,7 @@
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_racial_segregation
 		
-		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_commercialized_agriculture
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_colonial_exploitation
@@ -114,7 +115,7 @@
 			add_ideology = ideology_frontier_expansionist
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = -0.75
+				multiplier = -0.5
 				years = 50
 			}
 		}
@@ -127,6 +128,13 @@
 				multiplier = 2
 				years = 75
 				is_decaying = yes
+			}
+		}
+		ig:ig_armed_forces = {
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.75
+				years = 50
 			}
 		}
 

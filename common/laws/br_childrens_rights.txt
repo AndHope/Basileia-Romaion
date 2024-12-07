@@ -16,25 +16,7 @@ law_child_labor_allowed = {
 		state_peasants_mortality_mult = 0.1 #was 0.05
 		
 		state_dependent_wage_mult = 0.30
-		state_birth_rate_mult = 0.05 #Was none # Incentive for families to get more kids
-	}
-	
-	possible_political_movements = {
-		law_restricted_child_labor
-	}
-
-	pop_support = {
-		value = 0
-		# Get back in the mines!
-		add = {
-			desc = "POP_CAPITALISTS"
-			if = {
-				limit = {
-					is_pop_type = capitalists
-				}
-			}
-			value = 0.25
-		}
+		state_birth_rate_mult = 0.025 #Was none # Incentive for families to get more kids
 	}
 	
 	ai_will_do = {
@@ -71,33 +53,9 @@ law_restricted_child_labor = {
 		state_peasants_mortality_mult = 0.05 #was 0.02
 		
 		state_dependent_wage_mult = 0.15
-		state_birth_rate_mult = 0.025 #Was none # Incentive for families to get more kids
+		state_birth_rate_mult = 0.01 #Was none # Incentive for families to get more kids
 		
 		country_institution_schools_max_investment_add = 1
-	}
-    
-    institution = institution_schools
-	institution_modifier = {
-		state_education_access_wealth_add = 0.002 # was none
-	}
-	
-	possible_political_movements = {
-		law_compulsory_primary_school
-	}
-
-	pop_support = {
-		value = 0
-		# Get back in the mines!
-		add = {
-			desc = "POP_CAPITALISTS"
-			if = {
-				limit = {
-					owner = { has_law = law_type:law_compulsory_primary_school }
-					is_pop_type = capitalists
-				}
-			}
-			value = 0.33
-		}
 	}
 	
 	ai_will_do = {
@@ -139,15 +97,6 @@ law_compulsory_primary_school = {
 	
 	modifier = {
 		country_institution_schools_max_investment_add = 2
-	}
-    
-    institution = institution_schools
-	institution_modifier = {
-		state_education_access_add = 0.05
-	}
-
-	pop_support = {
-		value = 0
 	}
 
 	ai_enact_weight_modifier = { #Petitions

@@ -1,6 +1,6 @@
 ﻿COUNTRIES = {
 	c:VEN = {
-		# set_next_election_date = ???
+		# set_next_election_date = ??
 		
 		effect_starting_technology_tier_1_tech = yes
 
@@ -111,7 +111,15 @@
 		}
 
 		add_company = company_type:company_ven_trade
+		company:company_ven_trade = {
+			set_company_establishment_date = 1325.1.1
+			set_company_state_region = s:STATE_VENETIA
+		}
 		add_company = company_type:company_ven_arsenal
+		company:company_ven_arsenal = {
+			set_company_establishment_date = 1325.1.1
+			set_company_state_region = s:STATE_VENETIA
+		}
 		trigger_event = {
 			id = br_nation_startup_event.2
 			days = 1
@@ -125,7 +133,7 @@
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism #law_free_trade
-		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_right_of_assembly		
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_freedom_of_conscience

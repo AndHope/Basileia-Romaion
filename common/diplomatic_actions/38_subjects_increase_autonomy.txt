@@ -23,13 +23,6 @@
 	
 		OR = {
 			NOT = {
-				scope:target_country = { is_subject_type = subject_type_personal_union }
-			} 
-			has_technology_researched = nationalism
-		}
-
-		OR = {
-			NOT = {
 				scope:target_country = { has_government_type = gov_chartered_company }
 			} 
 			has_technology_researched = civilizing_mission
@@ -98,7 +91,7 @@
 	
 		will_propose = {
 			scope:target_country = {
-				liberty_desire >= 85
+				liberty_desire >= 75
 			}
 			OR = {	
 				AND = {
@@ -140,7 +133,7 @@ da_increase_autonomy_of_self = {
 				is_diplomatic_play_enemy_of = root
 			}
 		}
-		liberty_desire >= 85
+		liberty_desire >= 75
 		can_increase_autonomy = yes
 		
 		OR = {
@@ -239,11 +232,8 @@ da_increase_autonomy_of_self = {
 	}
 	
 	ai = {
-		check_acceptance_for_will_break = yes
-		check_acceptance_for_will_propose = yes
-		
 		evaluation_chance = {
-			value = 0.5		
+			value = 0.25		
 		}
 	
 		accept_score = {

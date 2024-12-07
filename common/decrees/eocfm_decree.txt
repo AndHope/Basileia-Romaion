@@ -1,0 +1,83 @@
+﻿decree_eocfm_consecrate_metropolitan = {
+	texture = "gfx/interface/icons/decree/decree_eocfm_consecrate_metropolitan.dds"
+	
+	state_trigger = {
+		owner = {
+			OR = {
+				country_has_state_religion = rel:orthodox
+				country_has_state_religion = rel:oriental_orthodox
+				country_has_state_religion = rel:br_religion_elysian_orthodox
+			}
+			custom_tooltip = {
+				text = eocfm_need_100_tt
+				hidden_trigger = {
+					eocfm_caesaropapism_capacity_value >= 0
+				}
+			}
+		}
+	}
+	
+	unlocking_technologies = {
+		centralization
+	}
+	
+	unlocking_laws = {
+		law_state_religion
+	}
+	
+	modifier = {
+		state_conversion_mult = 1.00
+		#state_accepted_birth_rate_mult = 0.25 #doesn't currently work in 1.8
+		state_peasants_education_access_add = 0.10
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+		state_tax_collection_mult = -0.15
+	}
+	
+	cost = 50
+	
+	ai_weight = {
+		value = 0
+	}
+
+}
+
+decree_eocfm_encourage_almsgiving = {
+	texture = "gfx/interface/icons/decree/decree_eocfm_encourage_almsgiving.dds"
+	
+	state_trigger = {
+		owner = {
+			OR = {
+				country_has_state_religion = rel:orthodox
+				country_has_state_religion = rel:oriental_orthodox
+				country_has_state_religion = rel:br_religion_elysian_orthodox
+			}
+			custom_tooltip = {
+				text = eocfm_need_100_tt
+				hidden_trigger = {
+					eocfm_caesaropapism_capacity_value >= 0
+				}
+			}
+		}
+	}
+	
+	unlocking_technologies = {
+		centralization
+	}
+  
+	unlocking_laws = {
+	}
+  
+	modifier = {
+		state_tax_collection_mult = 0.10
+		state_expected_sol_mult = -0.05
+		#state_radicals_from_sol_change_mult = -0.05
+		#state_loyalists_from_sol_change_mult = -0.05
+	}
+	
+	cost = 25
+	
+	ai_weight = {
+		value = 0
+	}
+	
+}

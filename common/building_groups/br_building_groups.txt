@@ -9,7 +9,6 @@
 # discoverable_resource = yes/no
 # depletable_resource = yes/no
 # can_use_slaves = yes/no				Default no, setting yes enables slavery for all contained buildings and groups
-# ignores_hiring_rate = yes/no			Default no, setting yes causes all contained buildings and groups to hire as much as they want
 # land_usage = urban/rural				Which type of state resource the building uses. urban = Urbanization, rural = Arable Land. Default no state resource usage.
 #										If unspecified, will return first non-default land usage type found in parent building group tree.
 # cash_reserves_max = number			Maximum amount of £ (per level) that buildings in this group can store into their cash reserves. If unspecified or set to 0, it will use the value from the parent group. Default 0
@@ -17,6 +16,13 @@
 # stateregion_max_level = yes/no		If yes, any building types in this group with the has_max_level property will consider its level restrictions on state-region rather than state level	
 # urbanization = number					The amount of urbanization buildings in this group provides per level
 # should_auto_expand = trigger			Under which condition buildings in this group should auto-expand if auto-expand is toggled on (trigger on more specific group or building type overrides)
+# 										If this trigger has any contents at all, the game will think the building is potentially auto-expandable, so do not write triggers that can never evaluate to true here
+# min_hiring_rate = X					Minimum value for how much of the building's max staffing level can be hired in a single week (default NDefines::NEconomy::DEFAULT_MIN_HIRING_RATE)
+# max_hiring_rate = X					Maximum value for how much of the building's max staffing level can be hired in a single week (default NDefines::NEconomy::DEFAULT_MAX_HIRING_RATE)
+# proportionality_limit = X				How high is the building's tolerance for pop types being out of proportion? default NDefines::NEconomy::EMPLOYMENT_PROPORTIONALITY_LIMIT)
+# hires_unemployed_only = yes			If yes, buildings in this group may only hire from the unemployment pool. Default no.
+# is_shown_in_outliner = yes			If no, buildingtypes in this group will not show up in the outliner, this is for special stuff like the monuments
+# Manufacturing
 
 
 # Government
@@ -39,6 +45,7 @@ bg_monuments = {
 	parent_group = bg_government
 	lens = special
 	inheritable_construction = yes
+	economy_of_scale = no
 
 	urbanization = 100 #was 0
 }
@@ -74,13 +81,14 @@ bg_owner_buildings = {
 	lens = trade
 
 	always_possible = yes
+	
 	can_use_slaves = yes
+
 	auto_place_buildings = yes
 
 	owns_other_buildings = yes
-
-	min_hiring_rate = 1.0
-	max_hiring_rate = 1.0
+	
+	always_self_owning = yes
 
 	ignores_productivity_when_hiring = yes
 
@@ -92,7 +100,7 @@ bg_owner_buildings = {
 
 	cash_reserves_max = 10000
 
-	urbanization = 1 #was 0
+	urbanization = 0
 
 	infrastructure_usage_per_level = 0.05 #was 0.1
 
@@ -114,4 +122,9 @@ bg_manor_houses = {
 	parent_group = bg_owner_buildings
 	
 	infrastructure_usage_per_level = 0.0
+}
+
+bg_company_headquarter = {
+	parent_group = bg_owner_buildings
+	urbanization = 5 #was 0
 }
