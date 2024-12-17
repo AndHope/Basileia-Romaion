@@ -146,32 +146,20 @@ namespace = eocfm
 ##  #EOC2  RUM MILLET FLAVOR  Events 200-299  ##
 # // This will cover future Turkish interactions with eocfm mechanics //
 
-#### HIDDEN TECHNICAL EVENTS (VARIABLE CLEANUP) ####
 
 ##	#EOC3	THE ORTHODOX DOMAIN		Events 300-399	##
 
 #300-309 - The Orthodox Domain Events
 #	300 - The Partiarchate Rises (Path Event)
-#	301 - The Metropolitan Lands
-#	302 - Nova Roma Constantinopolitana
-#	303 - Into the Holy Land
-#	304 - The Church of the East ----commit event
-#	305 - Across the Hospitable Sea
-#	306 - The Orthodox Realms
-#	307 - Moscow, the Third Rome
-#	308 - The Supremacy of Constantinopole
-
-#310-310 - Orthodox Imperial Ambitions
-#	310 - The Capture of the Great Mosque
-#	311 - OPEN
-#	312 - OPEN
-#	313 - OPEN
-#	314 - The Ancient Partiarchates
-#	315 - The Restoration of the Pentarchy
-#	316 - Challenging the Patriarch of the West
-#	317 - The Throne of Saint Peter
-#	318 - The Council of Unification
-#	319 - The Supreme Pontiff of the Universal Church
+#	301 - The Church of the East
+#	302 - The Orthodox Realms
+#	303 - The Capture of the Great Mosque
+#	304 - The Ancient Partiarchates
+#	305 - The Restoration of the Pentarchy
+#	306 - Challenging the Patriarch of the West
+#	307 - The Throne of Saint Peter
+#	308 - The Council of Unification
+#	309 - The Supreme Pontiff of the Universal Church
 
 
 ##	#EOC9	TECHNICAL EVENTS	Events 900-999	##
@@ -2470,7 +2458,7 @@ eocfm.121 = { # Council of X
 			eocfm_controls_and_owns_pentarchy_trigger = yes
 		}
 		trigger_event = {
-			id = eocfm.318 # The Council of Unification
+			id = eocfm.308 # The Council of Unification
 		}
 	}
 }
@@ -3982,7 +3970,7 @@ eocfm.169 = { # The Living Law
 		video = "southamerica_christianity"
 	}
 	
-	icon = "gfx/interface/icons/event_icons/event_eagle.dds"
+	icon = "gfx/interface/icons/event_icons/event_aquila.dds"
 	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
@@ -4380,7 +4368,7 @@ eocfm.183 = { # Patriarch Denounces Schism (Stall Event)
 		}
 		OR = {
 			eocfm_has_low_relations_with_any_patriarch_trigger = yes
-			#has_journal_entry = je_balkfm_bul_bulgarian_exarchate
+			has_journal_entry = je_balkfm_bul_bulgarian_exarchate
 		}
 		var:eocfm_schism_var > 30
 	}
@@ -5004,44 +4992,22 @@ eocfm.300 = { # The Partiarchate Rises
 	
 	#dlc = dlc_grefm
 
-	trigger = { # triggered by grefm.202
+	trigger = {
+		# triggered by eocfm_unify_orthodox_realms_sgui
 	}
 	
 	immediate = {
-		random_scope_building = {
-			limit = {
-				is_building_type = building_hagia_sophia
-			}
-			save_scope_as = hagia_sofia_scope
-		}
-		save_scope_as = formation_country
-		every_country = {
-			limit = {
-				has_diplomatic_relevance = ROOT
-			}
-			post_notification = unification_notification_byz
-		}
-		set_global_variable = has_formed_byz
 	}
 	
 	option = {
 		name = eocfm.300.a
 		default_option = yes
+		add_journal_entry = {
+			type = je_eocfm_the_orthodox_realms
+		}
 		trigger_event = {
 			id = eocfm.301 # The Metropolitan Lands
 			days = 30
-		}
-		add_modifier = {
-			name = modifier_byzfm_rebirth
-			months = very_long_modifier_time
-		}
-		if = {
-			limit = {
-				NOT = {
-					country_has_primary_culture = cu:greek
-				}
-			}
-			add_primary_culture = cu:greek
 		}
 	}
 }
@@ -5057,7 +5023,7 @@ eocfm.301 = { # The Metropolitan Lands
 		video = "byzfm_georgios_averof"
 	}
 	
-	icon = "gfx/interface/icons/event_icons/event_eagle.dds"
+	icon = "gfx/interface/icons/event_icons/event_aquila.dds"
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
@@ -5093,136 +5059,6 @@ eocfm.301 = { # The Metropolitan Lands
 				}
 			}
 			add_claim = ROOT
-		}
-	}
-	
-	option = {
-		name = eocfm.301.b
-		every_state_region = {
-			limit = {
-				region = sr:region_anatolia
-				any_scope_state = {
-					NOT = { owner = ROOT }
-					NOT = { has_claim_by = ROOT }
-				}
-			}
-			add_claim = ROOT
-		}
-		change_infamy = -10
-		custom_tooltip = {
-			text = byzfm_weaksauce_tt
-			hidden_effect = {
-				set_variable = byzfm_weaksauce
-			}
-		}
-	}
-	
-	option = {
-		name = eocfm.301.c
-		every_state_region = {
-			limit = {
-				region = sr:region_balkans
-				any_scope_state = {
-					NOT = { owner = ROOT }
-					NOT = { has_claim_by = ROOT }
-				}
-			}
-			add_claim = ROOT
-		}
-		change_infamy = -10
-		custom_tooltip = {
-			text = byzfm_weaksauce_tt
-			hidden_effect = {
-				set_variable = byzfm_weaksauce
-			}
-		}
-	}
-
-}
-
-eocfm.302 = { # Nova Roma Constantinopolitana
-	type = country_event
-	
-	title = eocfm.302.t
-	desc = eocfm.302.d
-	flavor = eocfm.302.f
-	
-	event_image = {
-		video = "unspecific_military_parade"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_eagle.dds"
-
-	duration = 3
-	
-	#dlc = dlc_grefm
-
-	trigger = {
-		# Triggered by JE
-	}
-	
-	immediate = {
-		ruler = {
-			save_scope_as = byzantium_emperor
-		}
-	}
-	
-	option = {
-		name = eocfm.302.a
-		default_option = yes
-		scope:byzantium_emperor = {
-			add_modifier = {
-				name = modifier_byzfm_popular_emperor
-			}
-		}
-		add_modifier = {
-			name = modifier_byzfm_legitmacy_boost
-			months = normal_modifier_time
-		}
-		hidden_effect = {
-			trigger_event = {
-				id = eocfm.303 # Into the Holy Land
-				days = 20
-			}
-		}
-	}
-}
-
-eocfm.303 = { # Into the Holy Land
-	type = country_event
-	
-	title = eocfm.303.t
-	desc = eocfm.303.d
-	flavor = eocfm.303.f
-	
-	event_image = {
-		video = "unspecific_military_parade"
-	}
-	
-	icon = "gfx/interface/icons/event_icons/event_eagle.dds"
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	duration = 3
-	
-	#dlc = dlc_grefm
-
-	trigger = { # triggered by grefm.302
-	}
-	
-	immediate = {
-		capital = {
-			save_scope_as = byzantium_capital
-		}
-	}
-
-	option = { # reclaim the east
-		name = eocfm.303.a
-		default_option = yes
-		add_journal_entry = {
-			type = je_eocfm_church_of_the_east
 		}
 		if = {
 			limit = {
@@ -5296,252 +5132,16 @@ eocfm.303 = { # Into the Holy Land
 				add_claim = ROOT
 			}
 		}
-		if = {
-			limit = {
-				NOT = { owns_entire_state_region = STATE_MATRUH }
-			}
-			s:STATE_MATRUH = {
-				add_claim = ROOT
-			}
-		}
-		if = {
-			limit = {
-				NOT = { owns_entire_state_region = STATE_LIBYA }
-			}
-			s:STATE_LIBYA = {
-				add_claim = ROOT
-			}
-		}
-		default_option = yes
-	}
-	
-	option = { # nah bro, shits for the birds
-		name = eocfm.303.b
-		change_infamy = -20
-		scope:byzantium_capital = {
-			add_modifier = {
-				name = modifier_byzfm_capital_assimiliation_boost
-				months = normal_modifier_time
-			}
-			add_modifier = {
-				name = modifier_byzfm_heartland_reclaimed
-				months = normal_modifier_time
-			}
-		}
-		custom_tooltip = {
-			text = byzfm_weaksauce_tt
-			hidden_effect = {
-				set_variable = byzfm_weaksauce
-			}
-		}
-	}
-
-}
-
-eocfm.304 = { # The Church of the East
-	## former byzfm.5 used to allow conversion to ERE, now an off-ramp for no goddamn reason
-	type = country_event
-	
-	title = eocfm.304.t
-	desc = eocfm.304.d
-	flavor = eocfm.304.f
-	
-	event_image = {
-		video = "votp_monarch_holding_court"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_eagle.dds"
-
-	duration = 3
-	
-	#dlc = dlc_grefm
-
-	trigger = {	# Triggered by JE
-	}
-	
-	immediate = {
-		set_variable = byzfm_byzantium_restored
-	}
-
-	option = {
-		name = eocfm.304.a
-		default_option = yes
-		add_modifier = {
-			name = modifier_byzfm_restored
-			months = very_long_modifier_time
-		}
-		if = {
-			limit = {
-				has_variable = byzfm_texas_left
-			}
-			trigger_event = {
-				id = eocfm.305 # Across the Hospitable Sea
-				days = 30
-			}
-		}
-	}
-	
-	option = {
-		name = eocfm.304.b
-		trigger = {
-			has_variable = byzfm_texas_left
-		}
-		add_modifier = {
-			name = modifier_byzfm_restored
-			months = very_long_modifier_time
-		}
-		change_infamy = -25
-		custom_tooltip = {
-			text = byzfm_weaksauce_tt
-			hidden_effect = {
-				set_variable = byzfm_weaksauce
-				remove_variable = byzfm_texas_left
-			}
-		}
 	}
 	
 }
 
-eocfm.305 = { # The Orthodox Realms
+eocfm.302 = { # The Orthodox Realms
 	type = country_event
 	
-	title = eocfm.305.t
-	desc = eocfm.305.d
-	flavor = eocfm.305.f
-	
-	placement = scope:russia_capital_scope
-	
-	event_image = {
-		video = "southamerica_aristocrats"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_russkie.dds"
-
-	duration = 3
-	
-	#dlc = dlc_grefm
-	
-	trigger = { # triggered by JE
-	}
-	
-	immediate = {
-		c:RUS = {
-			save_scope_as = russia_scope
-			ruler = {
-				save_scope_as = russia_ruler_scope
-			}
-			capital = {
-				save_scope_as = russia_capital_scope
-			}
-		}
-	}
-	
-	option = {
-		name = eocfm.305.a
-		default_option = yes
-		add_journal_entry = {
-			type = je_eocfm_the_orthodox_realms
-		}
-	}
-	
-}
-
-eocfm.306 = { # the old "Texas Left" event, its back! (Across the Hospitable Sea)
-	type = country_event
-	
-	title = eocfm.306.t
-	desc = eocfm.306.d
-	flavor = eocfm.306.f
-	
-	placement = scope:russia_capital_scope
-	
-	event_image = {
-		video = "ep1_cossacks"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_russkie.dds"
-
-	duration = 3
-	
-	#dlc = dlc_grefm
-
-	trigger = { # Triggered by eocfm.304
-	}
-	
-	immediate = {
-		c:RUS = {
-			capital = {
-				save_scope_as = russia_capital_scope
-			}
-		}
-	}
-	
-	option = { # Let's go to Crimea, I hear the grass is lovely there.
-		name = eocfm.306.a
-		default_option = yes
-		add_journal_entry = {
-			type = je_eocfm_texas_left
-		}
-	}
-	
-}
-
-eocfm.307 = { # Moscow, the Third Rome
-	type = country_event
-	
-	title = eocfm.307.t
-	desc = eocfm.307.d
-	flavor = eocfm.307.f
-	
-	placement = scope:russia_capital_scope
-	
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_russkie.dds"
-
-	duration = 3
-	
-	#dlc = dlc_grefm
-	
-	trigger = { # triggered by JE
-	}	
-	
-	immediate = {
-		c:RUS = {
-			save_scope_as = russia_scope
-			capital = {
-				save_scope_as = russia_capital_scope
-			}
-		}
-	}
-	
-	option = {
-		name = eocfm.307.a
-		default_option = yes
-		add_journal_entry = {
-			type = je_eocfm_the_third_rome
-		}
-	}
-	
-}
-
-
-eocfm.308 = { # conclusion of the Third Rome chain
-	type = country_event
-	
-	title = eocfm.308.t
-	desc = eocfm.308.d
-	flavor = eocfm.308.f
+	title = eocfm.302.t
+	desc = eocfm.302.d
+	flavor = eocfm.302.f
 	
 	event_image = {
 		video = "unspecific_military_parade"
@@ -5555,38 +5155,27 @@ eocfm.308 = { # conclusion of the Third Rome chain
 	
 	#dlc = dlc_grefm
 	
-	trigger = { # triggered by JE
+	trigger = {
+		# triggered by je_eocfm_the_orthodox_realms
 	}	
 	
 	immediate = {
+		remove_variable = eocfm_metropolitan_lands_complete
+		remove_variable = eocfm_holy_land_complete
+		remove_variable = eocfm_black_sea_complete
 	}
 	
 	option = {
-		name = eocfm.308.a
+		name = eocfm.302.a
 		default_option = yes
 		change_tag = ODXY
 		add_modifier = {
-			name = modifier_byzfm_glory
+			name = modifier_grefm_imperial_glory
 		}
 		s:STATE_EASTERN_THRACE = {
 			random_scope_state = {
 				add_modifier = {
-					name = modifier_byzfm_the_queen_of_cities
-					months = long_modifier_time
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = eocfm.308.b
-		add_modifier = {
-			name = modifier_byzfm_glory
-		}
-		s:STATE_EASTERN_THRACE = {
-			random_scope_state = {
-				add_modifier = {
-					name = modifier_byzfm_the_queen_of_cities
+					name = modifier_grefm_the_queen_of_cities
 					months = long_modifier_time
 				}
 			}
@@ -5595,11 +5184,7 @@ eocfm.308 = { # conclusion of the Third Rome chain
 	
 }
 
-
-
-#### ORTHODOX IMPERIAL AMBITIONS ####
-
-eocfm.310 = { # The Capture of the Great Mosque
+eocfm.303 = { # The Capture of the Great Mosque
 	type = country_event
 	
 	title = eocfm.310.t
@@ -5622,7 +5207,7 @@ eocfm.310 = { # The Capture of the Great Mosque
 
 	trigger = {
 		owns_entire_state_region = STATE_HEDJAZ
-		NOT = { has_global_variable = byzfm_smoked_mecca }
+		NOT = { has_global_variable = grefm_smoked_mecca }
 		has_variable = eocfm_crusades_unlocked
 	}
 	
@@ -5645,14 +5230,14 @@ eocfm.310 = { # The Capture of the Great Mosque
 				save_scope_as = byzantium_arabia_target
 			}
 		}
-		set_global_variable = byzfm_smoked_mecca
+		set_global_variable = grefm_smoked_mecca
 	}
 	
 	option = { # burn it down
-		name = eocfm.310.a
+		name = eocfm.303.a
 		default_option = yes
 		add_modifier = {
-			name = modifier_byzfm_great_mosque_destroyed
+			name = modifier_eocfm_great_mosque_destroyed
 		}
 		add_radicals = {
 			value = very_large_radicals
@@ -5678,7 +5263,7 @@ eocfm.310 = { # The Capture of the Great Mosque
 	}
 	
 	option = { # turn it into a museum
-		name = eocfm.310.b
+		name = eocfm.303.b
 		add_radicals = {
 			value = medium_radicals
 			religion = rel:sunni
@@ -5695,7 +5280,7 @@ eocfm.310 = { # The Capture of the Great Mosque
 	}
 	
 	option = { # leave it be
-		name = eocfm.310.c
+		name = eocfm.303.c
 		scope:hedjaz_state = {
 			add_loyalists_in_state = {
 				value = medium_radicals
@@ -5710,12 +5295,12 @@ eocfm.310 = { # The Capture of the Great Mosque
 	
 }
 
-eocfm.314 = { # The Ancient Partiarchates
+eocfm.304 = { # The Ancient Partiarchates
 	type = country_event
 	
-	title = eocfm.314.t
-	desc = eocfm.314.d
-	flavor = eocfm.314.f
+	title = eocfm.304.t
+	desc = eocfm.304.d
+	flavor = eocfm.304.f
 	
 	placement = root
 	
@@ -5755,7 +5340,7 @@ eocfm.314 = { # The Ancient Partiarchates
 	}
 	
 	option = {
-		name = eocfm.314.a
+		name = eocfm.304.a
 		add_modifier = {
 			name = modifier_eocfm_secured_tetrarchy
 			is_decaying = yes
@@ -5765,12 +5350,12 @@ eocfm.314 = { # The Ancient Partiarchates
 	
 }
 
-eocfm.315 = { # The Restoration of the Pentarchy
+eocfm.305 = { # The Restoration of the Pentarchy
 	type = country_event
 	
-	title = eocfm.315.t
-	desc = eocfm.315.d
-	flavor = eocfm.315.f
+	title = eocfm.305.t
+	desc = eocfm.305.d
+	flavor = eocfm.305.f
 	
 	placement = root
 	
@@ -5795,7 +5380,7 @@ eocfm.315 = { # The Restoration of the Pentarchy
 	}
 	
 	option = {
-		name = eocfm.315.a
+		name = eocfm.305.a
 		default_option = yes
 		custom_tooltip = eocfm_mending_possible_tt
 		add_modifier = {
@@ -5807,13 +5392,13 @@ eocfm.315 = { # The Restoration of the Pentarchy
 	
 }
 
-eocfm.316 = { # Challenging the Patriarch of the West
+eocfm.306 = { # Challenging the Patriarch of the West
 	type = country_event
 	placement = root
 	
-	title = eocfm.316.t
-	desc = eocfm.316.d
-	flavor = eocfm.316.f
+	title = eocfm.306.t
+	desc = eocfm.306.d
+	flavor = eocfm.306.f
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -5841,7 +5426,7 @@ eocfm.316 = { # Challenging the Patriarch of the West
 	}
 	
 	option = {
-		name = eocfm.316.a
+		name = eocfm.306.a
 		default_option = yes
 		trigger = {
 			has_variable = eocfm_integrating_rome
@@ -5861,7 +5446,7 @@ eocfm.316 = { # Challenging the Patriarch of the West
 	}
 	
 	option = {
-		name = eocfm.316.b
+		name = eocfm.306.b
 		trigger = {
 			NOT = {
 				has_variable = eocfm_integrating_rome
@@ -5877,13 +5462,13 @@ eocfm.316 = { # Challenging the Patriarch of the West
 	
 } 
 
-eocfm.317 = { # The Throne of Saint Peter
+eocfm.307 = { # The Throne of Saint Peter
 	type = country_event
 	placement = root
 	
-	title = eocfm.317.t
-	desc = eocfm.317.d
-	flavor = eocfm.317.f
+	title = eocfm.307.t
+	desc = eocfm.307.d
+	flavor = eocfm.307.f
 	
 	event_image = {
 		video = "ep1_transfer_of_authority"
@@ -5940,7 +5525,7 @@ eocfm.317 = { # The Throne of Saint Peter
 	}
 	
 	option = {
-		name = eocfm.317.a
+		name = eocfm.307.a
 		default_option = yes
 		custom_tooltip = eocfm_usurped_rome_tt
 		if = {
@@ -5959,13 +5544,13 @@ eocfm.317 = { # The Throne of Saint Peter
 
 }
 
-eocfm.318 = { # The Council of Unification
+eocfm.308 = { # The Council of Unification
 	type = country_event
 	placement = scope:eocfm_mending_country_scope
 	
-	title = eocfm.318.t
-	desc = eocfm.318.d
-	flavor = eocfm.318.f
+	title = eocfm.308.t
+	desc = eocfm.308.d
+	flavor = eocfm.308.f
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -5992,19 +5577,19 @@ eocfm.318 = { # The Council of Unification
 	}
 	
 	option = {
-		name = eocfm.318.a
+		name = eocfm.308.a
 		default_option = yes
-		custom_tooltip = eocfm.318.tt
+		custom_tooltip = eocfm.308.tt
 	}
 
 }
 
-eocfm.319 = { # The Supreme Pontiff of the Universal Church
+eocfm.309 = { # The Supreme Pontiff of the Universal Church
 	type = country_event
 	
-	title = eocfm.319.t
-	desc = eocfm.319.d
-	flavor = eocfm.319.f
+	title = eocfm.309.t
+	desc = eocfm.309.d
+	flavor = eocfm.309.f
 	
 	placement = root
 	
@@ -6037,7 +5622,7 @@ eocfm.319 = { # The Supreme Pontiff of the Universal Church
 	}
 	
 	option = {
-		name = eocfm.319.a
+		name = eocfm.309.a
 		default_option = yes
 		add_loyalists = {
 			religion = rel:orthodox
@@ -6056,21 +5641,7 @@ eocfm.319 = { # The Supreme Pontiff of the Universal Church
 
 #### HIDDEN EVENTS ####
 
-eocfm.900 = { # OPEN
-	type = country_event
-	placement = root
-	hidden = yes
-	
-	trigger = {
-	}
-	
-	immediate = {
-	}
-	
-	orphan = yes
-}
-
-eocfm.999 = { # The Unused Variable Dumpster Fire
+eocfm.900 = { #  # The Unused Variable Dumpster Fire
 	type = country_event
 	placement = root
 	hidden = yes
@@ -6080,11 +5651,9 @@ eocfm.999 = { # The Unused Variable Dumpster Fire
 	}
 
 	immediate = {
-		#remove_global_variable = has_formed_tsar
-		remove_variable = romania_subject
-		set_variable = romania_unification_in_motion
 		set_variable = eocfm_crusade_attacker
 		set_variable = eocfm_crusade_defender
+		
 		remove_variable = eocfm_devout_leader_var
 		remove_variable = eocfm_rome_patriarch_var
 		remove_variable = eocfm_constantinople_patriarch_var
@@ -6103,5 +5672,4 @@ eocfm.999 = { # The Unused Variable Dumpster Fire
 	}
 	
 	orphan = yes
-	
 }

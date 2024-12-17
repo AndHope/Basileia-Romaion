@@ -3,18 +3,19 @@
  je_group_eocfm_content: "Eastern Orthodox Content" 
  je_group_eocfm_empire: "The Orthodox Realms"
  
+ je_eocfm_the_orthodox_realms: "The Orthodox Realms"
+ je_eocfm_the_orthodox_realms_reason: "In the times of the Empire, it was the Patriarchate of Constantinople that saw the spread of Christianity across the steppes. Since the fall of the Queen of Cities, the Rus' barbarians have styled themselves as pretenders to the Patriarchal seat. Now that we control the cradles of Christianity, we should extend our oversight to the Greater Orthodox community."
+ je_eocfm_the_orthodox_realms_metropolitan_lands: "Has completed the #bold The Metropolitan Lands#! [concept_journal_entry]"
+ je_eocfm_the_orthodox_realms_holy_land: "Has completed the #bold The Holy Land#! [concept_journal_entry]"
+ je_eocfm_the_orthodox_realms_black_sea: "Has completed the #bold Across the Hospitable Sea#! [concept_journal_entry]"
  je_eocfm_the_metropolitan_lands: "The Metropolitan Lands"
  je_eocfm_the_metropolitan_lands_reason: "In the decades following the Ascension of Christ and the missions of the Twelve Apostles, Anatolia served as the cradle of Early Christianity. We will free these lands from the Saracens."
- je_eocfm_church_of_the_east: "The Church of the East"
- je_eocfm_church_of_the_east_reason: "The Levant is the birthplace of Christianity and the Holiest Lands to our faith. The Patriarchs have both granted and imposed a mandate that we reclaim these lands from their Muslim occupiers."
- je_eocfm_the_orthodox_realms: "The Orthodox Realms"
- je_eocfm_the_orthodox_realms_reason: "In the times of the Empire, it was the Patriarchate of Konstantinopolis that saw the spread of Christianity across the steppes. Since the fall of the Queen of Cities, the Rus' barbarians have styled themselves as pretenders to the Patriarchal seat. Now that we control the cradle of Christianity, we should extend our oversight to the Slavic Orthodox community."
- je_eocfm_the_orthodox_realms_status: "Secure the Eastern Seats."
+ je_eocfm_the_metropolitan_lands_tt1: "Directly or indirectly control 10 or more states in the Balkans."
+ je_eocfm_the_metropolitan_lands_tt2: "Directly or indirectly control 9 or more states in Anatolia."
+ je_eocfm_the_holy_land: "The Holy Land"
+ je_eocfm_the_holy_land_reason: "The Levant is the birthplace of Christianity and the Holiest Lands to our faith. The Patriarchs have both granted and imposed a mandate that we reclaim these lands from their Muslim occupiers."
  je_eocfm_texas_left: "Across the Hospitable Sea"
  je_eocfm_texas_left_reason: "The Black Sea was once entirely within the Greek sphere. We will bring relief to our people that still call its shores home."
- je_eocfm_the_third_rome: "Russia, the Third Rome"
- je_eocfm_the_third_rome_reason: "The Russian Empire styles itself the successor of Eastern Rome and the Ecumenical Patriarchate. They are naught but usurpers to the right of #bold Imperium#! and #bold Presveía#!."
- je_eocfm_the_third_rome_status: "Bring Russia to heel."
  
  # decisions
  
@@ -29,12 +30,13 @@
  
  eocfm_commission_icon_tt1: "We do not have an active #bold Icon Modifier#!."
  eocfm_commission_icon_tt2: "We are not in the process of Selecting an Icon."
- eocfm_controls_major_seat_tt: "Controls one of the Patriarchal Seats."
+ eocfm_controls_eastern_seat_tt: "Controls one of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_east_patriarchal_seats_tt')] Eastern Patriarchates#!#!"
+ eocfm_controls_major_seat_tt: "Controls any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats_tt')] Patriarchal Seat#!#!"
  eocfm_has_autocephaly_tt: "We have declared [concept_autocephaly]."
  eocfm_convoke_council_tt1: "There have been less than #variable 4#! councils."
  eocfm_convoke_council_tt2: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('je_eocfm_convoke_council_tt')] Theologial Matter#!#! calling the Church's attention."
  eocfm_convoke_council_tt3: "An Ecumenical Council is not currently being held."
- je_eocfm_convoke_council_tt: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored Basileía Romaíon#!)."
+ je_eocfm_convoke_council_tt: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)."
  
  eocfm_need_100_tt: "Has #blue 100#! @eocfm_caesaropapism! [concept_caesaropapism]."
  eocfm_need_200_tt: "Has #blue 200#! @eocfm_caesaropapism! [concept_caesaropapism]."
@@ -465,6 +467,8 @@
  modifier_eocfm_conceded_doctrine_desc: "Conceded Doctrinal Conflict"
  modifier_eocfm_asserted_doctrine: "Asserted Novel Doctrine"
  modifier_eocfm_asserted_doctrine_desc: "Asserted Novel Doctrine"
+ modifier_eocfm_great_mosque_destroyed: "Great Mosque Destroyed"
+ modifier_eocfm_great_mosque_destroyed_desc: "Great Mosque Destroyed"
  
  # modifier types
  country_caesaropapism_add: "@eocfm_caesaropapism! [concept_caesaropapism]"
@@ -630,6 +634,7 @@
  eocfm_gui_end_subsidies_tt: "Civic leaders decry the use of secular funds to provide for spiritual matters. While they make sound legal arguements, the church risks collapse without our continued intervention.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_establish_schools_tt: "The best way to spread the divine word and to bring literacy to the poorest of our children is by providing them with weekly education following liturgical services.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_disband_schools_tt: "While weekend school programs have proven successful in guiding our youth to the faith, they have also proven a major expense for the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_unify_orthodox_realms: "Given our prominent position within the Orthodox Church, senior bishops have floated the idea of a singular unified Orthodox nation bound by the faith under our rule.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # GUI Ecumenical Actions
  eocfm_gui_ecumenical_patriarch_header: "Ecumenical Patriarchate"
