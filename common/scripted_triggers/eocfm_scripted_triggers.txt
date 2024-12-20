@@ -57,6 +57,15 @@ eocfm_can_integrate_seat_trigger = {
 	}
 }
 
+eocfm_controls_ancient_seat_trigger = {
+	OR = {
+		has_variable = eocfm_controls_constantinople
+		has_variable = eocfm_controls_antioch
+		has_variable = eocfm_controls_alexandria
+		has_variable = eocfm_controls_jerusalem
+	}
+}
+
 eocfm_controls_eastern_seat_trigger = {
 	OR = {
 		has_variable = eocfm_controls_constantinople
@@ -223,10 +232,10 @@ eocfm_has_low_relations_with_any_patriarch_trigger = {
 			any_country = {
 				has_variable = eocfm_controls_rome
 				OR = {
-						country_has_state_religion = rel:orthodox
-						country_has_state_religion = rel:oriental_orthodox
-						country_has_state_religion = rel:br_religion_elysian_orthodox
-					}
+					country_has_state_religion = rel:orthodox
+					country_has_state_religion = rel:oriental_orthodox
+					country_has_state_religion = rel:br_religion_elysian_orthodox
+				}
 			}
 			var:eocfm_rome_relations_var < 20
 		}
@@ -271,10 +280,10 @@ eocfm_is_condemnation_target_trigger = { # This feels like bad scripting, idk
 			any_country = {
 				has_variable = eocfm_controls_rome
 				OR = {
-						country_has_state_religion = rel:orthodox
-						country_has_state_religion = rel:oriental_orthodox
-						country_has_state_religion = rel:br_religion_elysian_orthodox
-					}
+					country_has_state_religion = rel:orthodox
+					country_has_state_religion = rel:oriental_orthodox
+					country_has_state_religion = rel:br_religion_elysian_orthodox
+				}
 			}
 			var:eocfm_rome_relations_var < 20
 			NOT = {
@@ -340,20 +349,30 @@ eocfm_has_mandate_trigger = {
 eocfm_can_host_council_trigger = {
 	OR = {
 		AND = {
-			has_variable = byzfm_byzantium_restored
 			NOT = { has_global_variable = eocfm_crusades_unlocked }
+			has_variable = byzfm_byzantium_restored
 		}
 		AND = {
-			has_technology_researched = mass_communication
 			NOT = { has_global_variable = eocfm_epistle_considered }
+			has_technology_researched = mass_communication
 		}
 		AND = {
-			has_technology_researched = nationalism
 			NOT = { has_global_variable = eocfm_phyletism_considered }
+			has_technology_researched = nationalism
 		}
 		AND = {
-			has_technology_researched = central_planning
 			NOT = { has_global_variable = eocfm_calendar_considered }
+			has_technology_researched = central_planning
+		}
+		AND = {
+			NOT = { has_global_variable = eocfm_schism_mended }
+			eocfm_controls_and_owns_pentarchy_trigger = yes
+		}
+		AND = {
+			NOT = { has_global_variable = eocfm_orthodox_realms_started }
+			has_variable = eocfm_is_autocephalous
+			eocfm_controls_ancient_seat_trigger = yes
+			country_rank >= rank_value:great_power
 		}
 	}
 	NOT = {

@@ -415,35 +415,6 @@ eocfm_decree_expense_value = {
 eocfm_schism_progress_value = {
 	value = 0
 	
-	## Silitra Sources ##
-	if = {
-		limit = {
-			has_journal_entry = je_balkfm_bul_bulgarian_exarchate
-		}
-		add = {
-			value = 2
-			desc = eocfm_value_from_base
-		}
-	}
-	if = {	
-		limit = {
-			c:SILI ?= this
-		}
-		add = {
-			value = balkfm_intelligentsia_devout_value
-			desc = balkfm_bul_from_devout_influence
-		}
-	}
-	if = {	
-		limit = {
-			c:SILI ?= this
-		}
-		add = {
-			value = balkfm_ottoman_relations_value
-			desc = balkfm_bul_from_ottoman_relations
-		}
-	}	
-	
 	## Sources ##
 	if = {
 		limit = {
@@ -701,4 +672,16 @@ eocfm_moscow_progress_value = {
 			desc = eocfm_value_from_controlling_seat
 		}
 	}
+}
+
+balkfm_intelligentsia_influence_value = {
+	value = 0
+	add = root.prestige
+	multiply = root.ig:ig_intelligentsia.ig_clout
+}
+
+balkfm_intelligentsia_devout_value = {
+	value = 0
+	add = root.prestige
+	multiply = root.ig:ig_devout.ig_clout
 }

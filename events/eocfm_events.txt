@@ -95,7 +95,7 @@ namespace = eocfm
 #	126 - Phyletism Addressed
 #	127 - An Outdated Calendar
 #	128 - Revised Julian Calendar
-#	129 - ##The Old Calendarists
+#	129 - The Byzantine Commonwealth
 
 #130-139 - Crusade Events
 #	130 - The X Crusade
@@ -2404,11 +2404,12 @@ eocfm.121 = { # Council of X
 	}
 	
 	option = { # It's Crusadin' time!
-		name = eocfm.121.a
+		name = eocfm.121.1
 		default_option = yes
 		trigger = {
-			has_variable = byzfm_byzantium_restored
 			NOT = { has_global_variable = eocfm_crusades_unlocked }
+			c:BYZ ?= this
+			has_law = law_type:law_state_religion
 		}
 		trigger_event = {
 			id = eocfm.122 # Birth of the New Crusades
@@ -2417,10 +2418,10 @@ eocfm.121 = { # Council of X
 	}
 	
 	option = { # Tell the Pope he sucks
-		name = eocfm.121.b
+		name = eocfm.121.2
 		trigger = {
-			has_technology_researched = mass_communication
 			NOT = { has_global_variable = eocfm_epistle_considered }
+			has_technology_researched = mass_communication
 		}
 		trigger_event = {
 			id = eocfm.123 # Epistle to the Easterners
@@ -2429,10 +2430,10 @@ eocfm.121 = { # Council of X
 	}
 	
 	option = { # Deal with Phyletism
-		name = eocfm.121.c
+		name = eocfm.121.3
 		trigger = {
-			has_technology_researched = nationalism
 			NOT = { has_global_variable = eocfm_phyletism_considered }
+			has_technology_researched = nationalism
 		}
 		trigger_event = {
 			id = eocfm.125 # Problems with Phyletism
@@ -2441,10 +2442,10 @@ eocfm.121 = { # Council of X
 	}
 	
 	option = { # New Calendar
-		name = eocfm.121.e
+		name = eocfm.121.4
 		trigger = {
-			has_technology_researched = pan-nationalism
 			NOT = { has_global_variable = eocfm_calendar_considered }
+			has_technology_researched = pan-nationalism
 		}
 		trigger_event = {
 			id = eocfm.127 # An Outdated Calendar
@@ -2453,14 +2454,32 @@ eocfm.121 = { # Council of X
 	}
 	
 	option = { # Mend the Great Schism
-		name = eocfm.121.g
+		name = eocfm.121.5
 		trigger = {
+			NOT = { has_global_variable = eocfm_schism_mended }
 			eocfm_controls_and_owns_pentarchy_trigger = yes
 		}
 		trigger_event = {
 			id = eocfm.308 # The Council of Unification
+			days = 90
 		}
 	}
+	
+	option = { # Unify the Orthodox Realms
+		name = eocfm.121.6
+		trigger = {
+			NOT = { has_global_variable = eocfm_orthodox_realms_started }
+			has_variable = eocfm_is_autocephalous
+			eocfm_controls_ancient_seat_trigger = yes
+			country_rank >= rank_value:great_power
+		}
+		trigger_event = {
+			id = eocfm.300 # The Patriarchate Rises
+			days = 90
+		}
+		set_variable = eocfm_texas_left
+	}
+	
 }
 
 eocfm.122 = { # Birth of the New Crusades
@@ -3019,6 +3038,47 @@ eocfm.128 = { # The Julian Calendar
 			value = large_radicals
 		}
 		eocfm_council_cleanup_effect = yes
+	}
+
+}
+
+eocfm.129 = { # The Byzantine Commonwealth
+	type = country_event
+	placement = root
+	
+	title = eocfm.129.t
+	desc = eocfm.129.d
+	flavor = eocfm.129.f
+	
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	#dlc = dlc_grefm
+	
+	trigger = {
+		# triggered by eocfm.300
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_texas_left
+			}
+			save_scope_as = eocfm_conqueror_scope
+		}
+	}
+	
+	option = {
+		name = eocfm.129.a
+		default_option = yes
+		custom_tooltip = eocfm_orthodox_realms_warning_tt
 	}
 
 }
@@ -4368,7 +4428,7 @@ eocfm.183 = { # Patriarch Denounces Schism (Stall Event)
 		}
 		OR = {
 			eocfm_has_low_relations_with_any_patriarch_trigger = yes
-			has_journal_entry = je_balkfm_bul_bulgarian_exarchate
+			#has_journal_entry = je_balkfm_bul_bulgarian_exarchate
 		}
 		var:eocfm_schism_var > 30
 	}
@@ -4455,7 +4515,7 @@ eocfm.184 = { # Liturgical Language (Debate Event)
 		NOR = {
 			has_variable = eocfm_language_disputed
 			has_variable = eocfm_schism_event_cooldown_var
-			country_has_primary_culture = cu:greek #hellene
+			country_has_primary_culture = cu:greek
 		}
 		has_technology_researched = mass_communication
 	}
@@ -4487,7 +4547,7 @@ eocfm.184 = { # Liturgical Language (Debate Event)
 			value = medium_radicals
 		}
 		add_radicals = {
-			culture = cu:greek #hellene
+			culture = cu:greek
 			value = medium_radicals
 		}
 		custom_tooltip = {
@@ -4506,7 +4566,7 @@ eocfm.184 = { # Liturgical Language (Debate Event)
 			months = very_long_modifier_time
 		}
 		add_loyalists = {
-			culture = cu:greek #hellene
+			culture = cu:greek
 			value = medium_radicals
 		}
 		add_radicals = {
@@ -4566,7 +4626,7 @@ eocfm.185 = { # Ecclesiatic Purges (Advance Event)
 		default_option = yes
 		add_modifier = modifier_eocfm_purged_ecclesiarchy
 		add_radicals = {
-			culture = cu:greek #hellene
+			culture = cu:greek
 			value = medium_radicals
 		}
 		create_incident = {
@@ -4997,6 +5057,15 @@ eocfm.300 = { # The Partiarchate Rises
 	}
 	
 	immediate = {
+		every_country = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			trigger_event = {
+				id = eocfm.129 # The Byzantine Commonwealth
+			}
+		}
+		set_global_variable = eocfm_orthodox_realms_started
 	}
 	
 	option = {
@@ -5187,9 +5256,9 @@ eocfm.302 = { # The Orthodox Realms
 eocfm.303 = { # The Capture of the Great Mosque
 	type = country_event
 	
-	title = eocfm.310.t
-	desc = eocfm.310.d
-	flavor = eocfm.310.f
+	title = eocfm.303.t
+	desc = eocfm.303.d
+	flavor = eocfm.303.f
 	
 	placement = scope:hedjaz_state
 	
