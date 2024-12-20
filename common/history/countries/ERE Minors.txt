@@ -497,4 +497,65 @@
 			add_ideology = ideology_orthodox_patriarch
 		}
 	}
+	c:br_kappadocia ?= {
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation	
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_legacy_slavery
+
+		ig:ig_landowners = {
+			set_interest_group_name = ig_themata_patricians
+			add_ruling_interest_group = yes
+		}
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_tagmata_strategos
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_agrotikos
+		}
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_merchant_guilds
+		}
+		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_dianooumenoi
+		}
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = br_modifier_reformed_pronoia
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_latin_privileges
+			years = 50
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+	}
 }
