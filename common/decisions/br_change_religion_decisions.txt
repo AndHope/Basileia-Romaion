@@ -63,11 +63,15 @@
 hellenic_decision = {
 	is_shown = {
 		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
+			AND = {
+				country_has_primary_culture = cu:greek
+				has_variable = revive_olympics_decision_taken
+			}
+			AND = {
+				country_has_primary_culture = cu:elysian
+			}
 		}
 		NOT = { country_has_state_religion = rel:br_religion_hellenic }
-		has_variable = revive_olympics_decision_taken
 	}
 
 	possible = {
