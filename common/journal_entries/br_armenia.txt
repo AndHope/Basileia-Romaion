@@ -1,0 +1,33 @@
+﻿je_reclaiming_armenia = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_foreign_affairs
+	
+	is_shown_when_inactive = {
+		exists = c:ARM
+		c:ARM = ROOT
+	}
+
+	possible = {
+		exists = c:br_arevelyan
+		c:ARM = {
+			is_subject = no
+		}
+	}
+
+	complete = {
+		c:ARM = {
+			owns_entire_state_region = STATE_ARMENIA
+			#owns_entire_state_region = STATE_ELIZAVETPOL
+			NOT = { exists = c:br_arevelyan }
+		}
+	}
+	
+	on_complete = {
+		
+	}
+	
+}
+
+
