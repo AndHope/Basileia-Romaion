@@ -2518,6 +2518,41 @@ ai_strategy_default = {
 			add = 100
 		}
 
+		#BR extra aggression towards JE targets
+
+		if = {
+			limit = {
+				has_journal_entry = je_reclaiming_aquitaine
+				exists = c:OCC
+				scope:target_country = {
+					THIS = c:OCC
+				}
+			}
+			add = 100
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_reclaiming_transylvania
+				exists = c:TRS
+				scope:target_country = {
+					THIS = c:TRS
+				}
+			}
+			add = 100
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_reclaim_england
+				exists = c:DEN
+				scope:target_country = {
+					THIS = c:DEN
+				}
+			}
+			add = 100
+		}
+
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
 		if = {
 			limit = {

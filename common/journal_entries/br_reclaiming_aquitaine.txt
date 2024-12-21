@@ -1,0 +1,27 @@
+﻿je_reclaiming_aquitaine = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		exists = c:HRE
+		this = c:HRE
+		exists = c:OCC
+	}
+
+	possible = {
+		exists = c:OCC
+	}
+
+	complete = {
+		NOT = { exists = c:OCC }
+		owns_entire_state_region = STATE_LANGUEDOC
+		owns_entire_state_region = STATE_RHONE
+		owns_entire_state_region = STATE_GUYENNE
+		owns_entire_state_region = STATE_AUVERGNE_LIMOUSIN
+		owns_entire_state_region = STATE_AQUITAINE
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}
