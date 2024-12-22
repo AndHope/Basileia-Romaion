@@ -17,7 +17,7 @@ ai_strategy_default = {
 	# The AI will avoid getting this much infamy unless it's a wargoal it really wants
 	# Using a different value in a strategy will override this value
 	undesirable_infamy_level = {
-		value = 100
+		value = 150
 	}
 	
 	# The AI will never deliberately add wargoals that will bring its infamy this high
@@ -37,7 +37,6 @@ ai_strategy_default = {
 	revolution_aversion = {
 		value = 5 
 		
-		# Ottomans should avoid getting into revolutions before they deal with Egypt
 		if = {
 			limit = { 
 				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
@@ -473,7 +472,6 @@ ai_strategy_default = {
 	diplomatic_play_neutrality = {
 		value = 50 
 		
-		# Ottomans should avoid unnecessary entanglements while trying to pursue the Tanzimat reforms
 		if = {
 			limit = {
 				has_journal_entry = je_palaiologos_reforms_main #BR Edited
@@ -552,7 +550,6 @@ ai_strategy_default = {
 			add = -0.1
 		}
 
-		# Ottomans should want Syria back
 		if = {
 			limit = {
 				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
@@ -570,21 +567,25 @@ ai_strategy_default = {
 			add = 0.25
 		}
 
-		# USA should Manifest a lot of Destiny
 		if = {
 			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
-				scope:enemy_country = {
-					OR = {
-						has_state_in_state_region = STATE_CALIFORNIA
-						has_state_in_state_region = STATE_NEVADA
-						has_state_in_state_region = STATE_UTAH
-						has_state_in_state_region = STATE_COLORADO
-						has_state_in_state_region = STATE_ARIZONA
-						has_state_in_state_region = STATE_NEW_MEXICO
-						has_state_in_state_region = STATE_TEXAS
-						has_state_in_state_region = STATE_KANSAS
-						has_state_in_state_region = STATE_OKLAHOMA # if they somehow lose it
+				has_journal_entry = je_elysium_expand_01
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_NEW_YORK
+							state_region = s:STATE_VIRGINIA
+							state_region = s:STATE_MINNESOTA
+							state_region = s:STATE_WISCONSIN
+							state_region = s:STATE_INDIANA
+							state_region = s:STATE_MICHIGAN
+							state_region = s:STATE_OHIO
+							state_region = s:STATE_KENTUCKY
+							state_region = s:STATE_WEST_VIRGINIA
+							state_region = s:STATE_PENNSYLVANIA
+							state_region = s:STATE_ILLINOIS
+							state_region = s:STATE_NORTH_CAROLINA
+						}
 					}
 				}
 			}
@@ -1134,22 +1135,25 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_journal_entry = je_manifest_destiny_mexico
+					has_journal_entry = je_elysium_expand_01
 				}
 				
 				if = {
 					limit = {
 						scope:target_state = {
 							OR = {
-								state_region = s:STATE_COLORADO
-								state_region = s:STATE_UTAH
-								state_region = s:STATE_TEXAS
-								state_region = s:STATE_KANSAS
-								state_region = s:STATE_OKLAHOMA
-								state_region = s:STATE_ARIZONA						
-								state_region = s:STATE_CALIFORNIA
-								state_region = s:STATE_NEVADA
-								state_region = s:STATE_NEW_MEXICO								
+								state_region = s:STATE_NEW_YORK
+								state_region = s:STATE_VIRGINIA
+								state_region = s:STATE_MINNESOTA
+								state_region = s:STATE_WISCONSIN
+								state_region = s:STATE_INDIANA
+								state_region = s:STATE_MICHIGAN
+								state_region = s:STATE_OHIO
+								state_region = s:STATE_KENTUCKY
+								state_region = s:STATE_WEST_VIRGINIA
+								state_region = s:STATE_PENNSYLVANIA
+								state_region = s:STATE_ILLINOIS
+								state_region = s:STATE_NORTH_CAROLINA							
 							}
 						}					
 					}
@@ -2263,7 +2267,6 @@ ai_strategy_default = {
 			add = 1
 		}		
 	
-		# Ottomans should be extremely confident against owners of Syria and Egypt when they have the relevant JE's
 		if = {
 			limit = {
 				OR = {
@@ -2296,21 +2299,25 @@ ai_strategy_default = {
 			add = 10
 		}
 
-		# USA should be confident against owners of their Manifest Destiny states
 		if = {
 			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
+				has_journal_entry = je_elysium_expand_01
 				scope:target_country = {
-					OR = {
-						has_state_in_state_region = STATE_CALIFORNIA
-						has_state_in_state_region = STATE_NEVADA
-						has_state_in_state_region = STATE_UTAH
-						has_state_in_state_region = STATE_COLORADO
-						has_state_in_state_region = STATE_ARIZONA
-						has_state_in_state_region = STATE_NEW_MEXICO
-						has_state_in_state_region = STATE_TEXAS
-						has_state_in_state_region = STATE_KANSAS
-						has_state_in_state_region = STATE_OKLAHOMA # if they somehow lose it
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_NEW_YORK
+							state_region = s:STATE_VIRGINIA
+							state_region = s:STATE_MINNESOTA
+							state_region = s:STATE_WISCONSIN
+							state_region = s:STATE_INDIANA
+							state_region = s:STATE_MICHIGAN
+							state_region = s:STATE_OHIO
+							state_region = s:STATE_KENTUCKY
+							state_region = s:STATE_WEST_VIRGINIA
+							state_region = s:STATE_PENNSYLVANIA
+							state_region = s:STATE_ILLINOIS
+							state_region = s:STATE_NORTH_CAROLINA
+						}
 					}
 				}
 			}
@@ -2576,7 +2583,6 @@ ai_strategy_default = {
 			add = 5
 		}
 
-		# Ottomans should be very aggressive against owners of Syria and Egypt when they have the relevant JE's
 		if = {
 			limit = {
 				OR = {
@@ -2644,7 +2650,7 @@ ai_strategy_default = {
 
 		if = {
 			limit = {
-				c:br_aegypt ?= this
+				country_has_primary_culture = cu:russian
 				scope:target_country = {
 					OR = {
 						has_state_in_state_region = STATE_INGRIA
@@ -2670,27 +2676,29 @@ ai_strategy_default = {
 			add = 50
 		}
 
-		# USA should be extremely aggressive against owners of their Manifest Destiny states
 		if = {
 			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
+				has_journal_entry = je_elysium_expand_01
 				scope:target_country = {
 					any_scope_state = {
 						OR = {
-							state_region = s:STATE_CALIFORNIA
-							state_region = s:STATE_NEVADA
-							state_region = s:STATE_UTAH
-							state_region = s:STATE_COLORADO
-							state_region = s:STATE_ARIZONA
-							state_region = s:STATE_NEW_MEXICO
-							state_region = s:STATE_TEXAS
-							state_region = s:STATE_KANSAS
-							state_region = s:STATE_OKLAHOMA # if they somehow lose it	
+							state_region = s:STATE_NEW_YORK
+							state_region = s:STATE_VIRGINIA
+							state_region = s:STATE_MINNESOTA
+							state_region = s:STATE_WISCONSIN
+							state_region = s:STATE_INDIANA
+							state_region = s:STATE_MICHIGAN
+							state_region = s:STATE_OHIO
+							state_region = s:STATE_KENTUCKY
+							state_region = s:STATE_WEST_VIRGINIA
+							state_region = s:STATE_PENNSYLVANIA
+							state_region = s:STATE_ILLINOIS
+							state_region = s:STATE_NORTH_CAROLINA
 						}
 					}
 				}
 			}
-			add = 5
+			add = 25
 		}
 
 		# East India Company vs its neighbors

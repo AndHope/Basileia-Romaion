@@ -1,0 +1,41 @@
+﻿je_japanese_siberia_expansion = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+		br_steppe_colonial_expansion
+	}
+
+	is_shown_when_inactive = {
+		exists = c:br_japanese_siberia
+		this = c:br_japanese_siberia
+	}
+
+	possible = {
+		exists = c:br_japanese_siberia
+		this = c:br_japanese_siberia
+		has_law = law_type:law_frontier_colonization
+	}
+
+	complete = {
+		root = {
+			owns_entire_state_region = STATE_KAMCHATKA
+			owns_entire_state_region = STATE_OKHOTSK
+			owns_entire_state_region = STATE_YAKUTSK
+			owns_entire_state_region = STATE_CHUKOTKA
+			owns_entire_state_region = STATE_KOLYMA
+		}
+	}
+
+	invalid = {
+		NOT = { has_law = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
+	}
+	
+	on_complete = {
+	}
+	
+}
+
+

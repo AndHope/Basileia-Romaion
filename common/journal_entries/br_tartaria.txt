@@ -1,0 +1,56 @@
+﻿je_tartaria_steppe_expansion = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+		br_steppe_colonial_expansion
+	}
+
+	is_shown_when_inactive = {
+		exists = c:br_tartaria
+		this = c:br_tartaria
+	}
+
+	possible = {
+		exists = c:br_tartaria
+		this = c:br_tartaria
+		has_law = law_type:law_frontier_colonization
+	}
+
+	complete = {
+		root = {
+			owns_entire_state_region = STATE_SYRDARYA
+			owns_entire_state_region = STATE_OKHOTSK
+			owns_entire_state_region = STATE_URALSK
+			owns_entire_state_region = STATE_CHUKOTKA
+			owns_entire_state_region = STATE_JETISY
+			owns_entire_state_region = STATE_CHELYABINSK
+			owns_entire_state_region = STATE_AKMOLINSK
+			owns_entire_state_region = STATE_TOBOLSK
+			owns_entire_state_region = STATE_URAL
+			owns_entire_state_region = STATE_KRASNOYARSK
+			owns_entire_state_region = STATE_SURGUT
+			owns_entire_state_region = STATE_OB
+			owns_entire_state_region = STATE_UPPER_YENISEYSK
+			owns_entire_state_region = STATE_TUVA
+			owns_entire_state_region = STATE_TOMSK
+			owns_entire_state_region = STATE_IRKUTSK
+			owns_entire_state_region = STATE_TRANS_BAIKAL
+			owns_entire_state_region = STATE_AMUR
+			owns_entire_state_region = STATE_BURYATIA
+			owns_entire_state_region = STATE_ALTAI
+		}
+	}
+
+	invalid = {
+		NOT = { has_law = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
+	}
+	
+	on_complete = {
+	}
+	
+}
+
+

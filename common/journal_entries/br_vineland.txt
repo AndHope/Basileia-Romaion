@@ -1,0 +1,41 @@
+﻿je_vineland_expand_01 = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+		br_new_world_westward_colonial_expansion
+	}
+
+	is_shown_when_inactive = {
+		exists = c:br_vinland
+		this = c:br_vinland
+	}
+
+	possible = {
+		exists = c:br_vinland
+		this = c:br_vinland
+		has_law = law_type:law_frontier_colonization
+	}
+
+	complete = {
+		root = {
+			owns_entire_state_region = STATE_QUEBEC
+			owns_entire_state_region = STATE_ONTARIO
+			owns_entire_state_region = STATE_NUNAVUT
+			owns_entire_state_region = STATE_MANITOBA
+		}
+	}
+
+	invalid = {
+		NOT = { has_law = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
+	}
+	
+	on_complete = {
+		#will lead to further expansion JEs
+	}
+	
+}
+
+

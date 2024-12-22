@@ -1,4 +1,4 @@
-﻿br_principle_autonomous_government_1 = {
+br_principle_autonomous_government_1 = {
 	icon = "gfx/interface/icons/principles_icons/vassals_subjects.dds"
 	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
 
@@ -66,5 +66,108 @@ br_principle_autonomous_government_3 = {
 
 	ai_weight = {
 		value = 0
+	}
+}
+
+### ECONOMIC IMPERIALISM
+
+principle_economic_imperialism_1 = {
+	icon = "gfx/interface/icons/principles_icons/economic_imperialism.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	visible = {
+		has_dlc_feature = power_bloc_features
+	}
+
+	leader_modifier = {
+		state_shopkeepers_investment_pool_efficiency_mult = 0.1	
+		state_capitalists_investment_pool_efficiency_mult = 0.1
+	}
+	
+	ai_weight = {
+		value = 200		
+
+		if = {
+			limit = {
+				root.power_bloc = {
+					current_cohesion_number > 80
+				}
+			}
+			add = 100
+		}
+		
+		if = {
+			limit = {
+				root.power_bloc = {
+					current_cohesion_number < 40
+				}
+			}
+			subtract = 100
+		}
+
+		if = {
+			limit = {
+				root.power_bloc = {
+					current_cohesion_number < 20
+				}
+			}
+			subtract = 200
+		}	
+	}
+}
+
+principle_economic_imperialism_2 = {
+	icon = "gfx/interface/icons/principles_icons/economic_imperialism.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	visible = {
+		has_dlc_feature = power_bloc_features
+	}
+
+	power_bloc_modifier = {
+		power_bloc_cohesion_add = -5
+	}
+
+	non_leader_modifier = {
+		state_shopkeepers_investment_pool_efficiency_mult = -0.1	
+		state_capitalists_investment_pool_efficiency_mult = -0.1
+	}
+
+	leader_modifier = {
+		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
+		state_capitalists_investment_pool_efficiency_mult = 0.25
+	}
+	
+	ai_weight = {
+		value = 10000
+	}
+}
+
+principle_economic_imperialism_3 = {
+	icon = "gfx/interface/icons/principles_icons/economic_imperialism.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	visible = {
+		has_dlc_feature = power_bloc_features
+	}
+
+	power_bloc_modifier = {
+		power_bloc_cohesion_add = -5
+	}
+
+	non_leader_modifier = {
+		state_shopkeepers_investment_pool_efficiency_mult = -0.1	
+		state_capitalists_investment_pool_efficiency_mult = -0.1
+		country_disable_nationalization_bool = yes
+		country_force_privatization_bool = yes
+	}
+
+	leader_modifier = {
+		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
+		state_capitalists_investment_pool_efficiency_mult = 0.25
+	}
+	
+	ai_weight = {
+		value = 10000
 	}
 }
