@@ -1,0 +1,61 @@
+﻿je_restore_russia = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_foreign_affairs
+	
+	modifiers_while_active = {
+		br_modifier_russia_buff_1
+	}
+
+	is_shown_when_inactive = {
+		OR = {
+			country_has_primary_culture = cu:russian
+			country_has_primary_culture = cu:ukrainian
+		}
+		NOT = {
+			c:RUS ?= this
+		}
+		is_country_type = recognized
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:russian
+			country_has_primary_culture = cu:ukrainian
+		}
+		NOT = {
+			c:RUS ?= this
+		}
+		is_country_type = recognized
+	}
+
+	complete = {
+		root = {
+			owns_entire_state_region = STATE_INGRIA
+			owns_entire_state_region = STATE_PSKOV
+			owns_entire_state_region = STATE_GALICH
+			owns_entire_state_region = STATE_TVER
+			owns_entire_state_region = STATE_MOSCOW
+			owns_entire_state_region = STATE_SMOLENSK
+			owns_entire_state_region = STATE_NOVGOROD
+			owns_entire_state_region = STATE_NENETSIA
+			owns_entire_state_region = STATE_EAST_KARELIA
+			owns_entire_state_region = STATE_KOLA
+			owns_entire_state_region = STATE_ARKHANGELSK
+			owns_entire_state_region = STATE_YAROSLAVL
+			owns_entire_state_region = STATE_RYAZAN
+			owns_entire_state_region = STATE_NIZHNY_NOVGOROD
+			owns_entire_state_region = STATE_ORYOL
+			owns_entire_state_region = STATE_CHUVASHIA
+			owns_entire_state_region = STATE_VYATKA
+		}
+	}
+	
+	on_complete = {
+		
+	}
+	
+}
+
+

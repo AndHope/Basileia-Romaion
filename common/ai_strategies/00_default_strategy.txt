@@ -1053,6 +1053,14 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
+					c:br_muscovy ?= this
+					scope:target_state.state_region = { is_homeland = cu:russian }
+				}
+				add = 100
+			}
+
+			if = {
+				limit = {
 					c:br_aegypt ?= this
 					scope:target_state.state_region = { is_homeland = cu:sudanese }
 				}
@@ -2631,7 +2639,35 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 5
+			add = 25
+		}
+
+		if = {
+			limit = {
+				c:br_aegypt ?= this
+				scope:target_country = {
+					OR = {
+						has_state_in_state_region = STATE_INGRIA
+						has_state_in_state_region = STATE_PSKOV
+						has_state_in_state_region = STATE_GALICH
+						has_state_in_state_region = STATE_TVER
+						has_state_in_state_region = STATE_MOSCOW
+						has_state_in_state_region = STATE_SMOLENSK
+						has_state_in_state_region = STATE_NOVGOROD
+						has_state_in_state_region = STATE_NENETSIA
+						has_state_in_state_region = STATE_EAST_KARELIA
+						has_state_in_state_region = STATE_KOLA
+						has_state_in_state_region = STATE_ARKHANGELSK
+						has_state_in_state_region = STATE_YAROSLAVL
+						has_state_in_state_region = STATE_RYAZAN
+						has_state_in_state_region = STATE_NIZHNY_NOVGOROD
+						has_state_in_state_region = STATE_ORYOL
+						has_state_in_state_region = STATE_CHUVASHIA
+						has_state_in_state_region = STATE_VYATKA
+					}
+				}
+			}
+			add = 50
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
