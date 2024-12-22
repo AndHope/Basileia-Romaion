@@ -1053,6 +1053,14 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
+					c:br_aegypt ?= this
+					scope:target_state.state_region = { is_homeland = cu:sudanese }
+				}
+				add = 50
+			}
+
+			if = {
+				limit = {
 					has_journal_entry = je_consolidate_colonial_rule
 					scope:target_country = {
 						is_country_type = unrecognized
@@ -2608,6 +2616,22 @@ ai_strategy_default = {
 				}
 			}
 			add = 100
+		}
+
+		if = {
+			limit = {
+				c:br_aegypt ?= this
+				scope:target_country = {
+					OR = {
+						has_state_in_state_region = STATE_EGYPTIAN_DESERT
+						has_state_in_state_region = STATE_DONGOLA
+						has_state_in_state_region = STATE_KORDOFAN
+						has_state_in_state_region = STATE_BLUE_NILE
+						has_state_in_state_region = STATE_EGYPTIAN_DESERT
+					}
+				}
+			}
+			add = 5
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
