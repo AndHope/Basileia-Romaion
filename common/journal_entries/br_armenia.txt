@@ -4,6 +4,10 @@
 	
 	group = je_group_foreign_affairs
 	
+	modifiers_while_active = {
+		br_modifier_national_restoration
+	}
+
 	is_shown_when_inactive = {
 		exists = c:ARM
 		c:ARM = ROOT
@@ -11,9 +15,8 @@
 
 	possible = {
 		exists = c:br_arevelyan
-		c:ARM = {
-			is_subject = no
-		}
+		NOT = { owns_entire_state_region = STATE_ARMENIA }
+		has_technology_researched = nationalism
 	}
 
 	complete = {

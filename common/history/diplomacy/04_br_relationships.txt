@@ -255,4 +255,23 @@ DIPLOMACY = {
 		add_liberty_desire = 25
 	}
 
+	c:br_kappadocia = {
+		set_relations = { country = c:br_mesopotamia value = 100 }
+		set_owes_obligation_to = {
+			country = c:br_mesopotamia
+			setting = yes
+		}
+		create_diplomatic_pact = {
+			country = c:br_mesopotamia
+			type = defensive_pact #alliance
+		}
+	}
+	c:br_mesopotamia = {
+		set_relations = { country = c:br_kappadocia value = 100 }
+		set_owes_obligation_to = {
+			country = c:br_kappadocia
+			setting = yes
+		}
+	}
+
 }

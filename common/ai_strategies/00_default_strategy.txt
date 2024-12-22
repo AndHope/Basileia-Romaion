@@ -986,6 +986,62 @@ ai_strategy_default = {
 				}
 				add = 50
 			}
+			#BR JEs
+			if = {
+				limit = {
+					has_journal_entry = je_reclaiming_aquitaine
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_LANGUEDOC
+							state_region = s:STATE_RHONE
+							state_region = s:STATE_GUYENNE
+							state_region = s:STATE_AUVERGNE_LIMOUSIN
+							state_region = s:STATE_AQUITAINE
+						}
+					}
+				}
+				add = 50
+			}
+			if = {
+				limit = {
+					has_journal_entry = je_reclaiming_armenia
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_ARMENIA
+							state_region = s:STATE_ELIZAVETPOL
+						}
+					}
+				}
+				add = 50
+			}
+			if = {
+				limit = {
+					has_journal_entry = je_reclaiming_transylvania
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_NORTHERN_TRANSYLVANIA
+							state_region = s:STATE_SOUTHERN_TRANSYLVANIA
+						}
+					}
+				}
+				add = 50
+			}
+			if = {
+				limit = {
+					has_journal_entry = je_reclaim_england
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_HOME_COUNTIES
+							state_region = s:STATE_LANCASHIRE
+							state_region = s:STATE_YORKSHIRE
+							state_region = s:STATE_MIDLANDS
+							state_region = s:STATE_EAST_ANGLIA
+							state_region = s:STATE_WEST_COUNTRY
+						}
+					}
+				}
+				add = 50
+			}
 
 			if = {
 				limit = {
@@ -1196,6 +1252,7 @@ ai_strategy_default = {
 						OR = {
 							country_has_primary_culture = cu:french
 							country_has_primary_culture = cu:frankish
+							country_has_primary_culture = cu:occitan
 						}	
 					}
 				}
