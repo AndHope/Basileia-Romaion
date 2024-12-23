@@ -29,4 +29,39 @@
 	
 }
 
+je_br_east_indies_trade = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_foreign_affairs
+	
+	modifiers_while_active = {
+        br_modifier_spice_trade
+    }
+
+	is_shown_when_inactive = {
+		#Set in country file
+	}
+
+	possible = {
+		#Set in country file
+	}
+
+	complete = {
+		navy_size >= 75
+		has_technology_researched = power_of_the_purse
+		has_technology_researched = screw_frigate
+	}
+
+	timeout = 30500
+	
+	on_complete = {
+		add_modifier = {
+			name = br_modifier_spice_monopoly
+			years = 25
+		}
+	}
+	
+}
+
 
