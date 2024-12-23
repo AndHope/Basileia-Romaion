@@ -1261,6 +1261,7 @@ ai_strategy_default = {
 						region = sr:region_france
 						region = sr:region_occitania
 						region = sr:region_rhine
+						region = sr:region_south_germany
 					}
 					scope:target_country = {
 						OR = {
@@ -1270,7 +1271,7 @@ ai_strategy_default = {
 						}	
 					}
 				}
-				add = 50
+				add = 100
 			}
 
 			#German Unification Strategies:
@@ -2604,6 +2605,20 @@ ai_strategy_default = {
 			add = 50
 		}
 
+		if = { # HRE wishes to consolidate
+				limit = {
+					country_has_primary_culture = cu:french
+					scope:target_country = {
+						OR = {
+							country_has_primary_culture = cu:french
+							country_has_primary_culture = cu:frankish
+							country_has_primary_culture = cu:occitan
+						}	
+					}
+				}
+				add = 100
+			}
+
 		if = {
 			limit = {
 				has_journal_entry = je_reclaiming_transylvania
@@ -2649,11 +2664,24 @@ ai_strategy_default = {
 					is_country_type = unrecognized
 					#target_is_our_or_fellow_subject = no
 				}
-				scope:target_state = {
+				scope:target_country = {
 					OR = {
-						region = sr:region_bengal
-						region = sr:region_central_india
-						region = sr:region_punjab
+						has_state_in_state_region = STATE_PUNJAB
+						has_state_in_state_region = STATE_HILL_PUNJAB
+						has_state_in_state_region = STATE_RAJPUTANA
+						has_state_in_state_region = STATE_CENTRAL_PROVINCES
+						has_state_in_state_region = STATE_DELHI
+						has_state_in_state_region = STATE_AWADH
+						has_state_in_state_region = STATE_MALWA
+						has_state_in_state_region = STATE_AGRA
+						has_state_in_state_region = STATE_BUNDELKHAND
+						has_state_in_state_region = STATE_GUJARAT
+						has_state_in_state_region = STATE_SINDH
+						has_state_in_state_region = STATE_BIHAR
+						has_state_in_state_region = STATE_EAST_BENGAL
+						has_state_in_state_region = STATE_WEST_BENGAL
+						has_state_in_state_region = STATE_ASSAM
+						has_state_in_state_region = STATE_ORISSA
 					}
 				}
 			}
@@ -2691,7 +2719,7 @@ ai_strategy_default = {
 				c:MUG ?= this
 				scope:target_country = {
 					is_country_type = unrecognized
-					target_is_our_or_fellow_subject = no
+					#target_is_our_or_fellow_subject = no
 					any_scope_state = {
 						OR = {
 							region = sr:region_madras

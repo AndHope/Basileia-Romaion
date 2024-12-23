@@ -24,7 +24,22 @@
 	}
 	
 	on_complete = {
-		
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
 	}
 	
 }
@@ -40,20 +55,52 @@ je_br_east_indies_trade = {
     }
 
 	is_shown_when_inactive = {
-		#Set in country file
+		has_interest_marker_in_region = region_indonesia
+		is_country_type = recognized
 	}
 
 	possible = {
-		#Set in country file
+		navy_size >= 25
+		has_interest_marker_in_region = region_indonesia
+		OR = {
+			has_state_in_state_region = STATE_MOLUCCAS
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_MOLUCCAS
+			}
+			has_state_in_state_region = STATE_CELEBES
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_CELEBES
+			}
+			has_state_in_state_region = STATE_SUNDA_ISLANDS
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_SUNDA_ISLANDS
+			}
+		}
+		is_country_type = recognized
 	}
 
 	complete = {
 		navy_size >= 75
 		has_technology_researched = power_of_the_purse
 		has_technology_researched = screw_frigate
+		has_interest_marker_in_region = region_indonesia
+		OR = {
+			has_state_in_state_region = STATE_MOLUCCAS
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_MOLUCCAS
+			}
+			has_state_in_state_region = STATE_CELEBES
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_CELEBES
+			}
+			has_state_in_state_region = STATE_SUNDA_ISLANDS
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_SUNDA_ISLANDS
+			}
+		}
 	}
 
-	timeout = 30500
+	timeout = 27375
 	
 	on_complete = {
 		add_modifier = {
@@ -64,4 +111,93 @@ je_br_east_indies_trade = {
 	
 }
 
+je_br_colonial_subject = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_colonial_subsidies
+    }
 
+	is_shown_when_inactive = {
+		is_country_type = colonial
+	}
+
+	possible = {
+		is_subject = yes
+		is_country_type = colonial
+	}
+
+	invalid = {
+		is_subject = no
+	}
+	
+}
+
+je_br_new_world_colony = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_new_world_colony
+    }
+
+	is_shown_when_inactive = {
+		#is_country_type = colonial
+	}
+
+	possible = {
+		#is_country_type = colonial
+	}
+
+	timeout = 36500
+	
+}
+
+je_br_africa_colony = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_african_colony
+    }
+
+	is_shown_when_inactive = {
+		#is_country_type = colonial
+	}
+
+	possible = {
+		#is_country_type = colonial
+	}
+
+	timeout = 36500
+	
+}
+
+je_br_independent_new_world_country = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_independent_new_world_colony
+    }
+
+	is_shown_when_inactive = {
+		#is_country_type = colonial
+	}
+
+	possible = {
+		#is_country_type = colonial
+	}
+
+	timeout = 36500
+	
+}

@@ -1,0 +1,42 @@
+﻿je_br_inward_perfection = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_inward_perfection
+    }
+
+	is_shown_when_inactive = {
+		#has_modifier = br_modifier_inward_perfection
+	}
+
+	possible = {
+		#has_modifier = br_modifier_inward_perfection
+	}
+
+	complete = {
+		#has_modifier = br_modifier_inward_perfection
+		NOT = { 
+			has_law = law_type:law_peasant_levies
+			has_law = law_type:law_no_home_affairs
+			has_law = law_type:law_hereditary_bureaucrats
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_traditionalism 
+		}
+	}
+	on_complete = {
+		add_radicals = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+	}
+
+	timeout = 36500
+	
+}
