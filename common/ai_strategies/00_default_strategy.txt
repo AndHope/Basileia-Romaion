@@ -2606,18 +2606,28 @@ ai_strategy_default = {
 		}
 
 		if = { # HRE wishes to consolidate
-				limit = {
-					country_has_primary_culture = cu:french
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:french
-							country_has_primary_culture = cu:frankish
-							country_has_primary_culture = cu:occitan
-						}	
-					}
+			limit = {
+				country_has_primary_culture = cu:french
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:frankish
+						country_has_primary_culture = cu:occitan
+					}	
 				}
-				add = 100
 			}
+			add = 100
+		}
+
+		if = { # Serbia wishes to consolidate
+			limit = {
+				country_has_primary_culture = cu:serb
+				scope:target_country = {
+					country_has_primary_culture = cu:serb	
+				}
+			}
+			add = 100
+		}
 
 		if = {
 			limit = {
