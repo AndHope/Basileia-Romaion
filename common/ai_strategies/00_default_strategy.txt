@@ -2628,6 +2628,65 @@ ai_strategy_default = {
 			}
 			add = 100
 		}
+		if = { # Persia wishes to consolidate
+			limit = {
+				country_has_primary_culture = cu:persian
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:pashtun
+						country_has_primary_culture = cu:baluchi
+						country_has_primary_culture = cu:persian
+					}	
+				}
+			}
+			add = 100
+		}
+
+		if = { # Mughals wishes to consolidate
+			limit = {
+				country_has_primary_culture = cu:mughal
+				scope:target_country = {
+					country_has_primary_culture = cu:mughal	
+				}
+			}
+			add = 100
+		}
+
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:polish
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:russian
+						country_has_primary_culture = cu:ukrainian
+					}
+				}
+			}
+			add = 50
+		}
+
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:russian
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:russian
+						country_has_primary_culture = cu:ukrainian
+					}
+				}
+			}
+			add = 50
+		}
+
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:polish
+				scope:target_country = {
+					country_has_primary_culture = cu:ukrainian	
+				}
+			}
+			add = 50
+		}
 
 		if = {
 			limit = {
@@ -3403,6 +3462,10 @@ ai_strategy_default = {
 			multiply = 10
 		}
 		if = {
+			limit =  { has_modifier = br_modifier_gain_independence } 
+			multiply = 5
+		}
+		if = {
 			limit =  { has_modifier = br_modifier_african_colony } 
 			multiply = 2
 		}
@@ -3813,6 +3876,10 @@ ai_strategy_default = {
 		}
 		if = {
 			limit =  { has_modifier = war_for_independence } 
+			multiply = 5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_gain_independence } 
 			multiply = 5
 		}
 		if = {

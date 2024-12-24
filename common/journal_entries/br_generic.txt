@@ -76,6 +76,10 @@ je_br_east_indies_trade = {
 				has_state_in_state_region = STATE_SUNDA_ISLANDS
 			}
 		}
+		NOT = { 
+			has_law = law_type:law_free_trade
+			has_modifier = br_modifier_spice_monopoly
+		}
 		is_country_type = recognized
 	}
 
@@ -89,10 +93,14 @@ je_br_east_indies_trade = {
 			any_subject_or_below = {
 				has_state_in_state_region = STATE_MOLUCCAS
 			}
+		}
+		OR = {
 			has_state_in_state_region = STATE_CELEBES
 			any_subject_or_below = {
 				has_state_in_state_region = STATE_CELEBES
 			}
+		}
+		OR = {
 			has_state_in_state_region = STATE_SUNDA_ISLANDS
 			any_subject_or_below = {
 				has_state_in_state_region = STATE_SUNDA_ISLANDS
@@ -212,4 +220,297 @@ je_br_independent_new_world_country = {
 
 	timeout = 36500
 	
+}
+
+je_br_baltic_toll_collection_rights = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        baltic_toll_collection_rights
+    }
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_baltic
+		is_country_type = recognized
+	}
+
+	possible = {
+		navy_size >= 50
+		has_interest_marker_in_region = region_baltic
+		OR = {
+			has_state_in_state_region = STATE_SCANIA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_SCANIA
+			}
+			has_state_in_state_region = STATE_ZEALAND
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_ZEALAND
+			}
+			has_state_in_state_region = STATE_GOTALAND
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_GOTALAND
+			}
+		}
+		NOT = { 
+			has_law = law_type:law_free_trade
+		}
+		is_country_type = recognized
+	}
+
+	invalid = {
+		NOT = { 
+			OR = {
+				has_state_in_state_region = STATE_SCANIA
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_SCANIA
+				}
+				has_state_in_state_region = STATE_ZEALAND
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_ZEALAND
+				}
+				has_state_in_state_region = STATE_GOTALAND
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_GOTALAND
+				}
+			}
+		}
+		has_law = law_type:law_free_trade
+	}
+	
+	
+}
+
+je_br_strait_of_hercules = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_strait_of_hercules_toll
+    }
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_iberia
+		is_country_type = recognized
+	}
+
+	possible = {
+		navy_size >= 50
+		has_interest_marker_in_region = region_iberia
+		OR = {
+			has_state_in_state_region = STATE_ANDALUSIA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_ANDALUSIA
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_GRANADA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_GRANADA
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_AL_RIF
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_AL_RIF
+			}
+		}
+		NOT = { 
+			has_law = law_type:law_free_trade
+		}
+		is_country_type = recognized
+	}
+
+	invalid = {
+		NOT = { 
+			OR = {
+				has_state_in_state_region = STATE_ANDALUSIA
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_ANDALUSIA
+				}
+			}
+			OR = {
+				has_state_in_state_region = STATE_GRANADA
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_GRANADA
+				}
+			}
+			OR = {
+				has_state_in_state_region = STATE_AL_RIF
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_AL_RIF
+				}
+			}
+		}
+		has_law = law_type:law_free_trade
+	}
+
+	
+	
+}
+
+je_br_bosphorus_strait_toll = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_bosphorus_strait_toll
+    }
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_anatolia
+		is_country_type = recognized
+	}
+
+	possible = {
+		navy_size >= 50
+		has_interest_marker_in_region = region_anatolia
+		OR = {
+			has_state_in_state_region = STATE_EASTERN_THRACE
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_EASTERN_THRACE
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_HUDAVENDIGAR
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_HUDAVENDIGAR
+			}
+		}
+		NOT = { 
+			has_law = law_type:law_free_trade
+		}
+		is_country_type = recognized
+	}
+
+	invalid = {
+		NOT = { 
+			OR = {
+				has_state_in_state_region = STATE_EASTERN_THRACE
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_EASTERN_THRACE
+				}
+			}
+			OR = {
+				has_state_in_state_region = STATE_HUDAVENDIGAR
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_HUDAVENDIGAR
+				}
+			}
+		}
+		has_law = law_type:law_free_trade
+	}
+		
+}
+
+je_br_klysma_canal_toll = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_klysma_canal_toll
+    }
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_nile_basin
+		is_country_type = recognized
+	}
+
+	possible = {
+		navy_size >= 50
+		has_interest_marker_in_region = region_nile_basin
+		OR = {
+			has_state_in_state_region = STATE_SINAI
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_SINAI
+			}
+		}
+		NOT = { 
+			has_law = law_type:law_free_trade
+		}
+		is_country_type = recognized
+	}
+
+	invalid = {
+		NOT = { 
+			OR = {
+				has_state_in_state_region = STATE_SINAI
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_SINAI
+				}
+				has_modifier = br_modifier_merchant_republic
+			}
+		}
+		has_law = law_type:law_free_trade
+	}
+
+		
+}
+
+je_br_persian_strait_toll = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_persian_strait_toll
+    }
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_persia
+		is_country_type = recognized
+	}
+
+	possible = {
+		navy_size >= 25
+		has_interest_marker_in_region = region_persia
+		OR = {
+			has_state_in_state_region = STATE_LARISTAN
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_LARISTAN
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_ABU_DHABI
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_ABU_DHABI
+			}
+		}
+		NOT = { 
+			has_law = law_type:law_free_trade
+		}
+		is_country_type = recognized
+	}
+
+	invalid = {
+		NOT = { 
+			OR = {
+				has_state_in_state_region = STATE_LARISTAN
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_LARISTAN
+				}
+				has_state_in_state_region = STATE_ABU_DHABI
+				any_subject_or_below = {
+				has_state_in_state_region = STATE_ABU_DHABI
+				}
+				has_state_in_state_region = STATE_OMAN
+				any_subject_or_below = {
+					has_state_in_state_region = STATE_OMAN
+				}
+			}
+		}
+		has_law = law_type:law_free_trade
+	}
+
+	#timeout = 27375
+		
 }
