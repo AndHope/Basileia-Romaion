@@ -514,3 +514,81 @@ je_br_persian_strait_toll = {
 	#timeout = 27375
 		
 }
+
+je_br_hajj_profits = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_hajj
+    }
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_arabic
+	}
+
+	possible = {
+		has_interest_marker_in_region = region_arabic
+		OR = {
+			has_state_in_state_region = STATE_HEDJAZ
+		}
+		NOT = { 
+			OR = {
+				has_law = law_type:law_state_atheism
+				has_law = law_type:law_total_separation
+			}	
+		}
+	}
+
+	invalid = {
+		NOT = { 
+			OR = {
+				has_state_in_state_region = STATE_HEDJAZ
+			}
+		}
+		OR = {
+			has_law = law_type:law_state_atheism
+			has_law = law_type:law_total_separation
+		}
+	}
+
+	#timeout = 27375
+		
+}
+
+je_br_tithe_profits = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+        br_modifier_tithe
+    }
+
+	is_shown_when_inactive = {
+		exists = c:PAP
+		c:PAP = ROOT
+	}
+
+	possible = {
+		exists = c:PAP
+		c:PAP = ROOT
+		NOT = { 
+			OR = {
+				has_law = law_type:law_state_atheism
+				has_law = law_type:law_total_separation
+			}	
+		}
+	}
+
+	invalid = {
+		OR = {
+			has_law = law_type:law_state_atheism
+			has_law = law_type:law_total_separation
+		}
+	}
+		
+}
