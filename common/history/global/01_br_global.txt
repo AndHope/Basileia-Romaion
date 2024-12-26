@@ -102,6 +102,16 @@ GLOBAL = {
 
 	}	
 
+	c:br_romaioi_india_company ?= {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_BOMBAY } }
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+	}
+
 	c:br_genoa ?= {
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_PIEDMONT } }
