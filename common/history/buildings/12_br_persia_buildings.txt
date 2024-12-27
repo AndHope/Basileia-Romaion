@@ -815,6 +815,18 @@
 				reserves=1
 				activate_production_methods={ "pm_sheep_farms" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
 			}
+			create_building={
+				building="building_spices_plantation"
+				add_ownership={
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_spices_plantation" }
+			}
 		}
 	}
 	s:STATE_KHORASAN={
@@ -2728,6 +2740,43 @@
 				reserves=1
 				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated"  }
 			}
+			create_building = {
+				building = "building_livestock_ranch"
+				add_ownership = {
+					building={
+						type="building_manor_house"
+						country="c:OMA"
+						levels=1
+						region="STATE_OMAN"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_opium_plantation"
+				add_ownership={
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_opium_plantation" "pm_horse_drawn_transport"  }
+			}
+			create_building={
+				building="building_tea_plantation"
+				add_ownership={
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tea_plantation" "pm_horse_drawn_transport"  }
+			}
 			create_building={
 				building="building_port"
 				add_ownership={
@@ -2746,26 +2795,26 @@
 				add_ownership={
 					building={
 						type="building_manor_house"
-						country="c:KAL"
-						levels=3
-						region="STATE_BALUCHISTAN"
+						country="c:PER"
+						levels=2
+						region="STATE_KHORASAN"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
 			}
 			create_building={
-				building="building_tea_plantation"
+				building="building_wheat_farm"
 				add_ownership={
 					building={
 						type="building_manor_house"
 						country="c:PER"
 						levels=1
-						region="STATE_IRAKAJEMI"
+						region="STATE_BAGHDAD"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_tea_plantation" "pm_horse_drawn_transport"  }
+				activate_production_methods={ "pm_simple_farming"  "pm_tools_disabled" "pm_citrus_orchards" }
 			}
 			create_building={
 				building="building_opium_plantation"
@@ -2773,8 +2822,13 @@
 					building={
 						type="building_manor_house"
 						country="c:PER"
-						levels=2
+						levels=1
 						region="STATE_IRAKAJEMI"
+					}
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=1
 					}
 				}
 				reserves=1

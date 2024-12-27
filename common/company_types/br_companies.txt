@@ -1,5 +1,7 @@
 ﻿#BR mod unique Companies
-#BR
+
+
+#Trade Companies
 company_byz_ric = {
 	icon = "gfx/interface/icons/company_icons/ric_logo.png"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
@@ -302,6 +304,97 @@ company_fla_trade = {
 	}
 }
 
+#Japan
+company_jap_trade = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_shipyards
+
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_spices_plantation
+		building_dye_plantation
+		building_silk_plantation
+		building_banana_plantation
+
+	}
+
+	potential = {
+		country_has_primary_culture = cu:japanese
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KYUSHU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_trade_route_cost_mult = -0.25
+		country_trade_route_competitiveness_mult = 0.5
+		#state_colony_growth_speed_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+#Oman
+company_oma_trade = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_shipyards
+
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_spices_plantation
+		building_dye_plantation
+		building_silk_plantation
+		building_banana_plantation
+
+	}
+
+	potential = {
+		country_has_primary_culture = cu:bedouin
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_OMAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_trade_route_cost_mult = -0.25
+		country_trade_route_competitiveness_mult = 0.5
+		#state_colony_growth_speed_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
 
 #Edited Base Game Companies
 company_suez_company = {
