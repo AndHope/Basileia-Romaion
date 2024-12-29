@@ -1,0 +1,160 @@
+﻿ #Only AI can see and interact with decisions --- These are to boost AI countries
+br_hun_annex_trs = {
+	is_shown = {
+		exists = c:HUN
+		exists = c:TRS
+		c:HUN = ROOT
+		c:TRS = {
+			is_player = no
+		}
+		c:HUN = {
+			is_player = no
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_subject = no
+		c:TRS = {
+			is_subject_of = ROOT
+			is_player = no
+		}
+	}
+
+	when_taken = {
+		trigger_event = {
+			id = hungarian_revolt.1
+			days = 1
+		}
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+br_byz_easy_agy = {
+	is_shown = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		c:BYZ = {
+			is_player = no
+		}
+		NOT = {
+			c:br_romaioi_india_company = {
+				is_subject_of = ROOT
+			}
+		}
+	}
+
+	possible = {
+		NOT = {
+			c:br_romaioi_india_company = {
+				is_subject_of = ROOT
+			}
+		}
+	}
+
+	when_taken = {
+		create_diplomatic_pact = {
+			country = c:br_romaioi_india_company	
+			type = chartered_company
+		}
+	#	create_diplomatic_pact = {
+	#		country = c:br_australis	
+	#		type = colony
+	#	}
+	#	create_diplomatic_pact = {
+	#		country = c:br_kyrenaica
+	#		type = colony
+	#	}
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+br_hre_annex_franks = {
+	is_shown = {
+		and = {
+			exists = c:HRE
+			root = c:HRE
+			c:HRE = {
+				is_player = no
+			}
+			country_has_primary_culture = cu:frankish
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		country_has_primary_culture = cu:frankish
+		c:HES = {
+			is_player = no
+		}
+		OR = {
+			has_law = law_type:law_national_supremacy
+			has_law = law_type:law_ethnostate
+		}
+	}
+
+	when_taken = {
+		remove_primary_culture = cu:frankish
+		add_radicals = {
+			culture = cu:frankish
+			value = 0.15
+		}
+		add_modifier = {
+			name = linguistic_discrimination
+			years = -1
+		}
+		hidden_effect = {
+			trigger_event = {
+				id = frankish_revolt.1
+				days = 1
+			}
+		}
+
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+br_eet_annex_suakin = {
+	is_shown = {
+		exists = c:br_romaioi_india_company
+		exists = c:br_suakin
+		c:br_romaioi_india_company = ROOT
+		c:br_romaioi_india_company = {
+			is_player = no
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		c:br_romaioi_india_company = {
+			is_player = no
+		}
+	}
+
+	when_taken = {
+		create_diplomatic_play = {
+			war = yes
+			type = dp_annex_subject
+			add_initiator_backers = { c:BJA }
+			target_state = s:STATE_DONGOLA.region_state:br_suakin
+
+		}
+
+		hidden_effect = {
+			change_infamy = -25
+		}
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}

@@ -136,7 +136,20 @@ aegyptian_crisis_events.2 = {
 		name = aegyptian_crisis_events.2.a
         default_option = yes
 		custom_tooltip = aegyptian_crisis_events.2.a.tt
-		#add_target_backers = { c:VEN }
+		if = {
+			limit = {
+				c:VEN = {
+					is_player = no
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:BYZ
+					target_is = c:br_aegypt
+				}
+				add_target_backers = { c:VEN }
+			}
+		}
 	}
 }
 

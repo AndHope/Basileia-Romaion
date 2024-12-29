@@ -407,9 +407,8 @@ zoroastrianism_decision = {
 
 	when_taken = {
 		set_state_religion = rel:br_religion_zoroastrian
-		ig:ig_devout = {
-			hidden_effect = { set_interest_group_name = ig_zoroastrian_priests }
-		}
+		ig:ig_devout = { set_interest_group_name = ig_zoroastrian_priests }
+
 		random_scope_state = {
 			limit = {
 				owner = ROOT
@@ -468,6 +467,93 @@ zoroastrianism_decision = {
 	}
 
 }
+
+shitte_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:persian
+			country_has_primary_culture = cu:bedouin
+		}
+		NOT = { country_has_state_religion = rel:shiite }
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		ig:ig_devout = {
+			is_in_government = no
+		}
+		has_law = law_type:law_freedom_of_conscience
+		NOT = { has_law = law_type:law_religious_schools }
+		OR = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+		}
+		has_technology_researched = nationalism
+	}
+
+	when_taken = {
+		set_state_religion = rel:shiite
+		ig:ig_devout = { set_interest_group_name = ig_shia_madrasahs }
+
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:shiite
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:shiite
+				value = 0.15
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:shiite
+				}
+			}
+			add_loyalists = {
+				religion = rel:shiite
+				value = 0.35
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:sunni 
+				}
+			}
+			add_radicals = {
+				religion = rel:sunni
+				value = 0.35
+			}
+		}
+		change_relations = { 
+			country = c:ARA 
+			value = -150 
+		}
+		change_relations = { 
+			country = c:MUG 
+			value = -50 
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+
+}
+
 
 norse_decision = {
 	is_shown = {

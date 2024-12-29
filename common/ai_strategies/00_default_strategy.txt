@@ -2621,7 +2621,7 @@ ai_strategy_default = {
 
 		if = { # Serbia wishes to consolidate
 			limit = {
-				country_has_primary_culture = cu:serb
+				has_journal_entry = je_restore_serbia
 				scope:target_country = {
 					country_has_primary_culture = cu:serb	
 				}
@@ -2630,7 +2630,7 @@ ai_strategy_default = {
 		}
 		if = { # Persia wishes to consolidate
 			limit = {
-				country_has_primary_culture = cu:persian
+				has_journal_entry = je_persia_expansion_01
 				scope:target_country = {
 					OR = {
 						country_has_primary_culture = cu:pashtun
@@ -2644,7 +2644,7 @@ ai_strategy_default = {
 
 		if = { # Mughals wishes to consolidate
 			limit = {
-				country_has_primary_culture = cu:mughal
+				has_journal_entry = je_consolidate_india_01
 				scope:target_country = {
 					country_has_primary_culture = cu:mughal	
 				}
@@ -2657,12 +2657,12 @@ ai_strategy_default = {
 				country_has_primary_culture = cu:polish
 				scope:target_country = {
 					OR = {
+						country_has_primary_culture = cu:tatar
 						country_has_primary_culture = cu:russian
-						country_has_primary_culture = cu:ukrainian
 					}
 				}
 			}
-			add = 50
+			add = 25
 		}
 
 		if = { 
@@ -2686,6 +2686,15 @@ ai_strategy_default = {
 				}
 			}
 			add = 50
+		}
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:russian
+				scope:target_country = {
+					country_has_primary_culture = cu:tatar	
+				}
+			}
+			add = 15
 		}
 
 		if = {
@@ -2807,7 +2816,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 3
+			add = 5
 		}
 
 
@@ -2859,7 +2868,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:korean
 				}
 			}
-			add = 5
+			add = 25
 		}
 
 		if = { # consolidating South Africa
@@ -6020,6 +6029,16 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
+			}
+
+			if = { # Serbia wishes to consolidate
+			limit = {
+				has_journal_entry = je_restore_serbia
+				scope:target_country = {
+					country_has_primary_culture = cu:serb	
+				}
+			}
+			add = 100
 			}
 
 			if = {
