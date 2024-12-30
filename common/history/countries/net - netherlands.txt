@@ -151,14 +151,8 @@
 		activate_law = law_type:law_colonial_exploitation
 		activate_law = law_type:law_no_migration_controls
 
-		ig:ig_landowners = { # Victor de Broglie was Prime Minister until February 22, 1836
-			add_ruling_interest_group = yes
+		ig:ig_landowners = {
 			add_ideology = ideology_frontier_expansionist
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 50
-			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
@@ -174,11 +168,6 @@
 
 		ig:ig_rural_folk = {
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 50
-			}
-			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 75
@@ -193,9 +182,10 @@
 		ig:ig_devout = {
 			set_interest_group_name = ig_evangelical_church
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 50
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 75
+				is_decaying = yes
 			}
 		}
 
