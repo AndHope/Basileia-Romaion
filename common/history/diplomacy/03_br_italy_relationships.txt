@@ -9,7 +9,6 @@
 	}
 
 	c:VEN = {
-		#TUS/LOM protectorates moved to members of the Power bloc
 		create_diplomatic_pact = {
 			country = c:br_atlantica
 			type = colony
@@ -32,8 +31,8 @@
 		}
 		set_relations = { country = c:HRE value = 25 }
 		set_relations = { country = c:SAR value = -25 }
-		set_relations = { country = c:TUS value = 65 }
-		set_relations = { country = c:LOM value = 65 }
+		set_relations = { country = c:LOM value = -35 }
+		set_relations = { country = c:TUS value = -15 }
 		set_relations = { country = c:PAP value = -25 }
 		set_relations = { country = c:SIC value = -25 }
 		set_relations = { country = c:MOD value = 50 }
@@ -53,7 +52,11 @@
 			type = br_forced_trade
 		}
 		create_diplomatic_pact = {
-			country = c:br_aegypt
+			country = c:LOM
+			type = br_forced_trade
+		}
+		create_diplomatic_pact = {
+			country = c:TUS
 			type = br_forced_trade
 		}
 		create_diplomatic_pact = {
@@ -97,8 +100,9 @@
 		set_relations = { country = c:PAP value = 100 }
 		set_relations = { country = c:SIC value = 75 }
 		set_relations = { country = c:HRE value = 50 }
-		set_relations = { country = c:SAR value = 50 }
-		set_relations = { country = c:LOM value = 35 }
+		set_relations = { country = c:SAR value = -10 }
+		set_relations = { country = c:LOM value = -35 }
+		set_relations = { country = c:TUS value = -35 }
 		set_relations = { country = c:ANL value = -10 }
 		set_relations = { country = c:br_pisa value = 75 }
 		set_relations = { country = c:MOD value = 75 }
@@ -123,6 +127,14 @@
 			type = br_forced_trade
 		}
 		create_diplomatic_pact = {
+			country = c:LOM
+			type = br_forced_trade
+		}
+		create_diplomatic_pact = {
+			country = c:TUS
+			type = br_forced_trade
+		}
+		create_diplomatic_pact = {
 			country = c:HRE
 			type = trade_agreement
 		}
@@ -130,23 +142,11 @@
 			country = c:br_afrika
 			type = trade_agreement
 		}
-
-		create_diplomatic_pact = {
-			country = c:LUC
-			type = protectorate
-		}
 		create_diplomatic_pact = {
 			country = c:br_pisa
 			type = protectorate
 		}
-		create_diplomatic_pact = {
-			country = c:PAR
-			type = protectorate
-		}
-		create_diplomatic_pact = {
-			country = c:MOD
-			type = protectorate
-		}
+		
 
 
 	}
@@ -161,14 +161,25 @@
 	}
 
 	c:LOM = {
-	
+		set_relations = { country = c:TUS value = 100 }
 		set_relations = { country = c:SAR value = -75 }
 		set_relations = { country = c:ANL value = -50 }
+		create_diplomatic_pact = {
+			country = c:PAR
+			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:MOD
+			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:LUC
+			type = protectorate
+		}
 	}
 	c:TUS = {
 		set_relations = { country = c:br_afrika value = 50 }
 		set_relations = { country = c:ANL value = -50 }
-
 	}
 
 	c:PAP ?= {
@@ -182,6 +193,10 @@
 		}
 		create_diplomatic_pact = {
 			country = c:br_benevento
+			type = puppet
+		}
+		create_diplomatic_pact = {
+			country = c:br_spoleto
 			type = puppet
 		}
 		set_relations = { country = c:HRE value = 25 }
