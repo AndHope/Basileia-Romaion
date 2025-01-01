@@ -1330,6 +1330,16 @@ ai_strategy_default = {
 				add = 25
 			}
 
+			if = { 
+				limit = {
+					has_journal_entry = je_restore_north_italy
+					scope:target_state = {
+						region = sr:region_italy
+					}
+				}
+				add = 25
+			}
+
 			if = { # ELY wishes to consolidate
 				limit = {
 					c:br_elysium ?= this
@@ -2561,6 +2571,15 @@ ai_strategy_default = {
 						country_has_primary_culture = cu:bulgarian
 						country_has_primary_culture = cu:serb
 					}	
+				}
+			}
+			add = 25
+		}
+		if = { 
+			limit = {
+				has_journal_entry = je_restore_north_italy
+				scope:target_country = {
+					country_has_primary_culture = cu:north_italian	
 				}
 			}
 			add = 25
@@ -6046,16 +6065,6 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
-			}
-
-			if = { # Serbia wishes to consolidate
-			limit = {
-				has_journal_entry = je_restore_serbia
-				scope:target_country = {
-					country_has_primary_culture = cu:serb	
-				}
-			}
-			add = 100
 			}
 
 			if = {
