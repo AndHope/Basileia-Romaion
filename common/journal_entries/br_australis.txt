@@ -1,0 +1,67 @@
+﻿je_australis_expand_01 = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+		br_new_world_westward_colonial_expansion
+	}
+
+	is_shown_when_inactive = {
+		exists = c:br_australis
+		this = c:br_australis
+	}
+
+	possible = {
+		exists = c:br_australis
+		this = c:br_australis
+		#has_law = law_type:law_frontier_colonization
+	}
+
+	complete = {
+		root = {
+			owns_entire_state_region = STATE_NEW_SOUTH_WALES
+			owns_entire_state_region = STATE_VICTORIA
+			owns_entire_state_region = STATE_TASMANIA
+			owns_entire_state_region = STATE_QUEENSLAND
+			owns_entire_state_region = STATE_SOUTH_AUSTRALIA
+			owns_entire_state_region = STATE_WESTERN_AUSTRALIA
+			owns_entire_state_region = STATE_NORTHERN_TERRITORY
+			owns_entire_state_region = STATE_NORTH_ISLAND
+			owns_entire_state_region = STATE_SOUTH_ISLAND
+		}
+	}
+
+	#invalid = {
+	#	NOT = { has_law = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
+	#}
+	
+	on_complete = {
+		#will lead to further expansion JEs
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+	
+}
+
+
