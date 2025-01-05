@@ -154,5 +154,95 @@ br_convert_immigrants_to_settler_cultures_effect = {
 				}
 			}
 		}
+	#Vinland
+		else_if = { #  european -> vinlander
+			limit = {
+				country_has_primary_culture = cu:vinlander
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+				}
+				change_pop_culture = {
+					target = cu:vinlander
+					value = 1 
+				}
+			}
+		}
+	#Colonial Italian
+		else_if = { #  european -> colonial_italian
+			limit = {
+				country_has_primary_culture = cu:colonial_italian
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_italian
+					value = 1 
+				}
+			}
+		}
+	#Colonial andalusian
+		else_if = { #  european -> colonial_andalusian
+			limit = {
+				country_has_primary_culture = cu:colonial_andalusian
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_andalusian
+					value = 1 
+				}
+			}
+		}
+	#Colonial british
+		else_if = { #  european -> colonial_british
+			limit = {
+				country_has_primary_culture = cu:colonial_british
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_british
+					value = 1 
+				}
+			}
+		}
+
+
 	}
 }
