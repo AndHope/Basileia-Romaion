@@ -1,9 +1,10 @@
 ﻿# Romaioi Mod - This is executed last among all history
 GLOBAL = {
 	every_country = {
-		trigger_event = {
-			id = romaioi_startup_events.1
-		}
+
+	#	trigger_event = {
+	#		id = romaioi_startup_events.1
+	#	}
 
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_EASTERN_THRACE } }
@@ -169,7 +170,6 @@ GLOBAL = {
 			}
 		}
 	}
-
 
 	#New World
 	c:br_elysium ?= {
@@ -350,5 +350,64 @@ GLOBAL = {
 			}
 		}
 	}
+
+
+
+	c:MUG ?= {
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			is_subject_of = c:MUG
+		}
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	c:br_great_yuan ?= {
+		every_scope_state = {
+			state_region = {
+				add_devastation = 25
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			is_subject_of = c:br_great_yuan
+		}
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	c:CHI ?= {
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			is_subject_of = c:CHI
+			NOT = { 
+				is_subject_type = subject_type_chartered_company
+				is_subject_type = subject_type_colony
+			}
+		}
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+
 
 }	

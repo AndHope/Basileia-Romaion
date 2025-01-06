@@ -3,7 +3,7 @@
 		limit = {
 			OR = {
 				has_journal_entry = je_br_independent_new_world_country
-				limit = { is_country_type = colonial }
+				is_country_type = colonial
 				is_subject_type = subject_type_colony
 				is_subject_type = subject_type_chartered_company
 			}
@@ -36,57 +36,6 @@ br_convert_immigrants_to_settler_cultures_effect = {
 				}
 			}
 		}
-		else_if = { #  colonials returning to europe should ditch their colonial identity.
-			limit = {
-				country_has_primary_culture = cu:greek
-				any_scope_state = {
-					is_incorporated = yes
-					state_is_in_europe = yes
-				}
-			}
-			every_scope_pop = {
-				limit = {
-					culture = {
-						OR = {
-							has_discrimination_trait = colonial_heritage
-							has_discrimination_trait = african_settler
-						}
-					}
-				}
-				change_pop_culture = {
-					target = cu:greek
-					value = 1 
-				}
-			}
-		}
-
-	#	else_if = { # latinoi
-	#		limit = {
-	#			has_discrimination_trait = greek_culture
-	#			any_scope_state = {
-	#				is_incorporated = yes
-	#				state_is_in_europe = no
-	#				state_is_in_americas = no
-	#			}
-	#		}
-	#		every_scope_pop = {
-	#			limit = {
-	#				#is_pop_type = peasants
-	#				culture = {
-	#					OR = {
-	#						has_discrimination_trait = italophone
-	#						has_discrimination_trait = francophone
-	#						has_discrimination_trait = hispanophone
-	#					}
-	#				}
-	#			}
-	#			change_pop_culture = {
-	#				target = cu:latinoi
-	#				value = 1
-	#			}
-	#		}
-	#	}
-
 	#French Colonies 
 		else_if = { #  european -> colonial-french
 			limit = {
@@ -105,29 +54,6 @@ br_convert_immigrants_to_settler_cultures_effect = {
 				}
 				change_pop_culture = {
 					target = cu:colonial_french
-					value = 1 
-				}
-			}
-		}
-		else_if = { #  colonials returning to europe should ditch their colonial identity.
-			limit = {
-				country_has_primary_culture = cu:french
-				any_scope_state = {
-					is_incorporated = yes
-					state_is_in_europe = yes
-				}
-			}
-			every_scope_pop = {
-				limit = {
-					culture = {
-						OR = {
-							has_discrimination_trait = colonial_heritage
-							has_discrimination_trait = african_settler
-						}
-					}
-				}
-				change_pop_culture = {
-					target = cu:french
 					value = 1 
 				}
 			}
@@ -182,7 +108,7 @@ br_convert_immigrants_to_settler_cultures_effect = {
 				country_has_primary_culture = cu:colonial_italian
 				any_scope_state = {
 					is_incorporated = yes
-					state_is_in_americas = yes
+					state_is_in_europe = no
 				}
 			}
 			every_scope_pop = {
@@ -242,7 +168,28 @@ br_convert_immigrants_to_settler_cultures_effect = {
 				}
 			}
 		}
-
+	#Colonial dutch
+		else_if = { #  european -> colonial_dutch
+			limit = {
+				country_has_primary_culture = cu:colonial_dutch
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_europe = no
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_dutch
+					value = 1 
+				}
+			}
+		}
 
 	}
 }
