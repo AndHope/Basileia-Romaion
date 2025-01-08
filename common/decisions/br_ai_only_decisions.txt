@@ -1,10 +1,18 @@
-﻿ #Only AI can see and interact with decisions --- These are to boost AI countries
+﻿#Only AI can see and interact with decisions ---  These are to boost AI countries as well as decrease border gore and only target other AI countries
+
+#Early conquest
 br_hun_annex_trs = {
 	is_shown = {
 		exists = c:HUN
 		exists = c:TRS
 		c:HUN = ROOT
 		c:TRS = {
+			is_player = no
+		}
+		c:WAL = {
+			is_player = no
+		}
+		c:MOL = {
 			is_player = no
 		}
 		c:HUN = {
@@ -40,6 +48,12 @@ br_byz_easy_agy = {
 		c:BYZ = {
 			is_player = no
 		}
+		c:br_aegypt = {
+			is_player = no
+		}
+		c:br_romaioi_india_company = {
+			is_player = no
+		}
 		NOT = {
 			c:br_romaioi_india_company = {
 				is_subject_of = ROOT
@@ -71,7 +85,20 @@ br_byz_easy_agy = {
 	}
 
 	ai_chance = {
-		base = 100
+		base = 10
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
@@ -155,6 +182,385 @@ br_eet_annex_suakin = {
 	}
 
 	ai_chance = {
+		base = 25
+		modifier = {
+			trigger = {
+				game_date > 1740.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+#AI Will target Italian AI New World/African Holdings
+br_anl_annex_west_africa_01 = {
+	is_shown = {
+		exists = c:ANL
+		exists = c:br_venice_africa_company
+		c:ANL = ROOT
+		c:VEN = {
+			is_player = no
+		}
+		c:br_venice_africa_company = {
+			is_player = no
+		}
+		c:ANL = {
+			is_player = no
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_subject = no
+		c:br_venice_africa_company = {
+			is_player = no
+		}
+	}
+
+	when_taken = {
+		create_diplomatic_play = {
+			war = yes
+			type = dp_annex_war
+			#add_initiator_backers = { c: }
+			target_state = s:STATE_SIERRA_LEONE.region_state:br_venice_africa_company
+		}
+	}
+
+	ai_chance = {
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1745.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+br_anl_annex_west_africa_02 = {
+	is_shown = {
+		exists = c:ANL
+		exists = c:br_genonese_africa_company
+		c:ANL = ROOT
+		c:br_genoa = {
+			is_player = no
+		}
+		c:br_genonese_africa_company = {
+			is_player = no
+		}
+		c:ANL = {
+			is_player = no
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_subject = no
+		c:br_genonese_africa_company = {
+			is_player = no
+		}
+	}
+
+	when_taken = {
+		create_diplomatic_play = {
+			war = yes
+			type = dp_annex_war
+			#add_initiator_backers = { c: }
+			target_state = s:STATE_SOUTH_CAMEROON.region_state:br_genonese_africa_company
+		}
+	}
+
+	ai_chance = {
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1745.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+br_louisiane_annex_atlantis = {
+	is_shown = {
+		exists = c:br_louisiane
+		exists = c:br_atlantica
+		c:br_louisiane = ROOT
+		c:br_atlantica = {
+			is_player = no
+			top_overlord = {
+				is_player = no
+			}
+		}
+		c:br_louisiane = {
+			is_player = no
+			top_overlord = {
+				is_player = no
+			}
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		c:br_atlantica = {
+			is_player = no
+			top_overlord = {
+				is_player = no
+			}
+		}
+	}
+
+	when_taken = {
+		create_diplomatic_play = {
+			war = yes
+			type = dp_annex_war
+			add_initiator_backers = { c:HRE }
+			target_state = s:STATE_CUBA.region_state:br_atlantica
+		}
+	}
+
+	ai_chance = {
+		base = 1
+		modifier = {
+			trigger = {
+				game_date > 1746.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+br_dutch_indies_annex_giamaica = {
+	is_shown = {
+		exists = c:br_dutch_west_indies
+		exists = c:br_giamaica
+		c:br_dutch_west_indies = ROOT
+		c:br_giamaica = {
+			is_player = no
+			top_overlord = {
+				is_player = no
+			}
+		}
+		c:br_dutch_west_indies = {
+			is_player = no
+			top_overlord = {
+				is_player = no
+			}
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		hidden_trigger = {
+			is_player = no
+			c:br_giamaica = {
+				is_player = no
+				top_overlord = {
+					is_player = no
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		create_diplomatic_play = {
+			war = yes
+			type = dp_annex_war
+			add_initiator_backers = { c:NET }
+			target_state = s:STATE_JAMAICA.region_state:br_giamaica
+		}
+	}
+
+	ai_chance = {
+		base = 1
+		modifier = {
+			trigger = {
+				game_date > 1746.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+#AI Return capital states of important countries to the AI owner if the country still exists. Decreases border gore and weird borders.
+
+br_ai_owns_constantinople = {
+	is_shown = {
+		is_player = no
+		exists = c:BYZ
+		c:BYZ = {
+			is_player = no
+		}
+		NOT = {
+			c:BYZ ?= this
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+				owner = BYZ
+			}
+		}
+		ROOT = {
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+				owner = ROOT
+			}
+		}	
+	}
+
+	possible = {
+		is_player = no
+		is_at_war = no
+		c:BYZ = {
+			is_player = no
+		}
+		hidden_trigger = {
+			NOT = {
+				c:BYZ ?= this
+        		any_scope_state = {
+					state_region = s:STATE_EASTERN_THRACE
+					owner = BYZ
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+			set_state_owner = c:BYZ
+		}
+		c:BYZ = {
+			set_capital = STATE_EASTERN_THRACE
+		}
+		ROOT = {
+			change_relations = {
+				country = c:BYZ
+				value = 100
+			}
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
+	}
+
+	ai_chance = {
 		base = 100
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+br_ai_owns_venice = {
+	is_shown = {
+		is_player = no
+		exists = c:VEN
+		c:VEN = {
+			is_player = no
+		}
+		NOT = {
+			c:VEN ?= this
+			any_scope_state = {
+				state_region = s:STATE_VENETIA
+				owner = VEN
+			}
+		}
+		ROOT = {
+			any_scope_state = {
+				state_region = s:STATE_VENETIA
+				owner = ROOT
+			}
+		}	
+	}
+
+	possible = {
+		is_player = no
+		is_at_war = no
+		c:VEN = {
+			is_player = no
+		}
+		hidden_trigger = {
+			NOT = {
+				c:VEN ?= this
+        		any_scope_state = {
+					state_region = s:STATE_VENETIA
+					owner = VEN
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_VENETIA
+			}
+			set_state_owner = c:VEN
+		}
+		c:VEN = {
+			set_capital = STATE_VENETIA
+		}
+		ROOT = {
+			change_relations = {
+				country = c:VEN
+				value = 100
+			}
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 100
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
