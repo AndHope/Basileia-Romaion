@@ -500,7 +500,11 @@ br_ai_owns_venice = {
 			is_player = no
 		}
 		NOT = {
-			c:VEN ?= this
+			OR = {
+				c:VEN ?= this
+				c:br_verona ?= this
+				c:br_aquileia ?= this
+			}
 			any_scope_state = {
 				state_region = s:STATE_VENETIA
 				owner = VEN

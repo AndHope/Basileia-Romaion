@@ -14,14 +14,13 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_local_police
-		#activate_law = law_type:law_peasant_levies
 		activate_law = law_type:law_industry_banned #law_traditionalism #law_agrarianism
 		#activate_law = law_type:law_no_schools
 		#activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_migration_controls
-		activate_law = law_type:law_tribal_armies #law_professional_army
-		activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_tribal_armies
+		#activate_law = law_type:law_frontier_colonization
 
 		set_tax_level = medium
 		set_military_wage_level = medium
@@ -45,7 +44,6 @@
 		ig:ig_landowners = {
 			set_interest_group_name = ig_kurultai
 			add_ruling_interest_group = yes
-
 			add_ideology = ideology_frontier_expansionist
 		}
 
@@ -56,17 +54,15 @@
 			add_ideology = ideology_mongol_jingoist
 			remove_ideology = ideology_patriotic
 			add_ideology = ideology_irredentist
-
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.5 #was 2.0
+				multiplier = 0.5
 				years = 75
 				is_decaying = yes
 			}
 			add_modifier = {
 				name = ig_attraction_modifier
-				multiplier = 0.25
+				multiplier = 0.5
 				years = 75
 				is_decaying = yes
 			}
@@ -74,8 +70,6 @@
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_steppe_nomads
-			#remove_ideology = ideology_isolationist
-			#add_ideology = ideology_cossacks
 			remove_ideology = ideology_agrarian
 			add_ideology = ideology_semi_nomadic
 			set_ig_trait = ig_trait:br_ig_trait_tribal_militias
@@ -90,7 +84,7 @@
 			}
 			add_modifier = {
 				name = ig_attraction_modifier
-				multiplier = 0.75
+				multiplier = 0.5
 				years = 75
 				is_decaying = yes
 			}
@@ -113,6 +107,7 @@
 		}
 
 		ig:ig_industrialists = { 
+			add_ideology = ideology_frontier_expansionist
 			set_interest_group_name = ig_modernists
 			add_modifier = {
 				name = ig_attraction_modifier
@@ -133,6 +128,7 @@
 		}
 
 		ig:ig_petty_bourgeoisie = {
+			add_ideology = ideology_frontier_expansionist
 			set_interest_group_name = ig_sedentarists 
 		}
 
@@ -188,7 +184,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_landowners = {
@@ -218,7 +213,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_landowners = {

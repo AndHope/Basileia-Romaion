@@ -1,10 +1,10 @@
 ﻿COUNTRIES = {
 	c:br_aegypt ?= {
 		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
+
 		add_technology_researched = br_tech_frontier_expansion
 		add_technology_researched = colonization #Needed for Canal at game start
-
-		effect_starting_politics_traditional = yes
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -21,7 +21,7 @@
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_migration_controls	
 		activate_law = law_type:law_agrarianism
-		activate_law = law_type:law_frontier_colonization
+		#activate_law = law_type:law_frontier_colonization
 
 		set_institution_investment_level = {
 			institution = institution_police
@@ -71,6 +71,7 @@
 			set_interest_group_name = ig_dianooumenoi
 		}
 		ig:ig_industrialists = { 
+			add_ideology = ideology_frontier_expansionist
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_attraction_modifier
@@ -222,19 +223,16 @@
 			add_ruling_interest_group = yes
 		}
 
-
-
 		#effect_starting_wealthy_merchants = yes
 
 	}
 
 	c:br_romaioi_india_company = {
-		# set_next_election_date = ??
-		
 		effect_starting_technology_tier_3_tech = yes
+
+
 		add_technology_researched = colonization
 		activate_law = law_type:law_national_militia
-		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_racial_segregation
@@ -247,7 +245,7 @@
 		activate_law = law_type:law_migration_controls				
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_commercialized_agriculture
-		activate_law = law_type:law_colonial_exploitation 
+		#activate_law = law_type:law_colonial_exploitation 
 
 		#add_taxed_goods = g:liquor
 		#add_taxed_goods = g:opium
@@ -290,7 +288,6 @@
 			set_interest_group_name = ig_merchant_guilds
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -419,7 +416,6 @@
 			set_interest_group_name = ig_themata_patricians
 			add_ideology = ideology_romaioi_hegemony
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_armed_forces = {
