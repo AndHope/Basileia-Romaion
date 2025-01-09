@@ -467,15 +467,15 @@ br_ai_owns_constantinople = {
 		}
 		c:BYZ = {
 			set_capital = STATE_EASTERN_THRACE
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
 		}
 		ROOT = {
 			change_relations = {
 				country = c:BYZ
 				value = 100
-			}
-			set_owes_obligation_to = {
-				country = ROOT
-				setting = yes
 			}
 		}
 	}
@@ -544,15 +544,19 @@ br_ai_owns_venice = {
 		}
 		c:VEN = {
 			set_capital = STATE_VENETIA
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
 		}
 		ROOT = {
 			change_relations = {
 				country = c:VEN
 				value = 100
 			}
-			set_owes_obligation_to = {
-				country = ROOT
-				setting = yes
+			create_diplomatic_pact = {
+				country = c:VEN	
+				type = protectorate
 			}
 		}
 	}
