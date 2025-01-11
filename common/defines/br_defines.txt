@@ -27,7 +27,8 @@ NPops = {
 	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
 	DISCRIMINATION_BASE = 35 #was 25 now 33					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
 
-	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.01 #0.005
+	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.02 #0.005 Scales by literacy
+
 
 	#QUALIFICATIONS_UPDATE_FACTOR = 0.0001 # was 0.0003				# Calculated potential values are multiplied by this value and the workforce size of the pop before being added to the existing potentials
 	#QUALIFICATIONS_NUM_MONTHS_AT_START = 25 # was 60				# How many months of qualifications should be seeded to pops at start of game?
@@ -55,10 +56,16 @@ NPops = {
 }
 
 NEconomy = {
-	TRADE_CENTER_MIN_AVAILABLE_WORKFORCE = 10000 # was 20000 Don't put new trade centers in places with less available workforce than this
+	TRADE_ROUTE_BUREAUCRACY_COST = 12					#was 20 The cost in BUR per trade route
+	TRADE_ROUTE_MAX_LEVEL = 250							#was 100 Trade routes cannot be higher level than this
+	TRADE_CENTER_MIN_AVAILABLE_WORKFORCE = 5000 # was 20000 Don't put new trade centers in places with less available workforce than this
 	TRADE_CENTER_MARKET_CAPITAL_FACTOR = 25	#was 5 When deciding trade center for a trade route, increase score by this for the market capital in the market
 	TRADE_CENTER_PORT_LEVEL_FACTOR = 5 	#was 1 When deciding trade center for a trade route, multiply port level by this and add to the score
+	TRADE_CENTER_TRADE_ROUTE_STATE_FACTOR = 5	#was 4 When deciding trade center for a trade route, increase score by this if the state is the exit/entry port for the trade route
 	#TRADE_CENTER_TREATY_PORT_FACTOR = 15 	# When deciding trade center for a trade route, increase score by this for treaty port in the remote market
+
+	DEBT_SLAVERY_ENSLAVEMENT_RATE = 0.002		#was 0.005 Under debt slavery up to this much of a state's populace can be enslaved for their debts each week
+
 }
 
 NDiplomacy = {

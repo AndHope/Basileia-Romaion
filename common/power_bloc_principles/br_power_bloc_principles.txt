@@ -69,19 +69,21 @@ br_principle_autonomous_government_3 = {
 	}
 }
 
-### ECONOMIC IMPERIALISM
-
+###
 br_principle_economic_imperialism_1 = {
-	icon = "gfx/interface/icons/principles_icons/economic_imperialism.dds"
+	icon = "gfx/interface/icons/principles_icons/aggressive_coordination.dds"
 	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
 
 	visible = {
 		has_dlc_feature = power_bloc_features
 	}
 
+	non_leader_modifier = {
+		building_group_bg_manufacturing_throughput_add = -0.02
+	}
+
 	leader_modifier = {
-		state_shopkeepers_investment_pool_efficiency_mult = 0.1	
-		state_capitalists_investment_pool_efficiency_mult = 0.1
+		building_group_bg_manufacturing_throughput_add = 0.02
 	}
 	
 	ai_weight = {
@@ -117,7 +119,7 @@ br_principle_economic_imperialism_1 = {
 }
 
 br_principle_economic_imperialism_2 = {
-	icon = "gfx/interface/icons/principles_icons/economic_imperialism.dds"
+	icon = "gfx/interface/icons/principles_icons/aggressive_coordination.dds"
 	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
 
 	visible = {
@@ -129,13 +131,11 @@ br_principle_economic_imperialism_2 = {
 	}
 
 	non_leader_modifier = {
-		state_shopkeepers_investment_pool_efficiency_mult = -0.1	
-		state_capitalists_investment_pool_efficiency_mult = -0.1
+		building_group_bg_manufacturing_throughput_add = -0.025
 	}
 
 	leader_modifier = {
-		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
-		state_capitalists_investment_pool_efficiency_mult = 0.25
+		building_group_bg_manufacturing_throughput_add = 0.025
 	}
 	
 	ai_weight = {
@@ -144,7 +144,7 @@ br_principle_economic_imperialism_2 = {
 }
 
 br_principle_economic_imperialism_3 = {
-	icon = "gfx/interface/icons/principles_icons/economic_imperialism.dds"
+	icon = "gfx/interface/icons/principles_icons/aggressive_coordination.dds"
 	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
 
 	visible = {
@@ -156,18 +156,125 @@ br_principle_economic_imperialism_3 = {
 	}
 
 	non_leader_modifier = {
-		state_shopkeepers_investment_pool_efficiency_mult = -0.1	
-		state_capitalists_investment_pool_efficiency_mult = -0.1
+		building_group_bg_manufacturing_throughput_add = -0.05
 		country_disable_nationalization_bool = yes
 		country_force_privatization_bool = yes
 	}
 
 	leader_modifier = {
-		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
-		state_capitalists_investment_pool_efficiency_mult = 0.25
+		building_group_bg_manufacturing_throughput_add = 0.05
+	}
+
+	ai_weight = {
+		value = 10000
+	}
+}
+
+###
+br_principle_holy_roman_elite_1 = {
+	icon = "gfx/interface/icons/principles_icons/vassals_subjects.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	visible = {
+		has_dlc_feature = power_bloc_features
+	}
+
+	possible = {
+		has_modifier = br_modifier_holy_roman_emperor
+	}
+
+	leader_modifier = {
+		country_influence_mult = 0.1
+	}
+
+	member_modifier = {
+		interest_group_ig_landowners_pol_str_mult = 0.25
+	}
+	
+	ai_weight = {
+		value = 0	
+
+		if = {
+			limit = {
+				has_law = law_type:law_monarchy
+			}
+			add = 100
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_agrarianism
+					has_law = law_type:law_traditionalism
+					has_law = law_type:law_industry_banned
+				}
+			}
+			add = 100
+		}
+
+		if = {
+			limit = {
+				has_law = law_type:law_serfdom
+			}
+			add = 100
+		}
+	}
+}
+
+br_principle_holy_roman_elite_2 = {
+	icon = "gfx/interface/icons/principles_icons/vassals_subjects.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	visible = {
+		has_dlc_feature = power_bloc_features
+	}
+
+	possible = {
+		has_modifier = br_modifier_holy_roman_emperor
+	}
+
+	leader_modifier = {
+		country_influence_mult = 0.25
+	}
+
+	member_modifier = {
+		interest_group_ig_landowners_pol_str_mult = 0.25
+		state_aristocrats_investment_pool_efficiency_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 10000
+	}
+}
+
+br_principle_holy_roman_elite_3 = {
+	icon = "gfx/interface/icons/principles_icons/vassals_subjects.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	visible = {
+		has_dlc_feature = power_bloc_features
+	}
+
+	possible = {
+		has_modifier = br_modifier_holy_roman_emperor
+	}
+
+	leader_modifier = {
+		country_influence_mult = 0.25
+		country_infamy_decay_mult = 0.25
+	}
+
+	member_modifier = {
+		interest_group_ig_landowners_pol_str_mult = 0.25
+		state_aristocrats_investment_pool_efficiency_mult = 0.25
+	}
+
+	non_leader_modifier = {
+		country_join_power_bloc_member_in_defensive_plays_bool = yes #Emperor can be forced to defend the Empire
 	}
 	
 	ai_weight = {
 		value = 10000
 	}
 }
+

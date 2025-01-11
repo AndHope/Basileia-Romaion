@@ -19,12 +19,12 @@ remove_noble_privileges_decision = {
 
 		add_radicals = {
 			pop_type = clergymen
-			value = medium_radicals
+			value = large_radicals
 		}
 
 		add_radicals = {
 			pop_type = aristocrats
-			value = large_radicals
+			value = very_large_radicals
 		}
 
 		ig:ig_landowners = {
@@ -39,7 +39,13 @@ remove_noble_privileges_decision = {
 	#change_infamy = 50
 
 	ai_chance = {
-		base = 1
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 10
+		}
 	}
 }
 

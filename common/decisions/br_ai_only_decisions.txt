@@ -146,7 +146,20 @@ br_hre_annex_franks = {
 	}
 
 	ai_chance = {
-		base = 100
+		base = 0
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
