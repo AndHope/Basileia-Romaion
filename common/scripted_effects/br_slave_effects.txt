@@ -9,7 +9,7 @@
 
 br_convert_africans_to_slave_cultures_effect = {
 	hidden_effect = {
-		if = {  # colonial-italian -> afro-italian
+		if = {  # african -> afro-italian
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:colonial_italian
@@ -26,6 +26,11 @@ br_convert_africans_to_slave_cultures_effect = {
 							is_employed = no
 						}
 					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
 					culture = {
 						has_discrimination_trait = african_heritage
 					}
@@ -36,7 +41,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				}
 			}
 		}
-		else_if = { # # colonial-french -> afro-french
+		else_if = { # # african -> afro-french
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:colonial_french
@@ -52,6 +57,11 @@ br_convert_africans_to_slave_cultures_effect = {
 							is_employed = no
 						}
 					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
 					culture = {
 						has_discrimination_trait = african_heritage
 					}
@@ -62,7 +72,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				}
 			}
 		}
-		else_if = { # colonial-andalusian -> afro-andalusian
+		else_if = { # african -> afro-andalusian
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:colonial_andalusian
@@ -78,6 +88,11 @@ br_convert_africans_to_slave_cultures_effect = {
 							is_employed = no
 						}
 					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
 					culture = {
 						has_discrimination_trait = african_heritage
 					}
@@ -89,7 +104,7 @@ br_convert_africans_to_slave_cultures_effect = {
 			}
 		}
 
-		else_if = { # bedouin -> afro-arab 1
+		else_if = { # african -> afro-arab 1
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:bedouin
@@ -107,6 +122,11 @@ br_convert_africans_to_slave_cultures_effect = {
 							is_employed = no
 						}
 					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
 					culture = {
 						has_discrimination_trait = african_heritage
 					}
@@ -117,7 +137,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				}
 			}
 		}
-		else_if = { # bedouin -> afro-arab 2
+		else_if = { # african -> afro-arab 2
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:maghrebi
@@ -132,6 +152,11 @@ br_convert_africans_to_slave_cultures_effect = {
 						AND = { 
 							is_pop_type = laborers
 							is_employed = no
+						}
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
 						}
 					}
 					culture = {
@@ -151,7 +176,7 @@ br_convert_africans_to_slave_cultures_effect = {
 			}
 		}
 
-		else_if = { # colonial-hellenic -> afro-hellenic
+		else_if = { # african -> afro-hellenic
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:elysian
@@ -167,6 +192,11 @@ br_convert_africans_to_slave_cultures_effect = {
 							is_employed = no
 						}
 					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
 					culture = {
 						has_discrimination_trait = african_heritage
 					}
@@ -177,7 +207,7 @@ br_convert_africans_to_slave_cultures_effect = {
 				}
 			}
 		}
-		else_if = { # colonial-dutch-> afro-dutch
+		else_if = { # african-> afro-dutch
 		limit = {
 			OR = {
 				country_has_primary_culture = cu:colonial_dutch
@@ -191,6 +221,11 @@ br_convert_africans_to_slave_cultures_effect = {
 					AND = {
 						is_pop_type = laborers
 						is_employed = no
+					}
+				}
+				NOT = {
+					culture = {
+						has_discrimination_trait = colonial_heritage
 					}
 				}
 				culture = {
