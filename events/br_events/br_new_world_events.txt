@@ -51,7 +51,7 @@ br_new_world_events.1 = {
 	option = {
 		name = br_new_world_events.1.b
 		default_option = yes
-		ai_chance = { base = 99 }
+		ai_chance = { base = 100 }
 		change_relations = {
 			country = c:BYZ
 			value = -10
@@ -117,7 +117,7 @@ br_new_world_events.2 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:greek = { has_homeland = PREV }
@@ -195,7 +195,7 @@ br_new_world_events.7 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:serb = { has_homeland = PREV }
@@ -267,7 +267,7 @@ br_new_world_events.9 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:south_italian = { has_homeland = PREV }
@@ -336,7 +336,7 @@ br_new_world_events.10 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:greek = { has_homeland = PREV }
@@ -404,7 +404,7 @@ br_new_world_events.11 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:south_italian = { has_homeland = PREV }
@@ -478,7 +478,7 @@ br_new_world_events.3 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:british = { has_homeland = PREV }
@@ -550,7 +550,7 @@ br_new_world_events.4 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:british = { has_homeland = PREV }
@@ -632,7 +632,7 @@ br_new_world_events.8 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:irish = { has_homeland = PREV }
@@ -717,7 +717,7 @@ br_new_world_events.5 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:danish = { has_homeland = PREV }
@@ -789,7 +789,7 @@ br_new_world_events.6 = {
 	option = {
 		name = br_new_world_events.2.a
 		default_option = yes
-		ai_chance = { base = 2 }
+		ai_chance = { base = 100 }
 		every_scope_state = {
 			limit = {
 				cu:norwegian = { has_homeland = PREV }
@@ -800,6 +800,85 @@ br_new_world_events.6 = {
 				create_mass_migration = {
 					origin = c:NOR
 					culture = cu:norwegian
+				}
+			}
+		}
+	}
+
+}
+
+#Lanfang Migration
+br_new_world_events.12 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = hakka_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = hakka_migration_began_variable
+		set_variable = already_has_hakka_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_hakka_migration_variable }
+				any_scope_state = {
+					cu:hakka = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:hakka } 
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_WEST_BORNEO
+						state_region = s:STATE_WESTERN_AUSTRALIA
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					OR = {
+						state_region = s:STATE_WEST_BORNEO
+						state_region = s:STATE_WESTERN_AUSTRALIA
+					}
+				}
+				save_scope_as = random_langfang_hakka_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 100 }
+		every_scope_state = {
+			limit = {
+				cu:hakka = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_langfang_hakka_city = {
+				create_mass_migration = {
+					origin = c:HNA
+					culture = cu:hakka
 				}
 			}
 		}

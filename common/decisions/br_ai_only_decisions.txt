@@ -105,6 +105,7 @@ br_byz_easy_agy = {
 br_hre_annex_franks = {
 	is_shown = {
 		and = {
+			exists = c:HES
 			exists = c:HRE
 			root = c:HRE
 			c:HRE = {
@@ -569,6 +570,93 @@ br_ai_owns_venice = {
 			}
 			create_diplomatic_pact = {
 				country = c:VEN	
+				type = protectorate
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 100
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+br_ai_owns_genoa = {
+	is_shown = {
+		is_player = no
+		exists = c:br_genoa
+		c:br_genoa = {
+			is_player = no
+		}
+		NOT = {
+			OR = {
+				c:LOM ?= this
+				c:SAR ?= this
+			}
+			any_scope_state = {
+				state_region = s:STATE_PIEDMONT
+				owner = c:br_genoa
+			}
+		}
+		ROOT = {
+			any_scope_state = {
+				state_region = s:STATE_PIEDMONT
+				owner = ROOT
+			}
+		}	
+	}
+
+	possible = {
+		is_player = no
+		is_at_war = no
+		c:br_genoa = {
+			is_player = no
+		}
+		hidden_trigger = {
+			NOT = {
+				c:br_genoa ?= this
+        		any_scope_state = {
+					state_region = s:STATE_PIEDMONT
+					owner = c:br_genoa
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_PIEDMONT
+			}
+			s:STATE_PIEDMONT = {
+				set_owner_of_provinces = {
+					country = c:br_genoa
+					provinces = {
+						x904061 x5F6BAA x54728A
+					}
+				}
+			}
+		}
+		c:br_genoa = {
+			set_capital = STATE_PIEDMONT
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
+		ROOT = {
+			change_relations = {
+				country = c:br_genoa
+				value = 100
+			}
+			create_diplomatic_pact = {
+				country = c:br_genoa	
 				type = protectorate
 			}
 		}

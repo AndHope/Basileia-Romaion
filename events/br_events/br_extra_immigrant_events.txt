@@ -1,0 +1,81 @@
+﻿namespace = br_extra_immigrants_events
+
+#russian Migration to Anatolia
+br_extra_immigrants_events.1 = {
+	type = country_event
+	placement = ROOT
+	title = br_new_world_events.2.t
+	desc = br_new_world_events.2.d
+	flavor = br_new_world_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = russian_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = russian_migration_began_variable
+		set_variable = already_has_russian_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_russian_migration_variable }
+				any_scope_state = {
+					cu:russian = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:greek } 
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_KONYA
+						state_region = s:STATE_ANKARA
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					OR = {
+						state_region = s:STATE_KONYA
+						state_region = s:STATE_ANKARA
+					}
+				}
+				save_scope_as = random_roman_russian_city
+			}
+		}
+	}
+
+	option = {
+		name = br_new_world_events.2.a
+		default_option = yes
+		ai_chance = { base = 100 }
+		every_scope_state = {
+			limit = {
+				cu:russian = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_roman_russian_city = {
+				create_mass_migration = {
+					origin = br_tartaria
+					culture = cu:russian
+				}
+			}
+		}
+	}
+
+}
+

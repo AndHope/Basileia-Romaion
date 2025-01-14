@@ -18,9 +18,9 @@
 		#activate_law = law_type:law_no_schools
 		#activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_tenant_farmers
-		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_no_migration_controls
 		activate_law = law_type:law_tribal_armies
-		#activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_frontier_colonization
 
 		set_tax_level = medium
 		set_military_wage_level = medium
@@ -164,15 +164,17 @@
 			name = br_modifier_horde_army_prowess
 			years = 50
 		}
-		#	add_modifier = {
-	#		name = br_modifier_power_bloc_bonus
-	#		months = 1
-	#	}
 
 	#	add_modifier = {
 	#		name = br_modifier_religious_tolerance
 	#		months = -1
 	#	}
+
+	trigger_event = {
+		id = br_extra_immigrants_events.1
+		days = 100
+	}
+
 
 	}
 	c:br_circassia ?= {

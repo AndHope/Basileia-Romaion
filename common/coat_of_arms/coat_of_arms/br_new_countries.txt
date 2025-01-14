@@ -382,7 +382,7 @@ SER2 = {
 	}
 	textured_emblem = {
 		texture = "te_coa_nis.dds"
-		instance = { scale = { 0.3 0.3 } position = { 0.5 0.5 } }
+		instance = { scale = { 0.28 0.32 } position = { 0.5 0.5 } }
 	}		
 }
 
@@ -584,34 +584,9 @@ br_romaioi_india_company = {
 	color1 = "purple"
 	color2 = "yellow"
 
-	colored_emblem = {
-		texture = "ce_cross_england.dds"
-		color1 = color2
-		color2 = color2
-	}
-
-	colored_emblem = {
-		texture = "ce_letter_beta.dds"
-		color1 = color2
-		color2 = color2
-		
-        instance = { position = { @[canton_scale_cross_x/2] @[canton_scale_cross_y/2] } scale = { @[-1/5*2] @[1/5*2] } } # top left
-        instance = { position = { @[1-(canton_scale_cross_x/2)] @[canton_scale_cross_y/2] } scale = { @[1/5*2] @[1/5*2] } } # top right
-        instance = { position = { @[canton_scale_cross_x/2] @[1-(canton_scale_cross_y/2)] } scale = { @[-1/5*2] @[1/5*2] } } # bottom left
-        instance = { position = { @[1-(canton_scale_cross_x/2)] @[1-(canton_scale_cross_y/2)] } scale = { @[1/5*2] @[1/5*2] } } # bottom right
-	}
-
-	colored_emblem = {
-		texture = "ce_tamgha_roundel_frame.dds"
-		color1 = "purple"
-		color2 = "yellow"
-		instance = { position = { 0.5 0.5 } scale = { 0.4 0.4 } }
-	}
-	colored_emblem = {
-		texture = "ce_eagle_double.dds"
-		color1 = "yellow"
-		color2 = "yellow"
-		instance = { position = { 0.5 0.525 } scale = { 0.33 0.33 } }
+	textured_emblem = {
+		texture = "br_india_company.png"
+		instance = { scale = { 1.0 1.0 } }
 	}
 
 }
@@ -667,6 +642,9 @@ br_taurica = {
 		instance = { scale = { 1.0 1.0 } position = { 0.5 0.5 } }
 	}
 }
+
+
+#Africa
 
 br_aegypt = {
 	pattern = "pattern_solid.tga"
@@ -726,9 +704,6 @@ br_afrika = {
 
 br_kyrenaica = br_afrika
 
-
-#Africa
-
 br_genonese_africa_company = { #Genoa Africa
 	pattern = "pattern_solid.tga"
 	color1 = "white"
@@ -776,6 +751,11 @@ br_vinland = {
 br_new_world_company = br_vinland
 
 br_elysium = {
+	pattern = "pattern_solid.tga"
+	color1 = "purple" #purple
+	color2 = "black"
+	color3 = "yellow"
+
 	textured_emblem = {
 		texture = "br_elysia.png"
 		instance = { scale = { 1.0 1.0 } }
@@ -783,6 +763,11 @@ br_elysium = {
 }
 
 br_australis = {
+	pattern = "pattern_solid.tga"
+	color1 = "purple" #purple
+	color2 = "black"
+	color3 = "yellow"
+
 	textured_emblem = {
 		texture = "Austalia.png"
 		instance = { scale = { 1.0 1.0 } }
@@ -844,7 +829,7 @@ br_new_granada = { #Andalusian Caribbean
 	}
 
 	colored_emblem={
-		color1=rgb { 37 121 45 }
+		color1=green
 		color2=green_light
 		texture="ce_octogon_frame.dds"
 		instance={
@@ -897,7 +882,7 @@ br_new_angland = {
 br_novgorod = {
 	pattern = "pattern_solid.tga"
 	color1 = white
-	color2 = rgb { 0 57 166 }
+	color2 = blue
 
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
@@ -914,7 +899,7 @@ br_novgorod = {
 NOV_republic = {
 	pattern = "pattern_solid.tga"
 	color1 = white
-	color2 = rgb { 0 57 166 }
+	color2 = blue
 
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
@@ -926,7 +911,7 @@ NOV_republic = {
 NOV_absolute_monarchy = {
 	pattern = "pattern_solid.tga"
 	color1 = white
-	color2 = rgb { 0 57 166 }
+	color2 = blue
 
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
@@ -955,7 +940,7 @@ br_pskov = { #Pskov
 
 PRM = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 197 11 30 }
+	color1 = red
 
 	colored_emblem = {
 		texture = "ce_deer.dds"
@@ -966,9 +951,9 @@ PRM = {
 
 PRM_republic = {
 	pattern = "pattern_border_triangles.dds"
-	color1 = rgb { 0 57 166 }
+	color1 = blue
 	color2 = yellow
-	color3 = rgb { 0 57 166 }
+	color3 = blue
 
 	colored_emblem = {
 		texture = "ce_deer.dds"
@@ -979,7 +964,7 @@ PRM_republic = {
 
 br_muscovy = { #Rus
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 0 57 166 }
+	color1 = blue
 	color2 = "white"
 
 	colored_emblem = {
@@ -1023,7 +1008,7 @@ MUS_absolute_monarchy = {
 
 MUS_republic = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 0 57 166 }
+	color1 = blue
 	color2 = "white"
 	
 	colored_emblem = {
@@ -1034,7 +1019,7 @@ MUS_republic = {
 
 br_smolensk = { #Smolensk
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 0 102 204 }
+	color1 = blue
 
 	textured_emblem = {
 		texture = "te_smolensk.dds"
@@ -1044,12 +1029,12 @@ br_smolensk = { #Smolensk
 
 br_smolensk_monarchy = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 0 102 204 }
+	color1 = blue
 
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal_thick.dds"
 		color1 = white
-		color2 = rgb { 0 102 204 }
+		color2 = blue
 	}
 
 	textured_emblem = {
@@ -1060,7 +1045,7 @@ br_smolensk_monarchy = {
 
 br_smolensk_republic = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 0 102 204 }
+	color1 = blue
 
 	colored_emblem = {
 		texture = "ce_stripe_center.dds"
@@ -1075,7 +1060,7 @@ br_smolensk_republic = {
 
 br_ryazan = { #Ryazan
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 191 69 16 }
+	color1 = red
 
 	textured_emblem = {
 		texture = "te_horse.dds"
@@ -1085,12 +1070,12 @@ br_ryazan = { #Ryazan
 
 br_ryazan_absolute_monarch = { #Ryazan
 	pattern = "pattern_border_of_3.dds"
-	color1 = rgb { 33 111 1 }
+	color1 = green
 	color2 = yellow
 
 	colored_emblem = {
 		texture = "ce_shield_accolade.dds"
-		color1 = rgb { 191 69 16 }
+		color1 = red
 		instance = { scale = { 0.49 0.49 } position = { 0.19 0.39 }}
 	}
 
@@ -1102,7 +1087,7 @@ br_ryazan_absolute_monarch = { #Ryazan
 
 br_tver = { #Yaroslavl
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 248 195 1 }
+	color1 = red
 
 	textured_emblem = {
 		texture = "te_yaroslavl_bear.dds"
@@ -1122,7 +1107,7 @@ br_nizhny_novgorod = { #Nizhny Novgorod
 
 br_yaroslavl = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb { 218 37 29 }
+	color1 = red
 	color2 = white
 
 	colored_emblem = {
@@ -1219,7 +1204,7 @@ br_turov_pinsk = { #
 
 SIH = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb {36 180 76}
+	color1 = green
 	
 	textured_emblem = {
 		texture = "SIH.tga"
@@ -1229,7 +1214,7 @@ SIH = {
 
 SIH_republic = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb {36 180 76}
+	color1 = green
 	
 	textured_emblem = {
 		texture = "SIH_republic.tga"
@@ -1302,6 +1287,11 @@ HAW = {
 }
 
 br_great_yuan = {
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+	color2 = "black"
+	color3 = "yellow"
+
 	textured_emblem = {
 		texture = "yuan.png"
 		instance = { scale = { 1 1 } position = { 0.5 0.5 } }
@@ -1414,7 +1404,7 @@ br_formosa_natives = {
 
 FRS = {
 	pattern = "pattern_solid.tga"
-	color1 = rgb {42 82 122}
+	color1 = "white"
 	
 	textured_emblem = {
 		texture = "FRS.tga"
