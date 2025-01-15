@@ -513,6 +513,44 @@ romaioi_eastmespotamia_decision = {
 	}
 }
 
+romaioi_expand_taurica_decision = {
+	is_shown = {
+		exists = c:BYZ
+		exists = c:br_blacksea_colonies
+		exists = c:br_taurica
+		ROOT = c:BYZ
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		exists = c:br_taurica
+		c:br_taurica = { is_subject_of = ROOT }
+		exists = c:br_blacksea_colonies
+		c:br_blacksea_colonies = { is_subject_of = ROOT }
+	}
+
+	when_taken = {
+		
+		c:br_taurica = {
+			annex = c:br_blacksea_colonies
+			set_secret_goal = {
+				country = c:BYZ
+				secret_goal = befriend
+			}
+			change_relations = {
+				country = c:BYZ
+				value = 100
+			}
+		}
+
+	}
+
+	ai_chance = {
+		base = 95
+	}
+}
+
 
 #Not Byz Themata/Tagmata
 notbyz_themata_decision = {

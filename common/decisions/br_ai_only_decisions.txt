@@ -1,5 +1,5 @@
 ﻿#Only AI can see and interact with decisions ---  These are to boost AI countries as well as decrease border gore and only target other AI countries
-
+# AI only decisions do not need Localization and will NOT create an error if they don't have localization.
 #Early conquest
 br_hun_annex_trs = {
 	is_shown = {
@@ -245,6 +245,24 @@ br_anl_annex_west_africa_01 = {
 			#add_initiator_backers = { c: }
 			target_state = s:STATE_SIERRA_LEONE.region_state:br_venice_africa_company
 		}
+		c:br_venice_africa_company = {
+			every_scope_state = {
+				limit = {
+					owner = c:br_venice_africa_company
+				}
+				every_scope_pop = {
+					limit = {
+						NOT = {
+							is_pop_type = slaves
+						}
+					}
+					change_pop_culture = {
+						value = 0.05
+						target = cu:andalusian
+					}
+				}
+			}
+		}
 	}
 
 	ai_chance = {
@@ -295,6 +313,24 @@ br_anl_annex_west_africa_02 = {
 			type = dp_annex_war
 			#add_initiator_backers = { c: }
 			target_state = s:STATE_SOUTH_CAMEROON.region_state:br_genonese_africa_company
+		}
+		c:br_genonese_africa_company = {
+			every_scope_state = {
+				limit = {
+					owner = c:br_genonese_africa_company
+				}
+				every_scope_pop = {
+					limit = {
+						NOT = {
+							is_pop_type = slaves
+						}
+					}
+					change_pop_culture = {
+						value = 0.05
+						target = cu:andalusian
+					}
+				}
+			}
 		}
 	}
 
@@ -351,6 +387,24 @@ br_louisiane_annex_atlantis = {
 			type = dp_annex_war
 			add_initiator_backers = { c:HRE }
 			target_state = s:STATE_CUBA.region_state:br_atlantica
+		}
+		c:br_atlantica = {
+			every_scope_state = {
+				limit = {
+					owner = c:br_atlantica
+				}
+				every_scope_pop = {
+					limit = {
+						NOT = {
+							is_pop_type = slaves
+						}
+					}
+					change_pop_culture = {
+						value = 0.05
+						target = cu:colonial_french
+					}
+				}
+			}
 		}
 	}
 
@@ -410,6 +464,24 @@ br_dutch_indies_annex_giamaica = {
 			type = dp_annex_war
 			add_initiator_backers = { c:NET }
 			target_state = s:STATE_JAMAICA.region_state:br_giamaica
+		}
+		c:br_giamaica = {
+			every_scope_state = {
+				limit = {
+					owner = c:br_giamaica
+				}
+				every_scope_pop = {
+					limit = {
+						NOT = {
+							is_pop_type = slaves
+						}
+					}
+					change_pop_culture = {
+						value = 0.05
+						target = cu:colonial_dutch
+					}
+				}
+			}
 		}
 	}
 
