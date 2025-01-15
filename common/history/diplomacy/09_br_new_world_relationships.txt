@@ -78,6 +78,27 @@
 		set_relations = { country = c:CTF value = -100 }
 		set_relations = { country = c:CHE value = -100 }
 
+		create_diplomatic_pact = {
+			country = c:br_apaleisia
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:br_apaleisia	
+			type = decrease_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_aithaia
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:br_aithaia	
+			type = decrease_payments
+		}
+
+		create_unidirectional_truce = {
+			country = c:br_apaleisia
+			months = 6
+		}
 		create_unidirectional_truce = {
 			country = c:IRO
 			months = 6
@@ -86,8 +107,14 @@
 			country = c:br_creek
 			months = 80
 		}
+	
+	}
 
-			
+	c:br_apaleisia = {
+		add_liberty_desire = 30
+	}
+	c:br_aithaia = {
+		add_liberty_desire = 40
 	}
 
 	c:br_new_angland = {
