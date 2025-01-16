@@ -97,7 +97,11 @@
 
 		create_unidirectional_truce = {
 			country = c:br_apaleisia
-			months = 6
+			months = 120
+		}
+		create_unidirectional_truce = {
+			country = c:br_aithaia
+			months = 120
 		}
 		create_unidirectional_truce = {
 			country = c:IRO
@@ -111,10 +115,21 @@
 	}
 
 	c:br_apaleisia = {
+		set_relations = { country = c:br_aithaia value = 65 }
+		set_relations = { country = c:br_elysium value = -45 }
 		add_liberty_desire = 30
+		create_unidirectional_truce = {
+			country = c:M05
+			months = 80
+		}
 	}
 	c:br_aithaia = {
+		set_relations = { country = c:br_elysium value = -75 }
 		add_liberty_desire = 40
+		create_unidirectional_truce = {
+			country = c:M05
+			months = 80
+		}
 	}
 
 	c:br_new_angland = {

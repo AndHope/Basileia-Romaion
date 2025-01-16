@@ -4,14 +4,14 @@
 	group = je_group_foreign_affairs
 
 	is_shown_when_inactive = {
-		exists = c:ENG
-		this = c:ENG
+		country_has_primary_culture = cu:british
 		any_neighbouring_state = {
 			is_homeland_of_country_cultures = ROOT
 		}
 	}
 
 	possible = {
+		country_has_primary_culture = cu:british
 		OR = {
 			NOT = { owns_entire_state_region = STATE_HOME_COUNTIES }
 			NOT = { owns_entire_state_region = STATE_LANCASHIRE }
@@ -68,17 +68,13 @@ je_conquer_wales = {
 	group = je_group_foreign_affairs
 
 	is_shown_when_inactive = {
-		exists = c:ENG
-		this = c:ENG
+		country_has_primary_culture = cu:british
 		NOT = { owns_entire_state_region = STATE_WALES }
 	}
 
 	possible = {
 		NOT = {
 			owns_entire_state_region = STATE_WALES 
-		}
-		c:ENG = {
-			is_subject = no
 		}
 	}
 
