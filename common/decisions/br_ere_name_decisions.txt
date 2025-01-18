@@ -97,3 +97,31 @@ ere_ere_name_decision = {
 		base = 0
 	}
 }
+ere_romania_name_decision = {
+	is_shown = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_variable = showing_latinized_names
+		is_player = yes
+		NOR = {
+			has_variable = re_name_chosen_var
+			has_variable = ere_name_chosen_var
+			has_variable = romania_name_chosen_var
+		}
+	}
+
+	possible = {
+		is_at_war = no
+	}
+
+	when_taken = {
+		set_variable = romania_name_chosen_var
+		custom_tooltip = {
+			text = ere_romania_name_tt
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
