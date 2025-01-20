@@ -814,22 +814,72 @@ YUE_republic = {
 MHR = SAT
 
 TWT_monarchy = {
+	# Cusco rainbow flag
 	pattern = "pattern_solid.tga"
-	color1 = "brown_light"
+	color1 = "white"
 
+	@twt_stripe = @[1/7]
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "red"
+		instance = { scale = { 1.0 @twt_stripe } position = { 0.5 @[twt_stripe*0.5] } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "orange"
+		instance = { scale = { 1.0 @twt_stripe } position = { 0.5 @[twt_stripe*1.5] } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "yellow"
+		instance = { scale = { 1.0 @twt_stripe } position = { 0.5 @[twt_stripe*2.5] } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		instance = { scale = { 1.0 @twt_stripe } position = { 0.5 @[twt_stripe*3.5] } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "blue_light"
+		instance = { scale = { 1.0 @twt_stripe } position = { 0.5 @[twt_stripe*4.5] } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "blue"
+		instance = { scale = { 1.0 @twt_stripe } position = { 0.5 @[twt_stripe*5.5] } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "purple"
+		instance = { scale = { 1.0 @twt_stripe } position = { 0.5 @[twt_stripe*6.5] } }
+	}
 	textured_emblem = {
 		texture = "inca.dds"
-		instance = { scale = { 1 1 } position = { 0.5 0.5 } }
+		instance = { scale = { 1.1 1.1 } }
 	}
 }
 
 NAH_monarchy = {
 	pattern = "pattern_solid.tga"
-	color1 = "red_light"
-
+	color1 = "green"
+	color2 = "white"
+	color3 = "red"
+	
+	colored_emblem = {		
+		texture = "ce_solid.dds"
+		color1 = color2
+        instance = { scale = { 1 @[4/6]} }				
+	}			
+	colored_emblem = {		
+		texture = "ce_solid.dds"
+		color1 = color3
+        instance = { scale = { 1 @[2/6]} }				
+	}		
 	textured_emblem = {
-		texture = "azteccoa.png"
-		instance = { scale = { 1 1 } }
-	}
+		texture = "Aztec_Triple_Alliance.png"
+		instance = { scale = { 0.5 0.5 } }
+	}	
 }
 
