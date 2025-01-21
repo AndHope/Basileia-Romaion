@@ -55,11 +55,13 @@ je_br_east_indies_trade = {
     }
 
 	is_shown_when_inactive = {
+		#game_date < 1866.1.1
 		has_interest_marker_in_region = region_indonesia
 		is_country_type = recognized
 	}
 
 	possible = {
+		#game_date < 1866.1.1
 		navy_size >= 25
 		has_interest_marker_in_region = region_indonesia
 		OR = {
@@ -116,6 +118,134 @@ je_br_east_indies_trade = {
 	on_complete = {
 		add_modifier = {
 			name = br_modifier_spice_monopoly
+			years = 25
+		}
+	}
+	
+}
+
+je_br_west_indies_trade = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_foreign_affairs
+	
+	modifiers_while_active = {
+        br_modifier_sugar_trade
+    }
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_caribbean
+		is_country_type = recognized
+	}
+
+	possible = {
+		navy_size >= 25
+		has_interest_marker_in_region = region_caribbean
+		OR = {
+			has_state_in_state_region = STATE_CUBA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_CUBA
+			}
+			has_state_in_state_region = STATE_JAMAICA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_JAMAICA
+			}
+			has_state_in_state_region = STATE_HAITI
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_HAITI
+			}
+			has_state_in_state_region = STATE_WEST_INDIES
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_WEST_INDIES
+			}
+			has_state_in_state_region = STATE_BAHAMAS
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_BAHAMAS
+			}
+			has_state_in_state_region = STATE_SANTO_DOMINGO
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_SANTO_DOMINGO
+			}
+			has_state_in_state_region = STATE_PUERTO_RICO
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_PUERTO_RICO
+			}
+			has_state_in_state_region = STATE_FLORIDA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_FLORIDA
+			}
+		}
+		NOT = { 
+			has_law = law_type:law_free_trade
+			has_modifier = br_modifier_west_indies_piracy_victim
+		}
+		is_country_type = recognized
+	}
+
+	complete = {
+		navy_size >= 75
+		has_technology_researched = power_of_the_purse
+		has_technology_researched = screw_frigate
+		has_interest_marker_in_region = region_caribbean
+		OR = {
+			has_state_in_state_region = STATE_CUBA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_CUBA
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_JAMAICA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_JAMAICA
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_HAITI
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_HAITI
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_WEST_INDIES
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_WEST_INDIES
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_BAHAMAS
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_BAHAMAS
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_SANTO_DOMINGO
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_SANTO_DOMINGO
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_PUERTO_RICO
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_PUERTO_RICO
+			}
+		}
+		OR = {
+			has_state_in_state_region = STATE_FLORIDA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_FLORIDA
+			}
+		}
+	}
+
+	#invalid = {
+	#}
+
+	timeout = 27375
+	
+	on_complete = {
+		add_modifier = {
+			name = br_modifier_sugar_monopoly
 			years = 25
 		}
 	}
