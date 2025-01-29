@@ -27,65 +27,6 @@ enclosure = {
 	}
 }
 
-br_tech_new_world_crops = {
-	# Unlock new Plantations
-	# https://en.wikipedia.org/wiki/New_World_crops
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
-	category = production
-
-	unlocking_technologies = {
-		enclosure
-	}
-
-	ai_weight = {
-		value = 2
-	}
-}
-
-br_tech_seed_drill = {
-	# Should unlock new PMs for farms
-	# https://en.wikipedia.org/wiki/Seed_drill#
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
-	category = production
-
-	modifier = {
-		building_group_bg_agriculture_throughput_add = 0.05
-		building_group_bg_plantations_throughput_add = 0.05
-	}
-
-	unlocking_technologies = {
-		br_tech_four_field_crop_rotation
-	}
-
-	ai_weight = {
-		value = 1
-	}
-}
-
-br_tech_rotherham_plough = {
-	# Should unlock new PMs for farms
-	# https://en.wikipedia.org/wiki/Plough#Improved_designs
-	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
-	category = production
-
-	modifier = {
-		building_group_bg_agriculture_throughput_add = 0.05
-		building_group_bg_plantations_throughput_add = 0.05
-	}
-
-	unlocking_technologies = {
-		br_tech_seed_drill
-	}
-
-	ai_weight = {
-		value = 1
-	}
-}
-
 br_tech_four_field_crop_rotation = {
 	# Placeholder for even older agriculture techs
 	era = era_1
@@ -106,6 +47,117 @@ br_tech_four_field_crop_rotation = {
 	}
 }
 
+br_tech_new_world_crops = {
+	# https://en.wikipedia.org/wiki/New_World_crops
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_plantation_system = {
+	# Unlock new Plantations
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_new_world_crops
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_seed_drill = {
+	# Should unlock new PMs for farms
+	# https://en.wikipedia.org/wiki/Seed_drill#
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05
+		building_group_bg_plantations_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_four_field_crop_rotation
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_rotherham_plough = {
+	# Should unlock new PMs for farms
+	# https://en.wikipedia.org/wiki/Plough#Improved_designs
+	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05
+		building_group_bg_plantations_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_seed_drill
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_selective_breeding = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05
+		building_group_bg_plantations_throughput_add = 0.05
+		building_group_bg_ranching_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_plantation_system
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+ 
+br_tech_horse_drawn_machinery = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_rotherham_plough
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
 br_tech_artisan_manufacturing = {
 	# Placeholder for even older manufacturing techs
 	era = era_1
@@ -121,7 +173,7 @@ br_tech_murano_glass = {
 	# Unlock leaded glass
 	# https://en.wikipedia.org/wiki/Venetian_glass
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
 	category = production
 
 	modifier = {
@@ -129,8 +181,66 @@ br_tech_murano_glass = {
 	}
 
 	unlocking_technologies = {
-		br_tech_artisan_manufacturing
-		br_tech_surface_mining
+		br_tech_metallurgy
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_hand_tools = {
+	# Unlocks tooling workshops
+	# Related tech: https://en.wikipedia.org/wiki/Machine_tool
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/labor_movement.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_metallurgy
+		br_tech_standardized_measures
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+
+br_tech_standardized_measures = {
+	# Placeholder for other older techs with regards to standardization
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/elevator.dds"
+	category = production
+
+	modifier = {
+		state_tax_capacity_mult = 0.1
+		state_shopkeepers_investment_pool_efficiency_mult = 0.1	
+		state_capitalists_investment_pool_efficiency_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_experimental_construction = {
+	# Should unlock first "efficent" PM for construction sector
+	# https://en.wikipedia.org/wiki/History_of_construction#Early_Modern
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/steel_frame_buildings.dds"
+	category = production
+
+	modifier = {
+		state_building_construction_sector_max_level_add = 5
+	}
+
+	unlocking_technologies = {
+		br_tech_hand_tools
 	}
 
 	ai_weight = {
@@ -143,7 +253,7 @@ br_tech_textile_manufacturies = {
 	# Related tech: https://en.wikipedia.org/wiki/Spinning_jenny
 	# Related tech: https://en.wikipedia.org/wiki/Flying_shuttle
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	texture = "gfx/interface/icons/invention_icons/fabric.dds"
 	category = production
 
 	modifier = {
@@ -180,7 +290,7 @@ br_tech_metallurgy = {
 	# Placeholder for other older techs
 	# https://en.wikipedia.org/wiki/Metallurgy#History
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	texture = "gfx/interface/icons/invention_icons/copper.dds"
 	category = production
 
 	modifier = {
@@ -188,7 +298,6 @@ br_tech_metallurgy = {
 	}
 
 	unlocking_technologies = {
-		br_tech_artisan_manufacturing
 		br_tech_surface_mining
 	}
 
@@ -197,71 +306,11 @@ br_tech_metallurgy = {
 	}
 }
 
-br_tech_hand_tools = {
-	# Unlocks tooling workshops
-	# Related tech: https://en.wikipedia.org/wiki/Machine_tool
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
-	category = production
-
-	unlocking_technologies = {
-		br_tech_metallurgy
-	}
-
-	ai_weight = {
-		value = 2
-	}
-}
-
-br_tech_standardized_measures = {
-	# Placeholder for other older techs with regards to standardization
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
-	category = production
-
-	modifier = {
-		state_tax_capacity_mult = 0.1
-		state_shopkeepers_investment_pool_efficiency_mult = 0.1	
-		state_capitalists_investment_pool_efficiency_mult = 0.1
-	}
-
-	unlocking_technologies = {
-		br_tech_artisan_manufacturing
-	}
-
-	ai_weight = {
-		value = 1
-	}
-}
-
-br_tech_experimental_construction = {
-	# Should unlock first "efficent" PM for construction sector
-	# https://en.wikipedia.org/wiki/History_of_construction#Early_Modern
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
-	category = production
-
-	modifier = {
-		state_building_construction_sector_max_level_add = 5
-	}
-
-	unlocking_technologies = {
-		br_tech_standardized_measures
-		br_tech_metallurgy
-	}
-
-	ai_weight = {
-		value = 2
-	}
-}
-
-
-
 br_tech_newcomen_engine = {
 	# Placeholder for other early manufacturing technologies
 	# https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/atmospheric_engine.dds"
 	category = production
 
 	modifier = {
@@ -269,7 +318,7 @@ br_tech_newcomen_engine = {
 	}
 
 	unlocking_technologies = {
-		br_tech_metallurgy
+		shaft_mining
 	}
 
 	ai_weight = {
@@ -283,7 +332,8 @@ br_tech_track = {
 	category = production
 
 	unlocking_technologies = {
-		br_tech_experimental_construction
+		br_tech_horse_drawn_machinery
+		#br_tech_experimental_construction
 	}
 
 	ai_weight = {

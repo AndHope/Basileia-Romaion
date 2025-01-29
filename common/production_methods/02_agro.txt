@@ -13,6 +13,31 @@
 	}
 }
 
+pm_organic_farming = {
+	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	
+	unlocking_technologies = {
+		br_tech_four_field_crop_rotation
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods													
+			goods_input_fertilizer_add = 2.5	
+			
+			# output goods													
+			goods_output_grain_add = 25
+		}
+
+		level_scaled = {
+			# earnings														
+			building_employment_laborers_add = 3750
+			building_employment_farmers_add = 1250
+		}
+	}
+}
+
+
 pm_soil_enriching_farming = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	
@@ -392,14 +417,14 @@ pm_sheep_farms = {
 	texture = "gfx/interface/icons/production_method_icons/sheep_farms.dds"
 	
 	unlocking_technologies = {
-		intensive_agriculture
+		br_tech_selective_breeding
 	}	
 	
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_grain_add = 5
 			goods_output_fabric_add = 15
-			goods_output_fertilizer_add = 2.5
+			goods_output_fertilizer_add = 2
 		}
 	}
 }
@@ -430,12 +455,12 @@ pm_open_air_stockyards = {
 	texture = "gfx/interface/icons/production_method_icons/open_air_stockyards.dds"		
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_meat_add = 10
+			goods_output_meat_add = 6 #was 10
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = 4000
-			building_employment_farmers_add = 1000
+			building_employment_laborers_add = 3850 #was 4000
+			building_employment_farmers_add = 850 #was 1000
 		}
 	}
 }		

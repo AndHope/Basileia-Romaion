@@ -1,4 +1,38 @@
-﻿british_empire_clothes_trigger = {
+﻿roman_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = c:BYZ
+		exists = home_country
+		home_country = {
+			OR = {
+				AND = {
+					c:BYZ = this
+					is_subject = no
+				}
+				is_subject_of = c:BYZ
+			}		
+		}
+	}
+}
+
+roman_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:BYZ
+		home_country = {
+			OR = {
+				AND = {
+					c:BYZ = this
+					is_subject = no
+				}
+				is_subject_of = c:BYZ
+			}		
+		}
+	}
+}
+
+#Edited base game clothes
+british_empire_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
 		exists = home_country
