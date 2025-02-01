@@ -9,6 +9,17 @@ GLOBAL = {
 			}
 			add_radicals = {
 				pop_type = slaves
+				value = 0.3
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					is_pop_type = peasants
+				}
+			}
+			add_radicals = {
+				pop_type = peasants
 				value = 0.1
 			}
 		}
@@ -57,7 +68,7 @@ GLOBAL = {
 			}
 		}
 	}
-
+	#Moderate Monarchies
 	c:HRE ?= {
 		add_loyalists = {
 			value = 0.25
@@ -73,6 +84,14 @@ GLOBAL = {
 				religion = rel:catholic
 			}
 		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
 	}
 	c:PLC ?= {
 		add_loyalists = {
@@ -81,17 +100,25 @@ GLOBAL = {
 		}
 		add_radicals = {
 			religion = rel:protestant
-			value = 0.1
+			value = 0.15
 		}
 		add_radicals = {
 			religion = rel:orthodox
-			value = 0.1
+			value = 0.25
 		}
 		capital = {
 			add_loyalists_in_state = {
 				value = 0.25
 				religion = rel:catholic
 			}
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
 		}
 	}
 	c:HUN ?= {
@@ -113,6 +140,14 @@ GLOBAL = {
 				religion = rel:catholic
 			}
 		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
 	}
 	c:DEN ?= {
 		add_loyalists = {
@@ -121,7 +156,7 @@ GLOBAL = {
 		}
 		add_radicals = {
 			religion = rel:catholic
-			value = 0.15
+			value = 0.25
 		}
 		capital = {
 			add_loyalists_in_state = {
@@ -129,15 +164,19 @@ GLOBAL = {
 				religion = rel:protestant
 			}
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.35
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.35
+		}
 	}
-	c:NET ?= {
+	c:SWE ?= {
 		add_loyalists = {
 			value = 0.25
-			culture = cu:dutch
-		}
-		add_radicals = {
-			religion = rel:catholic
-			value = 0.1
+			culture = cu:swedish
 		}
 		capital = {
 			add_loyalists_in_state = {
@@ -145,23 +184,17 @@ GLOBAL = {
 				religion = rel:protestant
 			}
 		}
-	}
-	c:ANL ?= {
 		add_loyalists = {
-			value = 0.25
-			culture = cu:andalusian
+			pop_type = officers
+			value = 0.75
 		}
-		add_radicals = {
-			religion = rel:catholic
+		add_loyalists = {
+			pop_type = soldiers
 			value = 0.5
 		}
-		capital = {
-			add_loyalists_in_state = {
-				value = 0.25
-				religion = rel:sunni
-			}
-		}
 	}
+
+
 	c:PER ?= {
 		add_loyalists = {
 			value = 0.25
@@ -172,6 +205,22 @@ GLOBAL = {
 				value = 0.25
 				religion = rel:sunni
 			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.35
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.35
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.25
 		}
 	}
 	c:MUG ?= {
@@ -185,6 +234,22 @@ GLOBAL = {
 				religion = rel:sunni
 			}
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.25
+		}
 	}
 	c:br_great_yuan ?= {
 		add_loyalists = {
@@ -197,15 +262,27 @@ GLOBAL = {
 				culture = cu:han
 			}
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
 	}
 	c:CHI ?= {
 		add_loyalists = {
 			value = 0.1
 			religion = rel:br_religion_confucian
-		}
-		add_radicals = {
-			pop_type = peasants
-			value = large_radicals
 		}
 		capital = {
 			add_loyalists_in_state = {
@@ -213,11 +290,39 @@ GLOBAL = {
 				religion = rel:br_religion_confucian
 			}
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.25
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
 	}
 	c:JAP ?= {
 		add_loyalists = {
 			value = 0.25
 			culture = cu:japanese
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.25
 		}
 	}
 	c:br_elysium ?= {
@@ -230,6 +335,18 @@ GLOBAL = {
 				value = 0.25
 				culture = cu:elysian
 			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
 		}
 	}
 	c:BYZ ?= {
@@ -247,11 +364,11 @@ GLOBAL = {
 		}
 		add_radicals = {
 			culture = cu:bulgarian
-			value = 0.1
+			value = 0.15
 		}
 		add_radicals = {
 			culture = cu:serb
-			value = 0.15
+			value = 0.25
 		}
 		add_radicals = {
 			religion = rel:shiite
@@ -263,28 +380,56 @@ GLOBAL = {
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.5
+				value = 0.45
 				religion = rel:orthodox
 			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.25
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.25
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
 		}
 	}
 	c:br_bulgaria ?= {
 		add_loyalists = {
-			value = 0.15
+			value = 0.25
 			culture = cu:greek
 		}
 		add_radicals = {
 			culture = cu:bulgarian
-			value = 0.33
+			value = 0.35
 		}
 		add_radicals = {
 			culture = cu:serb
 			value = 0.4
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
 	}
 	c:br_albania ?= {
 		add_loyalists = {
-			value = 0.2
+			value = 0.25
 			culture = cu:greek
 		}
 		add_radicals = {
@@ -294,6 +439,26 @@ GLOBAL = {
 		add_radicals = {
 			culture = cu:serb
 			value = 0.5
+		}
+		add_radicals = {
+			culture = cu:albanian
+			value = 0.15
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
 		}
 	}
 
@@ -316,25 +481,51 @@ GLOBAL = {
 				religion = rel:oriental_orthodox
 			}
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.25
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.25
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
 	}
 	c:GEO ?= {
 		add_loyalists = {
-			value = 0.1
+			value = 0.35
 			religion = rel:orthodox
 		}
 		add_radicals = {
 			religion = rel:shiite
-			value = 0.5
+			value = 0.75
 		}
 		add_radicals = {
 			religion = rel:sunni
-			value = 0.5
+			value = 0.75
 		}
-		capital = {
-			add_loyalists_in_state = {
-				value = 0.15
-				religion = rel:orthodox
-			}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.25
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.25
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
 		}
 	}
 	c:br_afrika ?= {
@@ -343,22 +534,46 @@ GLOBAL = {
 			culture = cu:greek
 		}
 		add_loyalists = {
-			value = 0.75
+			value = 0.5
+			culture = cu:african
+		}
+		add_loyalists = {
+			value = 0.5
 			culture = cu:latinoi
+		}
+		add_loyalists = {
+			value = 0.25
+			religion = rel:oriental_orthodox
 		}
 		add_radicals = {
 			religion = rel:shiite
-			value = 0.3
+			value = 0.35
 		}
 		add_radicals = {
 			religion = rel:sunni
-			value = 0.3
+			value = 0.35
 		}
 		capital = {
 			add_loyalists_in_state = {
 				value = 0.5
 				religion = rel:oriental_orthodox
 			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
 		}
 	}
 	c:br_kyrenaica ?= {
@@ -367,22 +582,42 @@ GLOBAL = {
 			culture = cu:greek
 		}
 		add_loyalists = {
-			value = 0.75
+			value = 0.5
+			culture = cu:african
+		}
+		add_loyalists = {
+			value = 0.5
 			culture = cu:latinoi
 		}
 		add_radicals = {
 			religion = rel:shiite
-			value = 0.3
+			value = 0.35
 		}
 		add_radicals = {
 			religion = rel:sunni
-			value = 0.3
+			value = 0.35
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.5
+				value = 0.35
 				religion = rel:oriental_orthodox
 			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
 		}
 	}
 	c:br_aegypt ?= {
@@ -392,27 +627,55 @@ GLOBAL = {
 		}
 		add_loyalists = {
 			value = 0.5
+			culture = cu:aegyptian
+		}
+		add_loyalists = {
+			value = 0.5
 			culture = cu:latinoi
+		}
+		add_loyalists = {
+			value = 0.15
+			religion = rel:oriental_orthodox
 		}
 		add_radicals = {
 			religion = rel:shiite
-			value = 0.3
+			value = 0.35
 		}
 		add_radicals = {
 			religion = rel:sunni
-			value = 0.3
+			value = 0.35
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.5
+				value = 0.35
 				religion = rel:oriental_orthodox
 			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
 		}
 	}
 	c:br_syria ?= {
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:greek
+		}
+		add_loyalists = {
+			value = 0.5
+			culture = cu:syriac
 		}
 		add_loyalists = {
 			value = 0.25
@@ -424,15 +687,15 @@ GLOBAL = {
 		}
 		add_radicals = {
 			religion = rel:shiite
-			value = 0.3
+			value = 0.35
 		}
 		add_radicals = {
 			religion = rel:sunni
-			value = 0.3
+			value = 0.35
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.75
+				value = 0.25
 				religion = rel:oriental_orthodox
 			}
 		}
@@ -464,10 +727,26 @@ GLOBAL = {
 				culture = cu:mongol
 			}
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
 	}
 	c:NAH ?= {
 		add_loyalists = {
-			value = 0.25
+			value = 0.15
 			culture = cu:nahua
 		}
 		add_radicals = {
@@ -476,22 +755,159 @@ GLOBAL = {
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.75
+				value = 0.45
 				culture = cu:nahua
 			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.25
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.25
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
 		}
 	}
 	c:TWT ?= {
 		add_loyalists = {
-			value = 0.25
+			value = 0.15
 			culture = cu:quechua
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.75
+				value = 0.45
 				culture = cu:quechua
 			}
 		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.25
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.25
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
 	}
+
+	#Progressive countires
+	c:NET ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:dutch
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:protestant
+			}
+		}
+		add_loyalists = {
+			pop_type = shopkeepers
+			value = 0.2
+		}
+		add_loyalists = {
+			pop_type = capitalists
+			value = 0.2
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.3
+		}
+	}
+	c:FLA ?= {
+		add_loyalists = {
+			value = 0.1
+			culture = cu:flemish
+		}
+		add_loyalists = {
+			pop_type = shopkeepers
+			value = 0.2
+		}
+		add_loyalists = {
+			pop_type = capitalists
+			value = 0.2
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.3
+		}
+	}
+	c:VEN ?= {
+		add_loyalists = {
+			pop_type = shopkeepers
+			value = 0.3
+		}
+		add_loyalists = {
+			pop_type = capitalists
+			value = 0.2
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.4
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = 0.4
+		}
+	}
+	c:br_genoa ?= {
+		add_loyalists = {
+			pop_type = shopkeepers
+			value = 0.3
+		}
+		add_loyalists = {
+			pop_type = capitalists
+			value = 0.2
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.4
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = 0.4
+		}
+	}
+	c:ANL ?= {
+		add_loyalists = {
+			value = 0.25
+			culture = cu:andalusian
+		}
+		add_radicals = {
+			religion = rel:catholic
+			value = 0.5
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				religion = rel:sunni
+			}
+		}
+		add_radicals = {
+			pop_type = aristocrats
+			value = 0.35
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = 0.5
+		}
+	}
+	
 
 }	
