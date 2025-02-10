@@ -960,3 +960,106 @@ tengri_decision = {
 		base = 0
 	}
 }
+
+br_generic_religion_swap_decision = {
+	#TODO change conditions
+	is_shown = {
+		OR = { #add scripted triggers to the or to decide who gets the decision
+			country_can_convert_to_norse = yes
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		ig:ig_devout = {
+			is_in_government = no
+		}
+		# has_law = law_type:law_freedom_of_conscience
+		NOT = { has_law = law_type:law_religious_schools }
+		OR = {
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_national_supremacy
+		}
+	}
+
+	when_taken = {
+		#the new religion is set in the journal
+
+		add_journal_entry = {
+			type = je_religion_swap
+		}
+
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_norse_priests
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_norse_clergy
+		}
+		random_scope_state = {
+			limit = {
+				owner = ROOT
+				is_capital = yes
+			}
+			convert_population = {
+				target = rel:br_religion_norse
+				value = 0.25
+			}
+		}
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				is_incorporated = yes
+				NOT = { is_capital = yes }
+			}
+			convert_population = {
+				target = rel:br_religion_norse
+				value = 0.15
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:br_religion_norse
+				}
+			}
+			add_loyalists = {
+				religion = rel:br_religion_norse
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:protestant 
+				}
+			}
+			add_radicals = {
+				religion = rel:protestant
+				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.25
+			}
+		}
+		change_relations = { 
+			country = c:HRE 
+			value = -150 
+		}
+		change_relations = { 
+			country = c:PAP 
+			value = -150 
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}

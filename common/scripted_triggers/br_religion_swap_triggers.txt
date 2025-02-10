@@ -1,0 +1,25 @@
+﻿#	Example:
+# 
+#	example_trigger = {
+#		x = 100
+#		y = 50
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_trigger = yes
+#	}
+#
+
+#scripted triggers to decide who is allowed to switch to a certain religion
+country_can_convert_to_norse = {
+	OR = {
+		country_has_primary_culture = cu:danish
+		country_has_primary_culture = cu:swedish
+		country_has_primary_culture = cu:norwegian
+		country_has_primary_culture = cu:saxon
+	}
+	NOT = { country_has_state_religion = rel:br_religion_norse }
+}

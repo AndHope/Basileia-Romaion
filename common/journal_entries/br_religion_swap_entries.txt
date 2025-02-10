@@ -19,17 +19,61 @@
 
 	scripted_progress_bar = br_religious_conversion_progress_bar
 
-	complete = {
+	#add scripted buttons to increase the convertion
 
+	immediate = {
+		#save the scopes to the religions and set the new religion
+		root.religion = {
+			save_scope_as = old_state_religion
+		}
+		set_state_religion = rel:br_religion_norse
+		root.religion = {
+			save_scope_as = new_state_religion
+		}
+		
+		add_modifier = {
+			name = br_modifier_swapping_religion
+			months = -1
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
+				scripted_bar_progress = {
+					name = br_religious_conversion_progress_bar
+					value >= 0.5	#50%
+				}
+			}
+			text = je_religion_swap_complete
+		}
+	}
+
+	on_complete = {
+		remove_modifier = br_modifier_swapping_religion
+		add_modifier = {
+			name = br_modifier_swaped_religion_succesfully
+			years = 5
+		}
+	}
+
+	fail = {
+		scope:new_state_religion = {
+			not = {
+				is_state_religion = root
+			}
+		}
 	}
 	
-	fail = {
-
+	on_fail = {
+		remove_modifier = br_modifier_swapping_religion
+		add_modifier = {
+			name = br_modifier_swaped_religion_failure
+			years = 5
+		}
 	}	
  
-	on_complete = {
-
-	}
+	
 
 	on_monthly_pulse = {
 		effect = {
@@ -45,11 +89,11 @@
 			every_scope_pop = {
 				change_local_variable = {
 					name = total_pops
-					add  = total_size.compare_value #need to get the total pop size of the root country
+					add  = total_size #need to get the total pop size of the root country
 				}
 				if = {
 					limit = {
-						religion = rel:protestant # or whatever
+						religion = scope:new_state_religion # or whatever
 					}
 					change_local_variable = {
 						name = total_religion
@@ -78,9 +122,15 @@
 	status_desc = {
 		first_valid = {
 			triggered_desc = { 
-				desc = je_schleswig_holstein_question_status
+				desc = je_religion_swap_status
 			}
 		}
+	}
+
+	timeout = 5475	#15 years
+
+	on_timeout = {
+		#add
 	}
 
 	weight = 1000
