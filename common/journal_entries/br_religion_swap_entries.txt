@@ -3,19 +3,7 @@
 	
 	group = je_group_historical_content
 
-	is_shown_when_inactive = {	
-		OR = {
-			country_has_primary_culture = cu:saxon #temp
-			country_has_primary_culture = cu:baltic_german
-		}
-	}
-
-	possible = {	
-		OR = {
-			country_has_primary_culture = cu:saxon
-			country_has_primary_culture = cu:baltic_german
-		}			
-	}
+	#triggered thru br_generic_religion_swap_decision
 
 	scripted_progress_bar = br_religious_conversion_progress_bar
 
@@ -26,7 +14,8 @@
 		root.religion = {
 			save_scope_as = old_state_religion
 		}
-		set_state_religion = rel:br_religion_norse
+		# set_state_religion = rel:br_religion_norse
+		br_swap_religion_effect = yes
 		root.religion = {
 			save_scope_as = new_state_religion
 		}
