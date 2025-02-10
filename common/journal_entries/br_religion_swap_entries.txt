@@ -1,0 +1,88 @@
+﻿je_religion_swap = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {	
+		OR = {
+			country_has_primary_culture = cu:saxon #temp
+			country_has_primary_culture = cu:baltic_german
+		}
+	}
+
+	possible = {	
+		OR = {
+			country_has_primary_culture = cu:saxon
+			country_has_primary_culture = cu:baltic_german
+		}			
+	}
+
+	scripted_progress_bar = br_religious_conversion_progress_bar
+
+	complete = {
+
+	}
+	
+	fail = {
+
+	}	
+ 
+	on_complete = {
+
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			#calculate the percentage of pops that follow the new religion
+			set_local_variable = {
+				name  = total_religion
+				value = 0
+			}
+			set_local_variable = {
+				name  = total_pops
+				value = 0
+			}
+			every_scope_pop = {
+				change_local_variable = {
+					name = total_pops
+					add  = total_size.compare_value #need to get the total pop size of the root country
+				}
+				if = {
+					limit = {
+						religion = rel:protestant # or whatever
+					}
+					change_local_variable = {
+						name = total_religion
+						add  = total_size
+					}
+				}
+			}
+			set_local_variable = {
+				name  = country_religion_share
+				value = {
+					add    = local_var:total_religion
+					divide = local_var:total_pops
+				}
+			}
+			# use local_var:country_religion_share
+
+			scope:journal_entry = {
+				set_bar_progress = {
+					value = local_var:country_religion_share
+					name = br_religious_conversion_progress_bar
+				}
+			}
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_schleswig_holstein_question_status
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
