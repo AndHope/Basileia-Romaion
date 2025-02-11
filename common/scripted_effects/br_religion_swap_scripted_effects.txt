@@ -12,51 +12,54 @@
 	#remaining generic effects
 	
 	#convert a some pops to have a initial population of pop's with the new religion
-	# random_scope_state = {
-	# 	limit = {
-	# 		owner = ROOT
-	# 		is_capital = yes
-	# 	}
-	# 	convert_population = {
-	# 		target = root.religion #the new religion
-	# 		value = 0.25
-	# 	}
-	# }
-	# every_scope_state = {
-	# 	limit = {
-	# 		owner = ROOT
-	# 		is_incorporated = yes
-	# 		NOT = { is_capital = yes }
-	# 	}
-	# 	convert_population = {
-	# 		target = root.religion
-	# 		value = 0.15
-	# 	}
-	# }
+	random_scope_state = {
+		limit = {
+			owner = ROOT
+			is_capital = yes
+		}
+		convert_population = {
+			target = root.religion #the new religion
+			value = 0.25
+		}
+	}
+	every_scope_state = {
+		limit = {
+			owner = ROOT
+			is_incorporated = yes
+			NOT = { is_capital = yes }
+		}
+		convert_population = {
+			target = root.religion
+			value = 0.15
+		}
+	}
 	#make the newly converted pops loyal
-	# if = {
-	# 	limit = {
-	# 		any_scope_pop = { 
-	# 			religion = rel:catholic #root.religion
-	# 		}
-	# 	}
-	# 	add_loyalists = {
-	# 		religion = rel:catholic #root.religion
-	# 		value = 0.25
-	# 	}
-	# }
-	#add radicals for among the followers of the old religion
-	# if = {
-	# 	limit = {
-	# 		any_scope_pop = { 
-	# 			religion = root.scope:old_state_religion 
-	# 		}
-	# 	}
-	# 	add_radicals = {
-	# 		religion = root.scope:old_state_religion
-	# 		value = 0.25
-	# 	}
-	# }
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = root.religion
+			}
+		}
+		add_loyalists = {
+			religion = root.religion
+			value = 0.25
+		}
+	}
+	ROOT = {
+		#add radicals for among the followers of the old religion
+		if = {
+			limit = {
+				any_scope_pop = {
+					religion = scope:old_state_religion
+				}
+			}
+			add_radicals = { #BUG radicals don't seem to be added
+				religion = scope:old_state_religion
+				value = 0.25
+			}
+		}
+	}
+	
 	
 	if = { #if the state was previously protestant or catholic decrease relations with the HRE and PAP
 		limit = { 
