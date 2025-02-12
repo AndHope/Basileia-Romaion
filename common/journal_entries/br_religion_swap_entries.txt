@@ -9,6 +9,9 @@
 
 	#add scripted buttons to increase the convertion
 
+	scripted_button = je_establish_sunday_schools_button
+	scripted_button = je_hold_religious_festivals_button
+
 	immediate = {
 		#save the scopes to the religions and set the new religion
 		root.religion = {
@@ -20,7 +23,10 @@
 		}
 
 		#trigger events after the religion scopes are saved
-		trigger_event = br_religion_swap_events.1
+		trigger_event = {
+			id = br_religion_swap_events.1
+			popup = yes
+		}
 		
 		add_modifier = {
 			name = br_modifier_swapping_religion
@@ -46,7 +52,10 @@
 			name = br_modifier_swaped_religion_succesfully
 			years = 5
 		}
-		trigger_event = br_religion_swap_events.2
+		trigger_event = {
+			id = br_religion_swap_events.2
+			popup = yes
+		}
 	}
 
 	fail = {
@@ -63,7 +72,10 @@
 			name = br_modifier_swaped_religion_failure
 			years = 5
 		}
-		trigger_event = br_religion_swap_events.3
+		trigger_event = {
+			id = br_religion_swap_events.3
+			popup = yes
+		}
 	}	
  
 	
