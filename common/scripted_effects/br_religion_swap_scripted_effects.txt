@@ -1,12 +1,64 @@
 ﻿br_swap_religion_effect = {
 	
-	#set the new religion in ifelse statements
+	#set the new religion in else_if statements
 		if = {
 			limit = {
 				br_country_can_convert_to_norse = yes
 			}
 			br_swap_to_norse_effect = yes
 		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_hellenic = yes
+			}
+			br_swap_to_hellenic_effect = yes
+		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_orthodox = yes
+			}
+			br_swap_to_orthodox_effect = yes
+		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_elysian_orthodox = yes
+			}
+			br_swap_to_elysian_orthodox_effect = yes
+		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_zoroastrianism = yes
+			}
+			br_swap_to_zoroastrianism_effect = yes
+		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_shitte = yes
+			}
+			br_swap_to_shitte_effect = yes
+		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_baltic = yes
+			}
+			br_swap_to_baltic_effect = yes
+		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_slavic = yes
+			}
+			br_swap_to_slavic_effect = yes
+		}
+		else_if = {
+			limit = {
+				br_country_can_convert_to_tengri = yes
+			}
+			br_swap_to_tengri_effect = yes
+		}
+		
+
+	#Change to the new religion
+	set_state_religion = $NEW_RELIGION$
 
 
 	#remaining generic effects
@@ -109,6 +161,234 @@ br_swap_to_norse_effect = {
 	}
 }
 
+br_swap_to_hellenic_effect = {
+	set_state_religion = rel:br_religion_hellenic
+	ig:ig_devout = {
+		set_interest_group_name = ig_neo_hellenes
+		remove_ideology = ideology_patriarchal
+		add_ideology = ideology_hellenic_clergy
+	}
+	#add_modifier = {
+	#	name = br_modifier_religious_chaos
+	#	months = 52
+	#}	
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:orthodox 
+			}
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = 0.25
+		}
+	}
+}
+
+br_swap_to_orthodox_effect = {
+	set_state_religion = rel:orthodox
+	ig:ig_devout = {
+		hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:br_religion_hellenic 
+			}
+		}
+		add_radicals = {
+			religion = rel:br_religion_hellenic
+			value = 0.25
+		}
+	}
+}
+
+br_swap_to_elysian_orthodox_effect = {
+	set_state_religion = rel:br_religion_elysian_orthodox
+	ig:ig_devout = {
+		hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+	}
+	add_modifier = {
+		name = autocephalous_patriarchate_elysium
+		months = -1
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:br_religion_hellenic 
+			}
+		}
+		add_radicals = {
+			religion = rel:br_religion_hellenic
+			value = 0.25
+		}
+	}
+	hidden_effect = {
+		trigger_event = {
+			id = br_new_world_events.1
+			days = 14
+		}
+	}
+}
+
+br_swap_to_zoroastrianism_effect = {
+	set_state_religion = rel:br_religion_zoroastrian
+	ig:ig_devout = {
+		hidden_effect = { set_interest_group_name = ig_zoroastrian_priests }
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:shiite 
+			}
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.25
+		}
+	}
+	change_relations = { 
+		country = c:ARA 
+		value = -150 
+	}
+	change_relations = { 
+		country = c:MUG 
+		value = -50 
+	}
+}
+
+br_swap_to_shitte_effect = {
+	set_state_religion = rel:shiite
+	ig:ig_devout = {
+		hidden_effect = { set_interest_group_name = ig_shia_madrasahs }
+	}
+	change_relations = { 
+		country = c:ARA 
+		value = -150 
+	}
+	change_relations = { 
+		country = c:MUG 
+		value = -50 
+	}
+}
+
+br_swap_to_baltic_effect = {
+	set_state_religion = rel:br_religion_baltic
+	ig:ig_devout = {
+		set_interest_group_name = ig_baltic_priests
+		remove_ideology = ideology_patriarchal
+		add_ideology = ideology_baltic_clergy
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:protestant 
+			}
+		}
+		add_radicals = {
+			religion = rel:protestant
+			value = 0.25
+		}
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:catholic 
+			}
+		}
+		add_radicals = {
+			religion = rel:catholic
+			value = 0.25
+		}
+	}
+}
+
+br_swap_to_slavic_effect = {
+	set_state_religion = rel:br_religion_slavic
+	ig:ig_devout = {
+		set_interest_group_name = ig_slavic_priests
+		remove_ideology = ideology_patriarchal
+		add_ideology = ideology_slavic_clergy
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:protestant 
+			}
+		}
+		add_radicals = {
+			religion = rel:protestant
+			value = 0.25
+		}
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:catholic 
+			}
+		}
+		add_radicals = {
+			religion = rel:catholic
+			value = 0.25
+		}
+	}
+}
+
+br_swap_to_tengri_effect = {
+	set_state_religion = rel:br_religion_tengri
+	ig:ig_devout = {
+		set_interest_group_name = ig_tengri_priests
+		remove_ideology = ideology_patriarchal
+		add_ideology = ideology_tengri_clergy
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:sunni 
+			}
+		}
+		add_radicals = {
+			religion = rel:sunni
+			value = 0.25
+		}
+	}
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = rel:shiite 
+			}
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = 0.25
+		}
+	}
+	change_relations = { 
+		country = c:ARA 
+		value = -100 
+	}
+	change_relations = { 
+		country = c:PER 
+		value = -100 
+	}
+}
+
+
+
+## Generic religion swap decision effects
+br_religion_swap_when_taken_effect = {
+	#the new religion is set in the journal
+	ROOT = {
+		set_variable = {
+			name = br_new_religion_scope_var
+			value = $TARGET_RELIGION$
+		}
+	}
+
+	add_journal_entry = {
+		type = je_religion_swap
+	}
+}
 
 ## Journal completion and failure effects
 # br_religion_swap_succes_effect = {
