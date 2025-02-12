@@ -76,7 +76,7 @@
 		effect = {
 			br_calculate_percent_of_religious_followers_in_given_country_effect = { 
 				TARGET_COUNTRY = ROOT
-				TARGET_RELIGION = rel:br_religion_norse
+				TARGET_RELIGION = scope:new_state_religion
 			}
 
 			scope:journal_entry = {
@@ -88,12 +88,13 @@
 		}
 
 		random_events = { #can't get the event trigger chance right
-			chance_of_no_event = { 	# An entry that can be formatted as a script value (and therefore have conditional entries). Separated from "chance_to_happen" for performance reasons. Will only be evaluated if chance_to_happen is true.
-				value = 100
-				add = -1
-			}
+			# chance_of_no_event = { 	# An entry that can be formatted as a script value (and therefore have conditional entries). Separated from "chance_to_happen" for performance reasons. Will only be evaluated if chance_to_happen is true.
+			# 	value = 100
+			# 	add = -1
+			# }
 
-			100 = br_religion_swap_events.4
+			1 = br_religion_swap_events.4
+			99 = 0
 		}
 	}
 	
