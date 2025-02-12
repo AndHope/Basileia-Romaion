@@ -3813,20 +3813,6 @@ ai_strategy_default = {
 		value = 0.5
 		if = {
 			limit = { has_law = law_type:law_national_militia }
-			add = 2.5
-		}			
-		else_if = {
-			limit = { has_law = law_type:law_peasant_levies }
-			add = 0.5
-		}	
-		else_if = {
-			limit = { has_law = law_type:law_mass_conscription }
-			add = 0.5
-		}	
-
-	#BR Added Start
-		if = {
-			limit = { has_law = law_type:law_national_militia }
 			add = 5
 		}
 		else_if = {
@@ -3835,11 +3821,15 @@ ai_strategy_default = {
 		}			
 		else_if = {
 			limit = { has_law = law_type:law_peasant_levies }
-			add = 1
+			add = 2
 		}	
 		else_if = {
+			limit = { has_law = law_type:law_mixed_army }
+			add = 1.25
+		}
+		else_if = {
 			limit = { has_law = law_type:law_tribal_armies }
-			add = 2
+			add = 3
 		}
 		else_if = {
 			limit = { has_law = law_type:law_mass_conscription }
