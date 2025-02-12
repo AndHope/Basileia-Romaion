@@ -82,38 +82,44 @@
 
 	on_monthly_pulse = {
 		effect = {
-			#calculate the percentage of pops that follow the new religion
-			set_local_variable = {
-				name  = total_religion
-				value = 0
+			# #calculate the percentage of pops that follow the new religion
+			# set_local_variable = {
+			# 	name  = total_religion
+			# 	value = 0
+			# }
+			# set_local_variable = {
+			# 	name  = total_pops
+			# 	value = 0
+			# }
+			# every_scope_pop = {
+			# 	change_local_variable = {
+			# 		name = total_pops
+			# 		add  = total_size #need to get the total pop size of the root country
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			religion = scope:new_state_religion # or whatever
+			# 		}
+			# 		change_local_variable = {
+			# 			name = total_religion
+			# 			add  = total_size
+			# 		}
+			# 	}
+			# }
+			# set_local_variable = {
+			# 	name  = country_religion_share
+			# 	value = {
+			# 		add    = local_var:total_religion
+			# 		divide = local_var:total_pops
+			# 	}
+			# }
+			# # use local_var:country_religion_share
+
+			# br_calculate_percent_of_religious_followers_in_root_country_effect = { TARGET_RELIGION = scope:new_state_religion }
+			br_calculate_percent_of_religious_followers_in_given_country_effect = { 
+				TARGET_COUNTRY = ROOT
+				TARGET_RELIGION = rel:br_religion_norse
 			}
-			set_local_variable = {
-				name  = total_pops
-				value = 0
-			}
-			every_scope_pop = {
-				change_local_variable = {
-					name = total_pops
-					add  = total_size #need to get the total pop size of the root country
-				}
-				if = {
-					limit = {
-						religion = scope:new_state_religion # or whatever
-					}
-					change_local_variable = {
-						name = total_religion
-						add  = total_size
-					}
-				}
-			}
-			set_local_variable = {
-				name  = country_religion_share
-				value = {
-					add    = local_var:total_religion
-					divide = local_var:total_pops
-				}
-			}
-			# use local_var:country_religion_share
 
 			scope:journal_entry = {
 				set_bar_progress = {

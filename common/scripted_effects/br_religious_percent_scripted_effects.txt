@@ -1,0 +1,57 @@
+﻿
+###############################################################################################################
+###																											###
+###	These scripted effects calculate the percentage of people in a country that follow a certain religion	###
+###																											###
+###############################################################################################################
+
+##	These scripted effects have as limitation that they store there result in a local variable (which is stored in the scope of the Country),
+##	so this scripted effect can only calculate the percentage of religous folowers per country only once at a time next time it is called it will overwrite the previous result.
+##	Also Important is that the result percentage is represented as a value between '0 - 1'
+
+#Calculates the percent of a given countries population that follow a given religion
+#This effect takes TARGET_COUNTRY and TARGET_RELIGION as parameters
+br_calculate_percent_of_religious_followers_in_given_country_effect = {
+
+	$TARGET_COUNTRY$ = {
+		br_calculate_percent_of_religious_followers_in_root_country_effect = { TARGET_RELIGION = $TARGET_RELIGION$ }
+	}
+}
+
+#Calculates the percent of a countries population that follow a given religion
+#Should be called in the scope of the target country
+#Has TARGET_RELIGION as a parameter that expects a religion scope
+br_calculate_percent_of_religious_followers_in_root_country_effect = {
+	#calculate the percentage of pops that follow the new religion
+	set_local_variable = {
+		name  = total_religion
+		value = 0
+	}
+	set_local_variable = {
+		name  = total_pops
+		value = 0
+	}
+	every_scope_pop = {
+		change_local_variable = {
+			name = total_pops
+			add  = total_size
+		}
+		if = {
+			limit = {
+				religion = $TARGET_RELIGION$
+			}
+			change_local_variable = {
+				name = total_religion
+				add  = total_size
+			}
+		}
+	}
+	set_local_variable = {
+		name  = country_religion_share
+		value = {
+			add    = local_var:total_religion
+			divide = local_var:total_pops
+		}
+	}
+	# use local_var:country_religion_share
+}
