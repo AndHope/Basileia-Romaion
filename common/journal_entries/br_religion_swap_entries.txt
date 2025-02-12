@@ -67,55 +67,13 @@
 	}
 	
 	on_fail = {
-		remove_modifier = br_modifier_swapping_religion
-		add_modifier = {
-			name = br_modifier_swaped_religion_failure
-			years = 5
-		}
-		trigger_event = {
-			id = br_religion_swap_events.3
-			popup = yes
-		}
+		br_religion_swap_failed_effect = yes
 	}	
  
 	
 
 	on_monthly_pulse = {
 		effect = {
-			# #calculate the percentage of pops that follow the new religion
-			# set_local_variable = {
-			# 	name  = total_religion
-			# 	value = 0
-			# }
-			# set_local_variable = {
-			# 	name  = total_pops
-			# 	value = 0
-			# }
-			# every_scope_pop = {
-			# 	change_local_variable = {
-			# 		name = total_pops
-			# 		add  = total_size #need to get the total pop size of the root country
-			# 	}
-			# 	if = {
-			# 		limit = {
-			# 			religion = scope:new_state_religion # or whatever
-			# 		}
-			# 		change_local_variable = {
-			# 			name = total_religion
-			# 			add  = total_size
-			# 		}
-			# 	}
-			# }
-			# set_local_variable = {
-			# 	name  = country_religion_share
-			# 	value = {
-			# 		add    = local_var:total_religion
-			# 		divide = local_var:total_pops
-			# 	}
-			# }
-			# # use local_var:country_religion_share
-
-			# br_calculate_percent_of_religious_followers_in_root_country_effect = { TARGET_RELIGION = scope:new_state_religion }
 			br_calculate_percent_of_religious_followers_in_given_country_effect = { 
 				TARGET_COUNTRY = ROOT
 				TARGET_RELIGION = rel:br_religion_norse
@@ -150,7 +108,7 @@
 	timeout = 5475	#15 years
 
 	on_timeout = {
-		#add
+		br_religion_swap_failed_effect = yes
 	}
 
 	weight = 1000
