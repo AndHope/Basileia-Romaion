@@ -110,14 +110,13 @@
 				value = 0.25
 			}
 		}
-	}
-	
+	}	
 	
 	if = { #if the state was previously protestant or catholic decrease relations with the HRE and PAP
 		limit = { 
 			or = {
-				root.scope:old_state_religion = rel:protestant
-				root.scope:old_state_religion = rel:catholic
+				scope:old_state_religion = rel:protestant
+				scope:old_state_religion = rel:catholic
 			}
 		}
 		change_relations = { 
@@ -135,14 +134,12 @@
 #effects specific for converting to a certain religion
 #follow the template below when adding a new religion to convert to
 #br_swap_to_religionName_effect = {
-# 	set_state_religion = rel:new_religion
 # 	remaining effects
 # }
 #then add this effect to the ifelse statement in br_swap_religion_effect
 
 
 br_swap_to_norse_effect = {
-	set_state_religion = rel:br_religion_norse
 	ig:ig_devout = {
 		set_interest_group_name = ig_norse_priests
 		remove_ideology = ideology_patriarchal
@@ -162,7 +159,6 @@ br_swap_to_norse_effect = {
 }
 
 br_swap_to_hellenic_effect = {
-	set_state_religion = rel:br_religion_hellenic
 	ig:ig_devout = {
 		set_interest_group_name = ig_neo_hellenes
 		remove_ideology = ideology_patriarchal
@@ -186,7 +182,6 @@ br_swap_to_hellenic_effect = {
 }
 
 br_swap_to_orthodox_effect = {
-	set_state_religion = rel:orthodox
 	ig:ig_devout = {
 		hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
 	}
@@ -204,7 +199,6 @@ br_swap_to_orthodox_effect = {
 }
 
 br_swap_to_elysian_orthodox_effect = {
-	set_state_religion = rel:br_religion_elysian_orthodox
 	ig:ig_devout = {
 		hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
 	}
@@ -232,7 +226,6 @@ br_swap_to_elysian_orthodox_effect = {
 }
 
 br_swap_to_zoroastrianism_effect = {
-	set_state_religion = rel:br_religion_zoroastrian
 	ig:ig_devout = {
 		hidden_effect = { set_interest_group_name = ig_zoroastrian_priests }
 	}
@@ -258,7 +251,6 @@ br_swap_to_zoroastrianism_effect = {
 }
 
 br_swap_to_shitte_effect = {
-	set_state_religion = rel:shiite
 	ig:ig_devout = {
 		hidden_effect = { set_interest_group_name = ig_shia_madrasahs }
 	}
@@ -273,7 +265,6 @@ br_swap_to_shitte_effect = {
 }
 
 br_swap_to_baltic_effect = {
-	set_state_religion = rel:br_religion_baltic
 	ig:ig_devout = {
 		set_interest_group_name = ig_baltic_priests
 		remove_ideology = ideology_patriarchal
@@ -304,7 +295,6 @@ br_swap_to_baltic_effect = {
 }
 
 br_swap_to_slavic_effect = {
-	set_state_religion = rel:br_religion_slavic
 	ig:ig_devout = {
 		set_interest_group_name = ig_slavic_priests
 		remove_ideology = ideology_patriarchal
@@ -335,7 +325,6 @@ br_swap_to_slavic_effect = {
 }
 
 br_swap_to_tengri_effect = {
-	set_state_religion = rel:br_religion_tengri
 	ig:ig_devout = {
 		set_interest_group_name = ig_tengri_priests
 		remove_ideology = ideology_patriarchal
