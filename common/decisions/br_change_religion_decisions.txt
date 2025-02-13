@@ -960,3 +960,265 @@ tengri_decision = {
 		base = 0
 	}
 }
+
+###
+### Generic religion swap
+###
+
+#########################################################################################################################################################################################################
+## How to add a new religion to the br_generic_religion_swap_decision ##
+#to add a new religion to the Generic religion swap create a new 'country_can_convert_to_religion' in 'br_religion_swap_triggers' and add it to the 'br_country_can_convert_to_given_religion' trigger,
+#then copy the template below ('br_generic_religion_swap_decision') and change new_religion to the religion you want the decision to swap to (ex new_religion -> br_religion_norse).
+
+#Optionaly if you want you can then add further extra triggers in is_shown or possible
+#if you want to add an extra effect for when the dicision is taken than add that in the religion specific effect as explained next.
+
+#Optianaly you can add a scripted effect in 'br_religion_swap_scripted_effects' to specify what should happen if a country switches to a specific religion
+#in 'br_religion_swap_scripted_effects' make a new 'br_swap_to_religion_effect' and call it in a ifelse statement in 'br_swap_religion_effect'.
+
+#Finaly add loc for the decisions
+
+# br_generic_religion_swap_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			#change new_religion with the religion you want the decision to swap to
+# 			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:new_religion}
+# 		}
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		br_religion_swap_posible_standard_trigger = yes
+# 	}
+
+# 	when_taken = {
+# 		#change new_religion with the religion you want the decision to swap to
+# 		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:new_religion }
+# 	}
+
+# 	#set the ai_chance to what you want it to be
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
+
+#########################################################################################################################################################################################################
+
+br_norse_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_norse}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_norse }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_hellenic_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_hellenic}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		# br_religion_swap_posible_standard_trigger = yes
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
+		ig:ig_devout = {
+			is_in_government = no
+			#is_marginal = no
+		}
+		#NOT = { has_modifier = br_modifier_religious_chaos }
+		has_law = law_type:law_freedom_of_conscience
+		NOT = { has_law = law_type:law_religious_schools }
+		has_law = law_type:law_monarchy
+
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_hellenic }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_orthodox_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:orthodox}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		# br_religion_swap_posible_standard_trigger = yes
+		OR = {
+			country_has_primary_culture = cu:greek
+			#country_has_primary_culture = cu:elysian
+		}
+		ig:ig_devout = {
+			is_in_government = no
+			#is_marginal = no
+		}
+		has_law = law_type:law_monarchy
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:orthodox }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_elysian_orthodox_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_elysian_orthodox}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		# br_religion_swap_posible_standard_trigger = yes
+		OR = {
+			country_has_primary_culture = cu:elysian
+		}
+		ig:ig_devout = {
+			is_in_government = no
+			#is_marginal = no
+		}
+		has_law = law_type:law_monarchy
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_elysian_orthodox }
+	}
+
+	ai_chance = {
+		base = 25
+	}
+}
+
+br_zoroastrianism_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_zoroastrian}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_zoroastrian }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_shitte_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:shiite}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:shiite }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_baltic_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_baltic}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_baltic }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_slavic_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_slavic}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_slavic }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_tengri_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_tengri}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_tengri }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
