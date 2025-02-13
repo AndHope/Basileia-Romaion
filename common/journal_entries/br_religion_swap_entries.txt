@@ -12,6 +12,10 @@
 	scripted_button = je_establish_sunday_schools_button
 	scripted_button = je_hold_religious_festivals_button
 
+	modifiers_while_active = {
+		br_modifier_swapping_religion
+	}
+
 	immediate = {
 		#save the scopes to the religions and set the new religion
 		root.religion = {
@@ -29,11 +33,6 @@
 			id = br_religion_swap_events.1
 			popup = yes
 		}
-		
-		add_modifier = {
-			name = br_modifier_swapping_religion
-			months = -1
-		}
 	}
 
 	complete = {
@@ -49,7 +48,6 @@
 	}
 
 	on_complete = {
-		remove_modifier = br_modifier_swapping_religion
 		add_modifier = {
 			name = br_modifier_swaped_religion_succesfully
 			years = 5
