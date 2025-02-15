@@ -1545,6 +1545,35 @@ pm_rayon = {
 	}
 }
 
+pm_cementation_process = {
+	texture = "gfx/interface/icons/production_method_icons/blister_steel_process.dds"
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 5
+		}
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_iron_add = 20
+			goods_input_coal_add = 15
+			
+			# output goods
+			goods_output_steel_add = 30
+		}
+
+		level_scaled = {
+			# employment
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4500
+			building_employment_machinists_add = 500
+			building_employment_engineers_add = 100
+		}
+	}
+}
+
 pm_blister_steel_process = {
 	texture = "gfx/interface/icons/production_method_icons/blister_steel_process.dds"
 	
@@ -1552,6 +1581,10 @@ pm_blister_steel_process = {
 		workforce_scaled = {
 			state_pollution_generation_add = 10
 		}
+	}
+
+	unlocking_technologies = {
+		steelworking
 	}
 	
 	building_modifiers = {
@@ -1561,7 +1594,7 @@ pm_blister_steel_process = {
 			goods_input_coal_add = 30
 			
 			# output goods
-			goods_output_steel_add = 65
+			goods_output_steel_add = 75
 		}
 
 		level_scaled = {
@@ -1593,7 +1626,7 @@ pm_bessemer_process = {
 			goods_input_coal_add = 30
 			
 			# output goods
-			goods_output_steel_add = 90
+			goods_output_steel_add = 95
 		}
 
 		level_scaled = {
