@@ -20,11 +20,11 @@ on_monthly_pulse_country = {
 	}
 }
 
-# on_monthly_pulse_country = {
-# 	events = {
-# 		new_homelands.1
-# 	}
-# }
+on_monthly_pulse = {
+	on_actions = {
+		br_on_state_occupied
+	}
+}
 
 romaioi_monthly_pulse = {
 	trigger = {
@@ -232,5 +232,27 @@ br_oa_event_debug_silencer = {
 		trigger_event = { id = british_dictates.2 }
 		trigger_event = { id = british_dictates.4 }
 
+	}
+}
+
+br_on_state_occupied = {
+	effect = {
+		s:STATE_FLANDERS = { #state_regions can't use ?= probably because they are static and not dynamic
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = c:FLA
+						not = { controller = owner }
+					}
+					# always = yes
+				}
+				c:HRE = {
+					trigger_event = {
+						id = complete_control_the_lowlands.1
+						popup = yes
+					}
+				}
+			}
+		}
 	}
 }
