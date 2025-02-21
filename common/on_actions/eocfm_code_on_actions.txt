@@ -2,6 +2,8 @@
 # GREECE, BYZANTIUM, AND THE BALKANS ON_ACTIONS #
 #################################################
 
+#File is called balkfm_code_on_actions.txt in gbfm
+
 on_monthly_pulse_country = {
 	on_actions = {
 		eocfm_monthly_pulse	
@@ -10,6 +12,31 @@ on_monthly_pulse_country = {
 
 ############
 
+#originally called 'balkfm_monthly_pulse' in gbfm
+#adds the eocfm sidebar button to the nessesery countries
+eocfm_sidebar_button_setup_monthly_pulse = { # These events are monitored from all scopes
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = custom_button_list_flag
+						target = flag:eocfm_sidebar_button_sgui
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = custom_button_list_flag
+				target = flag:eocfm_sidebar_button_sgui
+			}
+			remove_list_global_variable = {
+				name = custom_button_list
+				target = ideology:eocfm_sidebar_button_sgui
+			}
+		}
+	}
+}
 
 ############
 
@@ -119,6 +146,8 @@ on_wargoal_enforced = {
 	on_actions = {
 		eocfm_wargoal_enforced_1
 		eocfm_wargoal_enforced_2
+		eqfm_crisis_wargoal_enforced
+#		eqfm_thunderdome_wargoal_enforced
 	}
 }
 

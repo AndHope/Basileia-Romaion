@@ -1,4 +1,6 @@
 ﻿GLOBAL = {
+
+	#File is called grefm_global.txt in gbfm
 	
 	# eocfm Variables
 	set_global_variable = {
@@ -62,6 +64,26 @@
 	
 ### EOCFM Setup ###
 	# This should fire AFTER all other setup
+	
+	if = {
+		limit = {
+			NOT = {
+				is_target_in_global_variable_list = {
+					name = custom_button_list_flag
+					target = flag:eocfm_sidebar_button_sgui
+				}
+			}
+		}
+		add_to_global_variable_list = {
+			name = custom_button_list_flag
+			target = flag:eocfm_sidebar_button_sgui
+		}
+		remove_list_global_variable = {
+			name = custom_button_list
+			target = ideology:eocfm_sidebar_button_sgui
+		}
+	}
+	
 	every_country = {
 		limit = {
 			OR = {

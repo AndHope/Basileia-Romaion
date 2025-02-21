@@ -1,4 +1,28 @@
-﻿#### SETUP EFFECTS ####
+﻿#### GUI EFFECT ####
+
+eocfm_gui_toogle_effect = {
+	if = {
+		limit = {
+			has_variable = eocfm_window_is_active_var
+			var:eocfm_window_is_active_var > 0
+		}
+		set_variable = {
+			name = eocfm_window_is_active_var
+			value = 0
+		}
+	}
+	else = {
+		set_variable = {
+			name = eocfm_window_is_active_var
+			value = 1
+		}
+	}
+	eocfm_update_patriarch_variables_effect = yes
+	eocfm_update_seat_controllers_effect = yes
+	eocfm_check_relations_variables_effect = yes
+}
+
+#### SETUP EFFECTS ####
 
 eocfm_initialize_patriarchs_relations_effect = {
 	set_variable = {

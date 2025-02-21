@@ -3,7 +3,6 @@ widget = {
 	parentanchor = top|hcenter
 	size { 100% 100% }
 	layer = layer_ingame_menu
-	
 	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 	
 	fullscreen_block_window = {
@@ -14,22 +13,13 @@ widget = {
 		
 		datacontext = "[GetPlayer]"
 		
-		visible = "[And( 
-			And( 
-				IsInGame, 
-				And( 
-					Not( IsPauseMenuShown ), 
-					Not( IsGameOverScreenShown )
-				)
-			), 
-			GetScriptedGui('eocfm_window_visible_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)
-		)]"
+		visible = "[GetVariableSystem.HasValue('com_open_window', 'eocfm_sidebar_button_sgui')]"
 
 		blockoverride "back_button_fullscreen" {
 			close_button_large = {
 				name = "tutorial_highlight_close_button"
 				parentanchor = top|right
-				onclick = "[GetScriptedGui('eocfm_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[GetVariableSystem.Clear('com_open_window')]"
 				shortcut = "close_window"
 
 				block "close_button_position" {
@@ -40,7 +30,7 @@ widget = {
 			back_button_large = {
 				position = { 11 15 }
 				parentanchor = top|left
-				onclick = "[GetScriptedGui('eocfm_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[GetVariableSystem.Clear('com_open_window')]"
 				input_action = "back"
 			}
 		}
@@ -56,8 +46,8 @@ widget = {
 				}
 				start_sound = {
 					soundeffect = "snapshot:/Dynamic/mute_vfx_war_100"
-
 				}
+				on_finish = "[GetVariableSystem.Set( 'com_fullscreen', 'com_fullscreen')]"
 			}
 
 			state = {
@@ -65,6 +55,7 @@ widget = {
 				start_sound = {
 					soundeffect = "event:/SFX/UI/SideBar/society_stop"
 				}
+				on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
 			}
 		}
 		
@@ -73,7 +64,6 @@ widget = {
 			text = "eocfm_gui_main_title"
 		}
 		
-
 		vbox = {
 			layoutpolicy_vertical = expanding
 			spacing = 5
