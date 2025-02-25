@@ -1,0 +1,22 @@
+﻿test_window_visible_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = gui_test_var
+	}
+
+	effect = {
+		if = {
+			limit = {
+				not = { has_variable = gui_test_var }
+			}
+			set_variable = gui_test_var
+		}
+		else_if = {
+			limit = {
+				has_variable = gui_test_var
+			}
+			remove_variable = gui_test_var
+		}
+	}
+}

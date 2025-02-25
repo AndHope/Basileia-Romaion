@@ -1,0 +1,266 @@
+widget = {
+	name = "br_diplo_treaty_window"
+	parentanchor = top|hcenter
+	size { 100% 100% }
+	layer = layer_ingame_menu
+	
+	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+
+	fullscreen_block_window = {
+		parentanchor = top|hcenter
+		size { 100% 100% }
+		
+		filter_mouse = all
+		
+		datacontext = "[GetPlayer]"
+
+		visible = "[And( 
+				And( 
+					And( 
+						Not( IsPauseMenuShown ),
+						Not( IsGameOverScreenShown )
+					),
+					GetScriptedGui('test_window_visible_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)
+				),
+				IsInGame
+			)]"
+		# using = Window_Size_MainTab
+		# using = Window_Background_Sidebar
+
+		state = {
+			name = _show
+			# Toggle doesn't work here as it is still toggled on reload, so I have to set it instead
+			on_finish = "[GetVariableSystem.Set('com_fullscreen', 'com_fullscreen')]" 
+		}
+		state = {
+			name = _hide
+			on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
+		}
+
+		blockoverride "back_button_fullscreen" {
+			close_button_large = {
+				name = "tutorial_highlight_close_button"
+				parentanchor = top|right
+				onclick = "[GetScriptedGui('test_window_visible_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				shortcut = "close_window"
+
+				block "close_button_position" {
+					position = { -11 15 }
+				}
+			}
+
+			back_button_large = {
+				position = { 11 15 }
+				parentanchor = top|left
+				onclick = "[GetScriptedGui('test_window_visible_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				input_action = "back"
+			}
+		}
+
+		# blockoverride "animation_state_block" {
+		# 	state = {
+		# 		name = _show
+		# 		start_sound = {
+		# 			soundeffect = "event:/SFX/UI/SideBar/society"
+		# 		}
+		# 		start_sound = {
+		# 			soundeffect = "snapshot:/Dynamic/mute_world_80"
+		# 		}
+		# 		start_sound = {
+		# 			soundeffect = "snapshot:/Dynamic/mute_vfx_war_100"
+		# 		}
+		# 		on_finish = "[GetVariableSystem.Set( 'com_fullscreen', 'com_fullscreen')]"
+		# 	}
+
+		# 	state = {
+		# 		name = _hide
+		# 		start_sound = {
+		# 			soundeffect = "event:/SFX/UI/SideBar/society_stop"
+		# 		}
+		# 		on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
+		# 	}
+		# }
+		
+		blockoverride "window_header_name"
+		{
+			text = "br_gui_diplo_treaty_main_title"
+		}
+
+
+
+
+		vbox = {
+			layoutpolicy_vertical = expanding
+			spacing = 5
+			margin_top = 180
+			maximumsize = { 100% 100% }
+			# parentanchor = top|hcenter
+			
+			# Patriarch Authority Status HBOX
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 15
+				margin_left = 100
+				max_width = 100%
+				
+				# National Church Status Container
+				# margin_widget = {
+				# 	size = { 900 800 }
+				# 	background = {
+				# 		using = entry_bg_simple
+				# 	}
+
+				# 	large_flag = {
+				# 		parentanchor = center
+				# 		datacontext = "[GetPlayer]"
+				# 	}
+				# }
+
+				using = br_diplo_treaty_nation_panel_template
+
+				vbox = {
+					ignoreinvisible = no
+					# layoutpolicy_horizontal = preferred
+					spacing = 15
+					max_width = 90%
+					# background = {
+					# 	using = entry_bg_simple
+					# }
+
+					#timer
+					widget = {
+						size = { 100 50 }
+						background = {
+							using = entry_bg_simple
+						}
+	
+						textbox = {
+							text = "br_gui_diplo_treaty_timer"
+							parentanchor = center
+							autoresize = yes
+							using = fontsize_large
+						}
+					}
+
+					#flavor text
+					widget = {
+						size = { 600 200 }
+						background = {
+							using = entry_bg_simple
+						}
+	
+						textbox = {
+							text = "br_gui_diplo_treaty_flavor_text"
+							parentanchor = center
+							autoresize = yes
+							using = fontsize_large
+						}
+					}
+
+					#list of agreed upon demands
+					widget = {
+						size = { 600 500 }
+						background = {
+							using = entry_bg_simple
+						}
+	
+						textbox = {
+							text = "br_gui_diplo_treaty_list_of_agreed_demands"
+							parentanchor = center
+							autoresize = yes
+							using = fontsize_large
+						}
+					}
+				}
+
+				vbox = {
+					ignoreinvisible = no
+					# layoutpolicy_horizontal = preferred
+					spacing = 15
+					max_width = 90%
+					background = {
+						using = entry_bg_simple
+					}
+					
+					#flag
+					widget = {
+						size = { 300 200 }
+						background = {
+							using = entry_bg_simple
+						}
+	
+						large_flag = {
+							parentanchor = center
+							datacontext = "[GetPlayer]"
+						}
+					}
+
+					#backers
+					widget = {
+						size = { 600 50 }
+						background = {
+							using = entry_bg_simple
+						}
+	
+						textbox = {
+							text = "br_gui_diplo_treaty_backers"
+							parentanchor = center
+							autoresize = yes
+							using = fontsize_large
+						}
+					}
+
+					#list of demands
+					scrollbox = {
+						scrollbarpolicy_vertical = always_on #need this
+						scrollbar_horizontal = always_off #need turn off
+						scrollbar_vertical = {
+							using = vertical_scrollbar
+						}
+				
+						name = "characters_scroll_area" 
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						size = { 600 500 }
+						blockoverride "scrollbox_content" {
+							# your gui
+							widget = {
+								size = { 600 450 }
+								background = {
+									using = entry_bg_simple
+								}
+								textbox = {
+									text = "br_gui_diplo_treaty_list_of_demands"
+									parentanchor = center
+									autoresize = yes
+									using = fontsize_large
+								}
+							}
+							
+						}
+					}
+
+					#+add demand
+					button = {
+						name = "br_gui_diplo_treaty_button"
+						text = "br_gui_diplo_treaty_button"
+						# enabled = "[WarGoal.IsValid]"
+						# onclick = "[Execute( WarGoal.ToggleIsPressedInPotentialPeaceDeal( GetPlayer.Self ) )]"
+						# visible = "[IsValid( WarGoal.ToggleIsPressedInPotentialPeaceDeal( GetPlayer.Self ) )]"		
+						using = default_button
+						size = { 50% 10% }
+		
+						icon = {
+							visible = no
+							using = highlighted_square_selection
+						}
+					}
+					
+				}
+
+			}
+		}
+	}
+
+	
+}

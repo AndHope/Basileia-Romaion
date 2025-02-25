@@ -1,0 +1,87 @@
+template br_diplo_treaty_nation_panel_template {
+
+	vbox = {
+		ignoreinvisible = no
+		# layoutpolicy_horizontal = preferred
+		spacing = 15
+		max_width = 100%
+		background = {
+			using = entry_bg_simple
+		}
+		
+		#flag
+		widget = {
+			size = { 300 200 }
+			background = {
+				using = entry_bg_simple
+			}
+
+			large_flag = {
+				parentanchor = center
+				datacontext = "[GetPlayer]"
+			}
+		}
+
+		#backers
+		widget = {
+			size = { 600 50 }
+			background = {
+				using = entry_bg_simple
+			}
+
+			textbox = {
+				text = "br_gui_diplo_treaty_backers"
+				parentanchor = center
+				autoresize = yes
+				using = fontsize_large
+			}
+		}
+
+		#list of demands
+		scrollbox = {
+			scrollbarpolicy_vertical = always_on #need this
+			scrollbar_horizontal = always_off #need turn off
+			scrollbar_vertical = {
+				using = vertical_scrollbar
+			}
+	
+			name = "characters_scroll_area" 
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+			size = { 600 500 }
+			blockoverride "scrollbox_content" {
+				# your gui
+				widget = {
+					size = { 600 450 }
+					background = {
+						using = entry_bg_simple
+					}
+					textbox = {
+						text = "br_gui_diplo_treaty_list_of_demands"
+						parentanchor = center
+						autoresize = yes
+						using = fontsize_large
+					}
+				}
+				
+			}
+		}
+
+		#+add demand
+		button = {
+			name = "br_gui_diplo_treaty_button"
+			text = "br_gui_diplo_treaty_button"
+			# enabled = "[WarGoal.IsValid]"
+			# onclick = "[Execute( WarGoal.ToggleIsPressedInPotentialPeaceDeal( GetPlayer.Self ) )]"
+			# visible = "[IsValid( WarGoal.ToggleIsPressedInPotentialPeaceDeal( GetPlayer.Self ) )]"		
+			using = default_button
+			size = { 50% 10% }
+
+			icon = {
+				visible = no
+				using = highlighted_square_selection
+			}
+		}
+		
+	}
+}
