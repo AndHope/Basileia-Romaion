@@ -199,6 +199,7 @@ sunni_decision = {
 	}
 }
 
+#Decision to make it easier for a Yuan Player win the starting war.
 br_mongol_army_prowess_decision = {
 	is_shown = {
 		OR = {
@@ -206,7 +207,6 @@ br_mongol_army_prowess_decision = {
 			country_has_primary_culture = cu:mongol
 		}
 		NOT = { has_modifier = br_modifier_horde_army_prowess }
-
 	}
 
 	possible = {
@@ -215,13 +215,15 @@ br_mongol_army_prowess_decision = {
 			country_has_primary_culture = cu:mongol
 		}
 		NOT = { has_modifier = br_modifier_horde_army_prowess }
+		is_player = yes
 	}
 
 	when_taken = {
 		add_modifier = {
 			name = br_modifier_horde_army_prowess
-			years = 15
+			years = 5
 		}
+		activate_law = law_type:law_mixed_army
 	}
 
 	ai_chance = {
