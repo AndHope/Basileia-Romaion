@@ -235,20 +235,51 @@ br_oa_event_debug_silencer = {
 	}
 }
 
+##template for an effect that executes when a state is controlled by someone else than the owner
+# br_on_state_occupied = {
+# 	effect = {
+# 		s:STATE_FLANDERS = { #state_regions can't use ?= probably because they are static and not dynamic
+# 			if = {
+# 				limit = {
+# 					any_scope_state = {
+# 						owner = c:FLA
+# 						not = { controller = owner }
+# 					}
+# 					# always = yes
+# 				}
+# 				c:HRE = {
+# 					trigger_event = {
+# 						id = complete_control_the_lowlands.1
+# 						popup = yes
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
 br_on_state_occupied = {
 	effect = {
-		s:STATE_FLANDERS = { #state_regions can't use ?= probably because they are static and not dynamic
+		s:STATE_ILE_DE_FRANCE = { #state_regions can't use ?= probably because they are static and not dynamic
 			if = {
 				limit = {
 					any_scope_state = {
-						owner = c:FLA
-						not = { controller = owner }
+						owner = c:HRE
+						controller ?= c:FLA
 					}
-					# always = yes
 				}
 				c:HRE = {
 					trigger_event = {
-						id = complete_control_the_lowlands.1
+						id = br_goedendag.1
+						popup = yes
+					}
+					ruler = {
+						kill_character = yes #(yes - kill [by default], no - don't do anything) 
+					}
+				}
+				c:FLA = {
+					trigger_event = {
+						id = br_goedendag.1
 						popup = yes
 					}
 				}
