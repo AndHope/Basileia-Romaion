@@ -584,7 +584,7 @@ eocfm.020 = { # Commissioning an Icon
 		video = "southamerica_christianity"
 	}
 	
-	icon = "gfx/interface/icons/event_icons/event_icon.dds"
+	icon = "gfx/interface/icons/event_icons/event_iconostasis.dds"
 	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
@@ -5037,7 +5037,7 @@ eocfm.300 = { # The Partiarchate Rises
 	desc = eocfm.300.d
 	flavor = eocfm.300.f
 
-	gui_window = event_window_fullscreen
+	#gui_window = event_window_fullscreen
 
 	event_image = {
 		video = "votp_monarch_holding_court"
@@ -5238,6 +5238,17 @@ eocfm.302 = { # The Orthodox Realms
 		name = eocfm.302.a
 		default_option = yes
 		change_tag = ODXY
+		add_modifier = {
+			name = modifier_grefm_imperial_glory
+		}
+		s:STATE_EASTERN_THRACE = {
+			random_scope_state = {
+				add_modifier = {
+					name = modifier_grefm_the_queen_of_cities
+					months = long_modifier_time
+				}
+			}
+		}
 	}
 	
 }
