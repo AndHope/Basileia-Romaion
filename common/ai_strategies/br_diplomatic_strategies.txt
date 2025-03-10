@@ -40,7 +40,9 @@ ai_strategy_romaion_expansion = {
 				scope:target_country = {
 					OR = {
 						country_has_primary_culture = cu:greek
-						country_has_primary_culture = cu:south_italian
+						country_has_primary_culture = cu:sicilian
+						country_has_primary_culture = cu:aegyptian
+						country_has_primary_culture = cu:african
 					}	
 				}
 			}
@@ -62,6 +64,14 @@ ai_strategy_romaion_expansion = {
 					who = scope:target_country
 					attitude = antagonistic
 				}					
+			}
+			multiply = 0.25
+		}	
+		#Less aggressive before war with Aegypt
+		if = {
+			limit = { 
+				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+				game_date < 1743.1.1
 			}
 			multiply = 0.25
 		}	
