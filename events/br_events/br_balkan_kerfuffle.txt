@@ -40,7 +40,7 @@ balkan_kerfuffle.1 = {
 		create_diplomatic_play = {
 			war = yes
 			type = dp_annex_subject
-			add_initiator_backers = { c:br_albania c:br_epiros c:br_morea }
+			add_initiator_backers = { c:br_albania }
 			target_state = s:STATE_SOUTHERN_SERBIA.region_state:br_vidin
 			add_war_goal = {
 				holder = c:br_albania
@@ -110,7 +110,7 @@ balkan_kerfuffle.2 = {
 					initiator_is = c:br_bulgaria
 					target_is = c:SER
 				}
-				add_initiator_backers = { c:BYZ }
+				add_initiator_backers = { c:BYZ c:br_epiros c:br_morea }
 			}
 		}
 		ai_chance = {
@@ -162,7 +162,13 @@ balkan_kerfuffle.3 = {
 		create_diplomatic_play = {
 			war = yes
 			type = dp_annex_subject
+			add_initiator_backers = { c:br_dalmatia }
 			target_state = s:STATE_BOSNIA.region_state:BOS
+			add_war_goal = {
+				holder = c:br_dalmatia
+				type = conquer_state
+				target_state = s:STATE_BOSNIA.region_state:HUM
+			}
 		}
 
 		hidden_effect = {
