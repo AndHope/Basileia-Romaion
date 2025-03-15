@@ -48,3 +48,55 @@
 	}
 	
 }
+
+#Navy reform
+je_china_reforms_navy = {
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	group = je_group_internal_affairs
+
+	#modifiers_while_active = {
+	#	br_modifier_decentralized_navy
+	#}
+
+	complete = {
+		navy_size >= 125
+		has_technology_researched = power_of_the_purse
+		has_technology_researched = screw_frigate
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_naval_base
+				has_active_production_method = pm_no_naval_theory
+			}
+		}
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_shipyards
+				has_active_production_method = pm_basic_shipbuilding
+			}
+		}
+	}
+
+	on_complete = {
+		
+	}
+
+	#on_monthly_pulse = {
+	#	events = {
+	#		
+	#	}
+	#}
+
+	transferable = no
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:han
+	}
+	possible = {
+		has_modifier = br_modifier_decentralized_navy
+	}
+
+	weight = 5000
+
+	#progressbar = yes
+}
