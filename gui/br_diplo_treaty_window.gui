@@ -182,7 +182,7 @@ widget = {
 						using = entry_bg_simple
 					}
 					
-					#flag
+					#target flag
 					widget = {
 						size = { 300 200 }
 						background = {
@@ -190,8 +190,20 @@ widget = {
 						}
 	
 						large_flag = {
-							parentanchor = center
-							datacontext = "[GetPlayer]"
+							position = { 100 40 }
+							datacontext = "[GetPlayer.MakeScope.Var('br_diplo_treaty_target').GetCountry]"
+						}
+						
+						#Country name
+						#an hbox to center the country name
+						hbox = {
+							position = { 0 70 }
+							textbox = {
+								text = "[GetPlayer.MakeScope.Var('br_diplo_treaty_target').GetCountry.GetName]"
+								position = { 120 160 }
+								autoresize = yes
+								using = fontsize_large
+							}
 						}
 					}
 
@@ -207,6 +219,25 @@ widget = {
 							parentanchor = center
 							autoresize = yes
 							using = fontsize_large
+						}
+
+						hbox = {
+							datamodel = "[GetPlayer.MakeScope.GetList('br_list_of_target_subjects')]"
+
+							item = {
+								widget = {
+									datacontext = "[Scope.GetCountry]"
+
+									small_flag = {
+										#position = { 100 40 }
+										datacontext = "[GetPlayer]"
+									}
+								}
+							}
+							small_flag = {
+								#position = { 100 40 }
+								datacontext = "[Scope.GetCountry]"
+							}
 						}
 					}
 
