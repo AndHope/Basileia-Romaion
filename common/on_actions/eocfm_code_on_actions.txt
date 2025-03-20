@@ -1,0 +1,177 @@
+﻿#################################################
+# GREECE, BYZANTIUM, AND THE BALKANS ON_ACTIONS #
+#################################################
+
+on_monthly_pulse_country = {
+	on_actions = {
+		eocfm_monthly_pulse
+		eocfm_global_pulse
+	}
+}
+
+on_wargoal_enforced = {
+	on_actions = {
+		eocfm_wargoal_enforced_1
+		eocfm_wargoal_enforced_2
+	}
+}
+
+############
+
+eocfm_monthly_pulse = {
+	trigger = {
+		country_has_state_religion = rel:orthodox
+	}
+	on_actions = {
+		eocfm_schism_monthly_pulse
+#		eocfm_integration_monthly_pulse
+	}
+	events = {
+		eocfm.001 # Bishops of the East
+		eocfm.111 # Constantinopole Usurped by Country
+		eocfm.113 # Antioch Usurped by Country
+		eocfm.115 # Jerusalem Usurped by Country
+		eocfm.117 # Alexandria Usurped by Country
+		eocfm.119 # Moscow Usurped by Country
+		eocfm.130 # The X Crusade
+		eocfm.161 # The Patriarch's Blessings
+		eocfm.169 # The Living Law
+		eocfm.190 # [TECH] Removes Lex Animata Modifier
+		eocfm.303 # The Capture of the Great Mosque
+		eocfm.307 # The Throne of Saint Peter
+		eocfm.309 # The Supreme Pontiff of the Universal Church
+	}
+	random_events = {
+		chance_of_no_event = 95
+		5 = eocfm.010 # Ecumenical Reforms
+		5 = eocfm.011 # Bible Translation Published
+		5 = eocfm.012 # A Heretical Ruler
+		5 = eocfm.030 # Dissolution of the Monasteries
+		5 = eocfm.031 # Church-State Relations
+		5 = eocfm.040 # Priestly Excesses	
+		5 = eocfm.041 # The Widow's Mite
+		5 = eocfm.140 # Seat Integration Disputed
+		5 = eocfm.150 # Ecumenical Financing
+		5 = eocfm.151 # Delegation Arrives from Seat
+		5 = eocfm.162 # Ecumenical Partiarch Denounces Secularism
+		5 = eocfm.170 # Patriarch Condemns Immorality
+		5 = eocfm.171 # Theological Dispute with Patriarch
+	}
+	effect = {
+		eocfm_update_patriarch_variables_effect = yes
+		eocfm_update_relations_effect = yes
+		eocfm_update_approval_bonus_effect = yes
+		eocfm_check_patriarch_modifiers_effect = yes
+		eocfm_update_caesaropapism_bonus_effect = yes
+		if = {
+			limit = {
+				has_variable = eocfm_integration_var
+			}
+			change_variable = {
+				name = eocfm_integration_var
+				add = 1
+			}
+		}
+		if = { # Adds the Orthodox button to the community sidebar
+			limit = {
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = custom_button_list_flag
+						target = flag:eocfm_sidebar_button_sgui
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = custom_button_list_flag
+				target = flag:eocfm_sidebar_button_sgui
+			}
+			remove_list_global_variable = {
+				name = custom_button_list
+				target = ideology:eocfm_sidebar_button_sgui
+			}
+		}
+	}
+}
+
+eocfm_schism_monthly_pulse = {
+	trigger = {
+		has_variable = eocfm_schism_var
+	}
+	events = {
+		eocfm.107 # Autocephaly Completion Technical Event # Yes Doodlez, I'm disappointed in myself too
+	}
+	random_events = {
+		chance_of_no_event = 90
+		10 = eocfm.180 # Traditionalists March in Capital (Stall Event)
+		10 = eocfm.181 # A Church for the Nation (Progress Event)
+		10 = eocfm.182 # Minority Adherents Seek Protections (Debate Event)
+		10 = eocfm.183 # Patriarch Denounces Schism (Stall Event)
+		10 = eocfm.184 # Liturgical Language (Debate Event)
+		10 = eocfm.185 # Ecclesiatic Purges (Advance Event)
+		10 = eocfm.186 # Promoting Local Bishops (Advance Event)
+		10 = eocfm.187 # Monastic Brawls (Stall Event)
+		10 = eocfm.188 # Agitator Condemns Schism (Stall Event)
+		10 = eocfm.189 # Prominent Priest Assassinated (Stall Event)
+	}
+	effect = {
+		change_variable = {
+			name = eocfm_schism_var
+			add = eocfm_schism_progress_value
+		}
+	}
+}
+
+eocfm_global_pulse = { # Monitored from all scopes; used to deactivate holy sites
+	events = {
+		eocfm.901 # Constantinopole Holy Site Event
+		eocfm.902 # Antioch Holy Site Event
+		eocfm.903 # Jerusalem Holy Site Event
+		eocfm.904 # Alexandria Holy Site Event
+		eocfm.905 # Moscow Holy Site Event
+		eocfm.906 # Rome Holy Site Event
+	}
+}
+
+############
+
+eocfm_wargoal_enforced_1 = { # From the initiator, in the case of crusade success
+	trigger = {
+		has_variable = eocfm_crusade_initiator
+		scope:target = {
+			has_variable = eocfm_crusade_target
+		}
+	}
+	effect = {
+		remove_global_variable = eocfm_crusade_var
+		every_country = {
+			limit = {
+				eocfm_crusade_participant_trigger = yes
+			}
+			trigger_event = {
+				id = eocfm.131 # Victorious Crusade
+			}
+			eocfm_crusade_cleanup_effect = yes
+		}
+	}
+}
+
+eocfm_wargoal_enforced_2 = { # From the target, in the case of crusade failure
+	trigger = {
+		has_variable = eocfm_crusade_target
+		scope:target = {
+			has_variable = eocfm_crusade_initiator
+		}
+	}
+	effect = {
+		remove_global_variable = eocfm_crusade_var
+		every_country = {
+			limit = {
+				eocfm_crusade_participant_trigger = yes
+			}
+			trigger_event = {
+				id = eocfm.132 # Failed Crusade
+			}
+			eocfm_crusade_cleanup_effect = yes
+		}
+	}
+}

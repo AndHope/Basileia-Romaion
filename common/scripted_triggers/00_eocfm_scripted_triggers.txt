@@ -1,0 +1,384 @@
+﻿#### GENERAL TRIGGERS
+
+eocfm_has_icon_trigger = {
+	OR = {
+		has_modifier = modifier_eocfm_icon_christ_pantocrator
+		has_modifier = modifier_eocfm_icon_eleusa
+		has_modifier = modifier_eocfm_icon_john_climacus
+		has_modifier = modifier_eocfm_icon_michael_archistrategos
+		has_modifier = modifier_eocfm_icon_nikolaos_wonderworker
+		has_modifier = modifier_eocfm_icon_gregory_nazianzus
+		has_modifier = modifier_eocfm_icon_paul_of_thebes
+		has_modifier = modifier_eocfm_icon_issac_the_syrian
+	}
+}
+
+#### SEAT CONTROL TRIGGERS ####
+
+eocfm_can_integrate_seat_trigger = {
+	OR = {
+		AND = {
+			owns_entire_state_region = STATE_LAZIO
+			NOT = {
+				has_variable = eocfm_controls_rome
+			}
+		}
+		AND = {
+			owns_entire_state_region = STATE_EASTERN_THRACE
+			NOT = {
+				has_variable = eocfm_controls_constantinople
+			}
+		}
+		AND = {
+			owns_entire_state_region = STATE_SYRIA
+			NOT = {
+				has_variable = eocfm_controls_antioch
+			}
+		}	
+		AND = {
+			owns_entire_state_region = STATE_LOWER_EGYPT
+			NOT = {
+				has_variable = eocfm_controls_alexandria
+			}
+		}	
+		AND = {
+			owns_entire_state_region = STATE_PALESTINE
+			NOT = {
+				has_variable = eocfm_controls_jerusalem
+			}
+		}	
+		AND = {
+			owns_entire_state_region = STATE_MOSCOW
+			NOT = {
+				has_variable = eocfm_controls_moscow
+			}
+		}
+	}
+}
+
+eocfm_controls_ancient_seat_trigger = {
+	OR = {
+		has_variable = eocfm_controls_constantinople
+		has_variable = eocfm_controls_antioch
+		has_variable = eocfm_controls_alexandria
+		has_variable = eocfm_controls_jerusalem
+	}
+}
+
+eocfm_controls_eastern_seat_trigger = {
+	OR = {
+		has_variable = eocfm_controls_constantinople
+		has_variable = eocfm_controls_antioch
+		has_variable = eocfm_controls_alexandria
+		has_variable = eocfm_controls_jerusalem
+		has_variable = eocfm_controls_moscow
+	}
+}
+
+eocfm_controls_any_seat_trigger = {
+	OR = {
+		has_variable = eocfm_controls_rome
+		has_variable = eocfm_controls_constantinople
+		has_variable = eocfm_controls_antioch
+		has_variable = eocfm_controls_alexandria
+		has_variable = eocfm_controls_jerusalem
+		has_variable = eocfm_controls_moscow
+	}
+}
+
+eocfm_is_integrating_seat_trigger = {
+	OR = {
+		has_variable = eocfm_integrating_rome
+		has_variable = eocfm_integrating_constantinople
+		has_variable = eocfm_integrating_antioch
+		has_variable = eocfm_integrating_alexandria
+		has_variable = eocfm_integrating_jerusalem
+		has_variable = eocfm_integrating_moscow
+	}
+}
+
+eocfm_controls_tetrarchy_trigger = {
+	AND = {
+		has_variable = eocfm_controls_constantinople
+		has_variable = eocfm_controls_antioch
+		has_variable = eocfm_controls_alexandria
+		has_variable = eocfm_controls_jerusalem
+	}
+}
+
+eocfm_controls_and_owns_tetrarchy_trigger = {
+	AND = {
+		owns_entire_state_region = STATE_EASTERN_THRACE
+		has_variable = eocfm_controls_constantinople
+		owns_entire_state_region = STATE_SYRIA
+		has_variable = eocfm_controls_antioch
+		owns_entire_state_region = STATE_LOWER_EGYPT
+		has_variable = eocfm_controls_alexandria
+		owns_entire_state_region = STATE_PALESTINE
+		has_variable = eocfm_controls_jerusalem
+	}
+}
+
+eocfm_controls_pentarchy_trigger = {
+	AND = {
+		has_variable = eocfm_controls_rome
+		has_variable = eocfm_controls_constantinople
+		has_variable = eocfm_controls_antioch
+		has_variable = eocfm_controls_alexandria
+		has_variable = eocfm_controls_jerusalem
+		has_variable = eocfm_controls_rome
+	}
+}
+
+eocfm_controls_and_owns_pentarchy_trigger = {
+	AND = {
+		owns_entire_state_region = STATE_LAZIO
+		has_variable = eocfm_controls_rome
+		owns_entire_state_region = STATE_EASTERN_THRACE
+		has_variable = eocfm_controls_constantinople
+		owns_entire_state_region = STATE_SYRIA
+		has_variable = eocfm_controls_antioch
+		owns_entire_state_region = STATE_LOWER_EGYPT
+		has_variable = eocfm_controls_alexandria
+		owns_entire_state_region = STATE_PALESTINE
+		has_variable = eocfm_controls_jerusalem
+		owns_entire_state_region = STATE_LAZIO
+		has_variable = eocfm_controls_rome
+	}
+}
+
+eocfm_controls_all_seats_trigger = {
+	AND = {
+		has_variable = eocfm_controls_rome
+		has_variable = eocfm_controls_constantinople
+		has_variable = eocfm_controls_antioch
+		has_variable = eocfm_controls_alexandria
+		has_variable = eocfm_controls_jerusalem
+		has_variable = eocfm_controls_moscow
+	}
+}
+
+eocfm_controls_and_owns_all_seats_trigger = {
+	AND = {
+		owns_entire_state_region = STATE_LAZIO
+		has_variable = eocfm_controls_rome
+		owns_entire_state_region = STATE_EASTERN_THRACE
+		has_variable = eocfm_controls_constantinople
+		owns_entire_state_region = STATE_SYRIA
+		has_variable = eocfm_controls_antioch
+		owns_entire_state_region = STATE_LOWER_EGYPT
+		has_variable = eocfm_controls_alexandria
+		owns_entire_state_region = STATE_PALESTINE
+		has_variable = eocfm_controls_jerusalem
+		owns_entire_state_region = STATE_MOSCOW
+		has_variable = eocfm_controls_moscow
+	}
+}
+
+#### PATRIARCH RELATIONS TRIGGERS ####
+
+eocfm_is_swaying_seat_trigger = {
+	OR = {
+		has_modifier = modifier_eocfm_swaying_rome
+		has_modifier = modifier_eocfm_swaying_constantinople
+		has_modifier = modifier_eocfm_swaying_antioch
+		has_modifier = modifier_eocfm_swaying_jerusalem
+		has_modifier = modifier_eocfm_swaying_alexandria
+		has_modifier = modifier_eocfm_swaying_moscow
+	}
+}
+
+eocfm_has_any_patriarch_approval_trigger = {
+	OR = {
+		var:eocfm_rome_relations_var >= 80
+		var:eocfm_constantinople_relations_var >= 80
+		var:eocfm_antioch_relations_var >= 80
+		var:eocfm_jerusalem_relations_var >= 80
+		var:eocfm_alexandria_relations_var >= 80
+		var:eocfm_moscow_relations_var >= 80
+	}
+}
+
+eocfm_has_east_patriarch_approval_trigger = {
+	OR = {
+		var:eocfm_constantinople_relations_var >= 80
+		var:eocfm_antioch_relations_var >= 80
+		var:eocfm_jerusalem_relations_var >= 80
+		var:eocfm_alexandria_relations_var >= 80
+		var:eocfm_moscow_relations_var >= 80
+	}
+}
+
+eocfm_has_junior_patriarch_approval_trigger = {
+	OR = {
+		var:eocfm_antioch_relations_var >= 80
+		var:eocfm_jerusalem_relations_var >= 80
+		var:eocfm_alexandria_relations_var >= 80
+		var:eocfm_moscow_relations_var >= 80
+	}
+}
+
+eocfm_has_senior_patriarch_approval_trigger = {
+	OR = {
+		var:eocfm_rome_relations_var >= 80
+		var:eocfm_constantinople_relations_var >= 80
+	}
+}
+
+eocfm_has_low_relations_with_any_patriarch_trigger = {
+	OR = {
+		AND = {
+			any_country = {
+				has_variable = eocfm_controls_rome
+				country_has_state_religion = rel:orthodox
+			}
+			var:eocfm_rome_relations_var < 20
+		}
+		var:eocfm_constantinople_relations_var < 20
+		var:eocfm_antioch_relations_var < 20
+		var:eocfm_jerusalem_relations_var < 20
+		var:eocfm_alexandria_relations_var < 20
+		var:eocfm_moscow_relations_var < 20
+	}
+}
+
+eocfm_has_low_relations_with_ecumenical_patriarch_trigger = {
+	var:eocfm_constantinople_relations_var < 20
+}
+
+eocfm_has_ongoing_patriarch_event_trigger = {
+	OR = {
+		has_variable = eocfm_rome_event_var
+		has_variable = eocfm_constantinople_event_var
+		has_variable = eocfm_antioch_event_var
+		has_variable = eocfm_jerusalem_event_var
+		has_variable = eocfm_alexandria_event_var
+		has_variable = eocfm_moscow_event_var
+	}
+}
+
+eocfm_has_impious_law_trigger = {
+	OR = {
+		has_law = law_type:law_anarchy
+		has_law = law_type:law_total_separation
+		has_law = law_type:law_state_atheism
+		has_law = law_type:law_womens_suffrage
+		has_law = law_type:law_debt_slavery
+		has_law = law_type:law_slave_trade
+	}
+}
+
+eocfm_is_condemnation_target_trigger = { # This feels like bad scripting, idk
+	eocfm_has_impious_law_trigger = yes
+	OR = {
+		AND = {
+			any_country = {
+				has_variable = eocfm_controls_rome
+				country_has_state_religion = rel:orthodox
+			}
+			var:eocfm_rome_relations_var < 20
+			NOT = {
+				has_modifier = modifier_eocfm_condemned_by_rome
+			}
+		}
+		AND = {
+			var:eocfm_constantinople_relations_var < 20
+			NOT = {
+				has_modifier = modifier_eocfm_condemned_by_constantinople
+			}
+		}
+		AND = {
+			var:eocfm_antioch_relations_var < 20
+			NOT = {
+				has_modifier = modifier_eocfm_condemned_by_antioch
+			}
+		}
+		AND = {
+			var:eocfm_jerusalem_relations_var < 20
+			NOT = {
+				has_modifier = modifier_eocfm_condemned_by_jerusalem
+			}
+		}
+		AND = {
+			var:eocfm_alexandria_relations_var < 20
+			NOT = {
+				has_modifier = modifier_eocfm_condemned_by_alexandria
+			}
+		}
+		AND = {
+			var:eocfm_moscow_relations_var < 20
+			NOT = {
+				has_modifier = modifier_eocfm_condemned_by_moscow
+			}
+		}
+	}
+}
+
+eocfm_has_been_condemned_by_patriarch_trigger = {
+	OR = {
+		has_modifier = modifier_eocfm_condemned_by_rome
+		has_modifier = modifier_eocfm_condemned_by_constantinople
+		has_modifier = modifier_eocfm_condemned_by_antioch
+		has_modifier = modifier_eocfm_condemned_by_jerusalem
+		has_modifier = modifier_eocfm_condemned_by_alexandria
+		has_modifier = modifier_eocfm_condemned_by_moscow
+	}
+}
+		
+
+#### ECUMENICAL ACTION TRIGGERS ####
+
+eocfm_has_mandate_trigger = {
+	OR = {
+		has_modifier = modifier_eocfm_autocracy_mandate
+		has_modifier = modifier_eocfm_government_mandate
+		has_modifier = modifier_eocfm_influence_mandate
+		has_modifier = modifier_eocfm_military_mandate
+	}
+}
+
+eocfm_can_host_council_trigger = {
+	OR = {
+		AND = {
+			NOT = { has_global_variable = eocfm_crusades_unlocked }
+			OR = {
+				country_tier = empire
+				country_tier = hegemony
+			}
+		}
+		AND = {
+			NOT = { has_global_variable = eocfm_epistle_considered }
+			has_technology_researched = mass_communication
+		}
+		AND = {
+			NOT = { has_global_variable = eocfm_phyletism_considered }
+			has_technology_researched = nationalism
+		}
+		AND = {
+			NOT = { has_global_variable = eocfm_calendar_considered }
+			has_technology_researched = central_planning
+		}
+		AND = {
+			NOT = { has_global_variable = eocfm_schism_mended }
+			eocfm_controls_and_owns_pentarchy_trigger = yes
+		}
+		AND = {
+			NOT = { has_global_variable = eocfm_orthodox_realms_started }
+			has_variable = eocfm_is_autocephalous
+			eocfm_controls_ancient_seat_trigger = yes
+			country_rank >= rank_value:great_power
+		}
+	}
+	NOT = {
+		any_country = {
+			has_modifier = modifier_eocfm_hosting_council
+		}
+	}
+}
+
+eocfm_crusade_participant_trigger = {
+	OR = {
+		has_variable = eocfm_crusade_initiator
+		has_variable = eocfm_crusade_target
+	}
+}

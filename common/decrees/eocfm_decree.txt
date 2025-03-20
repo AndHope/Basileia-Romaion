@@ -1,0 +1,82 @@
+﻿decree_eocfm_consecrate_metropolitan = {
+	texture = "gfx/interface/icons/decree/decree_eocfm_consecrate_metropolitan.dds"
+	
+	state_trigger = {
+		owner = {
+			country_has_state_religion = rel:orthodox
+			custom_tooltip = {
+				text = eocfm_need_100_caesaropapism
+				hidden_trigger = {
+					eocfm_caesaropapism_capacity_value >= 0
+				}
+			}
+		}
+	}
+	
+	unlocking_technologies = {
+		centralization
+	}
+	
+	unlocking_laws = {
+		law_state_religion
+	}
+	
+	modifier = {
+		state_conversion_mult = 1.00
+		state_peasants_education_access_add = 0.10
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+		state_tax_collection_mult = -0.15
+	}
+	
+	cost = 50
+	
+	ai_weight = {
+		value = 0
+	}
+
+}
+
+decree_eocfm_encourage_almsgiving = {
+	texture = "gfx/interface/icons/decree/decree_eocfm_encourage_almsgiving.dds"
+	
+	state_trigger = {
+		owner = {
+			country_has_state_religion = rel:orthodox
+			custom_tooltip = {
+				text = eocfm_need_100_caesaropapism
+				hidden_trigger = {
+					eocfm_caesaropapism_capacity_value >= 0
+				}
+			}
+		}
+	}
+	
+	unlocking_technologies = {
+		centralization
+	}
+  
+	unlocking_laws = {
+	}
+  
+	modifier = {
+		state_tax_collection_mult = 0.10
+		state_expected_sol_mult = -0.05
+		state_loyalism_increases_full_acceptance_mult = -0.05
+		state_loyalism_increases_second_rate_citizen_mult = -0.05
+		state_loyalism_increases_open_prejudice_mult = -0.05
+		state_loyalism_increases_cultural_erasure_mult = -0.05
+		state_loyalism_increases_violent_hostility_mult = -0.05
+		state_radicalism_increases_full_acceptance_mult = -0.05
+		state_radicalism_increases_second_rate_citizen_mult = -0.05
+		state_radicalism_increases_open_prejudice_mult = -0.05
+		state_radicalism_increases_cultural_erasure_mult = -0.05
+		state_radicalism_increases_violent_hostility_mult = -0.05
+	}
+	
+	cost = 25
+	
+	ai_weight = {
+		value = 0
+	}
+	
+}

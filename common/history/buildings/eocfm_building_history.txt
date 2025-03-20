@@ -1,0 +1,126 @@
+﻿BUILDINGS = {
+	## Patriarchal Seats
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		s:STATE_EASTERN_THRACE = {
+			region_state:BYZ = {
+				create_building = {
+					building="eocfm_building_patriarchate_constantinople"
+					level=1
+				}
+			}
+		}
+		s:STATE_SYRIA = {
+			region_state:BYZ = {
+				create_building = {
+					building="eocfm_building_patriarchate_antioch"
+					level=1
+				}
+			}
+		}
+		s:STATE_PALESTINE = {
+			region_state:br_aegypt = {
+				create_building = {
+					building="eocfm_building_patriarchate_jerusalem"
+					level=1
+				}
+			}
+		}
+		s:STATE_LOWER_EGYPT = {
+			region_state:br_aegypt = {
+				create_building = {
+					building="eocfm_building_patriarchate_alexandria"
+					level=1
+				}
+			}
+		}
+		s:STATE_MOSCOW = {
+			region_state:br_muscovy = {
+				create_building = {
+					building="eocfm_building_patriarchate_moscow"
+					level=1
+				}
+			}
+		}
+		s:STATE_LAZIO = {
+			region_state:PAP = {
+				create_building = {
+					building="eocfm_building_patriarchate_rome"
+					level=1
+				}
+			}
+		}
+	}
+	else = {
+		s:STATE_EASTERN_THRACE = {
+			region_state:TUR = {
+				create_building = {
+					building="eocfm_building_patriarchate_constantinople"
+					level=1
+					activate_production_methods = { "pm_eocfm_patriarchate_occupied" }
+				}
+			}
+		}
+		s:STATE_SYRIA = {
+			region_state:EGY = {
+				create_building = {
+					building="eocfm_building_patriarchate_antioch"
+					level=1
+					activate_production_methods = { "pm_eocfm_patriarchate_occupied" }
+				}
+			}
+		}
+		s:STATE_PALESTINE = {
+			region_state:EGY = {
+				create_building = {
+					building="eocfm_building_patriarchate_jerusalem"
+					level=1
+					activate_production_methods = { "pm_eocfm_patriarchate_occupied" }
+				}
+			}
+		}
+		s:STATE_LOWER_EGYPT = {
+			region_state:EGY = {
+				create_building = {
+					building="eocfm_building_patriarchate_alexandria"
+					level=1
+					activate_production_methods = { "pm_eocfm_patriarchate_occupied" }
+				}
+			}
+		}
+		s:STATE_MOSCOW = {
+			region_state:RUS = {
+				create_building = {
+					building="eocfm_building_patriarchate_moscow"
+					level=1
+				}
+			}
+		}
+		s:STATE_LAZIO = {
+			region_state:PAP = {
+				create_building = {
+					building="eocfm_building_patriarchate_rome"
+					level=1
+				}
+			}
+		}
+	}
+	
+	## Great Mosque
+	if = {
+		limit = {
+			tlim_is_active_trigger = no
+		}
+		s:STATE_HEDJAZ={
+			region_state:HDJ={
+				create_building={
+					building="eocfm_building_masjid_al_haram"
+					level=1
+				}
+			}
+		}
+	}
+	
+}
