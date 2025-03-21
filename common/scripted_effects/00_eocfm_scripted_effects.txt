@@ -52,58 +52,119 @@ eocfm_initialize_patriarchs_relations_effect = {
 }
 
 eocfm_initialize_patriarchs_effect = {
-	# Constantinople
-	create_character = {
-		template = template_eocfm_constantinople_patriarch
-		first_name = "Georgios"
-		last_name = "Fourtouniadis"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
+	if = {
+		limit = {
+			basileia_is_active = yes
 		}
-	}
+		# Constantinople
+		create_character = {
+			template = template_eocfm_constantinople_patriarch
+			first_name = "Neophytus"
+			last_name = "Neophytus"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
+		}
 
-	# Antioch
-	create_character = {
-		template = template_eocfm_antioch_patriarch
-		first_name = "Methodius"
-		last_name = "Methodius"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
+		# Antioch
+		create_character = {
+			template = template_eocfm_antioch_patriarch
+			first_name = "Sylvester"
+			last_name = "Dabbas"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
+		}
+		
+		# Jerusalem
+		create_character = {
+			template = template_eocfm_jerusalem_patriarch
+			first_name = "Parthenius"
+			last_name = "Parthenius"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
+		}
+		
+		# Alexandria
+		create_character = {
+			template = template_eocfm_alexandria_patriarch
+			first_name = "Kosmas"
+			last_name = "Kosmas"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
+		}
+		
+		# Moscow
+		create_character = {
+			template = template_eocfm_moscow_patriarch
+			first_name = "Theophan"
+			last_name = "Theophan"
+			culture = cu:russian
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
 		}
 	}
-	
-	# Jerusalem
-	create_character = {
-		template = template_eocfm_jerusalem_patriarch
-		first_name = "Methodius"
-		last_name = "Methodius"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
+	else = {
+		# Constantinople
+		create_character = {
+			template = template_eocfm_constantinople_patriarch
+			first_name = "Georgios"
+			last_name = "Fourtouniadis"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
 		}
-	}
-	
-	# Alexandria
-	create_character = {
-		template = template_eocfm_alexandria_patriarch
-		first_name = "Hierotheus"
-		last_name = "Hierotheus"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
+
+		# Antioch
+		create_character = {
+			template = template_eocfm_antioch_patriarch
+			first_name = "Methodius"
+			last_name = "Methodius"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
 		}
-	}
-	
-	# Moscow
-	create_character = {
-		template = template_eocfm_moscow_patriarch
-		first_name = "Vasily"
-		last_name = "Drozdov"
-		culture = cu:russian
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
+		
+		# Jerusalem
+		create_character = {
+			template = template_eocfm_jerusalem_patriarch
+			first_name = "Methodius"
+			last_name = "Methodius"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
+		}
+		
+		# Alexandria
+		create_character = {
+			template = template_eocfm_alexandria_patriarch
+			first_name = "Hierotheus"
+			last_name = "Hierotheus"
+			culture = cu:greek
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
+		}
+		
+		# Moscow
+		create_character = {
+			template = template_eocfm_moscow_patriarch
+			first_name = "Vasily"
+			last_name = "Drozdov"
+			culture = cu:russian
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
 		}
 	}
 }
