@@ -1,0 +1,250 @@
+﻿############################
+# THE ORTHODOX REALMS PATH #
+############################
+
+je_eocfm_the_orthodox_realms = {
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	group = je_group_eocfm_empire
+	
+	should_be_pinned_by_default = yes
+
+	immediate = {
+		add_journal_entry = {
+			type = je_eocfm_the_metropolitan_lands
+		}
+		add_journal_entry = {
+			type = je_eocfm_the_holy_land
+		}
+		add_journal_entry = {
+			type = je_eocfm_texas_left
+		}
+	}
+
+	modifiers_while_active = {
+		modifier_eocfm_ecumenical_aspirations
+	}
+	
+	complete = {
+		country_rank >= rank_value:great_power
+		custom_tooltip = {
+			text = eocfm_is_autocephalous
+			hidden_trigger = {
+				has_variable = eocfm_is_autocephalous
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_orthodox_realms_constantinople
+			hidden_trigger = {
+				AND = {
+					owns_entire_state_region = STATE_EASTERN_THRACE
+					has_variable = eocfm_controls_constantinople
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_orthodox_realms_antioch
+			hidden_trigger = {
+				AND = {
+					owns_entire_state_region = STATE_ADANA
+					has_variable = eocfm_controls_antioch
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_orthodox_realms_alexandria
+			hidden_trigger = {
+				AND = {
+					owns_entire_state_region = STATE_LOWER_EGYPT
+					has_variable = eocfm_controls_alexandria
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_orthodox_realms_jerusalem
+			hidden_trigger = {
+				AND = {
+					owns_entire_state_region = STATE_PALESTINE
+					has_variable = eocfm_controls_jerusalem
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_orthodox_realms_metropolitan_lands
+			hidden_trigger = {
+				has_variable = eocfm_metropolitan_lands_complete
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_orthodox_realms_holy_land
+			hidden_trigger = {
+				has_variable = eocfm_holy_land_complete
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_orthodox_realms_black_sea
+			hidden_trigger = {
+				has_variable = eocfm_black_sea_complete
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = eocfm.302 # The Orthodox Realms
+		}
+	}
+	
+	fail = {
+		OR = {
+			country_tier = empire
+			country_tier = hegemony
+		}
+	}
+
+	on_fail = {
+		set_variable = eocfm_weaksauce
+	}
+
+	weight = 10000
+
+}
+
+je_eocfm_the_metropolitan_lands = {
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	group = je_group_eocfm_empire
+	
+	should_be_pinned_by_default = yes	
+	
+	immediate = {
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = je_eocfm_the_metropolitan_lands_complete_1
+			hidden_trigger = {
+				calc_true_if = {
+					amount > 9
+					country_or_subject_owns_entire_state_region = STATE_ALBANIA
+					country_or_subject_owns_entire_state_region = STATE_BOSNIA
+					country_or_subject_owns_entire_state_region = STATE_BULGARIA
+					country_or_subject_owns_entire_state_region = STATE_CRETE
+					country_or_subject_owns_entire_state_region = STATE_CROATIA
+					country_or_subject_owns_entire_state_region = STATE_DALMATIA
+					country_or_subject_owns_entire_state_region = STATE_IONIAN_ISLANDS
+					country_or_subject_owns_entire_state_region = STATE_MACEDONIA
+					country_or_subject_owns_entire_state_region = STATE_MONTENEGRO
+					country_or_subject_owns_entire_state_region = STATE_NORTHERN_SERBIA
+					country_or_subject_owns_entire_state_region = STATE_NORTHERN_THRACE
+					country_or_subject_owns_entire_state_region = STATE_PELOPONNESE
+					country_or_subject_owns_entire_state_region = STATE_SKOPIA
+					country_or_subject_owns_entire_state_region = STATE_SLAVONIA
+					country_or_subject_owns_entire_state_region = STATE_SLOVENIA
+					country_or_subject_owns_entire_state_region = STATE_SOUTHERN_SERBIA
+					country_or_subject_owns_entire_state_region = STATE_THESSALIA
+					country_or_subject_owns_entire_state_region = STATE_WEST_AEGEAN_ISLANDS
+					country_or_subject_owns_entire_state_region = STATE_WESTERN_THRACE
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_eocfm_the_metropolitan_lands_complete_2
+			hidden_trigger = {
+				calc_true_if = {
+					amount > 8
+					country_or_subject_owns_entire_state_region = STATE_ADANA
+					country_or_subject_owns_entire_state_region = STATE_ANKARA
+					country_or_subject_owns_entire_state_region = STATE_AYDIN
+					country_or_subject_owns_entire_state_region = STATE_CYPRUS
+					country_or_subject_owns_entire_state_region = STATE_DIYARBAKIR
+					country_or_subject_owns_entire_state_region = STATE_EAST_AEGEAN_ISLANDS
+					country_or_subject_owns_entire_state_region = STATE_EASTERN_THRACE
+					country_or_subject_owns_entire_state_region = STATE_ERZURUM
+					country_or_subject_owns_entire_state_region = STATE_HUDAVENDIGAR
+					country_or_subject_owns_entire_state_region = STATE_KASTAMONU
+					country_or_subject_owns_entire_state_region = STATE_KONYA
+					country_or_subject_owns_entire_state_region = STATE_TRABZON
+				}
+			}
+		}
+	}
+	
+	on_complete = {
+		set_variable = eocfm_metropolitan_lands_complete
+	}
+	
+	invalid = {
+		hidden_trigger = {
+			has_variable = eocfm_weaksauce
+		}
+	}
+
+	weight = 1000
+}
+
+je_eocfm_the_holy_land = {
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	group = je_group_eocfm_empire
+	
+	should_be_pinned_by_default = yes
+		
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_ALEPPO
+		country_or_subject_owns_entire_state_region = STATE_LEBANON
+		country_or_subject_owns_entire_state_region = STATE_SYRIA
+		country_or_subject_owns_entire_state_region = STATE_PALESTINE
+		country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
+		country_or_subject_owns_entire_state_region = STATE_SINAI
+		country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
+	}
+	
+	on_complete = {
+		set_variable = eocfm_holy_land_complete
+	}
+	
+	invalid = {
+		hidden_trigger = {
+			has_variable = eocfm_weaksauce
+		}
+	}
+
+	weight = 1000
+	
+}
+
+je_eocfm_texas_left = { # yup, it's back
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	group = je_group_eocfm_empire
+	
+	should_be_pinned_by_default = yes
+	
+	complete = {
+		calc_true_if = {
+			amount >= 4
+			country_or_subject_owns_entire_state_region = STATE_CRIMEA
+			country_or_subject_owns_entire_state_region = STATE_KARS
+			country_or_subject_owns_entire_state_region = STATE_GREATER_CAUCASUS
+			country_or_subject_owns_entire_state_region = STATE_DOBRUDJA
+			country_or_subject_owns_entire_state_region = STATE_ARMENIA
+			country_or_subject_owns_entire_state_region = STATE_AZERBAIJAN
+		}
+	}
+	
+	on_complete = {
+		set_variable = eocfm_black_sea_complete
+	}
+	
+	invalid = {
+		hidden_trigger = {
+			has_variable = eocfm_weaksauce
+		}
+	}
+
+	weight = 10000
+	
+}

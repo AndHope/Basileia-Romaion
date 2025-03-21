@@ -1,0 +1,678 @@
+﻿eocfm_caesaropapism_capacity_value = {
+	value = 0
+	
+	## BASE
+	add = {
+		value = 100
+		desc = eocfm_value_from_base
+	}
+	
+	##SOURCES
+	
+	# Law Check
+	if = {
+		limit = {
+			has_law = law_type:law_monarchy
+		}
+		add = {	
+			value = 100
+			desc = eocfm_value_from_monarchy
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_state_religion
+		}
+	}
+	
+	# Modifiers Check
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_reformed_synod
+		}
+		add = {	
+			value = 200
+			desc = eocfm_value_from_reformed_synod
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_dissolved_monasteries
+		}
+		add = {
+			value = 100
+			desc = eocfm_value_from_dissolved_monasteries
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_subsidizing_church
+		}
+		add = {
+			value = 100
+			desc = eocfm_value_from_subsidizing_church
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_sunday_schools
+		}
+		add = {
+			value = 100
+			desc = eocfm_value_from_established_schools
+		}
+	}
+	
+	# Patriarchal Seats Check
+	if = {
+		limit = {
+			has_variable = eocfm_controls_rome
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_controls_rome
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_constantinople
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_controls_constantinople
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_antioch
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_controls_antioch
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_alexandria
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_controls_alexandria
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_jerusalem
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_controls_jerusalem
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_moscow
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_controls_moscow
+		}
+	}
+	if = {
+		limit = {
+			eocfm_controls_all_seats_trigger = yes
+		}
+		add = {
+			value = 400
+			desc = eocfm_value_from_controls_all_seats
+		}
+	}
+	
+	# Other Sources Check
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_having_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_backed_reforms
+		}
+		add = {
+			value = 50
+			desc = eocfm_value_from_backing_reforms
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_secured_tetrarchy
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_secured_tetrarchy
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_secured_pentarchy
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_secured_pentarchy
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_mended_schism
+		}
+		add = {
+			value = 1000
+			desc = eocfm_value_from_mended_schism
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_expelled_metropolitan
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_expelled_metropolitan
+		}
+	}
+	
+	##PENALTIES
+	
+	# Law Check
+	if = {
+		limit = {
+			has_law = law_type:law_theocracy
+		}
+		subtract = {
+			value = 500
+			desc = eocfm_value_from_theocracy
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		subtract = {
+			value = 500
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		subtract = {
+			value = 100
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	
+	# Modifier Check
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_autocephaly_abandoned
+		}
+		subtract = {
+			value = 500
+			desc = eocfm_value_from_autocephaly_abandoned
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_secularism_denounced
+		}
+		subtract = {
+			value = 100
+			desc = eocfm_value_from_secularism_denounced
+		}
+	}
+	
+	##EXPENSES
+	
+	# Major Actions Check
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_hosting_council
+		}
+		subtract = {
+			value = 1000
+			desc = eocfm_value_from_hosting_council
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_schism_var
+		}
+		subtract = {
+			value = 800
+			desc = eocfm_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_integration_var
+		}
+		subtract = {
+			value = 500
+			desc = eocfm_value_from_seat_integration
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_mending_schism
+		}
+		subtract = {
+			value = 1000
+			desc = eocfm_value_from_mending_schism
+		}
+	}
+	
+	# Sway Check
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_rome
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_swaying_rome
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_constantinople
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_swaying_constantinople
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_antioch
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_swaying_antioch
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_jerusalem
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_swaying_jerusalem
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_alexandria
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_swaying_alexandria
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_moscow
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_swaying_moscow
+		}
+	}
+	
+	# Modifiers Check
+	if = {
+		limit = {
+			eocfm_has_icon_trigger = yes
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_has_icon
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_restored_synod
+		}
+		subtract = {
+			value = 500
+			desc = eocfm_value_from_restored_synod
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_restored_monasteries
+		}
+		subtract = {
+			value = 200
+			desc = eocfm_value_from_restored_monasteries
+		}
+	}
+	
+	# Decree Check
+	add = {
+		value = eocfm_decree_expense_value
+		desc = eocfm_value_from_decrees
+	}
+	
+	round_to = 1
+	
+}
+
+eocfm_caesaropapism_multiplier_value = {
+	value = 0
+	add = eocfm_caesaropapism_capacity_value
+	divide = 100
+	round_to = 0.01
+}
+
+eocfm_decree_expense_value = {
+	value = 0
+	every_scope_state = {
+		limit = {
+			has_decree = decree_eocfm_consecrate_metropolitan
+		}
+		subtract = {
+			value = 100
+			desc = eocfm_value_from_metropolitan_decree
+		}
+	}
+	every_scope_state = {
+		limit = {
+			has_decree = decree_eocfm_encourage_almsgiving
+		}
+		subtract = {
+			value = 100
+			desc = eocfm_value_from_almsgiving_decree
+		}
+	}
+}
+
+eocfm_schism_progress_value = {
+# This value is overwritten by GotB to provide support for Bulgarian content
+	value = 0
+	
+	## Sources ##
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_schismatic
+		}
+		add = {
+			value = 2
+			desc = eocfm_value_from_base
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_ignored_dissent
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_ignoring_dissent
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_purged_ecclesiarchy
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_purged_ecclesiarchy
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_fast_tracking_bishops
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_fast_tracking_bishops
+		}
+	}
+	
+	## Penalities ##
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_conceded_to_traditionalists
+		}
+		subtract = {
+			value = 1
+			desc = eocfm_value_from_conceded_to_traditionalists
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_retained_ecclesiarchy
+		}
+		subtract = {
+			value = 1
+			desc = eocfm_value_from_retained_ecclesiarchy
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_monk_smackdown_tolerated
+		}
+		subtract = {
+			value = 1
+			desc = eocfm_value_from_monk_smackdown
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_agitator_delay
+		}
+		subtract = {
+			value = 1
+			desc = eocfm_value_from_agitator_delay
+		}
+	}
+	
+	round = 1
+	min = 1
+	max = 10
+}
+
+eocfm_rome_progress_value = {
+	value = 0
+	subtract = {
+		value = 0.5
+		desc = eocfm_value_from_base_decay
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_rome
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_swaying_seat
+		}
+
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_rome
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_controlling_seat
+		}
+	}
+}
+
+eocfm_constantinople_progress_value = {
+	value = 0
+	subtract = {
+		value = 0.5
+		desc = eocfm_value_from_base_decay
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_variable = eocfm_is_autocephalous
+				has_variable = eocfm_schism_var
+			}
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_communion
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_constantinople
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_swaying_seat
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_constantinople
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_controlling_seat
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_schism_var
+		}
+		subtract = {
+			value = 1.0
+			desc = eocfm_value_from_schism
+		}
+	}
+}
+
+eocfm_antioch_progress_value = {
+	value = 0
+	subtract = {
+		value = 0.5
+		desc = eocfm_value_from_base_decay
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_antioch
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_swaying_seat
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_antioch
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_controlling_seat
+		}
+	}
+}
+
+eocfm_jerusalem_progress_value = {
+	value = 0
+	subtract = {
+		value = 0.5
+		desc = eocfm_value_from_base_decay
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_jerusalem
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_swaying_seat
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_jerusalem
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_controlling_seat
+		}
+	}
+}
+
+eocfm_alexandria_progress_value = {
+	value = 0
+	subtract = {
+		value = 0.5
+		desc = eocfm_value_from_base_decay
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_alexandria
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_swaying_seat
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_alexandria
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_controlling_seat
+		}
+	}
+}
+
+eocfm_moscow_progress_value = {
+	value = 0
+	subtract = {
+		value = 0.5
+		desc = eocfm_value_from_base_decay
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_moscow
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_swaying_seat
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_moscow
+		}
+		add = {
+			value = 1.0
+			desc = eocfm_value_from_controlling_seat
+		}
+	}
+}
+
+######
