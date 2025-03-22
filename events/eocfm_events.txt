@@ -198,10 +198,10 @@ eocfm.001 = { # The Bishops of the East (Generic)
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
-		country_has_state_religion = rel:orthodox
+		eocfm_is_eastern_christian_trigger = yes
 		NOT = { 
 			has_variable = eocfm_starter_var
 		}
@@ -247,7 +247,7 @@ eocfm.003 = { # Greek Holy Synod
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		c:GRE ?= this
@@ -293,7 +293,7 @@ eocfm.004 = { # Most Holy Synod (RUS)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		c:RUS ?= this
@@ -344,7 +344,7 @@ eocfm.010 = { # Ecumenical Reforms
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOR = {
@@ -404,7 +404,7 @@ eocfm.011 = { # Bible Translation Published
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = { 
@@ -473,7 +473,7 @@ eocfm.012 = { # A Heretical Ruler
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -592,7 +592,7 @@ eocfm.020 = { # Commissioning an Icon
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = { 
 		# triggered by eocfm_commission_icon_button
@@ -701,7 +701,7 @@ eocfm.030 = { # Monastic Reparations
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -751,7 +751,7 @@ eocfm.031 = { # Church-State Relations
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = { 
@@ -805,7 +805,7 @@ eocfm.040 = { # Priestly Excesses
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -923,7 +923,7 @@ eocfm.041 = { # The Widow's Mite
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -1014,7 +1014,7 @@ eocfm.100 = { # Country Declaration of Schism
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_declare_autocephaly_sgui
@@ -1042,7 +1042,7 @@ eocfm.100 = { # Country Declaration of Schism
 			limit = {
 				OR = {
 					AND = {
-						country_has_state_religion = rel:orthodox
+						eocfm_is_eastern_christian_trigger = yes
 						NOT = {
 							this = ROOT
 						}
@@ -1077,7 +1077,7 @@ eocfm.101 = { # Recognition of Autocephaly (Generic)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.007
@@ -1117,7 +1117,7 @@ eocfm.102 = { # Tomos of 1850
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.007
@@ -1163,7 +1163,7 @@ eocfm.103 = { # Metropolitanate of Cetinje
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.007
@@ -1209,7 +1209,7 @@ eocfm.104 = { # The Metropolitanate of Belgrade
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.007
@@ -1255,7 +1255,7 @@ eocfm.105 = { # The Patriarch of All Bulgaria
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.007
@@ -1301,7 +1301,7 @@ eocfm.106 = { # The Patriarchate of Romania
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.007
@@ -1392,7 +1392,7 @@ eocfm.107 = { # Autocephaly Completion Technical Event
 			limit = {
 				OR = {
 					AND = {
-						country_has_state_religion = rel:orthodox
+						eocfm_is_eastern_christian_trigger = yes
 						NOT = {
 							this = ROOT
 						}
@@ -1429,7 +1429,7 @@ eocfm.110 = { # Constantinopole Claimed by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_integrate_constantinople_sgui
@@ -1444,7 +1444,7 @@ eocfm.110 = { # Constantinopole Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_constantinople
 				}
@@ -1505,7 +1505,7 @@ eocfm.111 = { # Constantinopole Usurped by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_integrating_constantinople
@@ -1526,7 +1526,7 @@ eocfm.111 = { # Constantinopole Usurped by Country
 					has_variable = eocfm_integrating_constantinople
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_constantinople
 				}
 			}
@@ -1579,7 +1579,7 @@ eocfm.112 = { # Antioch Claimed by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_integrate_antioch_sgui
@@ -1594,7 +1594,7 @@ eocfm.112 = { # Antioch Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_antioch
 				}
@@ -1655,7 +1655,7 @@ eocfm.113 = { # Antioch Usurped by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_integrating_antioch
@@ -1676,7 +1676,7 @@ eocfm.113 = { # Antioch Usurped by Country
 					has_variable = eocfm_integrating_antioch
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_antioch
 				}
 			}
@@ -1728,7 +1728,7 @@ eocfm.114 = { # Jerusalem Claimed by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_integrate_jerusalem_sgui
@@ -1743,7 +1743,7 @@ eocfm.114 = { # Jerusalem Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_jerusalem
 				}
@@ -1804,7 +1804,7 @@ eocfm.115 = { # Jerusalem Usurped by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_integrating_jerusalem
@@ -1825,7 +1825,7 @@ eocfm.115 = { # Jerusalem Usurped by Country
 					has_variable = eocfm_integrating_jerusalem
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_jerusalem
 				}
 			}
@@ -1877,7 +1877,7 @@ eocfm.116 = { # Alexandria Claimed by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_integrate_alexandria_sgui
@@ -1892,7 +1892,7 @@ eocfm.116 = { # Alexandria Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_alexandria
 				}
@@ -1953,7 +1953,7 @@ eocfm.117 = { # Alexandria Usurped by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_integrating_alexandria
@@ -1974,7 +1974,7 @@ eocfm.117 = { # Alexandria Usurped by Country
 					has_variable = eocfm_integrating_alexandria
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_alexandria
 				}
 			}
@@ -2026,7 +2026,7 @@ eocfm.118 = { # Moscow Claimed by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_integrate_moscow_sgui
@@ -2041,7 +2041,7 @@ eocfm.118 = { # Moscow Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_moscow
 				}
@@ -2102,7 +2102,7 @@ eocfm.119 = { # Moscow Usurped by Country
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_integrating_moscow
@@ -2123,7 +2123,7 @@ eocfm.119 = { # Moscow Usurped by Country
 					has_variable = eocfm_integrating_moscow
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_moscow
 				}
 			}
@@ -2177,7 +2177,7 @@ eocfm.120 = { # Ecumenical Council Convoked
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.121
@@ -2218,7 +2218,7 @@ eocfm.121 = { # Council of X
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_convoke_council_sgui
@@ -2235,7 +2235,7 @@ eocfm.121 = { # Council of X
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = { has_modifier = modifier_eocfm_hosting_council }
 			}
 			trigger_event = {
@@ -2341,7 +2341,7 @@ eocfm.122 = { # Birth of the New Crusades
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -2353,7 +2353,7 @@ eocfm.122 = { # Birth of the New Crusades
 			}
 			every_country = {
 				limit = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					NOT = { has_modifier = modifier_eocfm_hosting_council }
 				}
 				trigger_event = {
@@ -2403,7 +2403,7 @@ eocfm.123 = { # Epistle to the Easterners
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -2415,7 +2415,7 @@ eocfm.123 = { # Epistle to the Easterners
 			}
 			every_country = {
 				limit = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					NOT = { has_modifier = modifier_eocfm_hosting_council }
 				}
 				trigger_event = {
@@ -2522,7 +2522,7 @@ eocfm.124 = { # Encyclical of the Eastern Patriarchs
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# Triggered by eocfm.123 # Epistle to the Easterners
@@ -2607,7 +2607,7 @@ eocfm.125 = { # Problems with Phyletism
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -2619,7 +2619,7 @@ eocfm.125 = { # Problems with Phyletism
 			}
 			every_country = {
 				limit = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					NOT = { has_modifier = modifier_eocfm_hosting_council }
 				}
 				trigger_event = {
@@ -2692,7 +2692,7 @@ eocfm.126 = { # Phyletism Addressed
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -2751,7 +2751,7 @@ eocfm.127 = { # An Outdated Calendar
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -2822,7 +2822,7 @@ eocfm.128 = { # The Julian Calendar
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -2889,7 +2889,7 @@ eocfm.129 = { # The Byzantine Commonwealth
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.300
@@ -2932,7 +2932,7 @@ eocfm.130 = { # Crusade Warmup
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_crusade_initiator
@@ -3004,7 +3004,7 @@ eocfm.131 = { # Victorious Crusade
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -3099,7 +3099,7 @@ eocfm.132 = { # Failed Crusade
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}
@@ -3164,7 +3164,7 @@ eocfm.140 = { # Seat Integration Disputed (Part 1)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		eocfm_controls_any_seat_trigger = yes
@@ -3271,7 +3271,7 @@ eocfm.141 = { # Seat Integration Disputed (Part 2)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.140
@@ -3393,7 +3393,7 @@ eocfm.150 = { # Ecumenical Financing
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		eocfm_is_swaying_seat_trigger = yes
@@ -3462,7 +3462,7 @@ eocfm.151 = { # Delegation Arrives from Seat
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		eocfm_is_swaying_seat_trigger = yes
@@ -3536,7 +3536,7 @@ eocfm.160 = { # An Audience with the Patriarch
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_seek_mandate_sgui
@@ -3617,7 +3617,7 @@ eocfm.161 = { # The Patriarch's Blessings
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		var:eocfm_constantinople_relations_var >= 80
@@ -3675,7 +3675,7 @@ eocfm.162 = { # Ecumenical Partiarch Denounces Secularism
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		var:eocfm_constantinople_relations_var < 20
@@ -3726,7 +3726,7 @@ eocfm.167 = { # Country Demands Deposition
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_demand_deposition_sgui
@@ -3775,7 +3775,7 @@ eocfm.167 = { # Country Demands Deposition
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			trigger_event = {
 				id = eocfm.168 # Ecumenical Partiarch Deposed
@@ -3807,7 +3807,7 @@ eocfm.168 = { # Ecumenical Patriarch Deposed
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm.167
@@ -3854,7 +3854,7 @@ eocfm.169 = { # The Living Law
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_is_autocephalous
@@ -3909,7 +3909,7 @@ eocfm.170 = { # Patriarch Condemns Immorality
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		eocfm_is_condemnation_target_trigger = yes
@@ -3952,7 +3952,7 @@ eocfm.171 = { # Theological Dispute with Patriarch
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_modifier = modifier_eocfm_theologize_dogma
@@ -4017,7 +4017,7 @@ eocfm.180 = { # Traditionalists March in Capital (Stall Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -4089,7 +4089,7 @@ eocfm.181 = { # A Church for the Nation (Progress Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -4150,7 +4150,7 @@ eocfm.182 = { # Minority Adherents Seek Protections (Debate Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -4237,7 +4237,7 @@ eocfm.183 = { # Patriarch Denounces Schism (Stall Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOR = {
@@ -4327,7 +4327,7 @@ eocfm.184 = { # Liturgical Language (Debate Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOR = {
@@ -4413,7 +4413,7 @@ eocfm.185 = { # Ecclesiatic Purges (Advance Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOR = {
@@ -4496,7 +4496,7 @@ eocfm.186 = { # Promoting Local Bishops (Advance Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -4560,7 +4560,7 @@ eocfm.187 = { # Monastic Brawls (Stall Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -4635,7 +4635,7 @@ eocfm.188 = { # Agitator Condemns Schism (Stall Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -4752,7 +4752,7 @@ eocfm.189 = { # Prominent Priest Assassinated (Stall Event)
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		NOT = {
@@ -4868,7 +4868,7 @@ eocfm.300 = { # The Partiarchate Rises
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 
 	trigger = {
 		# triggered by eocfm_unify_orthodox_realms_sgui / eocfm.121
@@ -4877,7 +4877,7 @@ eocfm.300 = { # The Partiarchate Rises
 	immediate = {
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			trigger_event = {
 				id = eocfm.129 # The Byzantine Commonwealth
@@ -4916,7 +4916,7 @@ eocfm.301 = { # The Metropolitan Lands
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 
 	trigger = {
 	}
@@ -5040,7 +5040,7 @@ eocfm.302 = { # The Orthodox Realms
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by je_eocfm_the_orthodox_realms
@@ -5079,7 +5079,7 @@ eocfm.303 = { # The Capture of the Great Mosque
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 
 	trigger = {
 		always = no
@@ -5191,7 +5191,7 @@ eocfm.304 = { # The Ancient Partiarchates
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_secure_tetrarchy_sgui
@@ -5246,7 +5246,7 @@ eocfm.305 = { # The Restoration of the Pentarchy
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_secure_pentarchy_sgui
@@ -5287,7 +5287,7 @@ eocfm.306 = { # Challenging the Patriarch of the West
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		# triggered by eocfm_integrate_rome_sgui
@@ -5357,7 +5357,7 @@ eocfm.307 = { # The Throne of Saint Peter
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_integrating_rome
@@ -5378,7 +5378,7 @@ eocfm.307 = { # The Throne of Saint Peter
 					has_variable = eocfm_integrating_rome
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					country_has_state_religion = rel:catholic
 				}
 			}
@@ -5435,7 +5435,7 @@ eocfm.308 = { # The Council of Unification
 	
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 	}	
@@ -5476,7 +5476,7 @@ eocfm.309 = { # The Supreme Pontiff of the Universal Church
 
 	duration = 3
 	
-	dlc = dlc_eocfm
+	# dlc = dlc_eocfm
 	
 	trigger = {
 		has_variable = eocfm_mending_var
@@ -5546,7 +5546,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 		has_state_in_state_region = STATE_EASTERN_THRACE
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_EASTERN_THRACE = {
 					any_scope_state = {
 						owner = root
@@ -5559,7 +5559,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_EASTERN_THRACE = {
 					any_scope_state = {
@@ -5577,7 +5577,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_EASTERN_THRACE = {
 				random_scope_state = {
@@ -5594,7 +5594,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_EASTERN_THRACE = {
@@ -5621,7 +5621,7 @@ eocfm.902 = { # Antioch Holy Site Event
 		has_state_in_state_region = STATE_SYRIA
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_SYRIA = {
 					any_scope_state = {
 						owner = root
@@ -5634,7 +5634,7 @@ eocfm.902 = { # Antioch Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_SYRIA = {
 					any_scope_state = {
@@ -5652,7 +5652,7 @@ eocfm.902 = { # Antioch Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_SYRIA = {
 				random_scope_state = {
@@ -5669,7 +5669,7 @@ eocfm.902 = { # Antioch Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_SYRIA = {
@@ -5696,7 +5696,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 		has_state_in_state_region = STATE_PALESTINE
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_PALESTINE = {
 					any_scope_state = {
 						owner = root
@@ -5709,7 +5709,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_PALESTINE = {
 					any_scope_state = {
@@ -5727,7 +5727,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_PALESTINE = {
 				random_scope_state = {
@@ -5744,7 +5744,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_PALESTINE = {
@@ -5771,7 +5771,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 		has_state_in_state_region = STATE_LOWER_EGYPT
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_LOWER_EGYPT = {
 					any_scope_state = {
 						owner = root
@@ -5784,7 +5784,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_LOWER_EGYPT = {
 					any_scope_state = {
@@ -5802,7 +5802,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_LOWER_EGYPT = {
 				random_scope_state = {
@@ -5819,7 +5819,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_LOWER_EGYPT = {
@@ -5846,7 +5846,7 @@ eocfm.905 = { # Moscow Holy Site Event
 		has_state_in_state_region = STATE_MOSCOW
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_MOSCOW = {
 					any_scope_state = {
 						owner = root
@@ -5859,7 +5859,7 @@ eocfm.905 = { # Moscow Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_MOSCOW = {
 					any_scope_state = {
@@ -5877,7 +5877,7 @@ eocfm.905 = { # Moscow Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_MOSCOW = {
 				random_scope_state = {
@@ -5894,7 +5894,7 @@ eocfm.905 = { # Moscow Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_MOSCOW = {
@@ -5921,7 +5921,7 @@ eocfm.906 = { # Rome Holy Site Event
 		has_state_in_state_region = STATE_LAZIO
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_LAZIO = {
 					any_scope_state = {
 						owner = root
@@ -5934,7 +5934,7 @@ eocfm.906 = { # Rome Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_LAZIO = {
 					any_scope_state = {
@@ -5952,7 +5952,7 @@ eocfm.906 = { # Rome Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_LAZIO = {
 				random_scope_state = {
@@ -5969,7 +5969,7 @@ eocfm.906 = { # Rome Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_LAZIO = {
