@@ -86,8 +86,8 @@ br_pm_building_great_palace_active = {
 		level_scaled = {
 			building_employment_aristocrats_add = 500 #Relatives and other Important nobles living in or near the Palace Complex
 			building_employment_bureaucrats_add = 500 #Imperial Bureaucrats 
-			building_employment_officers_add = 100 #Importtant Officers advisors to Emperor
-			building_employment_academics_add = 50 #Important intelectuals of the Empire educators to important palace persons etc
+			building_employment_officers_add = 500 #Importtant Officers advisors to Emperor
+			building_employment_academics_add = 100 #Important intelectuals of the Empire educators to important palace persons etc
 			building_employment_soldiers_add = 250 #Varangian Guard Soldiers
 		}
 	}
@@ -112,12 +112,10 @@ br_pm_aristocratic_building_great_palace = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_aristocrats_pol_str_mult = 0.25
-			country_officers_pol_str_mult = 0.25
-			country_bureaucrats_pol_str_mult = 0.25
 			country_influence_add = 100
 			country_authority_add = 100
 			state_decree_cost_mult = -0.1
+			country_infamy_decay_mult = 0.1
 		}
 	}
 	building_modifiers = {
@@ -129,13 +127,16 @@ br_pm_aristocratic_building_great_palace = {
 			building_employment_aristocrats_add = 2000 #Relatives and other Important nobles living in or near the Palace Complex
 			building_employment_bureaucrats_add = 2000 #Imperial Bureaucrats 
 			building_employment_officers_add = 250 #Importtant Officers advisors to Emperor
-			building_employment_academics_add = 250 #Important intelectuals of the Empire educators to important palace persons etc
+			building_employment_academics_add = 100 #Important intelectuals of the Empire educators to important palace persons etc
 		}
 	}
 	state_modifiers = {
 		unscaled = {
-			state_upper_strata_standard_of_living_add = 10
-			state_aristocrats_investment_pool_efficiency_mult = 0.25
+			#state_upper_strata_standard_of_living_add = 10
+			#state_aristocrats_investment_pool_efficiency_mult = 0.25
+			country_aristocrats_pol_str_mult = 0.25
+			country_officers_pol_str_mult = 0.25
+			country_bureaucrats_pol_str_mult = 0.25
 		}	
 	}
 }
@@ -152,12 +153,10 @@ br_pm_bureaucrat_building_great_palace = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_academics_pol_str_mult = 0.25
-			country_officers_pol_str_mult = 0.25
-			country_bureaucrats_pol_str_mult = 0.75
 			country_influence_add = 100
 			country_authority_add = 100
 			state_decree_cost_mult = -0.1
+			country_infamy_decay_mult = 0.1
 		}
 	}
 	building_modifiers = {
@@ -169,13 +168,14 @@ br_pm_bureaucrat_building_great_palace = {
 			building_employment_aristocrats_add = 500 #Relatives and other Important nobles living in or near the Palace Complex
 			building_employment_bureaucrats_add = 4500 #Imperial Bureaucrats 
 			building_employment_officers_add = 250 #Importtant Officers advisors to Emperor
-			building_employment_academics_add = 250 #Important intelectuals of the Empire educators to important palace persons etc
+			building_employment_academics_add = 100 #Important intelectuals of the Empire educators to important palace persons etc
 		}
 	}
 		state_modifiers = {
 			unscaled = {
-				state_upper_strata_standard_of_living_add = 5
-				state_shopkeepers_investment_pool_efficiency_mult = 0.25
+				country_academics_pol_str_mult = 0.25
+				country_officers_pol_str_mult = 0.25
+				country_bureaucrats_pol_str_mult = 0.75
 			}	
 		}
 }
@@ -223,11 +223,10 @@ br_pm_default_guard_house = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_paper_add = 15
-			goods_input_services_add = 15
+
 		}
 		level_scaled = {
-			building_employment_officers_add = 500 #Importtant Officers advisors to Emperor
+			building_employment_officers_add = 250 #Importtant Officers advisors to Emperor
 			building_employment_soldiers_add = 1000 #Varangian Guard Soldiers
 		}
 	}
@@ -259,7 +258,7 @@ br_pm_improved_guard_house = {
 
 		}
 		level_scaled = {
-			building_employment_officers_add = 750 #Importtant Officers advisors to Emperor
+			building_employment_officers_add = 250 #Importtant Officers advisors to Emperor
 			building_employment_soldiers_add = 1000 #Varangian Guard Soldiers
 		}
 	}
@@ -291,7 +290,7 @@ br_pm_elite_guard_house = {
 
 		}
 		level_scaled = {
-			building_employment_officers_add = 750 #Importtant Officers advisors to Emperor
+			building_employment_officers_add = 250 #Importtant Officers advisors to Emperor
 			building_employment_soldiers_add = 1000 #Varangian Guard Soldiers
 		}
 	}
@@ -763,7 +762,7 @@ pm_gbbf_original_roster = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_bureaucracy_add = -100
-			country_prestige_add = 25
+			country_prestige_add = 15
 			#country_chariot_racing_active = yes
 		}
 	}
@@ -787,7 +786,7 @@ pm_gbbf_expanded_roster = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_bureaucracy_add = -200
-			country_prestige_add = 50
+			country_prestige_add = 25
 			#country_expanded_chariot_racing_active = yes
 		}
 	}
