@@ -209,34 +209,31 @@ widget = {
 
 					#backers
 					widget = {
-						size = { 600 50 }
+						size = { 600 100 }
 						background = {
 							using = entry_bg_simple
 						}
+
+						vbox = {
 	
-						textbox = {
-							text = "br_gui_diplo_treaty_backers"
-							parentanchor = center
-							autoresize = yes
-							using = fontsize_large
-						}
+							textbox = {
+								text = "br_gui_diplo_treaty_backers"
+								autoresize = yes
+								using = fontsize_large
+							}
 
-						hbox = {
-							datamodel = "[GetPlayer.MakeScope.GetList('br_list_of_target_subjects')]"
+							hbox = {
+								layoutpolicy_horizontal = preferred
+								datamodel = "[GetPlayer.MakeScope.GetList('br_list_of_target_subjects')]"
 
-							item = {
-								widget = {
-									datacontext = "[Scope.GetCountry]"
-
-									small_flag = {
-										#position = { 100 40 }
-										datacontext = "[GetPlayer]"
+								item = {
+									container = {
+										# size = { 70 50 }
+										small_flag = {
+											datacontext = "[Scope.GetCountry]"
+										}
 									}
 								}
-							}
-							small_flag = {
-								#position = { 100 40 }
-								datacontext = "[Scope.GetCountry]"
 							}
 						}
 					}
@@ -252,7 +249,7 @@ widget = {
 						name = "characters_scroll_area" 
 						layoutpolicy_vertical = expanding
 						layoutpolicy_horizontal = expanding
-						size = { 600 500 }
+						size = { 600 400 }
 						blockoverride "scrollbox_content" {
 							# your gui
 							widget = {

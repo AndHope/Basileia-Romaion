@@ -26,6 +26,22 @@
 			name = br_diplo_treaty_target
 			value = scope:target_country
 		}
+
+		scope:target_country = {
+			every_direct_subject = {
+
+				limit = {
+					always = yes
+				}
+
+				root = {
+					add_to_variable_list = {
+						name = br_list_of_target_subjects
+						target = prev
+					}
+				}
+			}
+		}
 	}
 	
 	# pact = {
