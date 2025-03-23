@@ -1,0 +1,141 @@
+﻿GLOBAL = {
+
+### Global Variable Setup
+	set_global_variable = {
+		name = eocfm_council_var
+		value = 0
+	}
+	set_global_variable = {
+		name = eocfm_crusade_counter
+		value = 0
+	}
+	set_global_variable = {
+		name = eocfm_deposition_counter
+		value = 0
+	}
+
+### Specific Country Setups
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		c:BYZ = {
+			set_variable = eocfm_ruler_conversion_considered
+			set_variable = eocfm_is_autocephalous
+			set_variable = eocfm_controls_constantinople
+			set_variable = eocfm_controls_antioch
+		}
+		c:br_muscovy = {
+			add_modifier = modifier_eocfm_reformed_synod
+			set_variable = eocfm_is_autocephalous
+			set_variable = eocfm_controls_moscow
+		}
+		c:br_aegypt = {
+			set_variable = eocfm_is_autocephalous
+			set_variable = eocfm_controls_alexandria
+			set_variable = eocfm_controls_jerusalem
+		}
+		c:ARM = {
+			set_variable = eocfm_is_autocephalous
+		}
+		c:GEO = {
+			set_variable = eocfm_is_autocephalous
+		}
+		c:SER = {
+			set_variable = eocfm_is_autocephalous
+		}
+		c:PAP = {
+			set_variable = eocfm_controls_rome
+		}
+		c:br_elysium = {
+			set_variable = eocfm_is_autocephalous
+		}
+	}
+	else = {
+		c:GRE = {
+			add_modifier = modifier_eocfm_reformed_synod
+			add_modifier = modifier_eocfm_dissolved_monasteries
+			set_variable = eocfm_dissolved_monasteries
+			set_variable = eocfm_ruler_conversion_considered
+		}
+		c:TUR = {
+			set_variable = eocfm_controls_constantinople
+		}
+		c:EGY = {
+			set_variable = eocfm_controls_antioch
+			set_variable = eocfm_controls_alexandria
+			set_variable = eocfm_controls_jerusalem
+		}
+		c:RUS = {
+			add_modifier = modifier_eocfm_reformed_synod
+			set_variable = eocfm_is_autocephalous
+			set_variable = eocfm_controls_moscow
+		}
+		
+		c:PAP = {
+			set_variable = eocfm_controls_rome
+		}
+	}
+
+### Patriarch Initialization
+	every_country = {
+		limit = {
+			country_has_state_religion = rel:orthodox
+		}
+		eocfm_initialize_patriarchs_effect = yes # Creates the Patriarchs and yeets them into the void
+	}
+	
+### Opener Event Triggers	
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		every_country = {
+			limit = {
+				OR = {
+					country_has_state_religion = rel:orthodox
+					country_has_state_religion = rel:oriental_orthodox
+					country_has_state_religion = rel:br_religion_elysian_orthodox
+				}
+			}
+			trigger_event = {
+				id = eocfm.001 # The Bishops of the East
+			}
+		}
+	}
+	else = {
+		every_country = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			if = {
+				limit = {
+					c:GRE ?= this
+				}
+				trigger_event = {
+					id = eocfm.003 # Greek Holy Synod (GRE)
+				}
+			}
+			else_if = {
+				limit = {
+					c:RUS ?= this
+				}
+				trigger_event = {
+					id = eocfm.004 # Most Holy Synod (RUS)
+				}
+			}
+			else = {
+				trigger_event = {
+					id = eocfm.001 # The Bishops of the East
+				}
+			}
+		}
+	}
+
+### Final Setup
+	add_to_global_variable_list = {
+		name = custom_button_list_flag
+		target = flag:eocfm_sidebar_button_sgui
+	}
+
+}
