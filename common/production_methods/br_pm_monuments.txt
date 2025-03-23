@@ -66,9 +66,12 @@ pm_default_building_white_house = {
 }
 
 #Massive Imperial complex representing all the palaces and government buildings
-br_pm_default_building_great_palace = {
+br_pm_building_great_palace_active = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 
+	unlocking_laws = {
+		law_monarchy
+	}
 	country_modifiers = {
 		workforce_scaled = {
 			country_legitimacy_headofstate_add = 10
@@ -90,8 +93,17 @@ br_pm_default_building_great_palace = {
 	}
 }
 
-br_pm_aristocratic_building_great_palace = {
+br_pm_building_great_palace_inactive = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	#possibly add debuffs to orthodox/greek pops for owning if not active.
+	disallowing_laws = {
+		law_monarchy
+	}
+
+}
+
+br_pm_aristocratic_building_great_palace = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 
 	unlocking_laws = {
 		law_hereditary_bureaucrats
@@ -116,9 +128,8 @@ br_pm_aristocratic_building_great_palace = {
 		level_scaled = {
 			building_employment_aristocrats_add = 2000 #Relatives and other Important nobles living in or near the Palace Complex
 			building_employment_bureaucrats_add = 2000 #Imperial Bureaucrats 
-			building_employment_officers_add = 750 #Importtant Officers advisors to Emperor
+			building_employment_officers_add = 250 #Importtant Officers advisors to Emperor
 			building_employment_academics_add = 250 #Important intelectuals of the Empire educators to important palace persons etc
-			building_employment_soldiers_add = 1000 #Varangian Guard Soldiers
 		}
 	}
 	state_modifiers = {
@@ -130,7 +141,7 @@ br_pm_aristocratic_building_great_palace = {
 }
 
 br_pm_bureaucrat_building_great_palace = {
-	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	texture = "gfx/interface/icons/production_method_icons/ownership_bureacrats.dds"
 
 	unlocking_technologies = {
 		centralization
@@ -157,9 +168,8 @@ br_pm_bureaucrat_building_great_palace = {
 		level_scaled = {
 			building_employment_aristocrats_add = 500 #Relatives and other Important nobles living in or near the Palace Complex
 			building_employment_bureaucrats_add = 4500 #Imperial Bureaucrats 
-			building_employment_officers_add = 1000 #Importtant Officers advisors to Emperor
+			building_employment_officers_add = 250 #Importtant Officers advisors to Emperor
 			building_employment_academics_add = 250 #Important intelectuals of the Empire educators to important palace persons etc
-			building_employment_soldiers_add = 1250 #Varangian Guard Soldiers
 		}
 	}
 		state_modifiers = {
@@ -170,8 +180,154 @@ br_pm_bureaucrat_building_great_palace = {
 		}
 }
 
+br_pm_museum_building_great_palace = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_museum_building.dds"
+	
+	unlocking_production_methods = {
+		br_pm_building_great_palace_inactive
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 10
+		}
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_migration_pull_mult = 0.15
+			state_radicals_from_political_movements_mult = -0.05
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+		}
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_clerks_add = 500
+			building_employment_laborers_add = 2000
+		}
+	}
+}
+
+#Eventually add unique guard units to the map.
+br_pm_default_guard_house = {
+	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
+
+	unlocking_laws = {
+
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_suppression_attraction_mult = -0.1
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_paper_add = 15
+			goods_input_services_add = 15
+		}
+		level_scaled = {
+			building_employment_officers_add = 500 #Importtant Officers advisors to Emperor
+			building_employment_soldiers_add = 1000 #Varangian Guard Soldiers
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			
+		}	
+	}
+}
+
+br_pm_improved_guard_house = {
+	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
+
+	unlocking_technologies = {
+		general_staff
+	}
+	disallowing_laws = {
+		law_peasant_levies
+		law_national_militia
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_suppression_attraction_mult = -0.15
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+
+		}
+		level_scaled = {
+			building_employment_officers_add = 750 #Importtant Officers advisors to Emperor
+			building_employment_soldiers_add = 1000 #Varangian Guard Soldiers
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			
+		}	
+	}
+}
+
+br_pm_elite_guard_house = {
+	texture = "gfx/interface/icons/production_method_icons/squad_infantry.dds"
+	
+	unlocking_technologies = {
+		military_statistics
+	}
+	disallowing_laws = {
+		law_peasant_levies
+		law_national_militia
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_suppression_attraction_mult = -0.25
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+
+		}
+		level_scaled = {
+			building_employment_officers_add = 750 #Importtant Officers advisors to Emperor
+			building_employment_soldiers_add = 1000 #Varangian Guard Soldiers
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			
+		}	
+	}
+}
+
+br_pm_museum_guard_house = {
+	texture = "gfx/interface/icons/production_method_icons/squad_infantry.dds"
+	
+	unlocking_production_methods = {
+		br_pm_museum_building_great_palace
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+
+		}
+		level_scaled = {
+			building_employment_officers_add = 25
+			building_employment_soldiers_add = 100
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			
+		}	
+	}
+}
+
+#Generic Palace
 br_pm_default_building_palace_complex = {
-	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 
 	disallowing_laws = {
 		law_elected_bureaucrats
@@ -210,7 +366,7 @@ br_pm_default_building_palace_complex = {
 }
 
 br_pm_bureaucrat_building_palace_complex = {
-	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	texture = "gfx/interface/icons/production_method_icons/ownership_bureacrats.dds"
 
 	unlocking_technologies = {
 		centralization
@@ -256,10 +412,13 @@ br_pm_bureaucrat_building_palace_complex = {
 br_pm_default_building_hippodrome = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 
+	unlocking_laws = {
+		law_monarchy
+	}
 	country_modifiers = {
 		workforce_scaled = {
-			#interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.1
-			country_shopkeepers_pol_str_mult = 0.15
+			interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.15 
+			#country_shopkeepers_pol_str_mult = 0.15
 			country_prestige_add = 25
 		}
 	}
@@ -285,6 +444,16 @@ br_pm_default_building_hippodrome = {
 		}	
 	}
 }
+
+br_pm_inactive_building_hippodrome = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	disallowing_laws = {
+		law_monarchy
+	}
+}
+
+
+#Standalone Monuments
 
 br_pm_default_building_notre_dame = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
@@ -548,3 +717,442 @@ br_pm_default_building_house_wisedom = {
 	}
 }
 
+#### GBBF PRODUCTION METHODS #### BR EDITED ####
+
+## Cornith Canal PMs
+pm_gbbf_corinth_canal = {
+	texture = "gfx/interface/icons/production_method_icons/canals.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 25
+		}
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 20
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add = 5
+			goods_input_coal_add = 10
+		}
+		level_scaled = {
+			building_employment_clerks_add = 100
+			building_employment_machinists_add = 100
+			building_employment_capitalists_add = 50
+		}
+	}
+}
+
+#Hippodrome PMs
+
+pm_gbbf_no_races = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_no_races.dds"
+	unlocking_production_methods = {
+		br_pm_inactive_building_hippodrome
+	}
+}
+pm_gbbf_original_roster = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_original_roster.dds"
+	
+	unlocking_production_methods = {
+		br_pm_default_building_hippodrome
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_bureaucracy_add = -100
+			country_prestige_add = 25
+			#country_chariot_racing_active = yes
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_horse_add = 15 #Horse already requires grain
+			#goods_input_services_add = 50
+		}
+		level_scaled = {
+			building_employment_bureaucrats_add = 50
+			building_employment_laborers_add = 500
+		}
+	}
+}
+pm_gbbf_expanded_roster = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_expanded_roster.dds"
+	
+	unlocking_production_methods = {
+		br_pm_default_building_hippodrome
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_bureaucracy_add = -200
+			country_prestige_add = 50
+			#country_expanded_chariot_racing_active = yes
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_horse_add = 25 #Horse already requires grain
+			#goods_input_services_add = 50
+		}
+		level_scaled = {
+			building_employment_bureaucrats_add = 75
+			building_employment_laborers_add = 750
+		}
+	}
+}
+
+pm_gbbf_simple_chariots = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_simple_chariots.dds"
+	unlocking_production_methods = {
+		br_pm_default_building_hippodrome
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 10
+			goods_input_fabric_add = 10
+		}
+		level_scaled = {
+			building_employment_laborers_add = 1500
+		}
+	}
+}
+pm_gbbf_reinforced_chariots = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_reinforced_chariots.dds"
+	unlocking_production_methods = {
+		br_pm_default_building_hippodrome
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_radicals_from_political_movements_mult = -0.05
+		}
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 10
+			goods_input_fabric_add = 10
+			goods_input_iron_add = 10
+			goods_input_tools_add = 5
+		}
+		level_scaled = {
+			building_employment_laborers_add = 1500
+			building_employment_machinists_add = 100
+		}
+	}
+}
+pm_gbbf_elaborate_chariots = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_elaborate_chariots.dds"
+	unlocking_production_methods = {
+		br_pm_default_building_hippodrome
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_radicals_from_political_movements_mult = -0.10
+		}
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 10
+			goods_input_fabric_add = 10
+			goods_input_steel_add = 5
+			goods_input_dye_add = 5
+			goods_input_tools_add = 5
+		}
+		level_scaled = {
+			building_employment_laborers_add = 1500
+			building_employment_machinists_add = 250
+		}
+	}
+}
+pm_gbbf_motorized_chariots = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_motorized_chariots.dds"
+	unlocking_production_methods = {
+		br_pm_default_building_hippodrome
+	}
+	unlocking_technologies = {
+		combustion_engine
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_radicals_from_political_movements_mult = -0.15
+		}
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_steel_add = 10
+			goods_input_automobiles_add = 5
+			goods_input_oil_add = 5
+			goods_input_tools_add = 5
+		}
+		level_scaled = {
+			building_employment_laborers_add = 1000
+			building_employment_machinists_add = 250
+			building_employment_engineers_add = 250
+		}
+	}
+}
+pm_gbbf_no_amenities = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_no_amenities.dds"
+	state_modifiers = {
+		workforce_scaled = {
+			state_turmoil_effects_mult = 0.1
+			state_radicalism_increases_full_acceptance_mult = 0.1
+		}
+	}
+	unlocking_production_methods = {
+		pm_gbbf_no_races
+	}
+}
+pm_gbbf_basic_amenities = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_basic_amenities.dds"
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_migration_pull_mult = 0.05
+			state_turmoil_effects_mult = -0.1
+			state_radicalism_increases_full_acceptance_mult = -0.05
+			state_loyalism_increases_full_acceptance_mult = 0.1
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_groceries_add = 10
+			goods_input_liquor_add = 5
+			
+			goods_output_services_add = 50
+		}
+		level_scaled = {
+			building_employment_clerks_add = 1000
+			building_employment_shopkeepers_add = 1000
+		}
+	}
+}
+pm_gbbf_adequate_amenities = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_adequate_amenities.dds"
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_migration_pull_mult = 0.10
+			state_turmoil_effects_mult = -0.15
+			state_radicalism_increases_full_acceptance_mult = -0.10
+			state_loyalism_increases_full_acceptance_mult = 0.15
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_groceries_add = 20
+			goods_input_liquor_add = 10
+			goods_input_tobacco_add = 5
+			
+			goods_output_services_add = 75
+		}
+		level_scaled = {
+			building_employment_clerks_add = 1500
+			building_employment_shopkeepers_add = 1500
+		}
+	}
+}
+pm_gbbf_grandiose_amenities = {
+	texture = "gfx/interface/icons/production_method_icons/gbbf_grandiose_amenities.dds"
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_migration_pull_mult = 0.15
+			state_turmoil_effects_mult = -0.25
+			state_radicalism_increases_full_acceptance_mult = -0.15
+			state_loyalism_increases_full_acceptance_mult = 0.25
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_groceries_add = 40
+			goods_input_liquor_add = 20
+			goods_input_tobacco_add = 15
+			goods_input_electricity_add = 5
+			
+			goods_output_services_add = 100
+		}
+		level_scaled = {
+			building_employment_clerks_add = 2000
+			building_employment_shopkeepers_add = 2000
+		}
+	}
+}
+
+#### BALKFM PRODUCTION METHODS ####
+# Black Mountain PMs
+pm_gbbf_unpaved_roads = {
+	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
+	
+	building_modifiers = {
+		level_scaled = {
+			building_employment_laborers_add = 2000
+			building_employment_clerks_add = 300
+		}
+	}
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 5
+		}
+	}
+}
+pm_gbbf_plank_roads = {
+	texture = "gfx/interface/icons/production_method_icons/wooden_buildings.dds"
+	
+	unlocking_technologies = {
+		steelworking
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 5
+			goods_input_tools_add = 2
+			goods_output_transportation_add = 10
+		}
+		level_scaled = {
+			building_employment_laborers_add = 1500
+			building_employment_machinists_add = 500
+			building_employment_clerks_add = 300
+		}
+	}
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 10
+		}
+	}
+}
+pm_gbbf_asphalt_roads	 = {
+	texture = "gfx/interface/icons/production_method_icons/steel_tools.dds"
+	
+	unlocking_technologies = {
+		paved_roads
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_oil_add = 5
+			goods_input_tools_add = 5
+			goods_output_transportation_add = 15
+		}
+		level_scaled = {
+			building_employment_laborers_add = 1000
+			building_employment_machinists_add = 1000
+			building_employment_clerks_add = 300
+		}
+	}
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 15
+		}
+	}
+}
+pm_gbbf_ox_carts = {
+	texture = "gfx/interface/icons/production_method_icons/no_hardwood_selection.dds"
+}
+pm_gbbf_timber_tracks = {
+	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
+	
+	unlocking_technologies = {
+		mechanical_tools
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 5
+			goods_output_transportation_add = 5
+		}
+		level_scaled = {
+			building_employment_clerks_add = 100
+			building_employment_laborers_add = 100
+		}
+	}
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 5
+		}
+	}
+}
+pm_gbbf_railway_tracks = {
+	texture = "gfx/interface/icons/production_method_icons/unused/gauges_non_standard.dds"
+	
+	unlocking_technologies = {
+		railways
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_steel_add = 5
+			goods_output_transportation_add = 10
+		}
+		level_scaled = {
+			building_employment_clerks_add = 150
+			building_employment_laborers_add = 200
+		}
+	}
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 10
+		}
+	}
+}
+pm_gbbf_motor_cars = {
+	texture = "gfx/interface/icons/production_method_icons/automobiles.dds"
+	
+	unlocking_technologies = {
+		combustion_engine
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_automobiles_add = 5
+			goods_output_transportation_add = 15
+		}
+		level_scaled = {
+			building_employment_clerks_add = 200
+			building_employment_laborers_add = 300
+		}
+	}
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 15
+		}
+	}
+}
+pm_gbbf_clerical_administration = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
+	
+	disallowing_laws = {
+		law_total_separation
+		law_state_atheism
+	}
+	
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add = 50
+			building_employment_bureaucrats_add = 50
+		}
+	}
+}
+pm_gbbf_secular_administration = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_bureacrats.dds"
+	
+	disallowing_laws = {
+		law_state_religion
+	}
+	
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add = 100
+		}
+	}
+}
