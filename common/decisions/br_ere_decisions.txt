@@ -929,11 +929,29 @@ chariot_racing_decision = {
 expand_chariot_racing_decision = {
 	is_shown = {
 		has_modifier = modifier_chariot_racing
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	possible = {
 		has_modifier = modifier_chariot_racing
 		has_technology_researched = organized_sports
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	when_taken = {
@@ -947,11 +965,6 @@ expand_chariot_racing_decision = {
 		trigger_event = {
 			id = chariot_racing.46
 		}
-	#	hidden_effect = {
-	#		trigger_event = {
-	#			id = chariot_racing.46
-	#		}
-	#	}
 	}	
 
 	ai_chance = {
