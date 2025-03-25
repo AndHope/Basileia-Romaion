@@ -1,0 +1,89 @@
+﻿#### GotB Decisons imported into BR ####
+
+grefm_corinth_canal_survey_decision = {
+	is_shown = {
+		NOR = {
+			has_global_variable = grefm_corinth_survey_complete
+			has_journal_entry = je_grefm_corinth_canal_survey
+		}
+		owns_entire_state_region = STATE_PELOPONNESE
+	}
+	
+	possible = {
+		owns_entire_state_region = STATE_PELOPONNESE
+		has_technology_researched = railways
+	}
+	
+	when_taken = {
+		set_variable = { 
+			name = grefm_corinth_canal_var
+			value = 0
+		}
+		add_journal_entry = {
+			type = je_grefm_corinth_canal_survey
+		}
+		show_as_tooltip = {
+			add_modifier = modifier_grefm_corinth_canal_survey
+		}
+	}
+	
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { produced_bureaucracy > 500 }
+			add = 100
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
+grefm_lake_kopais_decision = {
+	is_shown = {
+		NOR = {
+			has_global_variable = grefm_lake_kopais_drained
+			has_journal_entry = je_grefm_land_reclaimation
+		}
+		owns_entire_state_region = STATE_ATTICA
+	}
+	
+	possible = {
+		owns_entire_state_region = STATE_ATTICA
+		has_technology_researched = hydraulic_cranes
+	}
+	
+	when_taken = {
+		set_global_variable = { 
+			name = grefm_lake_kopais_var
+			value = 0
+		}
+		add_journal_entry = {
+			type = je_grefm_land_reclaimation
+		}
+		show_as_tooltip = {
+			add_modifier = {
+				name = modifier_grefm_reclaiming_land
+			}
+		}
+	}
+	
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { produced_bureaucracy > 500 }
+			add = 5
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}

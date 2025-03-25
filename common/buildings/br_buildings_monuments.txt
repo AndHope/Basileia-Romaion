@@ -1,4 +1,5 @@
-﻿building_hagia_sophia = {
+﻿#### Edited Vanilla BUILDINGS ####
+building_hagia_sophia = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/hagia_sophia.dds"
 	expandable = no
@@ -26,75 +27,6 @@
 	
 	required_construction = construction_cost_monument
 
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
-	required_construction = construction_cost_monument
-}
-
-building_great_palace = {
-	building_group = bg_monuments #bg_romaioi_monuments
-	icon = "gfx/interface/icons/building_icons/building_mega_palation.dds"
-	expandable = no
-	buildable = no
-	downsizeable = no
-	unique = yes
-
-	production_method_groups = {
-		pmg_base_building_great_palace
-	}
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
-	required_construction = construction_cost_monument
-}
-
-building_palace_complex = {
-	building_group = bg_monuments #bg_romaioi_monuments
-	icon = "gfx/interface/icons/building_icons/vatican_city.dds"
-	expandable = no
-	buildable = no
-	downsizeable = no
-	unique = yes
-	
-	production_method_groups = {
-		pmg_base_building_palace_complex
-	}
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
-	required_construction = construction_cost_monument
-}
-
-building_great_port = {
-	building_group = bg_monuments #bg_romaioi_monuments
-	#city_type = port
-	icon = "gfx/interface/icons/building_icons/building_port.dds"
-	expandable = no
-	buildable = no
-	downsizeable = no
-	unique = yes
-	port = yes
-	
-	terrain_manipulator = urban_port
-	
-	production_method_groups = {
-		pmg_base_building_great_port
-	}
-	
-	required_construction = construction_cost_monument
-
-	possible = {
-		is_coastal = yes
-	}
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
-}
-
-building_hippodrome = {
-	building_group = bg_monuments #bg_romaioi_monuments
-	icon = "gfx/interface/icons/building_icons/hippodrome.dds"
-	expandable = no
-	buildable = no
-	downsizeable = no
-	unique = yes
-	
-	production_method_groups = {
-		pmg_base_building_hippodrome
-	}
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	required_construction = construction_cost_monument
 }
@@ -161,7 +93,95 @@ building_statue_of_liberty = {
 	downsizeable = no
 }
 
-building_house_wisedom = {
+#### BR BUILDINGS ####
+
+br_building_great_palace = {
+	building_group = bg_monuments #bg_romaioi_monuments
+	icon = "gfx/interface/icons/building_icons/building_mega_palation.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+
+	production_method_groups = {
+		br_pmg_base_building_great_palace
+		br_pmg_administration_great_palace
+		br_pmg_guard_house_great_palace
+		pmg_government_administration_religious_administration
+	}
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+	required_construction = construction_cost_monument
+}
+
+br_building_palace_complex = {
+	building_group = bg_monuments #bg_romaioi_monuments
+	icon = "gfx/interface/icons/building_icons/vatican_city.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		br_pmg_base_building_palace_complex
+	}
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+	required_construction = construction_cost_monument
+}
+
+br_building_great_port = {
+	building_group = bg_monuments #bg_romaioi_monuments
+	#city_type = port
+	icon = "gfx/interface/icons/building_icons/building_port.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	port = yes
+	
+	terrain_manipulator = urban_port
+	
+	production_method_groups = {
+		br_pmg_base_building_great_port
+	}
+	
+	required_construction = construction_cost_monument
+
+	possible = {
+		is_coastal = yes
+	}
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+br_building_hippodrome = {
+	building_group = bg_monuments #bg_romaioi_monuments
+	icon = "gfx/interface/icons/building_icons/hippodrome.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		br_pmg_base_building_hippodrome
+		pmg_gbbf_racing_roster
+		pmg_gbbf_chariot_construction
+		pmg_gbbf_track_amenities
+	}
+
+	potential = {
+		state_region = s:STATE_EASTERN_THRACE
+		owner = {
+			country_has_primary_culture = cu:greek
+		}
+	}
+
+	#can_build_government = {
+	#	has_building = br_building_great_palace
+	#}
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+	required_construction = construction_cost_monument
+}
+
+br_building_house_wisedom = {
 	building_group = bg_monuments #bg_romaioi_monuments
 	icon = "gfx/interface/icons/building_icons/building_university.dds"
 	expandable = no
@@ -170,13 +190,13 @@ building_house_wisedom = {
 	unique = yes
 	
 	production_method_groups = {
-		pmg_base_building_house_wisedom
+		br_pmg_base_building_house_wisedom
 	}
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	required_construction = construction_cost_monument
 }
 
-building_university_constantinople = {
+br_building_university_constantinople = {
 	building_group = bg_monuments #bg_romaioi_monuments
 	icon = "gfx/interface/icons/building_icons/building_university.dds"
 	expandable = no
@@ -185,13 +205,13 @@ building_university_constantinople = {
 	unique = yes
 	
 	production_method_groups = {
-		pmg_base_building_university_constantinople
+		br_pmg_base_building_university_constantinople
 	}
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	required_construction = construction_cost_monument
 }
 
-building_university_athens = {
+br_building_university_athens = {
 	building_group = bg_monuments #bg_romaioi_monuments
 	icon = "gfx/interface/icons/building_icons/building_university.dds"
 	expandable = no
@@ -200,13 +220,13 @@ building_university_athens = {
 	unique = yes
 	
 	production_method_groups = {
-		pmg_base_building_university_athens
+		br_pmg_base_building_university_athens
 	}
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	required_construction = construction_cost_monument
 }
 
-building_libary_alexandria = {
+br_building_libary_alexandria = {
 	building_group = bg_monuments #bg_romaioi_monuments
 	icon = "gfx/interface/icons/building_icons/building_university.dds"
 	expandable = no
@@ -215,13 +235,13 @@ building_libary_alexandria = {
 	unique = yes
 	
 	production_method_groups = {
-		pmg_base_building_libary_alexandria
+		br_pmg_base_building_libary_alexandria
 	}
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	required_construction = construction_cost_monument
 }
 
-building_Notre_Dame = {
+br_building_notre_dame = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/br_notre_dame.dds"
 	expandable = no
@@ -230,7 +250,7 @@ building_Notre_Dame = {
 	unique = yes
     entity_not_constructed = { }
     entity_constructed = { "wonder_eiffel_tower_01_entity"}
-	production_method_groups = {pmg_base_building_Notre_Dame }
+	production_method_groups = {br_pmg_base_building_notre_dame }
     required_construction = 2000
 	possible = {
 		state_region = s:STATE_ILE_DE_FRANCE
@@ -239,7 +259,7 @@ building_Notre_Dame = {
 	ai_value = 10
 }
 
-building_Versailles = {
+br_building_versailles = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/br_versailles.dds"
 	expandable = no
@@ -247,7 +267,7 @@ building_Versailles = {
 	downsizeable = no
 	unique = yes
 	has_max_level = yes
-	production_method_groups = {pmg_base_building_palace_complex} #pmg_base_building_Versailles
+	production_method_groups = {br_pmg_base_building_palace_complex} #br_pmg_base_building_versailles
 	possible = {
 		state_region = s:STATE_ILE_DE_FRANCE
 	}
@@ -255,7 +275,7 @@ building_Versailles = {
 	ai_value = 10
 }
 
-building_Venice = {
+br_building_venice = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/br_doges_palace.dds"
 	expandable = no
@@ -263,7 +283,7 @@ building_Venice = {
 	downsizeable = no
 	unique = yes
 	has_max_level = yes
-	production_method_groups = {pmg_base_building_Venice }
+	production_method_groups = {br_pmg_base_building_venice }
 	possible = {
 		state_region = s:STATE_VENETIA
 	}
@@ -271,7 +291,7 @@ building_Venice = {
 	ai_value = 10
 }
 
-building_Jerusalem = {
+br_building_jerusalem = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/br_holy_city_jerusalem.dds"
 	expandable = no
@@ -279,7 +299,7 @@ building_Jerusalem = {
 	downsizeable = no
 	unique = yes
 	has_max_level = yes
-	production_method_groups = {pmg_base_building_Jerusalem}
+	production_method_groups = {br_pmg_base_building_jerusalem}
 	possible = {
 		state_region = s:STATE_PALESTINE
 	}
@@ -287,7 +307,7 @@ building_Jerusalem = {
 	ai_value = 10
 }
 
-building_Mecca = {
+br_building_mecca = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/br_kaaba.dds"
 	expandable = no
@@ -295,7 +315,7 @@ building_Mecca = {
 	downsizeable = no
 	unique = yes
 	has_max_level = yes
-	production_method_groups = {pmg_base_building_Mecca}
+	production_method_groups = {br_pmg_base_building_mecca}
 	possible = {
 		state_region = s:STATE_HEDJAZ
 	}
@@ -303,3 +323,71 @@ building_Mecca = {
 	ai_value = 10
 }
 
+#### GotB BUILDINGS ####
+
+gbbf_building_karadag_roads = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/gbbf_building_karadag_roads.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_gbbf_karadag_roads
+		pmg_gbbf_karadag_transportation
+		pmg_gbbf_karadag_administration
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+
+gbbf_building_corinth_canal = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/gbbf_building_corinth_canal.dds"
+	
+	expandable = no
+	downsizeable = no
+	unique = yes
+
+	production_method_groups = {
+		pmg_gbbf_corinth_canal
+	}
+
+	required_construction = construction_cost_monument
+	
+	potential = {
+		state_region = s:STATE_PELOPONNESE
+	}
+	
+	can_build_government = {
+		custom_tooltip = {
+			text = corinth_canal_can_construct_tt
+			owner = {
+				has_global_variable = grefm_corinth_survey_complete
+			}
+		}
+	}
+	can_build_private = {
+		always = no
+	}	
+
+	ai_value = 1000
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"
+
+}
