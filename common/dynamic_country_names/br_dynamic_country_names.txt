@@ -340,3 +340,20 @@ ARM = {
 		}
 	}
 }
+
+GEO = {
+	dynamic_country_name = {
+		name = dyn_c_byz_georgia
+		adjective = dyn_c_byz_georgia_adj
+
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = c:BYZ
+			scope:actor ?= {
+				is_subject_of = c:BYZ
+			}
+		}
+	}
+}
