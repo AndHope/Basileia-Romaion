@@ -148,7 +148,7 @@ br_hre_annex_franks = {
 	}
 
 	ai_chance = {
-		base = 0
+		base = 1
 		modifier = {
 			trigger = {
 				game_date > 1750.1.1
@@ -213,6 +213,78 @@ br_eet_annex_suakin = {
 		}
 	}
 }
+
+br_serb_chaos = {
+	is_shown = {
+		exists = c:SER
+		exists = c:SER2
+		c:SER = ROOT
+		c:SER = {
+			is_player = no
+		}
+		c:SER2 = {
+			is_player = no
+		}
+		c:br_vidin = {
+			is_player = no
+		}
+		c:br_bulgaria = {
+			is_player = no
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		c:SER = {
+			is_player = no
+		}
+	}
+
+	when_taken = {
+		create_diplomatic_play = {
+			war = yes
+			type = dp_annex_subject
+			#add_target_backers = { c:BOS }
+			target_state = s:STATE_SOUTHERN_SERBIA.region_state:SER2
+		}
+		c:CRO = {
+			trigger_event = {
+				id = balkan_kerfuffle.3
+				days = 5
+			}
+		}
+		c:br_bulgaria = {
+			trigger_event = {
+				id = balkan_kerfuffle.1
+				days = 5
+			}
+		}
+
+		#event to br
+
+		hidden_effect = {
+			change_infamy = -10
+		}
+	}
+
+	ai_chance = {
+		base = 15
+		modifier = {
+			trigger = {
+				game_date > 1740.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
 
 #AI Will target Italian AI New World/African Holdings
 br_anl_annex_west_africa_01 = {

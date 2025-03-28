@@ -393,36 +393,40 @@ romaioi_damsyria_decision = {
 				
 
 				create_character = {
-					age = 45
-					culture = cu:greek
+					first_name = "Heraclides"
+					last_name = "Dalassenos"
+					religion = rel:oriental_orthodox
 					ruler = yes
 					is_general = yes
-					religion = orthodox
+					age = 45
 					interest_group = ig_armed_forces
 					ideology = ideology_jingoist_leader
-					traits = { 
-						stalwart_defender 
+					traits = {
+						persistent 
 						wrathful
 						scarred
-						pillager
-						resupply_commander
-						experienced_offensive_planner
-						experienced_artillery_commander 
+						stalwart_defender
+						defense_in_depth_specialist
+					}
+					on_created = {
+						set_variable = is_married
 					}
 				}
+		
 				create_character = {
-					age = 20
-					culture = cu:greek
-					is_general = yes
+					first_name = "Ioannes"
+					last_name = "Dalassenos"
+					religion = rel:oriental_orthodox
 					heir = yes
-					religion = orthodox
-					interest_group = ig_landowners
-					ideology = ideology_royalist
-					traits = { 
+					is_general = yes
+					age = 22
+					interest_group = ig_armed_forces
+					ideology = ideology_jingoist_leader
+					traits = {
+						reserved
 						stalwart_defender
 						resupply_commander 
 						basic_political_operator 
-						pillager
 					}
 				}
 			}
@@ -877,11 +881,23 @@ chariot_racing_decision = {
 		NOT = {
 			has_modifier = modifier_chariot_racing
 		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	possible = {
 		any_scope_building = {
-			is_building_type = building_hippodrome
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
 		}
 	}
 	
@@ -913,11 +929,29 @@ chariot_racing_decision = {
 expand_chariot_racing_decision = {
 	is_shown = {
 		has_modifier = modifier_chariot_racing
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	possible = {
 		has_modifier = modifier_chariot_racing
 		has_technology_researched = organized_sports
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	when_taken = {
@@ -931,11 +965,6 @@ expand_chariot_racing_decision = {
 		trigger_event = {
 			id = chariot_racing.46
 		}
-	#	hidden_effect = {
-	#		trigger_event = {
-	#			id = chariot_racing.46
-	#		}
-	#	}
 	}	
 
 	ai_chance = {

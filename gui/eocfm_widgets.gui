@@ -1,69 +1,299 @@
 widget = {
 	name = "eocfm_main_window"
-	parentanchor = top|hcenter
 	size { 100% 100% }
 	layer = layer_ingame_menu
 	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 	
-	fullscreen_block_window = {
+	widget = {
 		parentanchor = top|hcenter
-		size { 100% 100% }
-		
-		filter_mouse = all
-		
+		size = { 100% 100% }
+		using = clickthrough_blocker
+		visible = "[GetVariableSystem.HasValue('com_open_window', 'eocfm_sidebar_button_sgui')]"
 		datacontext = "[GetPlayer]"
 		
-		visible = "[GetVariableSystem.HasValue('com_open_window', 'eocfm_sidebar_button_sgui')]"
+		state = {
+			name = _show
+			start_sound = {
+				soundeffect = "event:/SFX/UI/SideBar/society"
+			}
+			start_sound = {
+				soundeffect = "snapshot:/Dynamic/mute_world_80"
+			}
+			start_sound = {
+				soundeffect = "snapshot:/Dynamic/mute_vfx_war_100"
+			}
+			on_finish = "[GetVariableSystem.Set('com_fullscreen', 'com_fullscreen')]" 
+		}
 
-		blockoverride "back_button_fullscreen" {
-			close_button_large = {
-				name = "tutorial_highlight_close_button"
-				parentanchor = top|right
-				onclick = "[GetVariableSystem.Clear('com_open_window')]"
-				shortcut = "close_window"
+		state = {
+			name = _hide
+			start_sound = {
+				soundeffect = "event:/SFX/UI/SideBar/society_stop"
+			}
+			on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
+		}
+		
+		background = {
+			using = default_bg
+			margin = { 40 40 }
+		}
 
-				block "close_button_position" {
-					position = { -11 15 }
+		## HEADER ##
+		widget = {
+			size = { 100% 92 }
+			position = { 0 76 }
+
+			# behind filler
+			background = {
+				texture = "gfx/interface/backgrounds/sidepanel_filler.dds"
+				spriteType = CorneredTiled
+				spriteborder = { 20 20 }
+				margin = { 30 0 }
+
+				modify_texture = {
+					texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = overlay
+					alpha = 0.8
+				}
+
+				modify_texture = {
+					using = texture_velvet
+				}
+			}
+			# behind decoration
+			background = {
+				texture = "gfx/interface/backgrounds/fullscreen_header_behind.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 600 0 }
+				texture_density = 2
+				margin_left = -15
+				margin_right = -10
+
+				modify_texture = {
+					using = texture_velvet
+				}
+				modify_texture = {
+					using = texture_cloth
+					alpha = 0.15
 				}
 			}
 
+			# header base
+			background = {
+				using = top_header_bg
+				margin_left = -15
+				margin_right = -10
+
+				modify_texture = {
+					texture = "gfx/interface/backgrounds/fullscreen_header_title_mask.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 600 0 }
+					texture_density = 2
+					blend_mode = alphamultiply
+				}
+			}
+			
+			# header dec left (copied header base to be able to mask a fade)
+			widget = {
+				size = { 50% 100% }
+				parentanchor = left
+
+				background = {
+					using = top_header_bg
+					margin_left = -15
+
+					modify_texture = {
+						texture = "gfx/interface/backgrounds/fullscreen_header_title_mask_half.dds"
+						spriteType = Corneredtiled
+						spriteborder = { 0 0 }
+						spriteborder_right = 0
+						spriteborder_left = 600
+						texture_density = 2
+						blend_mode = alphamultiply
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/backgrounds/fullscreen_header_dec.dds"
+						spriteType = Corneredtiled
+						spriteborder = { 0 0 }
+						spriteborder_right = 0
+						spriteborder_left = 600
+						texture_density = 2
+						blend_mode = overlay
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/masks/fade_horizontal_right.dds"
+						blend_mode = alphamultiply
+						alpha = 0.5
+					}
+				}
+			}
+			
+			# header dec right (copied header base to be able to mask a fade)
+			widget = {
+				size = { 50% 100% }
+				parentanchor = right
+
+				background = {
+					using = top_header_bg
+					margin_right = -10
+
+					modify_texture = {
+						texture = "gfx/interface/backgrounds/fullscreen_header_title_mask_half.dds"
+						mirror = horizontal
+						spriteType = Corneredtiled
+						spriteborder = { 0 0 }
+						spriteborder_right = 0
+						spriteborder_left = 600
+						texture_density = 2
+						blend_mode = alphamultiply
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/backgrounds/fullscreen_header_dec.dds"
+						mirror = horizontal
+						spriteType = Corneredtiled
+						spriteborder = { 0 0 }
+						spriteborder_right = 0
+						spriteborder_left = 600
+						texture_density = 2
+						blend_mode = overlay
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/masks/fade_horizontal_left.dds"
+						blend_mode = alphamultiply
+						alpha = 0.5
+					}
+				}
+			}
+			
+			divider_clean = {
+				blockoverride "fade" {}
+				parentanchor = bottom
+			}
+			
+			# header frame
+			widget = {
+				size = { 100% 100% }
+
+				background = {
+					texture = "gfx/interface/backgrounds/fullscreen_header_frame.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 600 0 }
+					texture_density = 2
+					margin_right = 5
+				}
+			}
+			
+			textbox = {
+				text = "eocfm_gui_main_title"
+				parentanchor = center
+				position = { 0 8 }
+				autoresize = yes
+				using = header_font_fancy
+				fontsize = 50
+			}
+			
+			close_button_large = {
+				parentanchor = top|right
+				position = { -56 40 }
+				
+				onclick = "[GetVariableSystem.Clear('com_open_window')]"
+				shortcut = "close_window"
+			}
+			
 			back_button_large = {
-				position = { 11 15 }
 				parentanchor = top|left
+				position = { 61 40 }
+				
 				onclick = "[GetVariableSystem.Clear('com_open_window')]"
 				input_action = "back"
 			}
 		}
 
-		blockoverride "animation_state_block" {
-			state = {
-				name = _show
-				start_sound = {
-					soundeffect = "event:/SFX/UI/SideBar/society"
-				}
-				start_sound = {
-					soundeffect = "snapshot:/Dynamic/mute_world_80"
-				}
-				start_sound = {
-					soundeffect = "snapshot:/Dynamic/mute_vfx_war_100"
-				}
-				on_finish = "[GetVariableSystem.Set( 'com_fullscreen', 'com_fullscreen')]"
-			}
+		#left dark fade
+		widget = {
+			size = { 50 100% }
+			parentanchor = left
 
-			state = {
-				name = _hide
-				start_sound = {
-					soundeffect = "event:/SFX/UI/SideBar/society_stop"
+			background = {
+				using = dark_area
+				alpha = 0.5
+				mirror = horizontal
+
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_horizontal_left_full.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
 				}
 				on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
 			}
 		}
-		
-		blockoverride "window_header_name"
-		{
-			text = "eocfm_gui_main_title"
+
+		#right dark fade
+		widget = {
+			size = { 50 100% }
+			parentanchor = right
+
+			background = {
+				using = dark_area
+				alpha = 0.5
+
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_horizontal_left_full.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
+				}
+			}
+		}
+
+		### TOP FILLER
+		widget = {
+			size = { 100% 78 }
+
+			background = {
+				texture = "gfx/interface/main_hud/topbar_bg.dds"
+				shaderfile = "gfx/FX/pdxgui_default.shader"
+				spriteType = Corneredtiled
+				spriteborder = { 0 0 }
+				spriteborder_right = 100
+				margin_right = 100
+				texture_density = 2
+				using = hud_elements_alpha
+
+				modify_texture = {
+					texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = overlay
+					alpha = 0.5
+				}
+				modify_texture = {
+					using = texture_velvet
+				}
+				modify_texture = {
+					using = fancy_pattern
+				}
+			}
+			icon = {
+				texture = "gfx/interface/main_hud/topbar_bg_border.dds"
+				position = { 0 -3 }
+				size = { 100% 2 }
+				spriteType = Corneredtiled
+				spriteborder = { 0 0 }
+				texture_density = 2
+				parentanchor = bottom
+				alpha = 0.06
+			}
 		}
 		
+		## Orthodox Widget Content
 		vbox = {
 			layoutpolicy_vertical = expanding
 			spacing = 5
@@ -197,7 +427,7 @@ widget = {
 								datacontext = "[GetScriptedGui('eocfm_emphasize_unity_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_emphasize_unity_tt"
+								tooltip = "eocfm_gui_emphasize_unity"
 								blockoverride "icon" {
 									texture = "gfx/interface/icons/gui_icons/eocfm_emphasize_unity_button.dds"
 								}
@@ -215,7 +445,7 @@ widget = {
 								datacontext = "[GetScriptedGui('eocfm_enforce_attendance_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_enforce_attendance_tt"
+								tooltip = "eocfm_gui_enforce_attendance"
 								blockoverride "icon" {
 									texture = "gfx/interface/icons/gui_icons/eocfm_enforce_attendance_button.dds"
 								}
@@ -233,7 +463,7 @@ widget = {
 								datacontext = "[GetScriptedGui('eocfm_theologize_dogma_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_theologize_dogma_tt"
+								tooltip = "eocfm_gui_theologize_dogma"
 								blockoverride "icon" {
 									texture = "gfx/interface/icons/gui_icons/eocfm_theologize_dogma_button.dds"
 								}
@@ -251,7 +481,7 @@ widget = {
 								datacontext = "[GetScriptedGui('eocfm_promote_ecumenism_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_promote_ecumenism_tt"
+								tooltip = "eocfm_gui_promote_ecumenism"
 								blockoverride "icon" {
 									texture = "gfx/interface/icons/gui_icons/eocfm_promote_ecumenism_button.dds"
 								}
@@ -294,14 +524,14 @@ widget = {
 								position = { 0 -100 }
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Commission Icon"
+								raw_text = "Venerate an Icon"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_commission_icon_tt"
+								tooltip = "eocfm_gui_commission_icon_button"
 							}
 							
 							button = { # Dissolve Monasteries Button
@@ -316,7 +546,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_dissolve_monasteries_tt"
+								tooltip = "eocfm_gui_dissolve_monasteries_button"
 							}
 							
 							button = { # Restore Monasteries Button
@@ -331,7 +561,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_restore_monasteries_tt"
+								tooltip = "eocfm_gui_restore_monasteries_button"
 							}
 							
 							button = { # Reform Synod Button
@@ -346,7 +576,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_reform_synod_tt"
+								tooltip = "eocfm_gui_reform_synod_button"
 							}
 							
 							button = { # Restore Synod Button
@@ -361,7 +591,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_restore_synod_tt"
+								tooltip = "eocfm_gui_restore_synod_button"
 							}
 							
 							button = { # Grant Subsidies Button
@@ -376,7 +606,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_grant_subsidies_tt"
+								tooltip = "eocfm_gui_grant_subsidies_button"
 							}
 							
 							button = { # End Subsidies Button
@@ -391,7 +621,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_end_subsidies_tt"
+								tooltip = "eocfm_gui_end_subsidies_button"
 							}							
 							
 							button = { # Establish Schools Button
@@ -406,7 +636,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_establish_schools_tt"
+								tooltip = "eocfm_gui_establish_schools_button"
 							}
 							
 							button = { # Disband Schools Button
@@ -421,7 +651,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_disband_schools_tt"
+								tooltip = "eocfm_gui_disband_schools_button"
 							}
 						}
 					}
@@ -501,7 +731,7 @@ widget = {
 								}
 								
 								textbox = {
-									raw_text = "eocfm_gui_event_counter_tt"
+									raw_text = "eocfm_gui_event_counter"
 									position = { 0 65 }
 									parentanchor = top|hcenter
 									autoresize = yes
@@ -542,7 +772,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_declare_autocephaly_tt"
+								tooltip = "eocfm_gui_declare_autocephaly_button"
 							}
 			
 							green_progressbar_horizontal = {
@@ -581,7 +811,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_convoke_council_tt"
+								tooltip = "eocfm_gui_convoke_council_button"
 							}
 
 						}
@@ -606,7 +836,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_secure_tetrarchy_tt"
+								tooltip = "eocfm_gui_secure_tetrarchy_button"
 								
 							}
 							button = {
@@ -621,7 +851,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_secure_tetrarchy_tt"
+								tooltip = "eocfm_gui_secure_tetrarchy_button"
 							}
 							button = {
 								parentanchor = center
@@ -635,7 +865,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_mend_schism_tt1"
+								tooltip = "eocfm_gui_mend_schism_button"
 							}
 							green_progressbar_horizontal = {
 								parentanchor = center
@@ -674,7 +904,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_start_sway_constantinople_tt"
+								tooltip = "eocfm_gui_start_sway_constantinople_button"
 							}
 							button = {
 								parentanchor = center
@@ -688,7 +918,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_stop_sway_constantinople_tt"
+								tooltip = "eocfm_gui_stop_sway_constantinople_button"
 							}
 							
 							## Seat Integration Buttons
@@ -704,7 +934,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_integrate_constantinople_tt"
+								tooltip = "eocfm_gui_integrate_constantinople_button"
 							}
 							green_progressbar_horizontal = {
 								parentanchor = center
@@ -743,7 +973,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_seek_mandate_tt"
+								tooltip = "eocfm_gui_seek_mandate_button"
 							}
 							
 							## Depose Patriarch Button
@@ -759,7 +989,7 @@ widget = {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_demand_deposition_tt"
+								tooltip = "eocfm_gui_demand_deposition_button"
 							}
 						}
 					}
@@ -855,7 +1085,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_integrate_antioch_tt"
+							tooltip = "eocfm_gui_integrate_antioch_button"
 						}
 						green_progressbar_horizontal = {
 							parentanchor = center
@@ -898,7 +1128,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_start_sway_antioch_tt"
+							tooltip = "eocfm_gui_start_sway_antioch_button"
 						}
 						button = {
 							parentanchor = bottom|hcenter
@@ -912,7 +1142,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_stop_sway_antioch_tt"
+							tooltip = "eocfm_gui_stop_sway_antioch_button"
 						}
 					}
 				}
@@ -1000,7 +1230,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_integrate_jerusalem_tt"
+							tooltip = "eocfm_gui_integrate_jerusalem_button"
 						}
 						green_progressbar_horizontal = {
 							parentanchor = center
@@ -1042,7 +1272,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_start_sway_jerusalem_tt"
+							tooltip = "eocfm_gui_start_sway_jerusalem_button"
 						}
 						button = {
 							parentanchor = bottom|hcenter
@@ -1056,7 +1286,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_stop_sway_jerusalem_tt"
+							tooltip = "eocfm_gui_stop_sway_jerusalem_button"
 						}
 					}
 				}
@@ -1144,7 +1374,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_integrate_alexandria_tt"
+							tooltip = "eocfm_gui_integrate_alexandria_button"
 						}
 						green_progressbar_horizontal = {
 							parentanchor = center
@@ -1187,7 +1417,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_start_sway_alexandria_tt"
+							tooltip = "eocfm_gui_start_sway_alexandria_button"
 						}
 						button = {
 							parentanchor = center
@@ -1201,7 +1431,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_stop_sway_alexandria_tt"
+							tooltip = "eocfm_gui_stop_sway_alexandria_button"
 						}
 					}
 				}
@@ -1289,7 +1519,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_integrate_moscow_tt"
+							tooltip = "eocfm_gui_integrate_moscow_button"
 						}
 						green_progressbar_horizontal = {
 							parentanchor = center
@@ -1331,7 +1561,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_start_sway_moscow_tt"
+							tooltip = "eocfm_gui_start_sway_moscow_button"
 						}
 						button = {
 							parentanchor = bottom|hcenter
@@ -1345,7 +1575,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_stop_sway_moscow_tt"
+							tooltip = "eocfm_gui_stop_sway_moscow_button"
 						}
 					}
 				}
@@ -1433,7 +1663,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_integrate_rome_tt"
+							tooltip = "eocfm_gui_integrate_rome_button"
 						}
 						green_progressbar_horizontal = {
 							parentanchor = center
@@ -1475,7 +1705,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_start_sway_rome_tt"
+							tooltip = "eocfm_gui_start_sway_rome_button"
 						}
 						button = {
 							parentanchor = center
@@ -1489,7 +1719,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							tooltip = "eocfm_gui_stop_sway_rome_tt"
+							tooltip = "eocfm_gui_stop_sway_rome_button"
 						}
 					}
 				}

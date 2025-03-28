@@ -3,6 +3,11 @@
 
 	group = je_group_internal_affairs
 
+
+    modifiers_while_active = {
+        br_modifier_liberum_veto
+    }
+
     complete = {
         OR = {
             AND = {
@@ -82,6 +87,10 @@ je_eastern_resistance = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
     
 	group = je_group_internal_affairs
+
+    modifiers_while_active = {
+        br_modifier_eastern_oppression
+    }
 	
     is_shown_when_inactive = {
         exists = c:PLC
@@ -91,6 +100,7 @@ je_eastern_resistance = {
     possible = {
         exists = c:PLC
         c:PLC = root
+        owns_entire_state_region = STATE_KIEV
     }
 
     complete = { 
@@ -101,9 +111,6 @@ je_eastern_resistance = {
     }  
 
     fail = {
-        c:PLC = {
-            is_diplomatic_play_initiator = yes
-        }
         any_country = { 	
             is_secessionist = yes
             is_diplomatic_play_target = yes
