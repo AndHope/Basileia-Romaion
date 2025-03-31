@@ -972,8 +972,10 @@ je_palaiologos_reforms_egypt = {
 	 	}
 	}
 	possible = {
+		has_interest_marker_in_region = region_nile_basin
 	 	exists = c:BYZ
 	 	c:BYZ = ROOT
+		#take syria first
 		owns_entire_state_region = STATE_ALEPPO
 		owns_entire_state_region = STATE_LEBANON
 		owns_entire_state_region = STATE_PALESTINE
@@ -1054,6 +1056,12 @@ je_palaiologos_reforms_italy = {
 		}
 	}
 	possible = {
+		has_interest_marker_in_region = region_italy
+		#take control of adriatic ports first
+		owns_entire_state_region = STATE_ALBANIA
+		owns_entire_state_region = STATE_ATTICA
+		owns_entire_state_region = STATE_THESSALIA
+		owns_entire_state_region = STATE_PELOPONNESE
 		exists = c:BYZ
 		c:BYZ = ROOT
 	}
@@ -1120,6 +1128,7 @@ je_palaiologos_reforms_africa = {
 		}
 	}
 	possible = {
+		has_interest_marker_in_region = region_north_africa
 		exists = c:BYZ
 		c:BYZ = ROOT
 	}
@@ -1182,6 +1191,8 @@ je_palaiologos_reforms_elysium = {
 		}
 	}
 	possible = {
+		country_rank >= rank_value:great_power
+		has_interest_marker_in_region = region_dixie
 		exists = c:BYZ
 		c:BYZ = ROOT
 	}
@@ -1235,6 +1246,12 @@ je_palaiologos_reforms_australis = {
 		}
 	}
 	possible = {
+		has_interest_marker_in_region = region_oceania
+		#Control Aegpyt first
+		country_or_subject_owns_entire_state_region = STATE_SINAI
+		country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
 		exists = c:BYZ
 		c:BYZ = ROOT
 	}
@@ -1283,60 +1300,19 @@ je_palaiologos_reforms_centralization_west = {
 	group = je_group_internal_affairs
 
 	complete = {
-		AND = {
-			OR = {
-				AND = {
-					exists = c:SER
-					c:SER = {
-						is_subject_of = ROOT
-						is_subject_type = subject_type_puppet
-					}
-					c:SER = { liberty_desire <= 50 }
-				}
-				AND = {
-					country_or_subject_owns_entire_state_region = STATE_NORTHERN_SERBIA
-					country_or_subject_owns_entire_state_region = STATE_SOUTHERN_SERBIA
-					country_or_subject_owns_entire_state_region = STATE_MONTENEGRO
-				}
-			}
-		}
-		AND = {
-			OR = {
-				AND = {
-					exists = c:BOS
-					c:BOS = {
-						is_subject_of = ROOT
-						is_subject_type = subject_type_puppet
-					}
-					c:BOS = { liberty_desire <= 50 }
-				}
-				AND = {
-					country_or_subject_owns_entire_state_region = STATE_BOSNIA
-				}
-			}
-		}
-		AND = {
-			owns_entire_state_region = STATE_ALBANIA
-			owns_entire_state_region = STATE_ATTICA
-			owns_entire_state_region = STATE_THESSALIA
-			owns_entire_state_region = STATE_PELOPONNESE
-			owns_entire_state_region = STATE_BULGARIA
-			owns_entire_state_region = STATE_DOBRUDJA
-		}
-		AND = {
-			exists = c:WAL
-			c:WAL = {
-				is_subject_of = ROOT
-			}
-			c:WAL = { liberty_desire <= 50 }
-		}
-		AND = {
-			exists = c:MOL
-			c:MOL = {
-				is_subject_of = ROOT
-			}
-			c:MOL = { liberty_desire <= 50 }
-		}
+		# TODO add state modifer that needs to be removed to procede
+		country_or_subject_owns_entire_state_region = STATE_NORTHERN_SERBIA
+		country_or_subject_owns_entire_state_region = STATE_SOUTHERN_SERBIA
+		country_or_subject_owns_entire_state_region = STATE_MONTENEGRO
+		country_or_subject_owns_entire_state_region = STATE_BOSNIA
+		country_or_subject_owns_entire_state_region = STATE_WALLACHIA
+		country_or_subject_owns_entire_state_region = STATE_MOLDAVIA
+		owns_entire_state_region = STATE_ALBANIA
+		owns_entire_state_region = STATE_ATTICA
+		owns_entire_state_region = STATE_THESSALIA
+		owns_entire_state_region = STATE_PELOPONNESE
+		owns_entire_state_region = STATE_BULGARIA
+		owns_entire_state_region = STATE_DOBRUDJA
 	}
 
 	on_complete = {
@@ -1379,46 +1355,13 @@ je_palaiologos_reforms_centralization_east= {
 	group = je_group_internal_affairs
 
 	complete = {
-		AND = {
-			OR = {
-				AND = {
-					exists = c:ARM
-					c:ARM = {
-						is_subject_of = ROOT
-						is_subject_type = subject_type_puppet
-					}
-					c:ARM = { liberty_desire <= 50 }
-				}
-				AND = {
-					owns_entire_state_region = STATE_ANKARA
-					owns_entire_state_region = STATE_ERZURUM
-					owns_entire_state_region = STATE_KARS
-					owns_entire_state_region = STATE_DIYARBAKIR
-				}
-			}
-			
-		}
-		AND = {
-			AND = {
-				OR = {
-					AND = {
-						exists = c:GEO
-						c:GEO = {
-							is_subject_of = ROOT
-							is_subject_type = subject_type_puppet
-						}
-						c:GEO = { liberty_desire <= 50 }
-					}
-					AND = {
-						owns_entire_state_region = STATE_GREATER_CAUCASUS
-					}
-				}
-				
-			}
-		}
-		AND = {
-			owns_entire_state_region = STATE_TRABZON
-		}
+		# TODO add state modifer that needs to be removed to procede
+		country_or_subject_owns_entire_state_region = STATE_GREATER_CAUCASUS
+		country_or_subject_owns_entire_state_region = STATE_ANKARA
+		country_or_subject_owns_entire_state_region = STATE_ERZURUM
+		country_or_subject_owns_entire_state_region = STATE_KARS
+		country_or_subject_owns_entire_state_region = STATE_DIYARBAKIR
+		country_or_subject_owns_entire_state_region = STATE_TRABZON
 	}
 
 	on_complete = {
