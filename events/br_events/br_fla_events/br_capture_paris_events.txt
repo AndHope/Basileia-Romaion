@@ -1,0 +1,36 @@
+﻿namespace = br_goedendag
+
+# Control the entire lowlands
+br_goedendag.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = br_goeiendag.1.t
+	desc = br_goeiendag.1.d
+	flavor = br_goeiendag.1.f
+
+	duration = 3
+
+	event_image = {
+		texture = "gfx/event_pictures/goedendag_event_image.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	option = {
+		name = br_goeiendag.1.a
+		default_option = yes
+
+		show_as_tooltip = {
+			ruler = {
+				kill_character = yes #(yes - kill [by default], no - don't do anything) 
+			}
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}

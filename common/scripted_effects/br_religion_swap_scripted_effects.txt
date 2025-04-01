@@ -110,7 +110,7 @@
 				value = 0.25
 			}
 		}
-	}	
+	}
 	
 	if = { #if the state was previously protestant or catholic decrease relations with the HRE and PAP
 		limit = { 
@@ -390,6 +390,33 @@ br_religion_swap_succes_effect = {
 		id = br_religion_swap_events.2
 		popup = yes
 	}
+
+	#make the newly converted pops loyal
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = root.religion
+			}
+		}
+		add_loyalists = {
+			religion = root.religion
+			value = 0.25
+		}
+	}
+	ROOT = {
+		#add radicals for among the followers of the old religion
+		if = {
+			limit = {
+				any_scope_pop = {
+					religion = scope:old_state_religion
+				}
+			}
+			add_radicals = { #BUG radicals don't seem to be added
+				religion = scope:old_state_religion
+				value = 0.25
+			}
+		}
+	}
 }
 
 br_religion_swap_failed_effect = {
@@ -400,5 +427,32 @@ br_religion_swap_failed_effect = {
 	trigger_event = {
 		id = br_religion_swap_events.3
 		popup = yes
+	}
+
+	#make the newly converted pops of the failed religion radical
+	if = {
+		limit = {
+			any_scope_pop = { 
+				religion = root.religion
+			}
+		}
+		add_radicals = {
+			religion = root.religion
+			value = 0.25
+		}
+	}
+	ROOT = {
+		#add radicals for among the followers of the old religion, who are mad that you tried changing religion.
+		if = {
+			limit = {
+				any_scope_pop = {
+					religion = scope:old_state_religion
+				}
+			}
+			add_radicals = { #BUG radicals don't seem to be added
+				religion = scope:old_state_religion
+				value = 0.10
+			}
+		}
 	}
 }

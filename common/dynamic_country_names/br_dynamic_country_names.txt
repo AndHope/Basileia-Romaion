@@ -146,6 +146,36 @@ BYZ = {
 		}
 	}
 
+	dynamic_country_name = { # Rhomania 
+		name = dyn_c_rhomania_i
+		adjective = dyn_c_re_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = rhomania_i_name_chosen_var
+			}
+		}
+	}
+
+	dynamic_country_name = { # Rhomania 
+		name = dyn_c_rhomania_ii
+		adjective = dyn_c_re_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = rhomania_ii_name_chosen_var
+			}
+		}
+	}
+
 }
 
 ENG = {
@@ -289,6 +319,74 @@ KUR = {
 			exists = c:PER
 			scope:actor ?= {
 				is_subject_of = c:PER
+			}
+		}
+	}
+}
+
+
+
+ARM = {
+	dynamic_country_name = {
+		name = dyn_c_byz_armenia
+		adjective = dyn_c_byz_armenia_adj
+
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = c:BYZ
+			scope:actor ?= {
+				is_subject_of = c:BYZ
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_eng_armenia
+		adjective = dyn_c_eng_armenia_adj
+
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			NOT = {
+				scope:actor ?= {
+					c:ARM ?= this
+					c:BYZ ?= this.overlord
+				}
+			}
+		}
+	}
+}
+
+GEO = {
+	dynamic_country_name = {
+		name = dyn_c_byz_georgia
+		adjective = dyn_c_byz_georgia_adj
+
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = c:BYZ
+			scope:actor ?= {
+				is_subject_of = c:BYZ
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_eng_georgia
+		adjective = dyn_c_eng_georgia_adj
+
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			NOT = {
+				scope:actor ?= {
+					c:GEO ?= this
+					c:BYZ ?= this.overlord
+				}
 			}
 		}
 	}

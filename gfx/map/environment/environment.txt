@@ -15,7 +15,7 @@ water_sun_direction_offset = { 0.0 0.0 0.0 }
 shadowmap_kernelscale = 1.0
 
 # Cubemap
-cubemap_intensity = 3.5
+cubemap_intensity = 2.5
 cubemap = "gfx/map/environment/cubemap_blackbottom.dds"
 cubemap_y_rotation = 260
 
@@ -35,17 +35,17 @@ levels_max = hsv{ 0.0 0.0 1.0 }	# Can be used for color/value control (levels)
 #tonemap_function = "FilmicACES_Hill"		# Similar to Narkowicz, whites are less saturated and brighter
 tonemap_function = "Uncharted"				# Custom tonemap, Uses curve variables below
 tonemap_curve = {
-	shoulder_strength = 0.518
-	linear_strength = 0.085
-	linear_angle = 0.088
-	toe_strength = 0.523
+	shoulder_strength = 0.218	### MOD SETTINGS
+	linear_strength = 0.145
+	linear_angle = 0.148
+	toe_strength = 0.600	### MOD SETTINGS
 	toe_numerator = 0.025
-	toe_denominator = 0.755
+	toe_denominator = 0.450	### MOD SETTINGS
 	linear_white = 4.20
 }
 
 exposure_function = "FixedExposure"
-exposure = 0.95						# Only used with fixed exposure
+exposure = 1.0						# Only used with fixed exposure
 
 # Fog
 fog_color = { 0.75 0.75 0.75 }		# (Overwritten by post posteffect_volumes.txt)
@@ -66,9 +66,10 @@ tree_sway_world_direction = { -1 0 -1 }
 
 ######## Graphics ########
 # Bloom
-bloom_strength = 0.04
-bloom_steepness = 1.5
+bloom_strength = 0
+bloom_steepness = 0.49
 bloom_threshold = 0.15
+
 
 # Map global SSAO settings
 ssao = {
@@ -105,7 +106,7 @@ depthoffield = {
 	# Camera based settings - no performance impact
 	dof_blurmin = 1.0
 	dof_blurmax = 50.0
-	dof_blurscale = 1.25
+	dof_blurscale = 2.5
 	dof_blurexponent = 1.0
 	dof_heightmin = 0.0
 	dof_heightmax = 1000.0

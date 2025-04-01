@@ -4,6 +4,7 @@
 	group = je_group_internal_affairs
 
 	complete = {
+		country_rank >= rank_value:great_power
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
@@ -55,372 +56,8 @@
 	should_be_pinned_by_default = yes
 }
 
-je_palaiologos_reforms_syria = {
-	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
 
-	group = je_group_foreign_affairs
-
-	complete = {
-		OR = {
-			AND = {
-				exists = c:br_syria
-				c:br_syria = {
-					is_subject_of = ROOT
-					is_subject_type = subject_type_puppet
-				}
-				c:br_syria = { liberty_desire <= 50 }
-			}
-			AND = {
-				owns_entire_state_region = STATE_ALEPPO
-				owns_entire_state_region = STATE_LEBANON
-				owns_entire_state_region = STATE_PALESTINE
-			}
-		}
-	}
-
-	on_complete = {
-		custom_tooltip = je_palaiologos_reforms_advance
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-	#	trigger_event = {
-	#		id = veiled_exarchate.4 #this event not currently in use
-	#	}
-		set_variable = completed_syria_je
-		add_journal_entry = {
-			type = je_palaiologos_reforms_egypt
-		}
-		add_journal_entry = {
-			type = je_palaiologos_reforms_italy
-		}
-		add_journal_entry = {
-			type = je_palaiologos_reforms_africa
-		}
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	on_weekly_pulse = {
-		events = {
-			aegyptian_crisis_events.1
-		}
-	}
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	transferable = no
-
-	weight = 5000
-}
-
-je_palaiologos_reforms_egypt = {
-	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
-
-	group = je_group_foreign_affairs
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	complete = {
-		OR = {
-			AND = {
-				exists = c:br_aegypt
-				c:br_aegypt = {
-					is_subject_of = ROOT
-				}
-				c:br_aegypt = { liberty_desire <= 50 }
-			}
-			AND = {
-				owns_entire_state_region = STATE_SINAI
-				owns_entire_state_region = STATE_UPPER_EGYPT
-				owns_entire_state_region = STATE_MIDDLE_EGYPT
-				owns_entire_state_region = STATE_LOWER_EGYPT
-			}
-		}
-	}
-
-	on_complete = {
-		custom_tooltip = je_palaiologos_reforms_advance
-		every_scope_state = {
-			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
-			add_modifier = {
-				name = br_modifier_patriarch_alexandria
-				years = -1
-			}
-		}
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-		trigger_event = {
-			id = veiled_exarchate.1
-		}
-		trigger_event = {
-			id = pentarchy.1
-			days = 5
-		}
-		add_journal_entry = {
-			type = je_palaiologos_reforms_australis
-		}
-		custom_tooltip = palaiologos_reforms_syria_egypt
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	weight = 5000
-}
-
-je_palaiologos_reforms_italy = {
-	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
-
-	group = je_group_foreign_affairs
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	complete = {
-		OR = {
-			AND = {
-				exists = c:SIC
-				c:SIC = {
-					is_subject_of = ROOT
-				}
-				c:SIC = { liberty_desire <= 50 }
-			}
-			AND = {
-				owns_entire_state_region = STATE_SICILY
-				owns_entire_state_region = STATE_CAMPANIA
-				owns_entire_state_region = STATE_ABRUZZO
-				owns_entire_state_region = STATE_CALABRIA
-				owns_entire_state_region = STATE_APULIA
-			}
-		}
-	}
-
-	on_complete = {
-		custom_tooltip = je_palaiologos_reforms_advance
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-		trigger_event = {
-			id = veiled_exarchate.3
-		}
-		add_journal_entry = {
-			type = je_palaiologos_reforms_elysium
-		}
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	weight = 5000
-}
-
-je_palaiologos_reforms_africa = {
-	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
-
-	group = je_group_foreign_affairs
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	complete = {
-		OR = {
-			AND = {
-				exists = c:br_afrika
-				c:br_afrika = {
-					is_subject_of = ROOT
-				}
-				c:br_afrika = { liberty_desire <= 50 }
-			}
-			AND = {
-				owns_entire_state_region = STATE_TUNISIA
-				owns_entire_state_region = STATE_TRIPOLI
-				owns_entire_state_region = STATE_LIBYA
-			}
-		}
-	}
-
-	on_complete = {
-		custom_tooltip = je_palaiologos_reforms_advance
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-		trigger_event = {
-			id = veiled_exarchate.2
-		}
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	weight = 5000
-}
-
-je_palaiologos_reforms_elysium = {
-	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
-
-	group = je_group_foreign_affairs
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	complete = {
-		OR = {
-			AND = {
-				exists = c:br_elysium
-				c:br_elysium = {
-					is_subject_of = ROOT
-				}
-				c:br_elysium = { liberty_desire <= 50 }
-			}
-		}
-	}
-
-	on_complete = {
-		custom_tooltip = je_palaiologos_reforms_advance
-
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-		trigger_event = {
-			id = veiled_exarchate.5
-		}
-		#custom_tooltip = palaiologos_reforms_elysium
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	weight = 5000
-}
-
-je_palaiologos_reforms_australis = {
-	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
-
-	group = je_group_foreign_affairs
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	complete = {
-		OR = {
-			AND = {
-				exists = c:br_australis
-				c:br_australis = {
-					is_subject_of = ROOT
-				}
-				c:br_australis = { liberty_desire <= 50 }
-			}
-		}
-	}
-
-	on_complete = {
-		custom_tooltip = je_palaiologos_reforms_advance
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-		trigger_event = {
-			id = veiled_exarchate.6
-		}
-		#custom_tooltip = palaiologos_reforms_elysium
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	weight = 5000
-}
+##Internal Reforms
 
 je_palaiologos_reforms_economy = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
@@ -428,6 +65,12 @@ je_palaiologos_reforms_economy = {
 	group = je_group_internal_affairs
 
 	complete = {
+		NOR = { 
+			has_law = law_type:law_traditionalism
+			has_law = law_type:law_land_based_taxation
+			has_law = law_type:law_consumption_based_taxation
+			has_law = law_type:law_isolationism
+		}
 		NOT = { has_modifier = br_modifier_latin_privileges }
 		taking_loans = no
 		any_scope_state = {
@@ -447,6 +90,9 @@ je_palaiologos_reforms_economy = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+	#	trigger_event = {
+	#		id = add_event_here.1
+	#	}
 	}
 
 	invalid = {
@@ -473,7 +119,7 @@ je_palaiologos_reforms_economy = {
 	transferable = no
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
+		c:BYZ ?= this
 		NOT = {
 			has_variable = palaiologos_reforms_complete
 		}
@@ -499,6 +145,20 @@ je_palaiologos_reforms_education = {
 			occupancy > 0.9
 			level >= 8
 		}
+		any_scope_building = {
+			filter = {
+				is_building_type = building_university
+			}
+			count = all
+			NOT = {
+				has_active_production_method = pm_religious_academia
+			}
+			occupancy >= 0.9
+		}
+		institution_investment_level = {
+			institution = institution_schools
+			value >= 3
+		}
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
@@ -511,6 +171,9 @@ je_palaiologos_reforms_education = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+	#	trigger_event = {
+	#		id = 
+	#	}
 	}
 
 	current_value = {
@@ -519,7 +182,7 @@ je_palaiologos_reforms_education = {
 
 	goal_add_value = {
 		value = root.literacy_rate
-		add = 0.35
+		add = 0.3
 	}
 
 	invalid = {
@@ -532,7 +195,7 @@ je_palaiologos_reforms_education = {
 	transferable = no
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
+		c:BYZ ?= this
 		NOT = {
 			has_variable = palaiologos_reforms_complete
 		}
@@ -553,6 +216,10 @@ je_palaiologos_reforms_separatism = {
 
 	group = je_group_internal_affairs
 
+	modifiers_while_active = {
+		br_modifier_national_separatism
+	}
+
 	complete = {
 		scope:journal_entry = {
 			is_goal_complete = yes
@@ -560,7 +227,7 @@ je_palaiologos_reforms_separatism = {
 		highest_secession_progress < 0.5
 		NOT = {
 			any_scope_state = {
-				turmoil >= 0.35
+				turmoil >= 0.5
 			}
 		}
 	}
@@ -636,7 +303,7 @@ je_palaiologos_reforms_separatism = {
 	transferable = no
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
+		c:BYZ ?= this
 		NOT = {
 			has_variable = palaiologos_reforms_complete
 		}
@@ -651,57 +318,40 @@ je_palaiologos_reforms_separatism = {
 	progressbar = yes
 }
 
-# Army Reform
-je_palaiologos_reforms_army = {
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
+je_palaiologos_reforms_security = {
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
 	group = je_group_internal_affairs
 
+	modifiers_while_active = {
+		br_modifier_lawless_countryside
+	}
+
 	complete = {
-		army_size >= 250
-		has_technology_researched = napoleonic_warfare
-		NOT = {
-			has_law = law_type:law_peasant_levies
-			#has_law = law_type:law_mixed_army
-			has_law = law_type:law_serfdom
+		NOR = {
+			has_law = law_type:law_no_police
+			has_law = law_type:law_local_police
+		}
+		institution_investment_level = {
+			institution = institution_police
+			value >= 3
 		}
 		NOT = {
-			any_scope_building = {
-				is_building_type = building_barracks
-				OR = {
-					building_has_goods_shortage = yes
-					has_active_production_method = pm_no_organization
-				}
+			any_scope_state = {
+				turmoil > 0.20
 			}
 		}
 	}
 
 	on_complete = {
-		set_variable = completed_palaiologos_reforms_army_je
+		set_variable = completed_security_palaiologos_reforms_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
-		if = {
-			limit = {
-				has_modifier = br_modifier_corrupt_pronoia
-			}
-			trigger_event = {
-				id = palaiologos_events.3
-				days = 1
-			}
-		}
-	#	add_journal_entry = {
-	#		type = je_palaiologos_reforms_navy
-	#	}
 	}
 
-	on_monthly_pulse = {
-		events = {
-			palaiologos_events.10 # Tanzimat Draft Question
-		}
-	}
 
 	invalid = {
 		custom_tooltip = {
@@ -713,7 +363,7 @@ je_palaiologos_reforms_army = {
 	transferable = no
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
+		c:BYZ ?= this
 		NOT = {
 			has_variable = palaiologos_reforms_complete
 		}
@@ -724,73 +374,8 @@ je_palaiologos_reforms_army = {
 	}
 
 	weight = 5000
-
-	progressbar = yes
 }
 
-#Navy reform
-je_palaiologos_reforms_navy = {
-	icon = "gfx/interface/icons/event_icons/event_trade.dds"
-
-	group = je_group_internal_affairs
-
-	complete = {
-		navy_size >= 125
-		has_technology_researched = power_of_the_purse
-		has_technology_researched = screw_frigate
-		NOT = {
-			any_scope_building = {
-				is_building_type = building_naval_base
-				has_active_production_method = pm_no_naval_theory
-			}
-		}
-		NOT = {
-			any_scope_building = {
-				is_building_type = building_shipyards
-				has_active_production_method = pm_basic_shipbuilding
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = completed_palaiologos_reforms_navy_je
-		custom_tooltip = je_palaiologos_reforms_advance
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-	}
-
-	on_monthly_pulse = {
-		events = {
-			palaiologos_events.10 # Tanzimat Draft Question
-		}
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	weight = 5000
-
-	progressbar = yes
-}
 
 # Bureaucractic Reform
 je_palaiologos_reforms_bureaucracy = {
@@ -799,12 +384,22 @@ je_palaiologos_reforms_bureaucracy = {
 	group = je_group_internal_affairs
 
 	complete = {
-		NOR = { 
-			has_law = law_type:law_hereditary_bureaucrats 
-			has_law = law_type:law_land_based_taxation
-			has_law = law_type:law_consumption_based_taxation
+		NOT = {
+			has_law = law_type:law_hereditary_bureaucrats
 		}
 		NOT = { has_modifier = br_modifier_romaioi_bureaucratic_corruption }
+		any_scope_building = {
+			filter = {
+				is_building_type = building_government_administration
+			}
+			count = all
+			NOR = {
+				has_active_production_method = pm_simple_organization
+				has_active_production_method = pm_hereditary_bureaucrats
+				has_active_production_method = pm_religious_bureaucrats
+			}
+			occupancy >= 0.9
+		}
 		bureaucracy >= 0 
 		approaching_bureaucracy_shortage = no
 	}
@@ -816,6 +411,78 @@ je_palaiologos_reforms_bureaucracy = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+	#	trigger_event = {
+	#		id = add_event_here.2
+	#	}
+	}
+
+	#on_monthly_pulse = {
+	#	random_events = {
+	#		100 = 0
+	#		10 = palaiologos_events.9 # Land registration resisted
+	#	}
+	#}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	weight = 5000
+}
+
+# Land Reform
+je_palaiologos_reforms_land_reform = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+
+	complete = {
+		NOR = {
+			has_law = law_type:law_traditionalism
+			has_law = law_type:law_agrarianism
+		}
+		NOR = {
+			has_law = law_type:law_serfdom
+			has_law = law_type:law_tenant_farmers
+		}
+		any_scope_building = {
+			is_building_type = building_wheat_farm
+			NOT = {
+				has_active_production_method = pm_simple_farming
+			}
+			level >= 10
+			weekly_profit > 5
+			occupancy >= 0.9
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_palaiologos_reforms_land_reform_je
+		custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+	#	trigger_event = {
+	#		id = add_event_here.3
+	#	}
 	}
 
 	on_monthly_pulse = {
@@ -835,7 +502,7 @@ je_palaiologos_reforms_bureaucracy = {
 	transferable = no
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
+		c:BYZ ?= this
 		NOT = {
 			has_variable = palaiologos_reforms_complete
 		}
@@ -848,178 +515,7 @@ je_palaiologos_reforms_bureaucracy = {
 	weight = 5000
 }
 
-je_palaiologos_reforms_centralization_west = {
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-
-	group = je_group_internal_affairs
-
-	complete = {
-		AND = {
-			OR = {
-				AND = {
-					exists = c:SER
-					c:SER = {
-						is_subject_of = ROOT
-						is_subject_type = subject_type_puppet
-					}
-					c:SER = { liberty_desire <= 50 }
-				}
-				AND = {
-					owns_entire_state_region = STATE_NORTHERN_SERBIA
-					owns_entire_state_region = STATE_SOUTHERN_SERBIA
-					owns_entire_state_region = STATE_MONTENEGRO
-				}
-			}
-		}
-		AND = {
-			OR = {
-				AND = {
-					exists = c:BOS
-					c:BOS = {
-						is_subject_of = ROOT
-						is_subject_type = subject_type_puppet
-					}
-					c:BOS = { liberty_desire <= 50 }
-				}
-				AND = {
-					owns_entire_state_region = STATE_BOSNIA
-				}
-			}
-		}
-		AND = {
-			owns_entire_state_region = STATE_ALBANIA
-			owns_entire_state_region = STATE_ATTICA
-			owns_entire_state_region = STATE_THESSALIA
-			owns_entire_state_region = STATE_PELOPONNESE
-			owns_entire_state_region = STATE_BULGARIA
-			owns_entire_state_region = STATE_DOBRUDJA
-		}
-		AND = {
-			exists = c:WAL
-			c:WAL = {
-				is_subject_of = ROOT
-			}
-			c:WAL = { liberty_desire <= 50 }
-		}
-		AND = {
-			exists = c:MOL
-			c:MOL = {
-				is_subject_of = ROOT
-			}
-			c:MOL = { liberty_desire <= 50 }
-		}
-	}
-
-	on_complete = {
-        custom_tooltip = je_palaiologos_reforms_advance
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-	}
-
-    invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	weight = 5000
-}
-
-je_palaiologos_reforms_centralization_east= {
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-
-	group = je_group_internal_affairs
-
-	complete = {
-		AND = {
-			OR = {
-				AND = {
-					exists = c:ARM
-					c:ARM = {
-						is_subject_of = ROOT
-						is_subject_type = subject_type_puppet
-					}
-					c:ARM = { liberty_desire <= 50 }
-				}
-				AND = {
-					owns_entire_state_region = STATE_ANKARA
-					owns_entire_state_region = STATE_ERZURUM
-					owns_entire_state_region = STATE_KARS
-					owns_entire_state_region = STATE_DIYARBAKIR
-				}
-			}
-			
-		}
-		AND = {
-			AND = {
-				OR = {
-					AND = {
-						exists = c:GEO
-						c:GEO = {
-							is_subject_of = ROOT
-							is_subject_type = subject_type_puppet
-						}
-						c:GEO = { liberty_desire <= 50 }
-					}
-					AND = {
-						owns_entire_state_region = STATE_GREATER_CAUCASUS
-					}
-				}
-				
-			}
-		}
-		AND = {
-			owns_entire_state_region = STATE_TRABZON
-		}
-	}
-
-	on_complete = {
-        custom_tooltip = je_palaiologos_reforms_advance
-		change_variable = {
-			name = palaiologos_reforms_var
-			add = 1
-		}
-	}
-
-    invalid = {
-		custom_tooltip = {
-			text = finished_palaiologos_reforms_tt
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-
-	transferable = no
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-		NOT = {
-			has_variable = palaiologos_reforms_complete
-		}
-	}
-	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-	}
-
-	weight = 5000
-}
-
+# Corruption reforms
 je_palaiologos_reforms_end_curruption = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -1030,7 +526,6 @@ je_palaiologos_reforms_end_curruption = {
             AND = {
                 has_law = law_type:law_autocracy
 				has_law = law_type:law_appointed_bureaucrats
-				has_law = law_type:law_autocracy
 				NOT = {
                     has_law = law_type:law_hereditary_bureaucrats
                     has_law = law_type:law_oligarchy
@@ -1038,7 +533,7 @@ je_palaiologos_reforms_end_curruption = {
             }
             AND = {
                 has_law = law_type:law_elected_bureaucrats
-                has_law = law_type:law_wealth_voting
+                #has_law = law_type:law_wealth_voting
                 NOT = {
                     has_law = law_type:law_hereditary_bureaucrats
                     has_law = law_type:law_oligarchy
@@ -1110,7 +605,7 @@ je_palaiologos_reforms_end_curruption = {
 	}
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
+		c:BYZ ?= this
 		NOT = {
 			has_variable = palaiologos_reforms_complete
 		}
@@ -1124,6 +619,7 @@ je_palaiologos_reforms_end_curruption = {
 
 }
 
+# Trade Reforms
 je_palaiologos_reforms_end_latin_privileges = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -1219,7 +715,7 @@ je_palaiologos_reforms_end_latin_privileges = {
 	}
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
+		c:BYZ ?= this
 		NOT = {
 			has_variable = palaiologos_reforms_complete
 		}
@@ -1234,3 +730,667 @@ je_palaiologos_reforms_end_latin_privileges = {
 }
 
 
+##Military Reforms
+
+# Army Reform
+je_palaiologos_reforms_army = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	complete = {
+		army_size >= 250
+		has_technology_researched = napoleonic_warfare
+		NOT = {
+			has_law = law_type:law_peasant_levies
+			has_law = law_type:law_serfdom
+		}
+		any_scope_building = {
+			filter = {
+				is_building_type = building_barracks
+			}			
+			NOR = {
+				building_has_goods_shortage = yes
+				has_active_production_method = pm_no_organization
+			}
+			percent = 1
+		}
+		NOT = {
+			any_military_formation = {
+				filter = {
+					is_army = yes
+				}
+				any_combat_unit = {
+					has_unit_type = unit_type:combat_unit_type_irregular_infantry
+				}
+				percent >= 0.25
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_palaiologos_reforms_army_je
+		custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+		if = {
+			limit = {
+				has_modifier = br_modifier_corrupt_pronoia
+			}
+			trigger_event = {
+				id = palaiologos_events.3
+				days = 1
+			}
+		}
+	#	add_journal_entry = {
+	#		type = je_palaiologos_reforms_navy
+	#	}
+	}
+
+	on_monthly_pulse = {
+		events = {
+			palaiologos_events.10 # Tanzimat Draft Question
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	weight = 5000
+
+	progressbar = yes
+}
+
+#Navy reform
+je_palaiologos_reforms_navy = {
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	group = je_group_internal_affairs
+
+	modifiers_while_active = {
+		br_modifier_regionalized_navy
+	}
+
+	complete = {
+		navy_size >= 125
+		has_technology_researched = power_of_the_purse
+		has_technology_researched = screw_frigate
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_naval_base
+				has_active_production_method = pm_no_naval_theory
+			}
+		}
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_shipyards
+				has_active_production_method = pm_basic_shipbuilding
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_palaiologos_reforms_navy_je
+		custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+	}
+
+	on_monthly_pulse = {
+		events = {
+			palaiologos_events.10 # Tanzimat Draft Question
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	weight = 5000
+
+	progressbar = yes
+}
+
+
+
+##External Reforms
+
+je_palaiologos_reforms_syria = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:br_syria
+				c:br_syria = {
+					is_subject_of = ROOT
+					is_subject_type = subject_type_puppet
+				}
+				c:br_syria = { liberty_desire <= 50 }
+			}
+			AND = {
+				owns_entire_state_region = STATE_ALEPPO
+				owns_entire_state_region = STATE_LEBANON
+				owns_entire_state_region = STATE_PALESTINE
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+	#	trigger_event = {
+	#		id = veiled_exarchate.4 #this event not currently in use
+	#	}
+		set_variable = completed_syria_je
+		add_journal_entry = {
+			type = je_palaiologos_reforms_egypt
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	on_weekly_pulse = {
+		events = {
+			aegyptian_crisis_events.1
+		}
+	}
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_egypt = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
+
+	#journal is currently being added by the syria je
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+	 	NOT = {
+	 		has_variable = palaiologos_reforms_complete
+	 	}
+	}
+	possible = {
+		has_interest_marker_in_region = region_nile_basin
+	 	exists = c:BYZ
+	 	c:BYZ = ROOT
+		#take syria first
+		owns_entire_state_region = STATE_ALEPPO
+		owns_entire_state_region = STATE_LEBANON
+		owns_entire_state_region = STATE_PALESTINE
+	}
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:br_aegypt
+				c:br_aegypt = {
+					is_subject_of = ROOT
+				}
+				c:br_aegypt = { liberty_desire <= 50 }
+				country_or_subject_owns_entire_state_region = STATE_SINAI
+				country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
+				country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
+				country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
+			}
+			AND = {
+				owns_entire_state_region = STATE_SINAI
+				owns_entire_state_region = STATE_UPPER_EGYPT
+				owns_entire_state_region = STATE_MIDDLE_EGYPT
+				owns_entire_state_region = STATE_LOWER_EGYPT
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_palaiologos_reforms_advance
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
+			add_modifier = {
+				name = br_modifier_patriarch_alexandria
+				years = -1
+			}
+		}
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+		trigger_event = {
+			id = veiled_exarchate.1
+		}
+		trigger_event = {
+			id = pentarchy.1
+			days = 5
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_australis
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_africa
+		}
+		custom_tooltip = palaiologos_reforms_syria_egypt
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_italy = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		has_interest_marker_in_region = region_italy
+		#take control of adriatic ports first
+		owns_entire_state_region = STATE_ALBANIA
+		owns_entire_state_region = STATE_ATTICA
+		owns_entire_state_region = STATE_THESSALIA
+		owns_entire_state_region = STATE_PELOPONNESE
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:SIC
+				c:SIC = {
+					is_subject_of = ROOT
+				}
+				c:SIC = { liberty_desire <= 50 }
+				country_or_subject_owns_entire_state_region = STATE_SICILY
+				country_or_subject_owns_entire_state_region = STATE_CAMPANIA
+				country_or_subject_owns_entire_state_region = STATE_ABRUZZO
+				country_or_subject_owns_entire_state_region = STATE_CALABRIA
+				country_or_subject_owns_entire_state_region = STATE_APULIA
+			}
+			AND = {
+				owns_entire_state_region = STATE_SICILY
+				owns_entire_state_region = STATE_CAMPANIA
+				owns_entire_state_region = STATE_ABRUZZO
+				owns_entire_state_region = STATE_CALABRIA
+				owns_entire_state_region = STATE_APULIA
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+		trigger_event = {
+			id = veiled_exarchate.3
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_elysium
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_africa = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		has_interest_marker_in_region = region_north_africa
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:br_afrika
+				c:br_afrika = {
+					is_subject_of = ROOT
+				}
+				c:br_afrika = { liberty_desire <= 50 }
+				country_or_subject_owns_entire_state_region = STATE_TUNISIA
+				country_or_subject_owns_entire_state_region = STATE_TRIPOLI
+				country_or_subject_owns_entire_state_region = STATE_LIBYA
+			}
+			AND = {
+				owns_entire_state_region = STATE_TUNISIA
+				owns_entire_state_region = STATE_TRIPOLI
+				owns_entire_state_region = STATE_LIBYA
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+		trigger_event = {
+			id = veiled_exarchate.2
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_italy
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_elysium = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		country_rank >= rank_value:great_power
+		has_interest_marker_in_region = region_dixie
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:br_elysium
+				c:br_elysium = {
+					is_subject_of = ROOT
+				}
+				c:br_elysium = { liberty_desire <= 50 }
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_palaiologos_reforms_advance
+
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+		trigger_event = {
+			id = veiled_exarchate.5
+		}
+		#custom_tooltip = palaiologos_reforms_elysium
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_australis = {
+	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		has_interest_marker_in_region = region_oceania
+		#Control Aegpyt first
+		country_or_subject_owns_entire_state_region = STATE_SINAI
+		country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	complete = {
+		OR = {
+			AND = {
+				exists = c:br_australis
+				c:br_australis = {
+					is_subject_of = ROOT
+				}
+				c:br_australis = { liberty_desire <= 50 }
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+		trigger_event = {
+			id = veiled_exarchate.6
+		}
+		#custom_tooltip = palaiologos_reforms_elysium
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	weight = 5000
+}
+
+##Consolidation Reforms
+
+je_palaiologos_reforms_centralization_west = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+	complete = {
+		# TODO add state modifer that needs to be removed to procede
+		country_or_subject_owns_entire_state_region = STATE_NORTHERN_SERBIA
+		country_or_subject_owns_entire_state_region = STATE_SOUTHERN_SERBIA
+		country_or_subject_owns_entire_state_region = STATE_MONTENEGRO
+		country_or_subject_owns_entire_state_region = STATE_BOSNIA
+		country_or_subject_owns_entire_state_region = STATE_WALLACHIA
+		country_or_subject_owns_entire_state_region = STATE_MOLDAVIA
+		owns_entire_state_region = STATE_ALBANIA
+		owns_entire_state_region = STATE_ATTICA
+		owns_entire_state_region = STATE_THESSALIA
+		owns_entire_state_region = STATE_PELOPONNESE
+		owns_entire_state_region = STATE_BULGARIA
+		owns_entire_state_region = STATE_DOBRUDJA
+	}
+
+	on_complete = {
+        custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+	#	trigger_event = {
+	#		id = add_event_here.4
+	#	}
+	}
+
+    invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	weight = 5000
+}
+
+je_palaiologos_reforms_centralization_east= {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+	complete = {
+		# TODO add state modifer that needs to be removed to procede
+		country_or_subject_owns_entire_state_region = STATE_GREATER_CAUCASUS
+		country_or_subject_owns_entire_state_region = STATE_ANKARA
+		country_or_subject_owns_entire_state_region = STATE_ERZURUM
+		country_or_subject_owns_entire_state_region = STATE_KARS
+		country_or_subject_owns_entire_state_region = STATE_DIYARBAKIR
+		country_or_subject_owns_entire_state_region = STATE_TRABZON
+	}
+
+	on_complete = {
+        custom_tooltip = je_palaiologos_reforms_advance
+		change_variable = {
+			name = palaiologos_reforms_var
+			add = 1
+		}
+	}
+
+    invalid = {
+		custom_tooltip = {
+			text = finished_palaiologos_reforms_tt
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+
+	transferable = no
+
+	is_shown_when_inactive = {
+		c:BYZ ?= this
+		NOT = {
+			has_variable = palaiologos_reforms_complete
+		}
+	}
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+	}
+
+	weight = 5000
+}

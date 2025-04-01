@@ -9,7 +9,7 @@ GLOBAL = {
 			}
 			add_radicals = {
 				pop_type = slaves
-				value = 0.3
+				value = 0.5
 			}
 		}
 		if = {
@@ -20,7 +20,7 @@ GLOBAL = {
 			}
 			add_radicals = {
 				pop_type = peasants
-				value = 0.1
+				value = 0.15
 			}
 		}
 		if = {
@@ -70,8 +70,11 @@ GLOBAL = {
 	}
 	#Moderate Monarchies
 	c:HRE ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
-			value = 0.25
+			value = 0.1
 			culture = cu:french
 		}
 		add_radicals = {
@@ -80,7 +83,7 @@ GLOBAL = {
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.25
+				value = 0.1
 				religion = rel:catholic
 			}
 		}
@@ -93,9 +96,37 @@ GLOBAL = {
 			value = 0.1
 		}
 	}
-	c:PLC ?= {
+	c:ENG ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+			add_loyalists_in_state = {
+				value = 0.15
+				religion = rel:catholic
+			}
+		}
 		add_loyalists = {
+			value = 0.15
+			culture = cu:british
+		}
+		add_radicals = {
+			religion = rel:protestant
 			value = 0.25
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+	}
+	c:PLC ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+			add_loyalists_in_state = {
+				value = 0.1
+				religion = rel:catholic
+			}
+		}
+		add_loyalists = {
+			value = 0.1
 			culture = cu:polish
 		}
 		add_radicals = {
@@ -105,12 +136,6 @@ GLOBAL = {
 		add_radicals = {
 			religion = rel:orthodox
 			value = 0.25
-		}
-		capital = {
-			add_loyalists_in_state = {
-				value = 0.25
-				religion = rel:catholic
-			}
 		}
 		add_radicals = {
 			pop_type = aristocrats
@@ -123,7 +148,7 @@ GLOBAL = {
 	}
 	c:HUN ?= {
 		add_loyalists = {
-			value = 0.25
+			value = 0.1
 			culture = cu:hungarian
 		}
 		add_radicals = {
@@ -136,7 +161,7 @@ GLOBAL = {
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.25
+				value = 0.1
 				religion = rel:catholic
 			}
 		}
@@ -150,8 +175,11 @@ GLOBAL = {
 		}
 	}
 	c:DEN ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
-			value = 0.25
+			value = 0.1
 			culture = cu:danish
 		}
 		add_radicals = {
@@ -160,7 +188,7 @@ GLOBAL = {
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.25
+				value = 0.1
 				religion = rel:protestant
 			}
 		}
@@ -174,13 +202,16 @@ GLOBAL = {
 		}
 	}
 	c:SWE ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
-			value = 0.25
+			value = 0.1
 			culture = cu:swedish
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.25
+				value = 0.1
 				religion = rel:protestant
 			}
 		}
@@ -193,16 +224,14 @@ GLOBAL = {
 			value = 0.5
 		}
 	}
-
-
 	c:PER ?= {
 		add_loyalists = {
-			value = 0.25
+			value = 0.1
 			culture = cu:persian
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.25
+				value = 0.1
 				religion = rel:sunni
 			}
 		}
@@ -230,7 +259,7 @@ GLOBAL = {
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.25
+				value = 0.1
 				religion = rel:sunni
 			}
 		}
@@ -257,6 +286,7 @@ GLOBAL = {
 			culture = cu:mongol
 		}
 		capital = {
+			effect_starting_pop_wealth_very_high = yes
 			add_loyalists_in_state = {
 				value = 0.25
 				culture = cu:han
@@ -285,6 +315,7 @@ GLOBAL = {
 			religion = rel:br_religion_confucian
 		}
 		capital = {
+			effect_starting_pop_wealth_very_high = yes
 			add_loyalists_in_state = {
 				value = 0.25
 				religion = rel:br_religion_confucian
@@ -308,8 +339,11 @@ GLOBAL = {
 		}
 	}
 	c:JAP ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
-			value = 0.25
+			value = 0.1
 			culture = cu:japanese
 		}
 		add_loyalists = {
@@ -326,8 +360,11 @@ GLOBAL = {
 		}
 	}
 	c:br_elysium ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
-			value = 0.5
+			value = 0.25
 			culture = cu:elysian
 		}
 		capital = {
@@ -350,16 +387,19 @@ GLOBAL = {
 		}
 	}
 	c:BYZ ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
-			value = 0.1
+			value = 0.05
 			culture = cu:greek
 		}
 		add_loyalists = {
-			value = 0.1
+			value = 0.05
 			culture = cu:latinoi
 		}
 		add_loyalists = {
-			value = 0.1
+			value = 0.05
 			culture = cu:varangian
 		}
 		add_radicals = {
@@ -380,7 +420,7 @@ GLOBAL = {
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.45
+				value = 0.35
 				religion = rel:orthodox
 			}
 		}
@@ -534,7 +574,7 @@ GLOBAL = {
 			culture = cu:greek
 		}
 		add_loyalists = {
-			value = 0.5
+			value = 1
 			culture = cu:african
 		}
 		add_loyalists = {
@@ -582,7 +622,7 @@ GLOBAL = {
 			culture = cu:greek
 		}
 		add_loyalists = {
-			value = 0.5
+			value = 1
 			culture = cu:african
 		}
 		add_loyalists = {
@@ -626,7 +666,7 @@ GLOBAL = {
 			culture = cu:greek
 		}
 		add_loyalists = {
-			value = 0.5
+			value = 1
 			culture = cu:aegyptian
 		}
 		add_loyalists = {
@@ -702,11 +742,11 @@ GLOBAL = {
 	}
 	c:br_tartaria ?= {
 		add_loyalists = {
-			value = 0.25
+			value = 0.15
 			culture = cu:tatar
 		}
 		add_loyalists = {
-			value = 0.25
+			value = 0.15
 			culture = cu:mongol
 		}
 		add_radicals = {
@@ -807,13 +847,17 @@ GLOBAL = {
 
 	#Progressive countires
 	c:NET ?= {
+		capital = {
+			effect_starting_pop_literacy_very_high = yes
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
-			value = 0.25
+			value = 0.15
 			culture = cu:dutch
 		}
 		capital = {
 			add_loyalists_in_state = {
-				value = 0.25
+				value = 0.15
 				religion = rel:protestant
 			}
 		}
@@ -831,6 +875,10 @@ GLOBAL = {
 		}
 	}
 	c:FLA ?= {
+		capital = {
+			effect_starting_pop_literacy_very_high = yes
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
 			value = 0.1
 			culture = cu:flemish
@@ -849,6 +897,9 @@ GLOBAL = {
 		}
 	}
 	c:VEN ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
 			pop_type = shopkeepers
 			value = 0.3
@@ -867,6 +918,9 @@ GLOBAL = {
 		}
 	}
 	c:br_genoa ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
 			pop_type = shopkeepers
 			value = 0.3
@@ -885,6 +939,9 @@ GLOBAL = {
 		}
 	}
 	c:ANL ?= {
+		capital = {
+			effect_starting_pop_wealth_very_high = yes
+		}
 		add_loyalists = {
 			value = 0.25
 			culture = cu:andalusian

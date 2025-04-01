@@ -20,11 +20,11 @@ on_monthly_pulse_country = {
 	}
 }
 
-# on_monthly_pulse_country = {
-# 	events = {
-# 		new_homelands.1
-# 	}
-# }
+on_monthly_pulse = {
+	on_actions = {
+		br_on_state_occupied
+	}
+}
 
 romaioi_monthly_pulse = {
 	trigger = {
@@ -233,4 +233,72 @@ br_oa_event_debug_silencer = {
 		trigger_event = { id = british_dictates.4 }
 
 	}
+}
+
+##template for an effect that executes when a state is controlled by someone else than the owner
+# br_on_state_occupied = {
+# 	effect = {
+# 		s:STATE_FLANDERS = { #state_regions can't use ?= probably because they are static and not dynamic
+# 			if = {
+# 				limit = {
+# 					any_scope_state = {
+# 						owner = c:FLA
+# 						not = { controller = owner }
+# 					}
+# 					# always = yes
+# 				}
+# 				c:HRE = {
+# 					trigger_event = {
+# 						id = complete_control_the_lowlands.1
+# 						popup = yes
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+br_on_state_occupied = {
+	effect = {
+		s:STATE_ILE_DE_FRANCE = { #state_regions can't use ?= probably because they are static and not dynamic
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = c:HRE
+						controller ?= c:FLA
+					}
+				}
+				c:HRE = {
+					trigger_event = {
+						id = br_goedendag.1
+						popup = yes
+					}
+					ruler = {
+						kill_character = yes #(yes - kill [by default], no - don't do anything) 
+					}
+				}
+				c:FLA = {
+					trigger_event = {
+						id = br_goedendag.1
+						popup = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+grefm_monthly_pulse_1 = {
+	trigger = {
+		country_has_primary_culture = cu:greek
+	}
+	events = {
+		grefm.131 # Corinth Canal Completed
+	}
+	random_events = {
+		200 = 0
+		 5 = grefm.157 # The Mask of Agammemnon
+		 5 = grefm.180 # The Defence of Jonas King
+	}
+
 }

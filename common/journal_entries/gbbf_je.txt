@@ -1,0 +1,268 @@
+﻿
+################################
+#	GotB Journals imported into BR#
+################################
+
+je_grefm_archaeology = {
+	icon = "gfx/interface/icons/event_icons/event_ruins.dds"
+	
+	group = je_group_internal_affairs
+	
+	should_be_pinned_by_default = yes
+	
+	is_shown_when_inactive = { ##TODO MGR Compatch
+		country_has_primary_culture = cu:hellene #inactive for now
+	}
+
+	possible = {
+		country_has_primary_culture = cu:hellene
+		has_technology_researched = nationalism
+		any_scope_building = {
+			is_building_type = building_university
+		}
+	}
+	
+	immediate = {
+		grefm_initialize_archaeology_effect = yes
+		trigger_event = {
+			id = grefm.140 # The Archaeological Society of Athens
+		}
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = je_grefm_archaeology_complete_tt
+			hidden_trigger = {
+				has_variable = grefm_archeaology_var
+				OR = {
+					AND = {
+						NOR = {
+							has_variable = grefm_hellenic_sites_allowed
+							has_variable = grefm_roman_sites_allowed
+						}
+						var:grefm_archeaology_var >= 8
+					}
+					AND = {
+						OR = {
+							has_variable = grefm_hellenic_sites_allowed
+							has_variable = grefm_roman_sites_allowed
+						}
+						var:grefm_archeaology_var >= 16
+					}
+				}
+			}
+		}
+	}
+	
+	on_complete = {
+		grefm_cleanup_archaeology_effect = yes
+	}
+	
+	scripted_button = grefm_archeaology_greek_sites_button
+	scripted_button = grefm_archeaology_roman_sites_button
+	scripted_button = grefm_archeaology_alternate_site_button
+	scripted_button = grefm_archeaology_cancel_button
+
+	scripted_button = grefm_archeaology_parthenon_button_1
+	scripted_button = grefm_archeaology_parthenon_button_2
+	scripted_button = grefm_archeaology_mycenae_button_1
+	scripted_button = grefm_archeaology_mycenae_button_2
+	scripted_button = grefm_archeaology_gla_button
+	scripted_button = grefm_archeaology_delos_button
+	scripted_button = grefm_archeaology_larissa_button
+	scripted_button = grefm_archeaology_rhodes_button
+	
+	scripted_button = grefm_archeaology_corinth_button_1 # Hexamillion
+	scripted_button = grefm_archeaology_corinth_button_2 # Acrocorinth
+	scripted_button = grefm_archeaology_thessaloniki_button # Heptapyrgion
+	scripted_button = grefm_archeaology_thebes_button # Silk Workshops
+	scripted_button = grefm_archeaology_nicomedia_button
+	scripted_button = grefm_archeaology_smyrna_button
+	scripted_button = grefm_archeaology_tyana_button
+	scripted_button = grefm_archeaology_chios_button
+	
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					has_modifier = modifier_grefm_active_excavation
+				}
+				change_variable = {
+					name = grefm_excavation_var
+					add = 1
+				}
+			}
+		}
+		events = {
+			grefm.143 # Hellenic Excavation Completed
+			grefm.144 #	Roman Excavation Completed
+		}
+		random_events = {
+			400 = 0
+			10 = grefm.150 # Excavation Proceeding Smoothly
+			 5 = grefm.151 # Industrial Equipment Requested
+			 1 = grefm.152 # Ancient Tomb Uncovered
+			 5 = grefm.153 # Mudslide at the Excavation Site
+			 1 = grefm.154 # Disaster at the Excavation Site
+			10 = grefm.155 # Popular Interest in Excavation
+			 1 = grefm.156 # Palace Uncovered
+			 5 = grefm.158 # IG Offers Funding
+			 5 = grefm.159 # Reconstruction Garners Criticism
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_modifier = modifier_grefm_active_excavation
+				}
+				desc = je_grefm_archaeology_status
+			}
+		}
+	}
+	
+	weight = 2999
+	
+}
+
+################
+# OTHER FLAVOR #
+################
+
+je_grefm_corinth_canal_survey = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	group = je_group_internal_affairs
+	
+	should_be_pinned_by_default = yes
+
+	modifiers_while_active = {
+		modifier_grefm_corinth_canal_survey
+	}
+
+	complete = {
+		scope:journal_entry = { 
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = grefm.130 # Corinth Canal Surveyed
+		}
+		remove_variable = grefm_corinth_canal_var
+		set_global_variable = grefm_corinth_survey_complete
+	}
+
+	fail = {
+		NOT = {
+			owns_entire_state_region = STATE_PELOPONNESE
+		}
+	}
+
+	on_fail = {
+		remove_variable = grefm_corinth_canal_var
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			change_variable = {
+				name = grefm_corinth_canal_var
+				add = 1
+			}
+		}
+	}
+
+	current_value = {
+		value = root.var:grefm_corinth_canal_var
+	}
+
+	goal_add_value = {
+		value = 24
+	}
+
+	progressbar = yes
+
+	weight = 1000
+	
+}
+
+je_grefm_land_reclaimation = { # literally the vanilla reclaimation event in a trenchcoat
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+		modifier_grefm_reclaiming_land
+	}
+	
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = grefm.112 # Lake Kopais Drained
+			days = 15
+		}
+		remove_global_variable = grefm_lake_kopais_var
+		set_global_variable = grefm_lake_kopais_drained
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = grefm_gla_exposed
+				}
+			}
+			set_global_variable = grefm_gla_exposed
+		}
+	}
+
+	fail = {
+		OR = {
+			NOT = { owns_entire_state_region = STATE_ATTICA }
+		}
+	}
+
+	on_fail = {
+		remove_global_variable = grefm_lake_kopais_var
+	}
+
+	current_value = {
+		value = global_var:grefm_lake_kopais_var
+	}
+
+	goal_add_value = { # this is much smaller scale than the vanilla JE
+		add = 3
+	}
+	
+	on_monthly_pulse = {
+		events = {
+			grefm.113 # A Citadel Emerges
+		}
+	}
+
+	on_yearly_pulse = {
+		random_events = {
+			4 = 0
+			1 = grefm.119 # Land Reclaimed in Kopaida
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_grefm_land_reclaimation_status
+				trigger = {
+					has_variable = grefm_lake_kopais_var
+				}
+			}
+		}
+	}
+
+	weight = 1000
+
+}
