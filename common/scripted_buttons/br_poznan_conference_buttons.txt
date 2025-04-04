@@ -4,8 +4,8 @@
 
 	visible = { 
 		OR = {
-			c:NGF ?= this
-			c:PLC ?= this
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
 		}
 	}
 
@@ -91,8 +91,8 @@ br_request_pomorze_button = {
 
 	visible = {
 		OR = {
-			c:NGF ?= this
-			c:PLC ?= this
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
 		}
 	}
 
@@ -179,8 +179,8 @@ br_fate_of_prussia_button = {
 
 	visible = {
 		OR = {
-			c:NGF ?= this
-			c:PLC ?= this
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
 		}
 	}
 
@@ -208,10 +208,17 @@ br_fate_of_prussia_button = {
 			}
 			set_variable = br_fate_of_prussia_button_var
 		}
-		# change_global_variable = {
-		# 	name = br_je_conference_of_poznan_proposal_3
-		# 	add = 1
-		# }
+		if = {
+			limit = {
+				not = {
+					global_var:br_je_conference_of_poznan_proposal_3 >= 1
+				}
+			}
+			change_global_variable = {
+				name = br_je_conference_of_poznan_proposal_3
+				add = 1
+			}
+		}
 		#add event to decide specific outcome
 		trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #seems like it only wants the trigger the event ones and then never again
 	}
@@ -227,8 +234,8 @@ br_counter_offer_button = {
 
 	visible = {
 		OR = {
-			c:NGF ?= this
-			c:PLC ?= this
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
 		}
 	}
 
@@ -269,8 +276,8 @@ poznan_conference_approve_button = {
 
 	visible = {
 		OR = {
-			c:NGF ?= this
-			c:PLC ?= this
+			scope:br_north_german_federation_scope ?= this
+			scope:br_commonwealth_scope ?= this
 		}
 	}
 
@@ -299,13 +306,13 @@ poznan_conference_approve_button = {
 			text = poznan_conference_approve_button_tt
 			if = {
 				limit = {
-					c:NGF = this
+					scope:br_north_german_federation_scope ?= this
 				}
 				set_global_variable = br_poznan_treaty_signed_ngf_global_var
 			}
 			if = {
 				limit = {
-					c:PLC = this
+					scope:br_commonwealth_scope ?= this
 				}
 				set_global_variable = br_poznan_treaty_signed_plc_global_var
 			}
@@ -327,8 +334,8 @@ poznan_conference_disapprove_button = {
 
 	visible = {
 		OR = {
-			c:NGF ?= this
-			c:PLC ?= this
+			scope:br_north_german_federation_scope ?= this
+			scope:br_commonwealth_scope ?= this
 		}
 	}
 
@@ -357,13 +364,13 @@ poznan_conference_disapprove_button = {
 			text = poznan_conference_disapprove_button_tt
 			if = {
 				limit = {
-					c:NGF = this
+					scope:br_north_german_federation_scope ?= this
 				}
 				set_global_variable = br_poznan_treaty_not_signed_ngf_global_var
 			}
 			if = {
 				limit = {
-					c:PLC = this
+					scope:br_commonwealth_scope ?= this
 				}
 				set_global_variable = br_poznan_treaty_not_signed_plc_global_var
 			}
@@ -376,7 +383,7 @@ poznan_conference_disapprove_button = {
 				NOT = { 
 					or = {
 						this = root
-						c:NGF = this
+						scope:br_north_german_federation_scope ?= this
 					}
 				}
 				country_is_in_europe = yes

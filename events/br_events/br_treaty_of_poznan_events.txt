@@ -42,7 +42,7 @@ treaty_of_poznan_events.1 = {
 		ai_chance = {
 			base = 95
 		}
-		c:PLC ?= {
+		scope:br_commonwealth_scope ?= {
 			trigger_event = { id = treaty_of_poznan_events.2 popup = yes } 
 		}
 		custom_tooltip = if_they_accept_tt
@@ -51,7 +51,7 @@ treaty_of_poznan_events.1 = {
 			add_journal_entry = {
 				type = br_je_conference_of_poznan
 			}
-			c:PLC = {
+			scope:br_commonwealth_scope = {
 				add_journal_entry = {
 					type = br_je_conference_of_poznan
 				}
@@ -302,14 +302,14 @@ treaty_of_poznan_events.4 = {
 	trigger = {
 	}
 
-	immediate = {
-		c:NGF ?= {
-			save_scope_as = br_north_german_federation_scope
-		}
-		c:PLC ?= {
-			save_scope_as = br_commonwealth_scope
-		}
-	}
+	# immediate = {
+	# 	c:NGF ?= {
+	# 		save_scope_as = br_north_german_federation_scope
+	# 	}
+	# 	c:PLC ?= {
+	# 		save_scope_as = br_commonwealth_scope
+	# 	}
+	# }
 
 	option = {
 		name = treaty_of_poznan_events.4.a
@@ -319,7 +319,7 @@ treaty_of_poznan_events.4 = {
 		}
 		if = {
 			limit = {
-				c:NGF ?= this
+				scope:br_north_german_federation_scope ?= this
 			}
 			custom_tooltip = {
 				text = treaty_of_poznan_outcome_tt
@@ -334,36 +334,38 @@ treaty_of_poznan_events.4 = {
 				}
 			}
 		}
-		if = {
-			limit = {
-				NOR = {
-					c:NGF ?= this
-					c:PLC ?= this
-				}
-				NOT = {
-					has_diplomatic_pact = {
-						who = c:PRU
-						type = guarantee_independence						
-					}
-				}
-			}
-			create_diplomatic_pact = {
-				country = c:PRU
-				type = guarantee_independence
-			}
-		}
-		if = {
-			limit = {
-				NOR = {
-					c:NGF ?= this
-					c:PLC ?= this
-				}
-			}
-			add_modifier = {
-				name = guarantors_of_peace_modifier
-				months = normal_modifier_time
-			}
-		}
+		#these if's are if there are arbitors for the conference
+		# if = {
+		# 	limit = {
+		# 		NOR = {
+		# 			scope:br_north_german_federation_scope ?= this
+		# 			scope:br_commonwealth_scope ?= this
+		# 		}
+		# 		NOT = {
+		# 			has_diplomatic_pact = {
+		# 				who = c:PRU
+		# 				type = guarantee_independence						
+		# 			}
+		# 		}
+		# 	}
+		# 	create_diplomatic_pact = {
+		# 		country = c:PRU
+		# 		type = guarantee_independence
+		# 	}
+		# }
+		# if = {
+		# 	limit = {
+		# 		NOR = {
+		# 			scope:br_north_german_federation_scope ?= this
+		# 			scope:br_commonwealth_scope ?= this
+		# 		}
+		# 	}
+		# 	add_modifier = {
+		# 		name = guarantors_of_peace_modifier
+		# 		months = normal_modifier_time
+		# 	}
+		# }
+
 		# show_as_tooltip = {
 		# 	if = {
 		# 		limit = {
@@ -388,6 +390,9 @@ treaty_of_poznan_events.4 = {
 		# 		}
 		# 	}
 		# }
+
+		#remove var's
+		br_remove_treaty_of_poznan_variables_scripted_effect = yes
 	}
 }
 
@@ -415,14 +420,14 @@ treaty_of_poznan_events.5 = {
 	trigger = {
 	}
 
-	immediate = {
-		c:NGF ?= {
-			save_scope_as = br_north_german_federation_scope
-		}
-		c:PLC ?= {
-			save_scope_as = br_commonwealth_scope
-		}
-	}
+	# immediate = {
+	# 	c:NGF ?= {
+	# 		save_scope_as = br_north_german_federation_scope
+	# 	}
+	# 	c:PLC ?= {
+	# 		save_scope_as = br_commonwealth_scope
+	# 	}
+	# }
 
 	option = {
 		name = treaty_of_poznan_events.5.a
@@ -430,6 +435,8 @@ treaty_of_poznan_events.5 = {
 		add_radicals = {
 			value = small_radicals
 		}
+
+		br_remove_treaty_of_poznan_variables_scripted_effect = yes
 	}
 }
 
@@ -457,14 +464,14 @@ treaty_of_poznan_events.6 = {
 	trigger = {
 	}
 
-	immediate = {
-		c:NGF ?= {
-			save_scope_as = br_north_german_federation_scope
-		}
-		c:PLC ?= {
-			save_scope_as = br_commonwealth_scope
-		}
-	}
+	# immediate = {
+	# 	c:NGF ?= {
+	# 		save_scope_as = br_north_german_federation_scope
+	# 	}
+	# 	c:PLC ?= {
+	# 		save_scope_as = br_commonwealth_scope
+	# 	}
+	# }
 
 	option = {
 		name = treaty_of_poznan_events.6.a
@@ -529,20 +536,16 @@ treaty_of_poznan_events.7 = {
 		}
 	}
 
+	#prussia becomes independent
 	option = {
 		name = treaty_of_poznan_events.7.a
 		default_option = yes
 		if = {
 			limit = { 
-				not = { has_variable != br_propose_independence_of_prussia_var }
+				not = { has_variable = br_propose_independence_of_prussia_var }
 			}
 			show_as_tooltip = {
-				c:NGF ?= {
-					create_diplomatic_pact = {
-						country = c:NGF
-						type = puppet
-					}
-				}
+				br_prussia_independent_scripted_effect = yes
 			}
 			hidden_effect = {
 				br_remove_prussian_fate_variables_scripted_effect = yes #remove event options var that are mutualy exclusive (ex: pru can not gain indendence and be subjugated)
@@ -558,6 +561,8 @@ treaty_of_poznan_events.7 = {
 			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
 		}
 	}
+
+	#plc puppets prussia
 	option = {
 		name = treaty_of_poznan_events.7.b
 		default_option = yes
@@ -566,12 +571,7 @@ treaty_of_poznan_events.7 = {
 				not = { has_variable = br_propose_plc_subjugation_of_prussia_var }
 			}
 			show_as_tooltip = {
-				c:NGF ?= {
-					create_diplomatic_pact = {
-						country = c:NGF
-						type = puppet
-					}
-				}
+				br_plc_subjugation_of_prussia_var_scripted_effect = yes
 			}
 			hidden_effect = {
 				br_remove_prussian_fate_variables_scripted_effect = yes
@@ -587,6 +587,8 @@ treaty_of_poznan_events.7 = {
 			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
 		}
 	}
+
+	#ngf puppets prussia
 	option = {
 		name = treaty_of_poznan_events.7.c
 		default_option = yes
@@ -595,12 +597,7 @@ treaty_of_poznan_events.7 = {
 				not = { has_variable = br_propose_ngf_subjugation_of_prussia_var }
 			}
 			show_as_tooltip = {
-				c:NGF ?= {
-					create_diplomatic_pact = {
-						country = c:NGF
-						type = puppet
-					}
-				}
+				br_ngf_subjugation_of_prussia_scripted_effect = yes
 			}
 			hidden_effect = {
 				br_remove_prussian_fate_variables_scripted_effect = yes
@@ -617,6 +614,8 @@ treaty_of_poznan_events.7 = {
 		}
 	}
 	# .d and .f can not be used as they are used for discription an flavor
+
+	#plc annexes prussia
 	option = {
 		name = treaty_of_poznan_events.7.e
 		default_option = yes
@@ -625,9 +624,7 @@ treaty_of_poznan_events.7 = {
 				not = { has_variable = br_propose_plc_annexation_of_prussia_var }
 			}
 			show_as_tooltip = {
-				c:NGF ?= {
-					annex = c:PRU
-				}
+				br_plc_annexation_of_prussia_scripted_effect = yes
 			}
 			hidden_effect = {
 				br_remove_prussian_fate_variables_scripted_effect = yes
@@ -643,6 +640,8 @@ treaty_of_poznan_events.7 = {
 			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
 		}
 	}
+
+	#nfg annexes prussia
 	option = {
 		name = treaty_of_poznan_events.7.g
 		default_option = yes
@@ -651,9 +650,7 @@ treaty_of_poznan_events.7 = {
 				not = { has_variable = br_propose_ngf_annexation_of_prussia_var }
 			}
 			show_as_tooltip = {
-				c:NGF ?= {
-					annex = c:PRU
-				}
+				br_ngf_annexation_of_prussia_scripted_effect = yes
 			}
 			hidden_effect = {
 				br_remove_prussian_fate_variables_scripted_effect = yes
@@ -669,6 +666,8 @@ treaty_of_poznan_events.7 = {
 			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
 		}
 	}
+
+	#give prussia memel
 	option = {
 		name = treaty_of_poznan_events.7.h
 		default_option = yes
@@ -677,16 +676,7 @@ treaty_of_poznan_events.7 = {
 				not = { has_variable = br_propose_prussian_annexation_of_memel_var }
 			}
 			show_as_tooltip = {
-				c:PRU ?= {
-					s:STATE_EAST_PRUSSIA = {
-						random_scope_state = {
-							limit = {
-								owner = c:PLC
-							}
-							set_state_owner = c:PRU
-						}
-					}
-				}
+				br_prussian_annexation_of_memel_scripted_effect = yes
 			}
 			hidden_effect = {
 				set_variable = br_propose_prussian_annexation_of_memel_var
@@ -707,6 +697,7 @@ treaty_of_poznan_events.7 = {
 		custom_tooltip = br_finished_deciding_prussia_tt
 	}
 	after = {
+		#remove the button var
 		remove_variable = br_deciding_the_fate_of_prussia_button_var
 	}
 }
