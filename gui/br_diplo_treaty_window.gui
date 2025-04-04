@@ -263,6 +263,10 @@ widget = {
 									autoresize = yes
 									using = fontsize_large
 								}
+
+								br_demand_state_item_type = {
+									visible = "[GetVariableSystem.Exists('show_my_demand')]"
+								}
 							}
 							
 						}
@@ -282,12 +286,19 @@ widget = {
 							visible = no
 							using = highlighted_square_selection
 						}
+
+						enabled = yes
+						onclick = "[GetVariableSystem.Toggle('show_my_demand')]"
 					}
 					
 				}
 
 			}
 		}
+	}
+
+	br_add_demand_panel = {
+		visible = "[GetVariableSystem.Exists('show_my_demand')]"
 	}
 
 	

@@ -20,3 +20,47 @@
 		}
 	}
 }
+
+br_add_wargoal_type_item_sgui = {
+	scope = country
+	
+	effect = {
+		#put all the states of the target country in a list
+		var:br_diplo_treaty_target = {
+			every_scope_state = {
+				limit = {
+					#zorg dat states die al demand zijn niet opnieuw kunnen worden demand
+				}
+
+				root = {
+					add_to_variable_list = {
+						name = br_list_of_posible_states_to_demand
+						target = prev
+					}
+				}
+			}
+		}
+
+		#demand the states of backers, currently doesn't work
+		# ordered_in_list = {
+		# 	name = br_list_of_target_subjects
+			
+		# 	limit = {}
+
+		# 	root = {
+		# 		add_to_variable_list = {
+		# 			name = br_list_of_posible_states_to_demand
+		# 			target = prev
+		# 		}
+		# 	}
+		# }
+	}
+}
+
+br_add_wargoal_item_sgui = {
+	scope = country
+	
+	effect = {
+		
+	}
+}
