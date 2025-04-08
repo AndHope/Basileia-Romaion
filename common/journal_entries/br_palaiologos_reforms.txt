@@ -35,8 +35,16 @@
 
 	timeout = 36500
 
+	#fail = {
+	#	country_rank < rank_value:great_power
+	#}
+	#on_fail = {
+	#	trigger_event = {
+	#		id = palaiologos_reforms.3
+	#	}
+	#}
 	on_timeout = {
-		#remove_modifier = palaiologos_reforms_of_europe
+		#remove_modifier = 
 		trigger_event = {
 			id = palaiologos_reforms.3
 		}
@@ -253,7 +261,7 @@ je_palaiologos_reforms_separatism = {
 				}
 			}
 		}
-		random_events = { #Testing feedback balance needed 7/17/24
+		random_events = {
 			100 = 0
 			200 = br_balkan_revolt.1 		# Variable setter for events below
 			
@@ -411,6 +419,12 @@ je_palaiologos_reforms_bureaucracy = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = br_modifier_ig_angry
+				months = normal_modifier_time
+			}
+		}
 	#	trigger_event = {
 	#		id = add_event_here.2
 	#	}
@@ -480,6 +494,12 @@ je_palaiologos_reforms_land_reform = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = br_modifier_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
 	#	trigger_event = {
 	#		id = add_event_here.3
 	#	}
@@ -487,7 +507,7 @@ je_palaiologos_reforms_land_reform = {
 
 	on_monthly_pulse = {
 		random_events = {
-			100 = 0
+			90 = 0
 			10 = palaiologos_events.9 # Land registration resisted
 		}
 	}
@@ -544,7 +564,7 @@ je_palaiologos_reforms_end_curruption = {
 
 	on_monthly_pulse = {
 		random_events = {
-			100 = 0
+			90 = 0
 			10 = palaiologos_events.1 # Tax Farming
 		}
 	}
@@ -636,7 +656,7 @@ je_palaiologos_reforms_end_latin_privileges = {
 
 	on_monthly_pulse = {
 		random_events = {
-			100 = 0
+			95 = 0
 			5 = palaiologos_events.6 # Mob event
 		}
 	}
