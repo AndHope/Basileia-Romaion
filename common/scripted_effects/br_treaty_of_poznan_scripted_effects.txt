@@ -20,12 +20,12 @@
 				}
 			}
 		}
-		# c:BEL = {
-		# 	take_on_scaled_debt = {
-		# 		who = c:NET
-		# 		value = c:NET.scaled_debt
-		# 	}	
-		# }
+		scope:br_north_german_federation_scope = {
+			take_on_scaled_debt = {
+				who = scope:br_commonwealth_scope
+				value = 0.25
+			}	
+		}
 	}
 	if = {
 		limit = {
@@ -46,6 +46,12 @@
 					}
 					set_state_owner = scope:br_north_german_federation_scope
 				}
+			}
+			scope:br_north_german_federation_scope = {
+				take_on_scaled_debt = {
+					who = scope:br_commonwealth_scope
+					value = 0.25
+				}	
 			}
 		}
 	}

@@ -61,6 +61,9 @@
 		c:PLC ?= {
 			save_scope_as = br_commonwealth_scope
 		}
+		c:PRU ?= {
+			save_scope_as = br_prussia_scope
+		}
 
 		#save scopes in var's
 		set_global_variable = {
@@ -85,6 +88,28 @@
 		# 		}
 		# 	}
 		# }
+
+		#set state scopes (used in the loc) (bug can't manage to use them in the loc)
+		s:STATE_POSEN = {
+			if = {
+				limit = {
+					any_scope_state = {
+						always = yes
+					}
+				}
+				save_scope_as = br_state_posen_scope
+			}
+		}
+		s:STATE_WEST_PRUSSIA = {
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = scope:br_commonwealth_scope
+					}
+				}
+				save_scope_as = br_state_west_prussia_scope
+			}
+		}
 
 
 		if = {
