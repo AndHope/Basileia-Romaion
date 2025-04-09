@@ -1,14 +1,13 @@
 ﻿#Japan Expansion
 br_modifier_edo_class_system = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_book_negative.dds
-    country_aristocrats_pol_str_mult = 0.25
-    country_officers_pol_str_mult = 0.75
+    country_aristocrats_pol_str_mult = 0.5
+    country_officers_pol_str_mult = 1
 }
 
 br_modifier_porcelain_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_glasses_positive.dds
-	# Should be a porcelain modifier, not a glass modifier
-	building_glassworks_throughput_add = 0.25
+	goods_output_porcelain_mult = 0.25
 }
 
 br_modifier_japan_military_tradition = {
@@ -18,6 +17,9 @@ br_modifier_japan_military_tradition = {
 	unit_navy_offense_mult = 0.1
 	country_military_goods_cost_mult = -0.1
 	unit_supply_consumption_mult = -0.1
+	# To account for the power derived from bearing arms
+	country_officers_pol_str_mult = 3
+	country_soldiers_pol_str_mult = 1
 }
 
 br_modifier_japan_pacific_trade = {

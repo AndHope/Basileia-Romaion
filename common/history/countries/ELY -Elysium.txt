@@ -1,8 +1,8 @@
 ﻿COUNTRIES = {
 	c:br_elysium ?= {
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_defensive_military_bonus
 		add_technology_researched = dialectics
-		
 		add_technology_researched = napoleonic_warfare
 		add_technology_researched = mandatory_service
 		add_technology_researched = empiricism
@@ -11,26 +11,22 @@
 		#Unique
 		add_technology_researched = br_tech_greekfire
 
-
-		activate_law = law_type:law_national_militia
-		
-
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms
 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_total_separation #required due to their unique faith otherwise they won't get migrants from europe.
+		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_right_of_assembly		
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_elected_bureaucrats
-		activate_law = law_type:law_no_migration_controls				
+		activate_law = law_type:law_migration_controls				
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_private_schools
-		
-		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_landed_voting
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_charitable_health_system #law_private_health_insurance
 		activate_law = law_type:law_frontier_colonization
@@ -41,22 +37,6 @@
 			institution = institution_colonial_affairs
 			level = 1
 		}	
-
-		add_modifier = {
-			name = br_modifier_colonial_ferver
-			years = 10
-		}
-
-		#set_variable = monroe_doctrine
-
-		#add_journal_entry = { type = je_texas_usa }
-		#add_journal_entry = { type = je_acw_countdown }
-
-		#add_modifier = {
-		#	name = missouri_compromise
-		#	years = 50
-		#	is_decaying = yes
-		#}
 
 		set_government_wage_level = low
 		#set_tax_level = low
@@ -76,7 +56,6 @@
 			add_ideology = ideology_romaioi_hegemony
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_armed_forces = {
@@ -103,7 +82,6 @@
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agricolae
-			
 			add_ruling_interest_group = yes
 		}
 
@@ -125,7 +103,6 @@
 		}
 
 		ig:ig_trade_unions = {
-			#remove_ideology = ideology_anti_slavery
 			set_interest_group_name = ig_syndikalistai
 		}
 
@@ -141,10 +118,497 @@
 			name = br_modifier_elysium
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_independent_new_world_colony
-			years = 100
-		}
+
+		add_journal_entry = { type = je_br_independent_new_world_country }
 
 	}
+
+	c:br_apaleisia ?= {
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_defensive_military_bonus
+		add_technology_researched = dialectics
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = mandatory_service
+		add_technology_researched = empiricism
+		add_technology_researched = br_tech_frontier_expansion
+
+		#Unique
+		add_technology_researched = br_tech_greekfire
+
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_elected_bureaucrats
+		activate_law = law_type:law_migration_controls				
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_homesteading
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}	
+
+		set_government_wage_level = low
+		set_tax_level = high
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+		
+		#In-Government
+		ig:ig_landowners = {
+			set_interest_group_name = ig_patricians
+			add_ideology = ideology_romaioi_hegemony
+			add_ideology = ideology_frontier_expansionist
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_cohortes_infestus
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_neo_hellenes
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_hellenic_clergy
+			#add_ruling_interest_group = yes
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			remove_ideology = ideology_meritocratic
+			add_ideology = ideology_romaioi_meritocratic
+			set_interest_group_name = ig_oppidorum
+			add_ruling_interest_group = yes
+		}
+
+		#Not-In-Government
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_agricolae
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_liberal
+			#remove_ideology = ideology_republican
+
+			#add_ideology = ideology_romaioi_republican
+			add_ideology = ideology_romaioi_liberal
+			add_ideology = ideology_romaioi_anti_clerical
+
+			set_interest_group_name = ig_cultus_prometheo
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = br_modifier_themata_primacy
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		add_modifier = {
+			name = br_modifier_andalusian_conscription
+			years = 15
+		}
+
+		add_journal_entry = { type = je_br_independent_new_world_country }
+
+	}
+
+	c:br_aithaia ?= {
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_defensive_military_bonus
+		add_technology_researched = dialectics
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = mandatory_service
+		add_technology_researched = empiricism
+		add_technology_researched = br_tech_frontier_expansion
+
+		#Unique
+		add_technology_researched = br_tech_greekfire
+
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_agrarianism	
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_poor_laws
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}	
+
+		set_government_wage_level = low
+		set_tax_level = high
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+		
+		#In-Government
+		ig:ig_landowners = {
+			set_interest_group_name = ig_patricians
+			add_ideology = ideology_romaioi_hegemony
+			add_ideology = ideology_frontier_expansionist
+		}
+
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_cohortes_infestus
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_neo_hellenes
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_hellenic_clergy
+			add_ideology = ideology_frontier_expansionist
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 5
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 5
+			}
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			remove_ideology = ideology_meritocratic
+			add_ideology = ideology_romaioi_meritocratic
+			set_interest_group_name = ig_oppidorum
+		}
+
+		#Not-In-Government
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_agricolae
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_liberal
+			#remove_ideology = ideology_republican
+
+			#add_ideology = ideology_romaioi_republican
+			add_ideology = ideology_romaioi_liberal
+			add_ideology = ideology_romaioi_anti_clerical
+
+			set_interest_group_name = ig_cultus_prometheo
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = br_modifier_themata_primacy
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		add_modifier = {
+			name = br_modifier_andalusian_conscription
+			years = 15
+		}
+
+		add_journal_entry = { type = je_br_independent_new_world_country }
+
+	}
+
+	c:br_kykladia ?= {
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_defensive_military_bonus
+		add_technology_researched = dialectics
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = mandatory_service
+		add_technology_researched = empiricism
+		add_technology_researched = br_tech_frontier_expansion
+
+		#Unique
+		add_technology_researched = br_tech_greekfire
+
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_elected_bureaucrats
+		activate_law = law_type:law_migration_controls				
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_legacy_slavery	
+
+		set_government_wage_level = low
+		set_tax_level = high
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+		
+		#In-Government
+		ig:ig_landowners = {
+			set_interest_group_name = ig_patricians
+			add_ideology = ideology_romaioi_hegemony
+			add_ideology = ideology_frontier_expansionist
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_cohortes_infestus
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_neo_hellenes
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_hellenic_clergy
+			#add_ruling_interest_group = yes
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			remove_ideology = ideology_meritocratic
+			add_ideology = ideology_romaioi_meritocratic
+			set_interest_group_name = ig_oppidorum
+			add_ruling_interest_group = yes
+		}
+
+		#Not-In-Government
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_agricolae
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_liberal
+			#remove_ideology = ideology_republican
+
+			#add_ideology = ideology_romaioi_republican
+			add_ideology = ideology_romaioi_liberal
+			add_ideology = ideology_romaioi_anti_clerical
+
+			set_interest_group_name = ig_cultus_prometheo
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = br_modifier_themata_primacy
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		add_modifier = {
+			name = br_modifier_andalusian_conscription
+			years = 15
+		}
+
+		add_journal_entry = { type = je_br_new_world_colony }
+		add_journal_entry = { type = je_br_west_indies_trade }
+
+	}
+
+	c:br_hyperborea ?= {
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_defensive_military_bonus
+		add_technology_researched = dialectics
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = mandatory_service
+		add_technology_researched = empiricism
+		add_technology_researched = br_tech_frontier_expansion
+
+		#Unique
+		add_technology_researched = br_tech_greekfire
+
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_migration_controls				
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_mixed_army
+		activate_law = law_type:law_landed_voting
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_legacy_slavery
+		
+		set_government_wage_level = low
+		set_tax_level = high
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+		
+		#In-Government
+		ig:ig_landowners = {
+			set_interest_group_name = ig_patricians
+			add_ideology = ideology_romaioi_hegemony
+			add_ideology = ideology_frontier_expansionist
+		}
+
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_cohortes_infestus
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 1
+				years = 100
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 1
+				years = 100
+				is_decaying = yes
+			}
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_norse_priests
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_norse_clergy
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			remove_ideology = ideology_meritocratic
+			add_ideology = ideology_romaioi_meritocratic
+			set_interest_group_name = ig_oppidorum
+			add_ruling_interest_group = yes
+		}
+
+		#Not-In-Government
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_agricolae
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_anti_clerical
+			remove_ideology = ideology_liberal
+			#remove_ideology = ideology_republican
+
+			#add_ideology = ideology_romaioi_republican
+			add_ideology = ideology_romaioi_liberal
+			add_ideology = ideology_romaioi_anti_clerical
+
+			set_interest_group_name = ig_cultus_prometheo
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = br_modifier_varangian_primacy
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		#Moved this modifier to their JE
+	#	add_modifier = {
+	#		name = br_modifier_fur_trade
+	#		months = -1
+	#	}
+
+		add_modifier = {
+			name = br_modifier_naval_tradition
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_norse_competitive_traders
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_norse_military_doctrine
+			months = -1
+		}
+
+
+		add_journal_entry = { type = je_br_independent_new_world_country }
+
+	}
+
 }

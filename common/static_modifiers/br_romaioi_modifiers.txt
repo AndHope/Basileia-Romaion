@@ -11,6 +11,7 @@ br_modifier_eastern_roman_emperor = {
 	country_authority_mult = 0.1
 	country_law_enactment_success_add = 0.1
 	country_authority_per_subject_add = 25
+	state_pop_support_movement_royalist_constitutional_mult = 0.25
 }
 
 br_modifier_romaioi_culture_supremacy = {
@@ -18,31 +19,38 @@ br_modifier_romaioi_culture_supremacy = {
 	state_greek_standard_of_living_add = 1
 	country_society_tech_research_speed_mult = 0.1
 	state_assimilation_mult = 0.25
-	state_radicalism_increases_violent_hostility_mult = 0.15
+	state_radicalism_increases_violent_hostility_mult = 0.25
 	state_radicalism_increases_cultural_erasure_mult = 0.15
-	#state_radicalism_increases_open_prejudice_mult = 0.15
-	state_loyalism_increases_full_acceptance_mult = 0.25
+	state_radicalism_increases_open_prejudice_mult = 0.1
+	#state_loyalism_increases_full_acceptance_mult = 0.25
 
 	country_acceptance_primary_culture_add = 10
 	country_acceptance_culture_base_add = -10
+	state_pop_support_movement_cultural_majority_mult = 0.25
 }
 
 br_modifier_romaioi_bureaucratic_corruption = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_bureaucrat_negative.dds
 	state_political_strength_from_wealth_mult = 0.25
-	country_bureaucrats_pol_str_mult = 0.25
-	country_bureaucracy_mult = -0.15
-	state_tax_capacity_mult = -0.15
-	country_government_wages_mult = 0.15
-	country_government_dividends_waste_add = 0.15
-	country_construction_goods_cost_mult = 0.25
+	country_bureaucrats_pol_str_mult = 0.5
+	country_bureaucracy_mult = -0.1
+	state_tax_capacity_mult = -0.1
+	country_government_wages_mult = 0.1
+	country_government_dividends_waste_add = 0.1
+	country_construction_goods_cost_mult = 0.1
 }
 
+#Main Journal debuff
 br_modifier_romaioi_fallen_eagle = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_bureaucrat_negative.dds
-	country_prestige_add = -150
-	country_opposition_ig_approval_add = -2
-	state_radicals_from_political_movements_mult = 0.2
+	country_prestige_mult = -0.25
+	country_opposition_ig_approval_add = -5
+	state_pop_support_movement_radical_mult = 0.25
+	state_radicals_from_political_movements_mult = 0.25
+	country_revolution_progress_mult = 0.25
+	state_pop_support_movement_religious_minority_mult = 0.5
+	state_pop_support_movement_cultural_minority_mult = 0.5
+	country_legitimacy_base_add = -25
 }
 
 br_modifier_roman_senate = {
@@ -88,6 +96,7 @@ br_modifier_reformed_pronoia = {
     interest_group_ig_landowners_pop_attraction_mult = 0.25
 	interest_group_ig_landowners_pol_str_mult = 0.25
 	building_group_bg_agriculture_throughput_add = 0.1
+	building_group_bg_plantations_throughput_add = 0.1
 	country_subject_income_transfer_mult = 0.1
 }
 
@@ -109,6 +118,7 @@ br_modifier_themata_primacy = {
 	state_conscription_rate_mult = 0.25
 	battle_defense_owned_province_mult = 0.25
 	building_group_bg_agriculture_throughput_add = 0.1
+	building_group_bg_ranching_throughput_add = 0.1
 	unit_provinces_lost_mult = -0.25
 	#country_military_goods_cost_mult = -0.1
 }
@@ -144,7 +154,10 @@ br_modifier_exarchate = {
 	state_conscription_rate_mult = 0.25
 	battle_defense_owned_province_mult = 0.25
 	building_group_bg_agriculture_throughput_add = 0.1
+	building_group_bg_plantations_throughput_add = 0.1
+	building_group_bg_ranching_throughput_add = 0.1
 	building_group_bg_manufacturing_throughput_add = -0.1
+	state_pop_support_movement_royalist_absolutist_mult = 0.25
 }
 
 #religion
@@ -165,15 +178,31 @@ modifier_nomos_empsychos = {
 
 #economy
 
+br_modifier_lawless_countryside = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_cop_negative.dds
+	state_turmoil_effects_mult = 0.05
+	state_mortality_turmoil_mult = 0.05
+	state_tax_waste_add = 0.05
+}
+
+br_modifier_national_separatism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_authority_negative.dds
+	country_liberty_desire_of_subjects_add = 0.25
+	state_radicalism_increases_violent_hostility_mult = 0.15
+	state_radicalism_increases_cultural_erasure_mult = 0.1
+	state_radicalism_increases_open_prejudice_mult = 0.05
+}
+
 br_modifier_latin_privileges = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_manowar_negative.dds
 	state_latinoi_standard_of_living_add = 3
 	country_shopkeepers_pol_str_mult = 0.25
 	country_convoys_capacity_mult = -0.5
-	country_prestige_from_navy_power_projection_mult = -0.5
+	country_prestige_from_navy_power_projection_mult = -0.25
 	state_conversion_mult = -0.25
 	tax_heathen_add = -0.25 #Less taxes for Latins
 	country_acceptance_shared_religious_trait_add = 10
+	country_trade_route_competitiveness_mult = 0.25
 }
 
 br_modifier_roman_roads = {
@@ -203,6 +232,9 @@ br_modifier_muslim_cultural_discrimination = {
 
 	state_sunni_standard_of_living_add = -1
 	state_shiite_standard_of_living_add = -1
+	#country_non_state_religion_wages_mult = -0.1
+	country_acceptance_religion_base_add = -5
+	state_pop_support_movement_religious_minority_mult = 0.15
 
 }
 
@@ -212,7 +244,8 @@ br_modifier_slavic_cultural_discrimination = {
 	state_bulgarian_standard_of_living_add = -1
 	state_serb_standard_of_living_add = -1
 	state_albanian_standard_of_living_add = -1
-
+	country_secession_progress_mult = 0.1
+	state_pop_support_movement_cultural_minority_mult = 0.15
 }
 
 br_modifier_the_eternal_city = {

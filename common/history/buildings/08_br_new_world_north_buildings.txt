@@ -77,7 +77,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_port"
@@ -90,6 +90,40 @@
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
 			}			
+		}
+		region_state:COM={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=2
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
 		}
 	}
 	s:STATE_MISSISSIPPI={
@@ -173,6 +207,34 @@
 				activate_production_methods={ "pm_anchorage" }
 			}				
 		}
+		region_state:br_creek={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
 	}
 	s:STATE_GEORGIA={
 		region_state:br_louisiane={			
@@ -214,6 +276,21 @@
 				activate_production_methods={ "pm_anchorage" }
 			}			
 		}
+		region_state:br_creek={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	#Elysia
 	s:STATE_DISTRICT_OF_COLUMBIA={
@@ -246,8 +323,14 @@
 					building={
 						type="building_financial_district"
 						country="c:VEN"
-						levels=2
+						levels=1
 						region="STATE_VENETIA"
+					}
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
 					}
 				}
 				reserves=1
@@ -258,6 +341,12 @@
 				add_ownership={
 					building={
 						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+					building={
+						type="building_manor_house"
 						country="c:br_elysium"
 						levels=1
 						region="STATE_DISTRICT_OF_COLUMBIA"
@@ -283,12 +372,18 @@
 					building={
 						type="building_financial_district"
 						country="c:br_elysium"
-						levels=2
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
 						region="STATE_DISTRICT_OF_COLUMBIA"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_disabled_canning" "pm_bakery" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
 			}
 			create_building={
 				building="building_textile_mills"
@@ -296,7 +391,13 @@
 					building={
 						type="building_financial_district"
 						country="c:br_elysium"
-						levels=3
+						levels=2
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
 						region="STATE_DISTRICT_OF_COLUMBIA"
 					}
 				}
@@ -317,9 +418,9 @@
 				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
 			}
 			create_building={
-				building="building_palace_complex"
+				building="br_building_palace_complex"
 				level=1
-				activate_production_methods={ "pm_default_building_palace_complex" }
+				activate_production_methods={ "br_pm_default_building_palace_complex" }
 			}
 			create_building={
 				building="building_white_house"
@@ -378,6 +479,12 @@
 						levels=2
 						region="STATE_HOLLAND"
 					}
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_handcrafted_furniture" "pm_automation_disabled" "pm_no_luxuries" }
@@ -388,12 +495,31 @@
 					building={
 						type="building_financial_district"
 						country="c:NET"
-						levels=2
+						levels=1
 						region="STATE_HOLLAND"
+					}
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_wheat_farm"
@@ -406,7 +532,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_soil_enriching_farming" "pm_tools_disabled" }
+				activate_production_methods={ "pm_organic_farming" "pm_tools_disabled" }
 			}
 			create_building={
 				building="building_vineyard_plantation"
@@ -419,7 +545,20 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_vineyard_plantation" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_unrefrigerated" "pm_fishing_trawlers" }
 			}
 			create_building={
 				building="building_port"
@@ -436,6 +575,63 @@
 			create_building={
 				building="building_central_park"
 				level=1
+			}
+		}
+		region_state:br_hyperborea={
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_hyperborea"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_vineyard_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_hyperborea"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_hyperborea"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
+		
+		region_state:IRO={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 		}
 	}
@@ -465,7 +661,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_tobacco_plantation"
@@ -492,9 +688,78 @@
 				activate_production_methods={ "pm_anchorage" }
 			}			
 		}
+		region_state:br_aithaia={
+			create_building={
+				building="building_cotton_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_aithaia"
+						levels=1
+						region="STATE_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_cotton_plantation" }
+			}
+			create_building={
+				building="building_vineyard_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_aithaia"
+						levels=1
+						region="STATE_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
+			}
+		}
+		region_state:M05={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_MARYLAND={
 		region_state:br_elysium={
+			create_building={
+				building="building_arms_industry"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_muskets" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_hardwood" }
+			}
 			create_building={
 				building="building_paper_mills"
 				add_ownership={
@@ -545,20 +810,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
-			}
-			create_building={
-				building="building_tobacco_plantation"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:br_elysium"
-						levels=1
-						region="STATE_DISTRICT_OF_COLUMBIA"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_port"
@@ -581,25 +833,12 @@
 					building={
 						type="building_manor_house"
 						country="c:br_elysium"
-						levels=2
-						region="STATE_DISTRICT_OF_COLUMBIA"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
-			}
-			create_building={
-				building="building_tobacco_plantation"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:br_elysium"
 						levels=1
 						region="STATE_DISTRICT_OF_COLUMBIA"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
 			}
 			create_building={
 				building="building_port"
@@ -617,19 +856,6 @@
 	s:STATE_PENNSYLVANIA={
 		region_state:br_elysium={
 			create_building={
-				building="building_tobacco_plantation"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:br_elysium"
-						levels=1
-						region="STATE_DISTRICT_OF_COLUMBIA"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
-			}
-			create_building={
 				building="building_livestock_ranch"
 				add_ownership={
 					building={
@@ -640,7 +866,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -653,7 +879,35 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
+				activate_production_methods={ "pm_simple_forestry" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
+			}
+		}
+		region_state:IRO={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+			create_building={
+				building="building_tobacco_plantation"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
 			}
 		}
 	}
@@ -683,7 +937,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
+				activate_production_methods={ "pm_simple_forestry" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
 			}
 			create_building={
 				building="building_port"
@@ -711,7 +965,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_soil_enriching_farming" "pm_tools_disabled" }
+				activate_production_methods={ "pm_organic_farming" "pm_tools_disabled" }
 			}
 			create_building={
 				building="building_vineyard_plantation"
@@ -724,7 +978,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_vineyard_plantation" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_port"
@@ -752,7 +1006,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_soil_enriching_farming" "pm_tools_disabled" }
+				activate_production_methods={ "pm_organic_farming" "pm_tools_disabled" }
 			}
 			create_building={
 				building="building_vineyard_plantation"
@@ -765,7 +1019,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_vineyard_plantation" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_port"
@@ -793,7 +1047,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_soil_enriching_farming" "pm_tools_disabled" }
+				activate_production_methods={ "pm_organic_farming" "pm_tools_disabled" }
 			}
 			create_building={
 				building="building_vineyard_plantation"
@@ -806,7 +1060,33 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_vineyard_plantation" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_whaling_station"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_whaling" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_unrefrigerated" "pm_fishing_trawlers" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -819,7 +1099,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
+				activate_production_methods={ "pm_simple_forestry" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
 			}
 			create_building={
 				building="building_port"
@@ -847,7 +1127,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_soil_enriching_farming" "pm_tools_disabled" }
+				activate_production_methods={ "pm_organic_farming" "pm_tools_disabled" }
 			}
 			create_building={
 				building="building_vineyard_plantation"
@@ -860,7 +1140,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_vineyard_plantation" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -868,12 +1148,12 @@
 					building={
 						type="building_manor_house"
 						country="c:br_elysium"
-						levels=2
+						levels=1
 						region="STATE_DISTRICT_OF_COLUMBIA"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
+				activate_production_methods={ "pm_simple_forestry" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
 			}
 			create_building={
 				building="building_port"
@@ -887,32 +1167,49 @@
 				activate_production_methods={ "pm_anchorage" }
 			}
 		}
-	}
-	s:STATE_VERMONT={
-		region_state:br_elysium={
+		region_state:br_hyperborea={
 			create_building={
 				building="building_logging_camp"
 				add_ownership={
 					building={
 						type="building_manor_house"
-						country="c:br_elysium"
-						levels=2
-						region="STATE_DISTRICT_OF_COLUMBIA"
+						country="c:br_hyperborea"
+						levels=1
+						region="STATE_NEW_HAMPSHIRE"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
-				building="building_port"
+				building="building_vineyard_plantation"
 				add_ownership={
-					country={
-						country="c:br_elysium"
+					building={
+						type="building_manor_house"
+						country="c:br_hyperborea"
 						levels=1
+						region="STATE_NEW_HAMPSHIRE"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_anchorage" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
+			}
+		}
+	}
+	s:STATE_VERMONT={
+		region_state:br_hyperborea={
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_hyperborea"
+						levels=1
+						region="STATE_VERMONT"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
 			}
 		}
 	}
@@ -929,7 +1226,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
+				activate_production_methods={ "pm_simple_forestry" "pm_horse_drawn" "pm_horse_drawn_transport" "pm_no_hardwood" }
 			}
 			create_building={
 				building="building_port"
@@ -984,6 +1281,21 @@
 				activate_production_methods={ "pm_anchorage" }
 			}
 		}
+		region_state:M05={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NORTH_CAROLINA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_SOUTH_CAROLINA={
 		region_state:br_elysium={
@@ -1025,17 +1337,113 @@
 				activate_production_methods={ "pm_anchorage" }
 			}
 		}
+		region_state:M05={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_SOUTH_CAROLINA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_ILLINOIS={
-
+		region_state:CTF={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
+		region_state:CAH={
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_UTAH={
 
 	}
 
 	s:STATE_WASHINGTON={
-
+		region_state:br_japanese_new_world={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:br_japanese_new_world"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:JAP"
+						levels=1
+						region="STATE_KANTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_road_carts" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:JAP"
+						levels=1
+						region="STATE_KANTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" "pm_open_air_stockyards" }
+			}
+		}
 	}
+	
 	s:STATE_OREGON={
 
 	}
@@ -1052,46 +1460,600 @@
 
 	}
 	s:STATE_NORTH_DAKOTA={
-
+		region_state:LKT={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
+		region_state:IRC={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
 	}
 	s:STATE_SOUTH_DAKOTA={
-
+		region_state:LKT={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" }
+			}
+		}
 	}
 	s:STATE_NEBRASKA={
-
+		region_state:LKT={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_KANSAS={
-
+		region_state:COM={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
+		region_state:LKT={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
 	}
 	s:STATE_OKLAHOMA={
-
+		region_state:COM={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" }
+			}
+		}
 	}
 	s:STATE_ARKANSAS={
 
 	}
 	s:STATE_MISSOURI={
-
+		region_state:LKT={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
+		region_state:CAH={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_IOWA={
-
+		region_state:LKT={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
+		region_state:CAH={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_MINNESOTA={
-
+		region_state:LKT={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_louisiane"
+						levels=1
+						region="STATE_LOUISIANA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_WISCONSIN={
+		region_state:CTF={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
 	}
 	s:STATE_INDIANA={
-
+		region_state:CTF={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_MICHIGAN={
+		region_state:CTF={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_vinland"
+						levels=1
+						region="STATE_QUEBEC"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" }
+			}
+		}
 	}
 	s:STATE_OHIO={
+		region_state:CTF={
+			create_building={
+				building="building_tobacco_plantation"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_KENTUCKY={
+		region_state:CTF={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_NEW_YORK"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
+		region_state:CHE={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_apaleisia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_apaleisia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
 	}
 	s:STATE_TENNESSEE={
+		region_state:CHE={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_apaleisia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+			create_building={
+				building="building_tobacco_plantation"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_apaleisia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
+			}
+		}
 	}
 	s:STATE_WEST_VIRGINIA={
+		region_state:br_apaleisia={
+			create_building={
+				building="building_paper_mills"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_pulp_pressing" "pm_automation_disabled" }
+			}
+			create_building={
+				building="building_coal_mine"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_logging_camp"
+						country="c:br_apaleisia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+					building={
+						type="building_financial_district"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_livestock_ranch"
+						country="c:br_apaleisia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_maize_farm"
+						country="c:br_apaleisia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
+		region_state:br_aithaia={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_aithaia"
+						levels=1
+						region="STATE_WEST_VIRGINIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" }
+			}
+		}
+		region_state:br_elysium={
+			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_elysium"
+						levels=1
+						region="STATE_DISTRICT_OF_COLUMBIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+			}
+		}
 	}
 
 	s:STATE_ONTARIO={
@@ -1131,20 +2093,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
-			}
-			create_building={
-				building="building_tobacco_plantation"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:DEN"
-						levels=1
-						region="STATE_ZEALAND"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -1157,7 +2106,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport"  }
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_wheat_farm"
@@ -1183,7 +2132,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_vineyard_plantation" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
 			}
 		}
 	}
@@ -1200,7 +2149,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport"  }
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_port"
@@ -1265,20 +2214,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
-			}
-			create_building={
-				building="building_tobacco_plantation"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:DEN"
-						levels=1
-						region="STATE_ZEALAND"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_fishing_wharf"
@@ -1304,7 +2240,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport"  }
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_wheat_farm"
@@ -1325,12 +2261,12 @@
 					building={
 						type="building_manor_house"
 						country="c:DEN"
-						levels=3
+						levels=2
 						region="STATE_ZEALAND"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "default_building_vineyard_plantation" }
+				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_port"
@@ -1371,7 +2307,20 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport"  }
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_whaling_station"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_vinland"
+						levels=1
+						region="STATE_QUEBEC"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_whaling" "pm_unrefrigerated" }
 			}
 			create_building={
 				building="building_port"
@@ -1390,11 +2339,101 @@
 
 	}
 	s:STATE_BRITISH_COLUMBIA={
-
+		region_state:br_japanese_new_world={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:br_japanese_new_world"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:JAP"
+						levels=1
+						region="STATE_KANTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_road_carts" }
+			}
+			create_building={
+				building="building_coal_mine"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:JAP"
+						levels=1
+						region="STATE_KANTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:JAP"
+						levels=1
+						region="STATE_KANTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" "pm_open_air_stockyards" }
+			}
+		}
 	}
 	s:STATE_ALASKA={
-
+		region_state:br_japanese_new_world={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:br_japanese_new_world"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:JAP"
+						levels=1
+						region="STATE_TOHOKU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_road_carts" }
+			}
+			create_building={
+				building="building_whaling_station"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:JAP"
+						levels=1
+						region="STATE_TOHOKU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_whaling" "pm_unrefrigerated" }
+			}
+		}
 	}
+	
 	s:STATE_SASKATCHEWAN={
 
 	}
@@ -1457,6 +2496,32 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
+			}
+			create_building={
+				building="building_sugar_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:DEN"
+						levels=1
+						region="STATE_YORKSHIRE"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_sugar_plantation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_tobacco_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:DEN"
+						levels=1
+						region="STATE_YORKSHIRE"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_horse_drawn_transport" }
 			}
 		}
 	}

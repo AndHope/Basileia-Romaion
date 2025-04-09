@@ -1,21 +1,31 @@
-﻿# "Why do some state entries have quote marks around them, when others don't?"
-# "It's because of differing methods of editing throughout the production of the game. Quote marks are unnecessary, but harmless if present."
-
+﻿
 STATES = {
 	s:STATE_VENETIA = {
 		create_state = {
 			country = c:VEN
-			owned_provinces = { xB001A0 x3083C8 x3080A0 x8EEB7A xB080A0 x5141E0 x605424 x6984B4 x554866 xC02A3F }
+			owned_provinces = { xB001A0 x8EEB7A xB080A0 }
 		}
-		
+		create_state = {
+			country = c:br_verona
+			owned_provinces = { x3083C8 x3080A0 x5141E0 x605424 }
+		}
+		create_state = {
+			country = c:br_aquileia
+			owned_provinces = { x554866 x6984B4 xC02A3F }
+		}
+		add_claim = c:VEN
 		add_homeland = cu:north_italian
 	}
 	s:STATE_ISTRIA = {
 		create_state = {
 			country = c:VEN
-			owned_provinces = { x108021 x3060BF x56C78A xB061C0 x36B2E3 xF0A040 }
+			owned_provinces = { x3060BF xB061C0 x36B2E3 xF0A040 }
 		}
-		
+		create_state = {
+			country = c:br_aquileia
+			owned_provinces = { x108021 x56C78A }
+		}
+		add_claim = c:VEN
 		add_homeland = cu:croat
 		add_homeland = cu:slovene
 		add_homeland = cu:north_italian
@@ -38,7 +48,7 @@ STATES = {
 		}
 		create_state = {
 			country = c:br_genoa
-			owned_provinces = { x904061 x5F6BAA x54728A } #xACB500
+			owned_provinces = { x904061 x5F6BAA x54728A }
 		}
 		add_claim = c:SAR
 		add_homeland = cu:north_italian
@@ -60,7 +70,11 @@ STATES = {
 	s:STATE_UMBRIA = {
 		create_state = {
 			country = c:PAP
-			owned_provinces = { x30C021 x72531E xD3A384 xE782CC x6E8D07 xD8F07B }
+			owned_provinces = { xD3A384 x6E8D07 xD8F07B }
+		}
+		create_state = {
+			country = c:br_spoleto
+			owned_provinces = { x30C021 xE782CC x72531E }
 		}
 		
 		add_homeland = cu:south_italian
@@ -88,7 +102,7 @@ STATES = {
 	}
 	s:STATE_ABRUZZO = {
 		create_state = {
-			country = c:PAP
+			country = c:br_spoleto
 			owned_provinces = { x0AE57A x0D3025 xA6F611 }
 		}
 		create_state = {

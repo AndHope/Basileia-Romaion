@@ -20,7 +20,6 @@ base_values = {
 	country_secession_progress_add = 0.1
 	
 	state_education_access_wealth_add = 0 #was 0.005 these are given via tech and laws.
-	#state_peasants_education_access_add = -0.1 #added to laws
 	
 	country_law_enactment_max_setbacks_add = 3
 	
@@ -68,10 +67,10 @@ base_values = {
 
 	unit_experience_gain_add = 1.0
 
-	country_liberty_desire_add = 0.1 #added 
+	# To account for the power derived from bearing arms
+	country_officers_pol_str_mult = 3
+	country_soldiers_pol_str_mult = 1
 
-	#country_leverage_resistance_add = 100
-	
 }
 
 coastal_state = {
@@ -90,10 +89,12 @@ capital_state = {
 	state_dependent_wage_mult = 0.1 #added
 	state_market_access_price_impact = 0.05 #added
 	state_building_barracks_max_level_add = 25 #added
+	state_building_conscription_center_max_level_add = 25 #added
 }
 
 market_capital_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_pop_pol_str_mult = 0.1 #added
 	state_infrastructure_mult = 0.25
 	building_group_bg_manufacturing_throughput_add = 0.1 #added
 	state_dependent_wage_mult = 0.1 #added
@@ -110,6 +111,7 @@ country_literacy_rate = {
 	country_tech_spread_add = 50 #was 75
 	building_throughput_add = 0.25 #added
 	state_dependent_wage_mult = 0.1 #added
+	state_working_adult_ratio_add = 0.1 #added
 	#state_birth_rate_mult = -0.10 #moved to literacy_penalty modifier
 	#state_mortality_mult = 0.10 ##moved to literacy_penalty modifier
 }
@@ -140,15 +142,29 @@ unincorporated_state = {
 	state_conscription_rate_mult = -0.5
 	state_expected_sol_mult = -0.33
 	state_pop_pol_str_mult = -0.50
-	tax_income_add = 0.15 #added
-	tax_dividends_add = 0.15 #added
+	tax_income_add = 0.25 #added
+	tax_dividends_add = 0.25 #added
+	tax_consumption_add = 0.15 #added 
+	tax_land_add = 0.15 #added
 	state_welfare_payments_add = -1.0 #added
 	state_education_access_add = -0.25 #added
-	building_group_bg_manufacturing_throughput_add = -0.25
+	building_group_bg_manufacturing_throughput_add = -0.25 #was 0.1
 	building_group_bg_government_throughput_add = -0.1
 	building_group_bg_military_throughput_add = -0.1		
 	state_market_access_price_impact = -0.1
 	#state_birth_rate_mult = -0.1
+}
+
+recently_conquered_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	building_nationalization_cost_mult = -0.50
+	building_nationalization_radicals_mult = -0.50
+	state_pop_pol_str_mult = -0.50
+	state_tax_collection_mult = -0.50
+	state_conscription_rate_mult = -0.50
+	state_radicalism_increases_violent_hostility_mult = 0.25 #added
+	state_radicalism_increases_cultural_erasure_mult = 0.25 #added
+	state_radicalism_increases_open_prejudice_mult = 0.25 #added
 }
 
 #discrimination = {
@@ -161,6 +177,9 @@ tax_modifier_very_low = {
 	country_legitimacy_base_add = 10
 	state_radicals_from_political_movements_mult = -0.2
 	state_birth_rate_mult = 0.02 #added
+	state_lower_strata_expected_sol_add = -1
+	state_middle_strata_expected_sol_add = -2
+	state_upper_strata_expected_sol_add = -3
 }
 
 tax_modifier_low = {
@@ -168,6 +187,9 @@ tax_modifier_low = {
 	country_legitimacy_base_add = 5
 	state_radicals_from_political_movements_mult = -0.1
 	state_birth_rate_mult = 0.01 #added
+	state_lower_strata_expected_sol_add = -0.5
+	state_middle_strata_expected_sol_add = -1
+	state_upper_strata_expected_sol_add = -1.5
 }	
 
 tax_modifier_medium = {
@@ -179,6 +201,9 @@ tax_modifier_high = {
 	state_radicals_from_political_movements_mult = 0.5
 	interest_group_in_government_attraction_mult = -0.2
 	state_birth_rate_mult = -0.02 #added
+	state_lower_strata_expected_sol_add = 1.5
+	state_middle_strata_expected_sol_add = 2.5
+	state_upper_strata_expected_sol_add = 3.5
 }	
 
 tax_modifier_very_high = {
@@ -187,6 +212,9 @@ tax_modifier_very_high = {
 	state_radicals_from_political_movements_mult = 1
 	interest_group_in_government_attraction_mult = -0.5
 	state_birth_rate_mult = -0.04 #added
+	state_lower_strata_expected_sol_add = 3
+	state_middle_strata_expected_sol_add = 5
+	state_upper_strata_expected_sol_add = 7
 }	
 
 # Infamy modifiers, applied from current infamy level
@@ -217,4 +245,27 @@ country_prestige_per_subject_add = {
 # This is multiplied with country_influence_per_subject_add and the number of direct subjects of the country
 country_influence_per_subject_add = {
 	country_influence_add = 1.0
+}
+
+in_default = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	building_throughput_add = -0.25 #was 0.5
+	unit_offense_mult = -0.25 #was 0.5
+	unit_defense_mult = -0.25 #was 0.5
+}
+
+declared_bankruptcy = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_prestige_mult = -0.35 #was 0.75
+	country_leverage_generation_mult = -0.75
+	country_loan_interest_rate_mult = 0.5
+	unit_offense_mult = -0.5 #was 0.75
+	unit_defense_mult = -0.25 #was 0.75
+	state_migration_pull_mult = -0.75
+	state_welfare_payments_mult = -1
+	state_market_access_price_impact = -0.1
+	country_institution_size_change_speed_mult = -0.95
+	country_force_privatization_bool = yes
+	country_trade_route_competitiveness_mult = -0.25 #added
+	state_radicals_from_political_movements_mult = 0.25 #added
 }

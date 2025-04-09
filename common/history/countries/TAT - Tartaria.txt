@@ -1,0 +1,309 @@
+﻿COUNTRIES = {
+	c:br_tartaria ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation	
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_industry_banned
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_tribal_armies
+		activate_law = law_type:law_frontier_colonization
+
+		set_tax_level = medium
+		set_military_wage_level = medium
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
+		set_tariffs_import_priority = g:grain
+		set_tariffs_import_priority = g:tobacco	
+
+		set_tariffs_export_priority = g:wood
+		set_tariffs_export_priority = g:iron
+		set_tariffs_export_priority = g:fabric
+		set_tariffs_export_priority = g:meat
+		set_tariffs_export_priority = g:hardwood
+		set_tariffs_export_priority = g:horse
+		set_tariffs_export_priority = g:lead
+
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:services
+
+		ig:ig_landowners = {
+			set_interest_group_name = ig_kurultai
+			add_ruling_interest_group = yes
+			add_ideology = ideology_frontier_expansionist
+		}
+
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_great_khan_restorationists
+			add_ruling_interest_group = yes
+			remove_ideology = ideology_jingoist
+			add_ideology = ideology_mongol_jingoist
+			remove_ideology = ideology_patriotic
+			add_ideology = ideology_irredentist
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 75
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 0.5
+				years = 75
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_steppe_nomads
+			remove_ideology = ideology_agrarian
+			add_ideology = ideology_semi_nomadic
+			set_ig_trait = ig_trait:br_ig_trait_tribal_militias
+			set_ig_trait = ig_trait:br_ig_trait_alienated_tribes
+			remove_ideology = ideology_particularist 
+			add_ideology = ideology_basqaq
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 75
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 0.5
+				years = 75
+				is_decaying = yes
+			}
+			set_ig_trait = ig_trait:br_ig_trait_tribal_militias
+			set_ig_trait = ig_trait:br_ig_trait_alienated_tribes
+		}
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_tengri_priests 
+		}
+
+		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_constitutionalists
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 75
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_industrialists = { 
+			add_ideology = ideology_frontier_expansionist
+			set_interest_group_name = ig_modernists
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 75
+				is_decaying = yes
+			}
+
+		}
+
+		ig:ig_trade_unions = {
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.5
+				years = 75
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			add_ideology = ideology_frontier_expansionist
+			set_interest_group_name = ig_sedentarists 
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+	
+		change_infamy = 50
+		add_journal_entry = { type = je_tartaria_modernize }
+
+		add_modifier = {
+			name = br_modifier_latin_privileges
+			years = 50
+		}
+		add_modifier = {
+			name = br_modifier_tribal_warriors
+			years = 50
+		}
+		add_modifier = {
+			name = br_modifier_horde_legacy_of_the_khan
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_horde_khanate
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_horde_reactionary_social_policies
+			years = 50
+		}
+		add_modifier = {
+			name = br_modifier_horde_army_prowess
+			years = 50
+		}
+
+	#	add_modifier = {
+	#		name = br_modifier_religious_tolerance
+	#		months = -1
+	#	}
+
+
+	}
+	c:br_circassia ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_tribal_armies
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		add_modifier = {
+			name = br_modifier_nomad_heritage
+			years = 100
+		}
+		add_modifier = {
+			name = br_modifier_tribal_warriors
+			years = 100
+		}
+		add_journal_entry = {
+			type = je_br_gain_independence
+		}
+
+
+	}
+	c:br_dagestan ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_tribal_armies
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_elder_council
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
+
+		add_modifier = {
+			name = cizye_tax
+			years = 99
+		}
+		add_modifier = {
+			name = br_modifier_nomad_heritage
+			years = 100
+		}
+		add_modifier = {
+			name = br_modifier_tribal_warriors
+			years = 100
+		}
+		add_journal_entry = {
+			type = je_br_gain_independence
+		}
+
+
+	}
+
+	c:br_sibir ?= {
+		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_elder_council
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_tribal_armies
+		effect_native_conscription_3 = yes
+		
+		add_modifier = {
+			name = br_modifier_nomad_heritage
+			years = 100
+		}
+		add_modifier = {
+			name = br_modifier_tribal_warriors
+			years = 100
+		}
+
+		ig:ig_rural_folk = {
+			set_interest_group_name = ig_steppe_nomads
+			remove_ideology = ideology_agrarian
+			add_ideology = ideology_semi_nomadic
+			set_ig_trait = ig_trait:br_ig_trait_tribal_militias
+			set_ig_trait = ig_trait:br_ig_trait_alienated_tribes
+			remove_ideology = ideology_particularist 
+			add_ideology = ideology_basqaq
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 75
+				is_decaying = yes
+			}
+			set_ig_trait = ig_trait:br_ig_trait_tribal_militias
+			set_ig_trait = ig_trait:br_ig_trait_alienated_tribes
+		}
+
+		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_constitutionalists
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 75
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_modernists
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 75
+				is_decaying = yes
+			}
+
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_sedentarists 
+		}
+
+	}
+}

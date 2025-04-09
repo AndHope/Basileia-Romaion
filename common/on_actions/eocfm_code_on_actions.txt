@@ -4,25 +4,23 @@
 
 on_monthly_pulse_country = {
 	on_actions = {
-		eocfm_monthly_pulse	
+		eocfm_monthly_pulse
+		eocfm_global_pulse
+	}
+}
+
+on_wargoal_enforced = {
+	on_actions = {
+		eocfm_wargoal_enforced_1
+		eocfm_wargoal_enforced_2
 	}
 }
 
 ############
 
-
-############
-
-# There's a lot of tiny on_actions specified here to avoid having more complicated triggers downstream in the events themselves
-
-
 eocfm_monthly_pulse = {
 	trigger = {
-		OR = {
-			country_has_state_religion = rel:orthodox
-			country_has_state_religion = rel:oriental_orthodox
-			country_has_state_religion = rel:br_religion_elysian_orthodox
-		}
+		country_has_state_religion = rel:orthodox
 	}
 	on_actions = {
 		eocfm_schism_monthly_pulse
@@ -39,12 +37,12 @@ eocfm_monthly_pulse = {
 		eocfm.161 # The Patriarch's Blessings
 		eocfm.169 # The Living Law
 		eocfm.190 # [TECH] Removes Lex Animata Modifier
-		eocfm.310 # The Capture of the Great Mosque
-		eocfm.317 # The Throne of Saint Peter
-		eocfm.319 # The Supreme Pontiff of the Universal Church
+		eocfm.303 # The Capture of the Great Mosque
+		eocfm.307 # The Throne of Saint Peter
+		eocfm.309 # The Supreme Pontiff of the Universal Church
 	}
 	random_events = {
-		500 = 0
+		chance_of_no_event = 95
 		5 = eocfm.010 # Ecumenical Reforms
 		5 = eocfm.011 # Bible Translation Published
 		5 = eocfm.012 # A Heretical Ruler
@@ -72,6 +70,24 @@ eocfm_monthly_pulse = {
 			change_variable = {
 				name = eocfm_integration_var
 				add = 1
+			}
+		}
+		if = { # Adds the Orthodox button to the community sidebar
+			limit = {
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = custom_button_list_flag
+						target = flag:eocfm_sidebar_button_sgui
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = custom_button_list_flag
+				target = flag:eocfm_sidebar_button_sgui
+			}
+			remove_list_global_variable = {
+				name = custom_button_list
+				target = ideology:eocfm_sidebar_button_sgui
 			}
 		}
 	}
@@ -105,24 +121,18 @@ eocfm_schism_monthly_pulse = {
 	}
 }
 
-############
-
-# This pair of on_actions handle the chariot races
-
-############
-
-#These on_actions are specifically to catch Bulgaria and create it as BUL & ERUM if possible
-
-############
-
-on_wargoal_enforced = {
-	on_actions = {
-		eocfm_wargoal_enforced_1
-		eocfm_wargoal_enforced_2
+eocfm_global_pulse = { # Monitored from all scopes; used to deactivate holy sites
+	events = {
+		eocfm.901 # Constantinopole Holy Site Event
+		eocfm.902 # Antioch Holy Site Event
+		eocfm.903 # Jerusalem Holy Site Event
+		eocfm.904 # Alexandria Holy Site Event
+		eocfm.905 # Moscow Holy Site Event
+		eocfm.906 # Rome Holy Site Event
 	}
 }
 
-# These on_actions changes the Crusade target's state religion or penalize the Crusade initiator if they lose. The crusade variables are set by the Crusade DP. This is very janky, I agree.
+############
 
 eocfm_wargoal_enforced_1 = { # From the initiator, in the case of crusade success
 	trigger = {
@@ -148,7 +158,7 @@ eocfm_wargoal_enforced_1 = { # From the initiator, in the case of crusade succes
 eocfm_wargoal_enforced_2 = { # From the target, in the case of crusade failure
 	trigger = {
 		has_variable = eocfm_crusade_target
-		any_country = { # scope:initiator and scope:actor aren't available here, pdx pls
+		scope:target = {
 			has_variable = eocfm_crusade_initiator
 		}
 	}

@@ -1,0 +1,90 @@
+﻿je_reclaim_england = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:british
+		any_neighbouring_state = {
+			is_homeland_of_country_cultures = ROOT
+		}
+	}
+
+	possible = {
+		country_has_primary_culture = cu:british
+		OR = {
+			NOT = { owns_entire_state_region = STATE_HOME_COUNTIES }
+			NOT = { owns_entire_state_region = STATE_LANCASHIRE }
+			NOT = { owns_entire_state_region = STATE_YORKSHIRE }
+			NOT = { owns_entire_state_region = STATE_MIDLANDS }
+			NOT = { owns_entire_state_region = STATE_EAST_ANGLIA }
+			NOT = { owns_entire_state_region = STATE_WEST_COUNTRY }
+		}
+		c:ENG = {
+			is_subject = no
+		}
+	}
+
+	complete = {
+		owns_entire_state_region = STATE_HOME_COUNTIES 
+		owns_entire_state_region = STATE_LANCASHIRE
+		owns_entire_state_region = STATE_YORKSHIRE
+		owns_entire_state_region = STATE_MIDLANDS
+		owns_entire_state_region = STATE_EAST_ANGLIA
+		owns_entire_state_region = STATE_WEST_COUNTRY
+	}
+
+    on_complete = {
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+	
+	weight = 100
+	should_be_pinned_by_default = yes
+}
+
+je_conquer_wales = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:british
+		NOT = { owns_entire_state_region = STATE_WALES }
+	}
+
+	possible = {
+		NOT = {
+			owns_entire_state_region = STATE_WALES 
+		}
+	}
+
+	complete = {
+		owns_entire_state_region = STATE_WALES 
+	}
+
+    on_complete = {
+	}
+	
+	weight = 100
+	should_be_pinned_by_default = yes
+}

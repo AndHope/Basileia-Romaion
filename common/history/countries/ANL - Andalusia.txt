@@ -20,9 +20,15 @@
 
 		effect_starting_technology_tier_1_tech = yes
 
-		#set_tariffs_export_priority = g:grain
-		#set_tariffs_import_priority = g:fabric
-		#set_tariffs_import_priority = g:wood
+		set_tariffs_import_priority = g:clothes
+		set_tariffs_import_priority = g:paper
+		set_tariffs_import_priority = g:coal
+		set_tariffs_import_priority = g:spices
+
+		set_tariffs_export_priority = g:dyes
+		set_tariffs_export_priority = g:sugar
+		set_tariffs_export_priority = g:sulfur
+		set_tariffs_export_priority = g:fruit
 		
 		set_tax_level = medium
 		
@@ -44,7 +50,7 @@
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_interventionism #law_laissez_faire
+		activate_law = law_type:law_interventionism
 		activate_law = law_type:law_private_schools
 		activate_law = law_type:law_poor_laws
 		activate_law = law_type:law_charitable_health_system
@@ -54,11 +60,6 @@
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_legacy_slavery
-		
-	#	set_institution_investment_level = {
-	#		institution = institution_colonial_affairs
-	#		level = 1
-	#	}
 		
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -76,7 +77,11 @@
 
 		add_modifier = {
 			name = br_modifier_andalusian_discrimination
-			years = 100
+			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_andalusian_tolerance
+			months = -1
 		}
 		add_modifier = {
 			name = br_modifier_andalusian_caliphate
@@ -84,7 +89,7 @@
 		}
 		add_modifier = {
 			name = br_modifier_andalusian_conscription
-			years = 100
+			years = 15
 		}
 
 	#	add_journal_entry = {

@@ -2,16 +2,22 @@
 #Russia
 	c:br_pskov ?= { #Pskov
 		effect_starting_technology_tier_4_tech = yes
-		add_technology_researched = br_tech_separation_of_powers #Required for law_presidential_republic
+		effect_starting_politics_conservative = yes
 
-		effect_starting_politics_traditional = yes
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
+		add_technology_researched = br_tech_separation_of_powers #Required for law_presidential_republic
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_extraction_economy
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_no_migration_controls
 		
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -30,24 +36,26 @@
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_russian_patriarch
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
 	}
 	
 	c:br_novgorod ?= { #Novgorod
 		effect_starting_technology_tier_4_tech = yes
-		add_technology_researched = br_tech_separation_of_powers #Required for law_presidential_republic
+		effect_starting_politics_conservative = yes
 
-		effect_starting_politics_traditional = yes
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
+		add_technology_researched = br_tech_separation_of_powers #Required for law_presidential_republic
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
-		#activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_extraction_economy
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_no_migration_controls
 		
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -59,10 +67,6 @@
 		add_modifier = {
 			name = br_modifier_fur_trade
 			years = 50
-		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
 		}
 
 		ig:ig_landowners = { 
@@ -77,20 +81,26 @@
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_russian_patriarch
 		}
+
 	}
 
-	c:PRM ?= { #Yugra
+	c:PRM ?= { #Perm
 		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_conservative = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
 		add_technology_researched = br_tech_separation_of_powers #Required for law_presidential_republic
-		
-		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_oligarchy #law_autocracy 
-		#activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_extraction_economy
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_no_migration_controls
 
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.35
@@ -102,10 +112,6 @@
 		add_modifier = {
 			name = br_modifier_fur_trade
 			years = 50
-		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
 		}
 
 		ig:ig_landowners = { 
@@ -123,13 +129,23 @@
 		
 	c:br_muscovy ?= { #Muscovy
 		effect_starting_technology_tier_4_tech = yes
-		
 		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
+		add_technology_researched = br_tech_lines_of_communication
+		add_technology_researched = line_infantry
+		add_technology_researched = br_tech_field_guns
+		add_technology_researched = standing_army
+		add_technology_researched = mandatory_service
+		add_technology_researched = military_drill
+		
 		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_mixed_army
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.25
@@ -154,15 +170,11 @@
 			add_ideology = ideology_russian_patriarch
 		}
 
-		add_modifier = {
-			name = br_modifier_russia_buff_1
-			years = 100
-		}
+
 		add_modifier = {
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-
 		add_modifier = {
 			name = br_modifier_fur_trade
 			years = 50
@@ -172,29 +184,34 @@
 			months = -1
 		}
 
-		add_taxed_goods = g:liquor
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
+
+		add_journal_entry = {
+			type = je_br_gain_independence
+		}
 
 	}
 
 	c:br_ryazan ?= { #Ryazan
 		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 		
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -216,34 +233,27 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
-
-
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_tver ?= { #Tver
 		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 		
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -265,33 +275,28 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
 
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_nizhny_novgorod ?= { #
 		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 		
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -313,33 +318,27 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
-
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_yaroslavl ?= { #
 		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 		
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -361,35 +360,28 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
 
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_smolensk ?= { #Smolensk
 		effect_starting_technology_tier_4_tech = yes
-		
 		effect_starting_politics_traditional = yes
-		
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy 
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -405,10 +397,6 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_church
@@ -416,30 +404,27 @@
 			add_ideology = ideology_russian_patriarch
 		}
 
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_kiev ?= { #
 		effect_starting_technology_tier_4_tech = yes
-		
 		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -455,10 +440,7 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
+
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_church
@@ -466,30 +448,27 @@
 			add_ideology = ideology_russian_patriarch
 		}
 
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_polotsk ?= { #
 		effect_starting_technology_tier_4_tech = yes
-		
 		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -505,10 +484,7 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
+
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_church
@@ -516,30 +492,27 @@
 			add_ideology = ideology_russian_patriarch
 		}
 
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_turov_pinsk ?= { #
 		effect_starting_technology_tier_4_tech = yes
-		
 		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -555,10 +528,7 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
+
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_church
@@ -566,30 +536,27 @@
 			add_ideology = ideology_russian_patriarch
 		}
 
-		add_taxed_goods = g:liquor
 	}
 
 	c:br_chernigov ?= { #
 		effect_starting_technology_tier_4_tech = yes
-		
 		effect_starting_politics_traditional = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_peasant_levies	
-		#activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_peasant_levies
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -605,10 +572,7 @@
 			name = br_modifier_noble_privileges
 			years = 99
 		}
-		add_modifier = {
-			name = br_modifier_russia_buff_2
-			years = 100
-		}
+
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_orthodox_church
@@ -616,6 +580,5 @@
 			add_ideology = ideology_russian_patriarch
 		}
 
-		add_taxed_goods = g:liquor
 	}
 }

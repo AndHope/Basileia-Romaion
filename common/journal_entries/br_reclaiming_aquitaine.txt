@@ -1,0 +1,51 @@
+﻿je_reclaiming_aquitaine = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		exists = c:HRE
+		this = c:HRE
+		exists = c:OCC
+	}
+
+	possible = {
+		exists = c:OCC
+	}
+
+	complete = {
+		NOT = { exists = c:OCC }
+		owns_entire_state_region = STATE_LANGUEDOC
+		owns_entire_state_region = STATE_RHONE
+		owns_entire_state_region = STATE_GUYENNE
+		owns_entire_state_region = STATE_AUVERGNE_LIMOUSIN
+		owns_entire_state_region = STATE_AQUITAINE
+	}
+
+	on_complete = {
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}

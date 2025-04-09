@@ -1,17 +1,18 @@
 ﻿COUNTRIES = {
 	c:NAV ?= {
 		effect_starting_technology_tier_3_tech = yes
-		effect_starting_politics_traditional = yes
+		effect_starting_politics_conservative = yes
 
 		set_tax_level = medium
 
+		add_technology_researched = br_tech_defensive_military_bonus
 		add_technology_researched = field_works
 		add_technology_researched = mandatory_service
 		activate_law = law_type:law_national_militia
 
 		# Laws 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_hereditary_bureaucrats
@@ -36,7 +37,6 @@
 		}
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.50
@@ -45,16 +45,16 @@
 			}
 		}
 		add_modifier = {
-			name = br_modifier_defensive_bonus
-			years = 99
-		}
-		add_modifier = {
 			name = br_modifier_autonomous_march
 			years = 50
 		}
 		
 		ig:ig_devout = { 
 			set_interest_group_name = ig_catholic_church 
+		}
+
+		add_journal_entry = {
+			type = je_br_gain_independence
 		}
 
 	}

@@ -19,12 +19,12 @@ remove_noble_privileges_decision = {
 
 		add_radicals = {
 			pop_type = clergymen
-			value = medium_radicals
+			value = large_radicals
 		}
 
 		add_radicals = {
 			pop_type = aristocrats
-			value = large_radicals
+			value = very_large_radicals
 		}
 
 		ig:ig_landowners = {
@@ -39,7 +39,13 @@ remove_noble_privileges_decision = {
 	#change_infamy = 50
 
 	ai_chance = {
-		base = 1
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 10
+		}
 	}
 }
 
@@ -53,6 +59,7 @@ remove_frankish_as_primary_culture_decision = {
 	}
 
 	possible = {
+		has_technology_researched = nationalism
 		country_has_primary_culture = cu:frankish
 		OR = {
 			has_law = law_type:law_national_supremacy
@@ -70,16 +77,31 @@ remove_frankish_as_primary_culture_decision = {
 			name = linguistic_discrimination
 			years = -1
 		}
+
 		hidden_effect = {
-			trigger_event = {
-				id = frankish_revolt.1
-				days = 50
+			c:HES = {
+				change_relations = {
+					country = c:HRE
+					value = -100
+				}
+			}
+			c:WUR = {
+				change_relations = {
+					country = c:HRE
+					value = -100
+				}
+			}
+			c:BAD = {
+				change_relations = {
+					country = c:HRE
+					value = -100
+				}
 			}
 		}
 
 	}
 
 	ai_chance = {
-		base = 0.5
+		base = 0
 	}
 }

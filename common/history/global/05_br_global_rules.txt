@@ -1,4 +1,4 @@
-﻿# Romaioi Mod - This is executed last among all history
+﻿# BR Mod - This is executed last among all history
 GLOBAL = {
 
 	if = {
@@ -57,6 +57,16 @@ GLOBAL = {
         limit = {
             has_game_rule = caliphate_game_rule_large
         }
+		c:BYZ ?= {
+			create_diplomatic_pact = {
+				country = c:br_romaioi_india_company
+				type = chartered_company
+			}
+			create_diplomatic_pact = {
+				country = c:br_australis
+				type = colony
+			}
+        }
         c:ARA ?= {
 			remove_modifier = br_modifier_jihad_called
 			s:STATE_DEIR_EZ_ZOR.region_state:PER = { set_state_owner = c:ARA }
@@ -64,21 +74,19 @@ GLOBAL = {
 			s:STATE_BAGHDAD.region_state:PER = { set_state_owner = c:ARA }
 			s:STATE_MOSUL.region_state:PER = { set_state_owner = c:ARA }
 			s:STATE_HAIL.region_state:PER = { set_state_owner = c:ARA }
-			annex = c:EOT
+			annex = c:SYR
 			annex = c:br_syria
 			annex = c:br_aegypt
 			annex = c:br_kyrenaica
 			annex = c:br_afrika
 			annex = c:br_kuwait
+			annex = c:JAB
+			annex = c:br_eastern_desert
+			annex = c:br_kharga
 			set_relations = { country = c:ANL value = -100 }
 			set_relations = { country = c:PER value = -100 }
 			set_relations = { country = c:BYZ value = -100 }
 			change_infamy = 75
-
-			remove_diplomatic_pact = {
-				country = c:br_romaioi_india_company
-				type = protectorate
-			}
         }
     }
 
@@ -114,6 +122,7 @@ GLOBAL = {
 			annex = c:br_novgorod
 			annex = c:PRM
 			annex = c:br_pskov
+			change_tag = RUS
         }
 		c:br_tartaria ?= {
 			remove_diplomatic_pact = {
@@ -220,9 +229,15 @@ GLOBAL = {
         limit = {
             has_game_rule = bulgaria_game_rule_large
         }
+		c:BYZ ?= {
+			remove_diplomatic_pact = {
+				country = c:br_bulgaria
+				type = dominion
+			}
+        }
         c:br_bulgaria ?= {
 			set_country_type = recognized
-			#set_country_tag = BUL
+			change_tag = BUL
 			annex = c:br_vidin
 			annex = c:WAL
 			annex = c:MOL
@@ -230,12 +245,6 @@ GLOBAL = {
 			s:STATE_SKOPIA.region_state:BYZ = { set_state_owner = c:br_bulgaria }
 			s:STATE_NORTHERN_THRACE.region_state:BYZ = { set_state_owner = c:br_bulgaria }
 
-        }
-		c:BYZ ?= {
-			remove_diplomatic_pact = {
-				country = c:br_bulgaria
-				type = dominion
-			}
         }
     }
 

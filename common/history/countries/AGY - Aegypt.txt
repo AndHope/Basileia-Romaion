@@ -1,11 +1,10 @@
 ﻿COUNTRIES = {
 	c:br_aegypt ?= {
 		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = napoleonic_warfare
+		effect_starting_politics_traditional = yes
+
 		add_technology_researched = br_tech_frontier_expansion
 		add_technology_researched = colonization #Needed for Canal at game start
-
-		effect_starting_politics_traditional = yes
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -19,10 +18,10 @@
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
-		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_migration_controls	
 		activate_law = law_type:law_agrarianism
-		activate_law = law_type:law_frontier_colonization
+		#activate_law = law_type:law_frontier_colonization
 
 		set_institution_investment_level = {
 			institution = institution_police
@@ -31,6 +30,10 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
+		add_taxed_goods = g:services
+		add_taxed_goods = g:opium
+		set_tariffs_export_priority = g:dyes
+		set_tariffs_export_priority = g:sugar
 
 
 		ig:ig_landowners = {
@@ -72,28 +75,17 @@
 			set_interest_group_name = ig_dianooumenoi
 		}
 		ig:ig_industrialists = { 
+			add_ideology = ideology_frontier_expansionist
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
-			add_modifier = {
 				name = ig_attraction_modifier
-				multiplier = -0.25
+				multiplier = -0.5
 				years = 75
 				is_decaying = yes
 			}
 		}
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 75
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.5
@@ -120,10 +112,8 @@
 			months = -1
 		}
 
-		add_modifier = {
-			name = br_modifier_african_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_africa_colony }
+
 
 		add_modifier = {
 			name = autocephalous_patriarchate_alexandria
@@ -237,32 +227,28 @@
 			add_ruling_interest_group = yes
 		}
 
-
-
 		#effect_starting_wealthy_merchants = yes
 
 	}
 
-	c:br_romaioi_india_company = {
-		# set_next_election_date = ??
-		
+	c:br_romaioi_india_company ?= {
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = colonization
-		activate_law = law_type:law_national_militia
 		
+		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism #law_free_trade
-		activate_law = law_type:law_extraction_economy
-		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_mercantilism 
+		activate_law = law_type:law_extraction_economy	
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_appointed_bureaucrats
-		activate_law = law_type:law_no_migration_controls				
+		activate_law = law_type:law_migration_controls				
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_commercialized_agriculture
-		activate_law = law_type:law_colonial_exploitation #0.34 test
+		#activate_law = law_type:law_colonial_exploitation 
+		activate_law = law_type:law_censorship
 
 		#add_taxed_goods = g:liquor
 		#add_taxed_goods = g:opium
@@ -294,12 +280,6 @@
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agrotikos
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
-			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 75
@@ -311,7 +291,6 @@
 			set_interest_group_name = ig_merchant_guilds
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -323,7 +302,7 @@
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
 			add_modifier = {
-				name = ig_influence_modifier
+				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 75
 				is_decaying = yes
@@ -332,12 +311,6 @@
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
@@ -349,14 +322,8 @@
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
-			add_modifier = {
 				name = ig_attraction_modifier
-				multiplier = -0.5
+				multiplier = -0.25
 				years = 75
 				is_decaying = yes
 			}
@@ -374,50 +341,38 @@
 			months = -1
 		}
 
-		add_modifier = {
-			name = br_modifier_spice_trade
-			years = 75
-		}
+		add_journal_entry = { type = je_br_east_indies_trade }
 
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_colonial_merchant_republic
-			months = -1
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
 
-		add_modifier = {
-			name = br_modifier_african_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_colonial_merchant_republic }
+
+		add_journal_entry = { type = je_br_africa_colony }
+
+		add_journal_entry = { type = je_br_klysma_canal_toll }
+		
 		add_modifier = {
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			months = -1
 		}
-		add_modifier = {
-			name = modifier_ruler_of_the_east_navy
-			years = 10
-		}
+		#add_modifier = {
+		#	name = modifier_ruler_of_the_east_navy
+		#	years = 10
+		#}
 
 		#effect_starting_wealthy_merchants = yes
 
 		add_company = company_type:company_suez_company
 		add_company = company_type:company_byz_ric
 
-		trigger_event = {
-			id = br_nation_startup_event.8
-			days = 1
-		}
-
 	}
 
 	c:br_australis ?= {
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_defensive_military_bonus
+		add_technology_researched = dialectics
 		add_technology_researched = br_tech_hostile_climate_colonization
 		add_technology_researched = colonization
-		activate_law = law_type:law_national_militia
 		
 
 		set_tariffs_import_priority = g:artillery
@@ -431,26 +386,18 @@
 		activate_law = law_type:law_right_of_assembly		
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_elected_bureaucrats
-		activate_law = law_type:law_no_migration_controls				
+		activate_law = law_type:law_migration_controls				
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_homesteading
-		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_national_militia
 		
 
-		add_modifier = {
-			name = br_modifier_colonial_ferver
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
+		
+		add_journal_entry = { type = je_br_new_world_colony }
 
 		set_government_wage_level = low
 		#set_tax_level = low
@@ -469,7 +416,6 @@
 			set_interest_group_name = ig_themata_patricians
 			add_ideology = ideology_romaioi_hegemony
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_armed_forces = {

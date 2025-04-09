@@ -31,10 +31,21 @@
 		activate_law = law_type:law_poor_laws
 		activate_law = law_type:law_tenant_farmers
 		
+		set_tariffs_export_priority = g:luxury_clothes
+		set_tariffs_export_priority = g:luxury_furniture
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+		
 		set_institution_investment_level = {
 			institution = institution_schools
 			level = 2
-		}	
+		}
+		set_institution_investment_level = {
+			institution = institution_home_affairs
+			level = 2
+		}
 		
 		#In-Government
 		ig:ig_petty_bourgeoisie = {
@@ -52,6 +63,12 @@
 			add_ideology = ideology_patrician
 			add_ruling_interest_group = yes
 		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
+			months = -1
+		}
+		
 		add_modifier = {
 			name = br_modifier_italy_academia
 			years = 100
@@ -59,10 +76,6 @@
 		add_modifier = {
 			name = br_modifier_italy_accessible_stock_exchanges
 			years = 100
-		}
-		trigger_event = {
-			id = br_nation_startup_event.4
-			days = 1
 		}
 	}
 }

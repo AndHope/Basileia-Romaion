@@ -89,6 +89,20 @@ end_latin_privileges = {
 		remove_modifier = br_modifier_latin_privileges
 		#activate_law = law_type:law_state_religion
 		custom_tooltip = palaiologos.3.tt2
+
+		c:VEN = {
+			remove_diplomatic_pact = {
+				country = c:BYZ
+				type = br_forced_trade
+			}
+		}
+		c:br_genoa = {
+			remove_diplomatic_pact = {
+				country = c:BYZ
+				type = br_forced_trade
+			}
+		}
+	
 		hidden_effect = {
 			if = {
 				limit = {
@@ -125,166 +139,6 @@ end_latin_privileges = {
 				value = 0.75
 			}
 		}
-	}
-	ai_chance = {
-		base = 0
-	}
-}
-
-end_latin_privileges_ELY = {
-	is_shown = {
-		exists = c:br_elysium
-		ROOT = c:br_elysium
-		has_modifier = br_modifier_latin_privileges
-	}
-
-	possible = {
-		exists = c:br_elysium
-		ROOT = c:br_elysium
-		has_law = law_type:law_interventionism
-		has_law = law_type:law_protectionism
-		has_modifier = br_modifier_latin_privileges
-	}
-
-	when_taken = {
-		remove_modifier = br_modifier_latin_privileges
-		activate_law = law_type:law_interventionism
-		add_modifier = {
-			name = br_modifier_anti_latin_policies
-			months = 52
-		}
-		ig:ig_petty_bourgeoisie = {
-			add_modifier = {
-				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:north_italian
-				}
-			}
-			add_radicals = {
-				culture = cu:north_italian
-				value = 0.75
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:catholic 
-				}
-			}
-			add_radicals = {
-				religion = rel:catholic
-				value = 0.75
-			}
-		}
-		c:VEN = {
-			change_relations = { 
-				country = c:br_elysium 
-				value = -150 
-			}
-			hidden_effect = {
-				set_secret_goal = {
-					country = c:br_elysium
-					secret_goal = conquer
-				}
-			}
-		}
-		c:br_genoa = {
-			change_relations = { 
-				country = c:br_elysium 
-				value = -150 
-			}
-			hidden_effect = {
-				set_secret_goal = {
-					country = c:br_elysium
-					secret_goal = conquer
-				}
-			}
-		}	
-	}
-	ai_chance = {
-		base = 0
-	}
-}
-
-end_latin_privileges_TAT= {
-	is_shown = {
-		exists = c:br_tartaria
-		ROOT = c:br_tartaria
-		has_modifier = br_modifier_latin_privileges
-	}
-
-	possible = {
-		exists = c:br_tartaria
-		ROOT = c:br_tartaria
-		has_law = law_type:law_interventionism
-		has_law = law_type:law_protectionism
-		has_modifier = br_modifier_latin_privileges
-	}
-
-	when_taken = {
-		remove_modifier = br_modifier_latin_privileges
-		activate_law = law_type:law_interventionism
-		add_modifier = {
-			name = br_modifier_anti_latin_policies
-			months = 52
-		}
-		ig:ig_petty_bourgeoisie = {
-			add_modifier = {
-				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					culture = cu:north_italian
-				}
-			}
-			add_radicals = {
-				culture = cu:north_italian
-				value = 0.75
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:catholic 
-				}
-			}
-			add_radicals = {
-				religion = rel:catholic
-				value = 0.75
-			}
-		}
-		c:VEN = {
-			change_relations = { 
-				country = c:br_tartaria 
-				value = -150 
-			}
-			hidden_effect = {
-				set_secret_goal = {
-					country = c:br_tartaria
-					secret_goal = conquer
-				}
-			}
-		}
-		c:br_genoa = {
-			change_relations = { 
-				country = c:br_tartaria 
-				value = -150 
-			}
-			hidden_effect = {
-				set_secret_goal = {
-					country = c:br_tartaria
-					secret_goal = conquer
-				}
-			}
-		}	
 	}
 	ai_chance = {
 		base = 0
@@ -450,6 +304,260 @@ romaioi_tagmata_decision = {
 	}
 }
 
+romaioi_damsyria_decision = {
+	is_shown = {
+		exists = c:BYZ
+		exists = c:SYR
+		ROOT = c:BYZ
+
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		
+		exists = c:SYR
+		c:SYR = { is_subject_of = ROOT }
+	}
+
+	when_taken = {
+		
+		c:SYR = {
+			change_tag = br_syria
+			remove_primary_culture = cu:bedouin
+			add_primary_culture = cu:syriac
+			set_state_religion = rel:oriental_orthodox
+			set_country_type = recognized
+
+			change_relations = {
+				country = c:BYZ
+				value = 100
+			}
+
+			set_secret_goal = {
+				country = c:BYZ
+				secret_goal = befriend
+			}
+
+			remove_modifier = cizye_tax
+			remove_modifier = br_modifier_holy_warriors
+
+			add_modifier = {
+				name = br_modifier_themata_primacy
+				months = -1
+			}
+			add_modifier = {
+				name = br_modifier_exarchate
+				months = -1
+			}
+
+			hidden_effect = {
+				capital = {
+					convert_population = {
+						target = rel:oriental_orthodox
+						value = 0.1
+					}
+				}
+
+				ig:ig_landowners = {
+					set_interest_group_name = ig_themata_patricians
+					add_ruling_interest_group = yes
+
+				}
+				ig:ig_armed_forces = {
+					set_interest_group_name = ig_tagmata_strategos
+					add_ruling_interest_group = yes
+				}
+				ig:ig_rural_folk = {
+					set_interest_group_name = ig_agrotikos
+				}
+				ig:ig_petty_bourgeoisie = {
+					set_interest_group_name = ig_merchant_guilds
+	
+				}
+				ig:ig_intelligentsia = { 
+					set_interest_group_name = ig_dianooumenoi
+				}
+				ig:ig_industrialists = { 
+					set_interest_group_name = ig_viomixanoi
+				}
+				ig:ig_trade_unions = {
+					set_interest_group_name = ig_syndikalistai
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_oriental_orthodox_church
+					remove_ideology = ideology_patriarchal
+					add_ideology = ideology_oriental_orthodox_patriarch
+					add_ruling_interest_group = yes
+				}
+				
+
+				create_character = {
+					first_name = "Heraclides"
+					last_name = "Dalassenos"
+					religion = rel:oriental_orthodox
+					ruler = yes
+					is_general = yes
+					age = 45
+					interest_group = ig_armed_forces
+					ideology = ideology_jingoist_leader
+					traits = {
+						persistent 
+						wrathful
+						scarred
+						stalwart_defender
+						defense_in_depth_specialist
+					}
+					on_created = {
+						set_variable = is_married
+					}
+				}
+		
+				create_character = {
+					first_name = "Ioannes"
+					last_name = "Dalassenos"
+					religion = rel:oriental_orthodox
+					heir = yes
+					is_general = yes
+					age = 22
+					interest_group = ig_armed_forces
+					ideology = ideology_jingoist_leader
+					traits = {
+						reserved
+						stalwart_defender
+						resupply_commander 
+						basic_political_operator 
+					}
+				}
+			}
+
+		}
+
+	}
+
+	ai_chance = {
+		base = 95
+	}
+}
+
+romaioi_eastarm_decision = {
+	is_shown = {
+		exists = c:BYZ
+		exists = c:br_arevelyan
+		exists = c:ARM
+		ROOT = c:BYZ
+
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		exists = c:ARM
+		c:ARM = { is_subject_of = ROOT }
+		exists = c:br_arevelyan
+		c:br_arevelyan = { is_subject_of = ROOT }
+	}
+
+	when_taken = {
+		
+		c:ARM = {
+			annex = c:br_arevelyan
+			set_secret_goal = {
+				country = c:BYZ
+				secret_goal = befriend
+			}
+			change_relations = {
+				country = c:BYZ
+				value = 100
+			}
+		}
+
+	}
+
+	ai_chance = {
+		base = 95
+	}
+}
+
+romaioi_eastmespotamia_decision = {
+	is_shown = {
+		exists = c:BYZ
+		exists = c:br_assyria
+		exists = c:br_mesopotamia
+		ROOT = c:BYZ
+
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		exists = c:br_mesopotamia
+		c:br_mesopotamia = { is_subject_of = ROOT }
+		exists = c:br_assyria
+		c:br_assyria = { is_subject_of = ROOT }
+	}
+
+	when_taken = {
+		
+		c:br_mesopotamia = {
+			annex = c:br_assyria
+			set_country_type = recognized
+			set_secret_goal = {
+				country = c:BYZ
+				secret_goal = befriend
+			}
+			change_relations = {
+				country = c:BYZ
+				value = 100
+			}
+		}
+
+	}
+
+	ai_chance = {
+		base = 95
+	}
+}
+
+romaioi_expand_taurica_decision = {
+	is_shown = {
+		exists = c:BYZ
+		exists = c:br_blacksea_colonies
+		exists = c:br_taurica
+		ROOT = c:BYZ
+	}
+
+	possible = {
+		exists = c:BYZ
+		ROOT = c:BYZ
+		exists = c:br_taurica
+		c:br_taurica = { is_subject_of = ROOT }
+		exists = c:br_blacksea_colonies
+		c:br_blacksea_colonies = { is_subject_of = ROOT }
+	}
+
+	when_taken = {
+		
+		c:br_taurica = {
+			annex = c:br_blacksea_colonies
+			set_secret_goal = {
+				country = c:BYZ
+				secret_goal = befriend
+			}
+			change_relations = {
+				country = c:BYZ
+				value = 100
+			}
+		}
+
+	}
+
+	ai_chance = {
+		base = 95
+	}
+}
+
+
 #Not Byz Themata/Tagmata
 notbyz_themata_decision = {
 	is_shown = {
@@ -605,6 +713,167 @@ notbyz_tagmata_decision = {
 	}
 }
 
+end_latin_privileges_ELY = {
+	is_shown = {
+		exists = c:br_elysium
+		ROOT = c:br_elysium
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	possible = {
+		exists = c:br_elysium
+		ROOT = c:br_elysium
+		has_law = law_type:law_interventionism
+		has_law = law_type:law_protectionism
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	when_taken = {
+		remove_modifier = br_modifier_latin_privileges
+		activate_law = law_type:law_interventionism
+		add_modifier = {
+			name = br_modifier_anti_latin_policies
+			months = 52
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = br_modifier_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:north_italian
+				}
+			}
+			add_radicals = {
+				culture = cu:north_italian
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.75
+			}
+		}
+		c:VEN = {
+			change_relations = { 
+				country = c:br_elysium 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_elysium
+					secret_goal = conquer
+				}
+			}
+		}
+		c:br_genoa = {
+			change_relations = { 
+				country = c:br_elysium 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_elysium
+					secret_goal = conquer
+				}
+			}
+		}	
+	}
+	ai_chance = {
+		base = 0
+	}
+}
+
+end_latin_privileges_TAT= {
+	is_shown = {
+		exists = c:br_tartaria
+		ROOT = c:br_tartaria
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	possible = {
+		exists = c:br_tartaria
+		ROOT = c:br_tartaria
+		has_law = law_type:law_interventionism
+		has_law = law_type:law_protectionism
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	when_taken = {
+		remove_modifier = br_modifier_latin_privileges
+		activate_law = law_type:law_interventionism
+		add_modifier = {
+			name = br_modifier_anti_latin_policies
+			months = 52
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = br_modifier_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:north_italian
+				}
+			}
+			add_radicals = {
+				culture = cu:north_italian
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.75
+			}
+		}
+		c:VEN = {
+			change_relations = { 
+				country = c:br_tartaria 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_tartaria
+					secret_goal = conquer
+				}
+			}
+		}
+		c:br_genoa = {
+			change_relations = { 
+				country = c:br_tartaria 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_tartaria
+					secret_goal = conquer
+				}
+			}
+		}	
+	}
+	ai_chance = {
+		base = 0
+	}
+}
+
+
 chariot_racing_decision = {
 	is_shown = {
 		exists = c:BYZ
@@ -612,11 +881,23 @@ chariot_racing_decision = {
 		NOT = {
 			has_modifier = modifier_chariot_racing
 		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	possible = {
 		any_scope_building = {
-			is_building_type = building_hippodrome
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
 		}
 	}
 	
@@ -648,11 +929,29 @@ chariot_racing_decision = {
 expand_chariot_racing_decision = {
 	is_shown = {
 		has_modifier = modifier_chariot_racing
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	possible = {
 		has_modifier = modifier_chariot_racing
 		has_technology_researched = organized_sports
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
+		}
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
+		}
 	}
 	
 	when_taken = {
@@ -666,11 +965,6 @@ expand_chariot_racing_decision = {
 		trigger_event = {
 			id = chariot_racing.46
 		}
-	#	hidden_effect = {
-	#		trigger_event = {
-	#			id = chariot_racing.46
-	#		}
-	#	}
 	}	
 
 	ai_chance = {
@@ -684,4 +978,3 @@ expand_chariot_racing_decision = {
 		}
 	}
 }
-

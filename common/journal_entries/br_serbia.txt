@@ -1,0 +1,63 @@
+﻿je_restore_serbia = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_foreign_affairs
+	
+	modifiers_while_active = {
+		br_modifier_national_restoration
+	}
+
+	is_shown_when_inactive = {
+		exists = c:SER
+		c:SER = ROOT
+	}
+
+	possible = {
+		exists = c:SER
+		c:SER = ROOT
+		OR = {
+			NOT = { owns_entire_state_region = STATE_BOSNIA }
+			NOT = { owns_entire_state_region = STATE_MONTENEGRO }
+			NOT = { owns_entire_state_region = STATE_NORTHERN_SERBIA }
+			NOT = { owns_entire_state_region = STATE_SOUTHERN_SERBIA }
+		}
+		#has_technology_researched = nationalism
+	}
+
+	complete = {
+		c:SER = {
+			owns_entire_state_region = STATE_BOSNIA
+			owns_entire_state_region = STATE_MONTENEGRO
+			owns_entire_state_region = STATE_NORTHERN_SERBIA
+			owns_entire_state_region = STATE_SOUTHERN_SERBIA
+		}
+	}
+	
+	on_complete = {
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+	
+}
+
+

@@ -1,0 +1,1383 @@
+﻿########################
+# GotB Events imported into BR #
+########################
+
+####################
+
+namespace = grefm
+
+####################
+
+####	TABLE OF CONTENTS	####	#TOC
+
+# You can use the #GRE_ comments to ctrl+F your way through the event list
+# The ## before an event indicates content not yet implemented; the >> indicates an event being moved in from another event module
+
+##  #GRE0  GREEK STATE NARRATIVE CONTENT  Events  001-099  ##
+
+#130-139 - Monument Events
+#	130 - Corinth Canal Surveyed
+#	131 - Corinth Canal Completed
+
+#140-149 - Archeaology Events
+#	140 - Archaeological Society of Athens
+#	141 - Expedition Team Departs
+#	142 - Alternative Dig Sites Considered
+#	143 - Hellenic Excavation Completed
+#	144 - Roman Excavation Completed
+
+#150-159 - Excavation Events
+#	150 - Excavation Proceeding Smoothly
+#	151 - Industrial Equipment Requested
+#	152 - Ancient Tomb Uncovered
+#	153 - Mudslide at the Excavation Site
+#	154 - Disaster at the Excavation Site!
+#	155 - Popular Interest in Excavation
+#	156 - Palace Uncovered
+#	157 - The Mask of Agammemnon
+#	158 - Politician Offers Funding
+#	159 - Reconstruction Garners Criticism
+
+
+
+#### TECHNOLOGY EVENTS ####
+# events in this group trigger from researching technologies
+
+grefm.111 = { # OPEN; used to enable Lake Kopais decision
+	orphan = yes
+}
+
+grefm.112 = { # lake kopais drained
+	type = country_event
+	placement = root
+	
+	title = grefm.112.t
+	desc = grefm.112.d
+	flavor = grefm.112.f
+	
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {	
+		# triggered by je_grefm_land_reclaimation
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = grefm.112.a
+		default_option = yes
+		add_modifier = {
+			name = land_reclamation_complete
+			months = long_modifier_time
+		}
+	}
+
+}
+
+grefm.113 = { # a citadel emerges
+	type = country_event
+	placement = root
+	
+	title = grefm.113.t
+	desc = grefm.113.d
+	flavor = grefm.113.f
+	
+	event_image = {
+		video = "byzfm_ruins"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_ruins.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		NOT = { has_global_variable = grefm_gla_exposed }
+		has_global_variable = grefm_lake_kopais_var
+		global_var:grefm_lake_kopais_var = 2
+	}
+	
+	immediate = {
+		set_global_variable = grefm_gla_exposed
+	}
+	
+	option = {
+		name = grefm.113.a
+		default_option = yes
+		custom_tooltip = grefm_gla_exposed_tt2
+	}
+
+}
+
+grefm.119 = { # Land Reclaimed in Kopaida
+	type = country_event
+	placement = scope:grefm_reclamation_state
+	
+	title = grefm.119.t
+	desc = grefm.119.d
+	flavor = grefm.119.f
+	
+	event_image = {
+		video = "europenorthamerica_russian_serfs"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {	
+		# triggered by je_grefm_land_reclaimation
+	}
+	
+	immediate = {
+		s:STATE_ATTICA = {
+			random_scope_state = {
+				save_scope_as = grefm_reclamation_state
+			}
+		}
+	}
+	
+	option = {
+		name = grefm.119.a
+		default_option = yes
+		scope:grefm_reclamation_state = {
+			state_region = {
+				add_arable_land = 1
+			}
+		}
+		change_global_variable = {
+			name = grefm_lake_kopais_var
+			add = 1
+		}		
+	}
+
+}
+
+
+#### MONUMENT EVENTS ####
+# events in this group will allow certain monuments to be constructed
+
+grefm.130 = { # Corinth Canal Surveyed
+	type = country_event
+	placement = scope:corinth_canal_site
+	
+	title = grefm.130.t
+	desc = grefm.130.d
+	flavor = grefm.130.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+	
+	
+
+	trigger = {
+		# triggered by je_grefm_corinth_canal_survey
+	}
+	
+	immediate = {
+		s:STATE_PELOPONNESE = {
+			random_scope_state = {
+				save_scope_as = corinth_canal_site
+			}
+		}
+		ig:ig_intelligentsia = {
+			leader = {
+				save_scope_as = ig_intelligentsia_scope
+			}
+		}
+	}
+	
+	option = {
+		name = grefm.130.a
+		default_option = yes
+		custom_tooltip = grefm.130.tt
+	}
+	
+}
+
+grefm.131 = { # Corinth Canal Completed
+	type = country_event
+	placement = scope:corinth_canal_site
+	
+	title = grefm.131.t
+	desc = grefm.131.d
+	flavor = grefm.131.f
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+	
+	
+
+	trigger = {
+		NOT = { has_global_variable = grefm_corinth_canal_built }
+		s:STATE_PELOPONNESE = {
+			has_building = gbbf_building_corinth_canal
+		}
+	}
+
+	immediate = {
+		s:STATE_PELOPONNESE = {
+			random_scope_state = {
+				save_scope_as = corinth_canal_site
+			}
+		}
+		set_global_variable = grefm_corinth_canal_built
+	}
+
+	option = {
+		name = grefm.131.a
+		default_option = yes
+		add_loyalists = {
+			culture = cu:greek
+			value = medium_radicals
+		}
+	}
+
+}
+
+#### ARCHEAOLOGY EVENTS ####
+
+grefm.140 = { # Archaeological Society of Athens
+	type = country_event
+	placement = root
+	
+	title = grefm.140.t
+	desc = grefm.140.d
+	flavor = grefm.140.f
+	
+	event_image = {
+		video = "byzfm_ruins"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_ruins.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = { # triggered by JE
+	}
+	
+	immediate = {
+		set_variable = {
+			name = grefm_archeaology_var
+			value = 0
+		}
+		set_variable = {
+			name = grefm_excavation_var
+			value = 0
+		}
+
+	}
+	
+	option = {
+		name = grefm.140.a
+		default_option = yes
+		custom_tooltip = {
+			text = grefm.140.a.tt
+		}
+	}
+
+}
+
+grefm.141 = { # Excavation Team Departs
+	type = country_event
+	placement = root
+	
+	title = grefm.141.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = grefm.141.d1
+				trigger = {
+					NOT = { has_variable = grefm_gla_excavation }
+				}
+			}
+			triggered_desc = {
+				desc = grefm.141.d2
+				trigger = {
+					has_variable = grefm_gla_excavation
+				}
+			}
+		}
+	}
+	flavor = grefm.141.f
+	
+	event_image = {
+		video = "africa_construction_colony"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		# triggered by scripted_buttons
+	}
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_variable = grefm_excavation_target
+			}
+			save_scope_as = grefm_excavation_site
+		}
+	}
+	
+	option = {
+		name = grefm.141.a
+		default_option = yes
+		add_modifier = modifier_grefm_active_excavation
+	}
+	
+	option = {
+		name = grefm.141.b
+		scope:grefm_excavation_site = {
+			remove_variable = grefm_excavation_target
+		}
+		grefm_cancel_expedition_effect = yes
+	}
+
+}
+
+grefm.142 = { # Alternative Dig Sites Considered
+	type = country_event
+	placement = root
+	
+	title = grefm.142.t
+	desc = {
+		triggered_desc = {
+			desc = grefm.142.d1
+			trigger = {
+				country_has_primary_culture = cu:greek
+			}
+		}
+		triggered_desc = {
+			desc = grefm.142.d2
+			trigger = {
+				country_has_primary_culture = cu:greek
+			}
+		}
+	}
+	flavor = grefm.142.f
+	
+	event_image = {
+		video = "middleeast_middleclass_cafe"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		# triggered by grefm_archeaology_alternate_site_button
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_grefm_archaeology
+		}
+		AND = {
+			country_has_primary_culture = cu:greek
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = grefm.142.a
+		default_option = yes
+		if = {
+			limit = {
+				country_has_primary_culture = cu:greek
+			}
+			custom_tooltip = {
+				text = grefm_roman_sites_allowed_tt
+				hidden_effect = {
+					set_variable = grefm_roman_sites_allowed
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_has_primary_culture = cu:greek
+			}
+			custom_tooltip = {
+				text = grefm_hellenic_sites_allowed_tt
+				hidden_effect = {
+					set_variable = grefm_hellenic_sites_allowed
+				}
+			}
+		}
+		add_radicals = {
+			pop_type = academics
+			value = large_radicals
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = modifier_grefm_alternate_sites
+				months = normal_modifier_time
+				is_decaying = yes
+			}
+		}
+		remove_variable = grefm_considering_sites
+	}
+	
+	option = {
+		name = grefm.142.b
+		remove_variable = grefm_considering_sites
+	}
+}
+
+grefm.143 = { # Hellenic Excavation Completed
+	type = country_event
+	placement = root
+	
+	title = {
+		triggered_desc = {
+			desc = grefm.143.t1
+			trigger = {
+				has_variable = grefm_parthenon_1_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.t2
+			trigger = {
+				has_variable = grefm_parthenon_2_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.t3
+			trigger = {
+				has_variable = grefm_mycenae_1_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.t4
+			trigger = {
+				has_variable = grefm_mycenae_2_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.t5
+			trigger = {
+				has_variable = grefm_gla_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.t6
+			trigger = {
+				has_variable = grefm_delos_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.t7
+			trigger = {
+				has_variable = grefm_larissa_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.t8
+			trigger = {
+				has_variable = grefm_rhodes_excavation
+			}
+		}
+	}
+	desc = {
+		triggered_desc = {
+			desc = grefm.143.d1
+			trigger = {
+				has_variable = grefm_parthenon_1_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.d2
+			trigger = {
+				has_variable = grefm_parthenon_2_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.d3
+			trigger = {
+				has_variable = grefm_mycenae_1_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.d4
+			trigger = {
+				has_variable = grefm_mycenae_2_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.d5
+			trigger = {
+				has_variable = grefm_gla_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.d6
+			trigger = {
+				has_variable = grefm_delos_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.d7
+			trigger = {
+				has_variable = grefm_larissa_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.143.d8
+			trigger = {
+				has_variable = grefm_rhodes_excavation
+			}
+		}
+	}
+	flavor = grefm.143.f
+	
+	event_image = {
+		video = "byzfm_ruins"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_ruins.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		var:grefm_excavation_var >= 24
+		grefm_has_hellenic_exacavation_trigger = yes
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_grefm_archaeology
+		}
+	}
+	
+	immediate = {
+		every_scope_state = {
+			limit = {
+				has_variable = grefm_excavation_target
+			}
+			remove_variable = grefm_excavation_target
+		}
+	}
+	
+	option = {
+		name = grefm.143.a
+		default_option = yes
+		remove_modifier = modifier_grefm_active_excavation
+		custom_tooltip = {
+			text = grefm_hellenic_excavation_completed_tt
+			hidden_effect = {
+				change_variable = {
+					name = grefm_hellenic_archeaology_var
+					add = 1
+				}
+				grefm_update_artifact_modifier_effect = yes
+			}
+		}
+		grefm_excavation_completion_effect = yes
+	}
+	
+}
+
+grefm.144 = { # Roman Excavation Completed
+	type = country_event
+	placement = root
+	
+	title = {
+		triggered_desc = {
+			desc = grefm.144.t1
+			trigger = {
+				has_variable = grefm_corinth_1_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.t2
+			trigger = {
+				has_variable = grefm_corinth_2_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.t3
+			trigger = {
+				has_variable = grefm_thessaloniki_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.t4
+			trigger = {
+				has_variable = grefm_thebes_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.t5
+			trigger = {
+				has_variable = grefm_nicomedia_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.t6
+			trigger = {
+				has_variable = grefm_smyrna_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.t7
+			trigger = {
+				has_variable = grefm_tyana_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.t8
+			trigger = {
+				has_variable = grefm_chios_excavation
+			}
+		}
+	}
+	desc = {
+		triggered_desc = {
+			desc = grefm.144.d1
+			trigger = {
+				has_variable = grefm_corinth_1_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.d2
+			trigger = {
+				has_variable = grefm_corinth_2_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.d3
+			trigger = {
+				has_variable = grefm_thessaloniki_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.d4
+			trigger = {
+				has_variable = grefm_thebes_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.d5
+			trigger = {
+				has_variable = grefm_nicomedia_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.d6
+			trigger = {
+				has_variable = grefm_smyrna_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.d7
+			trigger = {
+				has_variable = grefm_tyana_excavation
+			}
+		}
+		triggered_desc = {
+			desc = grefm.144.d8
+			trigger = {
+				has_variable = grefm_chios_excavation
+			}
+		}
+	}
+	flavor = grefm.144.f
+	
+	event_image = {
+		video = "byzfm_ruins"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_ruins.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		var:grefm_excavation_var >= 24
+		grefm_has_roman_exacavation_trigger = yes
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_grefm_archaeology
+		}
+	}
+	
+	immediate = {
+		every_scope_state = {
+			limit = {
+				has_variable = grefm_excavation_target
+			}
+			remove_variable = grefm_excavation_target
+		}
+	}
+	
+	option = {
+		name = grefm.144.a
+		default_option = yes
+		remove_modifier = modifier_grefm_active_excavation
+		custom_tooltip = {
+			text = grefm_roman_excavation_completed_tt
+			hidden_effect = {
+				change_variable = {
+					name = grefm_roman_archeaology_var
+					add = 1
+				}
+				grefm_update_artifact_modifier_effect = yes
+			}
+		}
+		grefm_excavation_completion_effect = yes
+	}
+	
+}
+
+
+#### EXCAVATION EVENTS ####
+
+grefm.150 = { # Excavation Positive Progress
+	type = country_event
+	placement = root
+	hidden = yes
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+	}
+	
+	immediate = {
+		post_notification = notification_grefm_steady_progress
+		change_variable = {
+			name = grefm_excavation_var
+			add = 4
+		}
+	}
+
+}
+
+grefm.151 = { # Excavation Heavy Equipment Needed
+	type = country_event
+	placement = root
+	
+	title = grefm.151.t
+	desc = grefm.151.d
+	flavor = grefm.151.f
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_ruins.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		var:grefm_excavation_var > 6
+		NOT = {
+			has_modifier = modifier_grefm_provided_heavy_equipment
+		}
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_modifier = modifier_grefm_active_excavation
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = { # bulldozer go brrrrr
+		name = grefm.151.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_grefm_provided_heavy_equipment
+			months = short_modifier_time
+			multiplier = money_amount_multiplier_small
+		}
+		custom_tooltip = {
+			text = grefm.151.a.tt
+			hidden_effect = {
+				change_variable = {
+					name = grefm_excavation_var
+					add = 6
+				}
+			}
+		}
+	}
+	
+	option = { # idk work the plebs harder
+		name = grefm.151.b
+		custom_tooltip = {
+			text = grefm.151.b.tt
+			hidden_effect = {
+				change_variable = {
+					name = grefm_excavation_var
+					subtract = 6
+				}
+			}
+		}
+	}
+
+}
+
+grefm.152 = { # Excavation Tomb Uncovered
+	type = country_event
+	placement = root
+	
+	title = grefm.152.t
+	desc = grefm.152.d
+	flavor = grefm.152.f
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_ruins.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		var:grefm_excavation_var > 6
+		NOT = {
+			has_modifier = modifier_grefm_discovered_ancient_palace
+		}
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_modifier = modifier_grefm_active_excavation
+		}
+	}
+	
+	immediate = {
+	}
+	
+	cooldown = {
+		years = 10 # this fired way too much in testing
+	}
+	
+	option = { # take your time
+		name = grefm.152.a
+		default_option = yes
+		custom_tooltip = {
+			text = grefm.152.a.tt
+			hidden_effect = {
+				change_variable = {
+					name = grefm_excavation_var
+					subtract = 6
+				}
+			}
+		}
+		add_modifier = {
+			name = modifier_grefm_unearthed_tomb
+			months = normal_modifier_time
+		}
+	}
+	
+	option = { # they're dead who gives a fuck
+		name = grefm.152.b
+		add_radicals = {
+			pop_type = academics
+			value = medium_radicals
+		}
+	}
+
+}
+
+grefm.153 = { # Excavation Minor Collapse
+	type = country_event
+	placement = root
+	hidden = yes
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		var:grefm_excavation_var > 4
+	}
+	
+	immediate = {
+		post_notification = notification_grefm_minor_collapse
+		change_variable = {
+			name = grefm_excavation_var
+			subtract = 4
+		}
+	}
+
+}
+
+grefm.154 = { # Excavation Major Collapse
+	type = country_event
+	placement = root
+	hidden = yes
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		var:grefm_excavation_var > 12
+		NOT = { has_variable = grefm_collapse_lessons_learned }
+	}
+	
+	immediate = {
+		set_variable = grefm_collapse_lessons_learned
+		post_notification = notification_grefm_major_collapse
+		change_variable = {
+			name = grefm_excavation_var
+			subtract = 12
+		}
+	}
+
+}
+
+grefm.155 = { # Excavation Popular Interest
+	type = country_event
+	placement = root
+	hidden = yes
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		var:grefm_excavation_var > 4
+		NOT = {
+			has_modifier = modifier_grefm_popular_excavation_project
+		}
+	}
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_variable = grefm_excavation_target
+			}
+			save_scope_as = grefm_excavation_site
+		}
+		post_notification = notification_grefm_popular_interest
+		scope:grefm_excavation_site = {
+			add_modifier = {
+				name = modifier_grefm_popular_excavation_project
+				months = normal_modifier_time
+			}
+		}
+	}
+
+}
+
+grefm.156 = { # Excavation Palace Uncovered
+	type = country_event
+	placement = root
+	hidden = yes
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		var:grefm_excavation_var > 12
+		NOT = {
+			has_modifier = modifier_grefm_discovered_ancient_palace
+		}
+	}
+	
+	immediate = {
+		post_notification = notification_grefm_palace_discovered
+		add_modifier = {
+			name = modifier_grefm_discovered_ancient_palace
+			months = normal_modifier_time
+		}
+	}
+
+}
+
+grefm.157 = { # The Mask of Agammemnon
+	type = country_event
+	placement = root
+	
+	title = grefm.157.t
+	desc = grefm.157.d
+	flavor = grefm.157.f
+	
+	event_image = {
+		video = "grefm_mask_of_agammemnon"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		morgenrote_is_active = no
+		NOT = { has_global_variable = grefm_agammemnon_found }
+		has_variable = grefm_archeaology_var
+		var:grefm_archeaology_var > 4
+	}
+	
+	immediate = {
+		set_global_variable = grefm_agammemnon_found
+		s:STATE_PELOPONNESE = {
+			random_scope_state = {
+				save_scope_as = peloponnese_scope
+			}
+		}
+	}
+	
+	option = {
+		name = grefm.157.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_grefm_found_agammemnon
+			months = normal_modifier_time
+		}
+		scope:peloponnese_scope = {
+			add_loyalists_in_state = {
+				pop_type = academics
+				value = medium_radicals
+			}
+		}	
+	}
+
+}
+
+grefm.158 = { # Politician Offers Funding
+	type = country_event
+	placement = root
+	
+	title = grefm.158.t
+	desc = grefm.158.d
+	flavor = grefm.158.f
+	
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:grefm_benefactor_scope
+	
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		NOT = {
+			any_interest_group = {
+				has_modifier = modifier_grefm_supported_excavation  # can't already be supporting a dig
+			}
+		}	
+		any_interest_group = {
+			law_stance = {
+				law = law_type:law_no_schools # should favor some type of education
+				value > neutral
+			}
+			is_marginal = no # because where will the money come from
+		}
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_modifier = modifier_grefm_active_excavation
+		}
+	}
+	
+	immediate = {
+		switch = {
+			trigger = has_variable
+			grefm_parthenon_1_excavation = {
+				s:STATE_ATTICA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_parthenon_2_excavation = {
+				s:STATE_ATTICA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_mycenae_1_excavation = {
+				s:STATE_CRETE = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_mycenae_2_excavation = {
+				s:STATE_CRETE = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_gla_excavation = {
+				s:STATE_ATTICA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_delos_excavation = {
+				s:STATE_WEST_AEGEAN_ISLANDS = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_larissa_excavation = {
+				s:STATE_THESSALIA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_rhodes_excavation = {
+				s:STATE_EAST_AEGEAN_ISLANDS = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+		}		
+		random_interest_group = {
+			limit = {
+				law_stance = {
+					law = law_type:law_no_schools
+					value > neutral
+				}
+				NOT = {
+					has_modifier = modifier_grefm_supported_excavation
+				}
+				is_marginal = no
+			}
+			save_scope_as = grefm_benefactor_scope
+		}
+	}
+	
+	option = {
+		name = grefm.158.a
+		default_option = yes
+		scope:grefm_benefactor_scope = {
+			add_modifier = {
+				name = modifier_grefm_supported_excavation
+				months = normal_modifier_time
+			}
+		}
+		custom_tooltip = {
+			text = grefm.158.tt
+			hidden_effect = {
+				change_variable = {
+					name = grefm_excavation_var
+					add = 6
+				}
+			}
+		}
+			
+	}
+	
+	option = {
+		name = grefm.158.b
+		scope:grefm_benefactor_scope = {
+			add_modifier = {
+				name = modifier_grefm_support_rejected
+				months = normal_modifier_time
+			}
+		}
+		add_radicals = {
+			pop_type = academics
+			value = small_radicals
+		}
+	}
+
+}
+
+grefm.159 = { # Reconstruction Garners Criticism
+	type = country_event
+	placement = root
+	
+	title = grefm.159.t
+	desc = grefm.159.d
+	flavor = grefm.159.f
+	
+	event_image = {
+		video = "europenorthamerica_art_gallery"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	
+	
+	trigger = {
+		has_modifier = modifier_grefm_active_excavation
+		var:grefm_excavation_var > 12
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_modifier = modifier_grefm_active_excavation
+		}
+	}
+	
+	cooldown = {
+		years = 10
+	}	
+	
+	immediate = {
+		switch = {
+			trigger = has_variable
+			grefm_parthenon_1_excavation = {
+				s:STATE_ATTICA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_parthenon_2_excavation = {
+				s:STATE_ATTICA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_mycenae_1_excavation = {
+				s:STATE_CRETE = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_mycenae_2_excavation = {
+				s:STATE_CRETE = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_gla_excavation = {
+				s:STATE_ATTICA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_delos_excavation = {
+				s:STATE_WEST_AEGEAN_ISLANDS = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_larissa_excavation = {
+				s:STATE_THESSALIA = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+			grefm_rhodes_excavation = {
+				s:STATE_EAST_AEGEAN_ISLANDS = {
+					random_scope_state = {
+						save_scope_as = grefm_excavation_target
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Meh, it's good enough
+		name = grefm.159.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_grefm_bad_reconstruction
+			months = normal_modifier_time
+		}
+		add_radicals = {
+			pop_type = academics
+			value = small_radicals
+		}
+	}
+	
+	option = { # Rebuilt it right, or don't rebuild it at all
+		name = grefm.159.b
+		custom_tooltip = {
+			text = grefm.159.b.tt
+			hidden_effect = {
+				change_variable = {
+					name = grefm_excavation_var
+					subtract = 6
+				}
+			}
+		}
+		add_loyalists = {
+			pop_type = academics
+			value = medium_radicals
+		}
+	}
+
+}

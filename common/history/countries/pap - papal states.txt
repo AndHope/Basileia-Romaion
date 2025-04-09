@@ -8,7 +8,79 @@
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_censorship
+		#activate_law = law_type:law_national_militia
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_poor_laws
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
+		set_tariffs_export_priority = g:luxury_clothes
+		set_tariffs_export_priority = g:luxury_furniture
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+
+		ig:ig_intelligentsia = {
+			remove_ideology = ideology_anti_clerical
+		}
+
+		add_modifier = {
+			name = br_modifier_pope
+			months = -1
+		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
+			months = -1
+		}
+
+		add_journal_entry = { type = je_br_tithe_profits }
+
+		#In-Government
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_roman_landowners
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_papal_paternalistic
+		}
+		
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_roman_curia
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.50
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 0.50
+			}
+		}
+	}
+
+	c:br_benevento ?= {
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
 		#activate_law = law_type:law_national_militia
 		activate_law = law_type:law_religious_schools
@@ -28,50 +100,45 @@
 		ig:ig_intelligentsia = {
 			remove_ideology = ideology_anti_clerical
 		}
-
+		
 		add_modifier = {
-			name = br_modifier_pope
-			months = -1
-		}
-		add_modifier = {
-			name = br_modifier_tithe
+			name = br_modifier_italy_craftsmanship
 			months = -1
 		}
 
-		trigger_event = {
-			id = br_nation_startup_event.6
-			days = 1
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		add_modifier = {
+			name = br_modifier_noble_privileges
+			years = 99
 		}
 
 		#In-Government
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			set_interest_group_name = ig_roman_landowners
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_papal_paternalistic
 		}
 		
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
-			set_interest_group_name = ig_roman_curia
-			#set_ig_bolstering = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.50
-			}
+			set_interest_group_name = ig_catholic_church
 		}
 	}
 
-	c:br_benevento ?= {
+	c:br_spoleto ?= {
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
 		#activate_law = law_type:law_national_militia
 		activate_law = law_type:law_religious_schools
@@ -104,14 +171,12 @@
 		#In-Government
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			set_interest_group_name = ig_roman_landowners
 		}
 		
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
 			set_interest_group_name = ig_catholic_church
-			#set_ig_bolstering = yes
 		}
 	}
 

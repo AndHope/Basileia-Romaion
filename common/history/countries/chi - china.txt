@@ -17,12 +17,14 @@
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_censorship	
 		#activate_law = law_type:law_national_guard
-		activate_law = law_type:law_professional_army
+		#activate_law = law_type:law_mixed_army
 		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_legacy_slavery
 		
 		set_government_wage_level = high
 		set_tax_level = low
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 
 		ig:ig_landowners = { 
 			set_interest_group_name = ig_scholar_officials
@@ -32,7 +34,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -55,10 +56,7 @@
 
 		#change_infamy = 50
 
-		add_modifier = {
-			name = br_modifier_inward_perfection
-			years = 150
-		}
+		add_journal_entry = { type = je_br_inward_perfection }
 
 		add_modifier = {
 			name = br_modifier_religious_tolerance
@@ -66,7 +64,17 @@
 		}
 
 		add_modifier = {
+			name = br_modifier_fine_china_modifier
+			years = 100
+		}
+
+		add_modifier = {
 			name = br_modifier_insufficient_infrastructure
+			months = -1
+		}
+
+		add_modifier = {
+			name = br_modifier_regionalized_navy
 			months = -1
 		}
 
@@ -106,6 +114,9 @@
 		effect_starting_politics_traditional = yes
 		add_technology_researched = mandatory_service
 		activate_law = law_type:law_tribal_armies
+
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
@@ -124,7 +135,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -187,6 +197,9 @@
 		effect_starting_politics_traditional = yes
 		add_technology_researched = mandatory_service
 		activate_law = law_type:law_tribal_armies
+
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
@@ -205,7 +218,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -284,6 +296,7 @@
 		
 		set_government_wage_level = high
 		#set_tax_level = low
+
 		add_taxed_goods = g:liquor
 		add_taxed_goods = g:opium
 		add_taxed_goods = g:luxury_clothes
@@ -320,10 +333,8 @@
 			name = br_modifier_mandate_of_heaven
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_inward_perfection
-			years = -1
-		}
+		add_journal_entry = { type = je_br_inward_perfection }
+		
 		add_modifier = {
 			name = br_modifier_insufficient_infrastructure
 			years = -1
@@ -332,6 +343,15 @@
 		add_modifier = {
 			name = br_modifier_rampant_corruption
 			months = -1
+		}
+		add_modifier = {
+			name = br_modifier_regionalized_navy
+			months = -1
+		}
+
+		add_modifier = {
+			name = br_modifier_fine_china_modifier
+			years = 100
 		}
 
 		add_modifier = {
@@ -365,6 +385,9 @@
 		activate_law = law_type:law_migration_controls	
 		activate_law = law_type:law_legacy_slavery
 
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
+
 		ig:ig_devout = {
 			set_interest_group_name = ig_confucian
 			remove_ideology = ideology_pious
@@ -389,6 +412,9 @@
 		add_technology_researched = urbanization
 		add_technology_researched = urban_planning
 		add_technology_researched = br_tech_standardized_shipbuilding
+
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -414,6 +440,16 @@
 		add_modifier = {
 			name = br_modifier_rampant_corruption
 			years = 100
+		}
+
+		add_modifier = {
+			name = br_modifier_fine_china_modifier
+			years = 100
+		}
+
+		add_modifier = {
+			name = br_modifier_regionalized_navy
+			months = -1
 		}
 	}
 
@@ -423,6 +459,9 @@
 		add_technology_researched = sericulture
 		add_technology_researched = urbanization
 		add_technology_researched = urban_planning
+
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -447,6 +486,11 @@
 
 		add_modifier = {
 			name = br_modifier_rampant_corruption
+			years = 100
+		}
+
+		add_modifier = {
+			name = br_modifier_fine_china_modifier
 			years = 100
 		}
 	}
@@ -457,6 +501,9 @@
 		add_technology_researched = sericulture
 		add_technology_researched = urbanization
 		add_technology_researched = urban_planning
+
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -467,6 +514,7 @@
 		activate_law = law_type:law_land_based_taxation	
 		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_tenant_farmers
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_confucian
@@ -483,6 +531,16 @@
 			name = br_modifier_rampant_corruption
 			years = 100
 		}
+		add_modifier = {
+			name = br_modifier_fine_china_modifier
+			years = 100
+		}
+
+		add_modifier = {
+			name = br_modifier_regionalized_navy
+			months = -1
+		}
+		
 	}
 
 	c:br_chinese_new_world ?= {
@@ -506,11 +564,10 @@
 		activate_law = law_type:law_frontier_colonization
 		
 		activate_law = law_type:law_national_militia
-		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_homesteading
-		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_censorship
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -541,36 +598,32 @@
 			add_ideology = ideology_confucian
 		}
 
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
+		
+		add_journal_entry = { type = je_br_new_world_colony }
 
 	}
 
 	c:FRS ?= {
 		effect_starting_technology_tier_5_tech = yes
+		effect_starting_politics_traditional = yes
+
 		add_technology_researched = sericulture
 		add_technology_researched = urbanization
 		add_technology_researched = urban_planning
 		add_technology_researched = br_tech_frontier_expansion
-
-		effect_starting_politics_traditional = yes
 	
 		set_tax_level = medium
+		add_taxed_goods = g:opium
 		add_taxed_goods = g:services
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_racial_segregation
 		
-		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_frontier_colonization
-		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_legacy_slavery
 
 		set_institution_investment_level = {
@@ -598,10 +651,6 @@
 		}
 
 		add_modifier = {
-			name = br_modifier_colonial_ferver
-			months = 248
-		}
-		add_modifier = {
 			name = br_modifier_insufficient_infrastructure
 			years = 100
 		}
@@ -625,12 +674,13 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
-		#activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		
@@ -704,12 +754,13 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
-		#activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		
@@ -784,12 +835,13 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
-		#activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		
@@ -864,12 +916,13 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
+		add_taxed_goods = g:opium
+		add_taxed_goods = g:services
 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
-		#activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		

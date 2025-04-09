@@ -1,0 +1,229 @@
+﻿# To ensure the game rule 'monument_effects' works properly, new monument buildings added should be given the optional base methods
+# 	pm_monument_prestige_only
+#	pm_monument_no_effects
+# 
+# 'monument_effects' additionally needs to be amended with flags disabling the new monument's Base method
+# PM Groups for Monuments should have the 'is_hidden_when_unavailable' flag to ensure only one alternative is visible at any time (unless the player actually has an option they can switch to)
+
+
+
+#pmg_base_building_hagia_sophia = {
+#	ai_selection = most_productive
+#	is_hidden_when_unavailable = yes
+#
+#	production_methods = {
+#		pm_default_building_hagia_sophia
+#		pm_monument_prestige_only
+#		pm_monument_no_effects
+#	}
+#}
+br_pmg_base_building_great_palace = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_building_great_palace_active
+		br_pm_building_great_palace_inactive
+	}
+}
+br_pmg_guard_house_great_palace = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_guard_house
+		br_pm_improved_guard_house
+		br_pm_elite_guard_house
+		br_pm_museum_guard_house
+	}
+}
+br_pmg_administration_great_palace = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_aristocratic_building_great_palace
+		br_pm_bureaucrat_building_great_palace
+		br_pm_museum_building_great_palace
+	}
+}
+br_pmg_base_building_palace_complex = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_palace_complex
+		br_pm_bureaucrat_building_palace_complex
+	}
+}
+br_pmg_base_building_hippodrome = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_hippodrome
+		br_pm_inactive_building_hippodrome
+	}
+}
+br_pmg_base_building_great_port = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_great_port
+	}
+}
+br_pmg_base_building_house_wisedom = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_house_wisedom
+	}
+}
+br_pmg_base_building_university_constantinople = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_university_constantinople
+	}
+}
+br_pmg_base_building_university_athens = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_university_athens
+	}
+}
+br_pmg_base_building_libary_alexandria = {
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_libary_alexandria
+	}
+}
+
+br_pmg_base_building_notre_dame = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_notre_dame
+	}
+}
+br_pmg_base_building_versailles = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_versailles
+	}
+}
+br_pmg_base_building_venice = { 
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_venice
+	}
+}
+br_pmg_base_building_jerusalem = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_jerusalem
+	}
+}
+br_pmg_base_building_mecca = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		br_pm_default_building_mecca
+	}
+}
+
+#### GotB PRODUCTION METHOD GROUPS ####
+
+pmg_gbbf_corinth_canal = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_gbbf_corinth_canal
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+# Hippodrome PMGs
+
+pmg_gbbf_racing_roster = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+	
+	production_methods = {
+		pm_gbbf_no_races
+		pm_gbbf_original_roster
+		pm_gbbf_expanded_roster
+	}
+}
+
+pmg_gbbf_chariot_construction = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+	
+	production_methods = {
+		pm_gbbf_simple_chariots
+		pm_gbbf_reinforced_chariots
+		pm_gbbf_elaborate_chariots
+		pm_gbbf_motorized_chariots
+	}
+}
+
+pmg_gbbf_track_amenities = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+	
+	production_methods = {
+		pm_gbbf_no_amenities
+		pm_gbbf_basic_amenities
+		pm_gbbf_adequate_amenities
+		pm_gbbf_grandiose_amenities
+	}
+}
+
+# Montenegro PMGs
+pmg_gbbf_karadag_roads = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_gbbf_unpaved_roads
+		pm_gbbf_plank_roads
+		pm_gbbf_asphalt_roads
+	}
+}
+
+pmg_gbbf_karadag_transportation = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_gbbf_ox_carts
+		pm_gbbf_timber_tracks
+		pm_gbbf_railway_tracks
+		pm_gbbf_motor_cars
+	}
+}
+
+pmg_gbbf_karadag_administration = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_gbbf_clerical_administration
+		pm_gbbf_secular_administration
+	}
+}

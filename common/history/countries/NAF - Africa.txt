@@ -8,6 +8,14 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
+		set_tax_level = high
+
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+		
+		set_tariffs_import_priority = g:spices
+		set_tariffs_export_priority = g:fruit
+		set_tariffs_export_priority = g:sugar
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
@@ -22,9 +30,9 @@
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
-		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_extraction_economy
-		activate_law = law_type:law_frontier_colonization #No longer start with but should pass it as a law later.
+		#activate_law = law_type:law_frontier_colonization #No longer start with but should pass it as a law later.
 		activate_law = law_type:law_migration_controls	
 		
 
@@ -73,20 +81,15 @@
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
 			add_modifier = {
-				name = ig_influence_modifier
+				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 75
 				is_decaying = yes
 			}
 		}
 		ig:ig_industrialists = { 
+			add_ideology = ideology_frontier_expansionist
 			set_interest_group_name = ig_viomixanoi
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
@@ -96,12 +99,6 @@
 		}
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 75
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.5
@@ -129,10 +126,7 @@
 			months = -1
 		}
 
-		add_modifier = {
-			name = br_modifier_african_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_africa_colony }
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_oriental_orthodox_church
@@ -151,6 +145,8 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
@@ -216,12 +212,6 @@
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
-			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 75
@@ -229,13 +219,8 @@
 			}
 		}
 		ig:ig_industrialists = { 
+			add_ideology = ideology_frontier_expansionist
 			set_interest_group_name = ig_viomixanoi
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
@@ -245,12 +230,6 @@
 		}
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 75
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
@@ -278,10 +257,8 @@
 			months = -1
 		}
 
-		add_modifier = {
-			name = br_modifier_african_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_africa_colony }
+		add_journal_entry = { type = je_br_colonial_subject }
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_oriental_orthodox_church

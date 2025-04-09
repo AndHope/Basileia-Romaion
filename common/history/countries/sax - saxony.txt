@@ -2,26 +2,27 @@
 	c:SAX ?= {
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = br_tech_defensive_military_bonus
 		add_technology_researched = napoleonic_warfare
-		add_technology_researched = general_staff
+		add_technology_researched = mandatory_service
+		add_technology_researched = military_drill
 
 		activate_law = law_type:law_private_schools
 		
 		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
+		set_tariffs_import_priority = g:dye
 		
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.25
 				years = 75
 				is_decaying = yes
 			}
-		}
-		add_modifier = {
-			name = br_modifier_defensive_bonus
-			years = 99
 		}
 
 		ig:ig_devout = {
@@ -34,6 +35,7 @@
 		effect_starting_politics_conservative = yes
 		
 		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes

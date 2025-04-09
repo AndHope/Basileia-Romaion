@@ -1,0 +1,63 @@
+﻿je_japanese_siberia_expansion = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+		br_steppe_colonial_expansion
+		br_modifier_fur_trade
+	}
+
+	is_shown_when_inactive = {
+		exists = c:br_japanese_siberia
+		this = c:br_japanese_siberia
+	}
+
+	possible = {
+		exists = c:br_japanese_siberia
+		this = c:br_japanese_siberia
+		#has_law = law_type:law_frontier_colonization
+	}
+
+	complete = {
+		root = {
+			owns_entire_state_region = STATE_KAMCHATKA
+			owns_entire_state_region = STATE_OKHOTSK
+			owns_entire_state_region = STATE_YAKUTSK
+			owns_entire_state_region = STATE_CHUKOTKA
+			owns_entire_state_region = STATE_KOLYMA
+		}
+	}
+
+	#invalid = {
+	#	NOT = { has_law = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
+	#}
+	
+	on_complete = {
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+	
+}
+
+

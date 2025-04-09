@@ -1,16 +1,16 @@
 ﻿COUNTRIES = {
 	c:br_vinland ?= {
 		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = br_tech_frontier_expansion
 		effect_starting_politics_conservative = yes
 
+		add_technology_researched = br_tech_defensive_military_bonus
+		add_technology_researched = br_tech_frontier_expansion
 		add_technology_researched = napoleonic_warfare
+		add_technology_researched = mandatory_service
 		
 
 		set_tax_level = medium
-		
 		add_taxed_goods = g:liquor
-		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms
 
@@ -27,7 +27,7 @@
 		activate_law = law_type:law_frontier_colonization
     	activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
-		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_homesteading
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_legacy_slavery
@@ -43,6 +43,7 @@
 		}
 
 		ig:ig_landowners = {
+			add_ruling_interest_group = yes
 			add_ideology = ideology_frontier_expansionist
 		}
 
@@ -51,108 +52,93 @@
 			remove_ideology = ideology_patriarchal
 			add_ideology = ideology_norse_clergy
 		}
-
-		add_modifier = {
-			name = br_modifier_colonial_ferver
-			years = 10
-		}
+	
+	#Moved this modifier to their JE
+	#	add_modifier = {
+	#		name = br_modifier_fur_trade
+	#		months = -1
+	#	}
 
 		add_modifier = {
 			name = br_modifier_naval_tradition
 			months = -1
 		}
-
 		add_modifier = {
 			name = br_modifier_norse_competitive_traders
 			months = -1
 		}
-
 		add_modifier = {
 			name = br_modifier_norse_military_doctrine
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_independent_new_world_colony
-			years = 100
-		}
 
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-		}
+		add_journal_entry = { type = je_br_independent_new_world_country }
+
+		
 	}
 
 	c:br_new_world_company ?= {
 		effect_starting_technology_tier_3_tech = yes
-		
-		add_technology_researched = br_tech_frontier_expansion
 		effect_starting_politics_conservative = yes
 
+		add_technology_researched = br_tech_frontier_expansion
+
 		set_tax_level = medium
-		
 		add_taxed_goods = g:liquor
-		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms
 
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_total_separation
-		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_extraction_economy
-		#activate_law = law_type:law_frontier_colonization #May re add these later.
     	activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
-		activate_law = law_type:law_no_migration_controls	
-		activate_law = law_type:law_commercialized_agriculture #law_homesteading
+		activate_law = law_type:law_migration_controls	
+		activate_law = law_type:law_commercialized_agriculture
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_no_schools
 
 		ig:ig_rural_folk = {
-			
 			add_ruling_interest_group = yes
 		}
 
+		ig:ig_landowners = {
+			add_ideology = ideology_frontier_expansionist
+		}
+
 		ig:ig_devout = {
-			#set_interest_group_name = ig_evangelical_church
+			set_interest_group_name = ig_evangelical_church
 		}
-
-		add_modifier = {
-			name = br_modifier_colonial_ferver
-			years = 10
-		}
-
-		add_modifier = {
-			name = br_modifier_fur_trade
-			years = 50
-		}
+		
+	#Moved this modifier to their JE
+	#	add_modifier = {
+	#		name = br_modifier_fur_trade
+	#		months = -1
+	#	}
 
 		add_modifier = {
 			name = br_modifier_naval_tradition
 			months = -1
 		}
-
 		add_modifier = {
 			name = br_modifier_norse_competitive_traders
 			months = -1
 		}
-
 		add_modifier = {
 			name = br_modifier_norse_military_doctrine
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 100
-		}
 		
-		ig:ig_landowners = {
-			add_ideology = ideology_frontier_expansionist
-		}
+		add_journal_entry = { type = je_br_new_world_colony }
+		add_journal_entry = { type = je_br_colonial_merchant_republic }
+		
 	}
 }

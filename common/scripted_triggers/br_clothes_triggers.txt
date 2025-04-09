@@ -1,10 +1,47 @@
-﻿british_empire_clothes_trigger = {
+﻿roman_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = c:BYZ
+		exists = home_country
+		home_country = {
+			OR = {
+				AND = {
+					c:BYZ = this
+					is_subject = no
+				}
+				is_subject_of = c:BYZ
+			}		
+		}
+	}
+}
+
+roman_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:BYZ
+		home_country = {
+			OR = {
+				AND = {
+					c:BYZ = this
+					is_subject = no
+				}
+				is_subject_of = c:BYZ
+			}		
+		}
+	}
+}
+
+#Edited base game clothes
+british_empire_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
 		exists = home_country
 		home_country = {
 			OR = {
 				country_has_primary_culture = cu:elysian
+				country_has_primary_culture = cu:aegyptian
+				country_has_primary_culture = cu:african
+				country_has_primary_culture = cu:apoikoi
 			}	
 		}
 	}
@@ -16,6 +53,9 @@ british_empire_clothes_pop_trigger = {
 		home_country = {
 			OR = {
 				country_has_primary_culture = cu:elysian
+				country_has_primary_culture = cu:aegyptian
+				country_has_primary_culture = cu:african
+				country_has_primary_culture = cu:apoikoi
 			}	
 		}
 	}
@@ -27,6 +67,9 @@ british_empire_clothes_p_trigger = {
 		home_country = {
 			OR = {
 				country_has_primary_culture = cu:elysian
+				country_has_primary_culture = cu:aegyptian
+				country_has_primary_culture = cu:african
+				country_has_primary_culture = cu:apoikoi
 			}	
 		}
 	}
@@ -325,6 +368,7 @@ ethiopian_clothes_trigger = {
 			} 
 		culture = cu:amhara	
 		culture = cu:sudanese
+		culture = cu:mande
 		}
 	}
 }

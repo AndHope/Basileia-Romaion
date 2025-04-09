@@ -1,0 +1,434 @@
+﻿# BR Mod - This is executed last among all history
+GLOBAL = {
+	every_country = {
+		
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_EASTERN_THRACE } }
+			add_modifier = {
+				name = br_modifier_ecumenical_patriarch
+				years = -1
+			}
+			add_modifier = {
+				name = br_state_modifier_city_worlds_desire_state
+				years = -1
+			}
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_ALEPPO } }
+			add_modifier = {
+				name = br_modifier_patriarch_antioch
+				years = -1
+			}
+		}
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_PALESTINE } }
+			add_modifier = {
+				name = br_modifier_patriarch_jerusalem
+				years = -1
+			}
+		}
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
+			add_modifier = {
+				name = br_modifier_patriarch_alexandria
+				years = -1
+			}
+		}
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_LAZIO } }
+			add_modifier = {
+				name = patriarch_rome
+				years = -1
+			}
+		}
+
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_HOME_COUNTIES state_region = s:STATE_ILE_DE_FRANCE state_region = s:STATE_ANDALUSIA state_region = s:STATE_TUSCANY state_region = s:STATE_LAZIO
+			state_region = s:STATE_LOWER_EGYPT state_region = s:STATE_BAGHDAD state_region = s:STATE_BEIJING state_region = s:STATE_NANJING state_region = s:STATE_KANTO state_region = s:STATE_KANSAI state_region = s:STATE_ICA
+			state_region = s:STATE_MEXICO state_region = s:STATE_DISTRICT_OF_COLUMBIA state_region = s:STATE_PIEDMONT state_region = s:STATE_LOMBARDY
+			state_region = s:STATE_TIMBUKTU
+		} 
+		}
+			add_modifier = {
+				name = br_state_modifier_magnificent_city
+				years = -1
+			}
+		}
+
+#		every_scope_state = {
+#			limit = { OR = { state_region = s:STATE_HEDJAZ } }
+#			add_modifier = {
+#				name = br_modifier_hajj
+#				years = -1
+#			}
+#		}
+
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_ZANZIBAR state_region = s:STATE_MADRAS state_region = s:STATE_OMAN
+		} 
+		}
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_BESSARABIA state_region = s:STATE_KIEV state_region = s:STATE_KURSK state_region = s:STATE_EAST_GALICIA state_region = s:STATE_KHARKOV state_region = s:STATE_CHERSON
+			 } 
+		}
+			add_modifier = {
+				name = br_modifier_cossacks
+				years = 100
+				is_decaying = yes
+			}
+		}
+
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_NEW_YORK state_region = s:STATE_DISTRICT_OF_COLUMBIA state_region = s:STATE_QUEBEC state_region = s:STATE_BUENOS_AIRES state_region = s:STATE_CAPE_COLONY state_region = s:STATE_VICTORIA
+			 } 
+		}
+			add_modifier = {
+				name = teeming_shore
+				years = 25
+				is_decaying = yes
+			}
+		}
+
+	}	
+
+	c:br_romaioi_india_company ?= {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_BOMBAY } }
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+	}
+
+	c:br_genoa ?= {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_PIEDMONT } }
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+	}
+
+	c:NET ?= {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_HOLLAND } }
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+	}
+
+	c:VEN ?= {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_VENETIA } }
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+			add_modifier = {
+				name = br_modifier_italy_venetian_arsenal
+				years = -1
+			}
+			add_modifier = {
+				name = br_state_modifier_magnificent_city
+				years = -1
+			}
+		}
+	}
+
+	c:JAV ?= {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_EAST_JAVA } }
+			add_modifier = {
+				name = br_state_modifier_grand_port
+				years = -1
+			}
+		}
+	}
+
+	c:MUG ?= {
+		every_scope_state = {
+			limit = { OR = { state_region = s:STATE_DELHI } }
+			add_modifier = {
+				name = br_state_modifier_magnificent_city
+				years = -1
+			}
+		}
+	}
+
+	#New World
+	c:br_elysium ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_apaleisia ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_vinland ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_new_world_company ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_new_angland ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_antarctique ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_louisiane ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_giamaica ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+			add_modifier = {
+				name = teeming_shore
+				years = 10
+				is_decaying = yes
+			}
+		}
+	}
+	c:br_kykladia ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+			add_modifier = {
+				name = teeming_shore
+				years = 10
+				is_decaying = yes
+			}
+		}
+	}
+	c:br_atlantica ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+			add_modifier = {
+				name = teeming_shore
+				years = 10
+				is_decaying = yes
+			}
+		}
+	}
+	c:br_dutch_west_indies ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+
+	#Europe
+	c:br_blacksea_colonies ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+
+	#Africa
+	c:SAF ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+
+
+	#Asia
+	c:br_australis ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_romaioi_india_company ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:DEI ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+
+	#Japanese Colonial subjects
+	c:br_japanese_new_world ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_japanese_siberia ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_japanese_pacific_islands ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	#Chinese Colonial subjects
+	c:FRS ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:LAN ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+	c:br_chinese_new_world ?= {
+		every_scope_state = {
+			add_modifier = {
+				name = br_modifier_state_colonial_attraction
+				years = 10
+			}
+		}
+	}
+
+
+
+	c:MUG ?= {
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			is_subject_of = c:MUG
+		}
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	c:br_great_yuan ?= {
+		every_scope_state = {
+			state_region = {
+				add_devastation = 25
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			is_subject_of = c:br_great_yuan
+		}
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	c:CHI ?= {
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+	every_country = {
+		limit = {
+			is_subject_of = c:CHI
+			NOT = { 
+				is_subject_type = subject_type_chartered_company
+				is_subject_type = subject_type_colony
+			}
+		}
+		every_scope_state = {
+			state_region = {
+				add_devastation = 15
+			}
+		}
+	}
+
+
+}	

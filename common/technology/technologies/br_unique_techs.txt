@@ -36,6 +36,44 @@ br_tech_greekfire = {
 	}
 }
 
+br_tech_defensive_military_bonus = {
+	# defensive bonus special tech
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
+	category = military
+
+	can_research = no
+
+	modifier = {
+		state_conscription_rate_add = 0.02
+		battle_defense_owned_province_mult = 0.25
+		battle_offense_owned_province_mult = 0.10
+	}
+
+	ai_weight = {
+		value = -99
+	}
+}
+
+br_tech_aggressive_military_bonus = {
+	# aggressive bonus special tech
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
+	category = military
+
+	can_research = no
+
+	modifier = {
+		country_prestige_from_army_power_projection_mult = 0.1
+		unit_army_offense_mult = 0.1
+		state_conscription_rate_add = 0.01
+	}
+
+	ai_weight = {
+		value = -99
+	}
+}
+
 embassy = {
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/embassy_tech_icon.dds"

@@ -88,14 +88,14 @@
 			country = c:FLA	
 			type = decrease_payments
 		}
-		set_relations = { country = c:SAR value = 10 }
+		set_relations = { country = c:SAR value = 75 }
 		set_relations = { country = c:LOM value = -25 }
 		set_relations = { country = c:VEN value = -30 }
 		set_relations = { country = c:TUS value = -25 }
 		set_relations = { country = c:BAV value = -25 }
-		set_relations = { country = c:OCC value = 5 }
-		set_relations = { country = c:BRI value = 5 }
-		set_relations = { country = c:FLA value = 5 }
+		set_relations = { country = c:OCC value = -15 }
+		set_relations = { country = c:BRI value = -15 }
+		set_relations = { country = c:FLA value = 10 }
 		set_relations = { country = c:SAX value = -30 }
 		set_relations = { country = c:br_tartaria value = -100 }
 		set_relations = { country = c:WUR value = -25 }
@@ -126,10 +126,13 @@
 			country = c:CAT	
 			type = tributary
 		}
-
 		create_diplomatic_pact = {
 			country = c:ANL
 			type = rivalry
+		}
+		create_bidirectional_truce = {
+			country = c:BYZ
+			months = 24
 		}
 	}
 
@@ -140,7 +143,7 @@
 		set_relations = { country = c:ENG value = 80 }
 		create_diplomatic_pact = {
 			country = c:br_klein_venedig
-			type = dominion
+			type = colony
 		}
 	}
 
@@ -149,46 +152,14 @@
 		set_relations = { country = c:NAV value = 100 }
 		set_relations = { country = c:CAS value = 100 }
 		set_relations = { country = c:HRE value = -25 }
+		set_relations = { country = c:br_afrika value = 25 }
+		set_relations = { country = c:ANL value = -75 }
 		add_liberty_desire = 25
 	}
-
-	c:FLA = {	
-		set_relations = { country = c:SWE value = 50 }
-		set_relations = { country = c:NET value = 50 }
-		set_relations = { country = c:ENG value = 50 }
-		set_relations = { country = c:SAX value = 50 }
-		add_liberty_desire = 25
-
-		create_diplomatic_pact = {
-			country = c:EOC
-			type = chartered_company
-		}
-	}
-
-	c:NET ?= {
-		create_diplomatic_pact = {
-			country = c:SAF
-			type = colony
-		}
-		create_diplomatic_pact = {
-			country = c:br_dutch_west_indies
-			type = chartered_company
-		}
-		create_diplomatic_pact = {
-			country = c:DEI
-			type = chartered_company
-		}
-		create_diplomatic_pact = {
-			country = c:JAV
-			type = trade_agreement
-		}
-		set_relations = { country = c:FLA value = 50 }
-		set_relations = { country = c:br_dutch_west_indies value = 100 }
-		set_relations = { country = c:DEI value = 100 }
-		set_relations = { country = c:CEY value = 50 }
-		set_relations = { country = c:SAX value = 25 }
-		set_relations = { country = c:SWE value = 40 }
-
+	c:br_provence = {
+		add_liberty_desire = 15
+		set_relations = { country = c:br_afrika value = 25 }
+		set_relations = { country = c:ANL value = -75 }
 	}
 
 	c:PLC = {		
@@ -274,12 +245,15 @@
 		set_relations = { country = c:WAL value = -35 }
 		set_relations = { country = c:MOL value = -25 }
 		set_relations = { country = c:VEN value = -25 }
-		set_relations = { country = c:TRS value = 75 }
+		set_relations = { country = c:TRS value = -25 }
 		set_relations = { country = c:HRE value = 25 }
 		set_relations = { country = c:CRO value = 75 }
 		set_relations = { country = c:BYZ value = -30 }
 		set_relations = { country = c:br_tartaria value = -100 }
-
+		set_owes_obligation_to = {
+			country = c:PLC
+			setting = yes
+		}
 	}
 	c:CRO = {
 		add_liberty_desire = -25
@@ -300,6 +274,7 @@
 	}
 	c:BRG = {
 		add_liberty_desire = -25
+		set_relations = { country = c:ANL value = -25 }
 	}
 
 	c:BOH ?= {
@@ -314,7 +289,10 @@
 		set_relations = { country = c:MEI value = 50 }
 		set_relations = { country = c:br_silesia value = 50 }
 		set_relations = { country = c:HUN value = -10 }
-		set_relations = { country = c:BAV value = -10 }
+		set_relations = { country = c:BAV value = -15 }
+		set_relations = { country = c:NET value = 75 }
+		set_relations = { country = c:SWE value = 75 }
+		set_relations = { country = c:DEN value = 50 }
 	}
 	c:MEI = {
 		add_liberty_desire = -15

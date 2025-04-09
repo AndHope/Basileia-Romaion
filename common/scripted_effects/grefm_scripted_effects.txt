@@ -1,0 +1,211 @@
+﻿##########################
+# GREFM SCRIPTED EFFECTS #
+##########################
+
+#### TABLE OF CONTENTS ####
+# GRE2 - Archaeology Effects
+############################
+
+## GRE2 - Archaeology Effects
+
+grefm_initialize_archaeology_effect = {
+	set_variable = {
+		name = grefm_archeaology_var
+		value = 0
+	}
+	set_variable = {
+		name = grefm_excavation_var
+		value = 0
+	}
+	set_variable = {
+		name = grefm_archeaology_sites_var
+		value = 0
+	}
+	set_variable = {
+		name = grefm_hellenic_archeaology_var
+		value = 0
+	}
+	set_variable = {
+		name = grefm_roman_archeaology_var
+		value = 0
+	}
+}
+
+grefm_update_artifact_modifier_effect = {
+	hidden_effect = {
+		remove_modifier = modifier_grefm_archaiologiki_etaireia
+	}
+	if = {
+		limit = {
+			grefm_artifact_value <= 10
+		}
+		add_modifier = {
+			name = modifier_grefm_archaiologiki_etaireia
+			multiplier = grefm_artifact_value
+		}
+	}
+	else = {
+		add_modifier = {
+			name = modifier_grefm_archaiologiki_etaireia
+			multiplier = 10
+		}
+	}
+}
+
+grefm_excavation_completion_effect = {
+	set_variable = {
+		name = grefm_excavation_var
+		value = 0
+	}
+	change_variable = {
+		name = grefm_archeaology_var
+		add = 1
+	}
+	
+	if = {
+		limit = {
+			has_variable = grefm_gla_excavation
+		}
+		remove_variable = grefm_gla_excavation
+		set_variable = grefm_gla_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_parthenon_1_excavation
+		}
+		remove_variable = grefm_parthenon_1_excavation
+		set_variable = grefm_parthenon_1_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_parthenon_2_excavation
+		}
+		remove_variable = grefm_parthenon_2_excavation
+		set_variable = grefm_parthenon_2_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_mycenae_1_excavation
+		}
+		remove_variable = grefm_mycenae_1_excavation
+		set_variable = grefm_knossos_1_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_mycenae_2_excavation
+		}
+		remove_variable = grefm_mycenae_2_excavation
+		set_variable = grefm_knossos_2_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_delos_excavation
+		}
+		remove_variable = grefm_delos_excavation
+		set_variable = grefm_delos_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_larissa_excavation
+		}
+		remove_variable = grefm_larissa_excavation
+		set_variable = grefm_larissa_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_rhodes_excavation
+		}
+		remove_variable = grefm_rhodes_excavation
+		set_variable = grefm_rhodes_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_corinth_1_excavation
+		}
+		remove_variable = grefm_corinth_1_excavation
+		set_variable = grefm_corinth_1_complete
+	}
+	
+	else_if = {
+		limit = {
+			has_variable = grefm_corinth_2_excavation
+		}
+		remove_variable = grefm_corinth_2_excavation
+		set_variable = grefm_corinth_2_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_thessaloniki_excavation
+		}
+		remove_variable = grefm_thessaloniki_excavation
+		set_variable = grefm_thessaloniki_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_thebes_excavation
+		}
+		remove_variable = grefm_thebes_excavation
+		set_variable = grefm_thebes_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_nicomedia_excavation
+		}
+		remove_variable = grefm_nicomedia_excavation
+		set_variable = grefm_nicomedia_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_smyrna_excavation
+		}
+		remove_variable = grefm_smyrna_excavation
+		set_variable = grefm_smyrna_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_tyana_excavation
+		}
+		remove_variable = grefm_tyana_excavation
+		set_variable = grefm_tyana_complete
+	}
+	else_if = {
+		limit = {
+			has_variable = grefm_chios_excavation
+		}
+		remove_variable = grefm_chios_excavation
+		set_variable = grefm_chios_complete
+	}
+}
+
+grefm_cancel_expedition_effect = {
+	set_variable = {
+		name = grefm_excavation_var
+		value = 0
+	}
+	
+	remove_variable = grefm_parthenon_1_excavation
+	remove_variable = grefm_parthenon_2_excavation
+	remove_variable = grefm_mycenae_1_excavation
+	remove_variable = grefm_mycenae_2_excavation
+	remove_variable = grefm_gla_excavation
+	remove_variable = grefm_delos_excavation
+	remove_variable = grefm_larissa_excavation
+	remove_variable = grefm_rhodes_excavation
+	
+	remove_variable = grefm_corinth_1_excavation
+	remove_variable = grefm_corinth_2_excavation
+	remove_variable = grefm_thessaloniki_excavation
+	remove_variable = grefm_thebes_excavation
+	remove_variable = grefm_nicomedia_excavation
+	remove_variable = grefm_smyrna_excavation
+	remove_variable = grefm_tyana_excavation
+	remove_variable = grefm_chios_excavation
+}
+
+grefm_cleanup_archaeology_effect = {
+	remove_variable = grefm_archeaology_var
+	remove_variable = grefm_excavation_var
+	remove_variable = grefm_archeaology_sites_var
+	remove_variable = grefm_hellenic_archeaology_var
+	remove_variable = grefm_roman_archeaology_var
+}

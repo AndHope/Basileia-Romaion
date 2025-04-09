@@ -34,7 +34,10 @@
 		activate_law = law_type:law_commercialized_agriculture
 		
 		#set_tariffs_import_priority = g:
-		#set_tariffs_import_priority = g:	
+		#set_tariffs_import_priority = g:
+		set_tariffs_export_priority = g:luxury_clothes
+		set_tariffs_export_priority = g:luxury_furniture
+		
 		add_taxed_goods = g:liquor
 		#add_taxed_goods = g:opium
 		#add_taxed_goods = g:tobacco
@@ -47,7 +50,11 @@
 		set_institution_investment_level = {
 			institution = institution_schools
 			level = 2
-		}	
+		}
+		set_institution_investment_level = {
+			institution = institution_home_affairs
+			level = 2
+		}
 
 		ig:ig_landowners = { 
 			remove_ideology = ideology_paternalistic
@@ -59,7 +66,6 @@
 			add_ruling_interest_group = yes
 			remove_ideology = ideology_reactionary
 			add_ideology = ideology_plutocratic
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -70,6 +76,11 @@
 
 		add_modifier = {
 			name = br_modifier_merchant_republic
+			months = -1
+		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
 			months = -1
 		}
 
@@ -93,10 +104,8 @@
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			years = 100
 		}
-		add_modifier = {
-			name = br_modifier_mediterranean_merchant_republic
-			months = -1
-		}
+
+		add_journal_entry = { type = je_br_mediterranean_merchant_republic }
 
 
 		add_company = company_type:company_gen_trade
@@ -108,10 +117,6 @@
 		company:company_gen_arsenal = {
 			set_company_establishment_date = 1325.1.1
 			set_company_state_region = s:STATE_PIEDMONT
-		}
-		trigger_event = {
-			id = br_nation_startup_event.3
-			days = 1
 		}
 
 	}
@@ -139,8 +144,9 @@
 		
 		set_institution_investment_level = {
 			institution = institution_schools
-			level = 1
+			level = 2
 		}	
+
 
 		add_taxed_goods = g:liquor
 		add_taxed_goods = g:wine
@@ -151,7 +157,6 @@
 			add_ruling_interest_group = yes
 			remove_ideology = ideology_reactionary
 			add_ideology = ideology_plutocratic
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -165,6 +170,11 @@
 			add_ideology = ideology_patrician
 			add_ruling_interest_group = yes
 		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
+			months = -1
+		}
 
 		add_modifier = {
 			name = br_modifier_italy_academia
@@ -174,10 +184,8 @@
 			name = br_modifier_italy_accessible_stock_exchanges
 			years = 100
 		}
-		add_modifier = {
-			name = br_modifier_mediterranean_merchant_republic
-			months = -1
-		}
+		
+		add_journal_entry = { type = je_br_mediterranean_merchant_republic }
 
 	}
 
@@ -204,7 +212,6 @@
 			add_ruling_interest_group = yes
 			remove_ideology = ideology_reactionary
 			add_ideology = ideology_plutocratic
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -219,18 +226,8 @@
 			add_ruling_interest_group = yes
 		}
 
-		add_modifier = {
-			name = br_modifier_colonial_ferver
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 50
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
+		add_journal_entry = { type = je_br_new_world_colony }
 
 	}
 }

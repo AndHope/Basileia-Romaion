@@ -60,259 +60,263 @@
 	}
 }
 
-hellenic_decision = {
-	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-		NOT = { country_has_state_religion = rel:br_religion_hellenic }
-		has_variable = revive_olympics_decision_taken
-	}
+# hellenic_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			AND = {
+# 				country_has_primary_culture = cu:greek
+# 				has_variable = revive_olympics_decision_taken
+# 			}
+# 			AND = {
+# 				country_has_primary_culture = cu:elysian
+# 			}
+# 		}
+# 		NOT = { country_has_state_religion = rel:br_religion_hellenic }
+# 	}
 
-	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
-		}
-		ig:ig_devout = {
-			is_in_government = no
-			#is_marginal = no
-		}
-		#NOT = { has_modifier = br_modifier_religious_chaos }
-		has_law = law_type:law_freedom_of_conscience
-		NOT = { has_law = law_type:law_religious_schools }
-		has_law = law_type:law_monarchy
-	}
+# 	possible = {
+# 		OR = {
+# 			country_has_primary_culture = cu:greek
+# 			country_has_primary_culture = cu:elysian
+# 		}
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 			#is_marginal = no
+# 		}
+# 		#NOT = { has_modifier = br_modifier_religious_chaos }
+# 		has_law = law_type:law_freedom_of_conscience
+# 		NOT = { has_law = law_type:law_religious_schools }
+# 		has_law = law_type:law_monarchy
+# 	}
 
-	when_taken = {
-		set_state_religion = rel:br_religion_hellenic
-		ig:ig_devout = {
-			set_interest_group_name = ig_neo_hellenes
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_hellenic_clergy
-		}
-		#add_modifier = {
-		#	name = br_modifier_religious_chaos
-		#	months = 52
-		#}		
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:br_religion_hellenic
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:br_religion_hellenic
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_hellenic
-				}
-			}
-			add_loyalists = {
-				religion = rel:br_religion_hellenic
-				value = 0.50
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:orthodox 
-				}
-			}
-			add_radicals = {
-				religion = rel:orthodox
-				value = 0.50
-			}
-		}
-		change_relations = { 
-			country = c:HRE 
-			value = -150 
-		}
-		change_relations = { 
-			country = c:PAP 
-			value = -150 
-		}
-	}
+# 	when_taken = {
+# 		set_state_religion = rel:br_religion_hellenic
+# 		ig:ig_devout = {
+# 			set_interest_group_name = ig_neo_hellenes
+# 			remove_ideology = ideology_patriarchal
+# 			add_ideology = ideology_hellenic_clergy
+# 		}
+# 		#add_modifier = {
+# 		#	name = br_modifier_religious_chaos
+# 		#	months = 52
+# 		#}		
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_hellenic
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_hellenic
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_hellenic
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:br_religion_hellenic
+# 				value = 0.50
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:orthodox 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:orthodox
+# 				value = 0.50
+# 			}
+# 		}
+# 		change_relations = { 
+# 			country = c:HRE 
+# 			value = -150 
+# 		}
+# 		change_relations = { 
+# 			country = c:PAP 
+# 			value = -150 
+# 		}
+# 	}
 
-	ai_chance = {
-		base = 0
-	}
-}
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
 
-orthodox_decision = {
-	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			#country_has_primary_culture = cu:elysian
-		}
-		NOT = { country_has_state_religion = rel:orthodox }
-	}
+# orthodox_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			country_has_primary_culture = cu:greek
+# 			#country_has_primary_culture = cu:elysian
+# 		}
+# 		NOT = { country_has_state_religion = rel:orthodox }
+# 	}
 
-	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			#country_has_primary_culture = cu:elysian
-		}
-		ig:ig_devout = {
-			is_in_government = no
-			#is_marginal = no
-		}
-		has_law = law_type:law_monarchy
-	}
+# 	possible = {
+# 		OR = {
+# 			country_has_primary_culture = cu:greek
+# 			#country_has_primary_culture = cu:elysian
+# 		}
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 			#is_marginal = no
+# 		}
+# 		has_law = law_type:law_monarchy
+# 	}
 
-	when_taken = {
-		set_state_religion = rel:orthodox
-		ig:ig_devout = {
-			hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
-		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:orthodox
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:orthodox
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:orthodox 
-				}
-			}
-			add_loyalists = {
-				religion = rel:orthodox
-				value = 0.50
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_hellenic
-				}
-			}
-			add_radicals = {
-				religion = rel:br_religion_hellenic
-				value = 0.50
-			}
-		}
-	}
+# 	when_taken = {
+# 		set_state_religion = rel:orthodox
+# 		ig:ig_devout = {
+# 			hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+# 		}
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:orthodox
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:orthodox
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:orthodox 
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:orthodox
+# 				value = 0.50
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_hellenic
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:br_religion_hellenic
+# 				value = 0.50
+# 			}
+# 		}
+# 	}
 
-	ai_chance = {
-		base = 0
-	}
-}
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
 
-elysian_orthodox_decision = {
-	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:elysian
-		}
-		NOT = { country_has_state_religion = rel:br_religion_elysian_orthodox }
-	}
+# elysian_orthodox_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			country_has_primary_culture = cu:elysian
+# 		}
+# 		NOT = { country_has_state_religion = rel:br_religion_elysian_orthodox }
+# 	}
 
-	possible = {
-		OR = {
-			country_has_primary_culture = cu:elysian
-		}
-		ig:ig_devout = {
-			is_in_government = no
-			#is_marginal = no
-		}
-		has_law = law_type:law_monarchy
-	}
+# 	possible = {
+# 		OR = {
+# 			country_has_primary_culture = cu:elysian
+# 		}
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 			#is_marginal = no
+# 		}
+# 		has_law = law_type:law_monarchy
+# 	}
 
-	when_taken = {
-		set_state_religion = rel:br_religion_elysian_orthodox
-		ig:ig_devout = {
-			hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
-		}
-		add_modifier = {
-			name = autocephalous_patriarchate_elysium
-			months = -1
-		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:br_religion_elysian_orthodox
-				value = 0.35
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:br_religion_elysian_orthodox
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_elysian_orthodox 
-				}
-			}
-			add_loyalists = {
-				religion = rel:br_religion_elysian_orthodox
-				value = 0.75
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_hellenic
-				}
-			}
-			add_radicals = {
-				religion = rel:br_religion_hellenic
-				value = 0.25
-			}
-		}
-		hidden_effect = {
-			trigger_event = {
-				id = br_new_world_events.1
-				days = 14
-			}
-		}
-	}
+# 	when_taken = {
+# 		set_state_religion = rel:br_religion_elysian_orthodox
+# 		ig:ig_devout = {
+# 			hidden_effect = { set_interest_group_name = ig_orthodox_patriarch }
+# 		}
+# 		add_modifier = {
+# 			name = autocephalous_patriarchate_elysium
+# 			months = -1
+# 		}
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_elysian_orthodox
+# 				value = 0.35
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_elysian_orthodox
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_elysian_orthodox 
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:br_religion_elysian_orthodox
+# 				value = 0.75
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_hellenic
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:br_religion_hellenic
+# 				value = 0.25
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			trigger_event = {
+# 				id = br_new_world_events.1
+# 				days = 14
+# 			}
+# 		}
+# 	}
 
-	ai_chance = {
-		base = 25
-	}
-}
+# 	ai_chance = {
+# 		base = 25
+# 	}
+# }
 
 acknowledge_roman_orthodox_supremacy = {
 	is_shown = {
@@ -380,184 +384,674 @@ declare_patriarch_independence = {
 	}
 }
 
-zoroastrianism_decision = {
+# zoroastrianism_decision = {
+# 	is_shown = {
+# 		exists = c:PER
+# 		c:PER = THIS
+# 		NOT = { country_has_state_religion = rel:br_religion_zoroastrian }
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 		}
+# 		has_law = law_type:law_freedom_of_conscience
+# 		NOT = { has_law = law_type:law_religious_schools }
+# 		OR = {
+# 			has_law = law_type:law_ethnostate
+# 			has_law = law_type:law_national_supremacy
+# 		}
+# 		has_technology_researched = nationalism
+# 	}
+
+# 	when_taken = {
+# 		set_state_religion = rel:br_religion_zoroastrian
+# 		ig:ig_devout = { set_interest_group_name = ig_zoroastrian_priests }
+
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_zoroastrian
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_zoroastrian
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_zoroastrian
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:br_religion_zoroastrian
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:sunni 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:sunni
+# 				value = 0.25
+# 			}
+# 		}
+# 		change_relations = { 
+# 			country = c:ARA 
+# 			value = -150 
+# 		}
+# 		change_relations = { 
+# 			country = c:MUG 
+# 			value = -50 
+# 		}
+# 	}
+
+# 	ai_chance = {
+# 		base = 0
+# 	}
+
+# }
+
+# shitte_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			country_has_primary_culture = cu:persian
+# 			country_has_primary_culture = cu:bedouin
+# 		}
+# 		NOT = { country_has_state_religion = rel:shiite }
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 		}
+# 		has_law = law_type:law_freedom_of_conscience
+# 		NOT = { has_law = law_type:law_religious_schools }
+# 		OR = {
+# 			has_law = law_type:law_ethnostate
+# 			has_law = law_type:law_national_supremacy
+# 		}
+# 		has_technology_researched = nationalism
+# 	}
+
+# 	when_taken = {
+# 		set_state_religion = rel:shiite
+# 		ig:ig_devout = { set_interest_group_name = ig_shia_madrasahs }
+
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:shiite
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:shiite
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:shiite
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:shiite
+# 				value = 0.35
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:sunni 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:sunni
+# 				value = 0.35
+# 			}
+# 		}
+# 		change_relations = { 
+# 			country = c:ARA 
+# 			value = -150 
+# 		}
+# 		change_relations = { 
+# 			country = c:MUG 
+# 			value = -50 
+# 		}
+# 	}
+
+# 	ai_chance = {
+# 		base = 0
+# 	}
+
+# }
+
+
+# norse_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			country_has_primary_culture = cu:danish
+# 			country_has_primary_culture = cu:swedish
+# 			country_has_primary_culture = cu:norwegian
+# 			country_has_primary_culture = cu:saxon
+# 		}
+# 		NOT = { country_has_state_religion = rel:br_religion_norse }
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 		}
+# 		has_law = law_type:law_freedom_of_conscience
+# 		NOT = { has_law = law_type:law_religious_schools }
+# 		OR = {
+# 			has_law = law_type:law_ethnostate
+# 			has_law = law_type:law_national_supremacy
+# 		}
+# 	}
+
+# 	when_taken = {
+# 		set_state_religion = rel:br_religion_norse
+# 		ig:ig_devout = {
+# 			set_interest_group_name = ig_norse_priests
+# 			remove_ideology = ideology_patriarchal
+# 			add_ideology = ideology_norse_clergy
+# 		}
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_norse
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_norse
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_norse
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:br_religion_norse
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:protestant 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:protestant
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:catholic 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:catholic
+# 				value = 0.25
+# 			}
+# 		}
+# 		change_relations = { 
+# 			country = c:HRE 
+# 			value = -150 
+# 		}
+# 		change_relations = { 
+# 			country = c:PAP 
+# 			value = -150 
+# 		}
+# 	}
+
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
+
+# baltic_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			country_has_primary_culture = cu:lithuanian
+# 			country_has_primary_culture = cu:latvian
+# 			country_has_primary_culture = cu:estonian
+# 		}
+# 		NOT = { country_has_state_religion = rel:br_religion_baltic }
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 		}
+# 		has_law = law_type:law_freedom_of_conscience
+# 		NOT = { has_law = law_type:law_religious_schools }
+# 		OR = {
+# 			has_law = law_type:law_ethnostate
+# 			has_law = law_type:law_national_supremacy
+# 		}
+# 	}
+
+# 	when_taken = {
+# 		set_state_religion = rel:br_religion_baltic
+# 		ig:ig_devout = {
+# 			set_interest_group_name = ig_baltic_priests
+# 			remove_ideology = ideology_patriarchal
+# 			add_ideology = ideology_baltic_clergy
+# 		}
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_baltic
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_baltic
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_baltic
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:br_religion_baltic
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:protestant 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:protestant
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:catholic 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:catholic
+# 				value = 0.25
+# 			}
+# 		}
+# 		change_relations = { 
+# 			country = c:HRE 
+# 			value = -150 
+# 		}
+# 		change_relations = { 
+# 			country = c:PAP 
+# 			value = -150 
+# 		}
+# 	}
+
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
+
+# slavic_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			any_primary_culture = { 
+# 				has_discrimination_trait = jugoslav
+# 			}
+# 			any_primary_culture = { 
+# 				has_discrimination_trait = west_slavic
+# 			}
+# 			any_primary_culture = { 
+# 				has_discrimination_trait = east_slavic
+# 			}
+# 		}
+# 		NOT = { country_has_state_religion = rel:br_religion_slavic }
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 		}
+# 		has_law = law_type:law_freedom_of_conscience
+# 		NOT = { has_law = law_type:law_religious_schools }
+# 		OR = {
+# 			has_law = law_type:law_ethnostate
+# 			has_law = law_type:law_national_supremacy
+# 		}
+# 	}
+
+# 	when_taken = {
+# 		set_state_religion = rel:br_religion_slavic
+# 		ig:ig_devout = {
+# 			set_interest_group_name = ig_slavic_priests
+# 			remove_ideology = ideology_patriarchal
+# 			add_ideology = ideology_slavic_clergy
+# 		}
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_slavic
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_slavic
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_slavic
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:br_religion_slavic
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:protestant 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:protestant
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:catholic 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:catholic
+# 				value = 0.25
+# 			}
+# 		}
+# 		change_relations = { 
+# 			country = c:HRE 
+# 			value = -150 
+# 		}
+# 		change_relations = { 
+# 			country = c:PAP 
+# 			value = -150 
+# 		}
+# 	}
+
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
+
+# tengri_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			any_primary_culture = { 
+# 				has_discrimination_trait = north_asian_heritage
+# 			}
+# 			any_primary_culture = { 
+# 				has_discrimination_trait = turkic
+# 			}
+# 		}
+# 		NOT = { country_has_state_religion = rel:br_religion_tengri }
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		ig:ig_devout = {
+# 			is_in_government = no
+# 		}
+# 		has_law = law_type:law_freedom_of_conscience
+# 		NOT = { has_law = law_type:law_religious_schools }
+# 		OR = {
+# 			has_law = law_type:law_ethnostate
+# 			has_law = law_type:law_national_supremacy
+# 		}
+# 	}
+
+# 	when_taken = {
+# 		set_state_religion = rel:br_religion_tengri
+# 		ig:ig_devout = {
+# 			set_interest_group_name = ig_tengri_priests
+# 			remove_ideology = ideology_patriarchal
+# 			add_ideology = ideology_tengri_clergy
+# 		}
+# 		random_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_capital = yes
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_tengri
+# 				value = 0.25
+# 			}
+# 		}
+# 		every_scope_state = {
+# 			limit = {
+# 				owner = ROOT
+# 				is_incorporated = yes
+# 				NOT = { is_capital = yes }
+# 			}
+# 			convert_population = {
+# 				target = rel:br_religion_tengri
+# 				value = 0.15
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:br_religion_tengri
+# 				}
+# 			}
+# 			add_loyalists = {
+# 				religion = rel:br_religion_tengri
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:sunni 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:sunni
+# 				value = 0.25
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				any_scope_pop = { 
+# 					religion = rel:shiite 
+# 				}
+# 			}
+# 			add_radicals = {
+# 				religion = rel:shiite
+# 				value = 0.25
+# 			}
+# 		}
+# 		change_relations = { 
+# 			country = c:ARA 
+# 			value = -100 
+# 		}
+# 		change_relations = { 
+# 			country = c:PER 
+# 			value = -100 
+# 		}
+# 	}
+
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
+
+###
+### Generic religion swap
+###
+
+#########################################################################################################################################################################################################
+## How to add a new religion to the br_generic_religion_swap_decision ##
+#to add a new religion to the Generic religion swap create a new 'country_can_convert_to_religion' in 'br_religion_swap_triggers' and add it to the 'br_country_can_convert_to_given_religion' trigger,
+#then copy the template below ('br_generic_religion_swap_decision') and change new_religion to the religion you want the decision to swap to (ex new_religion -> br_religion_norse).
+
+#Optionaly if you want you can then add further extra triggers in is_shown or possible
+#if you want to add an extra effect for when the dicision is taken than add that in the religion specific effect as explained next.
+
+#Optianaly you can add a scripted effect in 'br_religion_swap_scripted_effects' to specify what should happen if a country switches to a specific religion
+#in 'br_religion_swap_scripted_effects' make a new 'br_swap_to_religion_effect' and call it in a ifelse statement in 'br_swap_religion_effect'.
+
+#Finaly add loc for the decisions
+
+# br_generic_religion_swap_decision = {
+# 	is_shown = {
+# 		OR = {
+# 			#change new_religion with the religion you want the decision to swap to
+# 			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:new_religion}
+# 		}
+# 		NOT = { has_law = law_type:law_theocracy }
+# 	}
+
+# 	possible = {
+# 		br_religion_swap_posible_standard_trigger = yes
+# 	}
+
+# 	when_taken = {
+# 		#change new_religion with the religion you want the decision to swap to
+# 		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:new_religion }
+# 	}
+
+# 	#set the ai_chance to what you want it to be
+# 	ai_chance = {
+# 		base = 0
+# 	}
+# }
+
+#########################################################################################################################################################################################################
+
+br_norse_religion_swap_decision = {
 	is_shown = {
-		exists = c:PER
-		c:PER = THIS
-		NOT = { country_has_state_religion = rel:br_religion_zoroastrian }
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_norse}
+		}
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
 	possible = {
-		ig:ig_devout = {
-			is_in_government = no
-		}
-		has_law = law_type:law_freedom_of_conscience
-		NOT = { has_law = law_type:law_religious_schools }
-		OR = {
-			has_law = law_type:law_ethnostate
-			has_law = law_type:law_national_supremacy
-		}
-		has_technology_researched = nationalism
+		br_religion_swap_posible_standard_trigger = yes
 	}
 
 	when_taken = {
-		set_state_religion = rel:br_religion_zoroastrian
-		ig:ig_devout = {
-			hidden_effect = { set_interest_group_name = ig_zoroastrian_priests }
-		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:br_religion_zoroastrian
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:br_religion_zoroastrian
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_zoroastrian
-				}
-			}
-			add_loyalists = {
-				religion = rel:br_religion_zoroastrian
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:sunni 
-				}
-			}
-			add_radicals = {
-				religion = rel:sunni
-				value = 0.25
-			}
-		}
-		change_relations = { 
-			country = c:ARA 
-			value = -150 
-		}
-		change_relations = { 
-			country = c:MUG 
-			value = -50 
-		}
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_norse }
 	}
 
 	ai_chance = {
 		base = 0
 	}
-
 }
 
-norse_decision = {
+br_hellenic_religion_swap_decision = {
 	is_shown = {
 		OR = {
-			country_has_primary_culture = cu:danish
-			country_has_primary_culture = cu:swedish
-			country_has_primary_culture = cu:norwegian
-			country_has_primary_culture = cu:saxon
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_hellenic}
 		}
-		NOT = { country_has_state_religion = rel:br_religion_norse }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
 	possible = {
+		# br_religion_swap_posible_standard_trigger = yes
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+		}
 		ig:ig_devout = {
 			is_in_government = no
+			#is_marginal = no
 		}
+		#NOT = { has_modifier = br_modifier_religious_chaos }
 		has_law = law_type:law_freedom_of_conscience
 		NOT = { has_law = law_type:law_religious_schools }
-		OR = {
-			has_law = law_type:law_ethnostate
-			has_law = law_type:law_national_supremacy
-		}
+		has_law = law_type:law_monarchy
+
 	}
 
 	when_taken = {
-		set_state_religion = rel:br_religion_norse
-		ig:ig_devout = {
-			set_interest_group_name = ig_norse_priests
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_norse_clergy
-		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:br_religion_norse
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:br_religion_norse
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_norse
-				}
-			}
-			add_loyalists = {
-				religion = rel:br_religion_norse
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:protestant 
-				}
-			}
-			add_radicals = {
-				religion = rel:protestant
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:catholic 
-				}
-			}
-			add_radicals = {
-				religion = rel:catholic
-				value = 0.25
-			}
-		}
-		change_relations = { 
-			country = c:HRE 
-			value = -150 
-		}
-		change_relations = { 
-			country = c:PAP 
-			value = -150 
-		}
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_hellenic }
 	}
 
 	ai_chance = {
@@ -565,98 +1059,29 @@ norse_decision = {
 	}
 }
 
-baltic_decision = {
+br_orthodox_religion_swap_decision = {
 	is_shown = {
 		OR = {
-			country_has_primary_culture = cu:lithuanian
-			country_has_primary_culture = cu:latvian
-			country_has_primary_culture = cu:estonian
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:orthodox}
 		}
-		NOT = { country_has_state_religion = rel:br_religion_baltic }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
 	possible = {
+		# br_religion_swap_posible_standard_trigger = yes
+		OR = {
+			country_has_primary_culture = cu:greek
+			#country_has_primary_culture = cu:elysian
+		}
 		ig:ig_devout = {
 			is_in_government = no
+			#is_marginal = no
 		}
-		has_law = law_type:law_freedom_of_conscience
-		NOT = { has_law = law_type:law_religious_schools }
-		OR = {
-			has_law = law_type:law_ethnostate
-			has_law = law_type:law_national_supremacy
-		}
+		has_law = law_type:law_monarchy
 	}
 
 	when_taken = {
-		set_state_religion = rel:br_religion_baltic
-		ig:ig_devout = {
-			set_interest_group_name = ig_baltic_priests
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_baltic_clergy
-		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:br_religion_baltic
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:br_religion_baltic
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_baltic
-				}
-			}
-			add_loyalists = {
-				religion = rel:br_religion_baltic
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:protestant 
-				}
-			}
-			add_radicals = {
-				religion = rel:protestant
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:catholic 
-				}
-			}
-			add_radicals = {
-				religion = rel:catholic
-				value = 0.25
-			}
-		}
-		change_relations = { 
-			country = c:HRE 
-			value = -150 
-		}
-		change_relations = { 
-			country = c:PAP 
-			value = -150 
-		}
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:orthodox }
 	}
 
 	ai_chance = {
@@ -664,104 +1089,49 @@ baltic_decision = {
 	}
 }
 
-slavic_decision = {
+br_elysian_orthodox_religion_swap_decision = {
 	is_shown = {
 		OR = {
-			any_primary_culture = { 
-				has_discrimination_trait = jugoslav
-			}
-			any_primary_culture = { 
-				has_discrimination_trait = west_slavic
-			}
-			any_primary_culture = { 
-				has_discrimination_trait = east_slavic
-			}
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_elysian_orthodox}
 		}
-		NOT = { country_has_state_religion = rel:br_religion_slavic }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
 	possible = {
+		# br_religion_swap_posible_standard_trigger = yes
+		OR = {
+			country_has_primary_culture = cu:elysian
+		}
 		ig:ig_devout = {
 			is_in_government = no
+			#is_marginal = no
 		}
-		has_law = law_type:law_freedom_of_conscience
-		NOT = { has_law = law_type:law_religious_schools }
-		OR = {
-			has_law = law_type:law_ethnostate
-			has_law = law_type:law_national_supremacy
-		}
+		has_law = law_type:law_monarchy
 	}
 
 	when_taken = {
-		set_state_religion = rel:br_religion_slavic
-		ig:ig_devout = {
-			set_interest_group_name = ig_slavic_priests
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_slavic_clergy
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_elysian_orthodox }
+	}
+
+	ai_chance = {
+		base = 25
+	}
+}
+
+br_zoroastrianism_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_zoroastrian}
 		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:br_religion_slavic
-				value = 0.25
-			}
-		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:br_religion_slavic
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_slavic
-				}
-			}
-			add_loyalists = {
-				religion = rel:br_religion_slavic
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:protestant 
-				}
-			}
-			add_radicals = {
-				religion = rel:protestant
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:catholic 
-				}
-			}
-			add_radicals = {
-				religion = rel:catholic
-				value = 0.25
-			}
-		}
-		change_relations = { 
-			country = c:HRE 
-			value = -150 
-		}
-		change_relations = { 
-			country = c:PAP 
-			value = -150 
-		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_zoroastrian }
 	}
 
 	ai_chance = {
@@ -769,101 +1139,83 @@ slavic_decision = {
 	}
 }
 
-tengri_decision = {
+br_shitte_religion_swap_decision = {
 	is_shown = {
 		OR = {
-			any_primary_culture = { 
-				has_discrimination_trait = north_asian_heritage
-			}
-			any_primary_culture = { 
-				has_discrimination_trait = turkic
-			}
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:shiite}
 		}
-		NOT = { country_has_state_religion = rel:br_religion_tengri }
 		NOT = { has_law = law_type:law_theocracy }
 	}
 
 	possible = {
-		ig:ig_devout = {
-			is_in_government = no
-		}
-		has_law = law_type:law_freedom_of_conscience
-		NOT = { has_law = law_type:law_religious_schools }
-		OR = {
-			has_law = law_type:law_ethnostate
-			has_law = law_type:law_national_supremacy
-		}
+		br_religion_swap_posible_standard_trigger = yes
 	}
 
 	when_taken = {
-		set_state_religion = rel:br_religion_tengri
-		ig:ig_devout = {
-			set_interest_group_name = ig_tengri_priests
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_tengri_clergy
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:shiite }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_baltic_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_baltic}
 		}
-		random_scope_state = {
-			limit = {
-				owner = ROOT
-				is_capital = yes
-			}
-			convert_population = {
-				target = rel:br_religion_tengri
-				value = 0.25
-			}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_baltic }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_slavic_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_slavic}
 		}
-		every_scope_state = {
-			limit = {
-				owner = ROOT
-				is_incorporated = yes
-				NOT = { is_capital = yes }
-			}
-			convert_population = {
-				target = rel:br_religion_tengri
-				value = 0.15
-			}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_slavic }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_tengri_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_tengri}
 		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:br_religion_tengri
-				}
-			}
-			add_loyalists = {
-				religion = rel:br_religion_tengri
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:sunni 
-				}
-			}
-			add_radicals = {
-				religion = rel:sunni
-				value = 0.25
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:shiite 
-				}
-			}
-			add_radicals = {
-				religion = rel:shiite
-				value = 0.25
-			}
-		}
-		change_relations = { 
-			country = c:ARA 
-			value = -100 
-		}
-		change_relations = { 
-			country = c:PER 
-			value = -100 
-		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_tengri }
 	}
 
 	ai_chance = {

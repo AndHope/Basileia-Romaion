@@ -18,6 +18,10 @@
 			type = decrease_payments
 		}
 		create_diplomatic_pact = {
+			country = c:br_australis	
+			type = exempt_from_service
+		}
+		create_diplomatic_pact = {
 			country = c:br_kyrenaica
 			type = colony
 		}
@@ -33,7 +37,15 @@
 			country = c:VEN
 			setting = yes
 		}
-		set_relations = { country = c:br_romaioi_india_company value = 75 }
+		create_unidirectional_truce = {
+			country = c:br_makuria
+			months = 12
+		}
+		create_unidirectional_truce = {
+			country = c:br_alodia
+			months = 12
+		}
+		set_relations = { country = c:br_romaioi_india_company value = 100 }
 		set_relations = { country = c:br_australis value = 75 }
 		set_relations = { country = c:br_afrika value = 75 }
 		set_relations = { country = c:MHR value = 50 }
@@ -42,6 +54,7 @@
 		set_relations = { country = c:br_alodia value = -75 }
 		set_relations = { country = c:DEI value = -75 }
 		set_relations = { country = c:NET value = -75 }
+		set_relations = { country = c:ANL value = -35 }
 
 	}
 
@@ -54,12 +67,15 @@
 			country = c:TUG
 			months = 620
 		}
+		set_relations = { country = c:br_romaioi_india_company value = 100 }
 	}
 	
 	c:br_kyrenaica = {
 		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:VEN value = 75 }
 		set_relations = { country = c:br_genoa value = 75 }
+		set_relations = { country = c:ANL value = -35 }
+		set_relations = { country = c:br_romaioi_india_company value = 100 }
 	}
 
 
@@ -203,12 +219,18 @@
 			months = 480
 		}
 	}
-	c:SOK = {
-		set_relations = { country = c:ARA value = 50 }
 
-		create_unidirectional_truce = {
-			country = c:AIR
-			months = 480
+	c:br_australis = {
+		set_relations = { country = c:br_romaioi_india_company value = 100 }
+		set_relations = { country = c:BYZ value = 50 }
+		add_liberty_desire = 15
+		create_bidirectional_truce = {
+			country = c:br_wati
+			months = 600
+		}
+		create_bidirectional_truce = {
+			country = c:MNG
+			months = 600
 		}
 	}
 

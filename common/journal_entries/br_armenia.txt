@@ -1,0 +1,56 @@
+﻿je_reclaiming_armenia = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	#should_be_pinned_by_default = yes
+	
+	group = je_group_foreign_affairs
+	
+	modifiers_while_active = {
+		br_modifier_national_restoration
+	}
+
+	is_shown_when_inactive = {
+		exists = c:ARM
+		c:ARM = ROOT
+	}
+
+	possible = {
+		exists = c:br_arevelyan
+		NOT = { owns_entire_state_region = STATE_ARMENIA }
+		has_technology_researched = nationalism
+	}
+
+	complete = {
+		c:ARM = {
+			owns_entire_state_region = STATE_ARMENIA
+			#owns_entire_state_region = STATE_ELIZAVETPOL
+			NOT = { exists = c:br_arevelyan }
+		}
+	}
+	
+	on_complete = {
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+	
+}
+
+

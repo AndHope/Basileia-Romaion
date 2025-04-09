@@ -12,9 +12,7 @@ manufacturies = {
 	}
 
 	unlocking_technologies = {
-		br_tech_hand_tools
 		br_tech_textile_manufacturies
-		br_tech_murano_glass
 		br_tech_experimental_construction
 	}
 
@@ -34,8 +32,6 @@ shaft_mining = {
 	}
 
 	unlocking_technologies = {
-		br_tech_hand_tools
-		br_tech_newcomen_engine
 		br_tech_experimental_construction
 	}
 
@@ -91,10 +87,6 @@ distillation = {
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/distillation.dds"
 	category = production
-
-	modifier = {
-		#The unlocks that were on this tech were moved up so we need to add a modifier or production method here to make up for it.
-	}
 
 	unlocking_technologies = {
 		manufacturies
@@ -175,7 +167,7 @@ intensive_agriculture = {
 	category = production
 
 	unlocking_technologies = {
-		br_tech_rotherham_plough
+		br_tech_horse_drawn_machinery
 	}
 
 	ai_weight = {
@@ -199,6 +191,10 @@ fractional_distillation = {
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/fractional_distillation.dds"
 	category = production
+	
+	modifier = {
+		goods_output_liquor_mult = 0.05
+	}
 
 	unlocking_technologies = {
 		distillation
@@ -248,7 +244,7 @@ atmospheric_engine = {
 	category = production
 
 	unlocking_technologies = {
-		shaft_mining
+		br_tech_newcomen_engine
 	}
 
 	ai_weight = {
@@ -460,7 +456,7 @@ steam_donkey = {
 	category = production
 
 	unlocking_technologies = {
-		intensive_agriculture
+		br_tech_horse_drawn_machinery
 	}
 
 	ai_weight = {

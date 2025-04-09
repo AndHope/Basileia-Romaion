@@ -19,7 +19,7 @@
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism #law_free_trade
+		activate_law = law_type:law_mercantilism 
 		activate_law = law_type:law_interventionism
 		activate_law = law_type:law_right_of_assembly		
 		activate_law = law_type:law_per_capita_based_taxation
@@ -38,6 +38,10 @@
 			institution = institution_schools
 			level = 2
 		}	
+		set_institution_investment_level = {
+			institution = institution_home_affairs
+			level = 2
+		}
 
 
 		set_tariffs_import_priority = g:wood
@@ -51,6 +55,7 @@
 
 		set_tariffs_export_priority = g:ammunition
 		set_tariffs_export_priority = g:luxury_clothes
+		set_tariffs_export_priority = g:luxury_furniture
 
 		add_taxed_goods = g:liquor
 		#add_taxed_goods = g:opium
@@ -66,10 +71,9 @@
 			add_ruling_interest_group = yes
 			remove_ideology = ideology_reactionary
 			add_ideology = ideology_plutocratic
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.5
+				multiplier = 0.45
 				years = 75
 				is_decaying = yes
 			}
@@ -82,6 +86,11 @@
 
 		add_modifier = {
 			name = br_modifier_merchant_republic
+			months = -1
+		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
 			months = -1
 		}
 
@@ -105,10 +114,8 @@
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			years = 100
 		}
-		add_modifier = {
-			name = br_modifier_mediterranean_merchant_republic
-			months = -1
-		}
+		
+		add_journal_entry = { type = je_br_mediterranean_merchant_republic }
 
 		add_company = company_type:company_ven_trade
 		company:company_ven_trade = {
@@ -120,10 +127,6 @@
 			set_company_establishment_date = 1325.1.1
 			set_company_state_region = s:STATE_VENETIA
 		}
-		trigger_event = {
-			id = br_nation_startup_event.2
-			days = 1
-		}
 
 	}
 
@@ -132,7 +135,7 @@
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism #law_free_trade
+		activate_law = law_type:law_mercantilism 
 		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_right_of_assembly		
 		activate_law = law_type:law_per_capita_based_taxation
@@ -159,7 +162,6 @@
 			add_ruling_interest_group = yes
 			remove_ideology = ideology_reactionary
 			add_ideology = ideology_plutocratic
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5
@@ -172,6 +174,114 @@
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_patrician
 			add_ruling_interest_group = yes
+		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
+			months = -1
+		}
+
+		add_modifier = {
+			name = br_modifier_italy_academia
+			years = 100
+		}
+		add_modifier = {
+			name = br_modifier_italy_accessible_stock_exchanges
+			years = 100
+		}
+
+	}
+
+	c:br_aquileia ?= {
+		effect_starting_technology_tier_2_tech = yes
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism 
+		activate_law = law_type:law_extraction_economy
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_migration_controls				
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_private_schools
+		
+		activate_law = law_type:law_women_own_property
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+
+
+		ig:ig_petty_bourgeoisie = {
+		}
+		
+		ig:ig_landowners = { 
+			add_ruling_interest_group = yes
+		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
+			months = -1
+		}
+
+		add_modifier = {
+			name = br_modifier_italy_academia
+			years = 100
+		}
+		add_modifier = {
+			name = br_modifier_italy_accessible_stock_exchanges
+			years = 100
+		}
+
+	}
+
+	c:br_verona ?= {
+		effect_starting_technology_tier_1_tech = yes
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism 
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_migration_controls				
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_tenant_farmers
+		
+		activate_law = law_type:law_women_own_property
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:services
+
+
+		ig:ig_petty_bourgeoisie = {
+		}
+		
+		ig:ig_landowners = { 
+			add_ruling_interest_group = yes
+		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
+			months = -1
 		}
 
 		add_modifier = {

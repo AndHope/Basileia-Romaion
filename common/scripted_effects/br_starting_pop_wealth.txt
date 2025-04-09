@@ -1,0 +1,85 @@
+﻿### NOTE: This file only exist to set a baseline for the simulation, the ACTUAL wealth of pops is calculated during setup so starting wealth January 1, 1836 will NOT match the values set in this file
+
+br_effect_starting_pop_wealth_aristocrats_high = {
+	every_scope_pop = {
+		set_pop_wealth = {
+			wealth_distribution = {
+				value = 10
+				if = {
+					limit = {
+						strata = upper
+					}
+					add = 30
+				}
+				if = {
+					limit = {
+						strata = middle
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						is_pop_type = aristocrats
+					}
+					add = 25
+				}
+				if = {
+					limit = {
+						is_pop_type = laborers
+					}
+					add = -2
+				}
+				if = {
+					limit = {
+						is_pop_type = peasants
+					}
+					add = -3
+				}			
+			}
+			update_loyalties = no
+		}
+		effect_reset_wealth_if_slave = yes
+	}
+} 
+
+br_effect_starting_pop_wealth_shopkeepers_high = {
+	every_scope_pop = {
+		set_pop_wealth = {
+			wealth_distribution = {
+				value = 13
+				if = {
+					limit = {
+						strata = upper
+					}
+					add = 30
+				}
+				if = {
+					limit = {
+						strata = middle
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						is_pop_type = shopkeepers
+					}
+					add = 15
+				}
+				if = {
+					limit = {
+						is_pop_type = laborers
+					}
+					add = -2
+				}
+				if = {
+					limit = {
+						is_pop_type = peasants
+					}
+					add = -3
+				}			
+			}
+			update_loyalties = no
+		}
+		effect_reset_wealth_if_slave = yes
+	}
+} 

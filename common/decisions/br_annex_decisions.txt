@@ -17,6 +17,9 @@
 		c:FIN = {
 			relations:root >= 45
 		}
+		c:FIN = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -26,7 +29,20 @@
 	}
 
 	ai_chance = {
-		base = 1
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
@@ -49,6 +65,9 @@ annex_norway = {
 		c:NOR = {
 			relations:root >= 45
 		}
+		c:NOR = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -58,7 +77,20 @@ annex_norway = {
 	}
 
 	ai_chance = {
-		base = 1
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
@@ -81,6 +113,9 @@ annex_UBD = {
 		c:UBD = {
 			relations:root >= 45
 		}
+		c:UBD = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -90,7 +125,20 @@ annex_UBD = {
 	}
 
 	ai_chance = {
-		base = 1
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
@@ -119,6 +167,19 @@ annex_bedouins = {
 
 	ai_chance = {
 		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
@@ -146,6 +207,9 @@ annex_RIC = {
 		ROOT = {
 			navy_size >= 50
 		}
+		c:br_romaioi_india_company = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -154,7 +218,20 @@ annex_RIC = {
 	}
 
 	ai_chance = {
-		base = 1
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
@@ -178,6 +255,9 @@ annex_DEI = {
 		}
 		c:DEI = {
 			relations:root >= 50
+		}
+		c:DEI = {
+			is_player = no
 		}
 	}
 
@@ -211,6 +291,9 @@ annex_ATC = {
 		c:br_dutch_west_indies = {
 			relations:root >= 50
 		}
+		c:br_dutch_west_indies = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -243,6 +326,9 @@ annex_JSB = {
 		ROOT = {
 			army_size >= 100
 			navy_size >= 30
+		}
+		c:br_japanese_siberia = {
+			is_player = no
 		}
 	}
 
@@ -280,6 +366,9 @@ annex_JPI = {
 			army_size >= 100
 			navy_size >= 30
 		}
+		c:br_japanese_pacific_islands = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -307,12 +396,11 @@ annex_NWC = {
 		ROOT = c:br_vinland
 		c:br_new_world_company = { is_subject_of = c:br_vinland }
 		#has_technology_researched = civilizing_mission
-		OR = {
-			has_law = law_type:law_colonial_resettlement
-			has_law = law_type:law_colonial_exploitation
-		}
 		c:br_new_world_company = {
 			relations:root >= 45
+		}
+		c:br_new_world_company = {
+			is_player = no
 		}
 	}
 
@@ -323,7 +411,20 @@ annex_NWC = {
 	}
 
 	ai_chance = {
-		base = 1
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 
@@ -386,6 +487,9 @@ annex_VAC = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
+		c:br_venice_africa_company = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -394,7 +498,20 @@ annex_VAC = {
 	}
 
 	ai_chance = {
-		base = 99
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }
 annex_GAC = {
@@ -414,6 +531,9 @@ annex_GAC = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
+		c:br_genonese_africa_company = {
+			is_player = no
+		}
 	}
 
 	when_taken = {
@@ -422,6 +542,19 @@ annex_GAC = {
 	}
 
 	ai_chance = {
-		base = 99
+		base = 5
+		modifier = {
+			trigger = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
 	}
 }

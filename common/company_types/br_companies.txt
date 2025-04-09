@@ -1,5 +1,7 @@
 ﻿#BR mod unique Companies
-#BR
+
+
+#Trade Companies
 company_byz_ric = {
 	icon = "gfx/interface/icons/company_icons/ric_logo.png"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
@@ -301,6 +303,162 @@ company_fla_trade = {
 		value = 5 # Higher base value for flavored companies
 	}
 }
+
+#Japan
+company_jap_trade = {
+	icon = "gfx/interface/icons/company_icons/japtrade02.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_shipyards
+
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_spices_plantation
+		building_dye_plantation
+		building_silk_plantation
+		building_banana_plantation
+
+		building_coal_mine
+		building_iron_mine
+		building_lead_mine
+		building_sulfur_mine
+
+	}
+
+	potential = {
+		country_has_primary_culture = cu:japanese
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KYUSHU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_trade_route_cost_mult = -0.25
+		country_trade_route_competitiveness_mult = 0.5
+		#state_colony_growth_speed_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+#Oman
+company_oma_trade = {
+	icon = "gfx/interface/icons/company_icons/omantrade.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_shipyards
+
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_spices_plantation
+		building_dye_plantation
+		building_silk_plantation
+		building_banana_plantation
+
+	}
+
+	potential = {
+		country_has_primary_culture = cu:bedouin
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_OMAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_trade_route_cost_mult = -0.25
+		country_trade_route_competitiveness_mult = 0.5
+		#state_colony_growth_speed_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+#Florence TUS
+company_florence_bank = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/BasicBank.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufactering_light.dds"
+	
+	building_types = {  
+		building_financial_district
+
+		building_coal_mine
+		building_iron_mine
+		building_lead_mine
+		building_sulfur_mine
+		building_gold_mine
+
+		building_logging_camp
+
+		building_textile_mills
+		building_furniture_manufacturies
+		building_tooling_workshops
+	}
+
+	potential = {
+		always = yes
+	}
+
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TUSCANY
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_financial_district
+				}
+				level >= 20
+			}
+		}
+		#has_technology_researched = investment_banks
+	}
+	
+	prosperity_modifier = { 
+		country_minting_mult = 0.05
+		country_loan_interest_rate_mult = -0.05
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}	
+}
+
 
 
 #Edited Base Game Companies

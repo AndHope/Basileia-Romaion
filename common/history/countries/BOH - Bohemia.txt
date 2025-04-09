@@ -2,11 +2,16 @@
 	c:BOH ?= {
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
 		set_tax_level = medium
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 
 		# Laws 
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy #law_autocracy 
+		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_hereditary_bureaucrats
@@ -34,6 +39,10 @@
 				is_decaying = yes
 			}
 		}
+		add_modifier = {
+			name = br_modifier_hussite_legacy
+			years = 50
+		}
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
 		}
@@ -42,7 +51,7 @@
 		}
 		
 		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
+			set_interest_group_name = ig_hussite_church 
 		}
 
 	}

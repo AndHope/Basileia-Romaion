@@ -20,11 +20,11 @@ on_monthly_pulse_country = {
 	}
 }
 
-# on_monthly_pulse_country = {
-# 	events = {
-# 		new_homelands.1
-# 	}
-# }
+on_monthly_pulse = {
+	on_actions = {
+		br_on_state_occupied
+	}
+}
 
 romaioi_monthly_pulse = {
 	trigger = {
@@ -126,6 +126,8 @@ on_election_campaign_end = {
 on_monthly_pulse_country = {
 	events = {
 		br_slave_event.1
+		br_settler_event.1
+		br_settler_event.2
 	}
 }
 
@@ -162,6 +164,7 @@ br_oa_var_debug_silencer = { #oa is on action
 		has_variable = haiti_stops_paying_france_aggressor
 		has_variable = haiti_stops_paying_france_target
 		has_variable = positivism_happened
+		has_variable = brz_election_done
 	}
 	effect = {
 		##BR variables
@@ -200,6 +203,11 @@ br_oa_var_debug_silencer = { #oa is on action
 		set_local_variable = hawduqo_var
 		set_local_variable = east_indies_revolt_var
 		set_local_variable = labour_movement_researched
+		set_local_variable = only_valid_party
+		set_local_variable = grander_colombia_ach_possible
+		set_local_variable = caudillo_var
+		set_local_variable = lingering_plc_resistance
+		set_local_variable = christ_of_nations_target
 	}
 }
 
@@ -218,5 +226,79 @@ br_oa_event_debug_silencer = {
 		trigger_event = { id = caucasuswar.5 }
 		trigger_event = { id = kazakhstan_events.2 }
 		trigger_event = { id = persia_events.5 }
+		trigger_event = { id = alk_breakup.1 }
+		trigger_event = { id = sweden_monarchy.1 }
+		trigger_event = { id = british_dictates.1 }
+		trigger_event = { id = british_dictates.2 }
+		trigger_event = { id = british_dictates.4 }
+
 	}
+}
+
+##template for an effect that executes when a state is controlled by someone else than the owner
+# br_on_state_occupied = {
+# 	effect = {
+# 		s:STATE_FLANDERS = { #state_regions can't use ?= probably because they are static and not dynamic
+# 			if = {
+# 				limit = {
+# 					any_scope_state = {
+# 						owner = c:FLA
+# 						not = { controller = owner }
+# 					}
+# 					# always = yes
+# 				}
+# 				c:HRE = {
+# 					trigger_event = {
+# 						id = complete_control_the_lowlands.1
+# 						popup = yes
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+br_on_state_occupied = {
+	effect = {
+		s:STATE_ILE_DE_FRANCE = { #state_regions can't use ?= probably because they are static and not dynamic
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = c:HRE
+						controller ?= c:FLA
+					}
+				}
+				c:HRE = {
+					trigger_event = {
+						id = br_goedendag.1
+						popup = yes
+					}
+					ruler = {
+						kill_character = yes #(yes - kill [by default], no - don't do anything) 
+					}
+				}
+				c:FLA = {
+					trigger_event = {
+						id = br_goedendag.1
+						popup = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+grefm_monthly_pulse_1 = {
+	trigger = {
+		country_has_primary_culture = cu:greek
+	}
+	events = {
+		grefm.131 # Corinth Canal Completed
+	}
+	random_events = {
+		200 = 0
+		 5 = grefm.157 # The Mask of Agammemnon
+		 5 = grefm.180 # The Defence of Jonas King
+	}
+
 }

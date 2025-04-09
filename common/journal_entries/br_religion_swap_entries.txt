@@ -1,0 +1,109 @@
+﻿je_religion_swap = {
+	icon = "gfx/interface/icons/law_icons/total_separation.dds"
+	
+	group = je_group_historical_content
+
+	#triggered thru br_generic_religion_swap_decision
+
+	scripted_progress_bar = br_religious_conversion_progress_bar
+
+	#add scripted buttons to increase the convertion
+
+	scripted_button = je_establish_sunday_schools_button
+	scripted_button = je_hold_religious_festivals_button
+
+	modifiers_while_active = {
+		br_modifier_swapping_religion
+	}
+
+	immediate = {
+		#save the scopes to the religions and set the new religion
+		root.religion = {
+			save_scope_as = old_state_religion
+		}
+		br_swap_religion_effect = { 
+			NEW_RELIGION = var:br_new_religion_scope_var
+		}
+		root.religion = {
+			save_scope_as = new_state_religion
+		}
+
+		#trigger events after the religion scopes are saved
+		trigger_event = {
+			id = br_religion_swap_events.1
+			popup = yes
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
+				scripted_bar_progress = {
+					name = br_religious_conversion_progress_bar
+					value >= 0.5	#50%
+				}
+			}
+			text = je_religion_swap_complete
+		}
+	}
+
+	on_complete = {
+		br_religion_swap_succes_effect = yes
+	}
+
+	fail = {
+		scope:new_state_religion = {
+			not = {
+				is_state_religion = root
+			}
+		}
+	}
+	
+	on_fail = {
+		br_religion_swap_failed_effect = yes
+	}	
+ 
+	
+
+	on_weekly_pulse = {
+		effect = {
+			br_calculate_percent_of_religious_followers_in_given_country_effect = { 
+				TARGET_COUNTRY = ROOT
+				TARGET_RELIGION = scope:new_state_religion
+			}
+
+			scope:journal_entry = {
+				set_bar_progress = {
+					value = local_var:country_religion_share
+					name = br_religious_conversion_progress_bar
+				}
+			}
+		}
+
+		random_events = {
+			#explanation of random_events from the coop discord
+			#the events are listed with a weight value, to get the chance of a given event in the list you add up all the weights and then do total/event weight
+			#ie, random_list with a 90 weight event and a 10 weight event, total is 100, so the first event has 90% chance of triggering, the second 10%
+
+			1 = br_religion_swap_events.4
+			99 = 0
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_religion_swap_status
+			}
+		}
+	}
+
+	timeout = 5475	#15 years
+
+	on_timeout = {
+		br_religion_swap_failed_effect = yes
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}

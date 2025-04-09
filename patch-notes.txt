@@ -1,5 +1,806 @@
 #### id=2880120246
 
+
+# Update 130 Patch Notes
+
+##Palaiologos reforms reformed.
+- Improved all the journals
+- Added two new journals
+- Added all the journals to the country file instead of the event so that prestige isn't higher than intended at game start
+- fixed various bugs that made some unabled to be completed 
+
+##Liberty Desire
+- Removed liberty desire from most modifiers but increased the one attached to the independence journal from .10 to .25
+
+##Update 02_br_global_pops.txt
+- Decrease the amount of loyalists at start of campaign.
+
+##More ERE name options
+- Added Basileía tōn Rhōmaíōn and Rhōmanía to the name change decisions.
+
+##Update br_code_static_modifiers.txt
+- Lowered Military and Prestige penalty for bankruptcy added small radicalism debuff.
+- Added some discrimination radicalism to the recently conquered state modifier.
+
+##endonymization to Exellēnízō
+#Georgia renamed
+- Sakartvelo name when independent
+- Kartuli adjective when independent
+- Ibería name when subject of BR
+- Iberikón adjective when subject of BR
+- Georgia will be known as such if a subject to anyone other than BR.
+#Armenia renamed
+- Hayastanname when independent
+- Haykakan adjective when independent
+- Armeníōn name when subject of BR
+- Armenikoí adjective when subject of BR
+- Armenia will be known as such if a subject of anyone other than BR.
+
+##Updated thumbnail and screenshots.
+
+##Update 05_br_global_rules.txt
+- Some Fixes and Improvements to the Abbasid game rule
+
+##Antipódeia Localization
+- I did not update Antipódeia localization when I changed the name some months ago have changed its reference in all english localization. 
+
+##Dynamic Localization
+- Changed many instances of Basileia Romaion to use [ROOT.GetCountry.GetName] instead incase you have an alternative name for the ERE.
+
+##Update ere_minor_military_formations.txt
+- few frigates for the ERE subjects
+
+##fixed egypt events triggering twice
+-fixed egypt events triggering twice, because the egypt je was being added twice
+-fixed a scope error in the veiled_exarchate.1 event
+
+##Hellene
+- Added Hellene culture as part of eventually cultural struggle mechanic for ERE.
+- Disabled the archaeology journal plan to incorporate it into the struggle in the future.
+
+##Fixed various Localization bugs
+
+##Create com_gui_objectives.gui
+- This is an older version of the objectives gui of the community mod framework. The new version prevents changing from default rules.
+
+
+
+
+
+#Update 128 Patch Notes
+
+	# Patch Notes
+
+## Orthodox Scripting Update
+- Refactored Orthodox GUI to remove dependency on fullscreen_block_window  
+- Added support for (and dependency on) the Community Mod Framework  
+- Updated script to EOCFM 1.0.1  
+- Added dedicated /replace localization folder for BR to minimize future upkeep issues  
+
+## Russian Flavor Text
+- Added unique flavor text for Novgorod and Muscovy  
+- Added semi-unique flavor text for Smolensk, Ryazan, Tver, Yaroslavl, and Nizhny Novgorod  
+- Adjusted flavor text for the centralized American Natives  
+
+## Colonial Flavor Text
+- Fixed Antipódeia naming in flavor text to reflect renames in the region  
+- Added semi-unique text for Genoese and Venice Africa Companies  
+- Added unique flavor text for South Africa, Nieuw Holland, and Ostend Company  
+
+## Genoa Flavor Text
+- Added unique text for Genoa  
+- Fixed Florence name change  
+
+## Commonwealth Flavor Text
+- Added unique flavor text for the Commonwealth and Prussia  
+- Added semi-unique flavor text for Polotsk, Pskov, Turov-Pinsk, Kyiv, Chernigov, and Galicia-Volhynia  
+- Fixed mistakes in Tartaria flavor text  
+
+## Buildings & Monuments
+- Incorporated Corinth Canal and Archaeology features from GotB (still testing and tweaking)  
+- Reworked the Hippodrome and Great Palace using a mix of current, GBBF, and new Production Methods  
+- Imported Building/Monument components from GBBF (with Alexedishi’s permission) to improve monuments  
+- Changed Versailles to use the default palace production methods  
+- Increased Ravenna releasable to include STATE_UMBRIA and STATE_ABRUZZO  
+
+## Population & Wealth Adjustments
+- Various population adjustments  
+- Organized the population files  
+- Increased wealth for a few nations  
+- Improved some pops’ starting wealth  
+- Increased wealth in Nanjing and Beijing  
+- Created a couple of unique pop wealth scripts  
+- Made Kanto wealthier to match other capital regions  
+
+## Modifiers & Balance
+- Added new modifier: "Wing Hussars" (Lancer buff)  
+- Various modifier adjustments and changes  
+- Lowered naval power projection debuff from Latin Privileges to balance with Regionalized Navy  
+- Changed generic modifiers to "generic & unsorted"  
+- Added a couple of new modifiers  
+
+## Military & AI Adjustments
+- Improved Croatia and Dalmatia’s starting military formations  
+- Mughals should no longer invade Tibet  
+- Updated Romans’ AI strategy:  
+  - Reduced targeting of the Papacy  
+  - Starts fewer wars before war with Aegypt  
+- Adjusted goals for Croatia and Dalmatia  
+- Updated to allow colonies to declare wars  
+- Gave Saxony a Guarantee from NSE  
+- Gave PLC an obligation with HUN (should help against Tartaria)  
+- Gave PLC a proper starting event (fixed previous issue)  
+- Moved two PLC country modifiers to journal modifiers  
+- Eastern Resistance JE will only appear if PLC owns Kiev directly  
+- Updated Golden Liberty Journal description  
+- Changed base game’s -50% morale/organization penalty for changing mobilized formations to -25% (less punishing)  
+- Increased naval power modifiers for BR/China:  
+  - BR: tied to their Naval Reform journal  
+  - China: tied to country modifiers  
+
+## Country & Culture Adjustments
+- Gave Bohemia the correct Church IG name  
+- Upgraded Flanders to a grand principality to align with similar HRE vassals  
+- Changed Polish culture color to light red (similar to their flag)  
+- Changed Misri culture to light green (aligned with other Arabic cultures)  
+- Made Syria and Aegypt starting rulers Romaioi culture  
+- Adjusted various country colors:  
+  - Darker variants for South American and Central African colonies  
+  - Aegypt slightly more red to match its flag  
+- BYZ AI will release Ravenna if they own it  
+- Added the Dalassenos family to the restored Syrian Exarchate  
+
+## AI Behavior & Events
+- Venice joining Aegypt’s side now gives them a War Reparations CB  
+- Created a new AI event chain causing a "kerfuffle" in the Balkans  
+- AI will engage in the Balkans conflict  
+- Decreased AI aggression towards subjects to slow down consolidation (may adjust later)  
+- Adjusted input to reduce Roman aggression before its scripted war is completed  
+
+## Map & Borders Adjustments
+- Adjustments to Dongola’s borders  
+- Tweaked Bosnian provinces  
+- Split the state of Ingria:  
+  - Gave part to Pskov  
+  - Adjusted buildings, pops, and formations for Pskov  
+- Easternmost part of Pskov State given to Smolensk  
+- Renamed St. Petersburg to Nyenschantz (previous settlement before its founding, feedback welcome)  
+
+## Fixes & Localization
+- Updated decision localization (needs better integration or removal in the future)  
+- Updated event localizations  
+- Updated IG descriptions  
+- Updated Thumbnails  
+- Fixed Patriarchate Rises crash  
+- Fixed a couple of missing modifiers needed for EOC events  
+- Renamed PLC file  
+- Updated br_aegyptian_crisis_events.txt  
+- Fixed AI prioritization issues for Rome’s wars  
+
+
+
+
+
+
+# Update 127 Patch Notes
+
+## New Features
+	###Religion Swap
+		- Reworked how a country can change religion
+		- Made a template for the decision to switch religion that can be easily used to add more decisions to switch to other Religions
+		- Added a JE 'Converting Religion' around converting your population to the new relgion
+		- Added 5 new events around the new JE
+		- Added 4 new modifiers for the new JE
+	### New Military Law: Mixed Army
+		- Added 'Mixed Army' as a transition between Peasant Levies and Professional Army  
+		- Assigned to: Yuan, ERE, NSE, ELY, KAP, MES, HUN, RAJ, MHR, JAP, PER, PLC, MUS, SER  
+		- Updated mod ideologies to reflect the new law 
+
+##Balance
+	### Buildings
+		- Improved Wallachia buildings  
+		- Added 1 Dye Plantation to Lebanon  
+		- Moved some factories around Venice and her subjects for specialization  
+		- Adjusted Horse Drawn transport to more vineyards  
+		- Decreased tobacco plantations globally  
+		- Increased vineyards in Italy, decreased Savoy’s unprofitable industries  
+		- Adjusted some ERE pops  
+		- Gave Skopje lead, sulfur, and gold potential based on real-world resources  
+		- Adjusted ERE monuments  
+		- Adjusted tier 1 tools for grain farms to improve profitability and reduce labor demand  
+		- Adjusted sugar output from fruit and grain losses to stabilize food supply  
+		- Gave Dutch, Flemish, and Italian Wheat/Rye farms tools, apples in the Netherlands, and citrus in South Italy  
+		- Added trade routes to balance new demand  
+		- Rebalanced economic production methods for wheat, rye, and ranches  
+	### Military Adjustments
+		- Adjusted military laws, reducing political strength bonuses  
+		- Gave Yuan 25 more Irregular Infantry  
+		- Created new military modifiers for Persia and Mughals  
+		- Improved military formations for multiple nations  
+		- Balanced tribal society law for SE tribal nations and Kurdish princes  
+		- Fixed Native Warbands modifier with a small irregular buff  
+		- Added Military Unit Modifier type definitions  
+		- Replaced Garibaldi with a random Italian fulfilling the same role  
+
+	### Modifiers & Misc
+		- Updated formable countries with newer PDX additions  
+		- Added minor malus to great/major powers and bonuses to minor/insignificant powers  
+		- Moved population growth stabilization to decentralized country rank instead of the native warbands modifier
+		- Adjusted Bohemia’s AI goals and diplomatic relations with the Dutch and Swedish  
+		- Changed Hyperborea, Apaleisia, Aithaia, and Kykladia to colonial from unrecognized  
+		- Increased urbanization effects of Magnificent and City of Worlds Desire  
+		- Moved certain modifiers to the tribal society law  
+		- Added political movement modifiers to static modifiers  
+		- Adjusted Fallen Eagle journal debuff  
+		- Adjusted colony dependence on overlords to slow absorption  
+		- Added a small bonus to subsistence farming for colonies.
+	### AI & Strategy
+		- AI overlords will be less aggressive toward player subjects.
+		- Improved strategy adjustments for various nations  
+
+## Fixes & Adjustments
+	- Improved Marathas starting tech tier to be in line with Mughals and Chola
+	- Increase arable land for pacific island chains.
+	- Added Apaleisia claims to the states it starts with colonizing
+	- Added Russian claims to western Siberia.
+	- Fixed bugs and spacing issues  
+	- Adjusted East Asian military formations  
+	- Fixed a bug related to the overlord canton in flag definitions  
+	- Adjusted church and state laws to align with mod standardization  
+	- Increased North Italians’ home affairs institution to level 2  
+	- Updated province changes to match new PDX modifications  
+	- Increased arable land in the Caribbean and Australia
+	- Replaced most of the Rice in the Americas with Maize since they employ less workers per farm I slightly increased arable land in the affected states.
+
+
+# Update 125 Patch Notes
+
+## Territory and State Adjustments
+- Made Aztlan states furthest from her core unincorporated.
+- Minor adjustments to Madagascar.
+- Added 4 decentralized tags to Central America.
+- Gave coastal territory to Aztlan and inland jungle to decentralized tags.
+- Added 7 new decentralized tags to Southeast Asia.
+- Found that Amur was duplicated in state files; removed the invisible duplicate owned by Siberia.
+- Transferred Dutch Africa trade post to Dutch West Indies, aligning with their historical trade routes.
+
+---
+
+## Economic and Trade Adjustments
+- **Trade Improvements**:
+  - Added more trade routes to balance new good demands.
+  - Added and removed buildings to keep resource levels balanced.
+  - Added more trade routes, import/export priorities for countries with excesses and shortages.
+
+- **Production Adjustments**:
+  - Moved sulfite pulping and dye workshops to earlier techs to increase sulfur and dye demand earlier.
+  - Rebalanced horse output to be less than sheep due to higher price and oversupply compared to fabric.
+  - Rebalanced building PMs for ranches, wheat, and rye to better utilize new PMs.
+  - Updated improved horse ranch to match grain cost and output of improved sheep ranch.
+  - Lowered base level ranch meat production for better balance.
+
+- **New Technologies**:
+  - Added 3 new agriculture production techs.
+  - Moved and adjusted production techs.
+  - Adjusted production method unlocks to different techs.
+  - Added resource icons and updated icons for production techs.
+  - Created a new farm PM as an early version of soil enrichment for early fertilizer use.
+  - Updated starting inventions to include new techs.
+
+---
+
+## Military and Strategic Updates
+- **Military Unit Balance**:
+	- Adjusted goods costs for military units:
+	- Irregular Infantry & Hussars now require 0.1 Iron and 0.2 Wood cost for early weapons.
+	- Line Infantry now requires 0.1 Lead for early ammunition.
+	- Trench/Mechanized Infantry now have increased Clothes costs.
+	- Lancers now use Luxury Clothes instead of regular Clothes—because those uniforms are fancy AF.
+- **Military Formations**:
+  - Created a custom naval formation for the HRE (12 Manowars, 20 Frigates) instead of defaulting to 30 Caravels.
+  - Improved military formations for SER, MOL, WAL, HRE, OCC, MUG, and all Afghan minors.
+  - Improved the armies and navies of Sweden, Netherlands, Flanders, Bohemia, and Saxony.
+  - Added more ranches to Mughals, Yuan, Ming, Hungary, Burgundy, and Bohemia.
+
+- **Modifiers and Buffs**:
+  - Added a working adult ratio buff tied to literacy (10% at 100% literacy).
+  - New military modifiers for PLC, HUN, and BOH.
+  - New Andalusia modifier: **"Tolerance of the Book"** (drastically lowers conversion, improves culture acceptance).
+  - Adjusted Sweden and Tartaria’s military modifiers.
+  - Syria and Abbasids receive a **Porcelain buff**.
+
+---
+
+## Population and Balance Adjustments
+- Adjusted global pop radicals/loyalists to work properly, allowing event removal for redundancy.
+- Adjusted population working ratios for balance.
+- Increased starting working adult ratio for certain cultures from **30% → 35-40%** for better early-game workforce.
+- Sweden, Netherlands, and other low-pop nations now start with a more functional workforce, allowing for additional buildings and formations.
+
+---
+
+## Map and Building Adjustments
+- Added small gold deposits to Europe based on research.
+- Adjusted buildings in **Prussia, Poland, Serbia, Bosnia, Venice + subjects, and the Abbasids**.
+- Adjusted Sweden and Finland’s buildings, moving some Swedish wood/iron buildings to Finland to allow more manufactories in the south.
+- Added manufactories to **Bohemia, Netherlands, Saxony, and Flanders**.
+
+---
+
+## Fixes and Miscellaneous Updates
+- **File and Formatting Fixes**:
+  - Removed extra spacing from decentralized country files.
+  - Fixed spacing errors in PMs.
+  - Fixed PMs that lacked a main set, preventing random selections.
+  - Fixed unfinished modifier in a journal entry.
+  - Fixed incorrect setting for Cape Colony mine.
+
+- **Localization and Naming**:
+  - Renamed military bonus techs.
+  - Added missing organic localization.
+
+- **Miscellaneous**:
+  - Removed accepted birth rate after testing showed no effect and errors.
+  - Most world farms that started with **Soil Enrichment PM** were moved to the new lower-tier **'Organic Farming'** PM.
+  - Adjusted Andalusian **religious tolerance** modifier.
+
+
+
+### Update 124
+
+# Patch Notes
+
+## Economy and Trade
+- **Demand Adjustments**:
+  - Increased starting demand for sugar, spice, and everything nice.
+  - More food industries starting with spiced food.
+  - Added a tiny amount of sugar needed for spiced food.
+- **Trade Improvements**:
+  - Added more taxed goods to countries.
+  - Added more import-export priorities to country files.
+  - Added more trade routes.
+  - Updated export priority for coffee and dyes for countries with large excesses.
+- **Economic Modifiers**:
+  - Gave Italian Stock Exchange a loan interest reduction modifier.
+  - Gave Market Capital a small political strength bonus.
+  - Increased tariff levels for Protectionism.
+  - Put tariff modifiers on the Inward Perfection modifier.
+
+---
+
+## Military and Strategy
+- **Army Adjustments**:
+  - Increased army sizes for Mughals, Juan, Ming, Marathra, Korea, and Ming's vassals.
+  - Increased max conscription centers in capitals, similar to barracks.
+- **AI Strategy**:
+  - Adjusted AI strategies for improved gameplay.
+
+---
+
+## Cultures and Populations
+- **Population Needs**:
+  - Added a tiny minimum population need for sugar and spice.
+- **Culture Updates**:
+  - Adjusted Arab pops, buildings, and trade.
+  - Made all Turkic and Mongols have a horse obsession.
+  - Renamed Mods Exarchate Bulgaria to Moesia and removed Bulgarian as a Primary Culture.
+  - Removed Albanian as a Primary Culture for Dyrrachion.
+  - Changed Afro-Dutch culture from German-speaking to Low Countries.
+  - Renamed Afro-Arab to Zanji.
+  - Added semi-generic flavor to Cahokia and Pueblo.
+  - Added Saxon homelands to Silesia and Posen.
+  - Added Frankish homelands to Saxony.
+  - Removed Baltic homelands from Posen.
+  - Added Kykladian as a new subculture of Elysian.
+- **Missing Modifiers**:
+  - Added missing culture modifiers.
+
+---
+
+## New Additions
+- **Technology**:
+  - Added sewage tech.
+- **New Nations**:
+  - Cahokia (new country).
+  - Hyperborea (Varangian buffer state between Elysian and Vinland).
+  - Kykladia (small island chain in modern-day Bahamas).
+- **New Cultures**:
+  - Cahokian.
+- **New Gameplay Features**:
+  - New journal for the West Indies.
+  - New modifiers for controlling West Indies trade and piracy.
+- **Characters**:
+  - Added new characters for new Elysian tags.
+- **Naming Options**:
+  - Added a new naming decision for BR to change the name to Romania.
+
+---
+
+## Map and Territory Changes
+- **Map Pass**:
+  - Began a pass on the map data files.
+  - Smoothed Japanese New World colony borders for a cleaner look.
+  - Adjusted map data prime land to reflect differences.
+  - Cleaned up owned provinces for consistent formatting.
+- **Native American Nations**:
+  - Added states, pops, buildings, and formations to optionally playable Native American nations.
+  - Merged MSC into Creek to form a larger tribal nation.
+- **West Indies Adjustments**:
+  - Gave Dutch West Indies and Ostend Company small islands in the West Indies with:
+    - One arable land for sugar plantations.
+    - A small anchorage port.
+    - ~5k pops each.
+- **Protectorates**:
+  - Apalesia and Aithaia made protectorates and changed from colonial to unrecognized.
+  - Changed LAN to a colonial tag to function as a chartered company.
+- **Renaming**:
+  - Renamed various strategic regions.
+
+---
+
+## Gameplay Adjustments
+- **Production Methods**:
+  - Removed grain cost from base horse PM to align with the base sheep PM.
+- **Fixes**:
+  - Fixed issues where AI decisions would target the player if they subjugated the target.
+  - Fixed states and pops.
+- **File Organization**:
+  - Renamed `01_global` to `01_global_states` for state effects.
+  - Reorganized BR country definitions, moving files with `br_` to BR definitions.
+  - Moved events from country files into a global file for easier management.
+
+---
+
+## Aesthetics and Flags
+- **Flags**:
+  - Scaled down flags to reduce in-game space usage.
+  - Adjusted flag widths to prevent squashed appearances after scaling.
+- **Coat of Arms**:
+  - Updated Coat of Arms for Ven and Gen subjects.
+  - Added new CoA for TWT and NAH monarchies.
+  - Minor CoA changes.
+- **Thumbnails**:
+  - Updated thumbnails for consistency.
+
+
+### Update 123 'Antipódeia pros Apalaísia'
+
+##Clothing rework
+- Reworked the vanilla portrait files to make the mod cultures make use of more diverse set clothing assets based on various dfferent factors.
+
+##Unique flavor text and more objectives nations
+-Added North Sea Empire and Aigyptios to the Economic Dominance Objectives selection screen.
+-Added Tartaria and Al-Andalus to the Hegemony Objectives selection screen.
+-Removed Elysium from the Egalitarian Society Objectives selection screen.
+-Added New Angland, Antipódeia, and Anahuac to the Egalitarian Society Objectives selection screen.
+-Added unique flavor text to the following nations; Mali, Elysium, New Angland, Aigyptios, North Sea Empire, Milan, Venice, HRE, Tartaria, Al-Andalus, Persia, and Australis.
+-Added semi-generic custom flavor to; Parma, Lucca, Modena, Maya, Anahuac, and Tawantinsuyu.
+
+## Area Ravamps
+
+##Elysium and Vinland
+#New Countries added
+- Added Apaleisia Republic and Mount Aithaia as new Elysian Tags semi independent from game start.
+- Added multiple new sub cultures for Elysian and Vinlander cultures.
+- Renamed Neo Hellenic to Plethonist updated our lore document wth the details. 
+
+#Tartaria
+- Revamped the Tartars Eastern border all the way to china. Pops, buildings and formations updated for the region
+- Edited Tartaria's western states provinces with russia giving a dozen or so more provinces to a few of the russian countries.
+- Changed most of the Turkmen in Tartaria into Tatars for game performance
+
+#Australis renamed to Antipódeia
+- Tuned the borders of all the colonies to be more coastal less inland.
+- Updated all the Hub names
+- Updated the Antipódeia map data made the coastal provinces "prime land" so theres more arable land along the coast and less in the interior
+- updated pops and buildings.
+- Added New Holland as dutch Colony
+- Added some more buildings in New Holland
+- boosted New Hollands capital buildings and pops.
+- Added few starting mines to North and West Antipódeia so their was an obvious reason for settling the area.
+- Changed Antipódeia colonial law to frontier from resettlement and discovered it can now colonialize land not connected to capital previously could not.
+- New Journal for Autralis and rewrote the Vinland/Elysium one all the same right now but can individualize later
+
+##Scripted features
+- Created a script for colonial nations that works similar to the slave trade one, that auto assimilates European descendent peasants into the colonial culture. I also created one so if a colonial culture pop moves back to Europe they ditch their colonial culture and go back to their mother culture. Added a bunch of safety rails that make it only effective in the colonial cultures primary region etc
+- added/updated some scripted mass migration events
+- created new settler events 
+- Added Colonial Heritage for colonial cultures this is used in the assimilation script to not assimilate colonial cultures into other colonial cultures via the script normal methods still will assimilate colonial cultures into other colonal cultures.
+
+##Modifiers
+- Added modifiers for the following techs; Gunsmithing (+2 Army Offense), Sextant (+5% Convoy Defense), Careening (+3 Navy Defense), Field Guns (+2% Kill Rate), and Currency Standards (+10%  Building Cash Reserves, +5% Minting)
+- Updated and added a few other modifiers 
+
+##Decisions
+- Updated all the annex decisions to require the subject not be a player.
+- Added some more ai triggers to decisions
+- Change Religion decisions changes
+
+##Other Balance adjustments
+- Switched the generic offensive and defensive national modifiers to unique techs but made them less powerful overall. removed the persian modifier from files and kept the other two in the files.
+- gave officers and soldiers more base political strength.
+- Genoa added as a releasable also ai decision to release it
+- Gave Genoa and Venice a 48 month truce to give Venice and chance since they are usually already on the back foot against Milan.
+- changed some migration laws doesn't affect mass migration.
+- minor diplomacy tweaks
+- Adjusted devastation to go up and down 1/3rd as fast.
+- Added a little starting Devastation to India and China due to their ongoing major wars.
+- lowered colonization speed modifer buffs, removed colonization from some countries starting laws but made sure their IGs have a bonus to passing it.
+- added ranchng thoughput bonus to industry banned law.
+- improved the autonomous march modifer
+- removed colonial fever country modifier and replaced it with a better state modifier "colonial opportunity.
+- added some debuffs to the Italian buff modifiers.
+- added a tiny modifier to mercantilism tech
+- lowered base bureaucracy for trade routes to 12 from vanilla cost of 20
+- other tweaks to improve trade profitability 
+- added more starting political movements to the ere.
+- slowed down debt slavery as debt slavery is much more widespread in the mod at start and the colonies with slave trade import so many slaves so fast and it leave less jobs for other immigrants.
+- Gave the more trade based power blocs start with Economic Imperialism principle. Gives the leader a manufacturing boost but decreases members.
+- Updated the Church and state law to be similar to the latest pdx version to allow conversion to lowest acceptance 
+- slightly lower pop growth
+- slightly slowed war
+- added many more secret goals to ai
+- moved MAI to HER trib from KAB.
+- Gave BUK couple more provinces that made sense
+- Updated Political Movements.
+- Updated some rulers Ideologies to make sure they start with the correct Movement.
+- Updated the Immigrant script to not assimilate other Colonial cultures.
+- Renamed Mande culture to Mandinka and made their color more gold.
+- Further work on New world pops and buildings
+- New Decision for ERE to give black sea colonies to taurica
+- Secret goal adjusts
+- Italian diplo adjusts
+
+
+##Character Names
+New Anglo-Saxon/New Anglander Names
+For the Anglo-Saxon and New Anglander cultures;
+-Added 86 Male names
+-Added 69 Female names
+-Added 24 Noble last names
+-Added 26 Commoner last names
+-Started condensing name lines
+
+##Organization stuff
+- moved NET and FLA from HRE diplomacy to a new Lowlands diplomacy file added DEI and br_new_holland.
+-Continued compression of 00_cultures.txt, removed 2,579 lines.
+- slight clean up of country files
+- further country law tidying and balance pass
+- Reorganized coat of arms files
+- moved unused textured emblems to the unused folder.
+- reorganized the defines files
+- Fixed the Japanese assimilation script
+- Made Afro cultures also Colonial cultures and made them not auto assimilate as they had already been auto assimilated.
+- few coat of arms updated.
+- moved more unused coat of arms to the unused folder
+- hashed out the now defunct hre powerbloc identity.
+
+##Bug Fixes
+- removed the bugged HRE power bloc Identity moved them back to sovereign empire but created and gave them a new principle that does the things the identity did.
+- figured out what folder to put the icon in for the forced trade access.
+- expanded the immigrant script
+- removed the left over historical UK characters.
+- removed duplicate Godwinson in localization.
+- fixed various  bugs and missing loc.
+- Fixed 3 errors related to nations not being allowed to have Tribal Armies Law type
+- adjusted pops in various areas to balance and fix bugs related to outdated amounts of certain pops since 1.7 ownership changes.
+
+
+
+### Update 122 
+
+##History/Map/Nation Balance
+- Adjusted Majapajit
+- Lots of adjustments in India added new trade ports Andalus, Oman and Dutch East Indies. Lot of new buildings owned by the foreign trade posts to represent their vast trade interests. Also good amount of pop changes.
+- Similarly but less so in China, SE Asia, Afghanistan.
+- Added 100s more starting trade routes.
+- Created Custom Military formation for DEI.
+- Adjusted Zanzibar borders
+- Added grand port to Goa.
+- buildings, state and pop adjustments
+- buildings added and ownership adjustments
+- some starting techs adjusted no more nations starting with general staff or percussion cap replaced with mandatory service/ military drill.
+- New World South border tuning
+- More trade routes
+- Created Verona and Aquileia as Venice Subjects
+- Some new interests so countries can have above trade routes.
+- Added admin buildings to several countries that start with -100% bureaucracy. Should prevent early game bankruptcies by the AI
+- Added claims in Algeria for all 3 Algerian minors, so any can easily form it.
+- Added homelands for a few cultures in Iberia
+- Added claims on those homelands in Iberia
+- Broke off Spoleto as an Italian Subject
+- Split up the Power bloc/Alliance and Economic Dynamic in Northern Italy. Milan and Florence are now their own power bloc, took some of the Italian minors and made them protectorates of Milan to connect their power bloc and make sure Milan can trade via the sea.
+- Created 100s of new trade routes to facilitate their economies as well as the rebalance affecting the Venice/Genoa markets.
+- Updated the Verona, Aquilenia, Spoleto and Benevento releasables.
+- Moved a few buildings and pops around in Italy.
+
+##Decisions/Events & Journals
+- Fixed Tartaria reviving Khazer Khaganate decision will now given you Jewish Priesthood IG 'Kohen'.
+- Fixed convert to Sunni decision will now rename IG.
+- Fixed Tartaria Religious IG being called Sunni, will start as Tengri Priesthood.
+- If you convert to Tengri will rename your Religion IG to Tengri Priesthood.
+- Fixed Exarchate event for most situations
+- new decision to go shitte
+- three new decisions to expand ERE Vassals: ARM,MES, br_syria.
+- some ere modifier adjustments
+- some events/ decisions will have an ai and player version.
+- Remove Latin Trade Privileges JE and decision will remove the Forced Trade Access for Venice and Genoa.
+- Added generic JEs to some nations that made sense.
+- Added a form Italy (north) JE
+
+##Diplomatic Actions
+- New Diplomatic Action 'forced trade access' works like a trade pact except it can't be canceled. Set up so certain nations can't embargo and have the keep their trade routes open despite terrible relations.
+- Colony 25% from 50% and Chartered companies 10% from 50%. will provide less convoys to overlord. I want their ai to make their own trading empires and to be playable for players.
+- Fixed EOCFM content not working for Basileia Romaion.
+
+#Misc
+- modifier adjustments
+- new companies for OMA.JAP,TUS
+- some IG modifiers adjusted
+- lots of diplomacy adjustments
+- benign error fixes, almost no fixable errors left.
+- IG mod adjustments
+- added Clothes, Luxury Clothes, Furniture, Luxury Furniture, and Porcelain goods modifiers
+- Changed Japans modifier from Glassworks output to porcelain output
+- Added Italian Craftsmanship to all Italian nations
+- Added Fine China modifier to China and their Han Subjects.
+
+#AI
+- AI adjustments to goals, objectives etc.
+- New AI only decisions/events
+- Updated Italian AI goals and diplomatic relations
+- Added AI triggers for north Italians to be more aggressive in forming Italy.
+
+##GFX
+- Coat of Arms for some Italian minors
+- Known bug the new diplomatic action 'Forced Trade Access' has no icon. 
+
+
+- Other Bug fixes
+
+
+
+### 121
+
+	- Adjusted majapajit
+	- Fixed Tartaria reviving Khazer Khaganate decision will now given you Jewish Priesthood IG 'Kohen'.
+	- Fixed convert to Sunni decision will now rename IG.
+	- Fixed Tartaria Religious IG being called Sunni, will start as Tengri Priesthood.
+	- If you convert to Tengri will rename your Religion IG to Tengri Priesthood.
+	- Colony 25% from 50% and Chartered companies 10% from 50%. will provide less convoys to overlord. I want their ai to make their own trading empires and to be playable for players. 
+	- Lots of adjustments in India added new trade ports Andalus, Oman and Dutch East Indies. Lot of new buildings owned by the foreign trade posts to represent their vast trade interests. Also good amount of pop changes.
+	- Similarly but less so in China, SE Asia, Afghanistan. 
+	- Added 100s more starting trade routes.
+	- Created Custom Military formation for DEI.
+	- Added generic JEs to some nations that made sense.
+	- Adjusted Zanzibar borders
+	- modifier adjustments
+	- Added grand port to Goa.
+	- Fixed Exarchate event for most situations
+	- Improved Korea buildings
+	- Gave Korea own market
+	- added more trade routes
+	- Added two new trade companies for Japan and Oman
+
+
+### Update 120 'Christoúgenna' 12/25/24
+
+	## Journal Entries & Modifiers
+		- Added a JE for "Control over Baltic trade" includes a modifer active while you control the required states
+		- Added a JE for "Control over the Strait of Hercules" includes a modifer active while you control the required states
+		- Added a JE for "Control over Bosphorus Straits" includes a modifer active while you control the required states
+		- Added a JE for "Control over the Klysma Canal" includes a modifer active while you control the required states
+		- Added a JE for "Control over Persian straits" includes a modifer active while you control the required states
+		- Added a JE for Papal States "Alms of St Peter" moved Papal Tithe modifer from country tab to JE.
+		- Added a JE for Abbasids "Hajj" moved Hajj modifier from country tab to JE.
+		- Improved the JE for "Control trade in the East Indies" includes a modifer active while you control the required states
+		- Updated a few of the new JEs triggers, effects and modifiers
+
+	## Miltary
+	 - Added custom military formations for England, Ireland, Scotland, Wales, Finland, United Baltic Duchies and Pommeria. This will greatly improve their military and they should use conscripts now.
+
+	##Map/history changes
+		- Improved Persian borders at Dagastan and Southern Afganistan.
+		- Adjusted diplomacy of a few nations
+		- Improved Delhi's starting buildings
+		- Gave West Indies and Andalus each a small Mid Atlantic Island 
+		- Dutch East Indies have had their toe hold in Bengal returned. (1.8 I didn't quite finish the remap of India)
+		- Andalus given a small treaty port in India.
+
+	##Events
+		- Improved the Frankish revolt event
+		- Added a Bengal revolt event.
+		- Added a Transylvania revolt event.
+
+	##Decisions
+		- Adjusted the requirements the Vineland Decision to annex the Norse New world Company
+
+	##AI
+		- Further work on the AI goals and objectives.
+	##GUI
+		- The Orthadox Gui will now full screen so lower resolution can see everything.
+
+### Update 119 'Saturnalia' 12/24/24
+
+## Journal Entries
+	- Added a JE to help Elysium expand Westward.
+	- Added a JE to help Vineland expand Westward.
+	- Added a JE related to gaining independence available to all reorganized subject nations once nationalism is researched.
+	- Added a JE for the east India trade companies to control the spice trade moved the modifier to the JE. This is available to any reorganized nation with an interest and foothold in one of the required spice states.
+	- Added a JE for Tartara to expand Eastward into the Steppe/Siberia.
+	- Added a JE for Japanese Shiberia to expand deeper into Siberia.
+	- Added a JE for restoring Russia (Available to 'recognized' Russo-Ruthenian Countries)
+	- Added a JE for Mughals to consolidate Northern India
+	- Added a JE for Tartaria to Modernize and remove the Decentralized Khanate debuff.
+	- Added a JE for Tartaria to stop Oppressing our Slavic and other minorities.
+	- Added a JE for Persia to directly control Afganistan
+	- Added a JE for Persia to directly control Central Asia
+	- Added a Hungarian JE to annex Transylvania.
+	- Added a JE for England to restore control over England if they gain independence.
+	- Added a JE for HRE to conquer Aquitaine.
+	- Added a JE for Armenia to restore its eastern borders.
+	- Added a JE for Serbia to restore its borders.
+	- Added a JE for Aegypt to control the Nile.
+	- Added new modifiers to most of the new JEs
+	- Added a JE for Colonial Subjects
+	- Added a JE for New World Colonies
+	- Added a JE for Africa Colonies
+	- Added a JE for Merchant Republics
+	- Added a JE for Colonial  Merchant Republics
+	- Added a JE for Independent New World Countries
+	- Added a JE dealing with Inward Perfection
+
+	- Added AI triggers for aggression and state targeting towards the JE targets.
+
+#Map/history changes
+	- Created Kappadokía Pronoia (Is also ruled by Phokas and Mesopotamia will align itself with it)
+	- Elysium has been struggling to attract migrants in 1.8 due to their starting religion. I switched their starting religion to Elysian Orthodox and switched the decision to go Hellenic to make it possible for them at the start of game this doesn't effect BR which doesn't get the decision until after the Olympics are founded.
+	- Created a unique power bloc identity for the HRE.
+	- Added a new Power bloc principle
+	- Some subjects that don't have nationalism were given the independence JE at game start
+#Other changes
+	- Decreased the wage bonus primary culture received as it was bankrupting everyone.
+	- Removed the mods 10% added liberty desire as the new JE has that on the modifier.
+	- Removed the Rus buff from country modifiers its now tied to the JE.
+	- Updated Eastern Orthodoxy Content to be in line with the current Greece, Byzantium and Balkan Flavor Mod
+	- Added the new base game tax rate changes to the mod.
+	- halved the cost of government admin building to be closer to recent change in vanilla
+	- Some flavor text changes
+	- Gave some countries Religious Schools 
+	- Renamed the culture of Kōkaijin to Kaitakusha.
+	- Added a bit more taxes to unincorporated states if you didn't know unincorporated states pay taxes in BR 0.15 in each source.
+	- Plenty of other minor changes and fixes
+
+
+
+### Patch 118 'Deutschland'
+
+	##New Features
+	-Added a germany major formable aswel as north and south german Confederations as normal formable
+	-Added multiple journal entries around the german unification
+		-Added a journal entry around liberating schleswig Holstein from the North Sea Empire
+		-Added a journal entry around liberating pomerania from Sweden
+		-Adapted multiple base game journals about the german unification into new ones for the mod
+	-Added German unification Events
+	-Added dynamic names for germany depending on who forms it
+		-Deutschland (saxony + baltic states)
+		-Germania (Bavaria)
+		-Alemannia (Swabia)
+		-Lotharingia (Franconia + Thuringia)
+	-Added a Arlat Kingdom formable for Burgundy
+	-Added a Switzerland formable called 'Confoederatio Helvetica' for all countries with the 'alemannic' culture
+
+	##
+	-Added variables to distinguish between north, south or a specific german culture
+	-Added a modifier 'br_modifier_independent_german_state' for indepdent german states, which grants prestige
+	-Added a on_active_yearly to add the modifier 'br_modifier_independent_german_state' if a new german state becomes indepdent
+	-Added Talinn as a baltic homeland
+	-Added a coa_trigger file in scripted_triggers
+	-Added a culture_trigger file in scripted_triggers
+	-Added new german modifier
+	-Added a north german content overview
+
+
 ### 1.8/PoE Alpha future Patch 117 these notes are rough and not complete
 
 	##New Features

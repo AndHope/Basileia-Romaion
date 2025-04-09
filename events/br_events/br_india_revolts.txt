@@ -1,0 +1,64 @@
+﻿namespace = bengal_revolt
+
+bengal_revolt.1 = {
+	type = country_event
+	placement = c:MUG.capital
+
+	title = bengal_revolt.1.t
+	desc = bengal_revolt.1.d
+	flavor = bengal_revolt.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/asia_sepoy_mutiny.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {   
+	}
+	immediate = {
+
+		if = {
+			limit = {
+				NOT = {
+					any_diplomatic_play = {
+						any_scope_play_involved = { this = c:BGL }
+					}
+				}
+			}
+		}	
+
+
+	}
+
+	option = {
+		name = bengal_revolt.1.a
+		default_option = yes
+
+		create_diplomatic_play = {
+			name = bengal_Rebellion
+			war = yes
+			type = dp_annex_subject
+
+			target_state = s:STATE_WEST_BENGAL.region_state:BGL
+
+		}
+
+		hidden_effect = {
+			change_infamy = -100 #Should equal what is gained from the annex plays
+		}
+
+	
+		ai_chance = {
+			base = 100
+		}
+	
+	}
+
+
+}

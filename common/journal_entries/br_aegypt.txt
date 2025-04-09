@@ -1,0 +1,56 @@
+﻿je_control_nile = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_foreign_affairs
+
+	modifiers_while_active = {
+		br_modifier_state_colonial_attraction
+	}
+
+	is_shown_when_inactive = {
+		exists = c:br_aegypt
+		this = c:br_aegypt
+	}
+
+	possible = {
+		exists = c:br_makuria
+		exists = c:br_alodia
+	}
+
+	complete = {
+		NOT = { exists = c:br_makuria }
+		NOT = { exists = c:br_alodia }
+		owns_entire_state_region = STATE_EGYPTIAN_DESERT
+		owns_entire_state_region = STATE_DONGOLA
+		owns_entire_state_region = STATE_KORDOFAN
+		owns_entire_state_region = STATE_BLUE_NILE
+		owns_entire_state_region = STATE_EGYPTIAN_DESERT
+	}
+
+	on_complete = {
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}

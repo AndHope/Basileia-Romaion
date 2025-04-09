@@ -3,8 +3,8 @@
 		effect_starting_politics_traditional = yes
 
 		ig:ig_petty_bourgeoisie = {
+			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 1
@@ -12,6 +12,9 @@
 				is_decaying = yes
 			}
 		}
+
+		set_tariffs_export_priority = g:spices
+		set_tariffs_export_priority = g:dyes
 
 		ig:ig_landowners = { 
 			add_ideology = ideology_frontier_expansionist
@@ -32,7 +35,6 @@
 		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_extraction_economy
-		#activate_law = law_type:law_frontier_colonization #0.34 test
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_hindu_priesthood
@@ -41,9 +43,11 @@
 		}
 
 		add_modifier = {
-			name = br_modifier_spice_trade
-			years = 75
+			name = br_modifier_merchant_republic
+			months = -1
 		}
+		add_journal_entry = { type = je_br_east_indies_trade }
+		add_journal_entry = { type = je_br_colonial_merchant_republic }
 
 	}
 }

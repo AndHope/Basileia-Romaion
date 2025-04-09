@@ -1,7 +1,7 @@
 ﻿COUNTRIES = {
 	c:FLA ?= {
 
-		effect_starting_technology_tier_3_tech = yes
+		effect_starting_technology_tier_2_tech = yes
 
 		effect_starting_politics_traditional = yes
 		add_technology_researched = centralization
@@ -26,12 +26,13 @@
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_women_own_property
 		
 
-		# set_institution_investment_level = {
-		# 	institution = institution_schools
-		# 	level = 2
-		# }	
+		add_modifier = {
+			name = br_modifier_italy_accessible_stock_exchanges
+			years = 100
+		}	
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -48,7 +49,6 @@
 
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.75
@@ -82,11 +82,7 @@
 	}
 	c:EOC ?= {
 		set_next_election_date = 1737.11.4
-		
 		effect_starting_technology_tier_3_tech = yes
-		
-		
-		
 		
 		add_technology_researched = colonization
 
@@ -108,15 +104,16 @@
 		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_commercialized_agriculture
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_colonial_exploitation
+		#activate_law = law_type:law_colonial_exploitation
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 			add_ideology = ideology_frontier_expansionist
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 50
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 75
+				is_decaying = yes
 			}
 		}
 
@@ -140,38 +137,28 @@
 
 		ig:ig_rural_folk = {
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.75
-				years = 50
+				name = ig_attraction_modifier
+				multiplier = -0.5
+				years = 75
+				is_decaying = yes
 			}
 		}
 		
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			months = 124
-		}
-		add_modifier = {
-			name = br_modifier_spice_trade
-			years = 75
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
+		add_journal_entry = { type = je_br_east_indies_trade }
 		
 		ig:ig_devout = {
 			set_interest_group_name = ig_evangelical_church
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.75
-				years = 50
+				name = ig_attraction_modifier
+				multiplier = -0.5
+				years = 75
+				is_decaying = yes
 			}
 		}
 
-		add_modifier = {
-			name = br_modifier_colonial_merchant_republic
-			months = -1
-		}
-		add_modifier = {
-			name = br_modifier_african_colony
-			months = -1
-		}
+		add_journal_entry = { type = je_br_colonial_merchant_republic }
+		add_journal_entry = { type = je_br_africa_colony }
 		add_modifier = {
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			months = -1

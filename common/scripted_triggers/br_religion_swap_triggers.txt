@@ -1,0 +1,209 @@
+﻿#	Example:
+# 
+#	example_trigger = {
+#		x = 100
+#		y = 50
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_trigger = yes
+#	}
+#
+
+
+## Generic religion swap decision triggers
+br_religion_swap_posible_standard_trigger = {
+	ig:ig_devout = {
+		is_in_government = no
+	}
+	has_law = law_type:law_freedom_of_conscience
+	NOT = { has_law = law_type:law_religious_schools }
+	OR = {
+		has_law = law_type:law_ethnostate
+		has_law = law_type:law_national_supremacy
+	}
+	has_technology_researched = nationalism
+}
+
+
+
+#scripted triggers to decide who is allowed to switch to a certain religion
+
+br_country_can_convert_to_given_religion = {
+
+	#if you want to add a new religion than simply add a new trigger_else_if
+	trigger_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_norse
+		}
+		br_country_can_convert_to_norse = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_hellenic
+		}
+		br_country_can_convert_to_hellenic = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:orthodox
+		}
+		br_country_can_convert_to_orthodox = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_elysian_orthodox
+		}
+		br_country_can_convert_to_elysian_orthodox = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_zoroastrian
+		}
+		br_country_can_convert_to_zoroastrianism = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:shiite
+		}
+		br_country_can_convert_to_shitte = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_baltic
+		}
+		br_country_can_convert_to_baltic = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_slavic
+		}
+		br_country_can_convert_to_slavic = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_tengri
+		}
+		br_country_can_convert_to_tengri = yes
+	}
+
+	trigger_else = {
+		always = no
+	}
+}
+
+br_country_can_convert_to_another_religion = {
+	or = {
+		#add triggers for specific religion in here
+		br_country_can_convert_to_norse = yes
+		br_country_can_convert_to_hellenic = yes
+		br_country_can_convert_to_orthodox = yes
+		br_country_can_convert_to_elysian_orthodox = yes
+		br_country_can_convert_to_zoroastrianism = yes
+		br_country_can_convert_to_shitte = yes
+		br_country_can_convert_to_baltic = yes
+		br_country_can_convert_to_slavic = yes
+		br_country_can_convert_to_tengri = yes
+	}
+}
+
+
+##	religion specific 'br_country_can_convert_to_religion' scripted triggers
+#	follow the layout below when adding a new 'br_country_can_convert_to_religion' trigger
+# br_country_can_convert_to_norse = {
+# 	OR = {
+# 		#add specific triggers here
+# 	}
+# 	NOT = { country_has_state_religion = rel:specific_religion } #make sure they don't already have the religion
+# }
+
+br_country_can_convert_to_norse = {
+	OR = {
+		country_has_primary_culture = cu:danish
+		country_has_primary_culture = cu:swedish
+		country_has_primary_culture = cu:norwegian
+		country_has_primary_culture = cu:saxon
+	}
+	NOT = { country_has_state_religion = rel:br_religion_norse }
+}
+br_country_can_convert_to_hellenic = {
+	OR = {
+		AND = {
+			country_has_primary_culture = cu:greek
+			has_variable = revive_olympics_decision_taken
+		}
+		AND = {
+			country_has_primary_culture = cu:elysian
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_hellenic }
+}
+
+br_country_can_convert_to_orthodox = {
+	OR = {
+		country_has_primary_culture = cu:greek
+		#country_has_primary_culture = cu:elysian
+	}
+	NOT = { country_has_state_religion = rel:orthodox }
+}
+
+br_country_can_convert_to_elysian_orthodox = {
+	OR = {
+		country_has_primary_culture = cu:elysian
+	}
+	NOT = { country_has_state_religion = rel:br_religion_elysian_orthodox }
+}
+
+br_country_can_convert_to_zoroastrianism = {
+	OR = {
+		c:PER ?= THIS
+	}
+	NOT = { country_has_state_religion = rel:br_religion_zoroastrian }
+}
+
+br_country_can_convert_to_shitte = {
+	OR = {
+		country_has_primary_culture = cu:persian
+		country_has_primary_culture = cu:bedouin
+	}
+	NOT = { country_has_state_religion = rel:shiite }
+}
+
+br_country_can_convert_to_baltic = {
+	OR = {
+		country_has_primary_culture = cu:lithuanian
+		country_has_primary_culture = cu:latvian
+		country_has_primary_culture = cu:estonian
+	}
+	NOT = { country_has_state_religion = rel:br_religion_baltic }
+}
+
+br_country_can_convert_to_slavic = {
+	OR = {
+		any_primary_culture = { 
+			has_discrimination_trait = jugoslav
+		}
+		any_primary_culture = { 
+			has_discrimination_trait = west_slavic
+		}
+		any_primary_culture = { 
+			has_discrimination_trait = east_slavic
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_slavic }
+}
+
+br_country_can_convert_to_tengri = {
+	OR = {
+		any_primary_culture = { 
+			has_discrimination_trait = north_asian_heritage
+		}
+		any_primary_culture = { 
+			has_discrimination_trait = turkic
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_tengri }
+}

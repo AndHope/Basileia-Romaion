@@ -14,6 +14,8 @@
 		add_taxed_goods = g:luxury_furniture
 		add_taxed_goods = g:porcelain
 		add_taxed_goods = g:meat
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
 
 		set_market_capital = STATE_KANTO
 		
@@ -23,8 +25,8 @@
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_agrarianism
-		activate_law = law_type:law_private_schools
-		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_mixed_army
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_migration_controls	
 		activate_law = law_type:law_dedicated_police
@@ -34,18 +36,14 @@
 		
 		set_institution_investment_level = {
 			institution = institution_police
-			level = 1
-		}
-
-		set_institution_investment_level = {
-			institution = institution_schools
 			level = 2
 		}
 
 		set_institution_investment_level = {
-			institution = institution_police
+			institution = institution_schools
 			level = 1
 		}
+
 
 		ig:ig_landowners = {
 			set_interest_group_name = ig_daimyo
@@ -100,17 +98,21 @@
 
 		#effect_starting_wealthy_merchants = yes
 
-#		trigger_event = {
-#			id = meiji.1
-#		}
+	#	trigger_event = {
+	#		id = meiji.1
+	#	}
 
 		add_modifier = {
 			name = br_modifier_edo_class_system
 			years = 100
 		}
-		add_modifier = {
-			name = br_modifier_inward_perfection
-			years = 100
+
+		add_journal_entry = { type = je_br_inward_perfection }
+
+		add_company = company_type:company_jap_trade
+		company:company_jap_trade = {
+			set_company_establishment_date = 1700.1.1
+			set_company_state_region = s:STATE_KYUSHU
 		}
 
 		add_modifier = {
@@ -200,7 +202,7 @@
 
 		activate_law = law_type:law_homesteading
 		activate_law = law_type:law_legacy_slavery
-		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_migration_controls
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -217,27 +219,18 @@
 			add_ideology = ideology_buddhist_moralist
 		}
 
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-		}
-
 		ig:ig_rural_folk = {
 			
 			add_ruling_interest_group = yes
 		}
 
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			years = 10
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
 		add_modifier = {
 			name = br_modifier_fur_trade
-			years = 50
+			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 100
-		}
+
+		add_journal_entry = { type = je_br_new_world_colony }
 
 	}
 
@@ -260,8 +253,8 @@
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_extraction_economy
-		activate_law = law_type:law_colonial_exploitation
-		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_migration_controls
 
 		
 
@@ -286,19 +279,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		add_modifier = {
-			name = br_modifier_colonial_ferver
-			years = 10
-		}
-
-		add_modifier = {
-			name = br_modifier_fur_trade
-			years = 50
-		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_new_world_colony }
 
 	}
 
@@ -321,7 +302,7 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_colonial_exploitation
-		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_migration_controls
 
 		
 
@@ -346,14 +327,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		add_modifier = {
-			name = br_modifier_colonial_ferver
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_new_world_colony }
 
 	}
 

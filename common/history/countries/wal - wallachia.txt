@@ -1,6 +1,7 @@
 ﻿COUNTRIES = {
 	c:WAL ?= {
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_defensive_military_bonus
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_monarchy
@@ -19,6 +20,19 @@
 		activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_migration_controls	
 
+		set_tariffs_export_priority = g:wood
+		set_tariffs_export_priority = g:iron
+		set_tariffs_export_priority = g:coal
+		set_tariffs_export_priority = g:wine
+		set_tariffs_export_priority = g:fabric
+
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
+
 		ig:ig_landowners = { 
             set_interest_group_name = ig_boyars
         }
@@ -30,14 +44,9 @@
 			name = br_modifier_autonomous_march
 			years = 50
 		}
-		add_modifier = {
-			name = br_modifier_defensive_bonus
-			years = 99
-		}
-
-		trigger_event = {
-			id = wallachia_events.1
-			popup = no
+		
+		add_journal_entry = {
+			type = je_br_gain_independence
 		}
 
 		ig:ig_devout = {

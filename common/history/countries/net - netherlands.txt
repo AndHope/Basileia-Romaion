@@ -31,16 +31,15 @@
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_women_own_property
 
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_evangelical_church
 		}	
 
-		add_modifier = {
-			name = br_modifier_spice_trade
-			years = 75
-		}
+		add_journal_entry = { type = je_br_east_indies_trade }
+
 		add_modifier = {
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			years = 100
@@ -50,9 +49,9 @@
 			months = -1
 		}
 
-		trigger_event = {
-			id = br_nation_startup_event.7
-			days = 1
+		add_modifier = {
+			name = br_modifier_italy_accessible_stock_exchanges
+			years = 100
 		}
 
 		add_company = company_type:company_net_trade
@@ -65,19 +64,11 @@
 
 	c:br_dutch_west_indies ?= {
 		set_next_election_date = 1737.11.4
-		
 		effect_starting_technology_tier_3_tech = yes
-		
 		add_technology_researched = br_tech_frontier_expansion
-		
-		
-		
 		activate_law = law_type:law_national_militia
 
 		set_tax_level = medium
-		
-		set_tariffs_import_priority = g:artillery
-		set_tariffs_import_priority = g:small_arms
 		add_taxed_goods = g:liquor
 		
 		# Laws
@@ -91,13 +82,11 @@
 		activate_law = law_type:law_racial_segregation
 		
 		activate_law = law_type:law_extraction_economy
-		
-		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
-		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_migration_controls	
 		activate_law = law_type:law_commercialized_agriculture
 
-		ig:ig_landowners = { # Victor de Broglie was Prime Minister until February 22, 1836
+		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
 
@@ -113,21 +102,17 @@
 
 
 		ig:ig_rural_folk = {
-			
 		}
 		
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_new_world_colony
-			years = 100
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
+		add_journal_entry = { type = je_br_new_world_colony }
+		add_journal_entry = { type = je_br_colonial_merchant_republic }
 		
 		ig:ig_devout = {
 			set_interest_group_name = ig_evangelical_church
 		}
+
+		add_journal_entry = { type = je_br_west_indies_trade }
 
 	}
 
@@ -155,17 +140,12 @@
 		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_commercialized_agriculture
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_colonial_exploitation
-		activate_law = law_type:law_no_migration_controls
+		#activate_law = law_type:law_colonial_exploitation 
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_censorship
 
-		ig:ig_landowners = { # Victor de Broglie was Prime Minister until February 22, 1836
-			add_ruling_interest_group = yes
+		ig:ig_landowners = {
 			add_ideology = ideology_frontier_expansionist
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.25
-				years = 50
-			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
@@ -181,11 +161,6 @@
 
 		ig:ig_rural_folk = {
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 50
-			}
-			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.25
 				years = 75
@@ -193,39 +168,87 @@
 			}
 		}
 		
-		add_modifier = {
-			name = br_modifier_colonial_subsidies
-			years = 10
-		}
-		add_modifier = {
-			name = br_modifier_spice_trade
-			years = 75
-		}
+		add_journal_entry = { type = je_br_colonial_subject }
+		
+		add_journal_entry = { type = je_br_east_indies_trade }
 		
 		ig:ig_devout = {
 			set_interest_group_name = ig_evangelical_church
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 50
+				name = ig_attraction_modifier
+				multiplier = -0.25
+				years = 75
+				is_decaying = yes
 			}
 		}
 
 		add_modifier = {
-			name = br_modifier_colonial_merchant_republic
+			name = br_modifier_merchant_republic
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_african_colony
-			years = 100
-		}
+
+		add_journal_entry = { type = je_br_colonial_merchant_republic }
+		add_journal_entry = { type = je_br_africa_colony }
 		add_modifier = {
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			years = 100
 		}
-		trigger_event = {
-			id = br_nation_startup_event.7
-			days = 1
+
+	}
+
+	c:br_new_holland ?= {
+		set_next_election_date = 1737.11.4
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = br_tech_frontier_expansion
+		activate_law = law_type:law_national_militia
+
+		set_tax_level = medium
+		
+		add_taxed_goods = g:liquor
+		
+		# Laws
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_right_of_assembly		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_elected_bureaucrats
+		activate_law = law_type:law_migration_controls				
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_frontier_colonization
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			add_ideology = ideology_frontier_expansionist
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.5
+				years = 75
+				is_decaying = yes
+			}
+		}
+
+
+		ig:ig_rural_folk = {
+		}
+		
+		add_journal_entry = { type = je_br_colonial_subject }
+		add_journal_entry = { type = je_br_new_world_colony }
+		add_journal_entry = { type = je_br_colonial_merchant_republic }
+		
+		ig:ig_devout = {
+			add_ideology = ideology_frontier_expansionist
+			set_interest_group_name = ig_evangelical_church
 		}
 
 	}

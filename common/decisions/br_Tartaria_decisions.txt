@@ -16,11 +16,9 @@
 	when_taken = {
 		set_state_religion = rel:jewish
 		remove_primary_culture = cu:mongol
-		#ig:ig_devout = {
-		#	set_interest_group_name = ig_neo_hellenes
-			#remove_ideology = ideology_buddhist_moralist
-			#add_ideology = ideology_shinto_moralist
-		#}
+		ig:ig_devout = {
+			set_interest_group_name = ig_jewish_priests 
+		}
 		random_scope_state = {
 			limit = {
 				owner = ROOT
@@ -114,11 +112,9 @@ sunni_decision = {
 
 	when_taken = {
 		set_state_religion = rel:sunni
-		#ig:ig_devout = {
-		#	set_interest_group_name = ig_orthodox_patriarch 
-			#remove_ideology = ideology_buddhist_moralist
-			#add_ideology = ideology_shinto_moralist
-		#}
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
 		random_scope_state = {
 			limit = {
 				owner = ROOT
@@ -168,6 +164,12 @@ sunni_decision = {
 				value = -200 
 			}
 		}
+		c:BYZ = {
+			change_relations = { 
+				country = c:br_tartaria 
+				value = -25
+			}
+		}
 		c:PER = {
 			change_relations = { 
 				country = c:br_tartaria 
@@ -185,6 +187,10 @@ sunni_decision = {
 				country = c:br_tartaria 
 				value = 100 
 			}
+			set_secret_goal = {
+				country = c:br_tartaria
+				secret_goal = befriend
+			}
 		}
 	}
 
@@ -193,6 +199,7 @@ sunni_decision = {
 	}
 }
 
+#Decision to make it easier for a Yuan Player win the starting war.
 br_mongol_army_prowess_decision = {
 	is_shown = {
 		OR = {
@@ -200,7 +207,6 @@ br_mongol_army_prowess_decision = {
 			country_has_primary_culture = cu:mongol
 		}
 		NOT = { has_modifier = br_modifier_horde_army_prowess }
-
 	}
 
 	possible = {
@@ -209,13 +215,15 @@ br_mongol_army_prowess_decision = {
 			country_has_primary_culture = cu:mongol
 		}
 		NOT = { has_modifier = br_modifier_horde_army_prowess }
+		is_player = yes
 	}
 
 	when_taken = {
 		add_modifier = {
 			name = br_modifier_horde_army_prowess
-			years = 15
+			years = 5
 		}
+		activate_law = law_type:law_mixed_army
 	}
 
 	ai_chance = {

@@ -12,7 +12,7 @@ COUNTRIES = {
 		add_technology_researched = sericulture
 
 		#Economy
-		add_technology_researched = intensive_agriculture
+		add_technology_researched = br_tech_selective_breeding
 
 		#Warfare 
 		add_technology_researched = field_works #The ai needs a military buff
@@ -51,17 +51,22 @@ COUNTRIES = {
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy #law_autocracy 
-		activate_law = law_type:law_serfdom #law_tenant_farmers 
+		activate_law = law_type:law_serfdom
+		start_enactment = law_type:law_tenant_farmers
+		add_enactment_phase = 1
+		add_enactment_modifier = {
+			name = mired_in_bureaucracy 
+		}
+		# add themata event
 		activate_law = law_type:law_land_based_taxation #law_per_capita_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats # law_appointed_bureaucrats Balance reasons half of Burecrats appointed still
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_national_supremacy 
 		activate_law = law_type:law_censorship
-		#activate_law = law_type:law_colonial_exploitation 
 		activate_law = law_type:law_national_guard #Themata
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_local_police
-		activate_law = law_type:law_peasant_levies #law_professional_army Balance reasons
+		activate_law = law_type:law_mixed_army
 		activate_law = law_type:law_private_schools #School mostly for the rich Religious schools op at start.
 		activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_traditionalism #law_agrarianism
@@ -96,7 +101,7 @@ COUNTRIES = {
 			
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.25
+				multiplier = 0.5
 				years = 75
 				is_decaying = yes
 			}
@@ -104,6 +109,10 @@ COUNTRIES = {
 				name = ig_latin_priviledges
 				years = 25
 				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_demand_not_met
+				days = normal_modifier_time
 			}
 
 		}
@@ -119,7 +128,13 @@ COUNTRIES = {
 
 			add_modifier = {
 				name = ig_influence_modifier
-				multiplier = 0.5
+				multiplier = 0.25
+				years = 75
+				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_attraction_modifier
+				multiplier = 0.25
 				years = 75
 				is_decaying = yes
 			}
@@ -148,12 +163,6 @@ COUNTRIES = {
 			add_ideology = ideology_romaioi_meritocratic
 			
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.75
-				years = 75
-				is_decaying = yes
-			}
-			add_modifier = {
 				name = ig_latin_priviledges
 				years = 25
 				is_decaying = yes
@@ -172,7 +181,7 @@ COUNTRIES = {
 			add_ideology = ideology_romaioi_agrarian
 
 			add_modifier = {
-				name = ig_influence_modifier
+				name = ig_attraction_modifier
 				multiplier = 0.25
 				years = 75
 				is_decaying = yes
@@ -196,13 +205,6 @@ COUNTRIES = {
 
 		ig:ig_industrialists = { 
 			set_interest_group_name = ig_viomixanoi
-
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -0.5
-				years = 75
-				is_decaying = yes
-			}
 			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -0.5
@@ -216,18 +218,58 @@ COUNTRIES = {
 			set_interest_group_name = ig_syndikalistai
 
 			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = -1
-				years = 75
-				is_decaying = yes
-			}
-			add_modifier = {
 				name = ig_attraction_modifier
 				multiplier = -1
 				years = 75
 				is_decaying = yes
 			}
 
+		}
+
+		add_journal_entry = {
+			type = je_palaiologos_reforms_main
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_syria
+		}
+		
+	#Do Syria first to unlock rest.	Or not
+		
+		add_journal_entry = {
+			type = je_palaiologos_reforms_economy
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_education
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_separatism
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_land_reform
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_security
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_army
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_navy
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_bureaucracy
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_centralization_west
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_centralization_east
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_end_curruption
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_end_latin_privileges
 		}
 
 		add_modifier = {
@@ -271,25 +313,6 @@ COUNTRIES = {
 		company:company_byz_ric = {
 			set_company_establishment_date = 1700.1.1
 			set_company_state_region = s:STATE_EASTERN_THRACE
-		}
-
-
-		trigger_event = {
-			id = palaiologos_reforms.1
-			days = 5
-		}
-		
-		trigger_event = {
-			id = br_new_world_events.10
-			days = 100
-		}
-		trigger_event = {
-			id = br_new_world_events.2
-			days = 400
-		}
-		trigger_event = {
-			id = aegyptian_crisis_events.4
-			days = 65
 		}
 
 	}

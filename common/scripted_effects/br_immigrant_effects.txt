@@ -1,0 +1,230 @@
+﻿br_settler_monthly_culutre_change_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_journal_entry = je_br_independent_new_world_country
+				is_country_type = colonial
+				is_subject_type = subject_type_colony
+				is_subject_type = subject_type_chartered_company
+			}
+		}
+		br_convert_immigrants_to_settler_cultures_effect = yes
+	}
+}
+
+br_convert_immigrants_to_settler_cultures_effect = {
+	hidden_effect = {
+		if = { # european -> apoikoi
+			limit = {
+				country_has_primary_culture = cu:apoikoi
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_europe = no
+					state_is_in_americas = no
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+				}
+				change_pop_culture = {
+					target = cu:apoikoi
+					value = 1
+				}
+			}
+		}
+	#French Colonies 
+		else_if = { #  european -> colonial-french
+			limit = {
+				country_has_primary_culture = cu:colonial_french
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_french
+					value = 1 
+				}
+			}
+		}
+	#Elysium
+		else_if = { #  european -> elysian
+			limit = {
+				country_has_primary_culture = cu:elysian
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:elysian
+					value = 1 
+				}
+			}
+		}
+	#Vinland
+		else_if = { #  european -> vinlander
+			limit = {
+				country_has_primary_culture = cu:vinlander
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:vinlander
+					value = 1 
+				}
+			}
+		}
+	#Colonial Italian
+		else_if = { #  european -> colonial_italian
+			limit = {
+				country_has_primary_culture = cu:colonial_italian
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_europe = no
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_italian
+					value = 1 
+				}
+			}
+		}
+	#Colonial andalusian
+		else_if = { #  european -> colonial_andalusian
+			limit = {
+				country_has_primary_culture = cu:colonial_andalusian
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_andalusian
+					value = 1 
+				}
+			}
+		}
+	#Colonial british
+		else_if = { #  european -> colonial_british
+			limit = {
+				country_has_primary_culture = cu:colonial_british
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_british
+					value = 1 
+				}
+			}
+		}
+	#Colonial dutch
+		else_if = { #  european -> colonial_dutch
+			limit = {
+				country_has_primary_culture = cu:colonial_dutch
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_europe = no
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait = european_heritage
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:colonial_dutch
+					value = 1 
+				}
+			}
+		}
+
+	}
+}

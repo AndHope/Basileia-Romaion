@@ -1,12 +1,19 @@
 ﻿COUNTRIES = {
 	c:ARA ?= {
 		effect_starting_technology_tier_4_tech = yes
-		add_technology_researched = br_tech_murano_glass
-		
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_tribal_armies
+		add_technology_researched = br_tech_defensive_military_bonus
+		add_technology_researched = br_tech_murano_glass
 		add_technology_researched = br_tech_frontier_expansion
 		add_technology_researched = br_tech_natural_history
+
+		add_technology_researched = br_tech_lines_of_communication
+		add_technology_researched = line_infantry
+		add_technology_researched = br_tech_field_guns
+		add_technology_researched = standing_army
+		add_technology_researched = mandatory_service
+		add_technology_researched = military_drill
 		
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_monarchy #was law_theocracy
@@ -15,16 +22,26 @@
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_traditionalism #law_agrarianism
+		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_no_schools
 		activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_serfdom
-		
 		activate_law = law_type:law_migration_controls
-		#activate_law = law_type:law_frontier_colonization
+
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:services
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		set_tariffs_export_priority = g:coffee
+		set_tariffs_export_priority = g:iron
+		set_tariffs_export_priority = g:silk
+		set_tariffs_export_priority = g:meat
+		set_tariffs_export_priority = g:fruit
+		set_tariffs_export_priority = g:clippers
 
 		add_modifier = {
 			name = cizye_tax
@@ -38,31 +55,24 @@
 			name = br_modifier_desert_culture
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_hajj
-			months = -1
-		}
+		add_journal_entry = { type = je_br_hajj_profits }
+
 		add_modifier = {
 			name = br_modifier_holy_warriors
 			years = 50
 		}
 		add_modifier = {
 			name = br_modifier_jihad_called
-			years = 50
+			years = 25
 		}
-	#	add_modifier = {
-	#		name = br_modifier_power_bloc_bonus
-	#		months = 1
-	#	}
+		add_modifier = {
+			name = br_modifier_porcelain_modifier
+			months = -1
+		}
 
-
-		#change_infamy = 75
-
-		#In-Government
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 1
@@ -161,13 +171,11 @@
 			set_interest_group_name = ig_sunni_madrasahs 
 		}	
 	}
-	c:EOT ?= {
+	c:SYR ?= {
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 
 		activate_law = law_type:law_tribal_armies
-		
-		
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_monarchy #was law_theocracy
 		activate_law = law_type:law_autocracy 
@@ -175,7 +183,7 @@
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_no_schools
 		activate_law = law_type:law_charitable_health_system
@@ -184,6 +192,9 @@
 		activate_law = law_type:law_serfdom
 		
 		activate_law = law_type:law_migration_controls
+
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:services
 
 		add_modifier = {
 			name = cizye_tax
@@ -197,13 +208,17 @@
 			name = br_modifier_desert_culture
 			months = -1
 		}
+		add_modifier = {
+			name = br_modifier_porcelain_modifier
+			months = -1
+		}
+
 
 
 		#In-Government
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_devout = { 
@@ -235,6 +250,9 @@
 		
 		activate_law = law_type:law_migration_controls
 
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:services
+
 		add_modifier = {
 			name = cizye_tax
 			years = 100
@@ -252,7 +270,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_devout = { 
@@ -268,8 +285,6 @@
 		effect_starting_politics_traditional = yes
 
 		activate_law = law_type:law_tribal_armies
-		
-		
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_chiefdom
 		activate_law = law_type:law_elder_council
@@ -283,8 +298,10 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_serfdom
-		
 		activate_law = law_type:law_migration_controls
+
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:services
 
 		add_modifier = {
 			name = cizye_tax
@@ -304,7 +321,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_devout = { 
@@ -320,8 +336,6 @@
 		effect_starting_politics_traditional = yes
 
 		activate_law = law_type:law_tribal_armies
-		
-		
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_chiefdom
 		activate_law = law_type:law_elder_council
@@ -329,7 +343,7 @@
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_extraction_economy
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_no_schools
 		activate_law = law_type:law_charitable_health_system
@@ -338,6 +352,10 @@
 		activate_law = law_type:law_serfdom
 		
 		activate_law = law_type:law_migration_controls
+
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:services
+		set_tariffs_export_priority = g:coffee
 
 		add_modifier = {
 			name = cizye_tax
@@ -357,7 +375,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_devout = { 
@@ -384,34 +401,45 @@
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_migration_controls				
-		#activate_law = law_type:law_frontier_colonization
 
 		#set_market_capital = STATE_ZANZIBAR
+
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:services
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
 		add_modifier = {
 			name = cizye_tax
 			years = 100
 		}
-		add_modifier = {
-			name = br_modifier_spice_trade
-			years = 75
-		}
+		add_journal_entry = { type = je_br_east_indies_trade }
+		
 		add_modifier = {
 			name = br_modifier_tribal_warriors
 			years = 100
 		}
 
-		add_modifier = {
-			name = br_modifier_african_colony
-			years = 100
+		add_journal_entry = { type = je_br_africa_colony }
+		add_journal_entry = { type = je_br_persian_strait_toll }
+
+		add_company = company_type:company_oma_trade
+		company:company_oma_trade = {
+			set_company_establishment_date = 1700.1.1
+			set_company_state_region = s:STATE_OMAN
 		}
+
 		add_modifier = {
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			years = 100
 		}
+		add_modifier = {
+			name = br_modifier_merchant_republic
+			months = -1
+		}
 
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.5

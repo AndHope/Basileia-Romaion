@@ -1,0 +1,80 @@
+﻿# UI can obtain a datamodel with all the scripted buttons via "[JournalEntry.GetScriptedButtons]". Each scripted button can be referred to via "ScriptedButton".
+# Scripted buttons' properties can be accessed by UI via
+# - [ScriptedButton.GetName] -> provides a string
+# - [ScriptedButton.GetDesc] -> provides a string
+# - [ScriptedButton.GetEffectDesc] -> provides a string
+# - [ScriptedButton.IsVisible] -> provides a bool
+# - [ScriptedButton.IsPossible] -> provides a bool
+# - [ScriptedButton.ExecuteEffect] -> provides nothing, executes the effect
+
+je_establish_sunday_schools_button = {
+	name = "je_establish_sunday_schools_button"
+	desc = "je_establish_sunday_schools_button_desc"
+
+	visible = { always = yes }
+
+	#Country scope
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				c:FLA = { liberty_desire >= 90 }
+			}
+			add = 5
+		}
+	}
+
+	possible = {
+		not = {
+			has_modifier = br_modifier_sunday_schools
+		}
+	}
+
+	effect = {
+		# set_variable = br_establishing_sunday_schools_var	#not used at the moment
+
+		add_modifier = {
+			name = br_modifier_sunday_schools
+			years = 5
+		}
+	}
+}
+
+je_hold_religious_festivals_button = {
+	name = "je_hold_religious_festivals_button"
+	desc = "je_hold_religious_festivals_button_desc"
+
+	visible = { always = yes }
+
+	#Country scope
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				c:FLA = { liberty_desire >= 90 }
+			}
+			add = 5
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = br_not_already_holding_religious_festivals_tt
+			not = {
+				has_variable = br_holding_religious_festivals_var
+			}
+		}
+	}
+
+	effect = {
+		set_variable = {
+			name = br_holding_religious_festivals_var
+			months = 36
+		}
+
+		trigger_event = {
+			id = br_religion_swap_events.5
+			popup = yes
+		}
+	}
+}

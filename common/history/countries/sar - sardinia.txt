@@ -1,8 +1,5 @@
 ﻿COUNTRIES = {
 	c:SAR ?= {
-
-		add_taxed_goods = g:liquor
-		
 		effect_starting_technology_tier_2_tech = yes
 		add_technology_researched = dialectics
 		add_technology_researched = realism
@@ -13,9 +10,16 @@
 		add_technology_researched = intensive_agriculture
 		
 		set_tax_level = medium
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:services
 		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms
+		set_tariffs_import_priority = g:spices
+		set_tariffs_import_priority = g:sugar
+		
+		set_tariffs_export_priority = g:luxury_clothes
+		set_tariffs_export_priority = g:luxury_furniture
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_freedom_of_conscience
@@ -39,7 +43,6 @@
 		#In-Government
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 		}
 
 		ig:ig_petty_bourgeoisie = {
@@ -54,6 +57,11 @@
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_catholic_church
+		}
+		
+		add_modifier = {
+			name = br_modifier_italy_craftsmanship
+			months = -1
 		}
 
 		add_modifier = {

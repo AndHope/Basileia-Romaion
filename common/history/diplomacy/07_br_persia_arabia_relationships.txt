@@ -72,12 +72,12 @@
 			country = c:br_kuwait
 			type = dominion
 		}
-		set_relations = { country = c:ANL value = 35 }
-		set_relations = { country = c:HRE value = 35 }
-		set_relations = { country = c:HUN value = 45 }
-		set_relations = { country = c:BYZ value = -75 }
-		set_relations = { country = c:MUG value = -75 }
-		set_relations = { country = c:OMA value = -75 }
+		set_relations = { country = c:ANL value = 25 }
+		set_relations = { country = c:HRE value = 10 }
+		set_relations = { country = c:HUN value = 10 }
+		set_relations = { country = c:BYZ value = -50 }
+		set_relations = { country = c:MUG value = -45 }
+		set_relations = { country = c:OMA value = -45 }
 
 		create_unidirectional_truce = {
 			country = c:JAB
@@ -86,6 +86,10 @@
 		create_unidirectional_truce = {
 			country = c:NEJ
 			months = 600
+		}
+		create_unidirectional_truce = {
+			country = c:ARA
+			months = 24
 		}
 		create_bidirectional_truce = {
 			country = c:MUG
@@ -109,9 +113,23 @@
 
 	c:br_assyria = {
 		add_liberty_desire = 30
+		set_relations = { country = c:br_arevelyan value = 75 }
+		set_relations = { country = c:PER value = 15 }
+	}
+	c:KUR = {
+		add_liberty_desire = 15
+		set_relations = { country = c:br_arevelyan value = 75 }
+		set_relations = { country = c:SYR value = 75 }
+		set_relations = { country = c:br_kuwait value = 75 }
+		set_relations = { country = c:PER value = 15 }
+		set_relations = { country = c:ARA value = 25 }
 	}
 	c:HER = {
-		add_liberty_desire = -20
+		add_liberty_desire = -15
+		create_diplomatic_pact = {
+			country = c:MAI
+			type = tributary
+		}
 	}
 	c:KAN = {
 		add_liberty_desire = -10
@@ -124,15 +142,12 @@
 	}
 	c:KHI = {
 		add_liberty_desire = 25
+
 	}
 
 	c:KAB ?= {
 		create_diplomatic_pact = {
 			country = c:KUN
-			type = tributary
-		}
-		create_diplomatic_pact = {
-			country = c:MAI
 			type = tributary
 		}
 		create_diplomatic_pact = {
@@ -148,7 +163,7 @@
 			type = tributary
 		}
 		create_diplomatic_pact = {
-			country = c:EOT
+			country = c:SYR
 			type = puppet
 		}
 		create_diplomatic_pact = {
@@ -171,26 +186,34 @@
 			country = c:OMA	
 			type = grant_own_market
 		}
+		create_unidirectional_truce = {
+			country = c:OMA
+			months = 24
+		}
 
 		set_relations = { country = c:BYZ value = -45 }
-		set_relations = { country = c:br_aegypt value = -50 }
-		set_relations = { country = c:PER value = -50 }
+		set_relations = { country = c:br_aegypt value = -45 }
+		set_relations = { country = c:PER value = -45 }
 		set_relations = { country = c:br_afrika value = -25 }
-		set_relations = { country = c:ANL value = -15 }
+		set_relations = { country = c:ANL value = -10 }
 
 	}
 
 	c:MJT = {
 		add_liberty_desire = -10
+		set_relations = { country = c:ARA value = 25 }
 	}
-	c:EOT = {
+	c:SYR = {
 		add_liberty_desire = -15
+		set_relations = { country = c:ARA value = 25 }
 	}
 	c:ABU = {
 		add_liberty_desire = -15
+		set_relations = { country = c:ARA value = 25 }
 	}
 	c:YEM = {
 		add_liberty_desire = 15
+		set_relations = { country = c:ARA value = 25 }
 	}
 
 	c:OMA ?= {
@@ -203,6 +226,7 @@
 			type = raise_payments
 		}
 		add_liberty_desire = 25
+		set_relations = { country = c:ARA value = 25 }
 	}
 
 	c:ACE ?= {
@@ -214,10 +238,11 @@
 			country = c:OMA
 			setting = yes
 		}
-
+		set_relations = { country = c:ARA value = 25 }
 	}
 	c:JOH = {
 		add_liberty_desire = 15
+		set_relations = { country = c:ARA value = 25 }
 	}
 
 }

@@ -1,33 +1,18 @@
 ﻿#Some edits are hashed out as I may bring them back.
 
+#BR: 300 years to play.
 NGame = {
 	START_DATE = "1736.1.1" #May adjust the start date in the future
 	END_DATE = "2036.1.1" #300 total years
 }
 
-NAI = {
-	#BASE_AGGRESSION = 0.5 #0.25 Base chance that AI will consider starting a diplo play each time the goal is checked (1 = 1%)
-}
-
-#NTechnology = {
-#	TECH_AHEAD_OF_TIME_PENALTY_FACTOR = 0.25	#was 0.25 # For every tech in a previous era not already researched in this category, take this multiple of the cost as an additional penalty (multiplied by number of eras between the techs)
-#}
-
-#NPolitics = {
-#	SECESSION_TURMOIL_CUTOFF = 0.33 #was 0.5					# Turmoil requires for cultures to start secession
-#	SECESSION_WEEKLY_BASE_CHANCE = 0.002	# was 0.001			# weekly base chance for culture to start secession movement
-#	SECESSION_STATE_CUTOFF_PERCENT = 0.30 #was 0.33				# Required pop percentage in State to be egligble for secession
-#	SECESSION_COOLDOWN_YEARS = 8 #was 5
-#
-#	MIN_POP_SIZE_TO_SECEDE = 75000 #100000	
-#}	
-
+#BR: Slower conversion/assimilation faster radical growth discrimination
 NPops = {
 	CONVERSION_RATE = 0.001 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
 	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
 	DISCRIMINATION_BASE = 35 #was 25 now 33					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
 
-	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.01 #0.005
+	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.015 #0.005 Scales by literacy
 
 	#QUALIFICATIONS_UPDATE_FACTOR = 0.0001 # was 0.0003				# Calculated potential values are multiplied by this value and the workforce size of the pop before being added to the existing potentials
 	#QUALIFICATIONS_NUM_MONTHS_AT_START = 25 # was 60				# How many months of qualifications should be seeded to pops at start of game?
@@ -54,13 +39,23 @@ NPops = {
 
 }
 
+#BR: More profitable trade routes more concentrated trade hubs at major ports.
 NEconomy = {
-	TRADE_CENTER_MIN_AVAILABLE_WORKFORCE = 10000 # was 20000 Don't put new trade centers in places with less available workforce than this
+	TRADE_ROUTE_BUREAUCRACY_COST = 10		#was 20 The cost in BUR per trade route
+	TRADE_ROUTE_MAX_LEVEL = 250				#was 100 Trade routes cannot be higher level than this
+	TRADE_CENTER_MIN_AVAILABLE_WORKFORCE = 5000 # was 20000 Don't put new trade centers in places with less available workforce than this
 	TRADE_CENTER_MARKET_CAPITAL_FACTOR = 25	#was 5 When deciding trade center for a trade route, increase score by this for the market capital in the market
 	TRADE_CENTER_PORT_LEVEL_FACTOR = 5 	#was 1 When deciding trade center for a trade route, multiply port level by this and add to the score
+	TRADE_CENTER_TRADE_ROUTE_STATE_FACTOR = 5	#was 4 When deciding trade center for a trade route, increase score by this if the state is the exit/entry port for the trade route
 	#TRADE_CENTER_TREATY_PORT_FACTOR = 15 	# When deciding trade center for a trade route, increase score by this for treaty port in the remote market
+
+	DEBT_SLAVERY_ENSLAVEMENT_RATE = 0.002		#was 0.005 Under debt slavery up to this much of a state's populace can be enslaved for their debts each week
+	DEBT_SLAVERY_MAX_STATE_SLAVE_FRACTION = 0.15 # If more than this % of a state's population are slaves, do not enslave any more pops under debt slavery
+	SLAVE_TRADE_BASE_SLAVES_PER_WEEK = 50		#was 100 Base number of slaves that will be traded per marker per week
+
 }
 
+#BR: Higher infamy threshold slower decay
 NDiplomacy = {
 
 	#INITIAL_LIBERTY_DESIRE = 50 #was 40             # Liberty Desire value which the Diplomatic Pact gets initialized to.
@@ -117,18 +112,19 @@ NDiplomacy = {
 
 }
 
+#BR: Slower wars than vanilla, less attrition and casualties to balance.
 NMilitary = {
 	BATTLE_PLAN_ADVANCE_PROGRESS_TO_LAUNCH = 200 	#100		# required accumulated advance progress to launch
 
 	BATTLE_RAW_MANPOWER_INFLICTED_CASUALTY_RATIO = 0.25	#0.50	# applied to the number of casualties caused by raw number of troops, ie without considering Offense/Defense - increasing this makes CE less important and battles more lethal
 	BATTLE_COMBAT_EFFICIENCY_INFLICTED_CASUALTY_RATIO = 0.75 #1.5	# applied to the number of casualties caused by troops with Offense/Defense also factored in - incre
 	BASE_MORALE_RECOVERED_PER_DAY = 0.01	#0.03		# Default morale recovered is 3% per day
-	BASE_MORALE_LOST_PER_DAY = 0.02			#0.05		# Default morale lost when out of supply is 5%
-	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MIN = 0.02 #0.04 	# The minimum percentage of manpower a unit can lose each week due to attrition
-	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MAX = 0.06 #0.12 	# The maximum percentage of manpower a unit can lose each week due to attrition
+	BASE_MORALE_LOST_PER_DAY = 0.03			#0.05		# Default morale lost when out of supply is 5%
+	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MIN = 0.01 #0.04 	# The minimum percentage of manpower a unit can lose each week due to attrition
+	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MAX = 0.05 #0.12 	# The maximum percentage of manpower a unit can lose each week due to attrition
 
 	BATTLE_BASE_MIN_PROVINCES_TAKEN = 1 #4
-	BATTLE_BASE_MAX_PROVINCES_TAKEN = 4 #12
+	BATTLE_BASE_MAX_PROVINCES_TAKEN = 3 #12
 	#BATTLE_PROVINCES_TAKEN_FRONT_PROVINCES_NUM_DIVISOR = 25		# Attacker takes (num provinces in front) divided by this as extra, clamped to BATTLE_BASE_MIN_PROVINCES_TAKEN and BATTLE_BASE_MAX_PROVINCES_TAKEN
 	#BATTLE_PROVINCES_TAKEN_THEATER_PROVINCES_NUM_DIVISOR = 250	# Attacker takes (num provinces in theater) divided by this as extra, clamped to BATTLE_BASE_MIN_PROVINCES_TAKEN and BATTLE_BASE_MAX_PROVINCES_TAKEN
 	#BATTLE_PROVINCES_TAKEN_ATTACKING_UNIT_SCALE = 0.02			# Multiply provinces taken by ( 1 + this * number of attacking units left at end of battle)
@@ -142,11 +138,12 @@ NMilitary = {
 	#BATTLE_PROVINCES_TAKEN_THEATER_MIN_SCALE = 0.01			# Number of provinces captured cannot result in a lower scaling factor than this due to BATTLE_PROVINCES_TAKEN_THEATER_UNIT_SCALE
 	#BATTLE_PROVINCES_TAKEN_ABSOLUTE_MIN = 1					# The absolute least number of provinces that can be captured in a successful advance, after all scaling has been applied
 
-	MOBILIZATION_INFRASTRUCTURE_FACTOR = 0.005 #0.01	# amount of mobilization generated per point of infrastructure. one battalion takes one full point of mobilization to mobilize
-	MIN_MOBILIZATION_PER_DAY = 0.025		#0.05		# minimum mobilization gained per day by each mobilizing battalion (the last unit to gain mobilization in a state might have to do with whatever is left)
+	MOBILIZATION_INFRASTRUCTURE_FACTOR = 0.006 #0.01	# amount of mobilization generated per point of infrastructure. one battalion takes one full point of mobilization to mobilize
+	MIN_MOBILIZATION_PER_DAY = 0.03		#0.05		# minimum mobilization gained per day by each mobilizing battalion (the last unit to gain mobilization in a state might have to do with whatever is left)
 	MAX_MOBILIZATION_PER_DAY = 0.1		#0.20		# maximum mobilization gained per day by each mobilizing battalion
 }
 
+#BR: Power blocs should fall apart slower more time to correct cohesion issues.
 NPowerBlocs = {
 	#LEVERAGE_LOBBY_CLOUT_FACTOR = 300 #500	# Leverage gain is increased or decreased by the Lobby's total Clout * this factor
 	COHESION_WEEKLY_DRIFT_MAX = 0.25 #1		# At most, Cohesion will drift by +/- this value each week
@@ -156,11 +153,10 @@ NPowerBlocs = {
 	LEVERAGE_INIT_SAME_BLOC_MEMBER_FACTOR = 1 #0.8	# During initialization, multiply calculated target leverage by this if country is member of the bloc in question
 }
 
+#BR: Devastation ticks up and down slower
 NWar = {
-
-	#DEVASTATION_INCREASE_RATE = 0.03 # Per day, scales with level of occupation
-	#DEVASTATION_DECAY_RATE = -0.03 # Per day, when there are no occupations
-	#DEVASTATION_FROM_BATTLES = 0.1 # For each battle
+	DEVASTATION_INCREASE_RATE = 0.03 # was 0.1 Per day, scales with level of occupation
+	DEVASTATION_DECAY_RATE = -0.03 # was 0.1 Per day, when there are no occupations
 
 	DAYS_BETWEEN_WAR_EXHAUSTION = 14 # 7 Every this many days war support will be reduced by the war exhaustion formula
 

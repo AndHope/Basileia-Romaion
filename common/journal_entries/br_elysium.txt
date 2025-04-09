@@ -1,0 +1,70 @@
+﻿je_elysium_expand_01 = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	should_be_pinned_by_default = yes
+	
+	group = je_group_internal_affairs
+	
+	modifiers_while_active = {
+		br_new_world_westward_colonial_expansion
+	}
+
+	is_shown_when_inactive = {
+		exists = c:br_elysium
+		this = c:br_elysium
+	}
+
+	possible = {
+		exists = c:br_elysium
+		this = c:br_elysium
+		has_law = law_type:law_frontier_colonization
+	}
+
+	complete = {
+		root = {
+			owns_entire_state_region = STATE_NEW_YORK
+			owns_entire_state_region = STATE_VIRGINIA
+			owns_entire_state_region = STATE_MINNESOTA
+			owns_entire_state_region = STATE_WISCONSIN
+			owns_entire_state_region = STATE_INDIANA
+			owns_entire_state_region = STATE_MICHIGAN
+			owns_entire_state_region = STATE_OHIO
+			owns_entire_state_region = STATE_KENTUCKY
+			owns_entire_state_region = STATE_WEST_VIRGINIA
+			owns_entire_state_region = STATE_PENNSYLVANIA
+			owns_entire_state_region = STATE_ILLINOIS
+			owns_entire_state_region = STATE_NORTH_CAROLINA
+		}
+	}
+
+	invalid = {
+		NOT = { has_law = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
+	}
+	
+	on_complete = {
+		#will lead to further expansion JEs
+		add_treasury = 75000
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+	}
+	
+}
+
+

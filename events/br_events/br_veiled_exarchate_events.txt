@@ -164,18 +164,49 @@ veiled_exarchate.1 = {
 			country = c:VEN
 			value = -25
 		}
-		create_diplomatic_pact = {
-			country = c:br_romaioi_india_company	
-			type = protectorate
+
+		if = {
+			limit = {
+				exists = c:br_romaioi_india_company
+				this = c:br_romaioi_india_company
+				NOT = {
+					is_subject_of = c:BYZ
+				}
+			}
+			create_diplomatic_pact = {
+				country = c:br_romaioi_india_company	
+				type = chartered_company
+			}
 		}
-		create_diplomatic_pact = {
-			country = c:br_australis	
-			type = protectorate
+
+		if = {
+			limit = {
+				exists = c:br_australis
+				this = c:br_australis
+				NOT = {
+					is_subject_of = c:BYZ
+				}
+			}
+			create_diplomatic_pact = {
+				country = c:br_australis	
+				type = colony
+			}
 		}
-		create_diplomatic_pact = {
-			country = c:br_kyrenaica
-			type = dominion
+
+		if = {
+			limit = {
+				exists = c:br_kyrenaica
+				this = c:br_kyrenaica
+				NOT = {
+					is_subject_of = c:BYZ
+				}
+			}
+			create_diplomatic_pact = {
+				country = c:br_kyrenaica
+				type = colony
+			}
 		}
+		
 	}
 }
 

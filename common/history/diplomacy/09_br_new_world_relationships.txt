@@ -5,10 +5,6 @@
 			type = vassal
 		}
 		create_diplomatic_pact = {
-			country = c:MAY
-			type = vassal
-		}
-		create_diplomatic_pact = {
 			country = c:TWT
 			type = defensive_pact
 		}
@@ -23,6 +19,8 @@
 			country = c:br_antarctique
 			type = colony
 		}
+		set_relations = { country = c:br_louisiane value = 50 }
+		set_relations = { country = c:br_antarctique value = 50 }
 	}
 
 	c:br_vinland ?= {
@@ -38,7 +36,7 @@
 			country = c:br_new_world_company
 			type = chartered_company
 		}
-		set_relations = { country = c:br_vinland value = 25 }
+		set_relations = { country = c:br_new_angland value = 25 }
 		set_relations = { country = c:br_elysium value = 25 }
 	}
 
@@ -57,7 +55,6 @@
 			country = c:COM
 			months = 90
 		}
-		add_liberty_desire = 10
 	}
 
 	c:br_elysium = { 
@@ -77,6 +74,47 @@
 		set_relations = { country = c:CTF value = -100 }
 		set_relations = { country = c:CHE value = -100 }
 
+		create_diplomatic_pact = {
+			country = c:br_apaleisia
+			type = colony
+		}
+		create_diplomatic_pact = {
+			country = c:br_apaleisia	
+			type = decrease_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_aithaia
+			type = colony
+		}
+		create_diplomatic_pact = {
+			country = c:br_aithaia	
+			type = decrease_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_kykladia
+			type = colony
+		}
+		create_diplomatic_pact = {
+			country = c:br_kykladia	
+			type = decrease_payments
+		}
+		create_diplomatic_pact = {
+			country = c:br_hyperborea
+			type = colony
+		}
+		create_diplomatic_pact = {
+			country = c:br_hyperborea	
+			type = decrease_payments
+		}
+
+		create_unidirectional_truce = {
+			country = c:br_apaleisia
+			months = 120
+		}
+		create_unidirectional_truce = {
+			country = c:br_aithaia
+			months = 120
+		}
 		create_unidirectional_truce = {
 			country = c:IRO
 			months = 6
@@ -85,8 +123,39 @@
 			country = c:br_creek
 			months = 80
 		}
+	
+	}
 
-			
+	c:br_apaleisia = {
+		set_relations = { country = c:br_aithaia value = 65 }
+		set_relations = { country = c:br_vinland value = 50 }
+		set_relations = { country = c:IRO value = 50 }
+		set_relations = { country = c:CTF value = 50 }
+		set_relations = { country = c:br_elysium value = -15 }
+		add_liberty_desire = 30
+		create_unidirectional_truce = {
+			country = c:M05
+			months = 120
+		}
+		set_owes_obligation_to = {
+			country = c:br_aithaia
+			setting = yes
+		}
+	}
+	c:br_aithaia = {
+		set_relations = { country = c:br_elysium value = -25 }
+		set_relations = { country = c:br_vinland value = 50 }
+		set_relations = { country = c:IRO value = 50 }
+		set_relations = { country = c:CTF value = 50 }
+		add_liberty_desire = 40
+		create_unidirectional_truce = {
+			country = c:M05
+			months = 120
+		}
+		set_owes_obligation_to = {
+			country = c:br_apaleisia
+			setting = yes
+		}
 	}
 
 	c:br_new_angland = {
@@ -133,11 +202,26 @@
 			country = c:GJ1
 			months = 32
 		}
-		add_liberty_desire = 10
 	}
 
 	c:br_chinese_new_world = {
 		add_liberty_desire = 10
+		create_unidirectional_truce = {
+			country = c:YKT
+			months = 90
+		}
+	}
+	c:br_japanese_new_world = {
+		set_relations = { country = c:br_chinese_new_world value = -50 }
+		add_liberty_desire = 10
+		create_unidirectional_truce = {
+			country = c:L04
+			months = 90
+		}
+		create_unidirectional_truce = {
+			country = c:T06
+			months = 90
+		}
 	}
 
 }

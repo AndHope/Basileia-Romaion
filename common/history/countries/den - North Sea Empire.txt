@@ -3,8 +3,6 @@
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = napoleonic_warfare
-		add_technology_researched = percussion_cap
-		add_technology_researched = general_staff
 
 		set_tax_level = medium
 		
@@ -24,16 +22,14 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_private_schools
-		#activate_law = law_type:law_colonial_exploitation
     	activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_national_guard
-		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_mixed_army
 		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_legacy_slavery
 			
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
 			add_modifier = {
 				name = ig_influence_modifier
 				multiplier = 0.25
@@ -64,19 +60,7 @@
 			name = br_modifier_norse_military_doctrine
 			months = -1
 		}
-		add_modifier = {
-			name = baltic_toll_collection_rights
-			years = 50
-		}
-
-		trigger_event = {
-			id = br_new_world_events.5
-			days = 10
-		}
-		trigger_event = {
-			id = br_new_world_events.5
-			days = 2000
-		}
+		add_journal_entry = { type = je_br_baltic_toll_collection_rights }
 
 	}
 }
