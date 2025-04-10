@@ -1509,7 +1509,6 @@ eocfm.111 = { # Constantinopole Usurped by Country
 	
 	trigger = {
 		has_variable = eocfm_integrating_constantinople
-		has_variable = eocfm_integration_var
 		var:eocfm_integration_var >= 60
 	}
 	
@@ -1659,7 +1658,6 @@ eocfm.113 = { # Antioch Usurped by Country
 	
 	trigger = {
 		has_variable = eocfm_integrating_antioch
-		has_variable = eocfm_integration_var
 		var:eocfm_integration_var >= 60
 	}
 	
@@ -1808,7 +1806,6 @@ eocfm.115 = { # Jerusalem Usurped by Country
 	
 	trigger = {
 		has_variable = eocfm_integrating_jerusalem
-		has_variable = eocfm_integration_var
 		var:eocfm_integration_var >= 60
 	}
 	
@@ -1957,7 +1954,6 @@ eocfm.117 = { # Alexandria Usurped by Country
 	
 	trigger = {
 		has_variable = eocfm_integrating_alexandria
-		has_variable = eocfm_integration_var
 		var:eocfm_integration_var >= 60
 	}
 	
@@ -2106,7 +2102,6 @@ eocfm.119 = { # Moscow Usurped by Country
 	
 	trigger = {
 		has_variable = eocfm_integrating_moscow
-		has_variable = eocfm_integration_var
 		var:eocfm_integration_var >= 60
 	}
 	
@@ -5149,10 +5144,10 @@ eocfm.303 = { # The Capture of the Great Mosque
 			value = medium_radicals
 			religion = rel:shiite
 		}
-		scope:hedjaz_state = {
-			remove_building = building_Mecca
-			set_devastation = 10
-		}
+#		scope:hedjaz_state = {
+#			remove_building = gbbf_building_masjid_al_haram
+#			set_devastation = 10
+#		}
 		change_infamy = 10
 	}
 	
@@ -5361,7 +5356,6 @@ eocfm.307 = { # The Throne of Saint Peter
 	
 	trigger = {
 		has_variable = eocfm_integrating_rome
-		has_variable = eocfm_integration_var
 		var:eocfm_integration_var >= 60
 	}
 	
@@ -5479,7 +5473,6 @@ eocfm.309 = { # The Supreme Pontiff of the Universal Church
 	# dlc = dlc_eocfm
 	
 	trigger = {
-		has_variable = eocfm_mending_var
 		var:eocfm_mending_var >= 240
 	}
 	
@@ -5991,7 +5984,7 @@ eocfm.906 = { # Rome Holy Site Event
 
 ########################################
 
-#### Vanilla Event Window Variants ####
+#### Vanilla Event Window Variants
 # event_window_default
 # event_window_1char_tabloid
 # event_window_1char_propaganda
@@ -6001,13 +5994,16 @@ eocfm.906 = { # Rome Holy Site Event
 # event_window_1char_tabloid_halloween
 # event_window_big_icon_center
 
-#### CMF Character Window Variants ####
+#### CMF Character Window Variants
 # event_window_1char_adventure
 # event_window_2char_adventure
 # event_window_2char_duel
-# event_window_highlande
+# event_window_2char_discussion
+# event_window_highlander
+# event_window_3char
+# event_window_3char_selection
 
-#### CMF Superevent Window Variants ####
+#### CMF Superevent Window Variants
 # event_window_superevent_newspaper
 # event_window_superevent_newspaper_full
 # event_window_superevent_classic
@@ -6016,8 +6012,12 @@ eocfm.906 = { # Rome Holy Site Event
 # event_window_superevent_modern_full
 # event_window_superevent_crisis
 
-#### CMF Special Window Variants ####
-# event_window_special
+#### CMF Widescreen Window Variants
+# event_window_widescreen_classic
+# event_window_widescreen_newspaper
+
+#### CMF Special Window Variants
+# event_window_special # placeholder
 # event_window_ethics
 
 ########################################
