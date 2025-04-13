@@ -376,3 +376,70 @@ gov_br_roman_colony = {
 		post_change_to_presidential_elective = yes
 	}
 }
+
+gov_br_roman_council_colony = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_BYZ_GOVERNOR"
+	female_ruler = "RULER_TITLE_BYZ_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_parliamentary_republic
+		exists = c:BYZ
+		c:BYZ = {
+			has_law = law_type:law_monarchy
+		}
+		OR = {
+			is_subject_of = c:BYZ
+			is_subject_of = c:br_aegypt
+		}
+		is_subject_type = subject_type_colony
+		#is_country_type = colonial
+		#top_overlord = { NOT = { is_country_type = colonial } }
+		any_primary_culture = {
+			has_discrimination_trait = colonial_heritage
+		}
+		country_is_in_europe = no
+		NOT = {
+			OR = {
+				c:br_aegypt ?= this
+				c:br_afrika ?= this
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_br_chartered_company = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	
+	possible = {
+		exists = c:BYZ
+		c:BYZ = {
+			has_law = law_type:law_monarchy
+		}
+		OR = {
+			is_subject_of = c:BYZ
+			is_subject_of = c:br_aegypt
+		}
+		is_subject_type = subject_type_chartered_company
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
