@@ -173,6 +173,41 @@
 			id = treaty_of_poznan_events.1
 			popup = yes
 		}
+		#trigger an event for the subjects of the root
+		every_subject_or_below = {
+			trigger_event = {
+				id = treaty_of_poznan_events.2
+				popup = yes
+			}
+		}
+
+		#trigger an event for every country that has an interest in the poland region
+		if = {
+			limit = {
+				#do this only if the root is the br_north_german_federation_scope so the events only get triggered once
+				root ?= scope:br_north_german_federation_scope
+			}
+			every_country = {
+				limit = {
+					has_interest_marker_in_region = region_poland
+					not = {
+						or = {
+							#check that it is not germany or poland
+							this ?= scope:br_north_german_federation_scope
+							this ?= scope:br_commonwealth_scope
+
+							#check that it is not a subject of germany or poland
+							is_subject_of = scope:br_north_german_federation_scope
+							is_subject_of = scope:br_commonwealth_scope
+						}
+					}
+				}
+				trigger_event = {
+					id = treaty_of_poznan_events.3
+					popup = yes
+				}
+			}
+		}
 	}
 
 	complete = {
@@ -233,6 +268,7 @@
 				limit = { # Only one country can actually modify this, or the congress will end after one month
 					c:NGF ?= this
 					global_var:br_je_conference_of_poznan_timer <= 0
+					not = { has_global_variable = br_poznan_treaty_will_conclude_global_var }
 				}
 				trigger_event = { id = treaty_of_poznan_events.6 popup = yes }
 			}
@@ -240,6 +276,7 @@
 				limit = {
 					scope:br_north_german_federation_scope ?= this
 					global_var:br_je_conference_of_poznan_timer <= 0
+					has_global_variable = br_poznan_treaty_will_conclude_global_var
 				}
 				#then tally the score
 				if = {

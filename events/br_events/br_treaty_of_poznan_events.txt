@@ -8,8 +8,6 @@ treaty_of_poznan_events.1 = {
 	title = treaty_of_poznan_events.1.t
 	desc = treaty_of_poznan_events.1.d
 	flavor = treaty_of_poznan_events.1.f
-
-	cooldown = { months = normal_modifier_time }
 	
 	event_image = {
 		video = "southamerica_aristocrats"
@@ -22,91 +20,18 @@ treaty_of_poznan_events.1 = {
 	duration = 3
 
 	trigger = {
-		c:NGF ?= this
-		NOT = {
-			has_variable = treaty_of_poznan_initiation_var
-		}
-		year >= 1738
+		# triggered by the JE
 	}
 
-	immediate = {
-		set_variable = treaty_of_poznan_initiation_var
-		c:PLC = {
-			save_scope_as = br_commonwealth_scope
-		}
-	}
+	immediate = {}
 
 	option = {
 		name = treaty_of_poznan_events.1.a
 		default_option = yes
-		ai_chance = {
-			base = 95
-		}
-		scope:br_commonwealth_scope ?= {
-			trigger_event = { id = treaty_of_poznan_events.2 popup = yes } 
-		}
-		custom_tooltip = if_they_accept_tt
-		custom_tooltip = treaty_of_poznan_explanation_tt
-		show_as_tooltip = {
-			add_journal_entry = {
-				type = br_je_conference_of_poznan
-			}
-			scope:br_commonwealth_scope = {
-				add_journal_entry = {
-					type = br_je_conference_of_poznan
-				}
-			}
-			every_country = {
-				limit = {
-					country_rank >= rank_value:great_power
-					NOR = { 
-						root ?= this
-						c:PLC ?= this
-					}
-					country_is_in_europe = yes
-				}
-				trigger_event = { id = treaty_of_poznan_events.3 popup = yes } 
-			}
-		}
-	}
-
-
-	option = {
-		name = treaty_of_poznan_events.1.b
-		ai_chance = {
-			base = 5
-		}
-		c:PLC = {
-			change_relations = { country = root value = -80 }
-			create_diplomatic_catalyst = {  
-				type = catalyst_event_negative
-				target = root
-			}
-		}
-		every_country = {
-			limit = {
-				country_rank >= rank_value:great_power
-				NOT = { this = root }
-				country_is_in_europe = yes
-			}
-			change_relations = { country = root value = -40 }
-		}
-		hidden_effect = {
-			set_secret_goal = {
-				country = c:PLC
-				secret_goal = conquer
-			}
-			c:PLC = {
-				set_secret_goal = {
-					country = c:PRU
-					secret_goal = conquer
-				}
-			}
-		}
 	}
 }
 
-#event for PLC
+#event for the subjects
 treaty_of_poznan_events.2 = {
 	type = country_event
 	placement = ROOT
@@ -114,8 +39,6 @@ treaty_of_poznan_events.2 = {
 	title = treaty_of_poznan_events.2.t
 	desc = treaty_of_poznan_events.2.d
 	flavor = treaty_of_poznan_events.2.f
-
-	cooldown = { months = normal_modifier_time }
 	
 	event_image = {
 		video = "southamerica_aristocrats"
@@ -128,79 +51,18 @@ treaty_of_poznan_events.2 = {
 	duration = 3
 
 	trigger = {
-		# triggered by treaty_of_poznan_events.1
+		# triggered by the JE
 	}
 
-	immediate = {
-		c:NGF = {
-			save_scope_as = br_north_german_federation_scope
-		}
-	}
+	immediate = {}
 
 	option = {
 		name = treaty_of_poznan_events.2.a
 		default_option = yes
-		ai_chance = {
-			base = 95
-		}
-		c:NGF = {
-			add_journal_entry = {
-				type = br_je_conference_of_poznan
-			}
-		}
-		add_journal_entry = {
-			type = br_je_conference_of_poznan
-		}
-		custom_tooltip = treaty_of_poznan_explanation_tt
-		every_country = {
-			limit = {
-				country_rank >= rank_value:great_power
-				NOT = { 
-					this = root
-					# c:NGF = this
-				}
-				country_is_in_europe = yes
-			}
-			trigger_event = { id = treaty_of_poznan_events.3 popup = yes } 
-		}
-	}
-
-
-	option = {
-		name = treaty_of_poznan_events.2.b
-		ai_chance = {
-			base = 5
-		}
-		c:NGF = {
-			change_relations = { country = root value = -80 }
-			create_diplomatic_catalyst = {  
-				type = catalyst_event_negative
-				target = root
-			}
-		}
-		every_country = {
-			limit = {
-				country_rank >= rank_value:great_power
-				NOT = { this = root }
-				country_is_in_europe = yes
-			}
-			change_relations = { country = root value = -40 }
-		}
-		hidden_effect = {
-			set_secret_goal = {
-				country = c:PRU
-				secret_goal = conquer
-			}
-			c:NGF = {
-				set_secret_goal = {
-					country = c:PLC
-					secret_goal = conquer
-				}
-			}
-		}
 	}
 }
 
+#event for all those with an interest
 treaty_of_poznan_events.3 = {
 	type = country_event
 	placement = ROOT
@@ -208,8 +70,6 @@ treaty_of_poznan_events.3 = {
 	title = treaty_of_poznan_events.3.t
 	desc = treaty_of_poznan_events.3.d
 	flavor = treaty_of_poznan_events.3.f
-
-	cooldown = { months = normal_modifier_time }
 	
 	event_image = {
 		video = "unspecific_politicians_arguing"
@@ -221,60 +81,13 @@ treaty_of_poznan_events.3 = {
 	
 	duration = 3
 
-	trigger = {
+	trigger = {}
 
-	}
-
-	immediate = {
-		c:NGF ?= {
-			save_scope_as = br_north_german_federation_scope
-		}
-		c:PLC ?= {
-			save_scope_as = br_commonwealth_scope
-		}
-	}
+	immediate = {}
 
 	option = {
 		name = treaty_of_poznan_events.3.a
 		default_option = yes
-		ai_chance = {
-			base = 95
-		}
-		add_journal_entry = {
-			type = br_je_conference_of_poznan
-		}
-		custom_tooltip = treaty_of_poznan_explanation_tt
-		if = {
-			limit = {
-				NOT = {
-					exists = global_var:br_je_conference_of_poznan_participants_var
-				}
-			}
-			set_global_variable = {
-				name = br_je_conference_of_poznan_participants_var
-				value = 1
-			}
-		}
-		else = {
-			change_global_variable = {
-				name = br_je_conference_of_poznan_participants_var
-				add = 1
-			}
-		}
-	}
-
-
-	option = {
-		name = treaty_of_poznan_events.3.b
-		ai_chance = {
-			base = 5
-		}
-		c:NGF = {
-			change_relations = { country = root value = -20 }
-		}
-		c:PLC = {
-			change_relations = { country = root value = -20 }
-		}
 	}
 }
 
@@ -286,8 +99,6 @@ treaty_of_poznan_events.4 = {
 	title = treaty_of_poznan_events.4.t
 	desc = treaty_of_poznan_events.4.d
 	flavor = treaty_of_poznan_events.4.f
-
-	cooldown = { months = normal_modifier_time }
 	
 	event_image = {
 		video = "ep1_transfer_of_authority"
@@ -404,8 +215,6 @@ treaty_of_poznan_events.5 = {
 	title = treaty_of_poznan_events.5.t
 	desc = treaty_of_poznan_events.5.d
 	flavor = treaty_of_poznan_events.5.f
-
-	cooldown = { months = normal_modifier_time }
 	
 	event_image = {
 		video = "africa_leader_arguing"
@@ -448,8 +257,6 @@ treaty_of_poznan_events.6 = {
 	title = treaty_of_poznan_events.6.t
 	desc = treaty_of_poznan_events.6.d
 	flavor = treaty_of_poznan_events.6.f
-
-	cooldown = { months = normal_modifier_time }
 	
 	event_image = {
 		video = "africa_leader_arguing"
@@ -465,31 +272,32 @@ treaty_of_poznan_events.6 = {
 	}
 
 	# immediate = {
-	# 	c:NGF ?= {
-	# 		save_scope_as = br_north_german_federation_scope
-	# 	}
-	# 	c:PLC ?= {
-	# 		save_scope_as = br_commonwealth_scope
-	# 	}
 	# }
 
+	#extend the deadline with a couple of months
 	option = {
 		name = treaty_of_poznan_events.6.a
 		default_option = yes
-		change_global_variable = {
-			name = br_je_conference_of_poznan_timer
-			add = 3 		#extend the deadline with a couple of months
+
+		#ask poland to agree with extending the conference
+		scope:br_commonwealth_scope = {
+			trigger_event = {
+				id = treaty_of_poznan_events.7
+				popup = yes
+			}
 		}
 	}
 	option = {
 		name = treaty_of_poznan_events.6.b
-		default_option = yes
 		#chose to not extend the deadline
-		custom_tooltip = br_the_poznan_conference_will_end_tt
+		custom_tooltip = {
+			text = br_the_poznan_conference_will_end_tt
+			br_conclude_the_poznan_conference_scripted_effect = yes
+		}
 	}
 }
 
-#The fate of Prussia
+#Accept the that the conference is extended
 treaty_of_poznan_events.7 = {
 	type = country_event
 	placement = ROOT
@@ -497,8 +305,52 @@ treaty_of_poznan_events.7 = {
 	title = treaty_of_poznan_events.7.t
 	desc = treaty_of_poznan_events.7.d
 	flavor = treaty_of_poznan_events.7.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
 
-	cooldown = { months = normal_modifier_time }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	#accept that the conference is extended by a couple months
+	option = {
+		name = treaty_of_poznan_events.7.a
+		default_option = yes
+
+		#extend the conference with 3 months if accepted
+		br_extend_the_poznan_conference_scripted_effect = {
+			NUMBER_OF_MONTHS = 3
+		}
+	}
+	#refuse to have the conference extended
+	option = {
+		name = treaty_of_poznan_events.7.b
+		#chose to not extend the deadline
+		custom_tooltip = {
+			text = br_the_poznan_conference_will_end_tt
+			br_conclude_the_poznan_conference_scripted_effect = yes
+		}
+	}
+}
+
+#The fate of Prussia
+treaty_of_poznan_events.8 = {
+	type = country_event
+	placement = ROOT
+	
+	title = treaty_of_poznan_events.8.t
+	desc = treaty_of_poznan_events.8.d
+	flavor = treaty_of_poznan_events.8.f
 	
 	event_image = {
 		video = "africa_leader_arguing"
@@ -538,7 +390,7 @@ treaty_of_poznan_events.7 = {
 
 	#prussia becomes independent
 	option = {
-		name = treaty_of_poznan_events.7.a
+		name = treaty_of_poznan_events.8.a
 		default_option = yes
 		if = {
 			limit = { 
@@ -558,13 +410,13 @@ treaty_of_poznan_events.7 = {
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+			trigger_event = { id = treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
 		}
 	}
 
 	#plc puppets prussia
 	option = {
-		name = treaty_of_poznan_events.7.b
+		name = treaty_of_poznan_events.8.b
 		default_option = yes
 		if = {
 			limit = { 
@@ -584,13 +436,13 @@ treaty_of_poznan_events.7 = {
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+			trigger_event = { id = treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
 		}
 	}
 
 	#ngf puppets prussia
 	option = {
-		name = treaty_of_poznan_events.7.c
+		name = treaty_of_poznan_events.8.c
 		default_option = yes
 		if = {
 			limit = { 
@@ -610,14 +462,14 @@ treaty_of_poznan_events.7 = {
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = treaty_of_poznan_events.7 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+			trigger_event = { id = treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
 		}
 	}
 	# .d and .f can not be used as they are used for discription an flavor
 
 	#plc annexes prussia
 	option = {
-		name = treaty_of_poznan_events.7.e
+		name = treaty_of_poznan_events.8.e
 		default_option = yes
 		if = {
 			limit = { 
@@ -637,13 +489,13 @@ treaty_of_poznan_events.7 = {
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
+			trigger_event = { id = treaty_of_poznan_events.8 days = 1 popup = yes }
 		}
 	}
 
 	#nfg annexes prussia
 	option = {
-		name = treaty_of_poznan_events.7.g
+		name = treaty_of_poznan_events.8.g
 		default_option = yes
 		if = {
 			limit = { 
@@ -663,13 +515,13 @@ treaty_of_poznan_events.7 = {
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
+			trigger_event = { id = treaty_of_poznan_events.8 days = 1 popup = yes }
 		}
 	}
 
 	#give prussia memel
 	option = {
-		name = treaty_of_poznan_events.7.h
+		name = treaty_of_poznan_events.8.h
 		default_option = yes
 		if = {
 			limit = { 
@@ -688,11 +540,11 @@ treaty_of_poznan_events.7 = {
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = treaty_of_poznan_events.7 days = 1 popup = yes }
+			trigger_event = { id = treaty_of_poznan_events.8 days = 1 popup = yes }
 		}
 	}
 	option = {
-		name = treaty_of_poznan_events.7.i
+		name = treaty_of_poznan_events.8.i
 		default_option = yes
 		custom_tooltip = br_finished_deciding_prussia_tt
 	}

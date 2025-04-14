@@ -59,6 +59,12 @@
 		limit = {
 			has_global_variable = br_fate_of_prussia_global_var
 		}
+		if = { #do this first so it doesn't conflict with the other effects
+			limit = { 
+				has_variable = br_propose_prussian_annexation_of_memel_var
+			}
+			br_prussian_annexation_of_memel_scripted_effect = yes
+		}
 		if = {
 			limit = { 
 				has_variable = br_propose_independence_of_prussia_var
@@ -88,12 +94,6 @@
 				has_variable = br_propose_ngf_annexation_of_prussia_var
 			}
 			br_ngf_annexation_of_prussia_scripted_effect = yes
-		}
-		if = {
-			limit = { 
-				has_variable = br_propose_prussian_annexation_of_memel_var
-			}
-			br_prussian_annexation_of_memel_scripted_effect = yes
 		}
 	}
 	if = {
@@ -128,10 +128,26 @@
 	}
 }
 
+br_extend_the_poznan_conference_scripted_effect = {
+	change_global_variable = {
+		name = br_je_conference_of_poznan_timer
+		add = $NUMBER_OF_MONTHS$ 		#extend the deadline with a couple of months
+	}
+}
+
+br_conclude_the_poznan_conference_scripted_effect = {
+	limit = {
+		NOT = {
+			has_global_variable = br_poznan_treaty_will_conclude_global_var
+		}
+	}
+	set_global_variable = br_poznan_treaty_will_conclude_global_var
+}
+
 br_remove_treaty_of_poznan_variables_scripted_effect = {
 	if = {
 		limit = { 
-			this ?= global_var:br_poznan_conference_initiator
+			this ?= scope:br_north_german_federation_scope
 		}
 		remove_global_variable = br_je_conference_of_poznan_timer
 		remove_global_variable = br_poznan_conference_initiator
