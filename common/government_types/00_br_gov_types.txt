@@ -1,0 +1,445 @@
+﻿gov_exarchate = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_EXARCH"
+	female_ruler = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:BYZ
+		is_subject_of = c:BYZ
+
+		OR = {
+			country_tier = kingdom
+			country_tier = grand_principality
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_themata = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_STRATEGOS"
+	female_ruler = "" # Empty on purpose
+
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:BYZ
+		is_subject_of = c:BYZ
+
+		OR = {
+			country_tier = principality
+			country_tier = city_state
+		}
+	}	
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_independent_themata = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_STRATEGOS"
+	female_ruler = "" # Empty on purpose
+
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			country_tier = grand_principality
+			country_tier = principality
+			country_tier = city_state
+		}
+		or = {
+			AND = { exists = c:br_kyrenaica c:br_kyrenaica = ROOT }
+		}
+	}	
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_independent_exarchate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EXARCH"
+	female_ruler = "" # Empty on purpose
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			country_tier = kingdom
+			country_tier = principality
+			country_tier = grand_principality
+		}
+		or = {
+			AND = { exists = c:br_aegypt c:br_aegypt = ROOT }
+			AND = { exists = c:br_afrika c:br_afrika = ROOT }
+			AND = { exists = c:br_albania c:br_albania = ROOT }
+			AND = { exists = c:SER c:SER = ROOT }
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_satrapy = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_SATRAP"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:PER
+		is_subject_of = c:PER
+
+		OR = {
+			country_tier = principality
+			country_tier = grand_principality
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_byz_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_BASILEUS"
+	female_ruler = "RULER_TITLE_BASILISSA"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		has_law = law_type:law_monarchy
+		or = {
+			AND = { exists = c:BYZ c:BYZ = ROOT }
+			AND = { exists = c:br_elysium c:br_elysium = ROOT }
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_celestial_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR"
+	female_ruler = "RULER_TITLE_EMPRESS"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		exists = c:CHI
+		c:CHI = ROOT
+		has_law = law_type:law_monarchy
+		or = {
+			AND = { exists = c:CHI c:CHI = ROOT }
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_katepano = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KATEPANO"
+	female_ruler = "RULER_TITLE_KATEPANO"
+	
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		#has_law = law_type:law_autocracy 
+		country_tier = grand_principality
+		exists = c:SIC
+		c:SIC = ROOT
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_br_caliphate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_CALIPH"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:ARA
+		c:ARA = ROOT
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+
+}
+
+gov_merchant_republic = {
+	#transfer_of_power = presidential_elective
+
+	male_ruler = "RULER_TITLE_DOGE"
+	female_ruler = "RULER_TITLE_DOGE"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		or = {
+			AND = { exists = c:VEN c:VEN = ROOT }
+			AND = { exists = c:br_genoa c:br_genoa = ROOT }
+		}	
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+
+}
+
+gov_br_colonial_administration = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		OR = {
+			is_subject_type = subject_type_colony
+			is_subject_type = subject_type_dominion
+		}
+		OR = {
+			AND = {
+				is_subject_type = subject_type_colony
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+				}
+				country_is_in_europe = no
+			}
+		}
+		NOT = {
+			is_subject_of = c:HRE
+		}
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_br_crown_colony = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR"
+	female_ruler = "RULER_TITLE_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		exists = c:HRE
+		is_subject_of = c:HRE
+		c:HRE = {
+			has_law = law_type:law_monarchy
+		}
+		is_subject_type = subject_type_colony
+		is_country_type = colonial
+		top_overlord = { NOT = { is_country_type = colonial } }
+		any_primary_culture = {
+			has_discrimination_trait = european_heritage
+		}
+		country_is_in_europe = no
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_br_roman_colony = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_BYZ_GOVERNOR"
+	female_ruler = "RULER_TITLE_BYZ_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		exists = c:BYZ
+		c:BYZ = {
+			has_law = law_type:law_monarchy
+		}
+		OR = {
+			is_subject_of = c:BYZ
+			is_subject_of = c:br_aegypt
+		}
+		is_subject_type = subject_type_colony
+		#is_country_type = colonial
+		#top_overlord = { NOT = { is_country_type = colonial } }
+		any_primary_culture = {
+			has_discrimination_trait = colonial_heritage
+		}
+		country_is_in_europe = no
+		NOT = {
+			OR = {
+				c:br_aegypt ?= this
+				c:br_afrika ?= this
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_br_roman_council_colony = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_BYZ_GOVERNOR"
+	female_ruler = "RULER_TITLE_BYZ_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_parliamentary_republic
+		exists = c:BYZ
+		c:BYZ = {
+			has_law = law_type:law_monarchy
+		}
+		OR = {
+			is_subject_of = c:BYZ
+			is_subject_of = c:br_aegypt
+		}
+		is_subject_type = subject_type_colony
+		#is_country_type = colonial
+		#top_overlord = { NOT = { is_country_type = colonial } }
+		any_primary_culture = {
+			has_discrimination_trait = colonial_heritage
+		}
+		country_is_in_europe = no
+		NOT = {
+			OR = {
+				c:br_aegypt ?= this
+				c:br_afrika ?= this
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_br_chartered_company = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	
+	possible = {
+		exists = c:BYZ
+		c:BYZ = {
+			has_law = law_type:law_monarchy
+		}
+		OR = {
+			is_subject_of = c:BYZ
+			is_subject_of = c:br_aegypt
+		}
+		is_subject_type = subject_type_chartered_company
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
