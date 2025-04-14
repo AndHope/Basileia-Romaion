@@ -11,7 +11,7 @@
 
 	possible = {
 		custom_tooltip = {
-			text = poznan_conference_made_choice_tt
+			text = br_poznan_conference_made_choice_tt
 			# NOR = {
 			# 	has_variable = br_counter_offer_button_var
 			# 	has_variable = br_fate_of_prussia_button_var
@@ -32,7 +32,7 @@
 					has_variable = br_request_poznan_button_var
 				}
 			}
-			custom_tooltip = we_chose_this_br_poznan_treaty_tt
+			custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
 			set_variable = br_request_poznan_button_var
 			change_global_variable = {
 				name = br_je_conference_of_poznan_proposal_1
@@ -57,7 +57,7 @@
 			limit = { 
 				has_variable = br_request_poznan_button_var
 			}
-			custom_tooltip = we_unchose_this_br_poznan_treaty_tt
+			custom_tooltip = br_we_unchose_this_br_poznan_treaty_tt
 			remove_variable = br_request_poznan_button_var
 			change_global_variable = {
 				name = br_je_conference_of_poznan_proposal_1
@@ -98,7 +98,7 @@ br_request_pomorze_button = {
 
 	possible = {
 		custom_tooltip = {
-			text = poznan_conference_made_choice_tt
+			text = br_poznan_conference_made_choice_tt
 			# NOR = {
 			# 	has_variable = br_counter_offer_button_var
 			# 	has_variable = br_fate_of_prussia_button_var
@@ -119,7 +119,7 @@ br_request_pomorze_button = {
 					has_variable = br_request_pomorze_button_var
 				}
 			}
-			custom_tooltip = we_chose_this_br_poznan_treaty_tt
+			custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
 			set_variable = br_request_pomorze_button_var
 			change_global_variable = {
 				name = br_je_conference_of_poznan_proposal_2
@@ -144,7 +144,7 @@ br_request_pomorze_button = {
 			limit = {
 				has_variable = br_request_pomorze_button_var
 			}
-			custom_tooltip = we_unchose_this_br_poznan_treaty_tt
+			custom_tooltip = br_we_unchose_this_br_poznan_treaty_tt
 			remove_variable = br_request_pomorze_button_var
 			change_global_variable = {
 				name = br_je_conference_of_poznan_proposal_2
@@ -186,7 +186,7 @@ br_fate_of_prussia_button = {
 
 	possible = {
 		custom_tooltip = {
-			text = poznan_conference_made_choice_tt
+			text = br_poznan_conference_made_choice_tt
 			# NOR = {
 			# 	has_variable = br_counter_offer_button_var
 			# 	has_variable = br_fate_of_prussia_button_var
@@ -201,7 +201,7 @@ br_fate_of_prussia_button = {
 	}
 
 	effect = {
-		# custom_tooltip = we_chose_this_br_poznan_treaty_tt
+		# custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
 		if = {
 			limit = { 
 				not = { has_variable = br_fate_of_prussia_button_var }
@@ -220,7 +220,7 @@ br_fate_of_prussia_button = {
 			}
 		}
 		#add event to decide specific outcome
-		trigger_event = { id = treaty_of_poznan_events.8 popup = yes } #seems like it only wants the trigger the event ones and then never again
+		trigger_event = { id = br_treaty_of_poznan_events.8 popup = yes } #seems like it only wants the trigger the event ones and then never again
 	}
 
 	ai_chance = {
@@ -241,7 +241,7 @@ br_counter_offer_button = {
 
 	possible = {
 		custom_tooltip = {
-			text = poznan_conference_made_choice_tt
+			text = br_poznan_conference_made_choice_tt
 			# NOR = {
 			# 	has_variable = br_counter_offer_button_var
 			# 	has_variable = br_fate_of_prussia_button_var
@@ -256,7 +256,7 @@ br_counter_offer_button = {
 	}
 
 	effect = {
-		custom_tooltip = we_chose_this_br_poznan_treaty_tt
+		custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
 		set_variable = br_counter_offer_button_var
 		change_global_variable = {
 			name = br_je_conference_of_poznan_proposal_4
@@ -270,9 +270,9 @@ br_counter_offer_button = {
 	}
 }
 
-poznan_conference_approve_button = {
-	name = poznan_conference_approve_button
-	desc = poznan_conference_approve_button_desc
+br_poznan_conference_approve_button = {
+	name = br_poznan_conference_approve_button
+	desc = br_poznan_conference_approve_button_desc
 
 	visible = {
 		OR = {
@@ -283,7 +283,7 @@ poznan_conference_approve_button = {
 
 	possible = {
 		custom_tooltip = {
-			text = poznan_conference_has_concluded_loc
+			text = br_poznan_conference_has_concluded_loc
 			has_global_variable = br_poznan_treaty_has_concluded_global_var
 			OR = {
 				has_global_variable = br_request_poznan_global_var
@@ -303,7 +303,7 @@ poznan_conference_approve_button = {
 
 	effect = {
 		custom_tooltip = {
-			text = poznan_conference_approve_button_tt
+			text = br_poznan_conference_approve_button_tt
 			if = {
 				limit = {
 					scope:br_north_german_federation_scope ?= this
@@ -328,9 +328,9 @@ poznan_conference_approve_button = {
 	}
 }
 
-poznan_conference_disapprove_button = {
-	name = poznan_conference_disapprove_button
-	desc = poznan_conference_disapprove_button_desc
+br_poznan_conference_disapprove_button = {
+	name = br_poznan_conference_disapprove_button
+	desc = br_poznan_conference_disapprove_button_desc
 
 	visible = {
 		OR = {
@@ -341,7 +341,7 @@ poznan_conference_disapprove_button = {
 
 	possible = {
 		custom_tooltip = {
-			text = poznan_conference_has_concluded_loc
+			text = br_poznan_conference_has_concluded_loc
 			has_global_variable = br_poznan_treaty_has_concluded_global_var
 			OR = {
 				has_global_variable = br_request_poznan_global_var
@@ -361,7 +361,7 @@ poznan_conference_disapprove_button = {
 
 	effect = {
 		custom_tooltip = {
-			text = poznan_conference_disapprove_button_tt
+			text = br_poznan_conference_disapprove_button_tt
 			if = {
 				limit = {
 					scope:br_north_german_federation_scope ?= this

@@ -7,8 +7,8 @@
     scripted_button = br_request_pomorze_button
     scripted_button = br_fate_of_prussia_button
     scripted_button = br_counter_offer_button
-    scripted_button = poznan_conference_approve_button
-    scripted_button = poznan_conference_disapprove_button
+    scripted_button = br_poznan_conference_approve_button
+    scripted_button = br_poznan_conference_disapprove_button
 
 	is_shown_when_inactive = {
 		OR = {
@@ -170,13 +170,13 @@
 
 		#trigger startup event
 		trigger_event = {
-			id = treaty_of_poznan_events.1
+			id = br_treaty_of_poznan_events.1
 			popup = yes
 		}
 		#trigger an event for the subjects of the root
 		every_subject_or_below = {
 			trigger_event = {
-				id = treaty_of_poznan_events.2
+				id = br_treaty_of_poznan_events.2
 				popup = yes
 			}
 		}
@@ -203,7 +203,7 @@
 					}
 				}
 				trigger_event = {
-					id = treaty_of_poznan_events.3
+					id = br_treaty_of_poznan_events.3
 					popup = yes
 				}
 			}
@@ -227,7 +227,7 @@
 	}
 
 	on_complete = {
-		trigger_event = { id = treaty_of_poznan_events.4 popup = yes }
+		trigger_event = { id = br_treaty_of_poznan_events.4 popup = yes }
 	}
 
 	fail = {
@@ -249,7 +249,7 @@
 	}
 
 	on_fail = {
-		# trigger_event = { id = treaty_of_poznan_events.5 popup = yes }
+		# trigger_event = { id = br_treaty_of_poznan_events.5 popup = yes }
 	}
 
 	on_monthly_pulse = {
@@ -270,7 +270,7 @@
 					global_var:br_je_conference_of_poznan_timer <= 0
 					not = { has_global_variable = br_poznan_treaty_will_conclude_global_var }
 				}
-				trigger_event = { id = treaty_of_poznan_events.6 popup = yes }
+				trigger_event = { id = br_treaty_of_poznan_events.6 popup = yes }
 			}
 			if = { #if the treaty is over
 				limit = {
