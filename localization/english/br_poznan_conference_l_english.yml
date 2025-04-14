@@ -2,7 +2,22 @@
 
  #Journal loc
  br_je_conference_of_poznan: "Poznan Conference"
- br_je_conference_of_poznan_reason: "The great powers have sent their delegations to Poznan to decide on a solution to the unsolved border issues between [SCOPE.sCountry('br_north_german_federation_scope').GetName] and [SCOPE.sCountry('br_commonwealth_scope').GetName]. \n\n#variable [GetGlobalVariable( 'br_je_conference_of_poznan_participants_var' ).GetValue]#! [Concept('concept_great_power', '$concept_great_powers$')] are participating in the Conference.\n#bold #tooltippable #tooltip:br_request_poznan_button_desc $br_request_poznan_button$#!#!#! has received #variable [GetGlobalVariable( 'br_je_conference_of_poznan_proposal_1' ).GetValue]#! votes\n#bold #tooltippable #tooltip:br_request_pomorze_button_desc $br_request_pomorze_button$#!#!#! has received #variable [GetGlobalVariable( 'br_je_conference_of_poznan_proposal_2' ).GetValue]#! votes\n#bold #tooltippable #tooltip:br_fate_of_prussia_button_desc $br_fate_of_prussia_button$#!#!#! has received #variable [GetGlobalVariable( 'br_je_conference_of_poznan_proposal_3' ).GetValue]#! votes\n#bold #tooltippable #tooltip:br_counter_offer_button_desc $br_counter_offer_button$#!#!#! has received #variable [GetGlobalVariable( 'br_je_conference_of_poznan_proposal_4' ).GetValue]#! votes\n\nThe conference will conclude in #variable [GetGlobalVariable('br_je_conference_of_poznan_timer').GetValue]#! months. The proposal with the #tooltippable #tooltip:br_poznan_treaty_voting_rules most votes#!#! will then be selected as the conference's offical solution."
+ br_je_conference_of_poznan_reason: "The great powers have sent their delegations to Poznan to decide on a solution to the unsolved border issues between [SCOPE.sCountry('br_north_german_federation_scope').GetName] and [SCOPE.sCountry('br_commonwealth_scope').GetName]. \n\nList of demands:\n$br_poznan_conference_je_reason_loc_taken_demands_loc$ \n\nThe conference will conclude in #variable [GetGlobalVariable('br_je_conference_of_poznan_timer').GetValue]#! months. The proposals listed above be selected as the conference's offical solution."
+ 
+ #JE demands loc
+ br_poznan_conference_je_reason_loc_taken_demands_loc: "[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_poznan')]\n[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_pomorze')]\n[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_prussia_fate')]\n"
+ br_poznan_conference_je_reason_loc_empty_string_loc: "" #this loc is an standard empty string
+ br_poznan_conference_je_reason_loc_demand_poznan_loc: "State of #v $STATE_POSEN$#! will be transfered to [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]"
+ br_poznan_conference_je_reason_loc_demand_pomorze_loc: "State of #v $STATE_WEST_PRUSSIA$#! will be transfered to [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]"
+ br_poznan_conference_je_reason_loc_demand_prussia_fate_loc: "[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_prussia_sovereignty')]\n[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_prussia_expand')]"
+ br_poznan_conference_je_reason_loc_is_demanding_independence_of_prussia_loc: "Prussia will become independed."
+ br_poznan_conference_je_reason_loc_is_demanding_plc_subjugation_of_prussia_loc: "Prussia will be subjugated by [GetGlobalVariable( 'br_poznan_conference_target' ).GetCountry.GetNameNoFormatting]."
+ br_poznan_conference_je_reason_loc_is_demanding_ngf_subjugation_of_prussia_loc: "Prussia will be subjugated by [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]."
+ br_poznan_conference_je_reason_loc_is_demanding_plc_annexation_of_prussia_loc: "Prussia will be annexed by [GetGlobalVariable( 'br_poznan_conference_target' ).GetCountry.GetNameNoFormatting]."
+ br_poznan_conference_je_reason_loc_is_demanding_ngf_annexation_of_prussia_loc: "Prussia will be annexed by [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]."
+ br_poznan_conference_je_reason_loc_demand_prussia_expand_loc: "Prussia will gain $STATE_EAST_PRUSSIA$"
+ 
+
  br_je_conference_of_poznan_tt_1: "The Conference has decided how to settle the Baltic question."
  br_je_conference_of_poznan_tt_2: "#v [SCOPE.sCountry('br_commonwealth_scope').GetNameNoFormatting]#! has accepted the outcome of the Conference"
  br_je_conference_of_poznan_tt_4: "#v [SCOPE.sCountry('br_north_german_federation_scope').GetNameNoFormatting]#! has accepted the outcome of the Conference"

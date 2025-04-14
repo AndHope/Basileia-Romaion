@@ -61,37 +61,37 @@
 		}
 		if = { #do this first so it doesn't conflict with the other effects
 			limit = { 
-				has_variable = br_propose_prussian_annexation_of_memel_var
+				br_poznan_conference_is_demanding_prussian_annexation_of_memel_trigger = yes
 			}
 			br_prussian_annexation_of_memel_scripted_effect = yes
 		}
 		if = {
 			limit = { 
-				has_variable = br_propose_independence_of_prussia_var
+				br_poznan_conference_is_demanding_independence_of_prussia_trigger = yes
 			}
 			br_prussia_independent_scripted_effect = yes
 		}
 		else_if = {
 			limit = { 
-				has_variable = br_propose_plc_subjugation_of_prussia_var
+				br_poznan_conference_is_demanding_plc_subjugation_of_prussia_trigger = yes
 			}
 			br_plc_subjugation_of_prussia_var_scripted_effect = yes
 		}
 		else_if = {
 			limit = { 
-				has_variable = br_propose_ngf_subjugation_of_prussia_var
+				br_poznan_conference_is_demanding_ngf_subjugation_of_prussia_trigger = yes
 			}
 			br_ngf_subjugation_of_prussia_scripted_effect = yes
 		}
 		else_if = {
 			limit = { 
-				has_variable = br_propose_plc_annexation_of_prussia_var
+				br_poznan_conference_is_demanding_plc_annexation_of_prussia_trigger = yes
 			}
 			br_plc_annexation_of_prussia_scripted_effect = yes
 		}
 		else_if = {
 			limit = { 
-				has_variable = br_propose_ngf_annexation_of_prussia_var
+				br_poznan_conference_is_demanding_ngf_annexation_of_prussia_trigger = yes
 			}
 			br_ngf_annexation_of_prussia_scripted_effect = yes
 		}
@@ -136,12 +136,14 @@ br_extend_the_poznan_conference_scripted_effect = {
 }
 
 br_conclude_the_poznan_conference_scripted_effect = {
-	limit = {
-		NOT = {
-			has_global_variable = br_poznan_treaty_will_conclude_global_var
+	if = {
+		limit = {
+			NOT = {
+				has_global_variable = br_poznan_treaty_will_conclude_global_var
+			}
 		}
+		set_global_variable = br_poznan_treaty_will_conclude_global_var
 	}
-	set_global_variable = br_poznan_treaty_will_conclude_global_var
 }
 
 br_remove_treaty_of_poznan_variables_scripted_effect = {
@@ -196,24 +198,24 @@ br_remove_treaty_of_poznan_variables_scripted_effect = {
 
 #Prussian fate event
 br_remove_prussian_fate_variables_scripted_effect = {
-	remove_variable = br_propose_independence_of_prussia_var
-	remove_variable = br_propose_plc_subjugation_of_prussia_var
-	remove_variable = br_propose_ngf_subjugation_of_prussia_var
-	remove_variable = br_propose_plc_annexation_of_prussia_var
-	remove_variable = br_propose_ngf_annexation_of_prussia_var
-	# remove_variable = br_propose_prussian_annexation_of_memel_var #this one is not removed because it is not mutualy exclusive with the others
+	remove_global_variable = br_propose_independence_of_prussia_var
+	remove_global_variable = br_propose_plc_subjugation_of_prussia_var
+	remove_global_variable = br_propose_ngf_subjugation_of_prussia_var
+	remove_global_variable = br_propose_plc_annexation_of_prussia_var
+	remove_global_variable = br_propose_ngf_annexation_of_prussia_var
+	# remove_global_variable = br_propose_prussian_annexation_of_memel_var #this one is not removed because it is not mutualy exclusive with the others
 }
 
 br_remove_all_prussian_fate_variables_scripted_effect = {
 	br_remove_prussian_fate_variables_scripted_effect = yes
-	remove_variable = br_propose_prussian_annexation_of_memel_var
+	remove_global_variable = br_propose_prussian_annexation_of_memel_var
 }
 
 #prussia becomes independent
 br_prussia_independent_scripted_effect = {
 	scope:br_commonwealth_scope ?= {
 		remove_diplomatic_pact = {  
-			country = c:PRU 
+			country = scope:br_prussia_scope
 			type = dominion #TODO find a way to make the type generic
 		}
 	}
@@ -223,7 +225,7 @@ br_prussia_independent_scripted_effect = {
 br_plc_subjugation_of_prussia_var_scripted_effect = {
 	scope:br_commonwealth_scope ?= {
 		create_diplomatic_pact = {
-			country = c:PRU
+			country = scope:br_prussia_scope
 			type = puppet
 		}
 	}
@@ -233,7 +235,7 @@ br_plc_subjugation_of_prussia_var_scripted_effect = {
 br_ngf_subjugation_of_prussia_scripted_effect = {
 	scope:br_north_german_federation_scope ?= {
 		create_diplomatic_pact = {
-			country = c:PRU
+			country = scope:br_prussia_scope
 			type = puppet
 		}
 	}
@@ -242,14 +244,14 @@ br_ngf_subjugation_of_prussia_scripted_effect = {
 #plc annexes prussia
 br_plc_annexation_of_prussia_scripted_effect = {
 	scope:br_commonwealth_scope ?= {
-		annex = c:PRU
+		annex = scope:br_prussia_scope
 	}
 }
 
 #nfg annexes prussia
 br_ngf_annexation_of_prussia_scripted_effect = {
 	scope:br_north_german_federation_scope ?= {
-		annex = c:PRU
+		annex = scope:br_prussia_scope
 	}
 }
 
@@ -261,7 +263,7 @@ br_prussian_annexation_of_memel_scripted_effect = {
 				limit = {
 					owner = scope:br_commonwealth_scope
 				}
-				set_state_owner = c:PRU
+				set_state_owner = scope:br_prussia_scope
 			}
 		}
 	}
