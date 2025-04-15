@@ -321,54 +321,35 @@
 	}
 
 	invalid = {
-		s:STATE_POSEN = {
-			not = {
-				any_scope_state = {
-					owner = {
-						or = {
-							this ?= scope:br_commonwealth_scope
-							this ?= {
-								is_subject_of = scope:br_commonwealth_scope
-							} 
-						}
-					}
-				}
-			}
+		any_state_in_state_region_owned_by_country_or_subject = {
+			TARGET_COUNTRY = scope:br_commonwealth_scope
+			TARGET_STATE_REGION = s:STATE_POSEN
 		}
-		s:STATE_WEST_PRUSSIA = {
-			not = {
-				any_scope_state = {
-					owner = {
-						or = {
-							this ?= scope:br_commonwealth_scope
-							this ?= {
-								is_subject_of = scope:br_commonwealth_scope
-							} 
-						}
-					}
-				}
-			}
+		any_state_in_state_region_owned_by_country_or_subject = {
+			TARGET_COUNTRY = scope:br_commonwealth_scope
+			TARGET_STATE_REGION = s:STATE_WEST_PRUSSIA
 		}
-		s:STATE_EAST_PRUSSIA = {
-			not = {
-				any_scope_state = {
-					owner = {
-						or = {
-							this ?= scope:br_commonwealth_scope
-							this ?= {
-								is_subject_of = scope:br_commonwealth_scope
-							} 
-						}
-					}
-				}
-			}
+		any_state_in_state_region_owned_by_country_or_subject = {
+			TARGET_COUNTRY = scope:br_commonwealth_scope
+			TARGET_STATE_REGION = s:STATE_EAST_PRUSSIA
 		}
 	}
 	on_invalid = {
-		add_claim = s:STATE_POSEN
-		add_claim = s:STATE_WEST_PRUSSIA
-		add_claim = s:STATE_EAST_PRUSSIA
-		br_remove_treaty_of_poznan_variables_scripted_effect = yes
+		if = {
+			limit = {
+				this ?= scope:br_north_german_federation_scope
+			}
+			s:STATE_POSEN = {
+				add_claim = scope:br_north_german_federation_scope
+			}
+			s:STATE_WEST_PRUSSIA = {
+				add_claim = scope:br_north_german_federation_scope
+			}
+			s:STATE_EAST_PRUSSIA = {
+				add_claim = scope:br_north_german_federation_scope
+			}
+			br_remove_treaty_of_poznan_variables_scripted_effect = yes
+		}
 	}
 
 	weight = 100
