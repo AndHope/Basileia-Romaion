@@ -23,7 +23,7 @@
 		scope:br_north_german_federation_scope = {
 			take_on_scaled_debt = {
 				who = scope:br_commonwealth_scope
-				value = 0.25
+				value = 0.025
 			}	
 		}
 	}
@@ -101,29 +101,20 @@
 			has_global_variable = br_counter_offer_global_var
 		}
 
-		#TODO
 		if = {
 			limit = {
-				exists = c:LUX
+				br_poznan_conference_is_offering_initiator_takes_on_debt_of_target_trigger = yes
 			}
-			s:STATE_WALLONIA = {
-				set_owner_of_provinces = {
-					country = c:LUX
-					provinces = {
-						x5180a0 x3a5fb9
-					}
-				}
+			br_take_on_total_debt_scripted_effect = {
+				INITIATOR_COUNTRY = scope:br_north_german_federation_scope
+				TARGET_COUNRTY = scope:br_commonwealth_scope
 			}
 		}
-		else = {
-			s:STATE_WALLONIA = {
-				set_owner_of_provinces = {
-					country = c:NET
-					provinces = {
-						x5180a0 x3a5fb9
-					}
-				}
+		if = {
+			limit = { 
+				br_poznan_conference_is_offering_initiator_gives_investment_rights_to_target_trigger = yes
 			}
+			br_poznan_conference_grant_foreign_investment_rights = yes
 		}
 	}
 }
@@ -192,6 +183,7 @@ br_remove_treaty_of_poznan_variables_scripted_effect = {
 		}
 
 		br_remove_all_prussian_fate_variables_scripted_effect = yes
+		br_remove_all_counter_offer_variables_scripted_effect = yes
 	}
 }
 
@@ -216,7 +208,7 @@ br_prussia_independent_scripted_effect = {
 	scope:br_commonwealth_scope ?= {
 		remove_diplomatic_pact = {  
 			country = scope:br_prussia_scope
-			type = dominion #TODO find a way to make the type generic
+			type = dominion #TODO smekens find a way to make the type generic
 		}
 	}
 }
@@ -265,6 +257,22 @@ br_prussian_annexation_of_memel_scripted_effect = {
 				}
 				set_state_owner = scope:br_prussia_scope
 			}
+		}
+	}
+}
+
+
+#Counter offer scripted effects
+br_remove_all_counter_offer_variables_scripted_effect = {
+	remove_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+	remove_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+}
+
+br_poznan_conference_grant_foreign_investment_rights = {
+	scope:br_commonwealth_scope = {
+		create_diplomatic_pact = {
+			country = scope:br_north_german_federation_scope
+			type = grant_foreign_investment_rights
 		}
 	}
 }

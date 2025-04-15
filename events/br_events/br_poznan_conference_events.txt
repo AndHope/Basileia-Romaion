@@ -276,7 +276,7 @@ br_treaty_of_poznan_events.7 = {
 }
 
 #The fate of Prussia
-br_treaty_of_poznan_events.8 = { #TODO have loc updated depending on wheater a demand has been selected
+br_treaty_of_poznan_events.8 = {
 	type = country_event
 	placement = ROOT
 	
@@ -343,7 +343,7 @@ br_treaty_of_poznan_events.8 = { #TODO have loc updated depending on wheater a d
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = br_treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+			trigger_event = { id = br_treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option
 		}
 	}
 
@@ -370,7 +370,7 @@ br_treaty_of_poznan_events.8 = { #TODO have loc updated depending on wheater a d
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = br_treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+			trigger_event = { id = br_treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option
 		}
 	}
 
@@ -397,7 +397,7 @@ br_treaty_of_poznan_events.8 = { #TODO have loc updated depending on wheater a d
 			}
 		}
 		hidden_effect = {
-			trigger_event = { id = br_treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option, but it does not seem work
+			trigger_event = { id = br_treaty_of_poznan_events.8 popup = yes } #this is to trigger the same event so you can also chose the other option
 		}
 	}
 	# .d and .f can not be used as they are used for discription an flavor
@@ -489,6 +489,99 @@ br_treaty_of_poznan_events.8 = { #TODO have loc updated depending on wheater a d
 
 			#remove the button var
 			remove_variable = br_deciding_the_fate_of_prussia_button_var
+		}
+	}
+}
+
+#Counter offer
+br_treaty_of_poznan_events.9 = {
+	type = country_event
+	placement = ROOT
+	
+	title = br_treaty_of_poznan_events.9.t
+	desc = br_treaty_of_poznan_events.9.d
+	flavor = br_treaty_of_poznan_events.9.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = br_counter_offer_button_var
+	}
+
+	#take on targets total debt
+	option = {
+		name = br_treaty_of_poznan_events.9.a
+		default_option = yes
+		if = {
+			limit = { 
+				br_poznan_conference_is_offering_initiator_takes_on_debt_of_target_trigger = no
+			}
+			show_as_tooltip = {
+				br_take_on_total_debt_scripted_effect = {
+					INITIATOR_COUNTRY = scope:br_north_german_federation_scope
+					TARGET_COUNRTY = scope:br_commonwealth_scope
+				}
+			}
+			hidden_effect = {
+				set_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_treaty_of_poznan_events.9 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#grant target investment rights
+	option = {
+		name = br_treaty_of_poznan_events.9.b
+		default_option = yes
+		if = {
+			limit = { 
+				br_poznan_conference_is_offering_initiator_gives_investment_rights_to_target_trigger = no
+			}
+			show_as_tooltip = {
+				br_poznan_conference_grant_foreign_investment_rights = yes
+
+			}
+			hidden_effect = {
+				set_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_treaty_of_poznan_events.9 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#end event
+	option = {
+		name = br_treaty_of_poznan_events.9.i
+		default_option = yes
+		custom_tooltip = {
+			text = br_finished_deciding_on_counter_offer_tt
+
+			#remove the button var
+			remove_variable = br_counter_offer_button_var
 		}
 	}
 }
