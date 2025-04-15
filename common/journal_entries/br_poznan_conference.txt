@@ -98,7 +98,7 @@
 			if = {
 				limit = {
 					any_scope_state = {
-						always = yes
+						owner = scope:br_commonwealth_scope
 					}
 				}
 				save_scope_as = br_state_posen_scope
@@ -253,7 +253,7 @@
 	}
 
 	on_fail = {
-		# trigger_event = { id = br_treaty_of_poznan_events.5 popup = yes }
+		trigger_event = { id = br_treaty_of_poznan_events.5 popup = yes }
 	}
 
 	on_monthly_pulse = {
@@ -319,7 +319,56 @@
 			}
 		}
 	}
-	on_yearly_pulse = {
+
+	invalid = {
+		s:STATE_POSEN = {
+			not = {
+				any_scope_state = {
+					owner = {
+						or = {
+							this ?= scope:br_commonwealth_scope
+							this ?= {
+								is_subject_of = scope:br_commonwealth_scope
+							} 
+						}
+					}
+				}
+			}
+		}
+		s:STATE_WEST_PRUSSIA = {
+			not = {
+				any_scope_state = {
+					owner = {
+						or = {
+							this ?= scope:br_commonwealth_scope
+							this ?= {
+								is_subject_of = scope:br_commonwealth_scope
+							} 
+						}
+					}
+				}
+			}
+		}
+		s:STATE_EAST_PRUSSIA = {
+			not = {
+				any_scope_state = {
+					owner = {
+						or = {
+							this ?= scope:br_commonwealth_scope
+							this ?= {
+								is_subject_of = scope:br_commonwealth_scope
+							} 
+						}
+					}
+				}
+			}
+		}
+	}
+	on_invalid = {
+		add_claim = s:STATE_POSEN
+		add_claim = s:STATE_WEST_PRUSSIA
+		add_claim = s:STATE_EAST_PRUSSIA
+		br_remove_treaty_of_poznan_variables_scripted_effect = yes
 	}
 
 	weight = 100
