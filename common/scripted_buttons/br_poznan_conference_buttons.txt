@@ -11,7 +11,8 @@
 
 	possible = {
 		custom_tooltip = {
-			text = br_poznan_conference_made_choice_tt
+			text = br_poznan_conference_has_not_concluded_tt
+			br_poznan_conference_has_concluded = no
 		}
 	}
 
@@ -64,7 +65,8 @@ br_request_pomorze_button = {
 
 	possible = {
 		custom_tooltip = {
-			text = br_poznan_conference_made_choice_tt
+			text = br_poznan_conference_has_not_concluded_tt
+			br_poznan_conference_has_concluded = no
 		}
 	}
 
@@ -117,14 +119,15 @@ br_fate_of_prussia_button = {
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = br_poznan_conference_made_choice_tt
-			# NOR = {
-			# 	has_variable = br_counter_offer_button_var
-			# 	has_variable = br_fate_of_prussia_button_var
-			# 	has_variable = br_request_pomorze_button_var
-			# 	has_variable = br_request_poznan_button_var
-			# }
+		and = {
+			custom_tooltip = {
+				text = br_poznan_conference_made_choice_tt
+				not = { has_variable = br_deciding_the_fate_of_prussia_button_var } #var that is active while the event is active
+			}
+			custom_tooltip = {
+				text = br_poznan_conference_has_not_concluded_tt
+				br_poznan_conference_has_concluded = no
+			}
 		}
 	}
 
@@ -172,8 +175,15 @@ br_counter_offer_button = {
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = br_poznan_conference_made_choice_tt
+		and = {
+			custom_tooltip = {
+				text = br_poznan_conference_made_choice_tt
+				not = { has_variable = br_counter_offer_button_var } #var that is active while the event is active
+			}
+			custom_tooltip = {
+				text = br_poznan_conference_has_not_concluded_tt
+				br_poznan_conference_has_concluded = no
+			}
 		}
 	}
 

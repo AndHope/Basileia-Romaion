@@ -1,14 +1,21 @@
 ﻿l_english:
 
+ br_ngf_loc: "[GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetName]"
+ br_ngf_NF_loc: "[GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]" #NF stands for NoFormatting
+ br_plc_loc: "[GetGlobalVariable( 'br_poznan_conference_target' ).GetCountry.GetName]"
+ br_plc_NF_loc: "[GetGlobalVariable( 'br_poznan_conference_target' ).GetCountry.GetNameNoFormatting]" #NF stands for NoFormatting
+ br_prussia_loc: "[GetGlobalVariable( 'br_poznan_conference_prussia_var' ).GetCountry.GetName]"
+ br_prussia_NF_loc: "[GetGlobalVariable( 'br_poznan_conference_prussia_var' ).GetCountry.GetNameNoFormatting]" #NF stands for NoFormatting
+
  #Journal loc
  br_je_conference_of_poznan: "Poznan Conference"
- br_je_conference_of_poznan_reason: "The great powers have sent their delegations to Poznan to decide on a solution to the unsolved border issues between [SCOPE.sCountry('br_north_german_federation_scope').GetName] and [SCOPE.sCountry('br_commonwealth_scope').GetName]. \n\nList of demands:\n$br_poznan_conference_je_reason_loc_taken_demands_loc$ \n\nThe conference will conclude in #variable [GetGlobalVariable('br_je_conference_of_poznan_timer').GetValue]#! months. The proposals listed above be selected as the conference's offical solution."
+ br_je_conference_of_poznan_reason: "The great powers have sent their delegations to Poznan to decide on a solution to the unsolved border issues between [SCOPE.sCountry('br_north_german_federation_scope').GetName] and [SCOPE.sCountry('br_commonwealth_scope').GetName]. \n\n#b #blue List of demands:#!#!\n$br_poznan_conference_je_reason_loc_taken_demands_loc$ \n\nThe conference will conclude in #variable [GetGlobalVariable('br_je_conference_of_poznan_timer').GetValue]#! months. The proposals listed above be selected as the conference's offical solution."
  
  #JE demands loc
- br_poznan_conference_je_reason_loc_taken_demands_loc: "[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_poznan')]\n[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_pomorze')]\n[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_prussia_fate')]\n"
+ br_poznan_conference_je_reason_loc_taken_demands_loc: "[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_poznan')][GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_pomorze')][GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_prussia_fate')]\n"
  br_poznan_conference_je_reason_loc_empty_string_loc: "" #this loc is an standard empty string
- br_poznan_conference_je_reason_loc_demand_poznan_loc: "State of #v $STATE_POSEN$#! will be transfered to [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]"
- br_poznan_conference_je_reason_loc_demand_pomorze_loc: "State of #v $STATE_WEST_PRUSSIA$#! will be transfered to [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]"
+ br_poznan_conference_je_reason_loc_demand_poznan_loc: "State of #v $STATE_POSEN$#! will be transfered to [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]\n"
+ br_poznan_conference_je_reason_loc_demand_pomorze_loc: "State of #v $STATE_WEST_PRUSSIA$#! will be transfered to [GetGlobalVariable( 'br_poznan_conference_initiator' ).GetCountry.GetNameNoFormatting]\n"
  br_poznan_conference_je_reason_loc_demand_prussia_fate_loc: "[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_prussia_sovereignty')]\n[GetPlayer.GetCustom('br_poznan_conference_je_reason_loc_demand_prussia_expand')]"
  br_poznan_conference_je_reason_loc_is_demanding_independence_of_prussia_loc: "Prussia will become independed."
  br_poznan_conference_je_reason_loc_is_demanding_plc_subjugation_of_prussia_loc: "Prussia will be subjugated by [GetGlobalVariable( 'br_poznan_conference_target' ).GetCountry.GetNameNoFormatting]."
@@ -23,8 +30,8 @@
  br_je_conference_of_poznan_tt_4: "#v [SCOPE.sCountry('br_north_german_federation_scope').GetNameNoFormatting]#! has accepted the outcome of the Conference"
  br_je_conference_of_poznan_tt_3: "Either #v [SCOPE.sCountry('br_commonwealth_scope').GetNameNoFormatting]#! or #v [SCOPE.sCountry('br_north_german_federation_scope').GetNameNoFormatting]#! have rejected the outcome of the conference."
  br_je_conference_of_poznan_tt_5: "Hostilities have broken out between [SCOPE.sCountry('br_commonwealth_scope').GetNameNoFormatting]#! and #v [SCOPE.sCountry('br_north_german_federation_scope').GetNameNoFormatting]#"
- br_poznan_conference_made_choice_tt: "We have #bold not#! backed a proposal"
- br_poznan_treaty_voting_rules: "In the case where two leading proposals receive the same number of votes, the proposal backed by the [concept_great_power] with the highest [concept_rank] will be chosen."
+ br_poznan_conference_made_choice_tt: "We are not currently deciding on this proposal"
+ br_poznan_conference_has_not_concluded_tt: "The Poznan Conference has not concluded."
  
  #Scripted Button loc
  br_request_poznan_button: "Request Poznan"
@@ -88,13 +95,34 @@
 
  br_treaty_of_poznan_events.8.t: "The Fate of Prussia"
  br_treaty_of_poznan_events.8.d: "With negotiations between [SCOPE.sCountry('br_commonwealth_scope').GetName] and [SCOPE.sCountry('br_north_german_federation_scope').GetName] ongoing, we must decide what to do with the state of Prussia a german state but currently a vassal of [SCOPE.sCountry('br_commonwealth_scope').GetName], this situation can not stand, something has to happen."
- br_treaty_of_poznan_events.8.f: "We must decide what to do with the state of Prussia a german state but currently a vassal of [SCOPE.sCountry('br_commonwealth_scope').GetName], this situation can not stand, something has to happen."
- br_treaty_of_poznan_events.8.a: "Prussia must be independent"
- br_treaty_of_poznan_events.8.b: "[SCOPE.sCountry('br_commonwealth_scope').GetName] keeps Prussia as a subject"
- br_treaty_of_poznan_events.8.c: "[SCOPE.sCountry('br_north_german_federation_scope').GetName] will subjugate Prussia"
- br_treaty_of_poznan_events.8.e: "[SCOPE.sCountry('br_commonwealth_scope').GetName] will annex Prussia"
- br_treaty_of_poznan_events.8.g: "[SCOPE.sCountry('br_north_german_federation_scope').GetName] will annex Prussia"
- br_treaty_of_poznan_events.8.h: "Give $STATE_EAST_PRUSSIA$ to Prussia"
+ br_treaty_of_poznan_events.8.f: "We must decide what to do with the state of Prussia a german state but currently a vassal of [SCOPE.sCountry('br_commonwealth_scope').GetName], this situation can not stand, something has to happen. \n\n#b #blue Current Demands:#!#! \n$br_poznan_conference_je_reason_loc_demand_prussia_fate_loc$"
+ br_poznan_conference_event_loc_stop_demanding_option_loc_desc: "#r We are currently demanding this option, if we select it again we will stop demaning this.#!"
+ br_poznan_conference_event_loc_prussia_sovereignty_loc_desc: "#r This demand decides on prussia's sovereignty. Because of this it is mutually exclusive with other demands that decide on prussia's sovereignty.\nAny conflicting demand will be deselected.#!"
+ #option a
+ br_treaty_of_poznan_events.8.a: "[GetPlayer.GetCustom('br_poznan_conference_event_loc_demand_independence_of_prussia')]"
+ br_poznan_conference_event_loc_start_demanding_independence_of_prussia_loc: "$br_prussia_loc$ must be independent"
+ br_poznan_conference_event_loc_stop_demanding_independence_of_prussia_loc: "$br_prussia_loc$ will no longer become independent"
+ #option b
+ br_treaty_of_poznan_events.8.b: "[GetPlayer.GetCustom('br_poznan_conference_event_loc_demand_plc_subjugation_of_prussia')]"
+ br_poznan_conference_event_loc_start_demanding_plc_subjugation_of_prussia_loc: "$br_plc_loc$ keeps Prussia as a subject"
+ br_poznan_conference_event_loc_stop_demanding_plc_subjugation_of_prussia_loc: "$br_plc_loc$ will no longer subjugate [SCOPE.sCountry('br_prussia_scope').GetName]"
+ #option c
+ br_treaty_of_poznan_events.8.c: "[GetPlayer.GetCustom('br_poznan_conference_event_loc_demand_ngf_subjugation_of_prussia')]"
+ br_poznan_conference_event_loc_start_demanding_ngf_subjugation_of_prussia_loc: "$br_ngf_loc$ will subjugate Prussia"
+ br_poznan_conference_event_loc_stop_demanding_ngf_subjugation_of_prussia_loc: "$br_ngf_loc$ will no longer subjugate [SCOPE.sCountry('br_prussia_scope').GetName]"
+ #option e
+ br_treaty_of_poznan_events.8.e: "[GetPlayer.GetCustom('br_poznan_conference_event_loc_demand_plc_annexation_of_prussia')]"
+ br_poznan_conference_event_loc_start_demanding_plc_annexation_of_prussia_loc: "$br_plc_loc$ will annex Prussia"
+ br_poznan_conference_event_loc_stop_demanding_plc_annexation_of_prussia_loc: "$br_plc_loc$ will no longer annex [SCOPE.sCountry('br_prussia_scope').GetName]"
+ #option g
+ br_treaty_of_poznan_events.8.g: "[GetPlayer.GetCustom('br_poznan_conference_event_loc_demand_ngf_annexation_of_prussia')]"
+ br_poznan_conference_event_loc_start_demanding_ngf_annexation_of_prussia_loc: "$br_ngf_loc$ will annex Prussia"
+ br_poznan_conference_event_loc_stop_demanding_ngf_annexation_of_prussia_loc: "$br_ngf_loc$ will no longer annex [SCOPE.sCountry('br_prussia_scope').GetName]"
+ #option h
+ br_treaty_of_poznan_events.8.h: "[GetPlayer.GetCustom('br_poznan_conference_event_loc_demand_prussian_annexation_of_memel')]"
+ br_poznan_conference_event_loc_start_demanding_prussian_annexation_of_memel_loc: "Give $STATE_EAST_PRUSSIA$ to $br_prussia_loc$"
+ br_poznan_conference_event_loc_stop_demanding_prussian_annexation_of_memel_loc: "$br_prussia_loc$ does not get $STATE_EAST_PRUSSIA$"
+ #option i
  br_treaty_of_poznan_events.8.i: "What a waste of everybody's time."
  br_finished_deciding_prussia_tt: "We have finished deciding on the Fate of Prussia"
 
