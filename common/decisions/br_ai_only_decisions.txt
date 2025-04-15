@@ -285,6 +285,58 @@ br_serb_chaos = {
 	}
 }
 
+br_india_chaos = {
+	is_shown = {
+		exists = c:MUG
+		exists = c:MHR
+		c:MUG = ROOT
+		c:MUG = {
+			is_player = no
+		}
+		c:MHR = {
+			is_player = no
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		c:MUG = {
+			is_player = no
+		}
+	}
+
+	when_taken = {
+		c:MUG = {
+			trigger_event = {
+				id = india_kerfuffle.1
+			}
+		}
+		c:br_romaioi_india_company = {
+			trigger_event = {
+				id = india_kerfuffle.2
+				days = 25
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 25
+		modifier = {
+			trigger = {
+				game_date > 1740.1.1
+			}
+			add = 25
+		}
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}
+	}
+}
+
 
 #AI Will target Italian AI New World/African Holdings
 br_anl_annex_west_africa_01 = {
