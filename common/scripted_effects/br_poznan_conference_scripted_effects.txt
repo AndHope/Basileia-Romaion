@@ -1,4 +1,7 @@
-﻿enforce_treaty_of_poznan = {
+﻿br_finished_poznan_conference_scripted_effect = {
+	set_variable = br_finished_poznan_conference_var
+}
+enforce_treaty_of_poznan = {
 	if = {
 		limit = {
 			has_global_variable = br_request_poznan_global_var
@@ -145,11 +148,17 @@ br_remove_treaty_of_poznan_variables_scripted_effect = {
 		remove_global_variable = br_je_conference_of_poznan_timer
 		remove_global_variable = br_poznan_conference_initiator
 		remove_global_variable = br_poznan_conference_target
+		remove_global_variable = br_poznan_conference_prussia_var
 
 		remove_global_variable = br_je_conference_of_poznan_proposal_1
 		remove_global_variable = br_je_conference_of_poznan_proposal_2
 		remove_global_variable = br_je_conference_of_poznan_proposal_3
 		remove_global_variable = br_je_conference_of_poznan_proposal_4
+
+		remove_global_variable = br_request_poznan_global_var
+		remove_global_variable = br_request_pomorze_global_var
+		remove_global_variable = br_fate_of_prussia_global_var
+		remove_global_variable = br_counter_offer_global_var
 
 		if = {
 			limit = {
@@ -181,6 +190,7 @@ br_remove_treaty_of_poznan_variables_scripted_effect = {
 			}
 			remove_global_variable = br_poznan_treaty_has_concluded_global_var
 		}
+		remove_global_variable = br_poznan_treaty_will_conclude_global_var
 
 		br_remove_all_prussian_fate_variables_scripted_effect = yes
 		br_remove_all_counter_offer_variables_scripted_effect = yes
