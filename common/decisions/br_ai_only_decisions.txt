@@ -287,6 +287,9 @@ br_india_chaos = {
 		c:MHR = {
 			is_player = no
 		}
+		hidden_trigger = {
+			NOT = { has_variable = india_kerfuffle_started }
+		}
 	}
 
 	possible = {
@@ -294,9 +297,16 @@ br_india_chaos = {
 		c:MUG = {
 			is_player = no
 		}
+		hidden_trigger = {
+			NOT = { has_variable = india_kerfuffle_started }
+		}
 	}
 
 	when_taken = {
+		set_variable = {
+			name = india_kerfuffle_started
+			value = yes
+		}
 		c:MUG = {
 			trigger_event = {
 				id = india_kerfuffle.1
@@ -345,6 +355,7 @@ br_anl_annex_west_africa_01 = {
 		c:ANL = {
 			is_player = no
 		}
+		NOT = { has_variable = ai_annex_venice_africa_started }
 	}
 
 	possible = {
@@ -354,9 +365,14 @@ br_anl_annex_west_africa_01 = {
 			is_player = no
 			is_subject_of = c:VEN
 		}
+		NOT = { has_variable = ai_annex_venice_africa_started }
 	}
 
 	when_taken = {
+		set_variable = {
+			name = ai_annex_venice_africa_started
+			value = yes
+		}
 		create_diplomatic_play = {
 			war = yes
 			type = dp_annex_war
@@ -416,9 +432,11 @@ br_anl_annex_west_africa_02 = {
 		c:ANL = {
 			is_player = no
 		}
+		NOT = { has_variable = ai_annex_genoa_africa_started }
 	}
 
 	possible = {
+		NOT = { has_variable = ai_annex_genoa_africa_started }
 		is_at_war = no
 		is_subject = no
 		c:br_genonese_africa_company = {
@@ -428,6 +446,10 @@ br_anl_annex_west_africa_02 = {
 	}
 
 	when_taken = {
+		set_variable = {
+			name = ai_annex_genoa_africa_started
+			value = yes
+		}
 		create_diplomatic_play = {
 			war = yes
 			type = dp_annex_war
@@ -490,6 +512,7 @@ br_louisiane_annex_atlantis = {
 				is_player = no
 			}
 		}
+		NOT = { has_variable = ai_annex_atlantis_started }
 	}
 
 	possible = {
@@ -501,9 +524,14 @@ br_louisiane_annex_atlantis = {
 				is_player = no
 			}
 		}
+		NOT = { has_variable = ai_annex_atlantis_started }
 	}
 
 	when_taken = {
+		set_variable = {
+			name = ai_annex_atlantis_started
+			value = yes
+		}
 		create_diplomatic_play = {
 			war = yes
 			type = dp_annex_war
@@ -566,6 +594,7 @@ br_dutch_indies_annex_giamaica = {
 				is_player = no
 			}
 		}
+		NOT = { has_variable = ai_annex_giamaica_started }
 	}
 
 	possible = {
@@ -580,9 +609,14 @@ br_dutch_indies_annex_giamaica = {
 				}
 			}
 		}
+		NOT = { has_variable = ai_annex_giamaica_started }
 	}
 
 	when_taken = {
+		set_variable = {
+			name = ai_annex_giamaica_started
+			value = yes
+		}
 		create_diplomatic_play = {
 			war = yes
 			type = dp_annex_war
