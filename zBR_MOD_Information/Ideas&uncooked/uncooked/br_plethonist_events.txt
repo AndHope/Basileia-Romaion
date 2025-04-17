@@ -1,0 +1,119 @@
+﻿namespace = plethonist
+
+br.philosopher_rebellion.1 = {
+    type = country_event
+	placement = c:BYZ.capital
+
+    title = br.philosopher_rebellion.1.t
+    desc = br.philosopher_rebellion.1.d
+	flavor = br.philosopher_rebellion.1.f
+
+    event_image = {
+		video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+    trigger = {
+        country = BYZ  # Basileia Romaion
+        year >= 1740
+        OR = {
+            owns_state = STATE_ATTICA
+            owns_state = STATE_PELOPONNESE
+        }
+        OR = {
+            religion_pop_ratio = {
+                religion = plethonist
+                value > 0.10
+                state = STATE_ATTICA
+            }
+            religion_pop_ratio = {
+                religion = plethonist
+                value > 0.10
+                state = STATE_PELOPONNESE
+            }
+        }
+    }
+
+    immediate = {
+        log = "Philosopher's Rebellion event triggered"
+    }
+
+    option = {
+        name = br.philosopher_rebellion.a # "Let them speak—for now."
+        ai_chance = {
+            weight = 25
+        }
+        #add_journal_entry = je_watch_plethonist_movement
+        add_loyalists = {
+            interest_group = ig_intelligentsia
+            value = 5
+        }
+        add_radicals = {
+            interest_group = ig_devout
+            value = 5
+        }
+        state_event_target = {
+            id = STATE_ATTICA
+            add_modifier = {
+                name = "modifier_philosopher_debate"
+                duration = 3650
+            }
+        }
+    }
+
+    option = {
+        name = br.philosopher_rebellion.b # "Suppress the philosophers and their false gods."
+        ai_chance = {
+            weight = 75
+        }
+        add_radicals = {
+            interest_group = ig_intelligentsia
+            value = 5
+        }
+        add_loyalists = {
+            interest_group = ig_devout
+            value = 5
+        }
+        add_state_modifier = {
+            state = STATE_ATTICA
+            modifier = "modifier_plethonist_crackdown"
+            duration = 1825
+        }
+        if = {
+            limit = {
+                religion_pop_ratio = {
+                    religion = plethonist
+                    value > 0.20
+                    state = STATE_ATTICA
+                }
+            }
+            #trigger_event = br.philosopher_rebellion_revolt
+        }
+    }
+
+    option = {
+        name = br.philosopher_rebellion.c # "Perhaps... it is time to listen."
+        ai_chance = {
+            weight = 25
+        }
+        remove_legitimacy = 15
+        add_radicals = {
+            interest_group = ig_devout
+            value = 10
+        }
+        add_loyalists = {
+            interest_group = ig_intelligentsia
+            value = 10
+        }
+        add_state_modifier = {
+            state = STATE_ATTICA
+            modifier = "modifier_plethonist_momentum"
+            duration = 3650
+        }
+        #trigger_event = br.begin_plethonist_reform
+    }
+}
