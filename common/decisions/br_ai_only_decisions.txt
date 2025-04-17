@@ -43,56 +43,47 @@ br_hun_annex_trs = {
 
 br_byz_easy_agy = {
 	is_shown = {
-		exists = c:BYZ
-		c:BYZ = ROOT
-		c:BYZ = {
-			is_player = no
-		}
+		exists = c:br_aegypt
+		c:br_aegypt = ROOT
 		c:br_aegypt = {
 			is_player = no
 		}
-		c:br_romaioi_india_company = {
-			is_player = no
-			is_subject_of = c:br_aegypt
-		}
 		NOT = {
-			c:br_romaioi_india_company = {
-				is_subject_of = ROOT
+			c:br_aegypt = {
+				is_subject_of = c:BYZ
 			}
+		}
+		hidden_trigger = {
+			NOT = { has_variable = aegyptian_crisis_started }
 		}
 	}
 
 	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = aegyptian_crisis_started }
+		}
 		NOT = {
-			c:br_romaioi_india_company = {
-				is_subject_of = ROOT
+			c:br_aegypt = {
+				is_subject_of = c:BYZ
 			}
 		}
 	}
 
 	when_taken = {
-		create_diplomatic_pact = {
-			country = c:br_romaioi_india_company	
-			type = chartered_company
+		set_variable = {
+			name = aegyptian_crisis_started
+			value = yes
 		}
-	#	create_diplomatic_pact = {
-	#		country = c:br_australis	
-	#		type = colony
-	#	}
-	#	create_diplomatic_pact = {
-	#		country = c:br_kyrenaica
-	#		type = colony
-	#	}
+		c:BYZ ?= {
+			trigger_event = {
+				id = aegyptian_crisis_events.4
+				days = 65
+			}
+		}
 	}
 
 	ai_chance = {
-		base = 10
-		modifier = {
-			trigger = {
-				game_date > 1750.1.1
-			}
-			add = 25
-		}
+		base = 75
 		modifier = {
 			OR = {
 				is_diplomatic_play_committed_participant = yes
