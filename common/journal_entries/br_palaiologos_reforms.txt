@@ -945,9 +945,6 @@ je_palaiologos_reforms_syria = {
 	#		id = veiled_exarchate.4 #this event not currently in use
 	#	}
 		set_variable = completed_syria_je
-		add_journal_entry = {
-			type = je_palaiologos_reforms_egypt
-		}
 	}
 
 	invalid = {
@@ -983,6 +980,10 @@ je_palaiologos_reforms_egypt = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
 
 	group = je_group_foreign_affairs
+
+	modifiers_while_active = {
+		br_modifier_echthros_tou_thronou
+	}
 
 	#journal is currently being added by the syria je
 	is_shown_when_inactive = {
