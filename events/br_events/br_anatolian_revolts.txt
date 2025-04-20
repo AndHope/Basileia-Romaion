@@ -56,15 +56,15 @@ br_anatolian_revolt.1 = {
 		}
 		if = {
 			limit = { exists = s:STATE_DIYARBAKIR.region_state:br_kappadocia }
-			s:STATE_DIYARBAKIR.region_state:br_mesopotamia = { set_state_owner = c:br_anatolia }
+			s:STATE_DIYARBAKIR.region_state:br_kappadocia = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = { exists = s:STATE_ANKARA.region_state:br_kappadocia }
-			s:STATE_DIYARBAKIR.region_state:br_mesopotamia = { set_state_owner = c:br_anatolia }
+			s:STATE_ANKARA.region_state:br_kappadocia = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = { exists = s:STATE_ADANA.region_state:br_kappadocia }
-			s:STATE_DIYARBAKIR.region_state:br_mesopotamia = { set_state_owner = c:br_anatolia }
+			s:STATE_ADANA.region_state:br_kappadocia = { set_state_owner = c:br_anatolia }
 		}
 		if = {
 			limit = { exists = s:STATE_ADANA.region_state:BYZ }
@@ -92,7 +92,7 @@ br_anatolian_revolt.1 = {
 		}
 		c:br_anatolia = {
 			add_modifier = {
-				name = br_modifier_themata_primacy
+				name = br_modifier_reformed_pronoia
 				months = -1
 			}
 			activate_law = law_type:law_monarchy
@@ -158,14 +158,12 @@ br_anatolian_revolt.1 = {
 		hidden_effect = {
 			random_diplomatic_play = {
 				limit = {
-					scope:constantinople_owner_scope = {
-						is_diplomatic_play_initiator = yes
-					}
-					c:br_anatolia = {
-						is_diplomatic_play_target = yes
-					}
+					initiator_is = c:BYZ
+					target_is = c:br_anatolia
 				}
-				add_diplomatic_play_war_support = { target = c:br_anatolia value = 100 }
+				add_escalation = 80
+				add_initiator_backers = { c:ARM c:GEO }
+				#add_diplomatic_play_war_support = { target = c:br_anatolia value = 100 }
 			}
 		}
 		
@@ -178,6 +176,7 @@ br_anatolian_revolt.1 = {
 				id = romaion_emp_rally.1
 				days = 7
 			}
+			change_infamy = -25
 		}
 
 	}
@@ -267,46 +266,63 @@ br_anatolian_revolt.2 = {
 		}
 		c:br_pontos = {
 			add_modifier = {
-				name = br_modifier_themata_primacy
+				name = br_modifier_reformed_pronoia
 				months = -1
 			}
 			activate_law = law_type:law_monarchy
 			activate_law = law_type:law_oligarchy
+			
 			create_character = {
-				first_name = "John"
-				last_name = "Komnenos"
-				birth_date = 1697.3.1 # excact date unknown. 
+				first_name = "Lekapenos"
+				last_name = "Kuropalates"
 				culture = cu:greek
 				ruler = yes
 				is_general = yes
-				religion = orthodox
-				interest_group = ig_armed_forces
-				ideology = ideology_jingoist_leader
-				traits = { 
-					stalwart_defender 
+				age = 36
+				interest_group = ig_landowners
+				traits = {
+					persistent 
 					wrathful
 					scarred
 					pillager
-					resupply_commander
-					experienced_offensive_planner
-					experienced_artillery_commander 
+					expert_defensive_strategist
+					mountain_commander 
+				}
+				on_created = {
+					set_variable = is_married
 				}
 			}
 			create_character = {
-				birth_date = 1717.1.5 # excact date unknown. 
-				first_name = "Nikephoros"
-				last_name = "Komnenos"
+				first_name = "Ioannes"
+				last_name = "Kuropalates"
 				culture = cu:greek
-				is_general = yes
 				heir = yes
-				religion = orthodox
+				is_general = yes
+				age = 17
 				interest_group = ig_landowners
-				ideology = ideology_royalist
-				traits = { 
+				traits = {
+					reserved
 					stalwart_defender
 					resupply_commander 
 					basic_political_operator 
-					pillager
+					expert_defensive_strategist
+					mountain_commander
+				}
+			}	
+			create_character = {
+				culture = cu:greek
+				age = 35
+				ig_leader = yes # Both general and IG leader
+				is_general = yes # Both general and IG leader
+				interest_group = ig_armed_forces
+				commander_rank = commander_rank_2
+				ideology = ideology_jingoist_leader
+				traits = {
+					brave
+					innovative
+					resupply_commander
+					defense_in_depth_specialist
+					mountain_commander
 				}
 			}
 		}
@@ -333,23 +349,21 @@ br_anatolian_revolt.2 = {
 		hidden_effect = {
 			random_diplomatic_play = {
 				limit = {
-					scope:constantinople_owner_scope = {
-						is_diplomatic_play_initiator = yes
-					}
-					c:br_pontos = {
-						is_diplomatic_play_target = yes
-					}
+					initiator_is = c:BYZ
+					target_is = c:br_pontos
 				}
-				add_diplomatic_play_war_support = { target = c:br_pontos value = 100 }
+				add_escalation = 80
+				add_initiator_backers = { c:ARM c:GEO }
+				#add_diplomatic_play_war_support = { target = c:br_pontos value = 100 }
 			}
 		}
 		
 		hidden_effect = {
-			change_infamy = -15
 			trigger_event = {
 				id = romaion_emp_rally.1
 				days = 7
 			}
+			change_infamy = -25
 		}
 
 		ai_chance = {
