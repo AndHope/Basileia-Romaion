@@ -1,0 +1,297 @@
+﻿br_je_stettin_conference = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_historical_content
+
+    scripted_button = br_fate_of_baltic_duchies_button
+    scripted_button = br_stettin_conference_counter_offer_button
+    scripted_button = br_stettin_conference_approve_button
+    scripted_button = br_stettin_conference_disapprove_button
+
+	# is_shown_when_inactive = {
+	# 	OR = {
+	# 		country_has_primary_culture = cu:saxon
+	# 		country_has_primary_culture = cu:baltic_german
+
+	# 		country_has_primary_culture = cu:swedish
+	# 	}
+	# }
+
+	# possible = {
+	# 	OR = {
+	# 		exists = c:NGF
+	# 		exists = c:GER
+			
+
+	# 	}
+	# 	OR = {
+	# 		c:NGF ?= this
+	# 		c:GER ?= this
+			
+	# 		c:SWE ?= this
+	# 	}
+	# 	OR = {
+	# 		country_has_primary_culture = cu:saxon
+	# 		country_has_primary_culture = cu:baltic_german
+
+	# 		country_has_primary_culture = cu:polish
+	# 	}
+	# }
+
+	immediate = {
+		#set scopes
+		if = {
+			limit = {
+				exists = c:GER
+			}
+			c:GER ?= {
+				save_scope_as = br_initiator_scope
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:NGF
+			}
+			c:NGF ?= {
+				save_scope_as = br_initiator_scope
+			}
+		}
+		c:SWE ?= {
+			save_scope_as = br_target_scope
+		}
+		c:UBD ?= {
+			save_scope_as = br_baltic_duchies_scope
+		}
+
+		#save scopes in var's
+		set_global_variable = {
+			name = br_stettin_conference_initiator_var
+			value = scope:br_initiator_scope
+		}
+		set_global_variable = {
+			name = br_stettin_conference_target_var
+			value = scope:br_target_scope
+		}
+		set_global_variable = {
+			name = br_stettin_conference_baltic_duchies_var
+			value = scope:br_baltic_duchies_scope
+		}
+
+		#set state scopes (used in the loc) (bug can't manage to use them in the loc)
+		#none
+
+
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_stettin_proposal_3
+				}
+			}
+			set_global_variable = {
+				name = br_je_conference_of_stettin_proposal_3
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_conference_of_stettin_proposal_4
+				}
+			}
+			set_global_variable = {
+				name = br_je_conference_of_stettin_proposal_4
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:br_je_stettin_conference_timer
+				}
+			}
+			set_global_variable = {
+				name = br_je_stettin_conference_timer
+				value = 6 #months
+			}
+		}
+
+		#trigger startup event
+		trigger_event = {
+			id = br_stettin_conference_event.1
+			popup = yes
+		}
+		#trigger an event for the subjects of the root
+		every_subject_or_below = {
+			trigger_event = {
+				id = br_stettin_conference_event.2
+				popup = yes
+			}
+		}
+
+		#trigger an event for every country that has an interest in the poland region
+		if = {
+			limit = {
+				#do this only if the root is the br_initiator_scope so the events only get triggered once
+				root ?= scope:br_initiator_scope
+			}
+			every_country = {
+				limit = {
+					has_interest_marker_in_region = region_baltic
+					not = {
+						or = {
+							#check that it is not initiator or target
+							this ?= scope:br_initiator_scope
+							this ?= scope:br_target_scope
+
+							#check that it is not a subject of initiator or target
+							is_subject_of = scope:br_initiator_scope
+							is_subject_of = scope:br_target_scope
+						}
+					}
+				}
+				trigger_event = {
+					id = br_stettin_conference_event.3
+					popup = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = br_je_stettin_conference_tt_1
+			has_global_variable = br_stettin_conference_has_concluded_global_var
+
+		}
+		custom_tooltip = {
+			text = br_je_stettin_conference_tt_2
+			has_global_variable = br_stettin_treaty_signed_target_global_var
+		}
+		custom_tooltip = {
+			text = br_je_stettin_conference_tt_4
+			has_global_variable = br_stettin_treaty_signed_initiator_global_var
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = br_stettin_conference_event.4 popup = yes }
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = br_je_stettin_conference_tt_3
+				OR = {
+					has_global_variable = br_stettin_treaty_not_signed_initiator_global_var
+					has_global_variable = br_stettin_treaty_not_signed_target_global_var
+				}
+			}
+			custom_tooltip = {
+				text = br_je_stettin_conference_tt_5
+				this ?= {
+					has_war_with = c:SWE
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		trigger_event = { id = br_stettin_conference_event.5 popup = yes }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = { # Only one country can actually modify this, or the congress will end after one month
+					scope:br_initiator_scope ?= this
+					global_var:br_je_stettin_conference_timer >= 1
+				}
+				change_global_variable = {
+					name = br_je_stettin_conference_timer
+					add = -1
+				}
+			}
+			if = { #if the timer runs out, give the chance to extend the deadline ones
+				limit = { # Only one country can actually modify this, or the congress will end after one month
+					scope:br_initiator_scope ?= this
+					global_var:br_je_stettin_conference_timer <= 0
+					not = { has_global_variable = br_stettin_conference_will_conclude_global_var }
+				}
+				trigger_event = { id = br_stettin_conference_event.6 popup = yes }
+			}
+			if = { #if the treaty is over
+				limit = {
+					scope:br_initiator_scope ?= this
+					global_var:br_je_stettin_conference_timer <= 0
+					has_global_variable = br_stettin_conference_will_conclude_global_var
+				}
+				#then tally the score
+				if = {
+					limit = {
+						NOT = {
+							has_global_variable = br_stettin_conference_has_concluded_global_var
+						}
+					}
+					set_global_variable = br_stettin_conference_has_concluded_global_var
+
+					if = {
+						limit = {
+							global_var:br_je_conference_of_stettin_proposal_3 >= 1
+						}
+						set_global_variable = br_fate_of_baltic_duchies_global_var
+					}
+					if = {
+						limit = {
+							global_var:br_je_conference_of_stettin_proposal_4 >= 1
+						}
+						set_global_variable = br_stettin_conference_counter_offer_global_var
+					}
+				}
+			}
+		}
+	}
+
+	invalid = {
+		any_state_in_state_region_owned_by_country_or_subject = {
+			TARGET_COUNTRY = scope:br_target_scope
+			TARGET_STATE_REGION = s:STATE_COURLAND
+		}
+		any_state_in_state_region_owned_by_country_or_subject = {
+			TARGET_COUNTRY = scope:br_target_scope
+			TARGET_STATE_REGION = s:STATE_RIGA
+		}
+		any_state_in_state_region_owned_by_country_or_subject = {
+			TARGET_COUNTRY = scope:br_target_scope
+			TARGET_STATE_REGION = s:STATE_TARTU
+		}
+		any_state_in_state_region_owned_by_country_or_subject = {
+			TARGET_COUNTRY = scope:br_target_scope
+			TARGET_STATE_REGION = s:STATE_TALINN
+		}
+	}
+	on_invalid = {
+		if = {
+			limit = {
+				this ?= scope:br_initiator_scope
+			}
+			s:STATE_COURLAND = {
+				add_claim = scope:br_initiator_scope
+			}
+			s:STATE_RIGA = {
+				add_claim = scope:br_initiator_scope
+			}
+			s:STATE_TARTU = {
+				add_claim = scope:br_initiator_scope
+			}
+			s:STATE_TALINN = {
+				add_claim = scope:br_initiator_scope
+			}
+			br_remove_treaty_of_stettin_variables_scripted_effect = yes
+		}
+	}
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+
+}
