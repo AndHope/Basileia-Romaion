@@ -468,14 +468,18 @@ je_palaiologos_reforms_land_reform = {
 
 
 	complete = {
-		NOR = {
-			has_law = law_type:law_traditionalism
-			has_law = law_type:law_agrarianism
-		}
-		NOR = {
+		NOT = {
 			has_law = law_type:law_serfdom
-			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_traditionalism
 		}
+	#	NOR = {
+	#		has_law = law_type:law_traditionalism
+	#		has_law = law_type:law_agrarianism
+	#	}
+	#	NOR = {
+	#		has_law = law_type:law_serfdom
+	#		has_law = law_type:law_tenant_farmers
+	#	}
 		any_scope_building = {
 			is_building_type = building_wheat_farm
 			NOT = {
@@ -500,9 +504,15 @@ je_palaiologos_reforms_land_reform = {
 				months = normal_modifier_time
 			}
 		}
-	#	trigger_event = {
-	#		id = add_event_here.3
-	#	}
+		if = {
+			limit = {
+				has_modifier = br_modifier_corrupt_pronoia
+			}
+			trigger_event = {
+				id = palaiologos_events.3
+				days = 1
+			}
+		}
 	}
 
 	on_monthly_pulse = {
