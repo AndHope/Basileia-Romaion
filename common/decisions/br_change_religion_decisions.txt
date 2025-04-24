@@ -1222,3 +1222,24 @@ br_tengri_religion_swap_decision = {
 		base = 0
 	}
 }
+
+br_celtic_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_celtic}
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_celtic }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
