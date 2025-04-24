@@ -101,6 +101,12 @@ br_country_can_convert_to_given_religion = {
 		}
 		br_country_can_convert_to_finno_ugric = yes
 	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_akom
+		}
+		br_country_can_convert_to_akom = yes
+	}
 
 	trigger_else = {
 		always = no
@@ -238,4 +244,15 @@ br_country_can_convert_to_finno_ugric = {
 		}
 	}
 	NOT = { country_has_state_religion = rel:br_religion_finno_ugric }
+}
+
+br_country_can_convert_to_akom = {
+	OR = {
+		country_has_primary_culture = cu:akan
+		br_is_capital_in_stratigic_region = { #added because no centralised country has akan as its primary culture
+			TARGET_STRATEGIC_REGION = sr:region_senegal
+			TARGET_COUNTRY = ROOT
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_akom }
 }

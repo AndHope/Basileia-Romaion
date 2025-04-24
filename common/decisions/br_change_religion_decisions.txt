@@ -1264,3 +1264,24 @@ br_finno_ugric_religion_swap_decision = {
 		base = 0
 	}
 }
+
+br_akom_religion_swap_decision = {
+	is_shown = {
+		OR = {
+			br_country_can_convert_to_given_religion = { TARGET_RELIGION = rel:br_religion_akom }
+		}
+		NOT = { has_law = law_type:law_theocracy }
+	}
+
+	possible = {
+		br_religion_swap_posible_standard_trigger = yes
+	}
+
+	when_taken = {
+		br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_akom }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
