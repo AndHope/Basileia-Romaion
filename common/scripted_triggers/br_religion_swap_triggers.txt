@@ -180,9 +180,10 @@ br_country_can_convert_to_shitte = {
 
 br_country_can_convert_to_baltic = {
 	OR = {
-		country_has_primary_culture = cu:lithuanian
-		country_has_primary_culture = cu:latvian
-		country_has_primary_culture = cu:estonian
+		br_is_capital_in_stratigic_region = {
+			TARGET_STRATEGIC_REGION = sr:region_baltic_states
+			TARGET_COUNTRY = ROOT
+		}
 	}
 	NOT = { country_has_state_religion = rel:br_religion_baltic }
 }
