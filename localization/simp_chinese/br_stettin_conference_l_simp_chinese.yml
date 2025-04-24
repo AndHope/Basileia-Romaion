@@ -1,0 +1,144 @@
+﻿l_simp_chinese:
+
+ br_initiator_loc: "[GetGlobalVariable( 'br_stettin_conference_initiator_var' ).GetCountry.GetName]"
+ br_initiator_NF_loc: "[GetGlobalVariable( 'br_stettin_conference_initiator_var' ).GetCountry.GetNameNoFormatting]" #NF stands for NoFormatting
+ br_target_loc: "[GetGlobalVariable( 'br_stettin_conference_target_var' ).GetCountry.GetName]"
+ br_target_NF_loc: "[GetGlobalVariable( 'br_stettin_conference_target_var' ).GetCountry.GetNameNoFormatting]" #NF stands for NoFormatting
+ br_baltic_duchies_loc: "[GetGlobalVariable( 'br_stettin_conference_baltic_duchies_var' ).GetCountry.GetName]"
+ br_baltic_duchies_NF_loc: "[GetGlobalVariable( 'br_stettin_conference_baltic_duchies_var' ).GetCountry.GetNameNoFormatting]" #NF stands for NoFormatting
+
+ #Decision loc
+ br_stettin_conferrence_decision: "Hold the Stettin Conference"
+ br_stettin_conferrence_decision_desc: "Approach Sweden for a conference about the status the United Baltic Duchies."
+
+ #Journal loc
+ br_je_stettin_conference: "Stettin Conference"
+ br_je_stettin_conference_reason: "The great powers have sent their delegations to Stettin to decide on a solution to the unsolved border issues between $br_initiator_loc$ and $br_target_loc$. \n\n#b #blue List of demands:#!#!\n$br_stettin_conference_je_reason_loc_taken_demands_loc$ \n\nThe conference will conclude in #variable [GetGlobalVariable('br_je_stettin_conference_timer').GetValue]#! months. The proposals listed above be selected as the conference's offical solution."
+ 
+ #JE demands loc
+ br_stettin_conference_je_reason_loc_taken_demands_loc: "[GetPlayer.GetCustom('br_stettin_conference_je_reason_loc_demand_baltic_duchies_fate')][GetPlayer.GetCustom('br_stettin_conference_je_reason_loc_given_counter_offers')]\n"
+ br_stettin_conference_je_reason_loc_empty_string_loc: "" #this loc is an standard empty string
+ br_stettin_conference_je_reason_loc_demand_baltic_duchies_fate_loc: "[GetPlayer.GetCustom('br_stettin_conference_je_reason_loc_demand_baltic_duchies_sovereignty')][GetPlayer.GetCustom('br_stettin_conference_je_reason_loc_demand_baltic_duchies_expand')]"
+ br_stettin_conference_je_reason_loc_is_demanding_independence_of_baltic_duchies_loc: "$br_baltic_duchies_NF_loc$ will become independent.\n"
+ br_stettin_conference_je_reason_loc_is_demanding_target_subjugation_of_baltic_duchies_loc: "$br_baltic_duchies_NF_loc$ will be subjugated by [GetGlobalVariable( 'br_stettin_conference_target_var' ).GetCountry.GetNameNoFormatting].\n"
+ br_stettin_conference_je_reason_loc_is_demanding_initiator_subjugation_of_baltic_duchies_loc: "$br_baltic_duchies_NF_loc$ will be subjugated by [GetGlobalVariable( 'br_stettin_conference_initiator_var' ).GetCountry.GetNameNoFormatting].\n"
+ br_stettin_conference_je_reason_loc_is_demanding_target_annexation_of_baltic_duchies_loc: "$br_baltic_duchies_NF_loc$ will be annexed by [GetGlobalVariable( 'br_stettin_conference_target_var' ).GetCountry.GetNameNoFormatting].\n"
+ br_stettin_conference_je_reason_loc_is_demanding_initiator_annexation_of_baltic_duchies_loc: "$br_baltic_duchies_NF_loc$ will be annexed by [GetGlobalVariable( 'br_stettin_conference_initiator_var' ).GetCountry.GetNameNoFormatting].\n"
+ br_stettin_conference_je_reason_loc_given_counter_offers_loc: "[GetPlayer.GetCustom('br_stettin_conference_je_reason_loc_given_counter_offers_debt_compensation')][GetPlayer.GetCustom('br_stettin_conference_je_reason_loc_given_counter_offers_investment_rights')]"
+ br_stettin_conference_je_reason_loc_given_counter_offers_debt_compensation_loc: "$br_initiator_NF_loc$ will take on all of $br_target_NF_loc$ debt \n"
+ br_stettin_conference_je_reason_loc_given_counter_offers_investment_rights_loc: "$br_initiator_NF_loc$ will grant $br_target_NF_loc$ foreign investment rights \n"
+ 
+
+ br_je_stettin_conference_tt_1: "The Conference has decided how to settle the Baltic question."
+ br_je_stettin_conference_tt_2: "#v $br_target_NF_loc$#! has accepted the outcome of the Conference"
+ br_je_stettin_conference_tt_4: "#v $br_initiator_NF_loc$#! has accepted the outcome of the Conference"
+ br_je_stettin_conference_tt_3: "Either #v $br_target_NF_loc$#! or #v $br_initiator_NF_loc$#! have rejected the outcome of the conference."
+ br_je_stettin_conference_tt_5: "Hostilities have broken out between $br_target_NF_loc$#! and #v $br_initiator_NF_loc$#"
+ br_stettin_conference_made_choice_tt: "We are not currently deciding on this proposal"
+ br_stettin_conference_has_not_concluded_tt: "The Stettin Conference has not concluded."
+ 
+ #Scripted Button loc
+ br_fate_of_baltic_duchies_button: "Decide on the fate of $br_baltic_duchies_NF_loc$"
+ br_fate_of_baltic_duchies_button_desc: "We will decide on what will happen to the state of $br_baltic_duchies_loc$"
+ br_stettin_conference_counter_offer_button: "Give a counter offer"
+ br_stettin_conference_counter_offer_button_desc: "We will decide on if we are going to give $br_target_NF_loc$ a counter offer as compensation for our demands."
+ br_we_chose_this_br_stettin_treaty_tt: "[ROOT.GetCountry.GetName] will officially favour this proposal."
+ br_we_unchose_this_br_stettin_treaty_tt: "[ROOT.GetCountry.GetName] will no longer officially favour this proposal."
+ br_stettin_conference_approve_button: "Ratify the Treaty of Stettin"
+ br_stettin_conference_approve_button_desc: "The agreed upon proposal is acceptable. Instruct our men in Stettin to sign the document."
+ br_stettin_conference_approve_button_tt: "[ROOT.GetCountry.GetName] ratifies the treaty. Should both $br_initiator_NF_loc$ and $br_target_NF_loc$ agree, the treaty will then enter into effect."
+ br_stettin_conference_disapprove_button: "Refuse to Sign"
+ br_stettin_conference_disapprove_button_desc: "This outcome does not serve [ROOT.GetCountry.GetAdjectiveNoFormatting] interests. We will not put our names to this scrap of paper."
+ br_stettin_conference_disapprove_button_tt: "Negotiations between $br_target_NF_loc$ and $br_initiator_NF_loc$ will break down."
+ br_stettin_conference_has_concluded_loc: "The Stettin Conference has concluded."
+
+
+ ##
+ ##Journal events loc
+ ##
+ br_stettin_conference_event.1.t: "The Baltic Question"
+ br_stettin_conference_event.1.d: "The german people in the proces of unification now look to the baltic holdings of the $br_target_loc$, facing internal issues themselfs the $br_target_NF_loc$ has called for a conference to be held instead in the hope that they could perhaps prevent war."
+ br_stettin_conference_event.1.f: "'The $br_initiator_NF_loc$ seeks to unify with the baltic german people.'"
+ br_stettin_conference_event.1.a: "Agreed. Call for a conference to settle the matter at last."
+
+ br_stettin_conference_event.2.t: "Stettin Calling"
+ br_stettin_conference_event.2.d: "Weary of the uneasy peace existing between the germans and swedish people, have decided to hold a conference in Stettin to resolve their current territorial and legal disputes."
+ br_stettin_conference_event.2.f: "'So now the Germans desire the Baltic? No doubt they have their eyes firmly fixed on rightful Swedish soil. A refusal to compromise might harm the current peace in Europe.'"
+ br_stettin_conference_event.2.a: "Interesting."
+
+ br_stettin_conference_event.3.t: "Stettin Calling"
+ br_stettin_conference_event.3.d: "Weary of the uneasy peace existing between the germans and swedish people, have decided to hold a conference in Stettin to resolve their current territorial and legal disputes."
+ br_stettin_conference_event.3.f: "'So now the Germans desire the Baltic? No doubt they have their eyes firmly fixed on rightful Swedish soil. A refusal to compromise might harm the current peace in Europe.'"
+ br_stettin_conference_event.3.a: "Interesting."
+
+ br_stettin_conference_event.4.t: "Stettin Conference Concludes"
+ br_stettin_conference_event.4.d: "The conference has concluded"
+ br_stettin_conference_event.4.f: "#bold European Powers Guarantee Peace and Stability#!\nThe newly ratified Treaty of Stettin is a cornerstone of European peace."
+ br_stettin_conference_event.4.a: "For peace in our time, hurrah!"
+
+ br_stettin_conference_event.5.t: "Failure of the Stettin Conference"
+ br_stettin_conference_event.5.d: "With negotiations between $br_target_loc$ and $br_initiator_loc$ having broken down in full, it would appear that a diplomatic solution to the Baltic question has eluded Europe once again."
+ br_stettin_conference_event.5.f: "As the delegations made their way out of the Foreign Office, the air of amicability that they so deperately tried to maintain could not even fool the doorman — much less each other. What this would mean for future German-Swedish relations they could still not say, but that it would be bad? Now at last, there was something they could agree on."
+ br_stettin_conference_event.5.a: "What a waste of everybody's time."
+ 
+ br_stettin_conference_event.6.t: "End of the Stettin Conference?"
+ br_stettin_conference_event.6.d: "With negotiations between $br_target_loc$ and $br_initiator_loc$ having gone on for a wile, it would appear that Our time has run up, the congress is at an end, if we are satisfied we can end the congress here and ratify the treaty. But if we are not satisfied with the current treaty perhaps we can extend the congress for a bit longer."
+ br_stettin_conference_event.6.f: "Our time has run up, the congress is at an end, if we are satisfied we can end the congress here and ratify the treaty. But if we are not satisfied with the current treaty perhaps we can extend the congress for a bit longer."
+ br_stettin_conference_event.6.a: "Extend the conference."
+ br_stettin_conference_event.6.b: "Do not extend the conference."
+ br_the_stettin_conference_will_end_tt: "We will chose to not extend the conference, so the conference of Stettin will end."
+
+ br_stettin_conference_event.7.t: "End of the Stettin Conference?"
+ br_stettin_conference_event.7.d: "With negotiations between $br_target_loc$ and $br_initiator_loc$ having gone on for a wile, it would appear that Our time has run up, the congress is at an end, however it seems that $br_initiator_loc$ isn't satisfied yet with the current arrangements and they have asked to extend the conference for 3 months. \n\n Will we accept"
+ br_stettin_conference_event.7.f: "Our time has run up, the congress is at an end, if we are satisfied we can end the congress here and ratify the treaty. But if we are not satisfied with the current treaty perhaps we can extend the congress for a bit longer."
+ br_stettin_conference_event.7.a: "Extend the conference."
+ br_stettin_conference_event.7.b: "Do not extend the conference."
+
+ #event 8 (Baltic Duchies fate)
+ br_stettin_conference_event.8.t: "The Fate of $br_baltic_duchies_NF_loc$"
+ br_stettin_conference_event.8.d: "With negotiations between $br_target_loc$ and $br_initiator_loc$ ongoing, we must decide what to do with the state of $br_baltic_duchies_NF_loc$ a german state but currently a vassal of $br_target_loc$, this situation can not stand, something has to happen."
+ br_stettin_conference_event.8.f: "We must decide what to do with the state of $br_baltic_duchies_NF_loc$ a german state but currently a vassal of $br_target_loc$, this situation can not stand, something has to happen. \n\n#b #blue Current Demands:#!#! \n$br_stettin_conference_je_reason_loc_demand_baltic_duchies_fate_loc$"
+ br_stettin_conference_event_loc_stop_demanding_option_loc_desc: "#r We are currently demanding this option, if we select it again we will stop demaning this.#!"
+ br_stettin_conference_event_loc_baltic_duchies_sovereignty_loc_desc: "#r This demand decides on $br_baltic_duchies_NF_loc$'s sovereignty. Because of this it is mutually exclusive with other demands that decide on $br_baltic_duchies_NF_loc$'s sovereignty.\nAny conflicting demand will be deselected.#!"
+ #option a
+ br_stettin_conference_event.8.a: "[GetPlayer.GetCustom('br_stettin_conference_event_loc_demand_independence_of_baltic_duchies')]"
+ br_stettin_conference_event_loc_start_demanding_independence_of_baltic_duchies_loc: "$br_baltic_duchies_loc$ must be independent"
+ br_stettin_conference_event_loc_stop_demanding_independence_of_baltic_duchies_loc: "$br_baltic_duchies_loc$ will no longer become independent"
+ #option b
+ br_stettin_conference_event.8.b: "[GetPlayer.GetCustom('br_stettin_conference_event_loc_demand_target_subjugation_of_baltic_duchies')]"
+ br_stettin_conference_event_loc_start_demanding_target_subjugation_of_baltic_duchies_loc: "$br_target_loc$ keeps $br_baltic_duchies_NF_loc$ as a subject"
+ br_stettin_conference_event_loc_stop_demanding_target_subjugation_of_baltic_duchies_loc: "$br_target_loc$ will no longer subjugate [SCOPE.sCountry('br_baltic_duchies_scope').GetName]"
+ #option c
+ br_stettin_conference_event.8.c: "[GetPlayer.GetCustom('br_stettin_conference_event_loc_demand_initiator_subjugation_of_baltic_duchies')]"
+ br_stettin_conference_event_loc_start_demanding_initiator_subjugation_of_baltic_duchies_loc: "$br_initiator_loc$ will subjugate $br_baltic_duchies_NF_loc$"
+ br_stettin_conference_event_loc_stop_demanding_initiator_subjugation_of_baltic_duchies_loc: "$br_initiator_loc$ will no longer subjugate [SCOPE.sCountry('br_baltic_duchies_scope').GetName]"
+ #option e
+ br_stettin_conference_event.8.e: "[GetPlayer.GetCustom('br_stettin_conference_event_loc_demand_target_annexation_of_baltic_duchies')]"
+ br_stettin_conference_event_loc_start_demanding_target_annexation_of_baltic_duchies_loc: "$br_target_loc$ will annex $br_baltic_duchies_NF_loc$"
+ br_stettin_conference_event_loc_stop_demanding_target_annexation_of_baltic_duchies_loc: "$br_target_loc$ will no longer annex [SCOPE.sCountry('br_baltic_duchies_scope').GetName]"
+ #option g
+ br_stettin_conference_event.8.g: "[GetPlayer.GetCustom('br_stettin_conference_event_loc_demand_initiator_annexation_of_baltic_duchies')]"
+ br_stettin_conference_event_loc_start_demanding_initiator_annexation_of_baltic_duchies_loc: "$br_initiator_loc$ will annex $br_baltic_duchies_NF_loc$"
+ br_stettin_conference_event_loc_stop_demanding_initiator_annexation_of_baltic_duchies_loc: "$br_initiator_loc$ will no longer annex [SCOPE.sCountry('br_baltic_duchies_scope').GetName]"
+ #option i
+ br_stettin_conference_event.8.i: "What a waste of everybody's time."
+ br_finished_deciding_baltic_duchies_tt: "We have finished deciding on the Fate of $br_baltic_duchies_NF_loc$"
+
+ #event 9 (Counter offer)
+ br_stettin_conference_event.9.t: "A counter offer"
+ br_stettin_conference_event.9.d: "With negotiations between $br_target_loc$ and $br_initiator_loc$ ongoing, we must decide, if we are going to offer the $br_target_NF_loc$ anything in return for what we are asking."
+ br_stettin_conference_event.9.f: "We must decide, if we are going to offer the $br_target_loc$ anything in return for what we are asking. \n\n#b #blue Current Demands:#!#! \n$br_stettin_conference_je_reason_loc_given_counter_offers_loc$"
+ #option a
+ br_stettin_conference_event.9.a: "[GetPlayer.GetCustom('br_stettin_conference_event_loc_offering_initiator_takes_on_target_total_debt')]"
+ br_stettin_conference_event_loc_start_offering_initiator_takes_on_target_total_debt_loc: "$br_initiator_loc$ will take on all of $br_target_loc$ debt"
+ br_stettin_conference_event_loc_stop_offering_initiator_takes_on_target_total_debt_loc: "$br_initiator_loc$ will no longer take on all of $br_target_loc$ debt"
+ #option b
+ br_stettin_conference_event.9.b: "[GetPlayer.GetCustom('br_stettin_conference_event_loc_offering_target_investment_rights')]"
+ br_stettin_conference_event_loc_start_offering_target_investment_rights_loc: "$br_initiator_loc$ will grant $br_target_loc$ foreign investment rights"
+ br_stettin_conference_event_loc_stop_offering_target_investment_rights_loc: "$br_initiator_loc$ will no longer grant $br_target_loc$ foreign investment rights"
+ #option i
+ br_stettin_conference_event.9.i: "What a waste of everybody's time."
+ br_finished_deciding_on_counter_offer_tt: "We have finished deciding on counter offers"
+
+ #mics
+ br_treaty_of_stettin_outcome_tt: "Territory will be exchanged between $br_target_NF_loc$ and $br_initiator_NF_loc$ in accordance with their treaty obligations."

@@ -1,0 +1,67 @@
+﻿#	Example:
+# 
+#	example_trigger = {
+#		x = 100
+#		y = 50
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_trigger = yes
+#	}
+#
+
+br_finished_poznan_conference_trigger = {
+	has_variable = br_finished_poznan_conference_var
+}
+br_poznan_conference_has_concluded = {
+	has_global_variable = br_poznan_treaty_has_concluded_global_var
+}
+
+
+br_poznan_conference_is_demanding_poznan_trigger = {
+	has_global_variable = br_je_conference_of_poznan_proposal_1
+	global_var:br_je_conference_of_poznan_proposal_1 >= 1
+}
+br_poznan_conference_is_demanding_pomorze_trigger = {
+	has_global_variable = br_je_conference_of_poznan_proposal_2
+	global_var:br_je_conference_of_poznan_proposal_2 >= 1
+}
+
+## Prussian fate triggers
+br_poznan_conference_is_demanding_prussia_trigger = {
+	has_global_variable = br_je_conference_of_poznan_proposal_3
+	global_var:br_je_conference_of_poznan_proposal_3 >= 1
+}
+br_poznan_conference_is_demanding_prussian_annexation_of_memel_trigger = {
+	has_global_variable = br_propose_prussian_annexation_of_memel_var
+}
+br_poznan_conference_is_demanding_independence_of_prussia_trigger = {
+	has_global_variable = br_propose_independence_of_prussia_var
+}
+br_poznan_conference_is_demanding_plc_subjugation_of_prussia_trigger = {
+	has_global_variable = br_propose_plc_subjugation_of_prussia_var
+}
+br_poznan_conference_is_demanding_ngf_subjugation_of_prussia_trigger = {
+	has_global_variable = br_propose_ngf_subjugation_of_prussia_var
+}
+br_poznan_conference_is_demanding_plc_annexation_of_prussia_trigger = {
+	has_global_variable = br_propose_plc_annexation_of_prussia_var
+}
+br_poznan_conference_is_demanding_ngf_annexation_of_prussia_trigger = {
+	has_global_variable = br_propose_ngf_annexation_of_prussia_var
+}
+
+## Counter offer triggers
+br_poznan_conference_is_giving_a_counter_offer = {
+	has_global_variable = br_je_conference_of_poznan_proposal_4
+	global_var:br_je_conference_of_poznan_proposal_4 >= 1
+}
+br_poznan_conference_is_offering_initiator_takes_on_debt_of_target_trigger = {
+	has_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+}
+br_poznan_conference_is_offering_initiator_gives_investment_rights_to_target_trigger = {
+	has_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+}

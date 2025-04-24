@@ -1,0 +1,36 @@
+﻿
+br_stettin_conferrence_decision = {
+	is_shown = {
+		or = {
+			c:NGF ?= this
+			c:GER ?= this
+		}
+		br_finished_poznan_conference_trigger = yes
+		not = {
+			has_journal_entry = br_je_stettin_conference
+			br_finished_stettin_conference_trigger = yes
+		}
+	}
+
+	possible = {
+		or = {
+			c:NGF ?= this
+			c:GER ?= this
+		}
+	}
+
+	when_taken = {
+		add_journal_entry = {
+			type = br_je_stettin_conference
+		}
+		c:SWE = {
+			add_journal_entry = {
+				type = br_je_stettin_conference
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}

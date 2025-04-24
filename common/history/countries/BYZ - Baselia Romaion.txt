@@ -51,7 +51,13 @@ COUNTRIES = {
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy #law_autocracy 
-		activate_law = law_type:law_serfdom #law_tenant_farmers 
+		activate_law = law_type:law_serfdom
+		start_enactment = law_type:law_tenant_farmers
+		add_enactment_phase = 1
+		add_enactment_modifier = {
+			name = mired_in_bureaucracy 
+		}
+		# add themata event
 		activate_law = law_type:law_land_based_taxation #law_per_capita_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats # law_appointed_bureaucrats Balance reasons half of Burecrats appointed still
 		activate_law = law_type:law_state_religion
@@ -103,6 +109,10 @@ COUNTRIES = {
 				name = ig_latin_priviledges
 				years = 25
 				is_decaying = yes
+			}
+			add_modifier = {
+				name = ig_demand_not_met
+				days = normal_modifier_time
 			}
 
 		}
@@ -220,12 +230,6 @@ COUNTRIES = {
 			type = je_palaiologos_reforms_main
 		}
 		add_journal_entry = {
-			type = je_palaiologos_reforms_syria
-		}
-		
-	#Do Syria first to unlock rest.	Or not
-		
-		add_journal_entry = {
 			type = je_palaiologos_reforms_economy
 		}
 		add_journal_entry = {
@@ -260,6 +264,12 @@ COUNTRIES = {
 		}
 		add_journal_entry = {
 			type = je_palaiologos_reforms_end_latin_privileges
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_syria
+		}
+		add_journal_entry = {
+			type = je_palaiologos_reforms_egypt
 		}
 
 		add_modifier = {

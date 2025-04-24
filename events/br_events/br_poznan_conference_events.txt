@@ -1,0 +1,606 @@
+﻿namespace = br_poznan_conference_event
+
+#event for NGF
+br_poznan_conference_event.1 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_widescreen_classic
+	
+	title = br_poznan_conference_event.1.t
+	desc = br_poznan_conference_event.1.d
+	flavor = br_poznan_conference_event.1.f
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+		# triggered by the JE
+	}
+
+	immediate = {}
+
+	option = {
+		name = br_poznan_conference_event.1.a
+		default_option = yes
+	}
+}
+
+#event for the subjects
+br_poznan_conference_event.2 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_poznan_conference_event.2.t
+	desc = br_poznan_conference_event.2.d
+	flavor = br_poznan_conference_event.2.f
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+		# triggered by the JE
+	}
+
+	immediate = {}
+
+	option = {
+		name = br_poznan_conference_event.2.a
+		default_option = yes
+	}
+}
+
+#event for all those with an interest
+br_poznan_conference_event.3 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_poznan_conference_event.3.t
+	desc = br_poznan_conference_event.3.d
+	flavor = br_poznan_conference_event.3.f
+	
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {}
+
+	immediate = {}
+
+	option = {
+		name = br_poznan_conference_event.3.a
+		default_option = yes
+	}
+}
+
+#The treaty is accepted
+br_poznan_conference_event.4 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_poznan_conference_event.4.t
+	desc = br_poznan_conference_event.4.d
+	flavor = br_poznan_conference_event.4.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	option = {
+		name = br_poznan_conference_event.4.a
+		default_option = yes
+		ai_chance = {
+			base = 95
+		}
+		if = {
+			limit = {
+				scope:br_north_german_federation_scope ?= this
+			}
+			custom_tooltip = {
+				text = br_treaty_of_poznan_outcome_tt
+				br_enforce_poznan_conference = yes
+				br_finished_poznan_conference_scripted_effect = yes
+			}
+		}
+		else = {
+			show_as_tooltip = {
+				custom_tooltip = {
+					text = br_treaty_of_poznan_outcome_tt
+					br_enforce_poznan_conference = yes
+				}
+			}
+		}
+
+		#remove var's
+		br_remove_treaty_of_poznan_variables_scripted_effect = yes
+		br_finished_poznan_conference_scripted_effect = yes
+	}
+}
+
+#The treaty has failed
+br_poznan_conference_event.5 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_poznan_conference_event.5.t
+	desc = br_poznan_conference_event.5.d
+	flavor = br_poznan_conference_event.5.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	option = {
+		name = br_poznan_conference_event.5.a
+		default_option = yes
+		add_radicals = {
+			value = small_radicals
+		}
+
+		br_remove_treaty_of_poznan_variables_scripted_effect = yes
+		br_finished_poznan_conference_scripted_effect = yes
+	}
+}
+
+#The treaty can be extended
+br_poznan_conference_event.6 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_poznan_conference_event.6.t
+	desc = br_poznan_conference_event.6.d
+	flavor = br_poznan_conference_event.6.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	#extend the deadline with a couple of months
+	option = {
+		name = br_poznan_conference_event.6.a
+		default_option = yes
+
+		#ask poland to agree with extending the conference
+		scope:br_commonwealth_scope = {
+			trigger_event = {
+				id = br_poznan_conference_event.7
+				popup = yes
+			}
+		}
+	}
+	option = {
+		name = br_poznan_conference_event.6.b
+		#chose to not extend the deadline
+		custom_tooltip = {
+			text = br_the_poznan_conference_will_end_tt
+			br_conclude_the_poznan_conference_scripted_effect = yes
+		}
+	}
+}
+
+#Accept the that the conference is extended
+br_poznan_conference_event.7 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_poznan_conference_event.7.t
+	desc = br_poznan_conference_event.7.d
+	flavor = br_poznan_conference_event.7.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	#accept that the conference is extended by a couple months
+	option = {
+		name = br_poznan_conference_event.7.a
+		default_option = yes
+
+		#extend the conference with 3 months if accepted
+		br_extend_the_poznan_conference_scripted_effect = {
+			NUMBER_OF_MONTHS = 3
+		}
+	}
+	#refuse to have the conference extended
+	option = {
+		name = br_poznan_conference_event.7.b
+		#chose to not extend the deadline
+		custom_tooltip = {
+			text = br_the_poznan_conference_will_end_tt
+			br_conclude_the_poznan_conference_scripted_effect = yes
+		}
+	}
+}
+
+#The fate of Prussia
+br_poznan_conference_event.8 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic
+	
+	title = br_poznan_conference_event.8.t
+	desc = br_poznan_conference_event.8.d
+	flavor = br_poznan_conference_event.8.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = br_deciding_the_fate_of_prussia_button_var
+		if = {
+			limit = {
+				exists = c:GER
+			}
+			c:GER ?= {
+				save_scope_as = br_north_german_federation_scope
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:NGF
+			}
+			c:NGF ?= {
+				save_scope_as = br_north_german_federation_scope
+			}
+		}
+		c:PLC ?= {
+			save_scope_as = br_commonwealth_scope
+		}
+	}
+
+	#prussia becomes independent
+	option = {
+		name = br_poznan_conference_event.8.a
+		default_option = yes
+		custom_tooltip = br_poznan_conference_event_loc_prussia_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_poznan_conference_is_demanding_independence_of_prussia_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_prussia_independent_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes #remove event options var that are mutualy exclusive (ex: pru can not gain indendence and be subjugated)
+				set_global_variable = br_propose_independence_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_independence_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.8 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#plc puppets prussia
+	option = {
+		name = br_poznan_conference_event.8.b
+		default_option = yes
+		custom_tooltip = br_poznan_conference_event_loc_prussia_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_poznan_conference_is_demanding_plc_subjugation_of_prussia_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_plc_subjugation_of_prussia_var_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_global_variable = br_propose_plc_subjugation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_plc_subjugation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.8 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#ngf puppets prussia
+	option = {
+		name = br_poznan_conference_event.8.c
+		default_option = yes
+		custom_tooltip = br_poznan_conference_event_loc_prussia_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_poznan_conference_is_demanding_ngf_subjugation_of_prussia_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_ngf_subjugation_of_prussia_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_global_variable = br_propose_ngf_subjugation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_ngf_subjugation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.8 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+	# .d and .f can not be used as they are used for discription an flavor
+
+	#plc annexes prussia
+	option = {
+		name = br_poznan_conference_event.8.e
+		default_option = yes
+		custom_tooltip = br_poznan_conference_event_loc_prussia_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_poznan_conference_is_demanding_plc_annexation_of_prussia_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_plc_annexation_of_prussia_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_global_variable = br_propose_plc_annexation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_plc_annexation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.8 popup = yes }
+		}
+	}
+
+	#nfg annexes prussia
+	option = {
+		name = br_poznan_conference_event.8.g
+		default_option = yes
+		custom_tooltip = br_poznan_conference_event_loc_prussia_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_poznan_conference_is_demanding_ngf_annexation_of_prussia_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_ngf_annexation_of_prussia_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_prussian_fate_variables_scripted_effect = yes
+				set_global_variable = br_propose_ngf_annexation_of_prussia_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_ngf_annexation_of_prussia_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.8 popup = yes }
+		}
+	}
+
+	#give prussia memel
+	option = {
+		name = br_poznan_conference_event.8.h
+		default_option = yes
+		if = {
+			limit = { 
+				not = { br_poznan_conference_is_demanding_prussian_annexation_of_memel_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_prussian_annexation_of_memel_scripted_effect = yes
+			}
+			hidden_effect = {
+				set_global_variable = br_propose_prussian_annexation_of_memel_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_prussian_annexation_of_memel_var
+			}
+			custom_tooltip = br_poznan_conference_event_loc_stop_demanding_option_loc_desc
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.8 popup = yes }
+		}
+	}
+	option = {
+		name = br_poznan_conference_event.8.i
+		default_option = yes
+		custom_tooltip = {
+			text = br_finished_deciding_prussia_tt
+
+			#remove the button var
+			remove_variable = br_deciding_the_fate_of_prussia_button_var
+		}
+	}
+}
+
+#Counter offer
+br_poznan_conference_event.9 = {
+	type = country_event
+	placement = ROOT
+	
+	title = br_poznan_conference_event.9.t
+	desc = br_poznan_conference_event.9.d
+	flavor = br_poznan_conference_event.9.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = br_counter_offer_button_var
+	}
+
+	#take on targets total debt
+	option = {
+		name = br_poznan_conference_event.9.a
+		default_option = yes
+		if = {
+			limit = { 
+				br_poznan_conference_is_offering_initiator_takes_on_debt_of_target_trigger = no
+			}
+			show_as_tooltip = {
+				br_take_on_total_debt_scripted_effect = {
+					INITIATOR_COUNTRY = scope:br_north_german_federation_scope
+					TARGET_COUNRTY = scope:br_commonwealth_scope
+				}
+			}
+			hidden_effect = {
+				set_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.9 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#grant target investment rights
+	option = {
+		name = br_poznan_conference_event.9.b
+		default_option = yes
+		if = {
+			limit = { 
+				br_poznan_conference_is_offering_initiator_gives_investment_rights_to_target_trigger = no
+			}
+			show_as_tooltip = {
+				br_poznan_conference_grant_foreign_investment_rights = yes
+
+			}
+			hidden_effect = {
+				set_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_poznan_conference_event.9 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#end event
+	option = {
+		name = br_poznan_conference_event.9.i
+		default_option = yes
+		custom_tooltip = {
+			text = br_finished_deciding_on_counter_offer_tt
+
+			#remove the button var
+			remove_variable = br_counter_offer_button_var
+		}
+	}
+}

@@ -35,8 +35,16 @@
 
 	timeout = 36500
 
+	#fail = {
+	#	country_rank < rank_value:great_power
+	#}
+	#on_fail = {
+	#	trigger_event = {
+	#		id = palaiologos_reforms.3
+	#	}
+	#}
 	on_timeout = {
-		#remove_modifier = palaiologos_reforms_of_europe
+		#remove_modifier = 
 		trigger_event = {
 			id = palaiologos_reforms.3
 		}
@@ -253,7 +261,7 @@ je_palaiologos_reforms_separatism = {
 				}
 			}
 		}
-		random_events = { #Testing feedback balance needed 7/17/24
+		random_events = {
 			100 = 0
 			200 = br_balkan_revolt.1 		# Variable setter for events below
 			
@@ -344,7 +352,7 @@ je_palaiologos_reforms_security = {
 	}
 
 	on_complete = {
-		set_variable = completed_security_palaiologos_reforms_je
+		#set_variable = completed_security_palaiologos_reforms_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -411,6 +419,12 @@ je_palaiologos_reforms_bureaucracy = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = br_modifier_ig_angry
+				months = normal_modifier_time
+			}
+		}
 	#	trigger_event = {
 	#		id = add_event_here.2
 	#	}
@@ -454,14 +468,18 @@ je_palaiologos_reforms_land_reform = {
 
 
 	complete = {
-		NOR = {
-			has_law = law_type:law_traditionalism
-			has_law = law_type:law_agrarianism
-		}
-		NOR = {
+		NOT = {
 			has_law = law_type:law_serfdom
-			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_traditionalism
 		}
+	#	NOR = {
+	#		has_law = law_type:law_traditionalism
+	#		has_law = law_type:law_agrarianism
+	#	}
+	#	NOR = {
+	#		has_law = law_type:law_serfdom
+	#		has_law = law_type:law_tenant_farmers
+	#	}
 		any_scope_building = {
 			is_building_type = building_wheat_farm
 			NOT = {
@@ -474,20 +492,32 @@ je_palaiologos_reforms_land_reform = {
 	}
 
 	on_complete = {
-		set_variable = completed_palaiologos_reforms_land_reform_je
+		#set_variable = completed_palaiologos_reforms_land_reform_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
-	#	trigger_event = {
-	#		id = add_event_here.3
-	#	}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = br_modifier_ig_very_angry
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = br_modifier_corrupt_pronoia
+			}
+			trigger_event = {
+				id = palaiologos_events.3
+				days = 1
+			}
+		}
 	}
 
 	on_monthly_pulse = {
 		random_events = {
-			100 = 0
+			90 = 0
 			10 = palaiologos_events.9 # Land registration resisted
 		}
 	}
@@ -544,7 +574,7 @@ je_palaiologos_reforms_end_curruption = {
 
 	on_monthly_pulse = {
 		random_events = {
-			100 = 0
+			90 = 0
 			10 = palaiologos_events.1 # Tax Farming
 		}
 	}
@@ -636,7 +666,7 @@ je_palaiologos_reforms_end_latin_privileges = {
 
 	on_monthly_pulse = {
 		random_events = {
-			100 = 0
+			95 = 0
 			5 = palaiologos_events.6 # Mob event
 		}
 	}
@@ -889,7 +919,6 @@ je_palaiologos_reforms_navy = {
 }
 
 
-
 ##External Reforms
 
 je_palaiologos_reforms_syria = {
@@ -925,9 +954,6 @@ je_palaiologos_reforms_syria = {
 	#		id = veiled_exarchate.4 #this event not currently in use
 	#	}
 		set_variable = completed_syria_je
-		add_journal_entry = {
-			type = je_palaiologos_reforms_egypt
-		}
 	}
 
 	invalid = {
@@ -964,6 +990,10 @@ je_palaiologos_reforms_egypt = {
 
 	group = je_group_foreign_affairs
 
+	modifiers_while_active = {
+		br_modifier_echthros_tou_thronou
+	}
+
 	#journal is currently being added by the syria je
 	is_shown_when_inactive = {
 		c:BYZ ?= this
@@ -989,10 +1019,10 @@ je_palaiologos_reforms_egypt = {
 					is_subject_of = ROOT
 				}
 				c:br_aegypt = { liberty_desire <= 50 }
-				country_or_subject_owns_entire_state_region = STATE_SINAI
-				country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
-				country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
-				country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
+				#country_or_subject_owns_entire_state_region = STATE_SINAI
+				#country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
+				#country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
+				#country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
 			}
 			AND = {
 				owns_entire_state_region = STATE_SINAI

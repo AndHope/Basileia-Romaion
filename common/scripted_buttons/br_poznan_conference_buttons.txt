@@ -1,0 +1,331 @@
+﻿br_request_poznan_button = {
+	name = br_request_poznan_button
+	desc = br_request_poznan_button_desc
+
+	visible = { 
+		OR = {
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = br_poznan_conference_has_not_concluded_tt
+			br_poznan_conference_has_concluded = no
+		}
+	}
+
+	selected = {
+		has_variable = br_request_poznan_button_var
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_variable = br_request_poznan_button_var
+				}
+			}
+			custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
+			set_variable = br_request_poznan_button_var
+			change_global_variable = {
+				name = br_je_conference_of_poznan_proposal_1
+				add = 1
+			}
+		}
+		else_if = {
+			limit = { 
+				has_variable = br_request_poznan_button_var
+			}
+			custom_tooltip = br_we_unchose_this_br_poznan_treaty_tt
+			remove_variable = br_request_poznan_button_var
+			change_global_variable = {
+				name = br_je_conference_of_poznan_proposal_1
+				add = -1
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 1
+	}
+}
+
+br_request_pomorze_button = {
+	name = br_request_pomorze_button
+	desc = br_request_pomorze_button_desc
+
+	visible = {
+		OR = {
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = br_poznan_conference_has_not_concluded_tt
+			br_poznan_conference_has_concluded = no
+		}
+	}
+
+	selected = {
+		has_variable = br_request_pomorze_button_var
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_variable = br_request_pomorze_button_var
+				}
+			}
+			custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
+			set_variable = br_request_pomorze_button_var
+			change_global_variable = {
+				name = br_je_conference_of_poznan_proposal_2
+				add = 1
+			}
+		}
+		else_if = {
+			limit = {
+				has_variable = br_request_pomorze_button_var
+			}
+			custom_tooltip = br_we_unchose_this_br_poznan_treaty_tt
+			remove_variable = br_request_pomorze_button_var
+			change_global_variable = {
+				name = br_je_conference_of_poznan_proposal_2
+				add = -1
+			}
+		}
+
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+br_fate_of_prussia_button = {
+	name = br_fate_of_prussia_button
+	desc = br_fate_of_prussia_button_desc
+
+	visible = {
+		OR = {
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
+		}
+	}
+
+	possible = {
+		and = {
+			custom_tooltip = {
+				text = br_poznan_conference_made_choice_tt
+				not = { has_variable = br_deciding_the_fate_of_prussia_button_var } #var that is active while the event is active
+			}
+			custom_tooltip = {
+				text = br_poznan_conference_has_not_concluded_tt
+				br_poznan_conference_has_concluded = no
+			}
+		}
+	}
+
+	selected = {
+		has_variable = br_deciding_the_fate_of_prussia_button_var #var that is active while the event is active
+	}
+
+	effect = {
+		# custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
+		if = {
+			limit = { 
+				not = { has_variable = br_fate_of_prussia_button_var }
+			}
+			set_variable = br_fate_of_prussia_button_var
+		}
+		if = {
+			limit = {
+				not = {
+					global_var:br_je_conference_of_poznan_proposal_3 >= 1
+				}
+			}
+			change_global_variable = {
+				name = br_je_conference_of_poznan_proposal_3
+				add = 1
+			}
+		}
+		#add event to decide specific outcome
+		trigger_event = { id = br_poznan_conference_event.8 popup = yes }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}
+
+br_counter_offer_button = {
+	name = br_counter_offer_button
+	desc = br_counter_offer_button_desc
+
+	visible = {
+		OR = {
+			scope:br_north_german_federation_scope ?= this
+			#scope:br_commonwealth_scope ?= this
+		}
+	}
+
+	possible = {
+		and = {
+			custom_tooltip = {
+				text = br_poznan_conference_made_choice_tt
+				not = { has_variable = br_counter_offer_button_var } #var that is active while the event is active
+			}
+			custom_tooltip = {
+				text = br_poznan_conference_has_not_concluded_tt
+				br_poznan_conference_has_concluded = no
+			}
+		}
+	}
+
+	selected = {
+		has_variable = br_counter_offer_button_var
+	}
+
+	effect = {
+		custom_tooltip = br_we_chose_this_br_poznan_treaty_tt
+		set_variable = br_counter_offer_button_var
+		change_global_variable = {
+			name = br_je_conference_of_poznan_proposal_4
+			add = 1
+		}
+		trigger_event = { id = br_poznan_conference_event.9 popup = yes }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}
+
+br_poznan_conference_approve_button = {
+	name = br_poznan_conference_approve_button
+	desc = br_poznan_conference_approve_button_desc
+
+	visible = {
+		OR = {
+			scope:br_north_german_federation_scope ?= this
+			scope:br_commonwealth_scope ?= this
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = br_poznan_conference_has_concluded_loc
+			has_global_variable = br_poznan_treaty_has_concluded_global_var
+			OR = {
+				has_global_variable = br_request_poznan_global_var
+				has_global_variable = br_request_pomorze_global_var
+				has_global_variable = br_fate_of_prussia_global_var
+				has_global_variable = br_counter_offer_global_var
+			}
+			NOT = {
+				has_variable = decided_on_br_poznan_treaty_var
+			}
+		}
+	}
+
+	selected = {
+
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = br_poznan_conference_approve_button_tt
+			if = {
+				limit = {
+					scope:br_north_german_federation_scope ?= this
+				}
+				set_global_variable = br_poznan_treaty_signed_ngf_global_var
+			}
+			if = {
+				limit = {
+					scope:br_commonwealth_scope ?= this
+				}
+				set_global_variable = br_poznan_treaty_signed_plc_global_var
+			}
+			set_variable = decided_on_br_poznan_treaty_var
+		}
+	}
+
+	ai_chance = {
+		base = 65
+	}
+}
+
+br_poznan_conference_disapprove_button = {
+	name = br_poznan_conference_disapprove_button
+	desc = br_poznan_conference_disapprove_button_desc
+
+	visible = {
+		OR = {
+			scope:br_north_german_federation_scope ?= this
+			scope:br_commonwealth_scope ?= this
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = br_poznan_conference_has_concluded_loc
+			has_global_variable = br_poznan_treaty_has_concluded_global_var
+			OR = {
+				has_global_variable = br_request_poznan_global_var
+				has_global_variable = br_request_pomorze_global_var
+				has_global_variable = br_fate_of_prussia_global_var
+				has_global_variable = br_counter_offer_global_var
+			}
+			NOT = {
+				has_variable = decided_on_br_poznan_treaty_var
+			}
+		}
+	}
+
+	selected = {
+
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = br_poznan_conference_disapprove_button_tt
+			if = {
+				limit = {
+					scope:br_north_german_federation_scope ?= this
+				}
+				set_global_variable = br_poznan_treaty_not_signed_ngf_global_var
+			}
+			if = {
+				limit = {
+					scope:br_commonwealth_scope ?= this
+				}
+				set_global_variable = br_poznan_treaty_not_signed_plc_global_var
+			}
+			set_variable = decided_on_br_poznan_treaty_var
+		}
+		every_country = {
+			limit = {
+				country_has_a_german_primary_culture = yes
+				# country_rank >= rank_value:great_power
+				NOT = { 
+					or = {
+						this = root
+						scope:br_north_german_federation_scope ?= this
+					}
+				}
+				country_is_in_europe = yes
+			}
+			change_relations = { country = root value = -40 }
+		}
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}

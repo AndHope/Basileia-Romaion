@@ -1,0 +1,192 @@
+﻿namespace = br_india_kerfuffle
+
+br_india_kerfuffle.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = br_india_kerfuffle.1.t
+	desc = br_india_kerfuffle.1.d
+	flavor = br_india_kerfuffle.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/asia_sepoy_mutiny.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {   
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					any_diplomatic_play = {
+						any_scope_play_involved = { this = c:MUG }
+					}
+				}
+			}
+		}	
+	}
+
+	option = {
+		name = br_india_kerfuffle.1.a
+		default_option = yes
+
+		create_diplomatic_play = {
+			war = yes
+			type = dp_annex_subject
+			add_initiator_backers = { c:BGL c:GUJ c:BUN c:SIN c:ORI }
+			add_target_backers = { c:MHR c:NAG c:RAJ  }
+			target_state = s:STATE_MALWA.region_state:GWA
+		}
+
+		hidden_effect = {
+			change_infamy = -45 #Should equal what is gained from the annex plays
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	
+	}
+
+}
+
+br_india_kerfuffle.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = br_india_kerfuffle.2.t
+	desc = br_india_kerfuffle.2.d
+	flavor = br_india_kerfuffle.2.f
+
+	event_image = {
+		video = "asia_sepoy_mutiny"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	immediate = {
+	}
+
+	#Side with Mughals
+	option = {
+		name = br_india_kerfuffle.2.a
+        default_option = yes
+
+		s:STATE_MYSORE = {
+			set_owner_of_provinces = {
+				country = c:br_romaioi_india_company
+				provinces = { xD0F0A0 xB4ABD5 x696049 x16AA78 xBFDC26 x9FE13F x189045 }
+			}
+		}
+		s:STATE_BOMBAY = {
+			set_owner_of_provinces = {
+				country = c:br_romaioi_india_company
+				provinces = { xD070A0 xD04F5D x1131A0 x052B29 xED0654 x42ACA6 x40CE40 x7629BF x51F0A0 }
+			}
+		}
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = c:MUG
+				target_is = c:MHR
+			}
+			add_initiator_backers = { c:br_romaioi_india_company }
+			add_war_goal = {
+				holder = c:br_romaioi_india_company
+				type = war_reparations
+				target_country = c:MHR
+			}
+		}
+
+		change_relations = {
+			country = c:MHR
+			value = -100
+		}
+		
+
+		ai_chance = {
+			base = 50
+		}
+	}
+	#Side with Mahrattas
+	option = {
+		name = br_india_kerfuffle.2.b
+
+		s:STATE_MYSORE = {
+			set_owner_of_provinces = {
+				country = c:br_romaioi_india_company
+				provinces = { xD0F0A0 xB4ABD5 x696049 x16AA78 xBFDC26 x9FE13F x189045 }
+			}
+		}
+		s:STATE_BOMBAY = {
+			set_owner_of_provinces = {
+				country = c:br_romaioi_india_company
+				provinces = { xD070A0 xD04F5D x1131A0 x052B29 xED0654 x42ACA6 x40CE40 x7629BF x51F0A0 }
+			}
+		}
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = c:MUG
+				target_is = c:MHR
+			}
+			add_target_backers = { c:br_romaioi_india_company }
+			add_war_goal = {
+				holder = c:br_romaioi_india_company
+				type = war_reparations
+				target_country = c:MUG
+			}
+		}
+
+		c:br_romaioi_india_company = {
+			change_relations = {
+				country = c:MUG
+				value = -100
+			}
+			change_relations = {
+				country = c:MYS
+				value = -100
+			}
+		}
+
+		hidden_effect = {
+			c:MUG?= {
+				trigger_event = {
+					id = bengal_revolt.1
+					days = 15
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 25
+		}
+	}
+
+	#Stay neutral
+	option = {
+		name = br_india_kerfuffle.2.c
+
+		change_relations = {
+			country = c:MUG
+			value = 15
+		}
+		change_relations = {
+			country = c:MHR
+			value = 15
+		}
+
+		ai_chance = {
+			base = 25
+		}
+	}
+}

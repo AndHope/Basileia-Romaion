@@ -1,0 +1,285 @@
+﻿br_finished_poznan_conference_scripted_effect = {
+	set_variable = br_finished_poznan_conference_var
+}
+br_enforce_poznan_conference = {
+	if = {
+		limit = {
+			has_global_variable = br_request_poznan_global_var
+		}
+		if = {
+			limit = {
+				scope:br_commonwealth_scope = {
+					any_scope_state = {
+						state_region = s:STATE_POSEN
+					}
+				}
+			}
+			scope:br_commonwealth_scope = {
+				random_scope_state = {
+					limit = {
+						state_region = s:STATE_POSEN
+					}
+					set_state_owner = scope:br_north_german_federation_scope
+				}
+			}
+		}
+		scope:br_north_german_federation_scope = {
+			take_on_scaled_debt = {
+				who = scope:br_commonwealth_scope
+				value = 0.025
+			}	
+		}
+	}
+	if = {
+		limit = {
+			has_global_variable = br_request_pomorze_global_var
+		}
+		if = {
+			limit = {
+				scope:br_commonwealth_scope = {
+					any_scope_state = {
+						state_region = s:STATE_WEST_PRUSSIA
+					}
+				}
+			}
+			scope:br_commonwealth_scope = {
+				random_scope_state = {
+					limit = {
+						state_region = s:STATE_WEST_PRUSSIA
+					}
+					set_state_owner = scope:br_north_german_federation_scope
+				}
+			}
+			scope:br_north_german_federation_scope = {
+				take_on_scaled_debt = {
+					who = scope:br_commonwealth_scope
+					value = 0.25
+				}	
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_global_variable = br_fate_of_prussia_global_var
+		}
+		if = { #do this first so it doesn't conflict with the other effects
+			limit = { 
+				br_poznan_conference_is_demanding_prussian_annexation_of_memel_trigger = yes
+			}
+			br_prussian_annexation_of_memel_scripted_effect = yes
+		}
+		if = {
+			limit = { 
+				br_poznan_conference_is_demanding_independence_of_prussia_trigger = yes
+			}
+			br_prussia_independent_scripted_effect = yes
+		}
+		else_if = {
+			limit = { 
+				br_poznan_conference_is_demanding_plc_subjugation_of_prussia_trigger = yes
+			}
+			br_plc_subjugation_of_prussia_var_scripted_effect = yes
+		}
+		else_if = {
+			limit = { 
+				br_poznan_conference_is_demanding_ngf_subjugation_of_prussia_trigger = yes
+			}
+			br_ngf_subjugation_of_prussia_scripted_effect = yes
+		}
+		else_if = {
+			limit = { 
+				br_poznan_conference_is_demanding_plc_annexation_of_prussia_trigger = yes
+			}
+			br_plc_annexation_of_prussia_scripted_effect = yes
+		}
+		else_if = {
+			limit = { 
+				br_poznan_conference_is_demanding_ngf_annexation_of_prussia_trigger = yes
+			}
+			br_ngf_annexation_of_prussia_scripted_effect = yes
+		}
+	}
+	if = {
+		limit = {
+			has_global_variable = br_counter_offer_global_var
+		}
+
+		if = {
+			limit = {
+				br_poznan_conference_is_offering_initiator_takes_on_debt_of_target_trigger = yes
+			}
+			br_take_on_total_debt_scripted_effect = {
+				INITIATOR_COUNTRY = scope:br_north_german_federation_scope
+				TARGET_COUNRTY = scope:br_commonwealth_scope
+			}
+		}
+		if = {
+			limit = { 
+				br_poznan_conference_is_offering_initiator_gives_investment_rights_to_target_trigger = yes
+			}
+			br_poznan_conference_grant_foreign_investment_rights = yes
+		}
+	}
+}
+
+br_extend_the_poznan_conference_scripted_effect = {
+	change_global_variable = {
+		name = br_je_conference_of_poznan_timer
+		add = $NUMBER_OF_MONTHS$ 		#extend the deadline with a couple of months
+	}
+}
+
+br_conclude_the_poznan_conference_scripted_effect = {
+	if = {
+		limit = {
+			NOT = {
+				has_global_variable = br_poznan_treaty_will_conclude_global_var
+			}
+		}
+		set_global_variable = br_poznan_treaty_will_conclude_global_var
+	}
+}
+
+br_remove_treaty_of_poznan_variables_scripted_effect = {
+	if = {
+		limit = { 
+			this ?= scope:br_north_german_federation_scope
+		}
+		remove_global_variable = br_je_conference_of_poznan_timer
+		remove_global_variable = br_poznan_conference_initiator
+		remove_global_variable = br_poznan_conference_target
+		remove_global_variable = br_poznan_conference_prussia_var
+
+		remove_global_variable = br_je_conference_of_poznan_proposal_1
+		remove_global_variable = br_je_conference_of_poznan_proposal_2
+		remove_global_variable = br_je_conference_of_poznan_proposal_3
+		remove_global_variable = br_je_conference_of_poznan_proposal_4
+
+		remove_global_variable = br_request_poznan_global_var
+		remove_global_variable = br_request_pomorze_global_var
+		remove_global_variable = br_fate_of_prussia_global_var
+		remove_global_variable = br_counter_offer_global_var
+
+		if = {
+			limit = {
+				has_global_variable = br_poznan_treaty_signed_plc_global_var
+			}
+			remove_global_variable = br_poznan_treaty_signed_plc_global_var
+		}
+		if = {
+			limit = {
+				has_global_variable = br_poznan_treaty_signed_ngf_global_var
+			}
+			remove_global_variable = br_poznan_treaty_signed_ngf_global_var
+		}
+		if = {
+			limit = {
+				has_global_variable = br_request_poznan_global_var
+			}
+			remove_global_variable = br_request_poznan_global_var
+		}
+		if = {
+			limit = {
+				has_global_variable = br_request_pomorze_global_var
+			}
+			remove_global_variable = br_request_pomorze_global_var
+		}
+		if = {
+			limit = {
+				has_global_variable = br_poznan_treaty_has_concluded_global_var
+			}
+			remove_global_variable = br_poznan_treaty_has_concluded_global_var
+		}
+		remove_global_variable = br_poznan_treaty_will_conclude_global_var
+
+		br_remove_all_prussian_fate_variables_scripted_effect = yes
+		br_remove_all_counter_offer_variables_scripted_effect = yes
+	}
+}
+
+
+#Prussian fate event
+br_remove_prussian_fate_variables_scripted_effect = {
+	remove_global_variable = br_propose_independence_of_prussia_var
+	remove_global_variable = br_propose_plc_subjugation_of_prussia_var
+	remove_global_variable = br_propose_ngf_subjugation_of_prussia_var
+	remove_global_variable = br_propose_plc_annexation_of_prussia_var
+	remove_global_variable = br_propose_ngf_annexation_of_prussia_var
+	# remove_global_variable = br_propose_prussian_annexation_of_memel_var #this one is not removed because it is not mutualy exclusive with the others
+}
+
+br_remove_all_prussian_fate_variables_scripted_effect = {
+	br_remove_prussian_fate_variables_scripted_effect = yes
+	remove_global_variable = br_propose_prussian_annexation_of_memel_var
+}
+
+#prussia becomes independent
+br_prussia_independent_scripted_effect = {
+	scope:br_prussia_scope ?= {
+		make_independent = yes
+	}
+}
+
+#plc puppets prussia
+br_plc_subjugation_of_prussia_var_scripted_effect = {
+	scope:br_commonwealth_scope ?= {
+		create_diplomatic_pact = {
+			country = scope:br_prussia_scope
+			type = puppet
+		}
+	}
+}
+
+#ngf puppets prussia
+br_ngf_subjugation_of_prussia_scripted_effect = {
+	scope:br_north_german_federation_scope ?= {
+		create_diplomatic_pact = {
+			country = scope:br_prussia_scope
+			type = puppet
+		}
+	}
+}
+
+#plc annexes prussia
+br_plc_annexation_of_prussia_scripted_effect = {
+	scope:br_commonwealth_scope ?= {
+		annex = scope:br_prussia_scope
+	}
+}
+
+#nfg annexes prussia
+br_ngf_annexation_of_prussia_scripted_effect = {
+	scope:br_north_german_federation_scope ?= {
+		annex = scope:br_prussia_scope
+	}
+}
+
+#give prussia memel
+br_prussian_annexation_of_memel_scripted_effect = {
+	c:PRU ?= {
+		s:STATE_EAST_PRUSSIA = {
+			random_scope_state = {
+				limit = {
+					owner = scope:br_commonwealth_scope
+				}
+				set_state_owner = scope:br_prussia_scope
+			}
+		}
+	}
+}
+
+
+#Counter offer scripted effects
+br_remove_all_counter_offer_variables_scripted_effect = {
+	remove_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+	remove_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+}
+
+br_poznan_conference_grant_foreign_investment_rights = {
+	scope:br_commonwealth_scope = {
+		create_diplomatic_pact = {
+			country = scope:br_north_german_federation_scope
+			type = grant_foreign_investment_rights
+		}
+	}
+}

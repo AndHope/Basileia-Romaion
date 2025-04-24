@@ -102,23 +102,23 @@ on_yearly_pulse_country = {
 }
 
 on_law_activated = {
+#	#Added this as an redundancy for when the event doesn't happen during the law_enactment 
+#	if = {
+#		c:BYZ ?= {
+#			if = {
+#				limit = {
+#					has_journal_entry = je_palaiologos_reforms_land_reform
+#					has_modifier = br_modifier_corrupt_pronoia
+#					has_law = law_type:law_tenant_farmers
+#				}
+#				trigger_event = {
+#					id = palaiologos_events.3
+#					days = 1
+#				}
+#			}
+#		}
+#	}
 }
-
-# Root = Character
-# on_new_ruler = { #it is the same in the vanilla file and because it is done dubble will give an error
-# 	effect = {
-# 		if = {
-# 			limit = {
-# 				owner = {
-# 					NOT = {
-# 						has_variable = hide_ruler_change_notification
-# 					}
-# 				}
-# 			}
-# 			post_notification = new_ruler
-# 		}
-# 	}
-# }
 
 on_election_campaign_end = {
 }
@@ -294,11 +294,6 @@ grefm_monthly_pulse_1 = {
 	}
 	events = {
 		grefm.131 # Corinth Canal Completed
-	}
-	random_events = {
-		200 = 0
-		 5 = grefm.157 # The Mask of Agammemnon
-		 5 = grefm.180 # The Defence of Jonas King
 	}
 
 }

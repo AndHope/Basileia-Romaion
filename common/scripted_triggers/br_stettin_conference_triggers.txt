@@ -1,0 +1,54 @@
+﻿#	Example:
+# 
+#	example_trigger = {
+#		x = 100
+#		y = 50
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_trigger = yes
+#	}
+#
+
+br_finished_stettin_conference_trigger = {
+	has_variable = br_finished_stettin_conference_var
+}
+br_stettin_conference_has_concluded = {
+	has_global_variable = br_stettin_conference_has_concluded_global_var
+}
+
+## Baltic Duchies fate triggers
+br_stettin_conference_is_demanding_baltic_duchies_trigger = {
+	has_global_variable = br_je_conference_of_stettin_proposal_3
+	global_var:br_je_conference_of_stettin_proposal_3 >= 1
+}
+br_stettin_conference_is_demanding_independence_of_baltic_duchies_trigger = {
+	has_global_variable = br_propose_independence_of_baltic_duchies_var
+}
+br_stettin_conference_is_demanding_target_subjugation_of_baltic_duchies_trigger = {
+	has_global_variable = br_propose_target_subjugation_of_baltic_duchies_var
+}
+br_stettin_conference_is_demanding_initiator_subjugation_of_baltic_duchies_trigger = {
+	has_global_variable = br_propose_initiator_subjugation_of_baltic_duchies_var
+}
+br_stettin_conference_is_demanding_target_annexation_of_baltic_duchies_trigger = {
+	has_global_variable = br_propose_target_annexation_of_baltic_duchies_var
+}
+br_stettin_conference_is_demanding_initiator_annexation_of_baltic_duchies_trigger = {
+	has_global_variable = br_propose_initiator_annexation_of_baltic_duchies_var
+}
+
+## Counter offer triggers
+br_stettin_conference_is_giving_a_counter_offer = {
+	has_global_variable = br_je_conference_of_stettin_proposal_4
+	global_var:br_je_conference_of_stettin_proposal_4 >= 1
+}
+br_stettin_conference_is_offering_initiator_takes_on_debt_of_target_trigger = {
+	has_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+}
+br_stettin_conference_is_offering_initiator_gives_investment_rights_to_target_trigger = {
+	has_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+}

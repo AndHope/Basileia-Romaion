@@ -13,6 +13,49 @@
 #	}
 #
 
+any_state_in_state_region_owned_by_country_or_subject = { #could also use has_state_in_state_region
+	$TARGET_STATE_REGION$ = {
+		not = {
+			any_scope_state = {
+				owner = {
+					or = {
+						this ?= $TARGET_COUNTRY$
+						this ?= {
+							is_subject_of = $TARGET_COUNTRY$
+						} 
+					}
+				}
+			}
+		}
+	}
+}
+any_state_in_state_region_owned_by_root_country_or_subject = {
+	$TARGET_STATE_REGION$ = {
+		not = {
+			any_scope_state = {
+				owner = {
+					or = {
+						this ?= root
+						this ?= {
+							is_subject_of = root
+						} 
+					}
+				}
+			}
+		}
+	}
+}
+
+br_is_capital_in_stratigic_region = {
+	$TARGET_STRATEGIC_REGION$ = {
+		any_scope_state = {
+			state_region = {
+				contains_capital_of = $TARGET_COUNTRY$
+			}
+		}
+	}
+}
+
 #these are grouped following the strategic_regions
 owned_all_baltic_states_region_states = {
 	owns_entire_state_region = STATE_VILNIUS

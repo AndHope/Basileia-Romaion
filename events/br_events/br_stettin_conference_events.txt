@@ -1,0 +1,560 @@
+﻿namespace = br_stettin_conference_event
+
+#event for initiator
+br_stettin_conference_event.1 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_widescreen_classic
+	
+	title = br_stettin_conference_event.1.t
+	desc = br_stettin_conference_event.1.d
+	flavor = br_stettin_conference_event.1.f
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+		# triggered by the JE
+	}
+
+	immediate = {}
+
+	option = {
+		name = br_stettin_conference_event.1.a
+		default_option = yes
+	}
+}
+
+#event for the subjects
+br_stettin_conference_event.2 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_stettin_conference_event.2.t
+	desc = br_stettin_conference_event.2.d
+	flavor = br_stettin_conference_event.2.f
+	
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+		# triggered by the JE
+	}
+
+	immediate = {}
+
+	option = {
+		name = br_stettin_conference_event.2.a
+		default_option = yes
+	}
+}
+
+#event for all those with an interest
+br_stettin_conference_event.3 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_stettin_conference_event.3.t
+	desc = br_stettin_conference_event.3.d
+	flavor = br_stettin_conference_event.3.f
+	
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {}
+
+	immediate = {}
+
+	option = {
+		name = br_stettin_conference_event.3.a
+		default_option = yes
+	}
+}
+
+#The treaty is accepted
+br_stettin_conference_event.4 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_stettin_conference_event.4.t
+	desc = br_stettin_conference_event.4.d
+	flavor = br_stettin_conference_event.4.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	option = {
+		name = br_stettin_conference_event.4.a
+		default_option = yes
+		ai_chance = {
+			base = 95
+		}
+		if = {
+			limit = {
+				scope:br_initiator_scope ?= this
+			}
+			custom_tooltip = {
+				text = br_treaty_of_stettin_outcome_tt
+				br_enforce_stettin_conference = yes
+				br_finished_stettin_conference_scripted_effect = yes
+			}
+		}
+		else = {
+			show_as_tooltip = {
+				custom_tooltip = {
+					text = br_treaty_of_stettin_outcome_tt
+					br_enforce_stettin_conference = yes
+				}
+			}
+		}
+
+		#remove var's
+		br_remove_treaty_of_stettin_variables_scripted_effect = yes
+	}
+}
+
+#The treaty has failed
+br_stettin_conference_event.5 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_stettin_conference_event.5.t
+	desc = br_stettin_conference_event.5.d
+	flavor = br_stettin_conference_event.5.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	option = {
+		name = br_stettin_conference_event.5.a
+		default_option = yes
+		add_radicals = {
+			value = small_radicals
+		}
+
+		br_remove_treaty_of_stettin_variables_scripted_effect = yes
+		br_finished_stettin_conference_scripted_effect = yes
+	}
+}
+
+#The treaty can be extended
+br_stettin_conference_event.6 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_stettin_conference_event.6.t
+	desc = br_stettin_conference_event.6.d
+	flavor = br_stettin_conference_event.6.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	#extend the deadline with a couple of months
+	option = {
+		name = br_stettin_conference_event.6.a
+		default_option = yes
+
+		#ask poland to agree with extending the conference
+		scope:br_target_scope = {
+			trigger_event = {
+				id = br_stettin_conference_event.7
+				popup = yes
+			}
+		}
+	}
+	option = {
+		name = br_stettin_conference_event.6.b
+		#chose to not extend the deadline
+		custom_tooltip = {
+			text = br_the_stettin_conference_will_end_tt
+			br_conclude_the_stettin_conference_scripted_effect = yes
+		}
+	}
+}
+
+#Accept the that the conference is extended
+br_stettin_conference_event.7 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic_full
+	
+	title = br_stettin_conference_event.7.t
+	desc = br_stettin_conference_event.7.d
+	flavor = br_stettin_conference_event.7.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	# immediate = {
+	# }
+
+	#accept that the conference is extended by a couple months
+	option = {
+		name = br_stettin_conference_event.7.a
+		default_option = yes
+
+		#extend the conference with 3 months if accepted
+		br_extend_the_stettin_conference_scripted_effect = {
+			NUMBER_OF_MONTHS = 3
+		}
+	}
+	#refuse to have the conference extended
+	option = {
+		name = br_stettin_conference_event.7.b
+		#chose to not extend the deadline
+		custom_tooltip = {
+			text = br_the_stettin_conference_will_end_tt
+			br_conclude_the_stettin_conference_scripted_effect = yes
+		}
+	}
+}
+
+#The fate of baltic_duchies
+br_stettin_conference_event.8 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_classic
+	
+	title = br_stettin_conference_event.8.t
+	desc = br_stettin_conference_event.8.d
+	flavor = br_stettin_conference_event.8.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = br_deciding_the_fate_of_baltic_duchies_button_var
+	}
+
+	#baltic_duchies becomes independent
+	option = {
+		name = br_stettin_conference_event.8.a
+		default_option = yes
+		custom_tooltip = br_stettin_conference_event_loc_baltic_duchies_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_stettin_conference_is_demanding_independence_of_baltic_duchies_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_baltic_duchies_independent_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_baltic_duchies_fate_sovereignty_variables_scripted_effect = yes #remove event options var that are mutualy exclusive (ex: pru can not gain indendence and be subjugated)
+				set_global_variable = br_propose_independence_of_baltic_duchies_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_independence_of_baltic_duchies_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_stettin_conference_event.8 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#target puppets baltic_duchies
+	option = {
+		name = br_stettin_conference_event.8.b
+		default_option = yes
+		custom_tooltip = br_stettin_conference_event_loc_baltic_duchies_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_stettin_conference_is_demanding_target_subjugation_of_baltic_duchies_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_target_subjugation_of_baltic_duchies_var_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_baltic_duchies_fate_sovereignty_variables_scripted_effect = yes
+				set_global_variable = br_propose_target_subjugation_of_baltic_duchies_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_target_subjugation_of_baltic_duchies_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_stettin_conference_event.8 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#initiator puppets baltic_duchies
+	option = {
+		name = br_stettin_conference_event.8.c
+		default_option = yes
+		custom_tooltip = br_stettin_conference_event_loc_baltic_duchies_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_stettin_conference_is_demanding_initiator_subjugation_of_baltic_duchies_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_initiator_subjugation_of_baltic_duchies_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_baltic_duchies_fate_sovereignty_variables_scripted_effect = yes
+				set_global_variable = br_propose_initiator_subjugation_of_baltic_duchies_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_subjugation_of_baltic_duchies_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_stettin_conference_event.8 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+	# .d and .f can not be used as they are used for discription an flavor
+
+	#target annexes baltic_duchies
+	option = {
+		name = br_stettin_conference_event.8.e
+		default_option = yes
+		custom_tooltip = br_stettin_conference_event_loc_baltic_duchies_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_stettin_conference_is_demanding_target_annexation_of_baltic_duchies_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_target_annexation_of_baltic_duchies_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_baltic_duchies_fate_sovereignty_variables_scripted_effect = yes
+				set_global_variable = br_propose_target_annexation_of_baltic_duchies_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_target_annexation_of_baltic_duchies_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_stettin_conference_event.8 popup = yes }
+		}
+	}
+
+	#nfg annexes baltic_duchies
+	option = {
+		name = br_stettin_conference_event.8.g
+		default_option = yes
+		custom_tooltip = br_stettin_conference_event_loc_baltic_duchies_sovereignty_loc_desc
+		if = {
+			limit = { 
+				not = { br_stettin_conference_is_demanding_initiator_annexation_of_baltic_duchies_trigger = yes }
+			}
+			show_as_tooltip = {
+				br_initiator_annexation_of_baltic_duchies_scripted_effect = yes
+			}
+			hidden_effect = {
+				br_remove_baltic_duchies_fate_sovereignty_variables_scripted_effect = yes
+				set_global_variable = br_propose_initiator_annexation_of_baltic_duchies_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_annexation_of_baltic_duchies_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_stettin_conference_event.8 popup = yes }
+		}
+	}
+	option = {
+		name = br_stettin_conference_event.8.i
+		default_option = yes
+		custom_tooltip = {
+			text = br_finished_deciding_baltic_duchies_tt
+
+			#remove the button var
+			remove_variable = br_deciding_the_fate_of_baltic_duchies_button_var
+		}
+	}
+}
+
+#Counter offer
+br_stettin_conference_event.9 = {
+	type = country_event
+	placement = ROOT
+	
+	title = br_stettin_conference_event.9.t
+	desc = br_stettin_conference_event.9.d
+	flavor = br_stettin_conference_event.9.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = br_counter_offer_button_var
+	}
+
+	#take on targets total debt
+	option = {
+		name = br_stettin_conference_event.9.a
+		default_option = yes
+		if = {
+			limit = { 
+				br_stettin_conference_is_offering_initiator_takes_on_debt_of_target_trigger = no
+			}
+			show_as_tooltip = {
+				br_take_on_total_debt_scripted_effect = {
+					INITIATOR_COUNTRY = scope:br_initiator_scope
+					TARGET_COUNRTY = scope:br_target_scope
+				}
+			}
+			hidden_effect = {
+				set_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_takes_on_debt_of_target_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_stettin_conference_event.9 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#grant target investment rights
+	option = {
+		name = br_stettin_conference_event.9.b
+		default_option = yes
+		if = {
+			limit = { 
+				br_stettin_conference_is_offering_initiator_gives_investment_rights_to_target_trigger = no
+			}
+			show_as_tooltip = {
+				br_stettin_conference_grant_foreign_investment_rights = yes
+
+			}
+			hidden_effect = {
+				set_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+			}
+		}
+		else = {
+			hidden_effect = {
+				remove_global_variable = br_propose_initiator_gives_investment_rights_to_target_var
+			}
+		}
+		hidden_effect = {
+			trigger_event = { id = br_stettin_conference_event.9 popup = yes } #this is to trigger the same event so you can also chose the other option
+		}
+	}
+
+	#end event
+	option = {
+		name = br_stettin_conference_event.9.i
+		default_option = yes
+		custom_tooltip = {
+			text = br_finished_deciding_on_counter_offer_tt
+
+			#remove the button var
+			remove_variable = br_counter_offer_button_var
+		}
+	}
+}

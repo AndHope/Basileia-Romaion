@@ -11,6 +11,9 @@
 			text = disallow_law_no_police_tt
 		}
 	}
+	modifier = {
+		country_aristocrats_pol_str_mult = 0.1
+	}
 
 	# AI shouldn't try to abolish institutions
 	ai_will_do = {
@@ -40,6 +43,7 @@ law_local_police = {
 
 	institution = institution_police
 	institution_modifier = {
+		state_political_strength_from_wealth_mult = 0.05
 		country_aristocrats_pol_str_mult = 0.1
 		state_turmoil_effects_mult = -0.05
 	}
@@ -129,7 +133,10 @@ law_dedicated_police = {
 
 	institution = institution_police
 	institution_modifier = {
+		state_political_strength_from_wealth_mult = 0.05
+		state_turmoil_effects_mult = -0.05
 		state_radicals_from_political_movements_mult = -0.05
+		country_capitalists_pol_str_mult = 0.05
 	}
 
 	can_impose = {
@@ -210,13 +217,15 @@ law_militarized_police = {
 
 	institution = institution_police
 	institution_modifier = {
+		state_political_strength_from_wealth_mult = 0.05
+		state_turmoil_effects_mult = -0.07
 		state_radicals_from_political_movements_mult = -0.05
 		state_radicalism_increases_violent_hostility_mult = -0.05
 		state_radicalism_increases_cultural_erasure_mult = -0.05
 		state_radicalism_increases_open_prejudice_mult = -0.05
 		country_officers_pol_str_mult = 0.25
 		country_soldiers_pol_str_mult = 0.1
-		state_mortality_turmoil_mult = 0.004
+		state_mortality_turmoil_mult = 0.005
 	}
 
 	can_impose = {
