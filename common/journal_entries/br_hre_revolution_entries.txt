@@ -209,3 +209,48 @@ je_revolution_suppress = {
 
 	#should_be_pinned_by_default = yes
 }
+
+# The actual revolution
+je_hre_revolution = {
+
+	group = je_group_internal_affairs
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	scripted_progress_bar = br_hre_revolution_progress_bar
+
+	is_shown_when_inactive = {
+		c:HRE = this
+	}
+
+	possible = {
+		c:HRE = this
+	}
+
+	complete = {
+
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = hre_revolution_events.4
+			popup = no
+		}
+		add_modifier = {
+			name = br_modifier_heir_of_augustus
+			years = -1
+		}
+		#remove_modifier = br_modifier_noble_privileges
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = finished_revolution_tt
+			has_variable = br_revolution_complete_var
+		}
+	}
+
+	weight = 8000
+
+	should_be_pinned_by_default = yes
+}

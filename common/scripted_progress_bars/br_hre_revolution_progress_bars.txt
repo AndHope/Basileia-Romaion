@@ -1,0 +1,36 @@
+﻿ ### For je_hre_revolution
+
+ br_hre_revolution_progress_bar = {
+	name = "br_hre_revolution_progress_bar"
+	desc = "br_hre_revolution_progress_bar_desc"
+
+	double_sided_gold = yes
+
+	start_value = 0
+	min_value = 0
+	max_value = 100 #represents a percentage
+
+	weekly_progress = {
+		if = {
+			limit = {
+				radical_population_fraction >= 0.5
+			}
+			add = {
+				# desc = "PROGRESS_BAR_ADD_WEEKLY_DESC2"
+				value = 30
+			}
+		}
+		if = {
+			limit = {
+				loyalist_fraction = {
+					value >= 0.5 
+				}
+			}
+			add = {
+				# desc = "PROGRESS_BAR_ADD_WEEKLY_DESC2"
+				value = -30
+			}
+		}
+		
+	}
+ }
