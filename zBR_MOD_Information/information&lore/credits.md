@@ -1,6 +1,4 @@
-﻿#Updated 10/17/24
-
-Join the Development Team:
+﻿Join the Development Team:
 Join our Discord and reach out to Drogan to join.
 
 Developers: 
@@ -16,15 +14,15 @@ Jozue Valerija - Creativity, State, Hub Names, Lore ideas, writing, content help
 
 Contributors:
 
-Valksend - Norse and Anglosaxon State/Hub names.
-Pedro - Lore Writing.
-BadDLC - Lore, content help.
+
 
 ...
 
 Honorable Mentions:
 
-
+Valksend - Norse and Anglosaxon State/Hub names.
+Pedro - Lore Writing.
+BadDLC - Lore, content help.
 
 
 
