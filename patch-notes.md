@@ -1,4 +1,4 @@
-2880120246
+####id 2880120246
 
 
 # Update 132 Patch Notes
@@ -15,9 +15,9 @@
 
 ## New religions
 - Added multiple new religion with the ability to convert to them
-	-Celtic
-	-Finno Ugric
-	-Akom
+	- Celtic
+	- Finno Ugric
+	- Akom
 
 ## Events
 - Set up Emporikē Hetaireia tēs Indikēs opening event.
