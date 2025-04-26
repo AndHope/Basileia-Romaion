@@ -1,25 +1,25 @@
-#### id=2880120246
+2880120246
 
 
 # Update 132 Patch Notes
 
-##Poznan Conference
--Added a new JE for North German Confederation,  the "Poznan Conference" with multiple events,
+## Poznan Conference
+- Added a new JE for North German Confederation,  the "Poznan Conference" with multiple events,
  where the north german confederation and the Commonwealth hold a conference to settle the north german claims over the baltic.
  As the north german confederation you can demand certain territories and offer the Commonwealth diplomatic agreements in return.
 
-#Stettin Conference
--Added a new JE for North German Confederation (similar to the Poznan Conference),  the "Stettin Conference" with multiple events,
+## Stettin Conference
+- Added a new JE for North German Confederation (similar to the Poznan Conference),  the "Stettin Conference" with multiple events,
  where the north german confederation and Sweden hold a conference to settle the north german claims over the baltic.
  As the north german confederation you can demand certain territories and offer the Swedish diplomatic agreements in return.
 
-##New religions
--Added multiple new religion with the ability to convert to them
+## New religions
+- Added multiple new religion with the ability to convert to them
 	-Celtic
 	-Finno Ugric
 	-Akom
 
-#Events
+## Events
 - Set up Emporikē Hetaireia tēs Indikēs opening event.
 - If Mughals and Maratha are both AI and go to war Emporikē Hetaireia tēs Indikēs gets an event to get involved and help one side or the other in exchange for a good chunk of land.
 - Set Up starting event for Elysium and Antipódeia
@@ -30,29 +30,29 @@
 - reorganized the main event file
 - Starting rewriting the Palaiologos and Exarchate events
 
-#Journals
+## Journals
 - Replaced lots of the generic placeholder journal descriptions with proper flavored descriptions.
 - Simplified this journal so you can complete it with just Tenant farming and Agrarianism if you want.
 - Added another opportunity to remove the br_modifier_corrupt_pronoia debuff and have the themata event which is supposed to fire during law enactment phase but if the law passes too quickly the event won't fire.
 - I lowered the requirement to finish the Aegyptian Exarchate Journal.
 - Improved the descriptions of most Palaiologos Reforms Journals and Generic Journals
 
-##Character changes
+## Character changes
 - New Land Reform Character IG
 - Few commander trait adjustments
 
-#Government changes
+## Government changes
 - Gov titles updated 
 	- Cleaned and better organized our Gov Titles and made some new ones.
 
-#Country Changes
+## Country Changes
 - Renamed Emporía Erythrás Thálassas (br_romaioi_india_company in the code) to Emporikē Hetaireia tēs Indikēs. Indian Trade Company in English.
 - Gave them an unique Government: Chrysoboulleios Hetaireia meaning “Chartered Company” or more precisely:
 “Company established by chrysobull (imperial gold-sealed decree)”
 - New Flag and Coat of Arms for the new government.
 - Indikēs added as formable and releasable.
 
-#Balance changes
+## Balance changes
 - Added a small amount of prestige to financial centers and company headquarters.
 - removed the starting Mughal war.
 - Added an invisible AI decision that will start a kerfuffle in India if both Mughals and Marathas are AI.
@@ -73,11 +73,11 @@
 - Lots of minor pop adjustments
 
 
-#AI changes
+## AI changes
 - Added a couple AI defines encouraging AI to be more likely to make peace if bankrupt or near bankrupt.
 - Added triggers and variables to prevent these AI_only decisions from firing more than once.
 
-#Localization changes
+## Localization changes
 - Renamed Colonial Chinese to Jiazhouese #formerly Huáqiáo
 - Renamed Colonial Japanese to Kaigai Nihonjin #formerly Kōkaijin and Kaitakusha
 - Further improvements to localization organization and descriptions
