@@ -62,6 +62,7 @@ je_br_east_indies_trade = {
 
 	possible = {
 		#game_date < 1866.1.1
+		country_rank >= rank_value:minor_power
 		navy_size >= 25
 		has_interest_marker_in_region = region_indonesia
 		OR = {
@@ -81,6 +82,7 @@ je_br_east_indies_trade = {
 		NOT = { 
 			has_law = law_type:law_free_trade
 			has_modifier = br_modifier_spice_monopoly
+			has_law = law_type:law_no_colonial_affairs
 		}
 		is_country_type = recognized
 	}
@@ -141,6 +143,7 @@ je_br_west_indies_trade = {
 
 	possible = {
 		navy_size >= 25
+		country_rank >= rank_value:minor_power
 		has_interest_marker_in_region = region_caribbean
 		OR = {
 			has_state_in_state_region = STATE_CUBA
@@ -178,6 +181,7 @@ je_br_west_indies_trade = {
 		}
 		NOT = { 
 			has_law = law_type:law_free_trade
+			has_law = law_type:law_no_colonial_affairs
 			#has_modifier = br_modifier_piracy_victim
 		}
 		is_country_type = recognized
