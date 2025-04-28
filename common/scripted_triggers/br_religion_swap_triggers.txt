@@ -89,6 +89,30 @@ br_country_can_convert_to_given_religion = {
 		}
 		br_country_can_convert_to_tengri = yes
 	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_celtic
+		}
+		br_country_can_convert_to_celtic = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_finno_ugric
+		}
+		br_country_can_convert_to_finno_ugric = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_akom
+		}
+		br_country_can_convert_to_akom = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET_RELIGION$ = rel:br_religion_fetishist
+		}
+		br_country_can_convert_to_fetishist = yes
+	}
 
 	trigger_else = {
 		always = no
@@ -174,9 +198,10 @@ br_country_can_convert_to_shitte = {
 
 br_country_can_convert_to_baltic = {
 	OR = {
-		country_has_primary_culture = cu:lithuanian
-		country_has_primary_culture = cu:latvian
-		country_has_primary_culture = cu:estonian
+		br_is_capital_in_stratigic_region = {
+			TARGET_STRATEGIC_REGION = sr:region_baltic_states
+			TARGET_COUNTRY = ROOT
+		}
 	}
 	NOT = { country_has_state_religion = rel:br_religion_baltic }
 }
@@ -206,4 +231,43 @@ br_country_can_convert_to_tengri = {
 		}
 	}
 	NOT = { country_has_state_religion = rel:br_religion_tengri }
+}
+
+br_country_can_convert_to_celtic = {
+	OR = {
+		any_primary_culture = { 
+			has_discrimination_trait = european_heritage
+			has_discrimination_trait = celtic_people
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_celtic }
+}
+
+br_country_can_convert_to_finno_ugric = {
+	OR = {
+		any_primary_culture = { 
+			has_discrimination_trait = finnic
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_finno_ugric }
+}
+
+br_country_can_convert_to_akom = {
+	OR = {
+		country_has_primary_culture = cu:akan
+		br_is_capital_in_stratigic_region = { #added because no centralised country has akan as its primary culture
+			TARGET_STRATEGIC_REGION = sr:region_senegal
+			TARGET_COUNTRY = ROOT
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_akom }
+}
+
+br_country_can_convert_to_fetishist = {
+	OR = {
+		any_primary_culture = {
+			has_discrimination_trait = african_heritage
+		}
+	}
+	NOT = { country_has_state_religion = rel:br_religion_fetishist }
 }

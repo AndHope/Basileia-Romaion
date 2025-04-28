@@ -352,7 +352,7 @@ je_palaiologos_reforms_security = {
 	}
 
 	on_complete = {
-		set_variable = completed_security_palaiologos_reforms_je
+		#set_variable = completed_security_palaiologos_reforms_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -468,14 +468,18 @@ je_palaiologos_reforms_land_reform = {
 
 
 	complete = {
-		NOR = {
-			has_law = law_type:law_traditionalism
-			has_law = law_type:law_agrarianism
-		}
-		NOR = {
+		NOT = {
 			has_law = law_type:law_serfdom
-			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_traditionalism
 		}
+	#	NOR = {
+	#		has_law = law_type:law_traditionalism
+	#		has_law = law_type:law_agrarianism
+	#	}
+	#	NOR = {
+	#		has_law = law_type:law_serfdom
+	#		has_law = law_type:law_tenant_farmers
+	#	}
 		any_scope_building = {
 			is_building_type = building_wheat_farm
 			NOT = {
@@ -488,7 +492,7 @@ je_palaiologos_reforms_land_reform = {
 	}
 
 	on_complete = {
-		set_variable = completed_palaiologos_reforms_land_reform_je
+		#set_variable = completed_palaiologos_reforms_land_reform_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -500,9 +504,15 @@ je_palaiologos_reforms_land_reform = {
 				months = normal_modifier_time
 			}
 		}
-	#	trigger_event = {
-	#		id = add_event_here.3
-	#	}
+		if = {
+			limit = {
+				has_modifier = br_modifier_corrupt_pronoia
+			}
+			trigger_event = {
+				id = palaiologos_events.3
+				days = 1
+			}
+		}
 	}
 
 	on_monthly_pulse = {
@@ -909,13 +919,24 @@ je_palaiologos_reforms_navy = {
 }
 
 
-
 ##External Reforms
 
 je_palaiologos_reforms_syria = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
 
 	group = je_group_foreign_affairs
+
+	immediate = {
+		s:STATE_ALEPPO = {
+			add_claim = c:BYZ
+		}
+		s:STATE_LEBANON = {
+			add_claim = c:BYZ
+		}
+		s:STATE_PALESTINE = {
+			add_claim = c:BYZ
+		}
+	}
 
 	complete = {
 		OR = {
@@ -1010,10 +1031,10 @@ je_palaiologos_reforms_egypt = {
 					is_subject_of = ROOT
 				}
 				c:br_aegypt = { liberty_desire <= 50 }
-				country_or_subject_owns_entire_state_region = STATE_SINAI
-				country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
-				country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
-				country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
+				#country_or_subject_owns_entire_state_region = STATE_SINAI
+				#country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
+				#country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
+				#country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
 			}
 			AND = {
 				owns_entire_state_region = STATE_SINAI
@@ -1320,6 +1341,27 @@ je_palaiologos_reforms_centralization_west = {
 
 	group = je_group_internal_affairs
 
+	immediate = {
+		s:STATE_ALBANIA = {
+			add_claim = c:BYZ
+		}
+		s:STATE_ATTICA = {
+			add_claim = c:BYZ
+		}
+		s:STATE_THESSALIA = {
+			add_claim = c:BYZ
+		}
+		s:STATE_PELOPONNESE = {
+			add_claim = c:BYZ
+		}
+		s:STATE_BULGARIA = {
+			add_claim = c:BYZ
+		}
+		s:STATE_DOBRUDJA = {
+			add_claim = c:BYZ
+		}
+	}
+
 	complete = {
 		# TODO add state modifer that needs to be removed to procede
 		country_or_subject_owns_entire_state_region = STATE_NORTHERN_SERBIA
@@ -1374,6 +1416,18 @@ je_palaiologos_reforms_centralization_east= {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
+
+	immediate = {
+		s:STATE_TRABZON = {
+			add_claim = c:BYZ
+		}
+		s:STATE_ANKARA = {
+			add_claim = c:BYZ
+		}
+		s:STATE_DIYARBAKIR = {
+			add_claim = c:BYZ
+		}
+	}
 
 	complete = {
 		# TODO add state modifer that needs to be removed to procede
