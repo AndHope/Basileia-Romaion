@@ -5,6 +5,8 @@ je_impending_revolution = {
 	
 	group = je_group_internal_affairs
 
+	scripted_progress_bar = br_hre_impending_revolution_progress_bar
+
 	is_shown_when_inactive = {
 		and = {
 			exists = c:HRE
@@ -20,6 +22,22 @@ je_impending_revolution = {
 	}
 
 	immediate = {
+		#set variables
+		set_global_variable = {
+			name = small_increase_in_revolutulionary_tension
+			value = 2
+		}
+		set_global_variable = {
+			name = medium_increase_in_revolutulionary_tension
+			value = 4
+		}
+		set_global_variable = {
+			name = large_increase_in_revolutulionary_tension
+			value = 6
+		}
+
+
+
 		trigger_event = { 
 			id = hre_revolution_events.1
 			popup = yes
@@ -29,6 +47,28 @@ je_impending_revolution = {
 		}
 		add_journal_entry = {
 			type = je_revolution_suppress
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					any_scope_pop = {
+						food_security >= 0.5
+					}
+				}
+				trigger_event = {
+					id = hre_revolution_events.5
+					popup = yes
+				}
+			}
+			# je:je_impending_revolution = {
+			# 	add_progress = {
+			# 		value = global_var:medium_increase_in_revolutulionary_tension
+			# 		name = br_hre_impending_revolution_progress_bar
+			# 	}
+			# }
 		}
 	}
 
@@ -59,6 +99,15 @@ je_impending_revolution = {
 			custom_tooltip = {
 				text = if_journal_timeout_tt
 				has_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
+			}
+			custom_tooltip = {
+				scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
+					scripted_bar_progress = {
+						name = br_hre_impending_revolution_progress_bar
+						value >= 100	#50%
+					}
+				}
+				text = br_je_hre_impending_revolution_progress_reached_max
 			}
 		}
 	}

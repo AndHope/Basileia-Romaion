@@ -1,4 +1,53 @@
 ﻿ ### For je_hre_revolution
+ br_hre_impending_revolution_progress_bar = {
+	name = "br_hre_impending_revolution_progress_bar"
+	desc = "br_hre_impending_revolution_progress_bar_desc"
+
+	default = yes
+
+	start_value = 0
+	min_value = 0
+	max_value = 100 #represents a percentage
+
+	weekly_progress = {
+		if = {
+			limit = {
+				radical_population_fraction >= 0.5
+			}
+			add = {
+				# desc = "PROGRESS_BAR_ADD_WEEKLY_DESC2"
+				value = 30
+			}
+		}
+		if = {
+			limit = {
+				loyalist_fraction = {
+					value >= 0.5 
+				}
+			}
+			add = {
+				# desc = "PROGRESS_BAR_ADD_WEEKLY_DESC2"
+				value = -30
+			}
+		}
+
+		
+		#population_below_expected_sol
+
+		# if = {
+		# 	limit = {
+		# 		any_scope_pop = {
+		# 			food_security >= 0.5
+		# 		}
+		# 	}
+		# 	trigger_event = {
+		# 		id = hre_revolution_events.5
+		# 		popup = yes
+		# 	}
+		# }
+		
+	}
+ }
 
  br_hre_revolution_progress_bar = {
 	name = "br_hre_revolution_progress_bar"

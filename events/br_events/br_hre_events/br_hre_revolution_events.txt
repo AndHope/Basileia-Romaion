@@ -161,3 +161,42 @@ hre_revolution_events.4 = {
 		}
 	}
 }
+
+# The revolution is suppressed
+hre_revolution_events.5 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	title = hre_revolution_events.5.t
+	desc = hre_revolution_events.5.d
+	flavor = hre_revolution_events.5.f
+
+	duration = 3
+
+	# immediate = {
+	# 	set_variable = br_revolution_complete_var
+	# }
+
+	option = {
+		name = hre_revolution_events.5.a
+		default_option = yes
+		
+		custom_tooltip = {
+			scope:journal_entry = {
+				add_progress = {
+					value = global_var:medium_increase_in_revolutulionary_tension
+					name = br_hre_impending_revolution_progress_bar
+				}
+			}
+			text = br_hre_medium_increase_in_revolution_progress_tt
+		}
+	}
+}
