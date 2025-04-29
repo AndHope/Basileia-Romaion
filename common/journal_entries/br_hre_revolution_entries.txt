@@ -22,6 +22,9 @@ je_impending_revolution = {
 	}
 
 	immediate = {
+		#make vanilla revolution imposible
+		set_immune_to_revolutions = yes
+
 		#set variables
 		set_global_variable = { #for some reason only global vars will work to increase the progress of a scripted progress bar
 			name = small_increase_in_revolutulionary_tension
@@ -92,12 +95,6 @@ je_impending_revolution = {
 					popup = yes
 				}
 			}
-			# je:je_impending_revolution = {
-			# 	add_progress = {
-			# 		value = global_var:medium_increase_in_revolutulionary_tension
-			# 		name = br_hre_impending_revolution_progress_bar
-			# 	}
-			# }
 		}
 	}
 
@@ -289,46 +286,46 @@ je_revolution_suppress = {
 }
 
 # The actual revolution
-je_hre_revolution = {
+# je_hre_revolution = {
 
-	group = je_group_internal_affairs
+# 	group = je_group_internal_affairs
 
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
+# 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
-	scripted_progress_bar = br_hre_revolution_progress_bar
+# 	scripted_progress_bar = br_hre_revolution_progress_bar
 
-	is_shown_when_inactive = {
-		c:HRE = this
-	}
+# 	is_shown_when_inactive = {
+# 		c:HRE = this
+# 	}
 
-	possible = {
-		c:HRE = this
-	}
+# 	possible = {
+# 		c:HRE = this
+# 	}
 
-	complete = {
+# 	complete = {
 
-	}
+# 	}
 
-	on_complete = {
-		trigger_event = {
-			id = hre_revolution_events.4
-			popup = no
-		}
-		add_modifier = {
-			name = br_modifier_heir_of_augustus
-			years = -1
-		}
-		#remove_modifier = br_modifier_noble_privileges
-	}
+# 	on_complete = {
+# 		trigger_event = {
+# 			id = hre_revolution_events.4
+# 			popup = no
+# 		}
+# 		add_modifier = {
+# 			name = br_modifier_heir_of_augustus
+# 			years = -1
+# 		}
+# 		#remove_modifier = br_modifier_noble_privileges
+# 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = finished_revolution_tt
-			has_variable = br_revolution_complete_var
-		}
-	}
+# 	invalid = {
+# 		custom_tooltip = {
+# 			text = finished_revolution_tt
+# 			has_variable = br_revolution_complete_var
+# 		}
+# 	}
 
-	weight = 8000
+# 	weight = 8000
 
-	should_be_pinned_by_default = yes
-}
+# 	should_be_pinned_by_default = yes
+# }
