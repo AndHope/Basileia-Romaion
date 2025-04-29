@@ -162,7 +162,7 @@ hre_revolution_events.4 = {
 	}
 }
 
-# The revolution is suppressed
+# Low food security
 hre_revolution_events.5 = {
 
 	type = country_event
@@ -181,9 +181,12 @@ hre_revolution_events.5 = {
 
 	duration = 3
 
-	# immediate = {
-	# 	set_variable = br_revolution_complete_var
-	# }
+	immediate = {
+		set_variable = {
+			name = br_hre_impending_revolution_low_food_security_timeout_var
+			days = 40	#for some reason can't use a var
+		}
+	}
 
 	option = {
 		name = hre_revolution_events.5.a
