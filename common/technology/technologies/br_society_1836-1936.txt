@@ -77,7 +77,7 @@ rationalism = {
 
 	modifier = {
 		country_institution_schools_max_investment_add = 1
-		state_education_access_wealth_add = 0.002
+		state_education_access_wealth_add = 0.001
 	}
 
 	ai_weight = {
@@ -278,6 +278,7 @@ colonization = {
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 1
 		country_max_declared_interests_add = 1
+    	country_infamy_generation_against_unrecognized_mult = -0.1
 	}
 
 	unlocking_technologies = {
@@ -389,6 +390,7 @@ empiricism = {
 
 	modifier = {
 		country_influence_mult = 0.1
+		country_diplomatic_play_maneuvers_add = 5
 		country_institution_schools_max_investment_add = 1
 		state_education_access_wealth_add = 0.002
 		country_weekly_innovation_max_add = 5
@@ -453,6 +455,7 @@ pharmaceuticals = {
 
 	modifier = {
 		country_institution_health_system_max_investment_add = 1
+		state_harvest_condition_disease_outbreak_impact_mult = -0.2
 		state_mortality_wealth_mult = -0.001
 	}
 
@@ -521,6 +524,15 @@ quinine = {
 				has_strategy = ai_strategy_colonial_expansion
 			}
 			add = 1
+
+			if = {
+				limit = {
+					any_scope_state = {
+						state_is_in_africa = yes
+					}
+				}
+				add = 3
+			}
 		}
 	}
 }
@@ -631,6 +643,7 @@ psychiatry = {
 
 	modifier = {
 		country_influence_mult = 0.1
+		country_diplomatic_play_maneuvers_add = 5
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 
@@ -715,6 +728,10 @@ labor_movement = {
 		egalitarianism
 	}
 
+	on_researched = {
+		set_global_variable = labour_movement_researched
+	}
+	
 	ai_weight = {
 		value = 1
 
@@ -874,6 +891,7 @@ steel_frame_buildings = {
 		state_building_construction_sector_max_level_add = 1
 		country_max_weekly_construction_progress_add = 5
 		market_land_trade_capacity_add = 10
+		state_harvest_condition_flood_impact_mult = -0.05
 	}
 
 	unlocking_technologies = {
@@ -896,6 +914,7 @@ civilizing_mission = {
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 1
 		country_max_declared_interests_add = 1
+		country_infamy_generation_against_unrecognized_mult = -0.25
 	}
 
 	unlocking_technologies = {
@@ -1026,7 +1045,7 @@ corporatism = {
 	}
 
 	modifier = {
-		state_radicalism_increases_full_acceptance_mult = -0.10
+		#state_radicals_from_political_movements_mult = -0.1
 	}
 
 	unlocking_technologies = {
@@ -1154,6 +1173,7 @@ philosophical_pragmatism = {
 
 	modifier = {
 		country_influence_mult = 0.1
+		country_diplomatic_play_maneuvers_add = 5
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 
@@ -1272,6 +1292,7 @@ central_planning = {
 
 	modifier = {
 		state_tax_capacity_add = 25
+		country_government_dividends_efficiency_add = 0.1
 	}
 
 	unlocking_technologies = {
@@ -1371,6 +1392,7 @@ psychoanalysis = {
 
 	modifier = {
 		country_influence_mult = 0.1
+		country_diplomatic_play_maneuvers_add = 5
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 
@@ -1455,6 +1477,7 @@ antibiotics = {
 
 	modifier = {
 		country_institution_health_system_max_investment_add = 1
+		state_harvest_condition_disease_outbreak_impact_mult = -0.15
 		state_mortality_wealth_mult = -0.001
 	}
 
@@ -1496,7 +1519,8 @@ modern_financial_instruments = {
 	category = society
 	modifier = {
 		country_minting_mult = 0.1
-		country_loan_interest_rate_add = -0.02
+		country_loan_interest_rate_add = -0.02	
+		country_government_dividends_efficiency_add = 0.05
 	}
 	unlocking_technologies = {
 		international_exchange_standards
@@ -1534,6 +1558,7 @@ behaviorism = {
 
 	modifier = {
 		country_influence_mult = 0.1
+		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 
@@ -1564,7 +1589,8 @@ paved_roads = {
 	era = era_6
 	texture = "gfx/interface/icons/invention_icons/paved_roads.dds"
 	category = society
-
+	should_update_map = yes # This technology adds paved roads to the map
+	
 	modifier = {
 		state_infrastructure_from_automobiles_consumption_add = 0.25
 		market_land_trade_capacity_add = 20
