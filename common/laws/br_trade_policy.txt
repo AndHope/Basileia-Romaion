@@ -9,25 +9,18 @@ law_mercantilism = {
 	
 	progressiveness = 0
 
-	modifier = {
-		country_shopkeepers_pol_str_mult = 0.25
-	}
-
 	unlocking_technologies = {
 		br_tech_mercantilism
 	}
 	
-	tariff_modifier_no_priority = {
-		tariff_import_add = 0.15
-		tariff_export_add = 0.05
-	}	
-	
-	tariff_modifier_export_priority = {
-		tariff_import_add = 0.5
-	}
-	
-	tariff_modifier_import_priority = {
-		tariff_export_add = 0.25
+	modifier = {
+		country_shopkeepers_pol_str_mult = 0.25
+		state_tariff_import_add = 0.50
+		state_tariff_export_add = 0.20
+		state_subvention_export_add = 0.50
+		state_subvention_import_add = 0.20
+		state_import_advantage_mult = -0.25
+		state_export_advantage_mult = 0.25
 	}
 
 	# Don't change back to mercantilism once we have protectionism or free trade
@@ -67,18 +60,13 @@ law_protectionism = {
 		stock_exchange
 	}
 	
-	tariff_modifier_no_priority = {
-		tariff_export_add = 0.15
-		tariff_import_add = 0.25
-	}	
-	
-	tariff_modifier_export_priority = {
-		tariff_import_add = 0.75
+	modifier = {
+		state_tariff_import_add = 0.50
+		state_tariff_export_add = 0.50
+		state_subvention_export_add = 0.50
+		state_subvention_import_add = 0.50
+		country_leverage_resistance_mult = 0.25
 	}
-	
-	tariff_modifier_import_priority = {
-		tariff_export_add = 0.50
-	}	
 	
 	modifier = {
 		country_leverage_resistance_mult = 0.25
@@ -129,9 +117,9 @@ law_free_trade = {
 	}
 	
 	modifier = {
-		country_trade_route_competitiveness_mult = 0.5
-		country_trade_route_quantity_mult = 0.5
-		country_trade_route_cost_mult = -0.5
+		state_subvention_export_add = 0.50
+		state_subvention_import_add = 0.50		
+		state_trade_advantage_mult = 0.25
 		country_leverage_resistance_mult = -0.25
 	}
 	
@@ -177,7 +165,7 @@ law_isolationism = {
 		
 		country_max_declared_interests_mult = -0.5
 		
-		market_disallow_trade_routes_bool = yes
+		country_disallow_trade_bool	= yes
 	}
 
 	ai_will_do = {
