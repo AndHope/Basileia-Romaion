@@ -284,6 +284,7 @@ social_democrat_party = {
 					OR = {
 						has_modifier = modifier_india_crown_rule
 						has_modifier = modifier_india_company_rule
+						has_modifier = modifier_india_company_rule_upgraded
 					}
 				}
 				OR = {
@@ -398,7 +399,7 @@ social_democrat_party = {
 						has_ideology = ideology:ideology_radical
 						has_ideology = ideology:ideology_reformer
 						has_ideology = ideology:ideology_republican_leader
-						has_ideology = ideology:ideology_atheist
+						has_ideology = ideology:ideology_nihilist
 						has_ideology = ideology:ideology_humanitarian
 						has_ideology = ideology:ideology_humanitarian_royalist
 					}
@@ -498,7 +499,7 @@ social_democrat_party = {
 					has_ideology = ideology:ideology_populist
 					leader = {
 						OR = {
-							has_ideology = ideology:ideology_atheist
+							has_ideology = ideology:ideology_nihilist
 							has_ideology = ideology:ideology_republican_leader
 							has_ideology = ideology:ideology_radical
 						}
@@ -540,6 +541,7 @@ social_democrat_party = {
 					has_ideology = ideology:ideology_proletarian
 					has_ideology = ideology:ideology_agrarian
 					has_ideology = ideology:ideology_paternalistic
+					has_ideology = ideology:ideology_magnatial
 				}
 				owner = {
 					has_law = law_type:law_free_trade
@@ -733,23 +735,18 @@ social_democrat_party = {
 			limit = {
 				scope:number = 3
 			}
-			add = {
-				value = 1000
-				desc = "from_only_legal_party"
+			multiply = {
+				value = 0.25
+				desc = "from_three_prior_members"
 			}
 		}
 		else_if = {
 			limit = {
-				owner = {
-	         		has_variable = only_valid_party
-	         	}
-	         	 owner.var:only_valid_party = {
-		        	is_party_type = social_democrat_party
-		        }
+				scope:number > 3
 			}
-			add = {
-				value = 3
-				desc = "from_only_legal_party"
+			multiply = {
+				value = 0.1
+				desc = "from_more_than_three_prior_members"
 			}
 		}
 	}
