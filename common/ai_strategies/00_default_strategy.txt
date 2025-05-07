@@ -231,6 +231,7 @@ ai_strategy_default = {
 								has_play_goal = make_protectorate
 								has_play_goal = conquer_state
 								has_play_goal = join_power_bloc
+								has_play_goal = annex_country
 							}
 						}
 					}
@@ -485,7 +486,7 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	#BR TODO use this code to make the show down perhaps happen in Italy.
 	diplomatic_play_boldness = {
-		value = 50		
+		value = 60
 		
 		if = { # Isolationist Japan should tend to back down against market opening plays
 			limit = {
@@ -906,7 +907,10 @@ ai_strategy_default = {
 							scope:target_state = { 
 								is_split_state = yes 
 								state_region = { 
-									any_scope_state = { owner = ROOT }
+									any_scope_state = { 
+										owner = ROOT 
+										is_treaty_port = no
+									}
 								}
 							}
 							scope:target_state = { has_claim_by = root } 
@@ -1575,7 +1579,7 @@ ai_strategy_default = {
 					}	
 					AND = {
 						has_strategy = ai_strategy_economic_imperialism
-						"num_mutual_trade_route_levels_with_country(root)" >= 10
+						"mutual_trade_value_with_country(root)" >= 1000
 						OR = {
 							has_attitude = {
 								who = scope:target_country
@@ -1674,7 +1678,8 @@ ai_strategy_default = {
 
 		if = {
 			limit = {
-				has_treaty_port_in_country = scope:target_country
+				scope:target_state = { is_treaty_port = no }
+				has_treaty_port_in_market = scope:target_country.market
 			}
 			multiply = 0
 		}
@@ -1830,6 +1835,7 @@ ai_strategy_default = {
 				}
 				add = 50
 			}
+			
 			if = {
 				limit = {
 					OR = {
@@ -2591,7 +2597,6 @@ ai_strategy_default = {
 							region = sr:region_south_china
 							region = sr:region_manchuria
 						}
-						is_treaty_port = yes
 					}					
 				}
 			}
@@ -2947,7 +2952,14 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 10
+			add = 25
+
+			if = {
+				limit = {
+					has_journal_entry = je_scramble_for_africa
+				}
+				add = 25
+			}			
 		}
 
 		# Aggression against radical leftists
@@ -3032,7 +3044,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 5
+			add = 10
 		}
 		
 		# Persia should very aggressively go for the Caucasus if it's still a great power.
@@ -3403,18 +3415,25 @@ ai_strategy_default = {
 		
 		max = 200 # No more than 200 from population & rank
 
-		add = {
-			value = income
-			multiply = {
-				value = 1
-				subtract = { # Coastal population reduces spending on army as that spending is needed for navy too
-					value = cached_ai_incorporated_coastal_population
-					divide = cached_ai_incorporated_population
-					divide = 2
-				}		
+		if = {
+			limit = {
+				cached_ai_incorporated_population > 0
+				cached_ai_incorporated_coastal_population > 0
 			}
-			divide = 2500 # 1 level of barracks per 2.5k income					
-		}				
+			
+			add = {
+				value = income
+				multiply = {
+					value = 1
+					subtract = { # Coastal population reduces spending on army as that spending is needed for navy too
+						value = cached_ai_incorporated_coastal_population
+						divide = cached_ai_incorporated_population
+						divide = 2
+					}
+				}
+				divide = 2500 # 1 level of barracks per 2.5k income
+			}
+		}
 		
 		# More advanced standing armies are expensive and should be smaller relative to population
 		if = {
@@ -3619,12 +3638,19 @@ ai_strategy_default = {
 		max = 100 # No more than 100 from population		
 
 		# 1 level of naval base per 5k income, multiplied by relative incorporated coastal population to total incorporated population
-		add = {
-			value = income
-			divide = cached_ai_incorporated_population
-			multiply = cached_ai_incorporated_coastal_population
-			divide = 5000
-		}	
+		if = {
+			limit = {
+				cached_ai_incorporated_population > 0
+				cached_ai_incorporated_coastal_population > 0
+			}
+
+			add = {
+				value = income
+				divide = cached_ai_incorporated_population
+				multiply = cached_ai_incorporated_coastal_population
+				divide = 5000
+			}
+		}
 	
 		# Special logic for british isles - this should be reworked to be less specific later
 		if = {
@@ -3998,7 +4024,7 @@ ai_strategy_default = {
 	subsidies = {
 		building_power_plant = must_have
 		building_railway = must_have
-		building_trade_center = must_have		
+		building_port = must_have
 	}
 	
 	# Specifying values here will override subsidy priorities while at war
@@ -5405,6 +5431,14 @@ ai_strategy_default = {
 				limit = {
 					NOT = { is_country_type = unrecognized }
 					scope:target_country = { is_country_type = unrecognized }
+					scope:target_country = {
+						OR = {
+							is_subject = no
+							top_overlord ?= {
+								is_country_type = unrecognized
+							}
+						}
+					}					
 					has_technology_researched = colonization
 					institution_investment_level = {
 						institution = institution_colonial_affairs
@@ -5414,9 +5448,14 @@ ai_strategy_default = {
 				add = 50
 
 				if = {
-					limit = { has_technology_researched = civilizing_mission }
-					add = 100
+					limit = { has_technology_researched = quinine }
+					add = 50
+				}
 
+				if = {
+					limit = { has_technology_researched = civilizing_mission }
+					add = 200		
+					
 					if = {
 						limit = {
 							scope:target_country = {
@@ -5655,6 +5694,14 @@ ai_strategy_default = {
 					NOT = { is_country_type = unrecognized }
 					scope:target_country = { is_country_type = unrecognized }
 					scope:target_country = { NOT = { is_subject_of = root }	}
+					scope:target_country = {
+						OR = {
+							is_subject = no
+							top_overlord ?= {
+								is_country_type = unrecognized
+							}
+						}
+					}	
 					has_technology_researched = colonization
 					institution_investment_level = {
 						institution = institution_colonial_affairs
@@ -5662,6 +5709,11 @@ ai_strategy_default = {
 					}					
 				}
 				add = 25
+
+				if = {
+					limit = { has_technology_researched = quinine }
+					add = 25
+				}				
 				
 				if = {
 					limit = { has_technology_researched = civilizing_mission }
@@ -5681,6 +5733,16 @@ ai_strategy_default = {
 						power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
 					}
 					add = 50
+				}
+
+				if = {
+					limit = {
+						has_journal_entry = je_scramble_for_africa
+						scope:target_country = {
+							country_is_in_africa = yes
+						}
+					}
+					add = 250
 				}				
 			}			
 			
@@ -5694,7 +5756,6 @@ ai_strategy_default = {
 				add = 25
 			}
 			
-
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
 				multiply = -0.05
@@ -5922,6 +5983,44 @@ ai_strategy_default = {
 		}			
 	}
 	
+	treaty_category_scores = {
+		economy = {
+			value = 4
+		}
+
+		trade = {
+			value = 5
+		}
+
+		military = {
+			value = 3
+		}
+
+		military_defense = {
+			value = 3
+		}
+
+		ideology = {
+			value = 0
+		}
+
+		expansion = {
+			value = 4
+		}
+		
+		power_bloc = {
+			value = 1
+		}
+
+		other = {
+			value = 1
+		}
+
+		none = {
+			value = 0
+		}
+	}
+
 	# How much should the AI value a wargoal against another country/state
 	# Using this value in other strategies will function additively
 	# scope:target_country = wargoal target country
@@ -6490,12 +6589,44 @@ ai_strategy_default = {
 		}	
 
 		annex_country = {
-			value = 100
-		
-			add = {
-				value = scope:target_country.gdp
-				divide = 100000
-				max = 100						
+			value = 0
+
+			if = {
+				limit = {
+					OR = {
+						has_secret_goal = {
+							who = scope:target_country
+							secret_goal = conquer
+						}	
+						has_attitude = {
+							who = scope:target_country
+							attitude = antagonistic
+						}						
+					}				
+				}
+				if = {
+					limit = {
+						root.gdp > 0
+					}
+					add = {
+						value = scope:target_country.gdp
+						divide = root.gdp
+						multiply = 10
+						max = 100
+					}
+				}
+			}		
+
+			if = {
+				limit = {
+					scope:target_country = {
+						num_states > 1
+					}
+				}
+				add = {
+					value = scope:target_country.num_states
+					multiply = 10
+				}
 			}
 
 			if = {
@@ -6504,6 +6635,29 @@ ai_strategy_default = {
 					scope:target_country = {
 						has_journal_entry = je_reunify_china
 						has_strategic_adjacency = scope:target_country
+					}
+				}
+				add = 100
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_unify_afghanistan
+					scope:target_country = {
+						OR = {
+							country_has_primary_culture = cu:pashtun
+							country_has_primary_culture = cu:tajik
+						}
+					}
+				}
+				add = 100
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_eastern_frontier
+					capital = {
+						has_claim_by = ROOT
 					}
 				}
 				add = 50
@@ -6534,8 +6688,21 @@ ai_strategy_default = {
 				multiply = 0.0
 			}
 
-			min = 0
-			max = 200			
+			if = {
+				limit = {
+					OR = {
+						has_journal_entry = je_eastern_frontier
+						has_journal_entry = je_unify_afghanistan
+						has_journal_entry = je_reunify_china
+					}
+				}
+				min = 0
+				max = 500
+			}
+			else = {
+				min = 0
+				max = 200
+			}
 		}			
 		
 		colonization_rights = {
