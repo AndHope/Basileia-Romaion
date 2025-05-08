@@ -750,62 +750,7 @@ on_monthly_pulse_country = {
 			}
 		}
 
-		# for Venice, Vidi, Vici Achievement
-		if = {
-			limit = {
-				AND = {
-					c:VEN ?= THIS
-					NOT = { has_variable = venice_vidi_vici_achievement_happened }
-					NOT = { has_variable = ven_trade_center_count_var }
-					any_scope_building = {
-						is_building_type = building_trade_center
-					}
-				}
-			}
-			set_variable = ven_trade_center_count_var
-		}
-		if = { # so that the variable re-counts correct number of trade centers each time
-			limit = { 
-				c:VEN ?= THIS
-				has_variable = ven_trade_center_count_var
-			}
-			ROOT = {
-	    		set_variable = { name = ven_trade_center_count_var value = 0 }
-	   		}
-	   	}
-		if = { # counts how many trade centers owned
-			limit = {
-				AND = {
-					c:VEN ?= THIS
-					has_variable = ven_trade_center_count_var
-				}
-			}
-			every_scope_building = {
-				limit = {
-					is_building_type = building_trade_center
-				}
-				owner = {
-					change_variable = { name = ven_trade_center_count_var add = 1 }
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = c:VEN
-				c:VEN ?= {
-					has_variable = ven_trade_center_count_var
-				}
-				NOT = {
-					any_country = {
-						"country_has_building_group_levels(bg_trade)" > root.var:ven_trade_center_count_var
-					}
-				}
-			}
-			c:VEN ?= {
-				set_variable = venice_vidi_vici_achievement_happened
-				remove_variable = ven_trade_center_count_var
-			}
-		}
+
 	}
 	on_actions = { # delay ensures events won't fire simultaneously
 		coup_monthly_events

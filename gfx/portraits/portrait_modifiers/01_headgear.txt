@@ -2351,7 +2351,10 @@
                     age >= define:NCharacters|ADULT_AGE
                     OR = {
                         AND = {
-                            is_interest_group_type = ig_landowners
+                            OR = {
+                                is_interest_group_type = ig_landowners
+                                is_interest_group_type = ig_industrialists
+                            }
                             has_role = politician
                             NOR = {
                                 has_role = general
@@ -3397,6 +3400,61 @@
                         has_template = BIC_bal_gangadhar_tilak
                         has_template = BIC_gopal_gokhale
                         has_template = BIC_damodar_hari_chapekar
+                    }
+                }
+            }
+        }
+    }
+
+    european_executive_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = european_executive_hats
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+                AND = {
+                    OR = {
+                        european_clothes_trigger = yes
+                        african_diaspora_clothes_trigger = yes
+                        scope:character ?= {
+                            OR = {
+                                culture = cu:cherokee
+                                culture = cu:muskogean
+                            }
+                        }
+                        AND = {
+                            european_clothes_trigger = no
+                            scope:character ?= {
+                                NOT = { has_ideology = ideology:ideology_traditionalist }
+                                owner ?= {
+                                    OR = {
+                                        AND = {
+                                            has_technology_researched = investment_banks
+                                            NOT = {
+                                                has_law = law_type:law_isolationism
+                                            }
+                                        }
+                                        is_country_type = recognized
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    OR = {
+                        AND = {
+                            politician_clothes_trigger = yes
+                            scope:character ?= {
+                                is_interest_group_type = ig_industrialists
+                            }
+                        }
+                        executive_clothes_trigger = yes
                     }
                 }
             }

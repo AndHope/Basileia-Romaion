@@ -92,7 +92,7 @@
 
                 european_clothes_trigger = yes
                 scope:character ?= {
-                    age <= define:NCharacters|ADULT_AGE
+                    age < define:NCharacters|ADULT_AGE
                 }
             }
         }
@@ -2823,6 +2823,25 @@
             }
         } 
     }
+    historical_ada_lovelace_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = outfits
+                template = european_royal_outfits
+                range = { 0 1 }
+            }
+        }        
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = ada_lovelace_template
+                }
+            }
+        } 
+    }
     historical_henrik_ibsen_clothes = {
         dna_modifiers = {
             accessory = {
@@ -2856,6 +2875,99 @@
                 add = 90000
                 scope:character ?= {
                     has_template = ibsen_character_template
+                }
+            }
+        } 
+    }
+    historical_albert_einstein_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = civilian_coats
+                template = european_civilian_coat_black
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = waistcoats
+                template = european_waistcoats
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 }
+            }
+        }        
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = albert_einstein_template
+                }
+            }
+        } 
+    }
+    ceo_arnold_peter_moller_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = civilian_coats
+                template = european_civilian_coats
+                accessory = male_civilian_coat_european_01
+            }
+            accessory = {
+                mode = add
+                gene = waistcoats
+                template = black_waistcoat
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = DEN_arnold_peter_moller
+                }
+            }
+        } 
+    }
+    ceo_lars_magnus_ericsson_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = civilian_coats
+                template = european_civilian_coats
+                accessory = male_civilian_coat_european_01
+            }
+            accessory = {
+                mode = add
+                gene = waistcoats
+                template = historical_waistcoats_dickens
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = swe_lars_magnus_ericsson
                 }
             }
         } 
@@ -3739,6 +3851,26 @@
                 }
             }
         }
+    }
+
+    historical_florence_nightingale_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = outfits
+                template = european_working_class_outfits
+                range = { 1 1 } # targetting only female_outfit_polynesian_01_high
+            }
+        }        
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = GBR_florence_nightingale
+                }
+            }
+        } 
     }
 
 ### BACK TO YOUR REGULAR SCHEDULED PROGRAMMING ###
@@ -5261,7 +5393,7 @@
 
     chokha_cherkeska_cossack_clothes = {
         dna_modifiers = {
-            accessory = {
+             accessory = {
                 mode = add
                 gene = coats
                 template = cossack_coat
@@ -5289,7 +5421,7 @@
         weight = {
             base = 0
             modifier = {
-                add = 12000
+                add = 15000
 
                 has_dlc_feature = ep1_cosmetics
 
@@ -5321,7 +5453,7 @@
                 }
             }
             modifier = {
-                add = 12000
+                add = 20000
 
                 has_dlc_feature = ep1_cosmetics
 
@@ -5772,7 +5904,15 @@
                         }
                         african_diaspora_clothes_trigger = yes
                     }
-                    politician_clothes_trigger = yes
+                    OR = {
+                        politician_clothes_trigger = yes
+                        AND = {
+                            executive_clothes_trigger = yes
+                            NOT = {
+                                has_dlc_feature = mp1_cosmetics
+                            }
+                        }
+                    }
                     scope:character ?= {
                         age >= define:NCharacters|ADULT_AGE
                         NOR = {
@@ -5966,7 +6106,15 @@
                     scope:character ?= {
                         is_interest_group_type = ig_landowners
                         age >= define:NCharacters|ADULT_AGE
-                        has_role = politician
+                        OR = {
+                            has_role = politician
+                            AND = {
+                                has_role = executive
+                                NOT = {
+                                    has_dlc_feature = mp1_cosmetics
+                                }
+                            }
+                        }
                         NAND = {    # monarchs wear other stuff
                             is_ruler = yes
                             owner ?={
@@ -5989,7 +6137,7 @@
                 }
             }
             modifier = {
-                add = 5000
+                add = 90000
 
                 scope:character ?= {
                     OR = {
@@ -6410,7 +6558,7 @@
         }
     }
 
-    ethiopian_clothes = {
+     ethiopian_clothes = {
         dna_modifiers = {
             accessory = {
                 mode = add
@@ -6441,13 +6589,13 @@
                 template = ethiopian_outfits
                 range = { 0 1 } # For the randomness to work correctly
             }
-            accessory = {
+             accessory = {
                 mode = add
                 gene = top_layer
                 template = ethiopian_top_layer
                 range = { 0 1 } # For the randomness to work correctly
             }
-            accessory = {
+                        accessory = {
                 mode = add
                 gene = legwear
                 template = european_legwear
@@ -6809,6 +6957,12 @@ indigenous_oceanic_pop_clothes = {
                         OR = {
                             ruler_clothes_trigger = yes
                             politician_clothes_trigger = yes
+                            AND = {
+                                executive_clothes_trigger = yes
+                                NOT = {
+                                    has_dlc_feature = mp1_cosmetics
+                                }
+                            }
                         }                
                     }
                 }
@@ -6871,7 +7025,15 @@ indigenous_oceanic_pop_clothes = {
                         }
                     }
                     AND = {
-                        politician_clothes_trigger = yes
+                        OR = {
+                            politician_clothes_trigger = yes
+                            AND = {
+                                executive_clothes_trigger = yes
+                                NOT = {
+                                    has_dlc_feature = mp1_cosmetics
+                                }
+                            }
+                        }
                         south_american_clothes_character_trigger = yes
                         scope:character = {
                             OR = {
@@ -7315,7 +7477,15 @@ indigenous_oceanic_pop_clothes = {
                     scope:character ?= { # Also used for Landowners IG leaders
                         is_interest_group_type = ig_landowners
                         age >= define:NCharacters|ADULT_AGE
-                        has_role = politician
+                        OR = {
+                            has_role = politician
+                            AND = {
+                                has_role = executive
+                                NOT = {
+                                    has_dlc_feature = mp1_cosmetics
+                                }
+                            }
+                        }
                         NAND = {    # monarchs wear other stuff
                             is_ruler = yes
                             owner ?={
@@ -9234,6 +9404,12 @@ indigenous_oceanic_pop_clothes = {
                 OR = {
                     politician_clothes_trigger = yes
                     AND = {
+                        executive_clothes_trigger = yes
+                        NOT = {
+                            has_dlc_feature = mp1_cosmetics
+                        }
+                    }
+                    AND = {
                         ruler_clothes_trigger = yes
                         republic_clothes_trigger = yes
                     }
@@ -9404,7 +9580,10 @@ indigenous_oceanic_pop_clothes = {
                     }
                     african_diaspora_clothes_trigger = yes
                 }
-                politician_clothes_trigger = yes
+                OR = {
+                    politician_clothes_trigger = yes
+                    executive_clothes_trigger = yes
+                }
                 NOR = {
                     military_clothes_trigger = yes
                     armed_forces_clothes_trigger = yes
@@ -9429,6 +9608,84 @@ indigenous_oceanic_pop_clothes = {
                     OR = {  # November to February
                         month < 3
                         month > 10
+                    }
+                }
+            }
+        }
+    }
+
+    european_common_executive_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = top_layer
+                template = executive_overcoat
+                range = { 0 1 } # For the randomness to work correctly
+            }
+
+            accessory = {
+                mode = add
+                gene = civilian_coats
+                template = european_executive_coats
+                range = { 0 1 } # For the randomness to work correctly
+            }
+
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+
+            accessory = {
+                mode = add
+                gene = props
+                template = gene_lences
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                has_dlc_feature = mp1_cosmetics
+                AND = {
+                    OR = {
+                        european_clothes_trigger = yes
+                        african_diaspora_clothes_trigger = yes
+                        scope:character ?= {
+                            OR = {
+                                culture = cu:cherokee
+                                culture = cu:muskogean
+                            }
+                        }
+                        AND = {
+                            european_clothes_trigger = no
+                            scope:character ?= {
+                                NOT = { has_ideology = ideology:ideology_traditionalist }
+                                owner ?= {
+                                    OR = {
+                                        AND = {
+                                            has_technology_researched = investment_banks
+                                            NOT = {
+                                                has_law = law_type:law_isolationism
+                                            }
+                                        }
+                                        is_country_type = recognized
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    OR = {
+                        AND = {
+                            politician_clothes_trigger = yes
+                            scope:character ?= {
+                                is_interest_group_type = ig_industrialists
+                            }
+                        }
+                        executive_clothes_trigger = yes
                     }
                 }
             }
