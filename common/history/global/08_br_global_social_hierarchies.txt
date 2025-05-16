@@ -1,0 +1,24 @@
+﻿# BR Mod - This is executed last among all history
+GLOBAL = {
+	every_country = {
+		if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+					not = {
+						has_discrimination_trait = greek_culture
+						has_discrimination_trait = greco_roman_heritage
+					}
+				}
+			}
+			set_social_hierarchy = br_feudalism_social_hierarchy
+
+			#variable has to be set in the country scope so the law group of the social hierarchy is displayed, otherwise it won't show
+			set_variable = {
+				name = custom_social_hierarchy
+				value = active_law:br_lawgroup_feudalism_hegemony
+			}
+		}
+	}
+}
