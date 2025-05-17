@@ -43,6 +43,10 @@
 	- Add icons to the new modifiers
 	- make the remove frankish as primary culture better.
 
+	- Add unique frankish names
+	- Add Unique characters to the HRE and give them the right ideology
+	- Allow 3 kind of revolutions to happen one by each estate
+
 ## General
 - Most of the mods flags and names are not set up in the flag definitions and country names files and do not change currently.
 	- More unique flags for countries based on government type.
