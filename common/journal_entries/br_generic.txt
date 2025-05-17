@@ -670,8 +670,10 @@ je_br_hajj_profits = {
 	possible = {
 		has_interest_marker_in_region = region_arabic
 		OR = {
-			has_state_in_state_region = STATE_HEDJAZ
+			country_has_state_religion = rel:sunni
+			country_has_state_religion = rel:shiite
 		}
+		has_state_in_state_region = STATE_HEDJAZ
 		NOT = { 
 			OR = {
 				has_law = law_type:law_state_atheism

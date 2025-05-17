@@ -249,29 +249,30 @@ je_palaiologos_reforms_separatism = {
 		}
 	}
 
-	on_monthly_pulse = {
-		effect = {
-			if = {
-				limit = {
-					highest_secession_progress < 0.5
-				}
-				change_variable = {
-					name = palaiologos_reforms_separatist_var
-					add = 1
-				}
-			}
-		}
-		random_events = {
-			100 = 0
-			200 = br_balkan_revolt.1 		# Variable setter for events below
-			
-			10 = br_balkan_revolt.8			# Hungarian Pronoia Revolt
-			9 = br_balkan_revolt.7			# Croatian Pronoia Revolt
-			8 = br_balkan_revolt.4			# Serbian Pronoia Revolt
-			7 = br_balkan_revolt.9 			# Vlachian Pronoia Revolt
-			6 = br_balkan_revolt.5			# Montenegrin Pronoia Revolt
-			5 = br_balkan_revolt.6 			# Bosnian Pronoia Revolt
-			5 = br_balkan_revolt.3 			# Bulgarian Pronoia Revolt
+	#on_monthly_pulse = {
+	#	effect = {
+	#		if = {
+	#			limit = {
+	#				highest_secession_progress < 0.5
+	#			}
+	#			change_variable = {
+	#				name = palaiologos_reforms_separatist_var
+	#				add = 1
+	#			}
+	#		}
+	#	}
+	#	random_events = {
+	#		#chance_of_no_event = 75
+	#		100 = 0
+	#		200 = br_balkan_revolt.1 		# Variable setter for events below
+	#		
+	#		10 = br_balkan_revolt.8			# Hungarian Pronoia Revolt
+	#		9 = br_balkan_revolt.7			# Croatian Pronoia Revolt
+	#		8 = br_balkan_revolt.4			# Serbian Pronoia Revolt
+	#		7 = br_balkan_revolt.9 			# Vlachian Pronoia Revolt
+	#		6 = br_balkan_revolt.5			# Montenegrin Pronoia Revolt
+	#		5 = br_balkan_revolt.6 			# Bosnian Pronoia Revolt
+	#		5 = br_balkan_revolt.3 			# Bulgarian Pronoia Revolt
 			#3 = br_balkan_revolt.2 		# Greek Pronoia Revolt
 
 		# The below need further testing/ debuging.
@@ -282,12 +283,12 @@ je_palaiologos_reforms_separatism = {
 		#	1 = br_balkan_revolt.15			# Local Bulgarian Revolt
 		#	1 = br_balkan_revolt.16			# Assassination of a Local Governor
 
-			10 = palaiologos_events.5 		# Paranoia Event
+	#		10 = palaiologos_events.5 		# Paranoia Event
 
-			20 = br_balkan_revolt.10 		# Balkan free/vassal country wars
-			90 = br_balkan_revolt.12		# War Crimes Event
-		}
-	}
+	#		20 = br_balkan_revolt.10 		# Balkan free/vassal country wars
+	#		90 = br_balkan_revolt.12		# War Crimes Event
+	#	}
+	#}
 
 	fail = {
 		highest_secession_progress > 0.9
@@ -346,8 +347,9 @@ je_palaiologos_reforms_security = {
 		}
 		NOT = {
 			any_scope_state = {
-				turmoil > 0.20
+				turmoil > 0.25
 			}
+			#radical_population_fraction >= 0.5
 		}
 	}
 
@@ -489,6 +491,10 @@ je_palaiologos_reforms_land_reform = {
 			weekly_profit > 5
 			occupancy >= 0.9
 		}
+	#	any_scope_pop = {
+	#		food_security <= 0.3
+	#		percent >= 0.5
+	#	}
 	}
 
 	on_complete = {
@@ -1183,8 +1189,8 @@ je_palaiologos_reforms_africa = {
 					is_subject_of = ROOT
 				}
 				c:br_afrika = { liberty_desire <= 50 }
-				country_or_subject_owns_entire_state_region = STATE_TUNISIA
-				country_or_subject_owns_entire_state_region = STATE_TRIPOLI
+				#country_or_subject_owns_entire_state_region = STATE_TUNISIA
+				#country_or_subject_owns_entire_state_region = STATE_TRIPOLI
 				country_or_subject_owns_entire_state_region = STATE_LIBYA
 			}
 			AND = {
