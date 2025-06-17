@@ -47,7 +47,7 @@
 	ai_chance = {
 		value = 0
 		if = {
-			trigger = { bureaucracy > 0 }
+			limit = { bureaucracy > 0 }
 			add = 5
 		}
 		if = {
@@ -967,7 +967,7 @@ declare_patriarch_independence = {
 
 #########################################################################################################################################################################################################
 ## How to add a new religion to the br_generic_religion_swap_decision ##
-#to add a new religion to the Generic religion swap create a new 'country_can_convert_to_religion' in 'br_religion_swap_triggers' and add it to the 'br_country_can_convert_to_given_religion' trigger,
+#to add a new religion to the Generic religion swap create a new 'country_can_convert_to_religion' in 'br_religion_swap_triggers' and add it to the 'br_country_can_convert_to_given_religion' limit,
 #then copy the template below ('br_generic_religion_swap_decision') and change new_religion to the religion you want the decision to swap to (ex new_religion -> br_religion_norse).
 
 #Optionaly if you want you can then add further extra triggers in is_shown or possible
