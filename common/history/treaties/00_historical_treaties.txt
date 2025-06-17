@@ -1,0 +1,101 @@
+﻿TREATIES = {
+	# Dutch-Japanese Trade relationship / Dejima, Nagasaki / Not official treaty
+	create_treaty = {
+		name = treaty_name_dejima_trade
+		first_country = c:NET
+		second_country = c:JAP
+
+		is_draft = no
+		entered_into_force_on = 1699.12.31
+		binding_period = { years = 0 }
+
+		articles_to_create = {
+			{ # Glassware trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:glass }
+					{ quantity = 5 }
+				}
+			}
+			{ # Spirits Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 5 }
+				}
+			}
+			{ # Porcelain Trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:NET
+				inputs = {
+					{ goods = g:porcelain }
+					{ quantity = 5 }
+				}
+			}
+			{ # Silk Trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:NET
+				inputs = {
+					{ goods = g:silk }
+					{ quantity = 5 }
+				}
+			}
+		}
+	}
+
+	# Sino-Japanese Trade relationship / Nagasaki / Not official treaty
+	create_treaty = {
+		name = treaty_name_nagasaki_trade
+		first_country = c:CHI
+		second_country = c:JAP
+
+		is_draft = no
+		entered_into_force_on = 1604.1.15 # Year when Tokugawa Ieyasu authorized formal trade with China in Nagasaki
+		binding_period = { years = 0 }
+
+		articles_to_create = {
+			{ # Copper (-isch.) trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:lead }
+					{ quantity = 10 }
+				}
+			}
+			{ # Fish Trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:fish }
+					{ quantity = 5 }
+				}
+			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:CHI
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:tea }
+					{ quantity = 5 }
+				}
+			}
+			{ # Silk Trade
+				article = goods_transfer
+				source_country = c:CHI
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:silk }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+}
