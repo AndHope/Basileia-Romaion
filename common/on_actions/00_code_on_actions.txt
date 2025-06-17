@@ -1,17 +1,37 @@
 ﻿# For on_actions launched by the code itself.
 
-# Fires when bookmark initialization is complete but players are still in the lobby 
+# Fires when bookmark initialization is complete but players are still in the lobby
 # At this point we do not know who the players are
 # No root scope set
 on_game_started = {
+	effect = {
+		# Memento Mori
+		every_country = {
+			every_interest_group = {
+				leader = {
+					if = {
+						limit = {
+							NOT = {
+								has_variable = memento_mori_immunity
+							}
+						}
+						set_variable = {
+							name = memento_mori_immunity
+							years = 5
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 # Fires after everyone enters the game from the lobby for the first time for each campaign
 # At this point we DO know who the players are
 # No root scope set
 on_game_started_after_lobby = {
-	# Game Rule: No Dynamic Naming
 	effect = {
+		# Game Rule: No Dynamic Naming
 		if = {
 			limit = {
 				has_game_rule = no_dynamic_naming
@@ -19,6 +39,19 @@ on_game_started_after_lobby = {
 			every_state = {
 				reset_state_name = yes
 			    reset_hub_names = yes
+			}
+		}
+		# The Ripper
+		every_country = {
+			if = {
+				limit = {
+					is_player = yes
+				}
+				random = {
+					chance = 10
+
+					set_variable = var_jack_ripper_possible
+				}
 			}
 		}
 	}
@@ -145,14 +178,6 @@ on_monthly_pulse_country = {
 				ruler ?= {
 					has_template = gbr_queen_victoria_template
 				}
-				OR = {
-					NOT = {
-						exists = heir
-					}
-					heir = { # PRCAL-33820 victoria is ruler and heir, therefore this check is here
-						has_template = gbr_queen_victoria_template
-					}
-				}
 				NOT = {
 					has_variable = edward_vii_heir_var
 				}
@@ -162,6 +187,42 @@ on_monthly_pulse_country = {
 				heir = yes
 			}
 			set_variable = edward_vii_heir_var
+		}
+		if = {
+			limit = {
+				c:GBR ?= this
+				game_date >= 1865.06.03
+				ruler ?= {
+					has_template = gbr_albert_edward_template
+				}
+				NOT = {
+					exists = heir
+				}
+				NOT = {
+					has_variable = george_v_heir_var
+				}
+			}
+			create_character = {
+				template = gbr_george_v_template
+				heir = yes
+			}
+			set_variable = george_v_heir_var
+		}
+		if = {
+			limit = {
+				c:GBR ?= this
+				game_date >= 1910.5.06
+				ruler ?= {
+					has_template = gbr_albert_edward_template
+				}
+				heir = {
+					has_template = gbr_george_v_template
+				}
+				NOT = {
+				has_variable = george_v_ruler_var
+				}
+			}
+			trigger_event = { id = britain_monarchy.1 popup = yes }
 		}
 
 		# Sweden Monarchy event
@@ -232,7 +293,7 @@ on_monthly_pulse_country = {
 		    	game_date >= 1872.9.29
 		    	any_scope_character = {
 		       		is_ruler = yes
-		       		has_template = swe_oscar_ii_bernadotte_template	
+		       		has_template = swe_oscar_ii_bernadotte_template
 		    	}
 		    	NOT = {
 		       		has_variable = oscar_ii_ruler_var
@@ -750,7 +811,107 @@ on_monthly_pulse_country = {
 			}
 		}
 
-
+		# for Venice, Vidi, Vici Achievement
+		if = {
+			limit = {
+				is_player = yes
+				AND = {
+					c:VEN ?= THIS
+					NOT = { has_variable = venice_vidi_vici_achievement_happened }
+					any_scope_building = {
+						is_building_type = building_trade_center
+					}
+				}
+			}
+			set_variable = { name = ven_trade_center_count_var value = "root.country_has_building_group_levels(bg_trade)" } # sets ven_trade_center_count_var value to the total building levels of trade centers in the country
+		}
+		if = { # checks if ven_trade_center_count_var is higher than the total building levels of trade centers in the country
+			limit = {
+				is_player = yes
+				exists = c:VEN
+				c:VEN ?= {
+					has_variable = ven_trade_center_count_var
+				}
+				NOT = {
+					any_country = {
+						country_has_building_group_levels = {
+							type = bg_trade
+							value > root.var:ven_trade_center_count_var
+						}
+					}
+				}
+			}
+			c:VEN ?= {
+				set_variable = venice_vidi_vici_achievement_happened
+				remove_variable = ven_trade_center_count_var
+			}
+		}
+		# for Swiss Bank Account Achievement
+		if = {
+			limit = {
+				is_player = yes
+				c:SWI ?= THIS
+				NOT = {
+					has_variable = swiss_bank_account_happened
+				}
+				any_scope_treaty = {
+					any_scope_article = {
+						has_type = money_transfer
+					}
+				}
+			}
+			ROOT = {
+				set_variable = { name = swiss_bank_account_var value = 0 }
+				change_variable = {
+					name = swiss_bank_account_var
+					add = {
+						value = gdp
+						divide = 10
+					}
+				}
+	   		}
+	   		if = {
+				limit = {
+					transfer_money_gross_income >= root.var:swiss_bank_account_var
+				}
+				set_variable = swiss_bank_account_happened
+			}
+		}
+		# for All Quiet on the Western Front Achievement
+		if = {
+			limit = {
+				is_player = yes
+				NOT = {
+					has_variable = all_quiet_on_the_western_front_happened
+				}
+				is_at_war = yes
+				any_scope_war = {
+					any_scope_front = {
+						num_front_casualties = {
+							target = root
+							value > 1000000
+						}
+					}
+				}
+			}
+			set_variable = all_quiet_on_the_western_front_happened
+		}
+		# for It's a Blockade! Achievement
+		if = {
+			limit = {
+				is_player = yes
+				NOT = { has_variable = its_a_blockade_happened }
+				any_enemy_in_diplo_play = {
+					any_scope_state = {
+						is_blockaded_by = ROOT
+						is_world_market_hub = yes
+					    num_world_market_hub_trade_center_levels >= 100
+						blockade_level >= 1
+					}
+				}
+			}
+			set_variable = its_a_blockade_happened
+		}
 	}
 	on_actions = { # delay ensures events won't fire simultaneously
 		coup_monthly_events
@@ -995,6 +1156,7 @@ on_yearly_pulse_country = {
 	on_actions = { # delay ensures events won't fire simultaneously
 		on_memento_mori # IG leader death
 		on_yearly_events
+		ep1_misc_yearly_events
 		delay = { days = 1 }
 		#russian_monarchy_yearly_events
 		delay = { days = 1 }
@@ -1019,7 +1181,6 @@ on_yearly_pulse_country = {
 		tunguska_yearly_events
 		delay = { days = 89 }
 		#british_dictate_yearly_events
-		ep1_misc_yearly_events
 	}
 }
 
@@ -1035,6 +1196,26 @@ on_half_yearly_pulse_country = {
 		delay = { days = 20 }
 		movement_half_yearly_events
 	}
+
+	effect = {
+		if = {
+			limit = {
+				has_variable = recently_traded_states_counter
+			}
+			if = {
+				limit = {
+					var:recently_traded_states_counter > 1
+				}
+				change_variable = {
+					name = recently_traded_states_counter
+					subtract = 1
+				}
+			}
+			else = {
+				remove_variable = recently_traded_states_counter
+			}
+		}
+	}
 }
 
 on_five_year_pulse_country = {
@@ -1046,7 +1227,7 @@ on_five_year_pulse_country = {
 
 on_decade_pulse_country = {
 	random_events = {
-		chance_of_no_event = 95
+		chance_to_happen = 5
 		1 = plague.1
 	}
 }
@@ -1118,7 +1299,7 @@ on_half_yearly_pulse_state = {
 
 on_yearly_pulse_state = {
 	random_events = {
-		chance_of_no_event = 80
+		chance_to_happen = 20
 		10 = oil_rush.3
 		10 = oil_rush.4
 		10 = goldrush.5
@@ -1377,9 +1558,14 @@ on_diplomatic_play_started = {
 # Root = Character
 on_character_creation = {
 	effect = {
-		set_variable = {
-			name = memento_mori_immunity
-			years = 10
+		if = {
+			limit = {
+				NOT = { has_variable = memento_mori_immunity }
+			}
+			set_variable = {
+				name = memento_mori_immunity
+				years = 10
+			}
 		}
 		if = {
 			limit = {
@@ -1779,15 +1965,89 @@ on_treaty_entered_into_force = {
 }
 
 # Root = Treaty
+# Fires in addition to on_treaty_entered_into_force for treaties enforced by plays, etc
+on_treaty_enforced = {
+	effect = {
+		scope:first_country = {
+			create_diplomatic_catalyst = {
+				type = catalyst_treaty_enforced
+				target = scope:second_country
+			}
+		}
+	}
+}
+
+# Root = Treaty
 # scope:withdrawing_country = Withdrawing Country
 # scope:non_withdrawing_country = Non-Withdrawing Country
+# Fires when the binding period is not active
 on_country_withdrawn_from_treaty = {
 	effect = {
 		post_notification = country_withdrawn_from_treaty
 	}
 }
 
+# Root = Treaty
+# scope:withdrawing_country = Withdrawing Country
+# scope:non_withdrawing_country = Non-Withdrawing Country
+# Fires instead of on_country_withdrawn_from_treaty when the binding period is still active
+on_country_broke_treaty = {
+	effect = {
+		post_notification = country_broke_treaty
+
+		scope:withdrawing_country = {
+			create_diplomatic_catalyst = {
+				type = catalyst_treaty_broken
+				target = scope:non_withdrawing_country
+			}
+
+			add_modifier = {
+				name = modifier_untrustworthy_country
+				days = long_modifier_time
+				multiplier = {
+					value = 1
+					add = {
+						root = {
+							every_scope_article = {
+								if = {
+									limit = {
+										OR = {
+											has_type = alliance
+											has_type = state_transfer
+										}
+									}
+									add = 5
+								}
+								else_if = {
+									limit = {
+										OR = {
+											has_type = defensive_pact
+											has_type = treaty_port
+										}
+									}
+									add = 3
+								}
+								else_if = {
+									limit = {
+										OR = {
+											has_type = guarantee_independence
+											has_type = support_independence
+										}
+									}
+									add = 2
+								}
+							}
+						}
+					}
+					max = 20
+				}
+			}
+		}
+	}
+}
+
 # Root = Country
+# scope:second_country = Other country
 on_treaty_dissolved = {
 	effect = {
 		post_notification = treaty_dissolved
@@ -1989,6 +2249,9 @@ on_country_released_as_company_subject = {
 		activate_law = law_type:law_child_labor_allowed
 		activate_law = law_type:law_no_social_security
 		activate_law = law_type:law_migration_controls
+		add_modifier = {
+			name = colonial_administration
+		}
 	}
 }
 
@@ -3465,6 +3728,9 @@ on_revolution_start = {
 # Root = Country
 # scope:target = Uprising country
 on_revolution_end = {
+	effect = {
+
+	}
 }
 
 # Root = Country
@@ -4038,8 +4304,8 @@ on_civil_war_won = {
 on_revolution_checkpoint_reached = {
 	effect = {
 	}
-	random_events = { #all these now have cooldowns of 50 years, you normally only get around 5-8 per revolution. 
-		150 = 0 
+	random_events = { #all these now have cooldowns of 50 years, you normally only get around 5-8 per revolution.
+		150 = 0
 		20 = ig_revolutions.1
 		20 = ig_revolutions.2
 		20 = ig_revolutions.3
@@ -4447,7 +4713,7 @@ on_secession_country_helped_by_home_country = {
 	}
 }
 
-# Root = Home Countr
+# Root = Home Country
 # scope:target = Secession country
 on_secession_country_not_helped_by_home_country = {
 	effect = {
