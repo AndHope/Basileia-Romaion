@@ -682,6 +682,100 @@
         }
     }
 
+    ceo_talaat_harb_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_fez
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                has_dlc_feature = mp1_cosmetics
+                scope:character ?= {
+                     AND = {
+                        has_template = EGY_talaat_harb
+                        has_role = executive
+                    }
+                }
+            }
+        }
+    }
+
+    ceo_isambard_kingdom_brunel_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = european_executive_hats
+                range = { 0 0.5 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                has_dlc_feature = mp1_cosmetics
+                scope:character ?= {
+                    AND = {
+                        has_template = GBR_isambard_kingdom_brunel
+                        has_role = executive
+                    }
+                }
+            }
+        }
+    }
+
+    HBC_george_simpson_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = no_headgear
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                scope:character ?= {
+                    AND = {
+                        has_template = HBC_george_simpson
+                        has_role = executive
+                    }
+                }
+            }
+        }
+    }
+
+    BIC_george_eden_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = no_headgear
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 90000
+                scope:character ?= {
+                    AND = {
+                        has_template = BIC_george_eden
+                        has_role = executive
+                    }
+                }
+            }
+        }
+    }
+
 ### END OF HISTORICAL CLOTHING ###
 
     chinese_imperial_headgear = {
@@ -954,6 +1048,7 @@
                             OR = {  # A monarch shouldn't wear this, but a republican ruler can
                                 AND = {
                                     is_ruler = no
+                                    is_heir = no
                                     home_country ?= {
                                         has_law = law_type:law_monarchy
                                     }
@@ -1018,6 +1113,7 @@
                             OR = {  # A monarch shouldn't wear this, but a republican ruler can
                                 AND = {
                                     is_ruler = no
+                                    is_heir = no
                                     home_country ?= {
                                         has_law = law_type:law_monarchy
                                     }
@@ -1577,7 +1673,7 @@
                 mode = add
                 gene = headgear
                 template = russian_military_headgear
-                range = { 0 1 }
+                range = { 0 0.65 } # Excludes male_headgear_european_military_03_late_russian
             }
         }
         weight = {
@@ -2361,6 +2457,7 @@
                                 has_role = admiral
                             }
                             is_ruler = no
+                            is_heir = no
                         }
                         has_template = usa_lincoln_character_template
                     }
@@ -2827,7 +2924,7 @@
         weight = {
             base = 0
             modifier = {
-                add = 1000
+                add = 80008
                 scope:character ?= {
                     OR = {
                         culture = cu:tatar
