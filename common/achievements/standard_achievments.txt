@@ -8,10 +8,13 @@ peccavi = {
     happened = {
         owns_entire_state_region = STATE_SINDH
         owns_entire_state_region = STATE_PUNJAB
+        hidden_trigger = {
+            has_variable = peccavi_ach_possible
+        }
     }
 }
 
-perkeletankki = { 
+perkeletankki = {
     possible = {
         has_variable = perkeletankki_ach_possible
     }
@@ -22,11 +25,12 @@ perkeletankki = {
                     market_goods_production >= 100
                 }
             }
+            has_variable = perkeletankki_ach_possible
         }
     }
 }
 
-luxurious_luxembourg = { 
+luxurious_luxembourg = {
     possible = {
         has_variable = luxurious_luxembourg_ach_possible
     }
@@ -34,6 +38,9 @@ luxurious_luxembourg = {
         leading_producer_of = g:luxury_clothes
         leading_producer_of = g:luxury_furniture
         leading_producer_of = g:porcelain
+        hidden_trigger = {
+            has_variable = luxurious_luxembourg_ach_possible
+        }
     }
 }
 
@@ -54,6 +61,9 @@ muhammed_alis_ambition = {
     happened = {
         c:ARA ?= this
         owns_entire_state_region = STATE_EASTERN_THRACE
+        hidden_trigger = {
+            has_variable = muhammed_alis_ambition_ach_possible
+        }
     }
 }
 
@@ -66,6 +76,7 @@ an_empire_under_the_pun = {
             c:GBR ?= {
                 is_subject_of = ROOT
             }
+            has_variable = an_empire_under_the_pun_ach_possible
         }
     }
 }
@@ -131,6 +142,9 @@ the_western_protectorate = {
                 iberian_treaty_ports = yes
             }
         }
+        hidden_trigger = {
+            has_variable = the_western_protectorate_ach_possible
+        }
     }
 }
 
@@ -152,6 +166,9 @@ barbarys_back = {
     happened = {
         owns_entire_state_region = STATE_ALGIERS
         country_rank >= rank_value:major_power
+        hidden_trigger = {
+            has_variable = barbarys_back_ach_possible
+        }
     }
 }
 
@@ -161,6 +178,7 @@ miners_and_minors = {
     }
     happened = {
         hidden_trigger = {
+            has_variable = miners_and_minors_ach_possible
             owns_entire_state_region = STATE_EAST_BORNEO
             any_scope_state = {
                 state_region = s:STATE_EAST_BORNEO
@@ -204,13 +222,13 @@ habsburg_resurgence = {
         hidden_trigger = {
             owns_entire_state_region = STATE_SILESIA
             or = {
-                NOT = { 
+                NOT = {
                     c:PRU = {
                         is_country_alive = yes
                     }
                 }
-                c:PRU = { 
-                    country_rank < rank_value:major_power 
+                c:PRU = {
+                    country_rank < rank_value:major_power
                 }
             }
         }
@@ -223,6 +241,7 @@ great_game = {
     }
     happened = {
         hidden_trigger = {
+            has_variable = great_game_ach_possible
             ROOT = {
                 owned_central_asia_region_states = yes
             }
@@ -283,10 +302,13 @@ american_territory = {
                 count <= 3
             }
         }
+        hidden_trigger = {
+            has_variable = american_territory_ach_possible
+        }
     }
 }
 
-broken_promises = { 
+broken_promises = {
     possible = {
         has_variable = broken_promises_ach_possible
     }
@@ -338,7 +360,7 @@ the_berlin_conference = {
         c:GER ?= this
         hidden_trigger = {
             any_scope_state = {
-                state_in_africa = yes
+                state_is_in_africa = yes
                 is_split_state = no
                 count >= 10
             }
@@ -354,6 +376,7 @@ belle_epoque = {
         hidden_trigger = {
             has_global_highest_gdp = yes
             has_global_highest_innovation = yes
+            has_variable = belle_epoque_ach_possible
         }
     }
 }
@@ -368,7 +391,7 @@ deeds_not_words = {
     }
 }
 
-first_flight = { 
+first_flight = {
     possible = {
     }
     happened = {
@@ -393,14 +416,14 @@ poor_huddled_masses = {
     }
     happened = {
         hidden_trigger = {
-            any_scope_state = { 
-                is_mass_migration_target = yes 
+            any_scope_state = {
+                is_mass_migration_target = yes
             }
         }
     }
 }
 
-billionare = { 
+billionare = {
     possible = {
     }
     happened = {
@@ -410,13 +433,14 @@ billionare = {
     }
 }
 
-serfs_up = { 
+serfs_up = {
     possible = {
         has_variable = serfs_up_ach_possible
     }
     happened = {
         hidden_trigger = {
             has_law = law_type:law_worker_protections
+            has_variable = serfs_up_ach_possible
         }
     }
 }
@@ -462,7 +486,7 @@ enlightened_despot = {
     }
     happened = {
         hidden_trigger = {
-            has_law = law_type:law_autocracy 
+            has_law = law_type:law_autocracy
             any_scope_state = {
                 percent = 1
                 is_production_method_active = {
@@ -502,6 +526,9 @@ reading_campaign = {
     }
     happened = {
         literacy_rate >= 0.95
+        hidden_trigger = {
+            has_variable = reading_campaign_ach_possible
+        }
     }
 }
 
@@ -534,7 +561,7 @@ institutional = {
                 }
                 institution_investment_level = {
                     institution = institution_workplace_safety
-                    value = 5 
+                    value = 5
                 }
                 institution_investment_level = {
                     institution = institution_schools
@@ -563,6 +590,7 @@ poppydock = {
                 level >= 8
             }
             market = {
+				# TODO PRCAL-38034 - change to look at country aggregated exports
                 mg:opium = {
                     market_goods_exports >= 2500
                 }
@@ -575,9 +603,9 @@ grander_colombia = {
     possible = {
         has_variable = grander_colombia_ach_possible
     }
-    happened = { 
-        c:TWT ?= this
-        c:TWT = {
+    happened = {
+        c:GCO ?= this
+        c:GCO = {
             custom_tooltip = {
                 text = own_all_gran_colombia_tt
                 owned_gran_colombia_region_states = yes
@@ -599,14 +627,14 @@ inventive = {
     }
     happened = {
         hidden_trigger = {
-            NOT = { 
-                has_researchable_technology = yes 
+            NOT = {
+                has_researchable_technology = yes
             }
         }
     }
 }
 
-educated = { 
+educated = {
     possible = {
         has_objective = objective_tutorial
     }
@@ -617,7 +645,7 @@ educated = {
     }
 }
 
-tycoon = { 
+tycoon = {
     possible = {
         has_objective = objective_economic_dominance
     }
