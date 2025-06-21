@@ -28,15 +28,17 @@ grefm_corinth_canal_survey_decision = {
 	}
 	
 	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { produced_bureaucracy > 500 }
+		value = 0
+		if = {
+			limit = { produced_bureaucracy > 500 }
 			add = 100
 		}
-		modifier = {
-			OR = {
-				is_diplomatic_play_committed_participant = yes
-				is_at_war = yes
+		if = {
+			limit = {
+				OR = {
+					is_diplomatic_play_committed_participant = yes
+					is_at_war = yes
+				}
 			}
 			add = -1000
 		}
@@ -73,15 +75,17 @@ grefm_lake_kopais_decision = {
 	}
 	
 	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { produced_bureaucracy > 500 }
+		value = 0
+		if = {
+			limit = { produced_bureaucracy > 500 }
 			add = 5
 		}
-		modifier = {
-			OR = {
-				is_diplomatic_play_committed_participant = yes
-				is_at_war = yes
+		if = {
+			limit = {
+				OR = {
+					is_diplomatic_play_committed_participant = yes
+					is_at_war = yes
+				}
 			}
 			add = -1000
 		}

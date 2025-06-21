@@ -1,0 +1,16 @@
+﻿# How to use "br_is_county_supporting_independence_scripted_trigger"
+# br_is_county_supporting_independence_scripted_trigger = {
+# 	INITIATOR_COUNTRY = scope:country
+# 	TARGET_COUNTRY = scope:country_2
+# }
+
+br_is_county_supporting_independence_scripted_trigger = {
+	$INITIATOR_COUNTRY$ = {
+		any_scope_treaty = {
+			binds = $TARGET_COUNTRY$
+			any_scope_article = {
+				has_type = support_independence
+			}
+		}
+	}
+}

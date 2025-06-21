@@ -19,7 +19,7 @@ sericulture = {
 enclosure = {
 	# Unlocks construction of Farms and Plantations
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/enclosure0.png"
 	category = production
 
 	ai_weight = {
@@ -30,7 +30,7 @@ enclosure = {
 br_tech_four_field_crop_rotation = {
 	# Placeholder for even older agriculture techs
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/four_field_crop_rotation.png"
 	category = production
 
 	modifier = {
@@ -50,7 +50,7 @@ br_tech_four_field_crop_rotation = {
 br_tech_new_world_crops = {
 	# https://en.wikipedia.org/wiki/New_World_crops
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/four_field_crop_rotation.png"
 	category = production
 
 	unlocking_technologies = {
@@ -65,7 +65,7 @@ br_tech_new_world_crops = {
 br_tech_plantation_system = {
 	# Unlock new Plantations
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/plantation_system.png"
 	category = production
 
 	unlocking_technologies = {
@@ -81,7 +81,7 @@ br_tech_seed_drill = {
 	# Should unlock new PMs for farms
 	# https://en.wikipedia.org/wiki/Seed_drill#
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/seed_drill.png"
 	category = production
 
 	modifier = {
@@ -103,7 +103,7 @@ br_tech_rotherham_plough = {
 	# https://en.wikipedia.org/wiki/Plough#Improved_designs
 	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/horse_drawn_machinery.png"
 	category = production
 
 	modifier = {
@@ -122,7 +122,7 @@ br_tech_rotherham_plough = {
 
 br_tech_selective_breeding = {
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/selective_breeding.png"
 	category = production
 
 	modifier = {
@@ -142,7 +142,7 @@ br_tech_selective_breeding = {
  
 br_tech_horse_drawn_machinery = {
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	texture = "gfx/interface/icons/invention_icons/horse_drawn_machinery.png"
 	category = production
 
 	modifier = {
@@ -161,7 +161,7 @@ br_tech_horse_drawn_machinery = {
 br_tech_artisan_manufacturing = {
 	# Placeholder for even older manufacturing techs
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	texture = "gfx/interface/icons/invention_icons/artisan_manufacturing.png"
 	category = production
 
 	ai_weight = {
@@ -173,7 +173,7 @@ br_tech_murano_glass = {
 	# Unlock leaded glass
 	# https://en.wikipedia.org/wiki/Venetian_glass
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
+	texture = "gfx/interface/icons/invention_icons/murano_glass.png"
 	category = production
 
 	modifier = {
@@ -303,6 +303,31 @@ br_tech_metallurgy = {
 
 	ai_weight = {
 		value = 1
+	}
+}
+
+br_tech_blast_furnaces = {
+	# unlocks steelworks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/steelworking.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_metallurgy
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
 	}
 }
 

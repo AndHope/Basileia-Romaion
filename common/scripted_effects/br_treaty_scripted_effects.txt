@@ -1,0 +1,105 @@
+﻿###
+### support_independence
+###
+# How to use "br_create_supporting_independence_treaty_scripted_effect"
+# br_create_supporting_independence_treaty_scripted_effect = {
+# 	INITIATOR_COUNTRY = scope:country
+# 	TARGET_COUNTRY = scope:country_2
+# 	DURATION = 25 #years
+# }
+
+br_create_supporting_independence_treaty_scripted_effect = {
+ 	create_treaty = {
+		first_country = $INITIATOR_COUNTRY$
+		second_country = $TARGET_COUNTRY$
+
+		is_draft = no
+		binding_period = { years = $DURATION$ }
+
+		articles_to_create = {
+			{ # support_independence
+				article = support_independence
+				source_country = $INITIATOR_COUNTRY$
+				target_country = $TARGET_COUNTRY$
+			}
+		}
+	}
+}
+
+br_create_mutual_supporting_independence_treaty_scripted_effect = {
+ 	create_treaty = {
+		first_country = $INITIATOR_COUNTRY$
+		second_country = $TARGET_COUNTRY$
+
+		is_draft = no
+		binding_period = { years = $DURATION$ }
+
+		articles_to_create = {
+			{ # support_independence
+				article = support_independence
+				source_country = $INITIATOR_COUNTRY$
+				target_country = $TARGET_COUNTRY$
+			}
+			{ # support_independence
+				article = support_independence
+				source_country = $TARGET_COUNTRY$
+				target_country = $INITIATOR_COUNTRY$
+			}
+		}
+	}
+}
+
+
+###
+### foreign_investment_rights
+###
+
+br_create_mutual_investment_rights_treaty_scripted_effect = {
+ 	create_treaty = {
+		first_country = $INITIATOR_COUNTRY$
+		second_country = $TARGET_COUNTRY$
+
+		is_draft = no
+		binding_period = { years = $DURATION$ }
+
+		articles_to_create = {
+			{ # foreign_investment_rights
+				article = foreign_investment_rights
+				source_country = $INITIATOR_COUNTRY$
+				target_country = $TARGET_COUNTRY$
+			}
+			{ # foreign_investment_rights
+				article = foreign_investment_rights
+				source_country = $TARGET_COUNTRY$
+				target_country = $INITIATOR_COUNTRY$
+			}
+		}
+	}
+}
+
+br_create_grant_investment_rights_treaty_scripted_effect = {
+ 	create_treaty = {
+		first_country = $INITIATOR_COUNTRY$
+		second_country = $TARGET_COUNTRY$
+
+		is_draft = no
+		binding_period = { years = $DURATION$ }
+
+		articles_to_create = {
+			{ # foreign_investment_rights
+				article = foreign_investment_rights
+				source_country = $INITIATOR_COUNTRY$
+				target_country = $TARGET_COUNTRY$
+			}
+		}
+	}
+}
+
+br_create_recieve_investment_rights_treaty_scripted_effect = {
+	#inverted grant_investment_rights
+ 	br_create_grant_investment_rights_treaty_scripted_effect = {
+		INITIATOR_COUNTRY = $TARGET_COUNTRY$
+		TARGET_COUNTRY = $INITIATOR_COUNTRY$
+		DURATION = $DURATION$
+	}
+}

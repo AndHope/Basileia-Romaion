@@ -45,15 +45,17 @@
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { bureaucracy > 0 }
+		value = 0
+		if = {
+			limit = { bureaucracy > 0 }
 			add = 5
 		}
-		modifier = {
-			OR = {
-				is_diplomatic_play_committed_participant = yes
-				is_at_war = yes
+		if = {
+			limit = {
+				OR = {
+					is_diplomatic_play_committed_participant = yes
+					is_at_war = yes
+				}
 			}
 			add = -1000
 		}		
@@ -154,7 +156,7 @@
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 # }
 
@@ -230,7 +232,7 @@
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 # }
 
@@ -314,7 +316,7 @@
 # 	}
 
 # 	ai_chance = {
-# 		base = 25
+# 		value = 25
 # 	}
 # }
 
@@ -354,7 +356,7 @@ acknowledge_roman_orthodox_supremacy = {
 		}
 	}
 	ai_chance = {
-		base = 1
+		value = 1
 	}
 }
 
@@ -380,7 +382,7 @@ declare_patriarch_independence = {
 		}
 	}
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -463,7 +465,7 @@ declare_patriarch_independence = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 
 # }
@@ -549,7 +551,7 @@ declare_patriarch_independence = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 
 # }
@@ -651,7 +653,7 @@ declare_patriarch_independence = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 # }
 
@@ -750,7 +752,7 @@ declare_patriarch_independence = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 # }
 
@@ -855,7 +857,7 @@ declare_patriarch_independence = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 # }
 
@@ -957,7 +959,7 @@ declare_patriarch_independence = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 # }
 
@@ -967,7 +969,7 @@ declare_patriarch_independence = {
 
 #########################################################################################################################################################################################################
 ## How to add a new religion to the br_generic_religion_swap_decision ##
-#to add a new religion to the Generic religion swap create a new 'country_can_convert_to_religion' in 'br_religion_swap_triggers' and add it to the 'br_country_can_convert_to_given_religion' trigger,
+#to add a new religion to the Generic religion swap create a new 'country_can_convert_to_religion' in 'br_religion_swap_triggers' and add it to the 'br_country_can_convert_to_given_religion' limit,
 #then copy the template below ('br_generic_religion_swap_decision') and change new_religion to the religion you want the decision to swap to (ex new_religion -> br_religion_norse).
 
 #Optionaly if you want you can then add further extra triggers in is_shown or possible
@@ -998,7 +1000,7 @@ declare_patriarch_independence = {
 
 # 	#set the ai_chance to what you want it to be
 # 	ai_chance = {
-# 		base = 0
+# 		value = 0
 # 	}
 # }
 
@@ -1021,7 +1023,7 @@ br_norse_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1055,7 +1057,7 @@ br_hellenic_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1085,7 +1087,7 @@ br_orthodox_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1114,7 +1116,7 @@ br_elysian_orthodox_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 25
+		value = 25
 	}
 }
 
@@ -1135,7 +1137,7 @@ br_zoroastrianism_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1156,7 +1158,7 @@ br_shitte_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1177,7 +1179,7 @@ br_baltic_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1198,7 +1200,7 @@ br_slavic_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1219,7 +1221,7 @@ br_tengri_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1240,7 +1242,7 @@ br_celtic_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1261,7 +1263,7 @@ br_finno_ugric_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1282,7 +1284,7 @@ br_akom_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -1303,6 +1305,6 @@ br_fetishist_religion_swap_decision = {
 	}
 
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
