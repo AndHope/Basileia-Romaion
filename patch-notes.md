@@ -1,5 +1,18 @@
 ####id 2880120246
 
+# Update 136
+
+- Fixed an issue where navies were not applying blockade.
+
+- Rebalanced the Economic Dependence debuff to improve gameplay pacing and reduce harshness in managing subjects.
+
+- Merged several decentralized nations to reduce country count and avoid hitting the new 1.9 data structure cap
+	- This means we didn't need to merge all of Africa
+	- However, we may introduce a game rule in the future that allows full Africa merging as an option.
+
+- fixed random bugs
+
+
 
 # Update 132 Patch Notes
 
