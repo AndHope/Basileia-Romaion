@@ -45,10 +45,11 @@ princely_league_invitation.1 = {
 			# add_declared_interest = region_south_germany
 			# add_declared_interest = region_iberia
 
-			#create the support_independence diplo pact with the league leader
-			create_diplomatic_pact = {
-				country = scope:league_leader
-				type = support_independence
+			#create the support_independence treaty with the league leader
+			br_create_mutual_supporting_independence_treaty_scripted_effect = {
+				INITIATOR_COUNTRY = scope:league_leader
+				TARGET_COUNTRY = this
+				DURATION = 25 #years
 			}
 
 			#set the ai strategy to seak independence
@@ -72,12 +73,6 @@ princely_league_invitation.1 = {
 					country = root
 					months = 36
 				} 
-			}
-		}
-		scope:league_leader = {
-			create_diplomatic_pact = {
-				country = root
-				type = support_independence
 			}
 		}
 		ai_chance = {
