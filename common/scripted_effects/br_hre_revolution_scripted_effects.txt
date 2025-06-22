@@ -1,0 +1,121 @@
+﻿
+
+br_revolution_errupts_scripted_effect = {
+	#set a var so we know what estate has the highest disatisfaction
+	br_set_var_for_highest_estate_disatisfaction_values_scripted_effect = yes
+
+	# hidden_effect = {
+	# 	set_variable = br_revolution_complete_var #done in the event now
+	# }
+
+	#if first estate has highest disatisfaction
+	if = {
+		limit = {
+			has_variable = br_1de_estate_has_highest_disatisfaction_var
+		}
+		br_1de_estate_launches_revolution_scripted_effect = yes
+	}
+	#if second estate has highest disatisfaction
+	else_if = {
+		limit = {
+			has_variable = br_2de_estate_has_highest_disatisfaction_var
+		}
+		br_2de_estate_launches_revolution_scripted_effect = yes
+	}
+	#if first third has highest disatisfaction
+	else_if = {
+		limit = {
+			has_variable = br_3de_estate_has_highest_disatisfaction_var
+		}
+		br_3de_estate_launches_revolution_scripted_effect = yes
+	}
+	trigger_event = { id = hre_revolution_events.2 }
+
+	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+	show_as_tooltip = {
+		add_modifier = {
+			name = br_modifier_vive_la_revolution
+			years = -1
+		}
+		add_modifier = {
+			name = br_modifier_roman_republicanism
+			years = -1
+		}
+		remove_modifier = br_modifier_holy_roman_emperor
+		remove_modifier = br_modifier_noble_privileges
+		remove_modifier = br_modifier_feudalism
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting #or anarchy
+		activate_law = law_type:law_tenant_farmers
+	}
+}
+
+# br_save_estate_disatisfaction_values_in_list_scripted_effect = {
+# 	#clear list if it already exists
+# 	if = {
+# 		limit = {
+# 			has_local_variable_list = br_list_of_estate_disatisfaction_values
+# 		}
+# 		clear_local_variable_list = br_list_of_estate_disatisfaction_values
+# 	}
+
+# 	#can we get the value of a progress bar directly???
+# 	# je:je_hre_impending_revolution ={ #in the scope journal_entrie because custom_tooltip is at the country scope level
+# 	# 	set_variable = {
+# 	# 		name = test_var
+# 	# 		value = "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
+# 	# 	}
+# 	# }
+# }
+
+br_set_var_for_highest_estate_disatisfaction_values_scripted_effect = {
+	#remove the var's incase they already existed
+	remove_variable = br_1de_estate_has_highest_disatisfaction_var
+	remove_variable = br_1de_estate_has_highest_disatisfaction_var
+	remove_variable = br_1de_estate_has_highest_disatisfaction_var
+
+	if = {
+		limit = {
+			je:je_hre_impending_revolution ?= {
+				"scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
+				"scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
+			}
+		}
+		set_variable = br_1de_estate_has_highest_disatisfaction_var
+	}
+	else_if = {
+		limit = {
+			je:je_hre_impending_revolution ?= {
+				"scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
+				"scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
+			}
+		}
+		set_variable = br_2de_estate_has_highest_disatisfaction_var
+	}
+	else_if = {
+		limit = {
+			je:je_hre_impending_revolution ?= {
+				"scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)" >= "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
+				"scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)" >= "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
+			}
+		}
+		set_variable = br_3de_estate_has_highest_disatisfaction_var
+	}
+}
+
+
+###
+###Revolution is launched scripted effects
+###
+
+br_1de_estate_launches_revolution_scripted_effect = {
+	#TODO
+}
+
+br_2de_estate_launches_revolution_scripted_effect = {
+	#TODO
+}
+
+br_3de_estate_launches_revolution_scripted_effect = {
+	#TODO
+}

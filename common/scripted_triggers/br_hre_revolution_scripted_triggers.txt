@@ -1,0 +1,58 @@
+﻿# How to use "br_is_county_supporting_independence_scripted_trigger"
+# br_is_county_supporting_independence_scripted_trigger = {
+# 	INITIATOR_COUNTRY = scope:country
+# 	TARGET_COUNTRY = scope:country_2
+# }
+
+br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+	scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
+		scripted_bar_progress = {
+			name = $PROGRESS_BAR$
+			value >= $VALUE$
+		}
+	}
+}
+
+br_hre_has_max_revolution_progress_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_progress_bar
+			VALUE = 100
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max
+	}
+}
+
+br_has_max_1ste_estate_disatisfaction_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_1de_estate_progress_bar
+			VALUE = 100
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max #TODO
+	}
+}
+
+br_has_max_2ste_estate_disatisfaction_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_2de_estate_progress_bar
+			VALUE = 100
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max #TODO
+	}
+}
+
+br_has_max_3ste_estate_disatisfaction_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_3de_estate_progress_bar
+			VALUE = 100
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max #TODO
+	}
+}

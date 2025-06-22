@@ -101,6 +101,8 @@ je_hre_impending_revolution = {
 		}
 	}
 
+	custom_completion_header = br_je_hre_impending_revolution_completion_header
+
 	complete = {
 		custom_tooltip = {
 			text = finished_revolution_tt
@@ -122,6 +124,8 @@ je_hre_impending_revolution = {
 		}
 	}
 
+	custom_failure_header = br_je_hre_impending_revolution_failure_header
+
 	fail = {
 		OR = {
 			has_law = law_type:law_presidential_republic
@@ -129,63 +133,23 @@ je_hre_impending_revolution = {
 				text = if_journal_timeout_tt
 				has_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
 			}
-			custom_tooltip = {
-				scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
-					scripted_bar_progress = {
-						name = br_hre_impending_revolution_progress_bar
-						value >= 100	#50%
-					}
-				}
-				text = br_je_hre_impending_revolution_progress_reached_max
-			}
+
+			#The revolution progress has reached 100%
+			br_hre_has_max_revolution_progress_scripted_trigger = yes
 		}
 	}
 	
-	on_fail = {
-		# hidden_effect = {
-		# 	set_variable = br_revolution_complete_var #done in the event now
-		# }
-		trigger_event = { id = hre_revolution_events.2 }
+	# custom_on_failure_header = br_je_hre_impending_revolution_on_failure_header
 
-		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-		show_as_tooltip = {
-			add_modifier = {
-				name = br_modifier_vive_la_revolution
-				years = -1
-			}
-			add_modifier = {
-				name = br_modifier_roman_republicanism
-				years = -1
-			}
-			remove_modifier = br_modifier_holy_roman_emperor
-			remove_modifier = br_modifier_noble_privileges
-			remove_modifier = br_modifier_feudalism
-			activate_law = law_type:law_presidential_republic
-			activate_law = law_type:law_wealth_voting #or anarchy
-			activate_law = law_type:law_tenant_farmers
-		}
+	on_fail = {
+		br_revolution_errupts_scripted_effect = yes
 	}
 
 	timeout = 18250  #50 years
 
 	#on_timeout the revolution happens
 	on_timeout = {
-		# hidden_effect = {
-		# 	set_variable = br_revolution_complete_var
-		# }
-		trigger_event = { id = hre_revolution_events.2 }
-
-		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-		# show_as_tooltip = {
-		# 	add_modifier = {
-		# 		name = br_modifier_roman_republicanism
-		# 		years = -1
-		# 	}
-		# 	remove_modifier = br_modifier_noble_privileges
-		# 	activate_law = law_type:law_presidential_republic
-		# 	activate_law = law_type:law_wealth_voting #or anarchy
-		# 	activate_law = law_type:law_tenant_farmers
-		# }
+		br_revolution_errupts_scripted_effect = yes
 	}
 
 	weight = 10000
