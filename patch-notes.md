@@ -1,5 +1,29 @@
 ####id 2880120246
 
+# Update 137
+
+- companies and prestige goods
+	- reworked the companies
+	- added new textiles companies for Venice and ERE.
+	- added four new prestige goods; new luxury clothing prestige goods for the Venetian and Roman companies and also added a prestige silk for the Roman,Venice and Genoa trade companies.
+	- I gave all the other mod companies a generic prestige good for now.
+	- moved a lot of the company building types to extension buildings
+	- converted and resized all the company logos and added some new ones.
+
+- South American Decentralized merge
+	- nativized the names all meaning Culture tribes or Tribes of Culture except for Amazon because it seems there is no dominant language that I could find.
+
+- recolored the maps water to appear more blue less redish especially on the great empires map. Map generally should be a tiny bit brighter idk. 
+
+- fixed company HQs not showing up
+- updated some diplo pacts to treaties
+	- made scripted effects for the treaties, to avoid repetion
+- fixed tech bugs
+- Lots of other 1.9 bugs fixed
+
+
+
+
 # Update 136
 
 - Fixed an issue where navies were not applying blockade.
