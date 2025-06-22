@@ -3,19 +3,18 @@
 #Early conquest
 br_hun_annex_trs = {
 	is_shown = {
-		exists = c:HUN
 		exists = c:TRS
-		c:HUN = ROOT
-		c:TRS = {
+		c:HUN ?= this
+		c:TRS ?= {
 			is_player = no
 		}
-		c:WAL = {
+		c:WAL ?= {
 			is_player = no
 		}
-		c:MOL = {
+		c:MOL ?= {
 			is_player = no
 		}
-		c:HUN = {
+		c:HUN ?= {
 			is_player = no
 		}
 	}
@@ -23,7 +22,7 @@ br_hun_annex_trs = {
 	possible = {
 		is_at_war = no
 		is_subject = no
-		c:TRS = {
+		c:TRS ?= {
 			is_subject_of = ROOT
 			is_player = no
 		}
@@ -43,13 +42,12 @@ br_hun_annex_trs = {
 
 br_byz_easy_agy = {
 	is_shown = {
-		exists = c:br_aegypt
-		c:br_aegypt = ROOT
-		c:br_aegypt = {
+		c:br_aegypt ?= this
+		c:br_aegypt ?= {
 			is_player = no
 		}
 		NOT = {
-			c:br_aegypt = {
+			c:br_aegypt ?= {
 				is_subject_of = c:BYZ
 			}
 		}
@@ -63,7 +61,7 @@ br_byz_easy_agy = {
 			NOT = { has_variable = aegyptian_crisis_started }
 		}
 		NOT = {
-			c:br_aegypt = {
+			c:br_aegypt ?= {
 				is_subject_of = c:BYZ
 			}
 		}
@@ -100,8 +98,7 @@ br_hre_annex_franks = {
 	is_shown = {
 		and = {
 			exists = c:HES
-			exists = c:HRE
-			root = c:HRE
+			c:HRE ?= this
 			c:HRE = {
 				is_player = no
 			}
@@ -112,7 +109,7 @@ br_hre_annex_franks = {
 	possible = {
 		is_at_war = no
 		country_has_primary_culture = cu:frankish
-		c:HES = {
+		c:HES ?= {
 			is_player = no
 		}
 		OR = {
@@ -162,10 +159,9 @@ br_hre_annex_franks = {
 
 br_eet_annex_suakin = {
 	is_shown = {
-		exists = c:br_romaioi_india_company
 		exists = c:br_suakin
-		c:br_romaioi_india_company = ROOT
-		c:br_romaioi_india_company = {
+		c:br_romaioi_india_company ?= this
+		c:br_romaioi_india_company ?= {
 			is_player = no
 		}
 	}
@@ -213,26 +209,25 @@ br_eet_annex_suakin = {
 
 br_serb_chaos = {
 	is_shown = {
-		exists = c:SER
 		exists = c:SER2
-		c:SER = ROOT
-		c:SER = {
+		c:SER ?= this
+		c:SER ?= {
 			is_player = no
 		}
-		c:SER2 = {
+		c:SER2 ?= {
 			is_player = no
 		}
-		c:br_vidin = {
+		c:br_vidin ?= {
 			is_player = no
 		}
-		c:br_bulgaria = {
+		c:br_bulgaria ?= {
 			is_player = no
 		}
 	}
 
 	possible = {
 		is_at_war = no
-		c:SER = {
+		c:SER ?= {
 			is_player = no
 		}
 	}
@@ -244,13 +239,13 @@ br_serb_chaos = {
 			#add_target_backers = { c:BOS }
 			target_state = s:STATE_SOUTHERN_SERBIA.region_state:SER2
 		}
-		c:CRO = {
+		c:CRO ?= {
 			trigger_event = {
 				id = balkan_kerfuffle.3
 				days = 5
 			}
 		}
-		c:br_bulgaria = {
+		c:br_bulgaria ?= {
 			trigger_event = {
 				id = balkan_kerfuffle.1
 				days = 5
@@ -286,13 +281,12 @@ br_serb_chaos = {
 
 br_india_chaos = {
 	is_shown = {
-		exists = c:MUG
 		exists = c:MHR
-		c:MUG = ROOT
-		c:MUG = {
+		c:MUG ?= this
+		c:MUG ?= {
 			is_player = no
 		}
-		c:MHR = {
+		c:MHR ?= {
 			is_player = no
 		}
 		hidden_trigger = {
@@ -302,7 +296,7 @@ br_india_chaos = {
 
 	possible = {
 		is_at_war = no
-		c:MUG = {
+		c:MUG ?= {
 			is_player = no
 		}
 		hidden_trigger = {
@@ -315,12 +309,12 @@ br_india_chaos = {
 			name = india_kerfuffle_started
 			value = yes
 		}
-		c:MUG = {
+		c:MUG ?= {
 			trigger_event = {
 				id = br_india_kerfuffle.1
 			}
 		}
-		c:br_romaioi_india_company = {
+		c:br_romaioi_india_company ?= {
 			trigger_event = {
 				id = br_india_kerfuffle.2
 				days = 25
@@ -352,17 +346,16 @@ br_india_chaos = {
 #AI Will target Italian AI New World/African Holdings
 br_anl_annex_west_africa_01 = {
 	is_shown = {
-		exists = c:ANL
 		exists = c:br_venice_africa_company
-		c:ANL = ROOT
-		c:VEN = {
+		c:ANL ?= this
+		c:VEN ?= {
 			is_player = no
 		}
-		c:br_venice_africa_company = {
+		c:br_venice_africa_company ?= {
 			is_player = no
 			is_subject_of = c:VEN
 		}
-		c:ANL = {
+		c:ANL ?= {
 			is_player = no
 		}
 		NOT = { has_variable = ai_annex_venice_africa_started }
@@ -371,7 +364,7 @@ br_anl_annex_west_africa_01 = {
 	possible = {
 		is_at_war = no
 		is_subject = no
-		c:br_venice_africa_company = {
+		c:br_venice_africa_company ?= {
 			is_player = no
 			is_subject_of = c:VEN
 		}
@@ -389,7 +382,7 @@ br_anl_annex_west_africa_01 = {
 			#add_initiator_backers = { c: }
 			target_state = s:STATE_SIERRA_LEONE.region_state:br_venice_africa_company
 		}
-		c:br_venice_africa_company = {
+		c:br_venice_africa_company ?= {
 			every_scope_state = {
 				limit = {
 					owner = c:br_venice_africa_company
@@ -431,17 +424,16 @@ br_anl_annex_west_africa_01 = {
 
 br_anl_annex_west_africa_02 = {
 	is_shown = {
-		exists = c:ANL
 		exists = c:br_genonese_africa_company
-		c:ANL = ROOT
-		c:br_genoa = {
+		c:ANL ?= this
+		c:br_genoa ?= {
 			is_player = no
 		}
-		c:br_genonese_africa_company = {
+		c:br_genonese_africa_company ?= {
 			is_player = no
 			is_subject_of = c:br_genoa
 		}
-		c:ANL = {
+		c:ANL ?= {
 			is_player = no
 		}
 		NOT = { has_variable = ai_annex_genoa_africa_started }
@@ -451,7 +443,7 @@ br_anl_annex_west_africa_02 = {
 		NOT = { has_variable = ai_annex_genoa_africa_started }
 		is_at_war = no
 		is_subject = no
-		c:br_genonese_africa_company = {
+		c:br_genonese_africa_company ?= {
 			is_player = no
 			is_subject_of = c:br_genoa
 		}
@@ -468,7 +460,7 @@ br_anl_annex_west_africa_02 = {
 			#add_initiator_backers = { c: }
 			target_state = s:STATE_SOUTH_CAMEROON.region_state:br_genonese_africa_company
 		}
-		c:br_genonese_africa_company = {
+		c:br_genonese_africa_company ?= {
 			every_scope_state = {
 				limit = {
 					owner = c:br_genonese_africa_company
@@ -510,17 +502,16 @@ br_anl_annex_west_africa_02 = {
 
 br_louisiane_annex_atlantis = {
 	is_shown = {
-		exists = c:br_louisiane
 		exists = c:br_atlantica
-		c:br_louisiane = ROOT
-		c:br_atlantica = {
+		c:br_louisiane ?= this
+		c:br_atlantica ?= {
 			is_player = no
 			is_subject_of = c:VEN
 			top_overlord = {
 				is_player = no
 			}
 		}
-		c:br_louisiane = {
+		c:br_louisiane ?= {
 			is_player = no
 			top_overlord = {
 				is_player = no
@@ -531,7 +522,7 @@ br_louisiane_annex_atlantis = {
 
 	possible = {
 		is_at_war = no
-		c:br_atlantica = {
+		c:br_atlantica ?= {
 			is_player = no
 			is_subject_of = c:VEN
 			top_overlord = {
@@ -552,7 +543,7 @@ br_louisiane_annex_atlantis = {
 			add_initiator_backers = { c:HRE }
 			target_state = s:STATE_CUBA.region_state:br_atlantica
 		}
-		c:br_atlantica = {
+		c:br_atlantica ?= {
 			every_scope_state = {
 				limit = {
 					owner = c:br_atlantica
@@ -594,17 +585,16 @@ br_louisiane_annex_atlantis = {
 
 br_dutch_indies_annex_giamaica = {
 	is_shown = {
-		exists = c:br_dutch_west_indies
 		exists = c:br_giamaica
-		c:br_dutch_west_indies = ROOT
-		c:br_giamaica = {
+		c:br_dutch_west_indies ?= this
+		c:br_giamaica ?= {
 			is_player = no
 			is_subject_of = c:br_genoa
 			top_overlord = {
 				is_player = no
 			}
 		}
-		c:br_dutch_west_indies = {
+		c:br_dutch_west_indies ?= {
 			is_player = no
 			top_overlord = {
 				is_player = no
@@ -617,7 +607,7 @@ br_dutch_indies_annex_giamaica = {
 		is_at_war = no
 		hidden_trigger = {
 			is_player = no
-			c:br_giamaica = {
+			c:br_giamaica ?= {
 				is_player = no
 				is_subject_of = c:br_genoa
 				top_overlord = {
@@ -639,7 +629,7 @@ br_dutch_indies_annex_giamaica = {
 			add_initiator_backers = { c:NET }
 			target_state = s:STATE_JAMAICA.region_state:br_giamaica
 		}
-		c:br_giamaica = {
+		c:br_giamaica ?= {
 			every_scope_state = {
 				limit = {
 					owner = c:br_giamaica
@@ -685,7 +675,7 @@ br_ai_owns_constantinople = {
 	is_shown = {
 		is_player = no
 		exists = c:BYZ
-		c:BYZ = {
+		c:BYZ ?= {
 			is_player = no
 		}
 		NOT = {
@@ -706,7 +696,7 @@ br_ai_owns_constantinople = {
 	possible = {
 		is_player = no
 		is_at_war = no
-		c:BYZ = {
+		c:BYZ ?= {
 			is_player = no
 		}
 		hidden_trigger = {
@@ -727,7 +717,7 @@ br_ai_owns_constantinople = {
 			}
 			set_state_owner = c:BYZ
 		}
-		c:BYZ = {
+		c:BYZ ?= {
 			set_capital = STATE_EASTERN_THRACE
 			set_owes_obligation_to = {
 				country = ROOT
@@ -760,7 +750,7 @@ br_ai_owns_venice = {
 	is_shown = {
 		is_player = no
 		exists = c:VEN
-		c:VEN = {
+		c:VEN ?= {
 			is_player = no
 		}
 		NOT = {
@@ -785,7 +775,7 @@ br_ai_owns_venice = {
 	possible = {
 		is_player = no
 		is_at_war = no
-		c:VEN = {
+		c:VEN ?= {
 			is_player = no
 		}
 		hidden_trigger = {
@@ -806,7 +796,7 @@ br_ai_owns_venice = {
 			}
 			set_state_owner = c:VEN
 		}
-		c:VEN = {
+		c:VEN ?= {
 			set_capital = STATE_VENETIA
 			set_owes_obligation_to = {
 				country = ROOT
@@ -843,7 +833,7 @@ br_ai_owns_genoa = {
 	is_shown = {
 		is_player = no
 		exists = c:br_genoa
-		c:br_genoa = {
+		c:br_genoa ?= {
 			is_player = no
 		}
 		NOT = {
@@ -867,7 +857,7 @@ br_ai_owns_genoa = {
 	possible = {
 		is_player = no
 		is_at_war = no
-		c:br_genoa = {
+		c:br_genoa ?= {
 			is_player = no
 		}
 		hidden_trigger = {
@@ -895,7 +885,7 @@ br_ai_owns_genoa = {
 				}
 			}
 		}
-		c:br_genoa = {
+		c:br_genoa ?= {
 			set_capital = STATE_PIEDMONT
 			set_owes_obligation_to = {
 				country = ROOT
