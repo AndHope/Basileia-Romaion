@@ -46,6 +46,7 @@
 	- Add unique frankish names
 	- Add Unique characters to the HRE and give them the right ideology
 	- Allow 3 kind of revolutions to happen one by each estate
+	- Add effects to the new modifiers
 
 ## General
 - Most of the mods flags and names are not set up in the flag definitions and country names files and do not change currently.

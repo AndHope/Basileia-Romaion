@@ -129,13 +129,54 @@ br_3de_estate_launches_revolution_scripted_effect = {
 ###
 
 #set the residece of the imperial family (it is expected to be a building)
-br_set_the_imperial_residence_scripted_effect = {
+br_set_the_imperial_residence_var_scripted_effect = {
 	set_variable = {
 		name = br_imperial_residence_var
 		value = $BUILDING$
 	}
 }
 
-br_remove_the_imperial_residence_scripted_effect = {
+br_remove_the_imperial_residence_var_scripted_effect = {
+	if = {
+		limit = {
+			has_variable = br_imperial_residence_var
+		}
+		var:br_imperial_residence_var = {
+			remove_modifier = br_modifier_imperial_residence
+		}
+	}
 	remove_variable = br_imperial_residence_var
 }
+
+#set the imperial residence initialy on palais de la cité
+br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
+	s:STATE_ILE_DE_FRANCE = {
+		every_scope_state = {
+			every_scope_building = {
+				if = {
+					limit = {
+						is_building_type = $BUILDING_TYPE$
+					}
+					save_scope_as = br_imperial_residence_scope
+					add_modifier = br_modifier_imperial_residence
+				}
+			}
+		}
+	}
+	#also save in a var
+	br_set_the_imperial_residence_var_scripted_effect = {
+		BUILDING = scope:br_imperial_residence_scope
+	}
+}
+
+br_var_test_scripted_effect = {
+	set_variable = {
+		name = $VAR_NAME$
+		value = $VAR_VALUE$
+	}
+}
+
+# br_var_test_scripted_effect = {
+# 	VAR_NAME = test_var
+# 	VAR_VALUE = root
+# }
