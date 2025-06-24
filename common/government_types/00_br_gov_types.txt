@@ -2,7 +2,10 @@
 	transfer_of_power = hereditary
 	
 	male_ruler = "RULER_TITLE_EXARCH"
-	female_ruler = "" # Empty on purpose
+	female_ruler = "RULER_TITLE_EXARCH" #Exarchissa
+
+	male_heir = "RULER_TITLE_BYZ_GOVERNOR"
+	female_heir = "RULER_TITLE_BYZ_GOVERNOR"
 	
 	possible = {
 		has_law = law_type:law_monarchy
@@ -28,7 +31,10 @@ gov_themata = {
 	transfer_of_power = hereditary
 	
 	male_ruler = "RULER_TITLE_STRATEGOS"
-	female_ruler = "" # Empty on purpose
+	female_ruler = "RULER_TITLE_STRATEGOS"
+
+	male_heir = "RULER_TITLE_BYZ_TOURMARCHES" 
+	female_heir = "RULER_TITLE_BYZ_TOURMARCHES"
 
 	
 	possible = {
@@ -55,7 +61,10 @@ gov_independent_themata = {
 	transfer_of_power = hereditary
 	
 	male_ruler = "RULER_TITLE_STRATEGOS"
-	female_ruler = "" # Empty on purpose
+	female_ruler = "RULER_TITLE_STRATEGOS"
+
+	male_heir = "RULER_TITLE_BYZ_TOURMARCHES" 
+	female_heir = "RULER_TITLE_BYZ_TOURMARCHES"
 
 	
 	possible = {
@@ -83,10 +92,10 @@ gov_independent_exarchate = {
 	transfer_of_power = hereditary
 
 	male_ruler = "RULER_TITLE_EXARCH"
-	female_ruler = "" # Empty on purpose
+	female_ruler = "RULER_TITLE_EXARCH" #Exarchissa 
 	
-	male_heir = "RULER_TITLE_PRINCE"
-	female_heir = "RULER_TITLE_PRINCESS"
+	male_heir = "RULER_TITLE_BYZ_GOVERNOR"
+	female_heir = "RULER_TITLE_BYZ_GOVERNOR"
 	
 	possible = {
 		has_law = law_type:law_monarchy
@@ -96,6 +105,8 @@ gov_independent_exarchate = {
 			country_tier = grand_principality
 		}
 		or = {
+			AND = { exists = c:br_anatolia c:br_anatolia = ROOT }
+			AND = { exists = c:br_pontos c:br_pontos = ROOT }
 			AND = { exists = c:br_aegypt c:br_aegypt = ROOT }
 			AND = { exists = c:br_afrika c:br_afrika = ROOT }
 			AND = { exists = c:br_albania c:br_albania = ROOT }
@@ -147,17 +158,13 @@ gov_byz_empire = {
 	male_ruler = "RULER_TITLE_BASILEUS"
 	female_ruler = "RULER_TITLE_BASILISSA"
 	
-	male_heir = "RULER_TITLE_PRINCE"
-	female_heir = "RULER_TITLE_PRINCESS"
+	male_heir = "RULER_TITLE_KAISER"
+	female_heir = "RULER_TITLE_KAISARISSA"
 	
 	possible = {
-		exists = c:BYZ
-		c:BYZ = ROOT
 		has_law = law_type:law_monarchy
-		or = {
-			AND = { exists = c:BYZ c:BYZ = ROOT }
-			AND = { exists = c:br_elysium c:br_elysium = ROOT }
-		}
+		country_has_voting_franchise = yes
+		c:BYZ ?= this
 	}
 
 	on_government_type_change = {
@@ -167,6 +174,30 @@ gov_byz_empire = {
 		post_change_to_hereditary = yes
 	}
 
+}
+
+gov_byzantine_empire_autocratic = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_BASILEUS_AUTOKRATOR"
+	female_ruler = "RULER_TITLE_BASILEIA_AUTOKRATEIRA"
+	
+	male_heir = "RULER_TITLE_KAISER"
+	female_heir = "RULER_TITLE_KAISARISSA"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		#has_law = law_type:law_autocracy
+		country_has_voting_franchise = no
+		c:BYZ ?= this
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_celestial_empire = {
@@ -202,15 +233,13 @@ gov_katepano = {
 	male_ruler = "RULER_TITLE_KATEPANO"
 	female_ruler = "RULER_TITLE_KATEPANO"
 	
-	male_heir = "" # Empty on purpose
-	female_heir = "" # Empty on purpose
+	male_heir = "RULER_TITLE_STRATEGOS" 
+	female_heir = "RULER_TITLE_STRATEGOS"
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		#has_law = law_type:law_autocracy 
 		country_tier = grand_principality
-		exists = c:SIC
-		c:SIC = ROOT
+		c:SIC ?= this
 	}
 
 	on_government_type_change = {

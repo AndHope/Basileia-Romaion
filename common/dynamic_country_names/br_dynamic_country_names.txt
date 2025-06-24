@@ -61,7 +61,6 @@ BYZ = {
 		priority = 1500
 		
 		trigger = {
-			
 			scope:actor ?= {
 				has_law = law_type:law_monarchy
 			}
@@ -71,11 +70,15 @@ BYZ = {
 		name = dyn_c_br_senate_republic
 		
 		is_main_tag_only = yes
-		priority = 1
+		priority = 1500
 		
 		trigger = {
 			coa_def_republic_flag_trigger = yes
 			scope:actor ?= {
+				OR = {
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
+				}
 				OR = {
 					has_law = law_type:law_oligarchy
 					has_law = law_type:law_landed_voting
@@ -88,11 +91,15 @@ BYZ = {
 		name = dyn_c_byzantine_republic
 		
 		is_main_tag_only = yes
-		priority = 1
+		priority = 1500
 		
 		trigger = {
 			coa_def_republic_flag_trigger = yes
 			scope:actor ?= {
+				OR = {
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
+				}
 				OR = {
 					NOT = { has_law = law_type:law_oligarchy }
 					NOT = { has_law = law_type:law_landed_voting }
@@ -106,7 +113,7 @@ BYZ = {
 		name = dyn_c_patriarchal_synod
 		
 		is_main_tag_only = yes
-		priority = 1
+		priority = 1500
 		
 		trigger = {
 			coa_def_theocracy_flag_trigger = yes
@@ -117,7 +124,7 @@ BYZ = {
 		name = dyn_c_byzantine_peoples_republic
 		
 		is_main_tag_only = yes
-		priority = 10000
+		priority = 15000
 		
 		trigger = {
 			OR = {
