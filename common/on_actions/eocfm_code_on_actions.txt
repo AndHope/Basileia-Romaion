@@ -16,6 +16,12 @@ on_wargoal_enforced = {
 	}
 }
 
+on_game_started_after_lobby = {
+	on_actions = {
+		eocfm_topbar_setup
+	}
+}
+
 ############
 
 eocfm_monthly_pulse = {
@@ -200,6 +206,25 @@ eocfm_wargoal_enforced_2 = { # From the target, in the case of crusade failure
 				id = eocfm.132 # Failed Crusade
 			}
 			eocfm_crusade_cleanup_effect = yes
+		}
+	}
+}
+
+############
+
+eocfm_topbar_setup = {
+	effect = {
+		add_com_topbar_element = {
+			element_name = eocfm_topbar_element_capacity
+		}
+		every_country = {
+			limit = {
+				eocfm_is_eastern_christian_trigger = yes
+			}
+			add_to_variable_list = {
+				name = com_topbar_second_line
+				target = scope:eocfm_topbar_element_capacity
+			}
 		}
 	}
 }
