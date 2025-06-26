@@ -257,7 +257,7 @@ company_ven_trade = {
 	
 	prosperity_modifier = {
 		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.5
+		state_trade_advantage_mult = 0.25
 	}
 
 	ai_weight = {
@@ -370,7 +370,7 @@ company_gen_trade = {
 	
 	prosperity_modifier = {
 		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.5
+		state_trade_advantage_mult = 0.25
 	}
 
 	ai_weight = {
@@ -483,7 +483,7 @@ company_net_trade = {
 	
 	prosperity_modifier = {
 		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.5
+		state_trade_advantage_mult = 0.25
 	}
 
 	ai_weight = {
@@ -534,7 +534,7 @@ company_fla_trade = {
 	
 	prosperity_modifier = {
 		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.5
+		state_trade_advantage_mult = 0.25
 	}
 
 	possible_prestige_goods = {
@@ -590,7 +590,7 @@ company_jap_trade = {
 	
 	prosperity_modifier = {
 		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.5
+		state_trade_advantage_mult = 0.25
 	}
 
 	possible_prestige_goods = {
@@ -648,7 +648,7 @@ company_oma_trade = {
 	
 	prosperity_modifier = {
 		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.5
+		state_trade_advantage_mult = 0.25
 	}
 
 	ai_weight = {
@@ -747,7 +747,7 @@ company_suez_company = {
 	
 	prosperity_modifier = {
 		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.5
+		state_trade_advantage_mult = 0.25
 		unit_convoy_requirements_mult = -0.25
 		country_tax_income_add = 5000 #was 50000
 	}
@@ -831,5 +831,59 @@ company_orient_express = {
 	
 	ai_weight = {
 		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Hansa
+
+company_hansa_trade = {
+	icon = "gfx/interface/icons/company_icons/hansa_trade.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_SCHLESWIG_HOLSTEIN }
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+	}
+
+	extension_building_types = {
+		building_food_industry
+		building_textile_mills
+		building_tooling_workshops
+		building_furniture_manufacturies
+		building_fishing_wharf
+		building_logging_camp
+	}
+
+	potential = {
+		country_has_primary_culture = cu:baltic_german
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_fish
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_SCHLESWIG_HOLSTEIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
 	}
 }
