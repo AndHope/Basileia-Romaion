@@ -93,13 +93,14 @@ je_hre_impending_revolution = {
 			if = {
 				limit = {
 					any_scope_pop = {
-						food_security <= 0.3
-						percent >= 0.5
+						food_security <= br_impending_revolution_food_security_threshold
+						percent >= br_impending_revolution_food_security_population_percentage_threshold
 					}
 					not = { has_variable = br_hre_impending_revolution_low_food_security_timeout_var }
 				}
 				trigger_event = {
 					id = hre_revolution_events.5
+					days = 10
 					popup = yes
 				}
 			}
