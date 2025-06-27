@@ -1,6 +1,67 @@
 ####id 2880120246
 
-# Update 138
+# 🛠️ Update 138 – Total Resource & Balance Redux
+
+## 🗺️ Resource Overhaul
+- All mined resources are now **discoverable** over time.
+  - Enabled `discoverable_resource` for **Iron**, **Lead**, **Coal**, and **Sulfur**.
+  - Players start with fewer known resources and uncover more throughout the game.
+- Slight increase to **arable land** in certain regions.
+- Boosted State Traits **hardwood production**:
+  - Focused hardwood use in states producing artillery, small arms, and military ships.
+  - Increased hardwood bonuses on state traits to encourage use over softwood.
+
+## 🛡️ New Content
+- **Hanseatic League**:
+  - Added as a formal **trade company**.
+
+## ⚖️ Balance Changes
+- **Artillery and Small Arms** output increased:
+  - Addresses global shortage driving AI bankruptcies.
+- **Frontier Colonization Law**:
+  - Aegypt and Afrika now start with `law_frontier_colonization` being enacted.
+- **Ownership Adjustments**:
+  - Updated ownership of several **ports** and **trade ports** for better balance.
+- **Market Access Debuff**:
+  - Applied `small_state_market_access_price_impact` to:
+    - Rainforests
+    - Mountain ranges
+    - Very remote regions
+
+## 🤝 Diplomacy & Treaties
+- **PLC (Poland-Lithuania)**:
+  -  Trade pact upgraded into Defensive pact to prevent early collapse.
+- **Muscovy–Roman Treaty**:
+  - Romans receive trade/investment rights in exchange for military support.
+- **ARM/GEO & WAL/MOL**:
+  - Updated pacts to include mutual trade rights.
+- **Ausurias–HRE Agreement**:
+  - Military assistance from HRE in return for trade and investment privileges.
+
+## 🏛️ Eastern Roman Empire Updates
+- **Government & Flags**:
+  - Added missing **communist flag**.
+  - Updated **government titles** for accuracy and flavor.
+- **Dynamic ERE Name Redux**:
+  - **Monarchy**: Main name added.
+  - **Republic (Upper-Class Voting)**: New Senate title added.
+  - Renamed all other government name variants.
+- **Palaiologos Reforms**:
+  - Fixed broken separatism journal in `br_palaiologos_reforms.txt`.
+
+## 🌍 South America
+- Updated `07_south_america.txt`:
+  - All Amazon rainforest states should now be properly affected by **malaria**.
+
+## 🏢 Companies & Prestige Goods
+- Fixed bugs and improved building logic in various company types.
+- Added two unique **luxury clothing** icons:
+  - One **gold-themed**
+  - One **purple-themed**
+
+## 🐛 Bug Fixes
+- **Modifier Duration (v1.9 Compliance)**:
+  - All `length_modifier_time` values now use **days**, not months, unless a numeric value is used.
 
 
 
