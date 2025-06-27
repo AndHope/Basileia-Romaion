@@ -186,7 +186,7 @@
 					building={
 						type="building_financial_district"
 						country="c:LOM"
-						levels=1
+						levels=2
 						region="STATE_LOMBARDY"
 					}
 				}
@@ -706,39 +706,12 @@
 				activate_production_methods={ "pm_sheep_farms" "pm_increased_horse_ranch" "pm_butchering_tools" "pm_standard_fences" "pm_unrefrigerated" }
 			}
 			create_building={
-				building="building_coal_mine"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:br_genoa"
-						levels=1
-						region="STATE_PIEDMONT"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_atmospheric_engine_pump_building_coal_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
-			}
-			create_building={
-				building="building_logging_camp"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:br_genoa"
-						levels=1
-						region="STATE_PIEDMONT"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
-			}
-			create_building={
 				building="building_arms_industry"
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_gen_arsenal
 						country="c:br_genoa"
 						levels=2
-						region="STATE_PIEDMONT"
 					}
 				}
 				subsidized=yes
@@ -755,6 +728,11 @@
 						region="STATE_PIEDMONT"
 					}
 					company={
+						type=company_gen_arsenal
+						country="c:br_genoa"
+						levels=1
+					}
+					company={
 						type=company_gen_trade
 						country="c:br_genoa"
 						levels=2
@@ -769,7 +747,7 @@
 					company={
 						type=company_gen_arsenal
 						country="c:br_genoa"
-						levels=2
+						levels=3
 					}
 				}
 				subsidized=yes
@@ -1095,6 +1073,18 @@
 				activate_production_methods={ "pm_advanced_tactics_training" }
 			}
 			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					company={
+						type=company_florence_bank
+						country="c:TUS"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
+			}
+			create_building={
 				building="building_logging_camp"
 				add_ownership={
 					building={
@@ -1146,7 +1136,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_wheat_farm"
@@ -1685,7 +1675,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -2152,7 +2142,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_lead_mine"
@@ -2252,7 +2242,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_wheat_farm"
@@ -2466,6 +2456,18 @@
 				}
 				reserves=1
 				activate_production_methods={ "default_building_vineyard_plantation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					company={
+						type=company_florence_bank
+						country="c:TUS"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -2740,7 +2742,7 @@
 					company={
 						type=company_florence_bank
 						country="c:TUS"
-						levels=1
+						levels=2
 					}
 				}
 				reserves=1
@@ -3238,11 +3240,10 @@
 			create_building={
 				building="building_arms_industry"
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_ven_arsenal
 						country="c:VEN"
 						levels=3
-						region="STATE_VENETIA"
 					}
 				}
 				subsidized=yes
@@ -3521,7 +3522,7 @@
 					building={
 						type="building_financial_district"
 						country="c:VEN"
-						levels=1
+						levels=4
 						region="STATE_VENETIA"
 					}
 				}
