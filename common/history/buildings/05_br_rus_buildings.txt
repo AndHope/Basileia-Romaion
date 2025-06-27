@@ -1050,7 +1050,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_simple_organization" }
 			}
 			create_building={
 				building="building_iron_mine"
@@ -1130,7 +1130,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_simple_organization" }
 			}	
 			create_building={
 				building="building_logging_camp"
@@ -1611,6 +1611,17 @@
 	s:STATE_GREATER_POLAND={
 		region_state:PLC={
 			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:PLC"
+						levels=4
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" }
+			}
+			create_building={
 				building="building_textile_mills"
 				add_ownership={
 					building={
@@ -1661,6 +1672,19 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_lead_mine"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:PLC"
+						levels=1
+						region="STATE_GREATER_POLAND"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_lead_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -2412,7 +2436,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_simple_organization" }
 			}
 			create_building={
 				building="building_fishing_wharf"
@@ -2535,11 +2559,11 @@
 				add_ownership={
 					country={
 						country="c:UBD"
-						levels=1
+						levels=2
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_simple_organization" }
 			}
 			create_building={
 				building="building_food_industry"
