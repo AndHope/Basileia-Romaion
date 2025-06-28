@@ -2,26 +2,57 @@
 
 # 🛠️ Update 138 – Total Resource & Balance Redux
 
-## 🗺️ Resource Overhaul
+## 🧾 General Improvements
+- **Treaty Fixes**: Corrected treaties that were reversed from their intended direction.
+- **Increased Tax Capacity** from administrative buildings.
+- **More Administrative Buildings in Asia**:
+  - China, Northern India, Java, and several Asian capitals now start with more admin buildings.
+- **Reorganized Administrative Buildings**:
+  - Most start with `simple organization`.
+  - Added additional admin buildings and **lead mines** where appropriate.
+- **Modded Trade**: Manually enforced more trade routes and interactions.
+
+## 🌍 Resource & Economy Overhaul
 - All mined resources are now **discoverable** over time.
   - Enabled `discoverable_resource` for **Iron**, **Lead**, **Coal**, and **Sulfur**.
   - Players start with fewer known resources and uncover more throughout the game.
-- Slight increase to **arable land** in certain regions.
-- Boosted State Traits **hardwood production**:
-  - Focused hardwood use in states producing artillery, small arms, and military ships.
-  - Increased hardwood bonuses on state traits to encourage use over softwood.
+- **Cotton Expansion**:
+  - Added more cotton to **India** and **Persia** to help with the global fabric shortage.
+- **Ownership Adjustments**:
+  - Modified ownership ratios of various buildings.
+  - Added additional **iron mines** to **Northern Europe**.
+  - Revised ownership of some **ports** and **trade ports** globally.
+- **Further Building Adjustments**:
+  - Increased numbers of **paper**, **tools**, **lead**, and **iron** buildings worldwide.
+  - **Holland** receives 100,000 new pops to offset major worker shortages.
+- **Generic River Trait**:
+  - Introduced a new **Generic River** state trait (applied to Bosnia for now).
+
+## 🪓 Production & Industry
+- **Hardwood Economy Focus**:
+  - States producing artillery, small arms, and military ships now emphasize hardwood usage.
+  - Increased hardwood bonuses on state traits to reduce AI reliance on softwood.
+- **Artillery and Small Arms** production increased to combat global shortages.
+
+## 🏛️ Government & Law Updates
+- **Frontier Colonization Law**:
+  - Aegypt and Afrika now start with `law_frontier_colonization` being enacted.
+- **Palaiologos Events**:
+  - BYZ AI will now choose the non-revolt option in the Themata decision event.
+- **Palaiologos Reforms**:
+  - Fixed broken separatism journal in `br_palaiologos_reforms.txt`.
+
+## 🏢 Companies & Prestige Goods
+- Fixed bugs and optimized building types across various companies.
+- Created two unique **luxury clothing** icons:
+  - One **gold-themed**
+  - One **purple-themed**
 
 ## 🛡️ New Content
 - **Hanseatic League**:
   - Added as a formal **trade company**.
 
-## ⚖️ Balance Changes
-- **Artillery and Small Arms** output increased:
-  - Addresses global shortage driving AI bankruptcies.
-- **Frontier Colonization Law**:
-  - Aegypt and Afrika now start with `law_frontier_colonization` being enacted.
-- **Ownership Adjustments**:
-  - Updated ownership of several **ports** and **trade ports** for better balance.
+## ⚖️ Balance & AI Behavior
 - **Market Access Debuff**:
   - Applied `small_state_market_access_price_impact` to:
     - Rainforests
@@ -30,40 +61,32 @@
 
 ## 🤝 Diplomacy & Treaties
 - **PLC (Poland-Lithuania)**:
-  -  Trade pact upgraded into Defensive pact to prevent early collapse.
+  - Trade pact upgraded into a **defensive pact** to prevent early-game collapse.
 - **Muscovy–Roman Treaty**:
-  - Romans receive trade/investment rights in exchange for military support.
+  - Romans gain trade/investment privileges in exchange for military support.
 - **ARM/GEO & WAL/MOL**:
-  - Updated pacts to include mutual trade rights.
+  - Pacts now include mutual **trade rights**.
 - **Ausurias–HRE Agreement**:
-  - Military assistance from HRE in return for trade and investment privileges.
+  - Military assistance from HRE in return for **trade and investment access**.
 
 ## 🏛️ Eastern Roman Empire Updates
-- **Government & Flags**:
+- **Flags & Governments**:
   - Added missing **communist flag**.
-  - Updated **government titles** for accuracy and flavor.
-- **Dynamic ERE Name Redux**:
+  - Updated government titles for greater historical/thematic accuracy.
+- **Dynamic ERE Names Redux**:
   - **Monarchy**: Main name added.
-  - **Republic (Upper-Class Voting)**: New Senate title added.
-  - Renamed all other government name variants.
-- **Palaiologos Reforms**:
-  - Fixed broken separatism journal in `br_palaiologos_reforms.txt`.
+  - **Republic (Upper-Class Voting)**: New **Senate** title added.
+  - Renamed all other government variants for consistency.
 
-## 🌍 South America
-- Updated `07_south_america.txt`:
-  - All Amazon rainforest states should now be properly affected by **malaria**.
-
-## 🏢 Companies & Prestige Goods
-- Fixed bugs and improved building logic in various company types.
-- Added two unique **luxury clothing** icons:
-  - One **gold-themed**
-  - One **purple-themed**
+## 🌎 Regional Fixes
+- **South America**:
+  - Updated `07_south_america.txt`: Amazonian states now properly affected by **malaria**.
 
 ## 🐛 Bug Fixes
 - **Modifier Duration (v1.9 Compliance)**:
-  - All `length_modifier_time` values now use **days**, not months, unless a numeric value is used.
+  - All `length_modifier_time` values now use **days**, not months, unless numerically specified.
 
-
+---
 
 # Update 137
 
