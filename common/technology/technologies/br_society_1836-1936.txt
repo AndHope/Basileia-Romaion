@@ -213,6 +213,7 @@ corporate_charters = {
 
 	modifier = {
 		country_max_companies_add = 1
+		country_free_charters_add = 2
 	}
 
 	unlocking_technologies = {
@@ -232,6 +233,7 @@ banking = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}
 
 	unlocking_technologies = {
@@ -329,7 +331,7 @@ stock_exchange = {
 	category = society
 
 	modifier = {
-		state_trade_capacity_mult = 0.25
+		state_trade_capacity_mult = 0.1
 		state_market_access_price_impact = 0.1
 	}
 
@@ -568,6 +570,39 @@ central_archives = {
 		centralization
 	}
 
+	on_researched = {
+		if = {
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_modernizer
+					}
+				}
+				OR = {
+					AND = {
+						OR = {
+							country_is_in_south_america = yes
+							country_is_in_central_america = yes
+						}
+						country_rank <= rank_value:major_power
+					}
+					is_country_type = colonial
+					is_country_type = unrecognized
+				}
+				NAND = {
+					has_law = law_type:law_protectionism
+					OR = {
+						has_law = law_type:law_interventionism
+						has_law = law_type:law_command_economy
+						has_law = law_type:law_laissez_faire
+					}
+					has_law = law_type:law_compulsory_primary_school
+				}
+			}
+			create_political_movement = { type = movement_modernizer }
+		}
+	}
+
 	ai_weight = {
 		value = 1.5 # Important in general
 	}
@@ -581,6 +616,7 @@ central_banking = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}
 
 	unlocking_technologies = {
@@ -728,7 +764,7 @@ labor_movement = {
 	on_researched = {
 		set_global_variable = labour_movement_researched
 	}
-	
+
 	ai_weight = {
 		value = 1
 
@@ -1111,6 +1147,7 @@ mutual_funds = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}
 
 	unlocking_technologies = {
@@ -1130,6 +1167,7 @@ investment_banks = {
 
 	modifier = {
 		country_max_companies_add = 1
+		country_free_charters_add = 1
 		state_urbanization_per_level_mult = -0.15
 	}
 
@@ -1349,6 +1387,7 @@ international_exchange_standards = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}
 
 	unlocking_technologies = {
@@ -1585,7 +1624,7 @@ paved_roads = {
 	texture = "gfx/interface/icons/invention_icons/paved_roads.dds"
 	category = society
 	should_update_map = yes # This technology adds paved roads to the map
-	
+
 	modifier = {
 		state_infrastructure_from_automobiles_consumption_add = 0.25
 		state_trade_capacity_mult = 0.25
