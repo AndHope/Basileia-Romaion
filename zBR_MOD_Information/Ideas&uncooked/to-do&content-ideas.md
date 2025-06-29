@@ -64,6 +64,7 @@
 	- Make Purple Born added to new rulers if they don't have it.
 	- House of the Dragon inspired Scenario With Aurelia and the more progressive elemenets in Greece Proper and a younger son in Anatolia with the conservatives and whichside you pick also gets Konstaintople. 
 	- civil war could use elements of usa event chain.
+	-update the ERE naming decisions so var's don't manually have to be added to the scripted effect.
 
 ### Armenia
 	- Create Armenia journals/events similar to the flanders content.
