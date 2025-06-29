@@ -15,10 +15,26 @@
  br_impending_revolution_to_many_redicals_loc: "more than #variable [GetPlayer.MakeScope.ScriptValue('br_impending_revolution_radicals_threshold_percentage')]%#! of the population are radicals."
  br_impending_revolution_to_many_loyalists_loc: "more than #variable [GetPlayer.MakeScope.ScriptValue('br_impending_revolution_radicals_threshold_percentage')]%#! of the population are radicals."
 
+ ##Script value breakdowns
+ grefm_value_from_voting: "From enacting #yellow Voting Rights#!"
+ grefm_value_from_completed_legacies: "From completed #bold Ottoman Legacy#! [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ grefm_value_from_turkeater_unleashed: "From #bold Releasing #greece Nikitaras#!#!"
+ grefm_value_from_royal_palace: "From #bold Building the Royal Palace#!"
+ grefm_value_from_no_voting: "From #bold not#! having any #yellow Voting Rights#!"
+ grefm_value_from_land_reform: "From not #bold Reforming Our Land Policy#!"
+ grefm_value_from_brigandage_completed: "From not #bold Controlling the Brigands#!"
+ grefm_value_from_civic_tradition: "From lacking a #bold Civic Tradition#!"
+ grefm_value_from_bavarian_auxiliaries: "From #bold Hosting the Bavarian Auxiliaries#!"
+ grefm_value_from_lacking_heir: "From #bold Lacking an Heir#!"
+ grefm_value_from_ruler_popularity: "From our [concept_ruler]'s [concept_popularity]"
+ grefm_value_from_liberal_movements: "From #bold Pro-Voting#! [concept_political_movement] [concept_activism]"
+
 
  ##journal entries
- je_hre_impending_revolution: "The Revolution"
- je_hre_impending_revolution_reason: "The situation in the HRE has grown desperate and the people have had enough. If we don’t do anything then the situation could get out of control and our 1000 year government could be overthrown. We will have to consider carefully how to deal with the situation, do we reform the state or do we choose to suppress these so-called revolutionaries. In case we fail to do anything the consequences could be disastrous.\n$TOOLTIP_DELIMITER$\n@information! When the revolution progress reaches 100% then the revolution will erupt. The revolution will be launched by the estate that has the highest disatisfaction."
+ je_hre_impending_revolution: "The Revolution Looms"
+ je_hre_impending_revolution_reason: "The situation in the HRE has grown desperate and the people have had enough. If we don’t do anything then the situation could get out of control and our 1000 year government could be overthrown. We will have to consider carefully how to deal with the situation, do we reform the state or do we choose to suppress these so-called revolutionaries. In case we fail to do anything the consequences could be disastrous.\n$TOOLTIP_DELIMITER$\n@information! When the revolution progress reaches #variable 100%#! then the revolution will erupt. The revolution will be launched by the estate that has the highest disatisfaction.\n$TOOLTIP_DELIMITER$\n$br_monarchy_popularity_loc$"
+ br_monarchy_popularity_loc: "Currently, the Emperor enjoys #bold #greece [ROOT.GetVariable('br_monarchy_popularity_var').GetValue]#!#! #bold Monarchy Popularity#!.\nThis is expected to change by #tooltippable;tooltip:[Country.GetTooltipTag],je_monarchy_popularity_main_breakdown [Country.MakeScope.ScriptValue('br_monarchy_popularity_change_value')|+=]#! next month."
+ je_monarchy_popularity_main_breakdown: "[Country.MakeScope.GetScriptValueDesc('br_monarchy_popularity_change_value')]\n$TOOLTIP_DELIMITER$\nMaximum value: [Country.MakeScope.ScriptValue('br_monarchy_popularity_max_value')|+=]\nMinimum value: [Country.MakeScope.ScriptValue('br_monarchy_popularity_min_value')|+=]"
  br_je_hre_impending_revolution_completion_header: "Will prevent #b Revolution#! if:\n"
  finished_revolution_tt: "We have dealt with the revolution in a manner of our choice."
  br_je_hre_impending_revolution_failure_header: "The #b Revolution#! will erupt if:\n"
@@ -61,7 +77,6 @@
 
  #Imperial Residence
  br_imperial_residence_building_loc: "[GetPlayer.MakeScope.GetVariable( 'br_imperial_residence_var' ).GetBuilding.GetName]"
- #  br_imperial_residence_building_loc: "[SCOPE.sBuilding('br_imperial_residence_scope').GetName]"
  br_concept_imperial_residence:1 "Imperial Residence"
  br_concept_imperial_residence:0 "Royal Residence"
  br_concept_imperial_residence_desc:1 "The $br_concept_imperial_residence$ is the location wheir the Imperial families lives, which is currently $br_imperial_residence_building_loc$."

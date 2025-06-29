@@ -55,6 +55,11 @@ je_hre_impending_revolution = {
 			value = 600
 		}
 
+		set_variable = {
+			name = br_monarchy_popularity_var
+			value = 0
+		}
+
 		#add revolution modifiers
 		add_modifier = {
 			name = br_modifier_unreliable_food_security
@@ -103,6 +108,12 @@ je_hre_impending_revolution = {
 					days = 10
 					popup = yes
 				}
+			}
+
+			#update monarchy popularity popularity 
+			change_variable = {
+				name = br_monarchy_popularity_var
+				add = br_monarchy_popularity_change_value
 			}
 		}
 	}
