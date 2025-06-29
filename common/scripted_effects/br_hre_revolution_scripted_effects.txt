@@ -144,8 +144,24 @@ br_remove_the_imperial_residence_var_scripted_effect = {
 		var:br_imperial_residence_var = {
 			remove_modifier = br_modifier_imperial_residence
 		}
+		remove_variable = br_imperial_residence_var
 	}
-	remove_variable = br_imperial_residence_var
+}
+
+br_set_imperial_residence_to_building_scripted_effect = {
+	#remove all effects form the prev residence
+	br_remove_the_imperial_residence_var_scripted_effect = yes
+	
+	$BUILDING$ = {
+		save_scope_as = br_imperial_residence_scope
+		add_modifier = br_modifier_imperial_residence
+	}
+	#also save in a var
+	root = {
+		br_set_the_imperial_residence_var_scripted_effect = {
+			BUILDING = scope:br_imperial_residence_scope
+		}
+	}
 }
 
 #set the imperial residence initialy on palais de la cité
@@ -157,15 +173,32 @@ br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
 					limit = {
 						is_building_type = $BUILDING_TYPE$
 					}
-					save_scope_as = br_imperial_residence_scope
-					add_modifier = br_modifier_imperial_residence
+					br_set_imperial_residence_to_building_scripted_effect = {
+						BUILDING = this
+					}
+				}
+			}
+		}
+	}
+}
+
+br_set_original_imperial_residence_scripted_effect = {
+	s:STATE_ILE_DE_FRANCE = {
+		every_scope_state = {
+			every_scope_building = {
+				if = {
+					limit = {
+						is_building_type = $BUILDING_TYPE$
+					}
+					save_scope_as = br_original_imperial_residence_scope
 				}
 			}
 		}
 	}
 	#also save in a var
-	br_set_the_imperial_residence_var_scripted_effect = {
-		BUILDING = scope:br_imperial_residence_scope
+	set_variable = {
+		name = br_original_imperial_residence_var
+		value = scope:br_original_imperial_residence_scope
 	}
 }
 
