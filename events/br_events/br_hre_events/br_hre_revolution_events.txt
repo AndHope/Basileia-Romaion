@@ -248,9 +248,11 @@ hre_revolution_events.201 = {
 hre_revolution_events.202 = {
 
 	type = country_event
+
+	gui_window = event_window_superevent_modern_full
 	
 	event_image = {
-		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -268,22 +270,33 @@ hre_revolution_events.202 = {
 
 	option = {
 		name = hre_revolution_events.202.a
-		default_option = yes
 
 		trigger_event = {
 			id = hre_revolution_events.203
 			popup = yes
 		}
 	}
+	option = {
+		name = hre_revolution_events.202.b
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.204
+			popup = yes
+		}
+	}
 }
 
-# If the Emperor lived in Versailles he and his familly are forced to move to palais de la cité in Paris (if the Emperor already lived there this event is skipped)
+# The emperor attempts to speak to the crowd
 hre_revolution_events.203 = {
 
 	type = country_event
 	
+	gui_window = event_window_superevent_modern_full
+
 	event_image = {
-		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+		# video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2"
+		video = "gfx/event_pictures/votp_agitator_speaking.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -303,25 +316,22 @@ hre_revolution_events.203 = {
 		name = hre_revolution_events.203.a
 		default_option = yes
 
-		#set the imperial residence initialy on palais de la cité
-		br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
-			BUILDING_TYPE = br_building_palais_de_la_cite
-		}
-
 		trigger_event = {
-			id = hre_revolution_events.204
+			id = hre_revolution_events.205
 			popup = yes
 		}
 	}
 }
 
-# Emperor is put under house arrest
+# The emperor orders the crowd dispersed
 hre_revolution_events.204 = {
 
 	type = country_event
 	
+	gui_window = event_window_superevent_modern_full
+
 	event_image = {
-		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+		video = "gfx/event_pictures/votp_cops_march.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -348,13 +358,15 @@ hre_revolution_events.204 = {
 	}
 }
 
-# A revolutionary council of the 3de estate conviens and drafts a constitution
+# If the Emperor lived in Versailles he and his familly are forced to move to palais de la cité in Paris (if the Emperor already lived there this event is skipped)
 hre_revolution_events.205 = {
 
 	type = country_event
 	
+	gui_window = event_window_superevent_modern_full
+
 	event_image = {
-		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+		video = "gfx/event_pictures/europenorthamerica_london_center.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -372,6 +384,81 @@ hre_revolution_events.205 = {
 
 	option = {
 		name = hre_revolution_events.205.a
+		default_option = yes
+
+		#set the imperial residence initialy on palais de la cité
+		br_set_imperial_residence_to_building_scripted_effect = {
+			BUILDING = var:br_original_imperial_residence_var
+		}
+
+		trigger_event = {
+			id = hre_revolution_events.206
+			popup = yes
+		}
+	}
+}
+
+# Emperor is put under house arrest
+hre_revolution_events.206 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_turkish_palace2.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	title = hre_revolution_events.206.t
+	desc = hre_revolution_events.206.d
+	flavor = hre_revolution_events.206.f
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.206.a
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.207
+			popup = yes
+		}
+	}
+}
+
+# A revolutionary council of the 3de estate conviens and drafts a constitution
+hre_revolution_events.207 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	title = hre_revolution_events.207.t
+	desc = hre_revolution_events.207.d
+	flavor = hre_revolution_events.207.f
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.207.a
 		default_option = yes
 	}
 }
