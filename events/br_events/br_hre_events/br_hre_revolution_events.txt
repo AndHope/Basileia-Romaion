@@ -316,9 +316,21 @@ hre_revolution_events.203 = {
 		name = hre_revolution_events.203.a
 		default_option = yes
 
-		trigger_event = {
-			id = hre_revolution_events.205
-			popup = yes
+		#set the current imperial residence to the original one if it wasn't the same already
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = no
+			}
+			trigger_event = {
+				id = hre_revolution_events.205
+				popup = yes
+			}
+		}
+		else = {
+			trigger_event = {
+				id = hre_revolution_events.206
+				popup = yes
+			}
 		}
 	}
 }
@@ -351,9 +363,21 @@ hre_revolution_events.204 = {
 		name = hre_revolution_events.204.a
 		default_option = yes
 
-		trigger_event = {
-			id = hre_revolution_events.205
-			popup = yes
+		#set the current imperial residence to the original one if it wasn't the same already
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = no
+			}
+			trigger_event = {
+				id = hre_revolution_events.205
+				popup = yes
+			}
+		}
+		else = {
+			trigger_event = {
+				id = hre_revolution_events.206
+				popup = yes
+			}
 		}
 	}
 }
@@ -386,9 +410,14 @@ hre_revolution_events.205 = {
 		name = hre_revolution_events.205.a
 		default_option = yes
 
-		#set the imperial residence initialy on palais de la cité
-		br_set_imperial_residence_to_building_scripted_effect = {
-			BUILDING = var:br_original_imperial_residence_var
+		#set the current imperial residence to the original one if it wasn't the same already
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = no
+			}
+			br_set_imperial_residence_to_building_scripted_effect = {
+				BUILDING = var:br_original_imperial_residence_var
+			}
 		}
 
 		trigger_event = {
