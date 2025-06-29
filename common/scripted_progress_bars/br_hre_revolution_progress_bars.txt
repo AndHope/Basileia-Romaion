@@ -32,19 +32,11 @@
 		}
 
 		
-		#population_below_expected_sol
-
-		# if = {
-		# 	limit = {
-		# 		any_scope_pop = {
-		# 			food_security >= 0.5
-		# 		}
-		# 	}
-		# 	trigger_event = {
-		# 		id = hre_revolution_events.5
-		# 		popup = yes
-		# 	}
-		# }
+		add = {
+			desc = "br_impending_revolution_monarchy_popularity_revolution_progress_change_loc"
+			value = var:br_monarchy_popularity_var
+			multiply = -1 #invert the sign because pos popularity has the decrease revolution progress
+		}
 		
 	}
  }
