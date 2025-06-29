@@ -1,12 +1,12 @@
 ﻿
-
+br_impending_revolution_complete_scripted_effect = {
+	hidden_effect = {
+		set_variable = br_impending_revolution_complete_var
+	}
+}
 br_revolution_errupts_scripted_effect = {
 	#set a var so we know what estate has the highest disatisfaction
 	br_set_var_for_highest_estate_disatisfaction_values_scripted_effect = yes
-
-	# hidden_effect = {
-	# 	set_variable = br_revolution_complete_var #done in the event now
-	# }
 
 	#if first estate has highest disatisfaction
 	if = {
@@ -48,6 +48,8 @@ br_revolution_errupts_scripted_effect = {
 		activate_law = law_type:law_wealth_voting #or anarchy
 		activate_law = law_type:law_tenant_farmers
 	}
+
+	br_impending_revolution_complete_scripted_effect = yes
 }
 
 # br_save_estate_disatisfaction_values_in_list_scripted_effect = {
@@ -150,7 +152,9 @@ br_remove_the_imperial_residence_var_scripted_effect = {
 
 br_set_imperial_residence_to_building_scripted_effect = {
 	#remove all effects form the prev residence
-	br_remove_the_imperial_residence_var_scripted_effect = yes
+	root = {
+		br_remove_the_imperial_residence_var_scripted_effect = yes
+	}
 	
 	$BUILDING$ = {
 		save_scope_as = br_imperial_residence_scope
