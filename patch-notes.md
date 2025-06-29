@@ -1,5 +1,33 @@
 ####id 2880120246
 
+# Update 139 So far.
+
+Treaties
+- Revamped various treaties from basic trade/foriegn investment rights to Treaty Port(In places where the Port was already owned by said tag)
+- Also added in some resource exchanges in treaties instead of trade rights.
+- Update 04_ere_treaties.txt, these treaties are meant to go in the opposite of the intended direction
+- removed foreign_investment_rights from all the starting treaties because they ai appears to hate giving and receiving it and more likely to cause cancelations
+
+Production Methods
+- Early Mining added as a new option for all mine types that doesn't require tools. Very good for markets that do not start with access to a good supply of tools but not efficient once tools are available.
+- Renamed Picks and Shovels to Improved Mining Tools
+- Locations with little to no tools given Early Mining to help with the Global tool shortage
+
+Admin Buildings
+- Made Nanjing Beijing and Delhi use pm_horizontal_drawer_cabinets to make their local paper factories profitable and get more taxes from these locations
+- added couple more admin buildings
+- Gave TWT more starting admin buildings due to near 100% tax waste, brings it down to 20% tax waste
+
+State traits
+Indochina forests
+- Indochina forest state trait made into a hardwood modifier
+- more natural harbours
+- Update 11_east_asia.txt, decreased japans starting resources a bit
+
+Bug fixes
+- Add various missing localizations
+- Update br_society_1836-1936.txt, fixed missing charters and other additions from the society tech
+
 # 🛠️ Update 138 – Total Resource & Balance Redux
 
 ## 🧾 General Improvements
