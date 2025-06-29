@@ -1,0 +1,68 @@
+﻿br_armenia_move_capital_to_karin = {
+	is_shown = {
+		c:ARM ?= ROOT
+		NOT = { has_variable = moved_capital_to_karin }
+		NOT = {
+			capital = { state_region = s:STATE_ERZURUM }
+		}
+	}
+
+	possible = {
+		c:ARM ?= ROOT
+		owns_entire_state_region = STATE_ERZURUM
+	}
+	when_taken = {
+		trigger_event = { id = br_armenia_capital.1 }
+
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}
+
+br_armenia_move_capital_to_ani = {
+	is_shown = {
+		c:ARM ?= ROOT
+		NOT = { has_variable = moved_capital_to_ani }
+		NOT = {
+			capital = { state_region = s:STATE_KARS }
+		}
+	}
+
+	possible = {
+		c:ARM ?= ROOT
+		owns_entire_state_region = STATE_KARS
+	}
+	when_taken = {
+		trigger_event = { id = br_armenia_capital.2 }
+
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}
+
+br_armenia_move_capital_to_yerevan = {
+	is_shown = {
+		c:ARM ?= ROOT
+		NOT = { has_variable = moved_capital_to_yerevan }
+		NOT = {
+			capital = { state_region = s:STATE_ARMENIA }
+		}
+	}
+
+	possible = {
+		c:ARM ?= ROOT
+		owns_entire_state_region = STATE_ARMENIA
+	}
+	when_taken = {
+		trigger_event = { id = br_armenia_capital.3 }
+
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}
