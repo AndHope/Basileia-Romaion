@@ -316,3 +316,64 @@ end_latin_privileges_AFK = {
 		value = 0
 	}
 }
+#Option for Aegypt to submit to Basileia Romaion in exchange for good relations and protection.
+aegypt_submit_to_konstantinople_decision = {
+	is_shown = {
+		c:br_aegypt ?= this
+		c:br_aegypt = {
+			is_subject = no
+		}
+	}
+
+	possible = {
+		c:br_aegypt ?= this
+		c:br_aegypt = {
+			is_subject = no
+		}
+	}
+
+	when_taken = {
+		c:BYZ = {
+			create_diplomatic_pact = {
+				country = c:br_aegypt
+				type = protectorate
+			}
+			create_diplomatic_pact = {
+				country = c:br_aegypt	
+				type = grant_own_market
+			}
+			change_relations = {
+				country = c:br_aegypt
+				value = 100
+			}
+			set_secret_goal = {
+				country = c:br_aegypt
+				secret_goal = protect
+			}
+			#trigger_event = { id = br_event.1 }
+		#	hidden_effect = {
+		#		if = {
+		#			limit = {
+		#				exists = c:br_syria
+		#			}
+		#		}
+		#		annex = c:br_syria
+		#	}
+		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:greek
+		}
+	}
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				c:BYZ ?= {
+					is_player = no
+				}
+			}
+			add = 100
+		}
+	}
+}

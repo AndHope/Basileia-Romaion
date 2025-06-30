@@ -808,3 +808,45 @@ end_latin_privileges_TAT= {
 		value = 0
 	}
 }
+
+claim_india_company_decision = {
+	is_shown = {
+		c:BYZ ?= this
+		c:br_aegypt ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_romaioi_india_company ?= {
+			is_subject_of = c:br_aegypt
+		}	
+	}
+
+	possible = {
+		c:BYZ ?= this
+		c:br_aegypt ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_romaioi_india_company ?= {
+			is_subject_of = c:br_aegypt
+		}
+	}
+
+	when_taken = {
+		c:BYZ = {
+			create_diplomatic_pact = {
+				country = c:br_romaioi_india_company
+				type = chartered_company
+			}
+			create_diplomatic_pact = {
+				country = c:br_romaioi_india_company	
+				type = grant_own_market
+			}
+			change_relations = {
+				country = c:br_aegypt
+				value = -50
+			}
+		}
+	}
+	ai_chance = {
+		value = 50
+	}
+}

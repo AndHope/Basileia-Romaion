@@ -148,11 +148,6 @@ aegyptian_crisis_events.2 = {
 					target_is = c:br_aegypt
 				}
 				add_target_backers = { c:VEN }
-				add_war_goal = {
-					holder = c:VEN
-					type = dp_default_treaty_article
-					target_country = c:BYZ
-				}
 			}
 		}
 	}
@@ -177,6 +172,11 @@ aegyptian_crisis_events.4 = {
 	duration = 3
 
 	immediate = {
+		if = {
+			limit = {
+				exists = c:br_syria
+			}
+		}
 		s:STATE_ALEPPO.region_state:br_syria = { set_state_owner = c:BYZ }
 		s:STATE_LEBANON.region_state:br_syria = { set_state_owner = c:br_aegypt }
 		s:STATE_PALESTINE.region_state:br_syria = { set_state_owner = c:br_aegypt }
