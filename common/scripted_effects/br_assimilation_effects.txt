@@ -14,7 +14,11 @@ br_convert_colonial_to_mother_cultures_effect = {
 				country_has_primary_culture = cu:greek
 				any_scope_state = {
 					is_incorporated = yes
-					state_is_in_europe = yes
+					state_region = { is_homeland = cu:greek }
+					OR = {
+						region = sr:region_balkans
+						region = sr:region_anatolia
+					}
 				}
 			}
 			every_scope_pop = {
@@ -37,7 +41,12 @@ br_convert_colonial_to_mother_cultures_effect = {
 				country_has_primary_culture = cu:french
 				any_scope_state = {
 					is_incorporated = yes
-					state_is_in_europe = yes
+					state_region = { is_homeland = cu:french }
+					OR = {
+						region = sr:region_france
+						region = sr:region_occitania
+						region = sr:region_rhine
+					}
 				}
 			}
 			every_scope_pop = {
@@ -89,6 +98,7 @@ br_convert_colonial_to_mother_cultures_effect = {
 				country_has_primary_culture = cu:japanese
 				any_scope_state = {
 					#is_incorporated = yes
+					has_claim_by = root
 					OR = {
 						state_is_in_east_asia = yes
 						state_is_in_southeast_asia = yes
