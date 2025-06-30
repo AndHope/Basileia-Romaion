@@ -38,40 +38,13 @@
 	}
 
 	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
-		}
-		highest_secession_progress < 0.75
+		highest_secession_progress < 0.5
 		NOT = {
 			any_scope_state = {
-				turmoil >= 0.5
+				turmoil >= 0.25
 			}
 		}
 	}
-
-	on_monthly_pulse = {
-		effect = {
-			if = {
-				limit = {
-					highest_secession_progress < 0.5
-				}
-				change_variable = {
-					name = aegyptian_homeland_var
-					add = 1
-				}
-			}
-		}
-	}
-
-	current_value = {
-		value = var:aegyptian_homeland_var
-	}
-
-	goal_add_value = {
-		add = 340
-	}
-
-	progressbar = yes
 
 	on_complete = {
 		s:STATE_TUNISIA ?= {
