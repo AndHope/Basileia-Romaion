@@ -60,7 +60,7 @@ je_hre_impending_revolution = {
 		br_set_original_imperial_residence_scripted_effect = {
 			BUILDING_TYPE = br_building_palais_de_la_cite
 		}
-		
+
 
 		trigger_event = { 
 			id = hre_revolution_events.1
@@ -88,6 +88,19 @@ je_hre_impending_revolution = {
 					id = hre_revolution_events.5
 					days = 10
 					popup = yes
+				}
+			}
+			else_if = {
+				limit = {
+					any_scope_state = {
+						turmoil >=  br_impending_revolution_bandit_turmoil_threshold
+						count >= br_impending_revolution_bandit_nr_states_threshold 
+					}
+					trigger_event = {
+						id = hre_revolution_events.6
+						days = 10
+						popup = yes
+					}
 				}
 			}
 

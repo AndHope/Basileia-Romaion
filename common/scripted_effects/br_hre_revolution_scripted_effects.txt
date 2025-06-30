@@ -1,4 +1,64 @@
-﻿
+﻿#Effects for the impending revolution JE
+
+###
+###Change revoluion progress scripted effects
+###
+br_change_in_revolutionary_progress_effect = {
+	je:je_hre_impending_revolution = {
+		add_progress = {
+			name = br_hre_impending_revolution_progress_bar
+			value = $value$
+		}
+	}
+}
+br_specific_change_in_revolutulionary_tension_effect = {
+	hidden_effect = {
+		br_change_in_revolutionary_progress_effect = {
+			value = $value$
+		}
+	}
+	if = {
+		limit = {
+			$value$ = br_small_increase_in_revolutulionary_tension_value
+		}
+		custom_tooltip = br_hre_small_increase_in_revolution_progress_tt
+	}
+	else_if = {
+		limit = {
+			$value$ = br_medium_increase_in_revolutulionary_tension_value
+		}
+		custom_tooltip = br_hre_medium_increase_in_revolution_progress_tt
+	}
+	else_if = {
+		limit = {
+			$value$ = br_large_increase_in_revolutulionary_tension_value
+		}
+		custom_tooltip = br_hre_large_increase_in_revolution_progress_tt
+	}
+	else = {
+		custom_tooltip = br_hre_unspecified_increase_in_revolution_progress_tt
+	}
+}
+
+br_small_increase_in_revolutulionary_tension_effect = {
+	br_specific_change_in_revolutulionary_tension_effect = {
+		value = br_small_increase_in_revolutulionary_tension_value
+	}
+}
+br_medium_increase_in_revolutulionary_tension_effect = {
+	br_specific_change_in_revolutulionary_tension_effect = {
+		value = br_medium_increase_in_revolutulionary_tension_value
+	}
+}
+br_large_increase_in_revolutulionary_tension_effect = {
+	br_specific_change_in_revolutulionary_tension_effect = {
+		value = br_large_increase_in_revolutulionary_tension_value
+	}
+}
+
+
+
+
 br_impending_revolution_complete_scripted_effect = {
 	hidden_effect = {
 		set_variable = br_impending_revolution_complete_var
