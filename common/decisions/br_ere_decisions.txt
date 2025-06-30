@@ -544,159 +544,108 @@ romaioi_expand_taurica_decision = {
 	}
 }
 
-
-#Not Byz Themata/Tagmata
-notbyz_themata_decision = {
+chariot_racing_decision = {
 	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
+		exists = c:BYZ
+		ROOT = c:BYZ
+		NOT = {
+			has_modifier = modifier_chariot_racing
 		}
-		OR = {
-			has_modifier = br_modifier_tagmata_primacy
-			has_modifier = br_modifier_corrupt_pronoia
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
 		}
-		NOT = { ROOT = c:BYZ }
 	}
-
+	
 	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
 		}
-		OR = {
-			has_law = law_type:law_tenant_farmers
-			has_law = law_type:law_homesteading
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
 		}
-		OR = {
-			has_modifier = br_modifier_tagmata_primacy
-			has_modifier = br_modifier_corrupt_pronoia
-		}
-		NOT = { has_modifier = romaioi_military_reorganization }
-		NOT = { ROOT = c:BYZ }
 	}
-
+	
 	when_taken = {
-		if = {
-			limit = {
-				has_modifier = br_modifier_corrupt_pronoia
-			}
-			remove_modifier = br_modifier_corrupt_pronoia
-			add_loyalists = {
-				pop_type = peasants
-				value = 0.15
-			}
-		}
-		if = {
-			limit = {
-				has_modifier = br_modifier_tagmata_primacy
-			}
-			remove_modifier = br_modifier_tagmata_primacy
-			ig:ig_armed_forces = {
-				add_modifier = {
-					name = br_modifier_ig_very_angry
-					days = normal_modifier_time
-				}
-			}
-			add_loyalists = {
-				pop_type = aristocrats
-				value = 0.35
-			}
-		}
-
+		add_treasury = -100000
 		add_modifier = {
-			name = br_modifier_themata_primacy
-			months = -1
+			name = modifier_chariot_racing
 		}
-
-		add_modifier = {
-			name = romaioi_military_reorganization
-			months = 36
-		}
-
-		add_loyalists = {
-			pop_type = farmers
-			value = very_large_radicals
+		custom_tooltip = {
+			text = chariot_racing_enabled_tt	
+			trigger_event = {
+				id = chariot_racing.1
+			}
 		}
 	}
-
 	ai_chance = {
 		value = 0
+		if = {
+			limit = { 
+				weekly_net_fixed_income > money_amount_multiplier_medium
+				gold_reserves > 0
+			}
+			add = 100
+		}
 	}
+
 }
 
-notbyz_tagmata_decision = {
+expand_chariot_racing_decision = {
 	is_shown = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
+		has_modifier = modifier_chariot_racing
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
 		}
-		OR = {
-			has_modifier = br_modifier_themata_primacy
-			has_modifier = br_modifier_reformed_pronoia
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
 		}
-		NOT = { ROOT = c:BYZ }
 	}
-
+	
 	possible = {
-		OR = {
-			country_has_primary_culture = cu:greek
-			country_has_primary_culture = cu:elysian
+		has_modifier = modifier_chariot_racing
+		has_technology_researched = organized_sports
+		any_scope_building = {
+			is_building_type = br_building_hippodrome
 		}
-		has_law = law_type:law_professional_army
-		OR = {
-			has_modifier = br_modifier_themata_primacy
-			has_modifier = br_modifier_reformed_pronoia
+		capital = {
+			is_production_method_active = {
+				building_type = br_building_hippodrome
+				production_method = br_pm_default_building_hippodrome
+			}
 		}
-		NOT = { has_modifier = romaioi_military_reorganization }
-		NOT = { ROOT = c:BYZ }
 	}
-
+	
 	when_taken = {
-		if = {
-			limit = {
-				has_modifier = br_modifier_reformed_pronoia
-			}
-			remove_modifier = br_modifier_reformed_pronoia
-			ig:ig_landowners = {
-				add_modifier = {
-					name = br_modifier_ig_very_angry
-					days = normal_modifier_time
-				}
+		add_treasury = -250000
+		show_as_tooltip = {
+			remove_modifier = modifier_chariot_racing
+			add_modifier = {
+				name = modifier_expanded_chariot_racing
 			}
 		}
-		if = {
-			limit = {
-				has_modifier = br_modifier_themata_primacy
-			}
-			remove_modifier = br_modifier_themata_primacy
+		trigger_event = {
+			id = chariot_racing.46
 		}
-
-		add_modifier = {
-			name = br_modifier_tagmata_primacy
-			months = -1
-		}
-
-		add_modifier = {
-			name = romaioi_military_reorganization
-			months = 36
-		}
-
-		add_loyalists = {
-			pop_type = officers
-			#culture = cu:greek
-			value = large_radicals
-		}
-
-		add_loyalists = {
-			pop_type = soldiers
-			#culture = cu:greek
-			value = large_radicals
-		}
-	}
+	}	
 
 	ai_chance = {
 		value = 0
+		if = {
+			limit = { 
+				weekly_net_fixed_income > money_amount_multiplier_medium
+				gold_reserves > 0
+			}
+			add = 100
+		}
 	}
 }
 
@@ -857,111 +806,5 @@ end_latin_privileges_TAT= {
 	}
 	ai_chance = {
 		value = 0
-	}
-}
-
-
-chariot_racing_decision = {
-	is_shown = {
-		exists = c:BYZ
-		ROOT = c:BYZ
-		NOT = {
-			has_modifier = modifier_chariot_racing
-		}
-		capital = {
-			is_production_method_active = {
-				building_type = br_building_hippodrome
-				production_method = br_pm_default_building_hippodrome
-			}
-		}
-	}
-	
-	possible = {
-		any_scope_building = {
-			is_building_type = br_building_hippodrome
-		}
-		capital = {
-			is_production_method_active = {
-				building_type = br_building_hippodrome
-				production_method = br_pm_default_building_hippodrome
-			}
-		}
-	}
-	
-	when_taken = {
-		add_treasury = -100000
-		add_modifier = {
-			name = modifier_chariot_racing
-		}
-		custom_tooltip = {
-			text = chariot_racing_enabled_tt	
-			trigger_event = {
-				id = chariot_racing.1
-			}
-		}
-	}
-	ai_chance = {
-		value = 0
-		if = {
-			limit = { 
-				weekly_net_fixed_income > money_amount_multiplier_medium
-				gold_reserves > 0
-			}
-			add = 100
-		}
-	}
-
-}
-
-expand_chariot_racing_decision = {
-	is_shown = {
-		has_modifier = modifier_chariot_racing
-		any_scope_building = {
-			is_building_type = br_building_hippodrome
-		}
-		capital = {
-			is_production_method_active = {
-				building_type = br_building_hippodrome
-				production_method = br_pm_default_building_hippodrome
-			}
-		}
-	}
-	
-	possible = {
-		has_modifier = modifier_chariot_racing
-		has_technology_researched = organized_sports
-		any_scope_building = {
-			is_building_type = br_building_hippodrome
-		}
-		capital = {
-			is_production_method_active = {
-				building_type = br_building_hippodrome
-				production_method = br_pm_default_building_hippodrome
-			}
-		}
-	}
-	
-	when_taken = {
-		add_treasury = -250000
-		show_as_tooltip = {
-			remove_modifier = modifier_chariot_racing
-			add_modifier = {
-				name = modifier_expanded_chariot_racing
-			}
-		}
-		trigger_event = {
-			id = chariot_racing.46
-		}
-	}	
-
-	ai_chance = {
-		value = 0
-		if = {
-			limit = { 
-				weekly_net_fixed_income > money_amount_multiplier_medium
-				gold_reserves > 0
-			}
-			add = 100
-		}
 	}
 }
