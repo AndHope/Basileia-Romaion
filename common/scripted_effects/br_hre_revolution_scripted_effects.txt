@@ -242,6 +242,107 @@ br_remove_estates_for_revolution_scripted_effect = {
 	clear_variable_list = br_list_of_estates
 }
 
+#Store the values of estate progress bars in var's
+br_store_1de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
+		}
+	}
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+br_store_2de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
+		}
+	}
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+br_store_3de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
+		}
+	}
+	
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+
+#update the value of estate disatisfaction
+br_1de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_1de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_1de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+br_2de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_2de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_2de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+br_3de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_3de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_3de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+
+br_set_estate_with_highest_disatisfaction_effect = {
+	#set the var to save the estate in
+	every_in_list = {
+		variable = br_list_of_estates
+		limit = {
+			OR = {
+				root = {
+					not = { has_variable = br_estate_with_highest_disatisfaction_var }
+				}
+				root.var:br_estate_with_highest_disatisfaction_var.br_estate_disatisfaction_var <= this.var:br_estate_disatisfaction_var
+			}
+		}
+		root = {
+			set_variable = {
+				name = br_estate_with_highest_disatisfaction_var
+				value = prev
+			}
+		}
+	}
+}
+br_update_all_estate_disatisfaction_effect = {
+	br_1de_estate_update_disatisfaction_from_progress_bar = yes
+	br_2de_estate_update_disatisfaction_from_progress_bar = yes
+	br_3de_estate_update_disatisfaction_from_progress_bar = yes
+	br_set_estate_with_highest_disatisfaction_effect = yes
+}
+
 ###
 ###Revolution is launched scripted effects
 ###

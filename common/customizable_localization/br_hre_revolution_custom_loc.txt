@@ -19,3 +19,40 @@ br_imperial_residence_location_loc = {
 	}
 	
 }
+
+br_estate_with_the_highest_disatisfaction_loc = {
+	type = country
+
+	text = {
+		trigger = {
+			var:br_estate_with_highest_disatisfaction_var.var:com_type = br_1de_estate_type
+		}
+		localization_key = br_1de_estate_loc
+	}
+	text = {
+		trigger = {
+			var:br_estate_with_highest_disatisfaction_var.var:com_type = br_2de_estate_type
+		}
+		localization_key = br_2de_estate_loc
+	}
+	text = {
+		trigger = {
+			var:br_estate_with_highest_disatisfaction_var.var:com_type = br_3de_estate_type
+		}
+		localization_key = br_3de_estate_loc
+	}
+}
+
+if = {
+		limit = {
+				var:br_estate_with_highest_disatisfaction_var.com_type = br_3de_estate_type
+		}
+		set_variable = {
+					name = test_var
+					value = var:br_estate_with_highest_disatisfaction_var
+		}
+}
+set_variable = {
+					name = estate_type
+					value = var:br_estate_with_highest_disatisfaction_var.com_type
+		}
