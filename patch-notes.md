@@ -2,31 +2,70 @@
 
 # Update 139 So far.
 
-Treaties
+## Treaties
 - Revamped various treaties from basic trade/foriegn investment rights to Treaty Port(In places where the Port was already owned by said tag)
 - Also added in some resource exchanges in treaties instead of trade rights.
 - Update 04_ere_treaties.txt, these treaties are meant to go in the opposite of the intended direction
 - removed foreign_investment_rights from all the starting treaties because they ai appears to hate giving and receiving it and more likely to cause cancelations
 
-Production Methods
+## Production Methods and Tech
 - Early Mining added as a new option for all mine types that doesn't require tools. Very good for markets that do not start with access to a good supply of tools but not efficient once tools are available.
 - Renamed Picks and Shovels to Improved Mining Tools
 - Locations with little to no tools given Early Mining to help with the Global tool shortage
+- hand tools made necessary for the improved tools mining and agro method
+- renamed from Hand tools to Improved Hand Tools
 
-Admin Buildings
+## New Decisions
+- Decision for Cahokia to submit to Elysium in exchange for good relations and protection.
+- Added a decision for Aegypt to submit to Basileia Romaion to avoid war in exchange for good relations and protection.
+- Added a decision for Basileia Romaion to transfer Emporikē Hetaireia tēs Indikēs to Basileia Romaion from Aegypt once Aegypt is their subject.
+- decisions to take Aegypts colonies as Basileia Romaion if Aegypt is your subject.
+- various decisions that were limited to certain tags have been opened up to more nations that meet the requirements
+- refactored, fixed and additional decisions for Afrika and Aegypt
+- added three new decisions each with an associated event that are about moving your Capital to Karin, back to Ani or to Yerevan
+
+## Journals
+- added journals to get Afrika and Aegypt homelands
+
+## Events
+- Added two new opening events one for GEO and one for ARM
+
+## Admin Buildings
 - Made Nanjing Beijing and Delhi use pm_horizontal_drawer_cabinets to make their local paper factories profitable and get more taxes from these locations
 - added couple more admin buildings
 - Gave TWT more starting admin buildings due to near 100% tax waste, brings it down to 20% tax waste
 
-State traits
+## State traits
 Indochina forests
 - Indochina forest state trait made into a hardwood modifier
 - more natural harbours
 - Update 11_east_asia.txt, decreased japans starting resources a bit
 
-Bug fixes
+## other balance changes
+- Adjusted Georgia and Armenia military formations
+- few more pops for cahokia
+- more iron mines in asia
+- adjusted certain eastern trade countries overlords ai to give any states they get in the indies to their subject
+- light rebalance of various modifiers
+- Added a few more pops to Armenia and Georgia
+
+## misc
+- improved various decision descriptions
+- removed a duplicate recently conquered modifier.
+- New modifiers for ARM/GEO
+	- New themed Military modifier to replace the generic thema one.
+	- Also gave Pronoia modifier
+- Intergrated various Georgian suggestions from skep17
+
+
+
+## Bug fixes
 - Add various missing localizations
 - Update br_society_1836-1936.txt, fixed missing charters and other additions from the society tech
+- Fixed scope bug in br_assimilation_effects.txt
+- fixed ERE naming decisions not changing the name because the dyn name priority was to low
+- fixed the event disappearing after selecting them because old var's were not being removed properly
+- added a new decision to change the name back to default
 
 # 🛠️ Update 138 – Total Resource & Balance Redux
 
