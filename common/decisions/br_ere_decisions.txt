@@ -850,3 +850,79 @@ claim_india_company_decision = {
 		value = 50
 	}
 }
+
+claim_kyrenaica_colony_decision = {
+	is_shown = {
+		c:BYZ ?= this
+		c:br_aegypt ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_kyrenaica ?= {
+			is_subject_of = c:br_aegypt
+		}	
+	}
+
+	possible = {
+		c:BYZ ?= this
+		c:br_aegypt ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_kyrenaica ?= {
+			is_subject_of = c:br_aegypt
+		}
+	}
+
+	when_taken = {
+		c:BYZ = {
+			create_diplomatic_pact = {
+				country = c:br_kyrenaica
+				type = colony
+			}
+			change_relations = {
+				country = c:br_aegypt
+				value = -25
+			}
+		}
+	}
+	ai_chance = {
+		value = 50
+	}
+}
+
+claim_br_australis_colony_decision = {
+	is_shown = {
+		c:BYZ ?= this
+		c:br_australis ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_australis ?= {
+			is_subject_of = c:br_aegypt
+		}	
+	}
+
+	possible = {
+		c:BYZ ?= this
+		c:br_aegypt ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_australis ?= {
+			is_subject_of = c:br_aegypt
+		}
+	}
+
+	when_taken = {
+		c:BYZ = {
+			create_diplomatic_pact = {
+				country = c:br_australis
+				type = colony
+			}
+			change_relations = {
+				country = c:br_aegypt
+				value = -25
+			}
+		}
+	}
+	ai_chance = {
+		value = 50
+	}
+}
