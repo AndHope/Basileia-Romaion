@@ -1,0 +1,49 @@
+﻿#Option for Cahokia to submit to Elysium in exchange for good relations and protection.
+cahokia_elysium_protection_decision = {
+	is_shown = {
+		c:CAH ?= this
+		c:CAH = {
+			is_subject = no
+		}
+	}
+
+	possible = {
+		c:CAH ?= this
+		c:CAH = {
+			is_subject = no
+		}
+	}
+
+	when_taken = {
+		c:br_elysium = {
+			create_diplomatic_pact = {
+				country = c:CAH
+				type = protectorate
+			}
+			create_diplomatic_pact = {
+				country = c:CAH	
+				type = grant_own_market
+			}
+			change_relations = {
+				country = c:CAH
+				value = 100
+			}
+			set_secret_goal = {
+				country = c:CAH
+				secret_goal = protect
+			}
+		}
+		add_modifier = {
+			name = br_modifier_autonomous_march
+			years = 50
+		}
+		add_technology_researched = br_tech_horse_drawn_machinery
+		add_technology_researched = br_tech_selective_breeding
+		add_technology_researched = br_tech_smithian_economics
+		add_technology_researched = br_tech_standardized_measures
+		add_technology_researched = br_tech_metallurgy
+	}
+	ai_chance = {
+		value = 0
+	}
+}
