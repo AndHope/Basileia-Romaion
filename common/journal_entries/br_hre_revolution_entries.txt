@@ -60,6 +60,10 @@ je_hre_impending_revolution = {
 			name = br_modifier_antiquated_regime
 			months = -1
 		}
+		add_modifier = {
+			name = br_modifier_special_chruch_rights
+			months = -1
+		}
 
 		##Create the estates
 		br_create_estates_for_revolution_scripted_effect = yes
@@ -94,63 +98,68 @@ je_hre_impending_revolution = {
 			#Triggers for events
 			if = {
 				limit = {
-					any_scope_pop = {
-						food_security <= br_impending_revolution_food_security_threshold
-						percent >= br_impending_revolution_food_security_population_percentage_threshold
+					br_has_impending_revolution_pulse_event_cooldown = no
+				}
+				if = {
+					limit = {
+						any_scope_pop = {
+							food_security <= br_impending_revolution_food_security_threshold
+							percent >= br_impending_revolution_food_security_population_percentage_threshold
+						}
+						not = { has_variable = br_hre_impending_revolution_low_food_security_timeout_var }
 					}
-					not = { has_variable = br_hre_impending_revolution_low_food_security_timeout_var }
-				}
-				trigger_event = {
-					id = hre_revolution_events.5
-					days = 10
-					popup = yes
-				}
-			}
-			else_if = {
-				limit = {
-					any_scope_state = {
-						turmoil >=  br_impending_revolution_bandit_turmoil_threshold
-						count >= br_impending_revolution_bandit_nr_states_threshold 
+					trigger_event = {
+						id = hre_revolution_events.5
+						days = 10
+						popup = yes
 					}
-					not = { has_variable = br_hre_impending_revolution_bandits_timeout_var }
 				}
-				trigger_event = {
-					id = hre_revolution_events.6
-					days = 10
-					popup = yes
-				}
-			}
-			else_if = {
-				limit = {
-					br_hre_has_specific_revolution_progress_scripted_trigger = {
-						value = br_impending_revolution_militia_formation_revolution_progress_threshold
+				else_if = {
+					limit = {
+						any_scope_state = {
+							turmoil >=  br_impending_revolution_bandit_turmoil_threshold
+							count >= br_impending_revolution_bandit_nr_states_threshold 
+						}
+						not = { has_variable = br_hre_impending_revolution_bandits_timeout_var }
 					}
-					br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
-						value = br_impending_revolution_militia_formation_3de_estate_disatisfaction_threshold
+					trigger_event = {
+						id = hre_revolution_events.6
+						days = 10
+						popup = yes
 					}
-					not = { has_variable = br_hre_impending_revolution_militias_form_timeout_var }
 				}
-				trigger_event = {
-					id = hre_revolution_events.7
-					days = 10
-					popup = yes
-				}
-			}
-			else_if = {
-				limit = {
-					has_variable = br_hre_impending_revolution_mititias_formed_var
-					br_hre_has_specific_revolution_progress_scripted_trigger = {
-						value = br_impending_revolution_arms_depots_raided_revolution_progress_threshold
+				else_if = {
+					limit = {
+						br_hre_has_specific_revolution_progress_scripted_trigger = {
+							value = br_impending_revolution_militia_formation_revolution_progress_threshold
+						}
+						br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
+							value = br_impending_revolution_militia_formation_3de_estate_disatisfaction_threshold
+						}
+						not = { has_variable = br_hre_impending_revolution_militias_form_timeout_var }
 					}
-					br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
-						value = br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold
+					trigger_event = {
+						id = hre_revolution_events.7
+						days = 10
+						popup = yes
 					}
-					not = { has_variable = br_hre_impending_revolution_arms_depots_raided_timeout_var }
 				}
-				trigger_event = {
-					id = hre_revolution_events.8
-					days = 10
-					popup = yes
+				else_if = {
+					limit = {
+						has_variable = br_hre_impending_revolution_mititias_formed_var
+						br_hre_has_specific_revolution_progress_scripted_trigger = {
+							value = br_impending_revolution_arms_depots_raided_revolution_progress_threshold
+						}
+						br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
+							value = br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold
+						}
+						not = { has_variable = br_hre_impending_revolution_arms_depots_raided_timeout_var }
+					}
+					trigger_event = {
+						id = hre_revolution_events.8
+						days = 10
+						popup = yes
+					}
 				}
 			}
 
