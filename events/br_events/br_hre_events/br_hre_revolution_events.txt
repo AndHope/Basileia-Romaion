@@ -182,9 +182,10 @@ hre_revolution_events.5 = {
 	duration = 3
 
 	immediate = {
+		#timeout var
 		set_variable = {
 			name = br_hre_impending_revolution_low_food_security_timeout_var
-			days = 40	#for some reason can't use a var
+			days = br_medium_timeout_duration_value
 		}
 	}
 
@@ -218,10 +219,14 @@ hre_revolution_events.6 = {
 	duration = 3
 
 	immediate = {
+		#timeout var
 		set_variable = {
-			name = br_hre_impending_revolution_low_food_security_timeout_var
-			days = 40	#for some reason can't use a var
+			name = br_hre_impending_revolution_bandits_timeout_var
+			days = br_medium_timeout_duration_value
 		}
+
+		#flag var
+		set_variable = br_hre_impending_revolution_bandits_var
 	}
 
 	option = {
@@ -230,6 +235,86 @@ hre_revolution_events.6 = {
 		
 		br_specific_change_in_revolutulionary_tension_effect = {
 			value = br_medium_increase_in_revolutulionary_tension_value
+		}
+	}
+}
+
+# 3de estate forms mititias
+hre_revolution_events.7 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.7.t
+	desc = hre_revolution_events.7.d
+	flavor = hre_revolution_events.7.f
+
+	duration = 3
+
+	immediate = {
+		#timeout var
+		set_variable = {
+			name = br_hre_impending_revolution_militias_form_timeout_var
+			days = br_large_timeout_duration_value
+		}
+
+		#flag var
+		set_variable = br_hre_impending_revolution_mititias_formed_var
+	}
+
+	option = {
+		name = hre_revolution_events.7.a
+		default_option = yes
+		
+		br_specific_change_in_revolutulionary_tension_effect = {
+			value = br_medium_increase_in_revolutulionary_tension_value
+		}
+	}
+}
+
+# 3de estate mititias raid arms depots
+hre_revolution_events.8 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.8.t
+	desc = hre_revolution_events.8.d
+	flavor = hre_revolution_events.8.f
+
+	duration = 3
+
+	immediate = {
+		#timeout var
+		set_variable = {
+			name = br_hre_impending_revolution_arms_depots_raided_timeout_var
+			days = br_medium_timeout_duration_value
+		}
+
+		#flag var
+		set_variable = br_hre_impending_revolution_arms_depots_raided_var
+	}
+
+	option = {
+		name = hre_revolution_events.8.a
+		default_option = yes
+		
+		br_specific_change_in_revolutulionary_tension_effect = {
+			value = br_large_increase_in_revolutulionary_tension_value
 		}
 	}
 }
