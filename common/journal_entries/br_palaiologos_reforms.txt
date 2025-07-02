@@ -17,15 +17,15 @@
 	on_complete = {
 		add_modifier = {
 			name = popular_autocrat
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_modifier = {
 			name = russification_modifier
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_modifier = {
 			name = religious_orthodocy_enforced_mod
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		#change_infamy = -25
 		trigger_event = {
@@ -232,7 +232,7 @@ je_palaiologos_reforms_separatism = {
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
-		highest_secession_progress < 0.5
+		highest_secession_progress < 0.75
 		NOT = {
 			any_scope_state = {
 				turmoil >= 0.5
@@ -249,18 +249,22 @@ je_palaiologos_reforms_separatism = {
 		}
 	}
 
-	#on_monthly_pulse = {
-	#	effect = {
-	#		if = {
-	#			limit = {
-	#				highest_secession_progress < 0.5
-	#			}
-	#			change_variable = {
-	#				name = palaiologos_reforms_separatist_var
-	#				add = 1
-	#			}
-	#		}
-	#	}
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					highest_secession_progress < 0.5
+				}
+				change_variable = {
+					name = palaiologos_reforms_separatist_var
+					add = 1
+				}
+			}
+		}
+		random_events = {
+			100 = 0
+			10 = palaiologos_events.5 	# Paranoia Event
+		}
 	#	random_events = {
 	#		#chance_of_no_event = 75
 	#		100 = 0
@@ -283,12 +287,10 @@ je_palaiologos_reforms_separatism = {
 		#	1 = br_balkan_revolt.15			# Local Bulgarian Revolt
 		#	1 = br_balkan_revolt.16			# Assassination of a Local Governor
 
-	#		10 = palaiologos_events.5 		# Paranoia Event
-
 	#		20 = br_balkan_revolt.10 		# Balkan free/vassal country wars
 	#		90 = br_balkan_revolt.12		# War Crimes Event
 	#	}
-	#}
+	}
 
 	fail = {
 		highest_secession_progress > 0.9
@@ -424,7 +426,7 @@ je_palaiologos_reforms_bureaucracy = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	#	trigger_event = {
@@ -507,7 +509,7 @@ je_palaiologos_reforms_land_reform = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		if = {
@@ -598,21 +600,21 @@ je_palaiologos_reforms_end_curruption = {
 		ig:ig_intelligentsia = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
 				name = br_modifier_ig_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 
@@ -687,7 +689,7 @@ je_palaiologos_reforms_end_latin_privileges = {
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 

@@ -1,5 +1,199 @@
 ####id 2880120246
 
+# Update 139 So far.
+
+## Treaties
+- Revamped various treaties from basic trade/foriegn investment rights to Treaty Port(In places where the Port was already owned by said tag)
+- Also added in some resource exchanges in treaties instead of trade rights.
+- Update 04_ere_treaties.txt, these treaties are meant to go in the opposite of the intended direction
+- removed foreign_investment_rights from all the starting treaties because they ai appears to hate giving and receiving it and more likely to cause cancelations
+
+## Production Methods and Tech
+- Early Mining added as a new option for all mine types that doesn't require tools. Very good for markets that do not start with access to a good supply of tools but not efficient once tools are available.
+- Renamed Picks and Shovels to Improved Mining Tools
+- Locations with little to no tools given Early Mining to help with the Global tool shortage
+- hand tools made necessary for the improved tools mining and agro method
+- renamed from Hand tools to Improved Hand Tools
+
+## New Decisions
+- Decision for Cahokia to submit to Elysium in exchange for good relations and protection.
+- Added a decision for Aegypt to submit to Basileia Romaion to avoid war in exchange for good relations and protection.
+- Added a decision for Basileia Romaion to transfer Emporikē Hetaireia tēs Indikēs to Basileia Romaion from Aegypt once Aegypt is their subject.
+- decisions to take Aegypts colonies as Basileia Romaion if Aegypt is your subject.
+- various decisions that were limited to certain tags have been opened up to more nations that meet the requirements
+- refactored, fixed and additional decisions for Afrika and Aegypt
+- added three new decisions each with an associated event that are about moving your Capital to Karin, back to Ani or to Yerevan
+
+## Journals
+- added journals to get Afrika and Aegypt homelands
+
+## Events
+- Added two new opening events one for GEO and one for ARM
+
+## Admin Buildings
+- Made Nanjing Beijing and Delhi use pm_horizontal_drawer_cabinets to make their local paper factories profitable and get more taxes from these locations
+- added couple more admin buildings
+- Gave TWT more starting admin buildings due to near 100% tax waste, brings it down to 20% tax waste
+
+## State traits
+Indochina forests
+- Indochina forest state trait made into a hardwood modifier
+- more natural harbours
+- Update 11_east_asia.txt, decreased japans starting resources a bit
+
+## other balance changes
+- Adjusted Georgia and Armenia military formations
+- few more pops for cahokia
+- more iron mines in asia
+- adjusted certain eastern trade countries overlords ai to give any states they get in the indies to their subject
+- light rebalance of various modifiers
+- Added a few more pops to Armenia and Georgia
+
+## misc
+- improved various decision descriptions
+- removed a duplicate recently conquered modifier.
+- New modifiers for ARM/GEO
+	- New themed Military modifier to replace the generic thema one.
+	- Also gave Pronoia modifier
+- Intergrated various Georgian suggestions from skep17
+
+
+
+## Bug fixes
+- Add various missing localizations
+- Update br_society_1836-1936.txt, fixed missing charters and other additions from the society tech
+- Fixed scope bug in br_assimilation_effects.txt
+- fixed ERE naming decisions not changing the name because the dyn name priority was to low
+- fixed the event disappearing after selecting them because old var's were not being removed properly
+- added a new decision to change the name back to default
+
+# 🛠️ Update 138 – Total Resource & Balance Redux
+
+## 🧾 General Improvements
+- **Treaty Fixes**: Corrected treaties that were reversed from their intended direction.
+- **Increased Tax Capacity** from administrative buildings.
+- **More Administrative Buildings in Asia**:
+  - China, Northern India, Java, and several Asian capitals now start with more admin buildings.
+- **Reorganized Administrative Buildings**:
+  - Most start with `simple organization`.
+  - Added additional admin buildings and **lead mines** where appropriate.
+- **Modded Trade**: Manually enforced more trade routes and interactions.
+
+## 🌍 Resource & Economy Overhaul
+- All mined resources are now **discoverable** over time.
+  - Enabled `discoverable_resource` for **Iron**, **Lead**, **Coal**, and **Sulfur**.
+  - Players start with fewer known resources and uncover more throughout the game.
+- **Cotton Expansion**:
+  - Added more cotton to **India** and **Persia** to help with the global fabric shortage.
+- **Ownership Adjustments**:
+  - Modified ownership ratios of various buildings.
+  - Added additional **iron mines** to **Northern Europe**.
+  - Revised ownership of some **ports** and **trade ports** globally.
+- **Further Building Adjustments**:
+  - Increased numbers of **paper**, **tools**, **lead**, and **iron** buildings worldwide.
+  - **Holland** receives 100,000 new pops to offset major worker shortages.
+- **Generic River Trait**:
+  - Introduced a new **Generic River** state trait (applied to Bosnia for now).
+
+## 🪓 Production & Industry
+- **Hardwood Economy Focus**:
+  - States producing artillery, small arms, and military ships now emphasize hardwood usage.
+  - Increased hardwood bonuses on state traits to reduce AI reliance on softwood.
+- **Artillery and Small Arms** production increased to combat global shortages.
+
+## 🏛️ Government & Law Updates
+- **Frontier Colonization Law**:
+  - Aegypt and Afrika now start with `law_frontier_colonization` being enacted.
+- **Palaiologos Events**:
+  - BYZ AI will now choose the non-revolt option in the Themata decision event.
+- **Palaiologos Reforms**:
+  - Fixed broken separatism journal in `br_palaiologos_reforms.txt`.
+
+## 🏢 Companies & Prestige Goods
+- Fixed bugs and optimized building types across various companies.
+- Created two unique **luxury clothing** icons:
+  - One **gold-themed**
+  - One **purple-themed**
+
+## 🛡️ New Content
+- **Hanseatic League**:
+  - Added as a formal **trade company**.
+
+## ⚖️ Balance & AI Behavior
+- **Market Access Debuff**:
+  - Applied `small_state_market_access_price_impact` to:
+    - Rainforests
+    - Mountain ranges
+    - Very remote regions
+
+## 🤝 Diplomacy & Treaties
+- **PLC (Poland-Lithuania)**:
+  - Trade pact upgraded into a **defensive pact** to prevent early-game collapse.
+- **Muscovy–Roman Treaty**:
+  - Romans gain trade/investment privileges in exchange for military support.
+- **ARM/GEO & WAL/MOL**:
+  - Pacts now include mutual **trade rights**.
+- **Ausurias–HRE Agreement**:
+  - Military assistance from HRE in return for **trade and investment access**.
+
+## 🏛️ Eastern Roman Empire Updates
+- **Flags & Governments**:
+  - Added missing **communist flag**.
+  - Updated government titles for greater historical/thematic accuracy.
+- **Dynamic ERE Names Redux**:
+  - **Monarchy**: Main name added.
+  - **Republic (Upper-Class Voting)**: New **Senate** title added.
+  - Renamed all other government variants for consistency.
+
+## 🌎 Regional Fixes
+- **South America**:
+  - Updated `07_south_america.txt`: Amazonian states now properly affected by **malaria**.
+
+## 🐛 Bug Fixes
+- **Modifier Duration (v1.9 Compliance)**:
+  - All `length_modifier_time` values now use **days**, not months, unless numerically specified.
+
+---
+
+# Update 137
+
+- companies and prestige goods
+	- reworked the mods companies
+	- added new textiles companies for Venice and ERE.
+	- added four new prestige goods; new luxury clothing prestige goods for the Venetian and Roman companies and also added a prestige silk for the Roman,Venice and Genoa trade companies.
+	- I gave all the other mod companies a generic prestige good for now.
+	- moved a lot of the company building types to extension buildings
+	- converted and resized all the company logos and added some new ones.
+
+- South American Decentralized merged
+	- After my earlier merges we got down to 424 which is the max amount before the game lags. That means if a bunch of revolts were to happen prior to any annexations the game would start to lag and stutter.
+	- This gives us the nessisary space for futher world building
+	- nativized the names all meaning Culture tribes or Tribes of Culture except for Amazon because it seems there is no dominant language that I could find.
+
+- recolored the maps water to appear more blue less redish especially on the great empires map. Map generally should be a tiny bit brighter idk. 
+
+- fixed company HQs not showing up
+- updated some diplo pacts to treaties
+	- made scripted effects for the treaties, to avoid repetition
+- fixed tech bugs
+- Lots of other 1.9 bugs fixed
+
+
+
+
+# Update 136
+
+- Fixed an issue where navies were not applying blockade.
+
+- Rebalanced the Economic Dependence debuff to improve gameplay pacing and reduce harshness in managing subjects.
+
+- Merged several decentralized nations to reduce country count and avoid hitting the new 1.9 data structure cap
+	- This means we didn't need to merge all of Africa
+	- However, we may introduce a game rule in the future that allows full Africa merging as an option.
+
+- fixed random bugs
+
+
 
 # Update 132 Patch Notes
 

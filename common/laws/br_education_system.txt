@@ -1,8 +1,8 @@
 ﻿law_no_schools = {
 	group = lawgroup_education_system
-	
+
 	icon = "gfx/interface/icons/law_icons/no_schools.dds"
-	
+
 	progressiveness = -25
 
 	disallowing_laws = {
@@ -27,7 +27,7 @@
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
@@ -37,11 +37,11 @@
 
 law_religious_schools = {
 	group = lawgroup_education_system
-	
+
 	icon = "gfx/interface/icons/law_icons/religious_schools.dds"
-	
+
 	progressiveness = 0
-	
+
 	unlocking_technologies = {
 		br_tech_divine_right
 	}
@@ -64,7 +64,7 @@ law_religious_schools = {
 		state_education_access_add = 0.05 #was 0.1
 		country_clergymen_pol_str_mult = 0.25
 	}
-	
+
 	can_impose = {
 		OR = {
 			AND = {
@@ -80,12 +80,12 @@ law_religious_schools = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
-		}		
-	
+		}
+
 		if = {
 			limit = {
 				has_law = law_type:law_no_schools
@@ -93,7 +93,7 @@ law_religious_schools = {
 			add = 500
 
 			if = {
-				limit = { 
+				limit = {
 					OR = {
 						has_journal_entry = je_sick_man_education
 						has_journal_entry = je_terakoya
@@ -101,12 +101,12 @@ law_religious_schools = {
 				}
 				add = 500
 			}
-		}				
+		}
 	}
 
 	ai_impose_chance = {
 		value = 0
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_religious_schools
@@ -125,12 +125,12 @@ law_religious_schools = {
 			}
 			add = 10
 		}
-			
+
 		if = {
 			limit = {
 				scope:target_country = {
 					c:BIC ?= this
-					OR = {	
+					OR = {
 						has_journal_entry = je_british_dictate_plantations
 						has_journal_entry = je_british_dictate_military
 						has_journal_entry = je_british_dictate_universities
@@ -144,11 +144,11 @@ law_religious_schools = {
 
 law_private_schools = {
 	group = lawgroup_education_system
-	
+
 	icon = "gfx/interface/icons/law_icons/private_schools.dds"
-	
+
 	progressiveness = 25
-	
+
 	unlocking_technologies = {
 		br_tech_early_modern_universities
 	}
@@ -160,7 +160,7 @@ law_private_schools = {
 	modifier = {
 		country_institution_cost_institution_schools_mult = -0.4
 	}
-	
+
 	institution = institution_schools
 	institution_modifier = {
 		state_assimilation_mult = 0.01 #was none
@@ -183,12 +183,12 @@ law_private_schools = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_no_schools
@@ -196,7 +196,7 @@ law_private_schools = {
 			add = 500
 
 			if = {
-				limit = { 
+				limit = {
 					OR = {
 						has_journal_entry = je_sick_man_education
 						has_journal_entry = je_terakoya
@@ -204,12 +204,12 @@ law_private_schools = {
 				}
 				add = 500
 			}
-		}		
+		}
 	}
 
 	ai_impose_chance = {
 		value = 0
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_private_schools
@@ -228,12 +228,12 @@ law_private_schools = {
 			}
 			add = 10
 		}
-			
+
 		if = {
 			limit = {
 				scope:target_country = {
 					c:BIC ?= this
-					OR = {	
+					OR = {
 						has_journal_entry = je_british_dictate_plantations
 						has_journal_entry = je_british_dictate_military
 						has_journal_entry = je_british_dictate_universities
@@ -249,9 +249,9 @@ law_public_schools = {
 	group = lawgroup_education_system
 
 	icon = "gfx/interface/icons/law_icons/public_schools.dds"
-	
+
 	progressiveness = 50
-	
+
 	unlocking_technologies = {
 		academia
 	}
@@ -290,12 +290,12 @@ law_public_schools = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_no_schools
@@ -303,7 +303,7 @@ law_public_schools = {
 			add = 500
 
 			if = {
-				limit = { 
+				limit = {
 					OR = {
 						has_journal_entry = je_sick_man_education
 						has_journal_entry = je_terakoya
@@ -311,12 +311,12 @@ law_public_schools = {
 				}
 				add = 500
 			}
-		}			
+		}
 	}
 
 	ai_impose_chance = {
 		value = 0
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_public_schools
@@ -335,12 +335,12 @@ law_public_schools = {
 			}
 			add = 10
 		}
-			
+
 		if = {
 			limit = {
 				scope:target_country = {
 					c:BIC ?= this
-					OR = {	
+					OR = {
 						has_journal_entry = je_british_dictate_plantations
 						has_journal_entry = je_british_dictate_military
 						has_journal_entry = je_british_dictate_universities

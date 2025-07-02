@@ -2,7 +2,8 @@
 # scope:culture = the culture we're evaluating the probability to spawn a new cultural community for.
 
 # Each (state, culture) combination is evaluated once per month.
-# Note: only cultures present in the same market as <state> are evaluated.
+# Note: normally only cultures present in the same market as <state> are evaluated,
+# however if a treaty port exists, then cultures present in either of the involved markets will be evaluated.
 
 cultural_community_creation_weight = {
 
@@ -29,7 +30,7 @@ cultural_community_creation_weight = {
 	}
 	else = {
 		add = 0.001
-	
+
 		# Conditions that add
 		if = {
 			limit = {
@@ -37,35 +38,35 @@ cultural_community_creation_weight = {
 			}
 			add = 0.001
 		}
-		
+
 		if = {
 			limit = {
 				has_decree = decree_greener_grass_campaign
 			}
 			add = 0.005
 		}
-	
+
 		if = {
 			limit = {
 				on_river = yes
 			}
 			add = 0.001
 		}
-	
+
 		if = {
 			limit = {
 				is_coastal = yes
 			}
 			add = 0.001
 		}
-	
+
 		if = {
 			limit = {
 				is_under_colonization = yes
 			}
 			add = 0.005
 		}
-	
+
 		if = {
 			limit = {
 				free_arable_land > 20
@@ -84,14 +85,14 @@ cultural_community_creation_weight = {
 		}
 
 		# Positive Conditions that Multiply
-	
+
 		if = {
 			limit = {
 				is_capital = yes
 			}
 			multiply = 1.1
 		}
-	
+
 		if = {
 			limit = {
 				owner = {
@@ -100,7 +101,7 @@ cultural_community_creation_weight = {
 			}
 			multiply = 2.5
 		}
-	
+
 		if = {
 			limit = {
 				OR = {
@@ -113,41 +114,41 @@ cultural_community_creation_weight = {
 					has_state_trait = state_trait_bosperus_river
 					has_state_trait = state_trait_caribbean_islands
 				}
-	
+
 			}
 			multiply = 1.2
 		}
-	
-		# Negative Conditions that multiply 
-	
+
+		# Negative Conditions that multiply
+
 		if = {
 			limit = {
 				has_decree = decree_violent_suppression
 			}
 			multiply = 0.5
 		}
-		
+
 		if = {
 			limit = {
 				devastation >= 0.2
 			}
 			multiply = 0.5
 		}
-	
+
 		if = {
 			limit = {
 				turmoil >= 0.3
 			}
 			multiply = 0.5
 		}
-	
+
 		if = {
 			limit = {
 				state_unemployment_rate >= 0.1
 			}
 			multiply = 0.5
 		}
-	
+
 		if = {
 			limit = {
 				owner = {
@@ -156,23 +157,23 @@ cultural_community_creation_weight = {
 			}
 			multiply = 0.5
 		}
-	
+
 		if = {
 			limit = {
 				state_has_goods_shortage = yes
 			}
 			multiply = 0.8
 		}
-	
+
 		multiply = market_access
-	
+
 		if = {
 			limit = {
 				is_in_revolt = yes
 			}
 			multiply = 0.5
 		}
-	
+
 		if = {
 			limit = {
 				is_slave_state = yes
@@ -182,7 +183,7 @@ cultural_community_creation_weight = {
 			}
 			multiply = 0.1
 		}
-	
+
 		if = {
 			limit = {
 				has_state_trait = state_trait_malaria
@@ -194,7 +195,7 @@ cultural_community_creation_weight = {
 			}
 			multiply = 0.5
 		}
-	
+
 		if = {
 			limit = {
 				has_state_trait = state_trait_severe_malaria
@@ -206,7 +207,7 @@ cultural_community_creation_weight = {
 			}
 			multiply = 0.3
 		}
-		
+
 		if = {
 			limit = {
 				root.owner = {

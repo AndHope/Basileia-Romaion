@@ -1,0 +1,211 @@
+﻿namespace = br_armenia_capital
+
+br_armenia_capital.1 = {
+	type = country_event
+	placement = root
+	title = br_armenia_capital.1.t
+	desc = br_armenia_capital.1.d
+	#flavor = br_armenia_capital.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = br_armenia_capital.1.a
+		default_option = yes
+
+		set_variable = moved_capital_to_karin
+		set_capital = STATE_ERZURUM
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ERZURUM
+			}
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.1
+				culture = cu:armenian
+			}
+		}
+
+		if = {
+			limit = {
+				capital = {
+					any_scope_building = {
+						is_building_type = building_government_administration
+						level < 3
+					}
+				}
+			}
+			capital = {
+				create_building={
+					building="building_government_administration"
+					level=3
+					reserves=1
+				}
+			}
+		}
+
+	}
+
+	option = {
+		name = br_armenia_capital.1.b
+
+
+	}
+}
+
+br_armenia_capital.2 = {
+	type = country_event
+	placement = root
+	title = br_armenia_capital.2.t
+	desc = br_armenia_capital.2.d
+	#flavor = br_armenia_capital.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = br_armenia_capital.2.a
+		default_option = yes
+
+		set_variable = moved_capital_to_ani
+		set_capital = STATE_KARS
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KARS
+			}
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.1
+				culture = cu:armenian
+			}
+		}
+
+		if = {
+			limit = {
+				capital = {
+					any_scope_building = {
+						is_building_type = building_government_administration
+						level < 3
+					}
+				}
+			}
+			capital = {
+				create_building={
+					building="building_government_administration"
+					level=3
+					reserves=1
+				}
+			}
+		}
+
+	}
+
+	option = {
+		name = br_armenia_capital.1.b
+
+
+	}
+}
+
+br_armenia_capital.3 = {
+	type = country_event
+	placement = root
+	title = br_armenia_capital.3.t
+	desc = br_armenia_capital.3.d
+	#flavor = br_armenia_capital.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = br_armenia_capital.3.a
+		default_option = yes
+
+		set_variable = moved_capital_to_yerevan
+		set_capital = STATE_ARMENIA
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ARMENIA
+			}
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.1
+				culture = cu:armenian
+			}
+		}
+
+		if = {
+			limit = {
+				capital = {
+					any_scope_building = {
+						is_building_type = building_government_administration
+						level < 3
+					}
+				}
+			}
+			capital = {
+				create_building={
+					building="building_government_administration"
+					level=3
+					reserves=1
+				}
+			}
+		}
+
+	}
+
+	option = {
+		name = br_armenia_capital.1.b
+
+
+	}
+}

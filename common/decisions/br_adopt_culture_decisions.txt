@@ -37,7 +37,7 @@
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -96,7 +96,7 @@ br_end_slavic_oppression_decision = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -108,14 +108,22 @@ br_end_slavic_oppression_decision = {
 
 br_end_muslim_oppression_decision = {
 	is_shown = {
-		exists = c:BYZ
-		ROOT = c:BYZ
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+			country_has_primary_culture = cu:aegyptian
+			country_has_primary_culture = cu:african
+		}
 		has_modifier = br_modifier_muslim_cultural_discrimination
 	}
 
 	possible = {
-		exists = c:BYZ
-		ROOT = c:BYZ
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+			country_has_primary_culture = cu:aegyptian
+			country_has_primary_culture = cu:african
+		}
 		AND = {
 			NOT = { has_law = law_type:law_national_supremacy }
 			NOT = { has_law = law_type:law_ethnostate }
@@ -139,7 +147,7 @@ br_end_muslim_oppression_decision = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}

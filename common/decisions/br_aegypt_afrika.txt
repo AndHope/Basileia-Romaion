@@ -1,0 +1,379 @@
+﻿#Not Byz Themata/Tagmata
+notbyz_themata_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+			country_has_primary_culture = cu:aegyptian
+			country_has_primary_culture = cu:african
+		}
+		OR = {
+			has_modifier = br_modifier_tagmata_primacy
+			has_modifier = br_modifier_corrupt_pronoia
+		}
+		NOT = { ROOT = c:BYZ }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+			country_has_primary_culture = cu:aegyptian
+			country_has_primary_culture = cu:african
+		}
+		OR = {
+			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_homesteading
+		}
+		OR = {
+			has_modifier = br_modifier_tagmata_primacy
+			has_modifier = br_modifier_corrupt_pronoia
+		}
+		NOT = { has_modifier = romaioi_military_reorganization }
+		NOT = { ROOT = c:BYZ }
+	}
+
+	when_taken = {
+		if = {
+			limit = {
+				has_modifier = br_modifier_corrupt_pronoia
+			}
+			remove_modifier = br_modifier_corrupt_pronoia
+			add_loyalists = {
+				pop_type = peasants
+				value = 0.15
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = br_modifier_tagmata_primacy
+			}
+			remove_modifier = br_modifier_tagmata_primacy
+			ig:ig_armed_forces = {
+				add_modifier = {
+					name = br_modifier_ig_very_angry
+					days = normal_modifier_time
+				}
+			}
+			add_loyalists = {
+				pop_type = aristocrats
+				value = 0.35
+			}
+		}
+
+		add_modifier = {
+			name = br_modifier_themata_primacy
+			months = -1
+		}
+
+		add_modifier = {
+			name = romaioi_military_reorganization
+			months = 36
+		}
+
+		add_loyalists = {
+			pop_type = farmers
+			value = very_large_radicals
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+notbyz_tagmata_decision = {
+	is_shown = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+			country_has_primary_culture = cu:aegyptian
+			country_has_primary_culture = cu:african
+		}
+		OR = {
+			has_modifier = br_modifier_themata_primacy
+			has_modifier = br_modifier_reformed_pronoia
+		}
+		NOT = { ROOT = c:BYZ }
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:elysian
+			country_has_primary_culture = cu:aegyptian
+			country_has_primary_culture = cu:african
+		}
+		has_law = law_type:law_professional_army
+		OR = {
+			has_modifier = br_modifier_themata_primacy
+			has_modifier = br_modifier_reformed_pronoia
+		}
+		NOT = { has_modifier = romaioi_military_reorganization }
+		NOT = { ROOT = c:BYZ }
+	}
+
+	when_taken = {
+		if = {
+			limit = {
+				has_modifier = br_modifier_reformed_pronoia
+			}
+			remove_modifier = br_modifier_reformed_pronoia
+			ig:ig_landowners = {
+				add_modifier = {
+					name = br_modifier_ig_very_angry
+					days = normal_modifier_time
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = br_modifier_themata_primacy
+			}
+			remove_modifier = br_modifier_themata_primacy
+		}
+
+		add_modifier = {
+			name = br_modifier_tagmata_primacy
+			months = -1
+		}
+
+		add_modifier = {
+			name = romaioi_military_reorganization
+			months = 36
+		}
+
+		add_loyalists = {
+			pop_type = officers
+			#culture = cu:greek
+			value = large_radicals
+		}
+
+		add_loyalists = {
+			pop_type = soldiers
+			#culture = cu:greek
+			value = large_radicals
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+end_latin_privileges_AGY = {
+	is_shown = {
+		c:br_aegypt ?= this
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	possible = {
+		c:br_aegypt ?= this
+		has_law = law_type:law_interventionism
+		has_law = law_type:law_protectionism
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	when_taken = {
+		remove_modifier = br_modifier_latin_privileges
+		activate_law = law_type:law_interventionism
+		add_modifier = {
+			name = br_modifier_anti_latin_policies
+			months = 52
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = br_modifier_ig_very_angry
+				days = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:latinoi
+				}
+			}
+			add_radicals = {
+				culture = cu:latinoi
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.75
+			}
+		}
+		c:VEN = {
+			change_relations = { 
+				country = c:br_aegypt 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_aegypt
+					secret_goal = conquer
+				}
+			}
+		}
+		c:br_genoa = {
+			change_relations = { 
+				country = c:br_aegypt 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_aegypt
+					secret_goal = conquer
+				}
+			}
+		}	
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+end_latin_privileges_AFK = {
+	is_shown = {
+		c:br_afrika ?= this
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	possible = {
+		c:br_afrika ?= this
+		has_law = law_type:law_interventionism
+		has_law = law_type:law_protectionism
+		has_modifier = br_modifier_latin_privileges
+	}
+
+	when_taken = {
+		remove_modifier = br_modifier_latin_privileges
+		activate_law = law_type:law_interventionism
+		add_modifier = {
+			name = br_modifier_anti_latin_policies
+			months = 52
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = br_modifier_ig_very_angry
+				days = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:latinoi
+				}
+			}
+			add_radicals = {
+				culture = cu:latinoi
+				value = 0.75
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = 0.75
+			}
+		}
+		c:VEN = {
+			change_relations = { 
+				country = c:br_afrika 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_afrika
+					secret_goal = conquer
+				}
+			}
+		}
+		c:br_genoa = {
+			change_relations = { 
+				country = c:br_afrika 
+				value = -150 
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:br_afrika
+					secret_goal = conquer
+				}
+			}
+		}	
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+#Option for Aegypt to submit to Basileia Romaion in exchange for good relations and protection.
+aegypt_submit_to_konstantinople_decision = {
+	is_shown = {
+		c:br_aegypt ?= this
+		c:br_aegypt = {
+			is_subject = no
+		}
+	}
+
+	possible = {
+		c:br_aegypt ?= this
+		c:br_aegypt = {
+			is_subject = no
+		}
+	}
+
+	when_taken = {
+		c:BYZ = {
+			create_diplomatic_pact = {
+				country = c:br_aegypt
+				type = protectorate
+			}
+			create_diplomatic_pact = {
+				country = c:br_aegypt	
+				type = grant_own_market
+			}
+			change_relations = {
+				country = c:br_aegypt
+				value = 100
+			}
+			set_secret_goal = {
+				country = c:br_aegypt
+				secret_goal = protect
+			}
+			#trigger_event = { id = br_event.1 }
+		#	hidden_effect = {
+		#		if = {
+		#			limit = {
+		#				exists = c:br_syria
+		#			}
+		#		}
+		#		annex = c:br_syria
+		#	}
+		}
+		add_loyalists = {
+			value = 0.25
+			culture = cu:greek
+		}
+	}
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				c:BYZ ?= {
+					is_player = no
+				}
+			}
+			add = 100
+		}
+	}
+}

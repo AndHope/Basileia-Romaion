@@ -48,7 +48,7 @@ palaiologos_events.1 = {
         default_option = yes
 		add_modifier = {
 			name = new_system_old_faces
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_enactment_modifier = {
 			name = governors_pleased
@@ -59,7 +59,7 @@ palaiologos_events.1 = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = retained_taxation_rights
-				months = long_modifier_time
+				days = long_modifier_time
 			}
 		}
 		add_enactment_modifier = {
@@ -70,12 +70,12 @@ palaiologos_events.1 = {
 		name = palaiologos_events.1.c 
 		add_modifier = {
 			name = pronoia_abolished
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		ig:ig_landowners = {
 			add_modifier = {
 				name = rescinded_taxation_rights
-				months = long_modifier_time
+				days = long_modifier_time
 			}
 		}
 	}
@@ -123,7 +123,7 @@ palaiologos_events.2 = {
         default_option = yes
 		add_modifier = {
 			name = reformed_land_code
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_radicals = {
 			pop_type = aristocrats
@@ -137,13 +137,13 @@ palaiologos_events.2 = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = traditional_land_system_retained
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		ig:ig_rural_folk = {
 			add_modifier = {
 				name = traditional_land_system_retained
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -151,7 +151,7 @@ palaiologos_events.2 = {
 		name = palaiologos_events.2.c
 		add_modifier = {
 			name = modern_land_code
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_radicals = {
 			pop_type = aristocrats
@@ -227,7 +227,7 @@ palaiologos_events.3 = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = very_long_modifier_time
+				days = very_long_modifier_time
 			}
 		}
 		remove_modifier = br_modifier_corrupt_pronoia
@@ -253,7 +253,7 @@ palaiologos_events.3 = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = br_modifier_ig_very_angry
-				months = very_long_modifier_time
+				days = very_long_modifier_time
 			}
 		}
 		remove_modifier = br_modifier_corrupt_pronoia
@@ -280,6 +280,7 @@ palaiologos_events.3 = {
 		custom_tooltip = palaiologos.3.tt2
 	}
 	option = { # Leave the system in place
+		ai_chance = { base = 100 }
 		name = palaiologos_events.3.c 
 		add_enactment_modifier = {
 			name = governors_satisfied
@@ -346,7 +347,7 @@ palaiologos_events.4 = {
         default_option = yes
 		add_modifier = { 
 			name = equality_under_the_law
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		if = {
 			limit = {
@@ -420,7 +421,7 @@ palaiologos_events.4 = {
 		name = palaiologos_events.4.b
 		add_modifier = { 
 			name = promises_of_reform_ott
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		if = {
 			limit = {
@@ -662,7 +663,7 @@ palaiologos_events.5 = {
 		}
 		set_variable = {
 			name = palaiologos_cooldown
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 	}
 	option = {
@@ -795,7 +796,7 @@ palaiologos_events.6 = {
 		}
 		set_variable = {
 			name = palaiologos_cooldown
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 	}
 	option = {
@@ -804,7 +805,7 @@ palaiologos_events.6 = {
 		add_modifier = { 
 			name = mobilizing_the_militia
 			multiplier = money_amount_multiplier_very_small
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 		scope:mob_state_scope = {
 			add_radicals_in_state = {
@@ -837,7 +838,7 @@ palaiologos_events.6 = {
 		add_modifier = { 
 			name = deploying_the_army
 			multiplier = money_amount_multiplier_very_small
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 		scope:mob_state_scope = {
 			add_radicals_in_state = {
@@ -967,7 +968,7 @@ palaiologos_events.7 = {
 		}
 		set_variable = {
 			name = palaiologos_cooldown
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 	}
 	option = { # breaks up crowds by gunning down rioters
@@ -1078,7 +1079,7 @@ palaiologos_events.8 = {
 		}
 		set_variable = {
 			name = palaiologos_cooldown
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 	}
 	option = { # situation is calming down
@@ -1149,7 +1150,7 @@ palaiologos_events.9 = {
 		}
 		set_variable = {
 			name = palaiologos_cooldown
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 		random_scope_character = {
 			limit = {
@@ -1165,7 +1166,7 @@ palaiologos_events.9 = {
 		scope:peasant_state = {
 			add_modifier = {
 				name = peasant_unrest
-				months = normal_modifier_time
+				days = normal_modifier_time
 				multiplier = 0.5
 			}
 			add_radicals_in_state = {
@@ -1176,7 +1177,7 @@ palaiologos_events.9 = {
 		ig:ig_landowners = {
 			add_modifier = {
 				name = expanding_holdings
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -1185,7 +1186,7 @@ palaiologos_events.9 = {
 		scope:peasant_state = {
 			add_modifier = {
 				name = peasant_unrest
-				months = normal_modifier_time
+				days = normal_modifier_time
 				multiplier = 0.25
 			}
 			add_radicals_in_state = {
@@ -1199,7 +1200,7 @@ palaiologos_events.9 = {
 		scope:peasant_state = {
 			add_modifier = {
 				name = peasant_unrest
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -1239,7 +1240,7 @@ palaiologos_events.10 = {
 		#remove_modifier = cizye_tax
 		add_modifier = { 
 			name = draft_exemption_tax
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 	}
 	option = {

@@ -1,0 +1,63 @@
+﻿je_afrika_homeland = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_internal_affairs
+
+	modifiers_while_active = {
+		#br_modifier_state_colonial_attraction
+	}
+
+	is_shown_when_inactive = {
+		c:br_afrika ?= this
+		NOR = {
+			s:STATE_TUNISIA ?= {
+				is_homeland = cu:african
+			}
+			s:STATE_TRIPOLI ?= {
+				is_homeland = cu:african
+			}
+			s:STATE_LIBYA ?= {
+				is_homeland = cu:african
+			}
+		}
+	}
+
+	possible = {
+		c:br_afrika ?= this
+		NOR = {
+			s:STATE_TUNISIA ?= {
+				is_homeland = cu:african
+			}
+			s:STATE_TRIPOLI ?= {
+				is_homeland = cu:african
+			}
+			s:STATE_LIBYA ?= {
+				is_homeland = cu:african
+			}
+		}
+	}
+
+	complete = {
+		highest_secession_progress < 0.5
+		NOT = {
+			any_scope_state = {
+				turmoil >= 0.25
+			}
+		}
+	}
+
+	on_complete = {
+		s:STATE_TUNISIA ?= {
+			add_homeland = cu:african
+		}
+		s:STATE_TRIPOLI ?= {
+			add_homeland = cu:african
+		}
+		s:STATE_LIBYA ?= {
+			add_homeland = cu:african
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}

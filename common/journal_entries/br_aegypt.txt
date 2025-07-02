@@ -8,8 +8,7 @@
 	}
 
 	is_shown_when_inactive = {
-		exists = c:br_aegypt
-		this = c:br_aegypt
+		c:br_aegypt ?= this
 	}
 
 	possible = {
@@ -48,6 +47,97 @@
 		add_loyalists = {
 			pop_type = bureaucrats
 			value = very_large_radicals
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}
+
+je_aegypt_homeland = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_internal_affairs
+
+	modifiers_while_active = {
+		#br_modifier_state_colonial_attraction
+	}
+
+	is_shown_when_inactive = {
+		c:br_aegypt ?= this
+		NOR = {
+			s:STATE_LOWER_EGYPT ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_MIDDLE_EGYPT ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_UPPER_EGYPT ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_MATRUH ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_SINAI ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_EGYPTIAN_DESERT ?= {
+				is_homeland = cu:aegyptian
+			}
+		}
+	}
+
+	possible = {
+		c:br_aegypt ?= this
+		NOR = {
+			s:STATE_LOWER_EGYPT ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_MIDDLE_EGYPT ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_UPPER_EGYPT ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_MATRUH ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_SINAI ?= {
+				is_homeland = cu:aegyptian
+			}
+			s:STATE_EGYPTIAN_DESERT ?= {
+				is_homeland = cu:aegyptian
+			}
+		}
+	}
+
+	complete = {
+		highest_secession_progress < 0.5
+		NOT = {
+			any_scope_state = {
+				turmoil >= 0.25
+			}
+		}
+	}
+
+	on_complete = {
+		s:STATE_LOWER_EGYPT ?= {
+			add_homeland = cu:aegyptian
+		}
+		s:STATE_MIDDLE_EGYPT ?= {
+			add_homeland = cu:aegyptian
+		}
+		s:STATE_UPPER_EGYPT ?= {
+			add_homeland = cu:aegyptian
+		}
+		s:STATE_MATRUH ?= {
+			add_homeland = cu:aegyptian
+		}
+		s:STATE_SINAI ?= {
+			add_homeland = cu:aegyptian
+		}
+		s:STATE_EGYPTIAN_DESERT ?= {
+			add_homeland = cu:aegyptian
 		}
 	}
 

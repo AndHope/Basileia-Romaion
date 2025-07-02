@@ -31,8 +31,9 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					country={
-						country="c:br_novgorod"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
 					}
 					building={
@@ -53,8 +54,13 @@
 					building={
 						type="building_manor_house"
 						country="c:SWE"
-						levels=3
+						levels=2
 						region="STATE_SVEALAND"
+					}
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
 					}
 				}
 				reserves=1
@@ -91,11 +97,10 @@
 			create_building={
 				building="building_food_industry"
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
 						levels=1
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
 					}
 				}
 				reserves=1
@@ -216,13 +221,25 @@
 				activate_production_methods={ "pm_simple_organization" }
 			}
 			create_building={
-				building="building_food_industry"
+				building="building_textile_mills"
 				add_ownership={
 					building={
 						type="building_financial_district"
+						country="c:SWE"
+						levels=1
+						region="STATE_SVEALAND"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+			}
+			create_building={
+				building="building_food_industry"
+				add_ownership={
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
 						levels=1
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
 					}
 				}
 				reserves=1
@@ -451,11 +468,10 @@
 			create_building={
 				building="building_food_industry"
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
 						levels=1
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
 					}
 				}
 				reserves=1
@@ -564,10 +580,11 @@
 					building={
 						type="building_manor_house"
 						country="c:br_muscovy"
-						levels=1
+						levels=2
 						region="STATE_MOSCOW"
 					}
 				}
+				subsidized=yes
 				reserves=1
 				activate_production_methods={ "pm_muskets" "pm_automation_disabled" }
 			}
@@ -608,7 +625,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+				activate_production_methods={ "pm_br_early_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -657,6 +674,19 @@
 	}
 	s:STATE_TVER={
 		region_state:br_tver={
+			create_building={
+				building="building_paper_mills"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_muscovy"
+						levels=1
+						region="STATE_MOSCOW"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_sulfite_pulping" "pm_automation_disabled" }
+			}
 			create_building={
 				building="building_logging_camp"
 				add_ownership={
@@ -744,6 +774,19 @@
 				activate_production_methods={ "pm_simple_forestry" "pm_road_carts" "pm_no_hardwood" }
 			}
 			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_muscovy"
+						levels=1
+						region="STATE_MOSCOW"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_br_early_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+			}
+			create_building={
 				building="building_rye_farm"
 				add_ownership={
 					building={
@@ -778,6 +821,19 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_forestry" "pm_road_carts" "pm_no_hardwood" }
+			}
+			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_muscovy"
+						levels=1
+						region="STATE_MOSCOW"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_br_early_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
 			}
 			create_building={
 				building="building_rye_farm"
@@ -911,7 +967,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+				activate_production_methods={ "pm_br_early_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
 			}		
 			create_building={
 				building="building_rye_farm"
@@ -995,6 +1051,19 @@
 				activate_production_methods={ "pm_handcrafted_furniture" "pm_automation_disabled" "pm_no_luxuries" }
 			}
 			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_taurica"
+						levels=1
+						region="STATE_CRIMEA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_br_early_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
+			}
+			create_building={
 				building="building_logging_camp"
 				add_ownership={
 					building={
@@ -1029,11 +1098,11 @@
 				add_ownership={
 					country={
 						country="c:PLC"
-						levels=2
+						levels=6
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_simple_organization" }
 			}
 			create_building={
 				building="building_iron_mine"
@@ -1109,11 +1178,11 @@
 				add_ownership={
 					country={
 						country="c:PLC"
-						levels=1
+						levels=4
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_simple_organization" }
 			}	
 			create_building={
 				building="building_logging_camp"
@@ -1404,6 +1473,19 @@
 				activate_production_methods={ "pm_simple_organization" }
 			}
 			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:br_taurica"
+						levels=1
+						region="STATE_CRIMEA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_br_early_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
+			}
+			create_building={
 				building="building_food_industry"
 				add_ownership={
 					building={
@@ -1594,6 +1676,17 @@
 	s:STATE_GREATER_POLAND={
 		region_state:PLC={
 			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:PLC"
+						levels=6
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" }
+			}
+			create_building={
 				building="building_textile_mills"
 				add_ownership={
 					building={
@@ -1644,6 +1737,19 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_horse_drawn_transport" }
+			}
+			create_building={
+				building="building_lead_mine"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:PLC"
+						levels=1
+						region="STATE_GREATER_POLAND"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_lead_mine" "pm_no_explosives" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -1758,28 +1864,38 @@
 			create_building={
 				building="building_fishing_wharf"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:PRU"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_WEST_PRUSSIA"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" }
 			}
 			create_building={
-				building="building_logging_camp"
+				building="building_shipyards"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:PRU"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_WEST_PRUSSIA"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
+				activate_production_methods={ "pm_basic_shipbuilding" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
 			}
 			create_building={
 				building="building_rye_farm"
@@ -1797,11 +1913,10 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:PRU"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=2
-						region="STATE_WEST_PRUSSIA"
 					}
 				}
 				reserves=1
@@ -1819,6 +1934,7 @@
 						region="STATE_EAST_PRUSSIA"
 					}
 				}
+				subsidized=yes
 				reserves=1
 				activate_production_methods={ "pm_muskets" "pm_automation_disabled" }
 			}
@@ -1854,8 +1970,13 @@
 					building={
 						type="building_manor_house"
 						country="c:PRU"
-						levels=2
+						levels=1
 						region="STATE_EAST_PRUSSIA"
+					}
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
 					}
 				}
 				reserves=1
@@ -1877,11 +1998,10 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:PRU"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_WEST_PRUSSIA"
 					}
 				}
 				reserves=1
@@ -1937,9 +2057,14 @@
 				add_ownership={
 					building={
 						type="building_financial_district"
+						country="c:PRU"
+						levels=1
+						region="STATE_EAST_PRUSSIA"
+					}
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
-						levels=2
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
+						levels=1
 					}
 				}
 				reserves=1
@@ -1950,11 +2075,17 @@
 				add_ownership={
 					building={
 						type="building_financial_district"
+						country="c:PRU"
+						levels=1
+						region="STATE_EAST_PRUSSIA"
+					}
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
 						levels=1
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
 					}
 				}
+				subsidized=yes
 				reserves=1
 				activate_production_methods={ "pm_muskets" }
 			}
@@ -1966,6 +2097,11 @@
 						country="c:PRU"
 						levels=2
 						region="STATE_EAST_PRUSSIA"
+					}
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
 					}
 				}
 				reserves=1
@@ -2000,11 +2136,10 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:PRU"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_EAST_PRUSSIA"
 					}
 				}
 				reserves=1
@@ -2102,10 +2237,15 @@
 				building="building_textile_mills"
 				add_ownership={
 					building={
-						type="building_financial_district"
+						type="building_manor_house"
+						country="c:BOH"
+						levels=1
+						region="STATE_BOHEMIA"
+					}
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
-						levels=2
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
+						levels=1
 					}
 				}
 				reserves=1
@@ -2115,10 +2255,15 @@
 				building="building_arms_industry"
 				add_ownership={
 					building={
-						type="building_financial_district"
+						type="building_manor_house"
+						country="c:BOH"
+						levels=1
+						region="STATE_BOHEMIA"
+					}
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
-						levels=2
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
+						levels=1
 					}
 				}
 				reserves=1
@@ -2128,10 +2273,10 @@
 				building="building_artillery_foundries"
 				add_ownership={
 					building={
-						type="building_financial_district"
-						country="c:DEN"
+						type="building_manor_house"
+						country="c:BOH"
 						levels=1
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
+						region="STATE_BOHEMIA"
 					}
 				}
 				reserves=1
@@ -2188,7 +2333,7 @@
 					building={
 						type="building_manor_house"
 						country="c:BOH"
-						levels=1
+						levels=3
 						region="STATE_BOHEMIA"
 					}
 				}
@@ -2246,6 +2391,11 @@
 						levels=1
 						region="STATE_RIGA"
 					}
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
+					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_horse_drawn" "pm_horse_drawn_transport" }
@@ -2266,11 +2416,10 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:UBD"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_RIGA"
 					}
 				}
 				reserves=1
@@ -2352,16 +2501,15 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_simple_organization" }
 			}
 			create_building={
 				building="building_fishing_wharf"
 				add_ownership={
-					building={
-						type="building_fishing_wharf"
-						country="c:UBD"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_TALINN"
 					}
 				}
 				reserves=1
@@ -2402,11 +2550,10 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:UBD"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_RIGA"
 					}
 				}
 				reserves=1
@@ -2419,11 +2566,10 @@
 			create_building={
 				building="building_fishing_wharf"
 				add_ownership={
-					building={
-						type="building_fishing_wharf"
-						country="c:UBD"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_TARTU"
 					}
 				}
 				reserves=1
@@ -2458,11 +2604,10 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:UBD"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_RIGA"
 					}
 				}
 				reserves=1
@@ -2479,20 +2624,19 @@
 				add_ownership={
 					country={
 						country="c:UBD"
-						levels=1
+						levels=2
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_simple_organization" }
 			}
 			create_building={
 				building="building_food_industry"
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_hansa_trade
 						country="c:DEN"
 						levels=1
-						region="STATE_SCHLESWIG_HOLSTEIN" #hansa 
 					}
 				}
 				reserves=1
@@ -2540,11 +2684,10 @@
 			create_building={
 				building="building_shipyards"
 				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:SWE"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_SVEALAND"
 					}
 				}
 				reserves=1
@@ -2553,11 +2696,10 @@
 			create_building={
 				building="building_port"
 				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:UBD"
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
 						levels=1
-						region="STATE_RIGA"
 					}
 				}
 				reserves=1

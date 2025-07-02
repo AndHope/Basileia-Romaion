@@ -53,14 +53,59 @@ br_tartaria = {
 }
 
 BYZ = { 
+	dynamic_country_name = { # Basileia Romaiôn
+		name = dyn_c_br_basileia_romaion
+		adjective = dyn_c_br_basileia_romaion_adj
+		
+		is_main_tag_only = yes
+		priority = 1500
+		
+		trigger = {
+			scope:actor ?= {
+				has_law = law_type:law_monarchy
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_br_senate_republic
+		
+		is_main_tag_only = yes
+		priority = 1500
+		
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+			scope:actor ?= {
+				OR = {
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
+				}
+				OR = {
+					has_law = law_type:law_oligarchy
+					has_law = law_type:law_landed_voting
+					has_law = law_type:law_wealth_voting
+				}
+			}
+		}
+	}
 	dynamic_country_name = {
 		name = dyn_c_byzantine_republic
 		
 		is_main_tag_only = yes
-		priority = 1
+		priority = 1500
 		
 		trigger = {
 			coa_def_republic_flag_trigger = yes
+			scope:actor ?= {
+				OR = {
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
+				}
+				OR = {
+					NOT = { has_law = law_type:law_oligarchy }
+					NOT = { has_law = law_type:law_landed_voting }
+					NOT = { has_law = law_type:law_wealth_voting }
+				}
+			}
 		}
 	}
 	
@@ -68,7 +113,7 @@ BYZ = {
 		name = dyn_c_patriarchal_synod
 		
 		is_main_tag_only = yes
-		priority = 1
+		priority = 1500
 		
 		trigger = {
 			coa_def_theocracy_flag_trigger = yes
@@ -79,7 +124,7 @@ BYZ = {
 		name = dyn_c_byzantine_peoples_republic
 		
 		is_main_tag_only = yes
-		priority = 10000 # why PDX why
+		priority = 15000
 		
 		trigger = {
 			OR = {
@@ -106,7 +151,7 @@ BYZ = {
 		adjective = dyn_c_re_adj
 		
 		is_main_tag_only = yes
-		priority = 0
+		priority = 3000
 		
 		trigger = {
 			exists = scope:actor
@@ -121,7 +166,7 @@ BYZ = {
 		adjective = dyn_c_re_adj
 		
 		is_main_tag_only = yes
-		priority = 0
+		priority = 3000
 		
 		trigger = {
 			exists = scope:actor
@@ -136,7 +181,7 @@ BYZ = {
 		adjective = dyn_c_re_adj
 		
 		is_main_tag_only = yes
-		priority = 0
+		priority = 3000
 		
 		trigger = {
 			exists = scope:actor
@@ -151,7 +196,7 @@ BYZ = {
 		adjective = dyn_c_re_adj
 		
 		is_main_tag_only = yes
-		priority = 0
+		priority = 3000
 		
 		trigger = {
 			exists = scope:actor
@@ -166,7 +211,7 @@ BYZ = {
 		adjective = dyn_c_re_adj
 		
 		is_main_tag_only = yes
-		priority = 0
+		priority = 3000
 		
 		trigger = {
 			exists = scope:actor
@@ -323,8 +368,6 @@ KUR = {
 		}
 	}
 }
-
-
 
 ARM = {
 	dynamic_country_name = {

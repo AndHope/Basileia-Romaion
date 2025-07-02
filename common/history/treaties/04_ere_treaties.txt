@@ -10,15 +10,67 @@
 		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
+			{
+				article = transit_rights
+				source_country = c:BYZ
+				target_country = c:SER
+			}
+			{ # Wood Trade
+				article = goods_transfer
 				source_country = c:SER
 				target_country = c:BYZ
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 10 }
+				}
+			}
+			{ # Iron Trade
+				article = goods_transfer
+				source_country = c:SER
+				target_country = c:BYZ
+				inputs = {
+					{ goods = g:iron }
+					{ quantity = 10 }
+				}
+			}
+			{ # Coal Trade
+				article = goods_transfer
+				source_country = c:SER
+				target_country = c:BYZ
+				inputs = {
+					{ goods = g:coal }
+					{ quantity = 10 }
+				}
 			}
 		}
 	}
 	create_treaty = {
 		first_country = c:BYZ
+		second_country = c:br_muscovy
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 25 }
+
+		articles_to_create = {
+			{ # Military Assistance
+				article = military_assistance
+				source_country = c:BYZ
+				target_country = c:br_muscovy
+			}
+			{ # Wood Trade
+				article = goods_transfer
+				source_country = c:br_muscovy
+				target_country = c:BYZ
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 75 }
+				}
+			}
+		}
+	}
+	create_treaty = {
+		first_country = c:br_taurica
 		second_country = c:br_tartaria
 
 		is_draft = no
@@ -26,10 +78,31 @@
 		binding_period = { years = 50 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
+			{
+				article = treaty_port
 				source_country = c:br_tartaria
-				target_country = c:BYZ
+				target_country = c:br_taurica
+				inputs = {
+					{ state = s:STATE_CRIMEA.region_state:br_tartaria }
+				}
+			}
+			{ # Wood Trade
+				article = goods_transfer
+				source_country = c:br_tartaria
+				target_country = c:br_taurica
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 20 }
+				}
+			}
+			{ # Iron Trade
+				article = goods_transfer
+				source_country = c:br_tartaria
+				target_country = c:br_taurica
+				inputs = {
+					{ goods = g:horse }
+					{ quantity = 20 }
+				}
 			}
 		}
 	}
@@ -47,6 +120,16 @@
 			{ # Defensive Pact
 				article = defensive_pact
 			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:WAL
+				target_country = c:MOL
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:MOL
+				target_country = c:WAL
+			}
 		}
 	}
 	create_treaty = {
@@ -63,10 +146,32 @@
 				source_country = c:BYZ
 				target_country = c:WAL
 			}
-			{ # Trade Agreement
-				article = trade_privilege
+			{ # Wood Trade
+				article = goods_transfer
 				source_country = c:WAL
 				target_country = c:BYZ
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 15 }
+				}
+			}
+			{ # Iron Trade
+				article = goods_transfer
+				source_country = c:WAL
+				target_country = c:BYZ
+				inputs = {
+					{ goods = g:iron }
+					{ quantity = 15 }
+				}
+			}
+			{ # Coal Trade
+				article = goods_transfer
+				source_country = c:WAL
+				target_country = c:BYZ
+				inputs = {
+					{ goods = g:coal }
+					{ quantity = 15 }
+				}
 			}
 		}
 	}
@@ -84,10 +189,23 @@
 				source_country = c:BYZ
 				target_country = c:MOL
 			}
-			{ # Trade Agreement
-				article = trade_privilege
+			{ # Wood Trade
+				article = goods_transfer
 				source_country = c:MOL
 				target_country = c:BYZ
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 20 }
+				}
+			}
+			{ # Iron Trade
+				article = goods_transfer
+				source_country = c:MOL
+				target_country = c:BYZ
+				inputs = {
+					{ goods = g:iron }
+					{ quantity = 20 }
+				}
 			}
 		}
 	}
@@ -105,7 +223,18 @@
 			{ # Defensive Pact
 				article = defensive_pact
 			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:ARM
+				target_country = c:GEO
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:GEO
+				target_country = c:ARM
+			}
 		}
+		
 	}
 
 

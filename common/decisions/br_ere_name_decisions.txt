@@ -1,4 +1,6 @@
-﻿br_show_ere_name_decisions = {
+﻿#It you want to add a new decision to change the name of the ERE then add the var of that decision to 'br_ere_name_remove_all_name_vars_scripted_effect' in the br_ere_scripted_effects file
+#this is not for the 'br_show_ere_name_decisions' and 'br_hide_ere_name_decisions'
+br_show_ere_name_decisions = {
 	is_shown = {
 		exists = c:BYZ
 		c:BYZ = ROOT
@@ -43,6 +45,40 @@ br_hide_ere_name_decisions = {
 	}
 }
 
+ere_default_name_decision = {
+	is_shown = {
+		exists = c:BYZ
+		c:BYZ = ROOT
+		is_player = yes
+		has_variable = showing_latinized_names
+		NOR = {
+			has_variable = default_name_chosen_var
+		}
+		OR = {
+			has_variable = re_name_chosen_var
+			has_variable = ere_name_chosen_var
+			has_variable = romania_name_chosen_var
+			has_variable = rhomania_i_name_chosen_var
+			has_variable = rhomania_ii_name_chosen_var
+		}
+	}
+
+	possible = {
+		is_at_war = no
+	}
+
+	when_taken = {
+		br_ere_change_name_effect = yes
+		set_variable = default_name_chosen_var
+		custom_tooltip = {
+			text = ere_default_name_tt
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
 ere_re_name_decision = {
 	is_shown = {
 		exists = c:BYZ
@@ -59,6 +95,7 @@ ere_re_name_decision = {
 	}
 
 	when_taken = {
+		br_ere_change_name_effect = yes
 		set_variable = re_name_chosen_var
 		custom_tooltip = {
 			text = ere_re_name_tt
@@ -85,6 +122,7 @@ ere_ere_name_decision = {
 	}
 
 	when_taken = {
+		br_ere_change_name_effect = yes
 		set_variable = ere_name_chosen_var
 		custom_tooltip = {
 			text = ere_ere_name_tt
@@ -111,6 +149,7 @@ ere_romania_name_decision = {
 	}
 
 	when_taken = {
+		br_ere_change_name_effect = yes
 		set_variable = romania_name_chosen_var
 		custom_tooltip = {
 			text = ere_romania_name_tt
@@ -138,6 +177,7 @@ ere_rhomania_i_name_decision = {
 	}
 
 	when_taken = {
+		br_ere_change_name_effect = yes
 		set_variable = rhomania_i_name_chosen_var
 		custom_tooltip = {
 			text = ere_rhomania_i_name_tt
@@ -164,6 +204,7 @@ ere_rhomania_ii_name_decision = {
 	}
 
 	when_taken = {
+		br_ere_change_name_effect = yes
 		set_variable = rhomania_ii_name_chosen_var
 		custom_tooltip = {
 			text = ere_rhomania_ii_name_tt

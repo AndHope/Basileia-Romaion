@@ -2,8 +2,16 @@
 # GUI Button
  eocfm_sidebar_button_sgui: "eocfm_sidebar_button_sgui"
  eocfm_sidebar_button_sgui_desc: "Orthodox Church"
- 
+
  # GUI Top Bar
+ eocfm_topbar_element_capacity: "eocfm_topbar_element_capacity"
+ eocfm_topbar_element_capacity_icon: "@eocfm_caesaropapism!"
+ eocfm_topbar_element_capacity_value: "#v #greece [GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value')]#!#!"
+ eocfm_topbar_element_capacity_tooltip: "@eocfm_caesaropapism! [concept_caesaropapism]\nBalance: [GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[GetPlayer.MakeScope.GetScriptValueDesc('eocfm_caesaropapism_capacity_value')]"
+ eocfm_topbar_element_capacity_source: "Gates of the Bosphorus"
+ eocfm_topbar_element_capacity_source_tooltip: "This element is part of the mod #v Gates of the Bosphorus#!."
+
+ # GUI Main Status Panel
  eocfm_gui_main_title: "The Eastern Orthodox Church"
  eocfm_gui_national_church_name: "The Orthodox Church of [GetPlayer.GetName]"
  eocfm_gui_national_church_desc: "As long as we do not forsake the faith, the state will be able to assert influence\nover its bishops that can be used to direct their efforts to the benefit of the state."
@@ -30,18 +38,47 @@
  custom_eocfm_promote_ecumenism_focus: "#bold #purple Promoting Christian Ecumenism#!#!"
  
  # GUI Metropolitan Buttons
+ eocfm_gui_commission_icon: "Venerate an Icon"
  eocfm_gui_commission_icon_button: "We can use some of our influence over the Church to commission icons to inspire the faithful. These icons will endure for 10 years before needing replacement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_dissolve_monasteries: "Dissolve the Monasteries"
  eocfm_gui_dissolve_monasteries_button: "Throughout our hinterland, there are several ancient monasteries that cling on by momentum alone. Administrators have advised that the functions of both the church and the state could be dramatically improved by shuttering several minor monasteries.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_restore_monasteries: "Restore the Monasteries"
  eocfm_gui_restore_monasteries_button: "As a result of the seizure of monastic estates, many clergy have found themselves destitute. Many would welcome some form of relief.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_reform_synod: "Reform the Synod"
  eocfm_gui_reform_synod_button: "Caesaropapism, the idea of merging the church and state, has gained traction as a means of both protecting and enforcing our independent identity as a people. By subjugating the church to the state apparatus, we can insulate ourselves from further interference by the Sultan.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_restore_synod: "Restore the Synod""
  eocfm_gui_restore_synod_button: "The act of subjugating the Church has had profound effects. Chafing under the yoke of the state, the Church has lost a lot of its former influence. If we wish, we could restore the independence of the clergy.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_grant_subsidies: "Grant Subsidies"
  eocfm_gui_grant_subsidies_button: "The state could grant state subsidies to the Orthodox Church in the name of supporting the needs of the clergy... in exchange for their compliance.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_end_subsidies: "End Subsidies"
  eocfm_gui_end_subsidies_button: "Civic leaders decry the use of secular funds to provide for spiritual matters. While they make sound legal arguements, the church risks collapse without our continued intervention.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_establish_schools: "Establish Sunday Schools"
  eocfm_gui_establish_schools_button: "The best way to spread the divine word and to bring literacy to the poorest of our children is by providing them with weekly education following liturgical services.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_disband_schools: "Disband Schools"
  eocfm_gui_disband_schools_button: "While weekend school programs have proven successful in guiding our youth to the faith, they have also proven a major expense for the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_unify_orthodox_realms: "Given our prominent position within the Orthodox Church, senior bishops have floated the idea of a singular unified Orthodox nation bound by the faith under our rule.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # GUI Ecumenical Actions
+ eocfm_gui_declare_autocephaly: "Declare Autocephaly"
+ eocfm_gui_declare_autocephaly_button: "Once the symbol of unity in the Eastern Church, the Ecumenical Patriarch in Constantinople has increasingly come under the influence of the Ottoman Sultan. Unless we sever our connections with Constantinople, the Ottomans are sure to continue to interfere in our politics and may even try to further their attempts to suppress our culture.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_convoke_council: "Convoke Council"
+ eocfm_gui_convoke_council_button: "Our influence within the Eastern Orthodox community is obvious. We could use this power to summon an Ecumenical Council to settle long-standing issues within the Orthodox Church.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_autocephaly_progress_amount: "TODO"
+ eocfm_gui_autocephaly_progress: "#bold #greece Autocephaly Progress#!#!"
+
+ eocfm_gui_secure_tetrarchy: "Secure the Tetrarchy"
+ eocfm_gui_secure_tetrarchy_button: "Under the auspices of the Byzantine state, the Ancient Patriarchates existed in a unified structure to administer the ecclesiarcy and shephard the faithful. Should we secure control over these holy nexuses of the faith, we will be able to reunify the old heart of the Eastern Orthodoxy.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_secure_pentarchy: "Secure the Pentarchy"
+ eocfm_gui_secure_pentarchy_button: "The Pentarchy, consisting of the Eastern seats plus Rome, once ruled over the unitied Christian church before the Germanic invaders tore Rome away from the Empire for their political aspirations. If we can secure control over the Enternal City, we will be able to unify the Eastern and Western Patriarchates after almost a millenium of estrangment.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_mend_schism: "Mend the Great Schism"
+ eocfm_gui_mend_schism_button: "The five Ancient Seats of the Orthodoxy lie within our control, yet the two churches are divided by a millenium of deviations in legal framworks and dogmatic priniciples. To truly combine the two Churches into one Great Church will be a herculean task, one that already failed many times over the centuries.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_mend_schism_progress: "#bold #greece Mending Progress#!#!"
+ eocfm_gui_seek_mandate: "Seek Political Mandate"
+ eocfm_gui_seek_mandate_button: "The Orthodox people hold the positions of their Bishops in high regard. With a little manuvering, we could obtain the blessings of the Ecumenical Patriarch designating our administration as not only legitimate, but divine.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_demand_deposition: "Demand Deposition"
+ eocfm_gui_demand_deposition_button: "While the Ecumenical Patriarch claims seniority over Eastern Christianity, he remains an agent of the Sultan in his capacity as the #italic milletbashi#! of the #bold millet-i Rûm#!. As such, we can demand his replacement in exchange for increased cooperation with his replacement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+
+ # GUI Constantinople Widget
  eocfm_gui_ecumenical_patriarch_header: "Ecumenical Patriarchate"
  eocfm_gui_ecumenical_patriarch_name: "Ecumenical Patriarch [GetPlayer.MakeScope.Var('eocfm_constantinople_patriarch_var').GetCharacter.GetLastName]"
  eocfm_gui_ecumenical_patriarch_controller: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_constantinople_controller_type')]"
@@ -54,17 +91,13 @@
  eocfm_gui_constantinople_patriarch_relations_bottom: "#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_constantinople_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_constantinople_relations_var').GetValue]#!"
  eocfm_gui_constantinople_patriarch_relations_breakdown: "Monthly change is due to:\n[Country.MakeScope.GetScriptValueDesc('eocfm_constantinople_progress_value')]"
  eocfm_gui_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
- eocfm_gui_declare_autocephaly_button: "Once the symbol of unity in the Eastern Church, the Ecumenical Patriarch in Constantinople has increasingly come under the influence of the Ottoman Sultan. Unless we sever our connections with Constantinople, the Ottomans are sure to continue to interfere in our politics and may even try to further their attempts to suppress our culture.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_convoke_council_button: "Our influence within the Eastern Orthodox community is obvious. We could use this power to summon an Ecumenical Council to settle long-standing issues within the Orthodox Church.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_autocephaly_progress_amount: "TODO"
- eocfm_gui_autocephaly_progress: "TODO"
- 
- eocfm_gui_secure_tetrarchy_button: "Under the auspices of the Byzantine state, the Ancient Patriarchates existed in a unified structure to administer the ecclesiarcy and shephard the faithful. Should we secure control over these holy nexuses of the faith, we will be able to reunify the old heart of the Eastern Orthodoxy.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_secure_pentarchy_button: "The Pentarchy, consisting of the Eastern seats plus Rome, once ruled over the unitied Christian church before the Germanic invaders tore Rome away from the Empire for their political aspirations. If we can secure control over the Enternal City, we will be able to unify the Eastern and Western Patriarchates after almost a millenium of estrangment.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_mend_schism_button: "The five Ancient Seats of the Orthodoxy lie within our control, yet the two churches are divided by a millenium of deviations in legal framworks and dogmatic priniciples. To truly combine the two Churches into one Great Church will be a herculean task, one that already failed many times over the centuries.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_seek_mandate_button: "The Orthodox people hold the positions of their Bishops in high regard. With a little manuvering, we could obtain the blessings of the Ecumenical Patriarch designating our administration as not only legitimate, but divine.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_demand_deposition_button: "While the Ecumenical Patriarch claims seniority over Eastern Christianity, he remains an agent of the Sultan in his capacity as the #italic milletbashi#! of the #bold millet-i Rûm#!. As such, we can demand his replacement in exchange for increased cooperation with his replacement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- 
+
+ # GUI Seat Actions
+ eocfm_gui_start_sway: "Sway Patriarchal Seat"
+ eocfm_gui_stop_sway: "Cease Diplomatic Efforts"
+ eocfm_gui_integrate: "Integrate Patriarchal Seat"
+ eocfm_gui_integrate_progress: "#bold #greece Integration Progress#!#!"
+
  # GUI Antioch Widget
  eocfm_gui_antioch_patriarch_header: "Patriarchate of Antioch"
  eocfm_gui_antioch_patriarch_name: "Patriarch [GetPlayer.MakeScope.Var('eocfm_antioch_patriarch_var').GetCharacter.GetLastName]"
