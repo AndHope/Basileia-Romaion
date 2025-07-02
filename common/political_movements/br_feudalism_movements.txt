@@ -7,7 +7,7 @@ br_movement_anti_feudalism = {
 	ideology = ideology_anti_feudalism
 	
 	# A list of character ideologies that this movement can potentially assign to leaders of IGs they are pressuring 
-	character_ideologies = {}
+	character_ideologies = { ideology_anti_feudalism }
 	
 	# Trigger that must evaluate true for this movement type to be created 
 	# Root = country
@@ -73,13 +73,28 @@ br_movement_anti_feudalism = {
 
 	# These are the pop support factors that will be displayed in the UI for this movement - does not actually have any gameplay impact
 	# Pop support factors are defined in their own database
-	pop_support_factors = {}
+	pop_support_factors = {
+		br_pop_is_of_3de_estate
+		br_is_a_burgher
+		br_is_a_freemen
+		br_is_a_serf
+	}
 
 	# The weight for individuals in a pop to support movements of this type, compared to other movements that are valid for them to support
 	# Root = pop
 	# scope:culture = The cultural identity of the movement, if any
 	# scope:religion = The religious identity of the movement, if any
-	pop_support_weight = {}	
+	pop_support_weight = {
+		OR = {
+			strata = lower
+
+			and = {
+				has_social_class = br_feudalism_serfs
+				has_social_class = br_feudalism_freemen
+				has_social_class = br_feudalism_burgher
+			}
+		}
+	}
 	
 	# Data for which types of civil wars this movement type can start
 	# If a type isn't explicitly scripted here, it won't be valid for the movement type
@@ -209,13 +224,29 @@ br_movement_pro_feudalism = {
 
 	# These are the pop support factors that will be displayed in the UI for this movement - does not actually have any gameplay impact
 	# Pop support factors are defined in their own database
-	pop_support_factors = {}
+	pop_support_factors = {
+		br_pop_is_of_1de_estate
+		br_pop_is_of_2de_estate
+		br_is_a_noble
+		br_is_a_knight
+		br_is_a_clergy
+	}
 
 	# The weight for individuals in a pop to support movements of this type, compared to other movements that are valid for them to support
 	# Root = pop
 	# scope:culture = The cultural identity of the movement, if any
 	# scope:religion = The religious identity of the movement, if any
-	pop_support_weight = {}	
+	pop_support_weight = {
+		OR = {
+			strata = upper
+
+			and = {
+				has_social_class = br_feudalism_nobles
+				has_social_class = br_feudalism_knights
+				has_social_class = br_feudalism_clergy
+			}
+		}
+	}	
 	
 	# Data for which types of civil wars this movement type can start
 	# If a type isn't explicitly scripted here, it won't be valid for the movement type
