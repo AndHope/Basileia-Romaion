@@ -40,7 +40,36 @@
 				multiply = -1 #invert the sign because pos popularity has the decrease revolution progress
 			}
 		}
-		
+		if = {
+			limit = {
+				has_variable = br_1de_estate_var
+			}
+			add = {
+				desc = "br_impending_revolution_1de_estate_disatisfaction_revolution_progress_change_loc"
+				value = var:br_1de_estate_var.var:br_estate_disatisfaction_var
+				multiply = br_1de_estate_disatisfaction_to_revolution_progress_multiplier
+			}
+		}
+		if = {
+			limit = {
+				has_variable = br_2de_estate_var
+			}
+			add = {
+				desc = "br_impending_revolution_2de_estate_disatisfaction_revolution_progress_change_loc"
+				value = var:br_2de_estate_var.var:br_estate_disatisfaction_var
+				multiply = br_2de_estate_disatisfaction_to_revolution_progress_multiplier
+			}
+		}
+		if = {
+			limit = {
+				has_variable = br_3de_estate_var
+			}
+			add = {
+				desc = "br_impending_revolution_3de_estate_disatisfaction_revolution_progress_change_loc"
+				value = var:br_3de_estate_var.var:br_estate_disatisfaction_var
+				multiply = br_3de_estate_disatisfaction_to_revolution_progress_multiplier
+			}
+		}
 	}
  }
 
