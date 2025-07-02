@@ -23,7 +23,9 @@ br_movement_anti_feudalism = {
 	
 	# Effect that is executed when a movement of this type is created
 	# Root = political movement
-	on_created = {}
+	on_created = {
+		add_movement_enthusiasm_modifier = yes
+	}
 	
 	# Trigger that must evaluate true for a culture to be picked as the cultural identity for this movement type, selected among cultures present in the country
 	# root = culture
@@ -85,14 +87,25 @@ br_movement_anti_feudalism = {
 	# scope:culture = The cultural identity of the movement, if any
 	# scope:religion = The religious identity of the movement, if any
 	pop_support_weight = {
-		OR = {
-			strata = lower
+		if = {
+			limit = {
+				OR = {
+					strata = lower
 
-			and = {
-				has_social_class = br_feudalism_serfs
-				has_social_class = br_feudalism_freemen
-				has_social_class = br_feudalism_burgher
+					and = {
+						has_social_class = br_feudalism_serfs
+						has_social_class = br_feudalism_freemen
+						has_social_class = br_feudalism_burgher
+					}
+				}
 			}
+			value = 100
+		}
+		if = {
+			limit = {
+				owner = { has_journal_entry = je_hre_impending_revolution }
+			}
+			multiply = 2
 		}
 	}
 	
@@ -147,7 +160,18 @@ br_movement_anti_feudalism = {
 	active_law_radicalism_multiplier = 0.2
 	
 	# Bespoke factors for increasing/decreasing the activism of movements of this type
-	additional_radicalism_factors = {}	
+	additional_radicalism_factors = {
+		owner = {
+			if = {
+				limit = { has_journal_entry = je_hre_impending_revolution }
+
+				add = {
+					value = 3
+					# desc = "INSTITUTION_FUNDING_LEVEL_schools"
+				}
+			}
+		}
+	}	
 }
 br_movement_pro_feudalism = {
 	# The movement's category, which determines factors such as whether it has a cultural/religious identity
@@ -158,7 +182,10 @@ br_movement_pro_feudalism = {
 	ideology = ideology_pro_feudalism
 	
 	# A list of character ideologies that this movement can potentially assign to leaders of IGs they are pressuring 
-	character_ideologies = {}
+	character_ideologies = {
+		ideology_pro_feudalism
+		ideology_royalist
+	}
 	
 	# Trigger that must evaluate true for this movement type to be created 
 	# Root = country
@@ -174,7 +201,9 @@ br_movement_pro_feudalism = {
 	
 	# Effect that is executed when a movement of this type is created
 	# Root = political movement
-	on_created = {}
+	on_created = {
+		add_movement_enthusiasm_modifier = yes
+	}
 	
 	# Trigger that must evaluate true for a culture to be picked as the cultural identity for this movement type, selected among cultures present in the country
 	# root = culture
@@ -237,14 +266,19 @@ br_movement_pro_feudalism = {
 	# scope:culture = The cultural identity of the movement, if any
 	# scope:religion = The religious identity of the movement, if any
 	pop_support_weight = {
-		OR = {
-			strata = upper
+		if = {
+			limit = {
+				OR = {
+					strata = upper
 
-			and = {
-				has_social_class = br_feudalism_nobles
-				has_social_class = br_feudalism_knights
-				has_social_class = br_feudalism_clergy
+					and = {
+						has_social_class = br_feudalism_nobles
+						has_social_class = br_feudalism_knights
+						has_social_class = br_feudalism_clergy
+					}
+				}
 			}
+			value = 100
 		}
 	}	
 	
@@ -299,5 +333,6 @@ br_movement_pro_feudalism = {
 	active_law_radicalism_multiplier = 0.2
 	
 	# Bespoke factors for increasing/decreasing the activism of movements of this type
-	additional_radicalism_factors = {}	
+	additional_radicalism_factors = {
+	}	
 }	
