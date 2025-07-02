@@ -39,11 +39,11 @@
 
 ---
 
-## Second Estate Actions (Nobility)
+## First Estate Actions (Nobility)
 
 ### Concessions
 - **Create New Titles to Appease Nobles**  
-  ↓ Second Estate dissatisfaction  
+  ↓ First Estate dissatisfaction  
   ↑ Corruption / Expenses
 
 - **Grant Military Exemptions**  
@@ -60,7 +60,7 @@
   ↑ Revolution Progress
 
 - **Disband Noble Levies**  
-  ↑ Second Estate anger  
+  ↑ First Estate anger  
   Temporary ↑ State authority
 
 - **Investigate Noble Tax Evasion**  
@@ -69,7 +69,7 @@
 
 ---
 
-## First Estate Actions (Clergy)
+## Second Estate Actions (Clergy)
 
 ### Moderate Actions
 - **Reaffirm Church’s Role in Education**  
@@ -92,7 +92,7 @@
 
 - **Require Oath of Loyalty from Priests**  
   Clergy may flee or resist  
-  Splits First Estate
+  Splits Second Estate
 
 - **Nationalize Monastic Orders**  
   ↑ State resources  
