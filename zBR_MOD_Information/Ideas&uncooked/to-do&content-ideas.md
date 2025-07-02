@@ -51,6 +51,7 @@
 		- build a statue of the emperor to increase popularity (use the existing statue of monarch modifier)
 	- Change revolution progress event ideas
 		- bandits roam in the counrty side
+	- Some kind of institution for the revolution perhaps
 
 ## General
 - Most of the mods flags and names are not set up in the flag definitions and country names files and do not change currently.
