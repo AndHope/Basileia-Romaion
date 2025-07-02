@@ -5,6 +5,11 @@ je_hre_impending_revolution = {
 	
 	group = je_group_internal_affairs
 
+	scripted_button = je_1de_estate_button
+	scripted_button = je_2de_estate_button
+	scripted_button = je_3de_estate_button
+	scripted_button = je_clamp_down_on_church_rights_button
+
 	scripted_progress_bar = br_hre_impending_revolution_progress_bar
 	scripted_progress_bar = br_hre_impending_revolution_1de_estate_progress_bar
 	scripted_progress_bar = br_hre_impending_revolution_2de_estate_progress_bar
@@ -27,6 +32,14 @@ je_hre_impending_revolution = {
 	immediate = {
 		#make vanilla revolution imposible
 		set_immune_to_revolutions = yes
+
+		#create the political movements
+		create_political_movement = {
+			type = br_movement_anti_feudalism
+		}
+		create_political_movement = {
+			type = br_movement_pro_feudalism
+		}
 
 		#set variables
 		set_variable = {
