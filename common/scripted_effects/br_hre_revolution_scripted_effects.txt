@@ -17,6 +17,8 @@ br_specific_change_in_revolutulionary_tension_effect = {
 			value = $value$
 		}
 	}
+
+	#Decide which tt to use
 	if = {
 		limit = {
 			$value$ = br_small_increase_in_revolutulionary_tension_value
@@ -56,9 +58,257 @@ br_large_increase_in_revolutulionary_tension_effect = {
 	}
 }
 
+###
+###Change estate disatisfaction scripted effects
+###
+#change the estate disatisfaction of the given estate with the given value
+br_change_specific_estate_disatisfaction_effect = {
+	je:je_hre_impending_revolution = {
+		if = {
+			limit = {
+				root = { #has to happen in root because estate_scope does not exist in JE scope
+					br_is_given_estate_1de_estate_scripted_trigger = {
+						estate_scope = $estate_scope$
+					}
+				}
+			}
+			add_progress = {
+				name = br_hre_impending_revolution_1de_estate_progress_bar
+				value = $value$
+			}
+		}
+		else_if = {
+			limit = {
+				root = { #has to happen in root because estate_scope does not exist in JE scope
+					br_is_given_estate_2de_estate_scripted_trigger = {
+						estate_scope = $estate_scope$
+					}
+				}
+			}
+			add_progress = {
+				name = br_hre_impending_revolution_2de_estate_progress_bar
+				value = $value$
+			}
+		}
+		else_if = {
+			limit = {
+				root = { #has to happen in root because estate_scope does not exist in JE scope
+					br_is_given_estate_3de_estate_scripted_trigger = {
+						estate_scope = $estate_scope$
+					}
+				}
+			}
+			add_progress = {
+				name = br_hre_impending_revolution_3de_estate_progress_bar
+				value = $value$
+			}
+		}
+	}
+}
+#set local var to display in loc
+br_set_estate_with_increasing_disatisfaction_effect = {
+	set_local_variable = {
+		name = br_estate_with_increasing_disatisfaction_var
+		value = $estate_scope$
+	}
+}
+br_set_quantitative_indicator_effect = {
+	set_local_variable = {
+		name = br_quantitative_indicator_var
+		value = $quantitative_indicator$
+	}
+}
+#same as 'br_change_specific_estate_disatisfaction_effect' but with custom_tooltip for predefined values
+br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+	hidden_effect = {
+		br_change_specific_estate_disatisfaction_effect = {
+			estate_scope = $estate_scope$
+			value = $value$
+		}
+	}
+	set_local_variable = {
+		name = br_change_in_disatisfaction_var
+		value = $value$
+	}
+
+	##This was to attemt and make the loc more dynamic, will try later again?
+	# custom_tooltip = {
+	# 	#Set the estate in a local var so it can be displayed in the tt loc
+	# 	br_set_estate_with_increasing_disatisfaction_effect = {
+	# 		estate_scope = $estate_scope$
+	# 	}
+
+	# 	if = {
+	# 		limit = {
+	# 			$value$ = br_small_increase_in_estate_disatisfaction_value
+	# 		}
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_small
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			$value$ = br_medium_increase_in_estate_disatisfaction_value
+	# 		}
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_medium
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			$value$ = br_large_increase_in_estate_disatisfaction_value
+	# 		}
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_large
+	# 		}
+	# 	}
+	# 	else = {
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_unspecified
+	# 		}
+	# 	}
+
+	# 	text = br_increase_in_estate_disatisfaction_tt
+	# }
+
+	#Decide which tt to use
+	if = {
+		limit = {
+			$value$ = br_small_increase_in_revolutulionary_tension_value
+		}
+		if = {
+			limit = {
+				br_is_given_estate_1de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_small_increase_in_1de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_2de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_small_increase_in_2de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_3de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_small_increase_in_3de_estate_disatisfaction_tt
+		}
+	}
+	else_if = {
+		limit = {
+			$value$ = br_medium_increase_in_revolutulionary_tension_value
+		}
+		if = {
+			limit = {
+				br_is_given_estate_1de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_medium_increase_in_1de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_2de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_medium_increase_in_2de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_3de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_medium_increase_in_3de_estate_disatisfaction_tt
+		}
+	}
+	else_if = {
+		limit = {
+			$value$ = br_large_increase_in_revolutulionary_tension_value
+		}
+		if = {
+			limit = {
+				br_is_given_estate_1de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_large_increase_in_1de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_2de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_large_increase_in_2de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_3de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_large_increase_in_3de_estate_disatisfaction_tt
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				br_is_given_estate_1de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_unspecified_increase_in_1de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_2de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_unspecified_increase_in_2de_estate_disatisfaction_tt
+		}
+		else_if = {
+			limit = {
+				br_is_given_estate_3de_estate_scripted_trigger = {
+					estate_scope = $estate_scope$
+				}
+			}
+			custom_tooltip = br_hre_unspecified_increase_in_3de_estate_disatisfaction_tt
+		}
+	}
+}
+
+br_specific_change_in_1de_estate_disatisfaction_effect = {
+	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+		estate_scope = var:br_1de_estate_var
+		value = $value$
+	}
+}
+br_specific_change_in_2de_estate_disatisfaction_effect = {
+	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+		estate_scope = var:br_2de_estate_var
+		value = $value$
+	}
+}
+br_specific_change_in_3de_estate_disatisfaction_effect = {
+	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+		estate_scope = var:br_3de_estate_var
+		value = $value$
+	}
+}
 
 
 
+#executed when the JE is finished
 br_impending_revolution_complete_scripted_effect = {
 	hidden_effect = {
 		set_variable = br_impending_revolution_complete_var

@@ -43,16 +43,56 @@ br_estate_with_the_highest_disatisfaction_loc = {
 	}
 }
 
-if = {
-		limit = {
-				var:br_estate_with_highest_disatisfaction_var.com_type = br_3de_estate_type
-		}
-		set_variable = {
-					name = test_var
-					value = var:br_estate_with_highest_disatisfaction_var
-		}
-}
-set_variable = {
-					name = estate_type
-					value = var:br_estate_with_highest_disatisfaction_var.com_type
-		}
+# #can't get this to work because the local var that is set in a custom tooltip seems to be deleted because going to a custom_loc is a context switch
+# #Will try to make it work later TODO
+# br_estate_with_increasing_disatisfaction_loc = {
+# 	type = country
+
+# 	text = {
+# 		trigger = {
+# 			local_var:br_estate_with_increasing_disatisfaction_var.var:com_type = br_1de_estate_type
+# 		}
+# 		localization_key = br_1de_estate_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_estate_with_increasing_disatisfaction_var.var:com_type = br_2de_estate_type
+# 		}
+# 		localization_key = br_2de_estate_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_estate_with_increasing_disatisfaction_var.var:com_type = br_3de_estate_type
+# 		}
+# 		localization_key = br_3de_estate_loc
+# 	}
+# }
+
+# #can't get this to work because the local var that is set in a custom tooltip seems to be deleted because going to a custom_loc is a context switch
+# br_quantitative_indicator_loc = {
+# 	type = country
+
+# 	text = {
+# 		trigger = {
+# 			local_var:br_quantitative_indicator_var = br_small
+# 		}
+# 		localization_key = br_small_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_quantitative_indicator_var = br_medium
+# 		}
+# 		localization_key = br_medium_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_quantitative_indicator_var = br_large
+# 		}
+# 		localization_key = br_large_loc
+# 	}
+
+# 	#generic loc
+# 	text = {
+# 		localization_key = br_unspecified_loc
+# 	}
+# }

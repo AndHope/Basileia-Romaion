@@ -79,6 +79,33 @@ br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
 	}
 }
 
+#Check if the given estate has the given estate_type
+br_check_estate_type_scripted_trigger = {
+	$estate_scope$.var:com_type = $estate_type$
+}
+
+#Check if the given estate is the first estate
+br_is_given_estate_1de_estate_scripted_trigger = {
+	br_check_estate_type_scripted_trigger = {
+		estate_scope = $estate_scope$
+		estate_type = br_1de_estate_type
+	}
+}
+#Check if the given estate is the second estate
+br_is_given_estate_2de_estate_scripted_trigger = {
+	br_check_estate_type_scripted_trigger = {
+		estate_scope = $estate_scope$
+		estate_type = br_2de_estate_type
+	}
+}
+#Check if the given estate is the third estate
+br_is_given_estate_3de_estate_scripted_trigger = {
+	br_check_estate_type_scripted_trigger = {
+		estate_scope = $estate_scope$
+		estate_type = br_3de_estate_type
+	}
+}
+
 
 ##Imperial Residence
 br_has_imperial_residence_scripted_trigger = {
