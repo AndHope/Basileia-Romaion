@@ -21,12 +21,22 @@ je_1de_estate_button = {
 	}
 
 	effect = {
-		#remove the flag var of all the estate buttons
-		br_remove_estate_button_flags_effect = yes
-		#set the flag to know if the button is selected
-		set_variable = br_1de_estate_button_selected_var
-
-		custom_tooltip = br_show_1de_estate_actions_loc
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_1de_estate_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_1de_estate_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_1de_estate_button_selected_var
+			custom_tooltip = br_show_1de_estate_actions_loc
+		}
 	}
 
 	#Country scope
@@ -49,12 +59,22 @@ je_2de_estate_button = {
 	}
 
 	effect = {
-		#remove the flag var of all the estate buttons
-		br_remove_estate_button_flags_effect = yes
-		#set the flag to know if the button is selected
-		set_variable = br_2de_estate_button_selected_var
-
-		custom_tooltip = br_show_2de_estate_actions_loc
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_2de_estate_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_2de_estate_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_2de_estate_button_selected_var
+			custom_tooltip = br_show_2de_estate_actions_loc
+		}
 	}
 
 	#Country scope
@@ -77,12 +97,22 @@ je_3de_estate_button = {
 	}
 
 	effect = {
-		#remove the flag var of all the estate buttons
-		br_remove_estate_button_flags_effect = yes
-		#set the flag to know if the button is selected
-		set_variable = br_3de_estate_button_selected_var
-
-		custom_tooltip = br_show_3de_estate_actions_loc
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_3de_estate_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_3de_estate_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_3de_estate_button_selected_var
+			custom_tooltip = br_show_3de_estate_actions_loc
+		}
 	}
 
 	#Country scope
