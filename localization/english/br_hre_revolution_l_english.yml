@@ -22,11 +22,12 @@
  br_large_loc: "large"
  br_unspecified_loc: "unspecified"
  ##Change in progress tt
+ br_revolution_progress_change_value: "[SCOPE.GetLocalVariable('br_change_in_revolution_progress_var').GetValue|+-]"
  br_basic_revolution_progress_increases_loc: "Our progress towards revolution has increased with a"
  br_hre_small_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_revolutulionary_tension_value')|+=]."
  br_hre_medium_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_revolutulionary_tension_value')|+=]."
  br_hre_large_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_revolutulionary_tension_value')|+=]."
- br_hre_unspecified_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ unspecified amount."
+ br_hre_unspecified_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ unspecified amount: $br_revolution_progress_change_value$."
  ##Change in estate disatisfaction tt
  br_disatisfaction_change_value: "[SCOPE.GetLocalVariable('br_change_in_disatisfaction_var').GetValue|+-]"
  #br_basic_estate_disatisfaction_increases_loc: "[GetPlayer.GetCustom('br_estate_with_increasing_disatisfaction_loc')] disatisfaction increased with a"
@@ -41,9 +42,10 @@
  br_hre_small_increase_in_3de_estate_disatisfaction_tt: "$br_3de_estate_loc$ $br_basic_estate_disatisfaction_increases_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_estate_disatisfaction_value')|+=]."
  br_hre_medium_increase_in_3de_estate_disatisfaction_tt: "$br_3de_estate_loc$ $br_basic_estate_disatisfaction_increases_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_estate_disatisfaction_value')|+=]."
  br_hre_large_increase_in_3de_estate_disatisfaction_tt: "$br_3de_estate_loc$ $br_basic_estate_disatisfaction_increases_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_estate_disatisfaction_value')|+=]."
- br_hre_unspecified_increase_in_1de_estate_disatisfaction_tt: "$br_1de_estate_loc$ $br_basic_estate_disatisfaction_increases_loc$ unspecified amount: $br_disatisfaction_change_value$."
- br_hre_unspecified_increase_in_2de_estate_disatisfaction_tt: "$br_2de_estate_loc$ $br_basic_estate_disatisfaction_increases_loc$ unspecified amount: $br_disatisfaction_change_value$."
- br_hre_unspecified_increase_in_3de_estate_disatisfaction_tt: "$br_3de_estate_loc$ $br_basic_estate_disatisfaction_increases_loc$ unspecified amount: $br_disatisfaction_change_value$."
+ br_basic_estate_disatisfaction_change_loc: "disatisfaction changed with a"
+ br_hre_unspecified_increase_in_1de_estate_disatisfaction_tt: "$br_1de_estate_loc$ $br_basic_estate_disatisfaction_change_loc$ unspecified amount: $br_disatisfaction_change_value$."
+ br_hre_unspecified_increase_in_2de_estate_disatisfaction_tt: "$br_2de_estate_loc$ $br_basic_estate_disatisfaction_change_loc$ unspecified amount: $br_disatisfaction_change_value$."
+ br_hre_unspecified_increase_in_3de_estate_disatisfaction_tt: "$br_3de_estate_loc$ $br_basic_estate_disatisfaction_change_loc$ unspecified amount: $br_disatisfaction_change_value$."
 
  ##Script value breakdowns
  grefm_value_from_voting: "From enacting #yellow Voting Rights#!"
@@ -80,16 +82,35 @@
 
 
  ##Scripted Buttons
+ br_show_estate_actions_loc: "Show actions you can take towards the"
  je_1de_estate_button: "$br_1de_estate_loc$ actions"
  je_1de_estate_button_desc: "We must choose what actions we wish to take towards the $br_1de_estate_loc$."
+ br_show_1de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_1de_estate_loc$."
  je_2de_estate_button: "$br_2de_estate_loc$ actions"
  je_2de_estate_button_desc: "We must choose what actions we wish to take towards the $br_2de_estate_loc$."
+ br_show_2de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_2de_estate_loc$."
  je_3de_estate_button: "$br_3de_estate_loc$ actions"
  je_3de_estate_button_desc: "We must choose what actions we wish to take towards the $br_3de_estate_loc$."
+ br_show_3de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_3de_estate_loc$."
+ #1ste estate buttons
+ je_create_new_titles_to_appease_nobles_button: "Create new titles to appease Nobles"
+ je_create_new_titles_to_appease_nobles_button_desc: "Create new titles so the Nobility is appeased."
+ je_revoke_new_titles_given_to_nobles_button: "Revoke new titles given to nobles"
+ je_revoke_new_titles_given_to_nobles_button_desc: "Revoke the new titles given to the Nobility."
+ #2de estate buttons
  je_clamp_down_on_church_rights_button: "Clamp down on chruch rights"
  je_clamp_down_on_church_rights_button_desc: "The chruch is currently in a advantages position, because of special rights that are bestowed to them. It would benefit us if we were to revoke thes priviliges."
  je_reinstate_chruch_rights_button: "Reinstate chruch rights"
  je_reinstate_chruch_rights_button_desc: "We must reinstate the special priviliges of the church to curry favor with them."
+ #3de estate buttons
+ je_appoint_bourgeois_ministers_button: "Apoint Bourgeois ministers"
+ je_appoint_bourgeois_ministers_button_desc: "Apoint members of the bourgeoisie to the position of minister as to appease the $br_3de_estate_loc$."
+ je_fire_bourgeois_ministers_button: "Fire Bourgeois ministers"
+ je_fire_bourgeois_ministers_button_desc: "Fire minister who are members of the bourgeoisie as to appease the $br_1de_estate_loc$ and $br_2de_estate_loc$. However this will anger the $br_3de_estate_loc$."
+ je_subsidize_food_distribution_button: "Subsidize food distribution"
+ je_subsidize_food_distribution_button_desc: "Start subsidizing food distributions to lessen the current food shortages."
+ je_desubsidize_food_distribution_button: "Desubsidize food distribution"
+ je_desubsidize_food_distribution_button_desc: "Stop subsidizing food distributions."
 
 
  ##Events
