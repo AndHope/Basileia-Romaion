@@ -585,12 +585,12 @@ br_set_estate_with_highest_disatisfaction_effect = {
 	#set the var to save the estate in
 	every_in_list = {
 		variable = br_list_of_estates
-		limit = {
-			OR = {
-				root = {
+		limit = { #it seems to apply the effect after it has done the limit for all the items in the list
+			root = {
+				OR = {
 					not = { has_variable = br_estate_with_highest_disatisfaction_var }
+					var:br_estate_with_highest_disatisfaction_var.var:br_estate_disatisfaction_var < prev.var:br_estate_disatisfaction_var
 				}
-				root.var:br_estate_with_highest_disatisfaction_var.br_estate_disatisfaction_var <= this.var:br_estate_disatisfaction_var
 			}
 		}
 		root = {
