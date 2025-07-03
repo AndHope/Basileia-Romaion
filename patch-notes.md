@@ -3,10 +3,10 @@
 # Update 139 So far.
 
 ## Treaties
-- Revamped various treaties from basic trade/foriegn investment rights to Treaty Port(In places where the Port was already owned by said tag)
+- Revamped various treaties from basic trade/foreign investment rights to Treaty Port(In places where the Port was already owned by said tag)
 - Also added in some resource exchanges in treaties instead of trade rights.
 - Update 04_ere_treaties.txt, these treaties are meant to go in the opposite of the intended direction
-- removed foreign_investment_rights from all the starting treaties because they ai appears to hate giving and receiving it and more likely to cause cancelations
+- removed foreign_investment_rights from all the starting treaties because they ai appears to hate giving and receiving it and more likely to cause cancellations
 
 ## Production Methods and Tech
 - Early Mining added as a new option for all mine types that doesn't require tools. Very good for markets that do not start with access to a good supply of tools but not efficient once tools are available.
@@ -22,32 +22,39 @@
 - decisions to take Aegypts colonies as Basileia Romaion if Aegypt is your subject.
 - various decisions that were limited to certain tags have been opened up to more nations that meet the requirements
 - refactored, fixed and additional decisions for Afrika and Aegypt
-- added three new decisions each with an associated event that are about moving your Capital to Karin, back to Ani or to Yerevan
+- added three new decisions for Armenia each with an associated event that are about moving your Capital to Karin, back to Ani or to Yerevan
+- New decisions for Russia to make tributaries of any Rus countries that Tartaria subjugates from PLC. 
+- Various QOL adjustments to BR decisions
 
 ## Journals
 - added journals to get Afrika and Aegypt homelands
 
 ## Events
 - Added two new opening events one for GEO and one for ARM
+- The event to get rid of Thema deterioration is supposed to fire while getting rid of serfdom but doesn't always fire so I switched it to just happen at a certain date.
+- Various QOL adjustments the BR Exarchate events
 
 ## Admin Buildings
 - Made Nanjing Beijing and Delhi use pm_horizontal_drawer_cabinets to make their local paper factories profitable and get more taxes from these locations
 - added couple more admin buildings
 - Gave TWT more starting admin buildings due to near 100% tax waste, brings it down to 20% tax waste
 
-## State traits
+## State traits & Modifiers
 Indochina forests
 - Indochina forest state trait made into a hardwood modifier
-- more natural harbours
+- more natural harbors
 - Update 11_east_asia.txt, decreased japans starting resources a bit
+- moved the irregular buff to a different modifiers and toned down the province defense of Native Conscripts buff.
 
 ## other balance changes
 - Adjusted Georgia and Armenia military formations
 - few more pops for cahokia
 - more iron mines in asia
 - adjusted certain eastern trade countries overlords ai to give any states they get in the indies to their subject
-- light rebalance of various modifiers
+- light re-balance of various modifiers
 - Added a few more pops to Armenia and Georgia
+- various pops starting loyalty re-balanced
+- Removed El
 
 ## misc
 - improved various decision descriptions
@@ -55,7 +62,8 @@ Indochina forests
 - New modifiers for ARM/GEO
 	- New themed Military modifier to replace the generic thema one.
 	- Also gave Pronoia modifier
-- Intergrated various Georgian suggestions from skep17
+- Integrated various Georgian suggestions from skep17
+Gave the ere armies more Thematic names get it Carl more THEMATIC 
 
 
 
