@@ -9,7 +9,7 @@
 	min_value = 0
 	max_value = 100 #represents a percentage
 
-	weekly_progress = {
+	monthly_progress = {
 		if = {
 			limit = {
 				radical_population_fraction >= br_impending_revolution_radicals_threshold
@@ -30,16 +30,16 @@
 				value = br_impending_revolution_loyalist_change_revoluion_progress_value
 			}
 		}
-		if = {
-			limit = {
-				has_variable = br_monarchy_popularity_var
-			}
-			add = {
-				desc = "br_impending_revolution_monarchy_popularity_revolution_progress_change_loc"
-				value = var:br_monarchy_popularity_var
-				multiply = -1 #invert the sign because pos popularity has the decrease revolution progress
-			}
-		}
+		# if = { #commented it temporaritly as monarchy popularity isn't implemented properly yet
+		# 	limit = {
+		# 		has_variable = br_monarchy_popularity_var
+		# 	}
+		# 	add = {
+		# 		desc = "br_impending_revolution_monarchy_popularity_revolution_progress_change_loc"
+		# 		value = var:br_monarchy_popularity_var
+		# 		multiply = -1 #invert the sign because pos popularity has the decrease revolution progress
+		# 	}
+		# }
 		if = {
 			limit = {
 				has_variable = br_1de_estate_var
@@ -83,7 +83,7 @@
 	min_value = 0
 	max_value = 100 #represents a percentage
 
-	weekly_progress = {
+	monthly_progress = {
 		if = {
 			limit = {
 				radical_population_fraction >= br_impending_revolution_radicals_threshold
@@ -133,7 +133,7 @@
 	min_value = 0
 	max_value = 100 #represents a percentage
 
-	weekly_progress = {
+	monthly_progress = {
 		if = {
 			limit = {
 				radical_population_fraction >= br_impending_revolution_radicals_threshold
@@ -183,7 +183,7 @@
 	min_value = 0
 	max_value = 100 #represents a percentage
 
-	weekly_progress = {
+	monthly_progress = {
 		if = {
 			limit = {
 				radical_population_fraction >= br_impending_revolution_radicals_threshold
@@ -233,7 +233,7 @@
 	min_value = 0
 	max_value = 100 #represents a percentage
 
-	weekly_progress = {
+	monthly_progress = {
 		if = {
 			limit = {
 				radical_population_fraction >= br_impending_revolution_radicals_threshold
