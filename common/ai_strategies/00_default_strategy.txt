@@ -157,7 +157,7 @@ ai_strategy_default = {
 				}
 			}
 		}
-		
+
 		### Risorgimento
 
 		if = {
@@ -403,7 +403,7 @@ ai_strategy_default = {
 			limit = {
 				c:JAP ?= this
 				NOT = {
-					has_law = law_type:law_isolationism
+					has_law_or_variant = law_type:law_isolationism
 					has_law = law_type:law_closed_borders
 				}
 				scope:country = {
@@ -478,7 +478,7 @@ ai_strategy_default = {
 	# Added to base neutrality in diplomatic plays
 	# Using this value in other strategies will function additively
 	diplomatic_play_neutrality = {
-		value = 50
+		value = 60
 
 		# Ottomans should avoid unnecessary entanglements while trying to pursue the Tanzimat reforms
 		if = {
@@ -493,7 +493,7 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	#BR TODO use this code to make the show down perhaps happen in Italy.
 	diplomatic_play_boldness = {
-		value = 60
+		value = 50
 		
 		if = { # Isolationist Japan should tend to back down against market opening plays
 			limit = {
@@ -833,8 +833,22 @@ ai_strategy_default = {
 					scope:target_state = { owner = root }
 				}
 
-				if = { # Very reluctant to cede incorporate states
-					limit = { scope:target_state = { is_incorporated = yes } }
+				if = {
+					limit = {
+						scope:target_state = { ai_can_incorporate_state = yes }
+					}
+					add = 50
+				}
+
+				if = { # Very reluctant to cede incorporated states
+					limit = {
+						scope:target_state = {
+							OR = {
+								is_incorporated = yes
+								ai_can_incorporate_state = yes
+							}
+						}
+					}
 
 					if = {
 						limit = {
@@ -2012,7 +2026,7 @@ ai_strategy_default = {
 			limit = {
 				has_strategy = ai_strategy_economic_imperialism
 				scope:target_country = {
-					has_law = law_type:law_isolationism
+					has_law_or_variant = law_type:law_isolationism
 					gdp >= 5000000
 				}
 			}
@@ -4410,7 +4424,7 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_balkans = {		
+		region_balkans = {
 			if = {
 				limit = {
 					country_is_in_europe = yes
@@ -4641,7 +4655,7 @@ ai_strategy_default = {
 			# Large isolationist countries should ignore the world
 			if = {
 				limit = {
-					has_law = law_type:law_isolationism
+					has_law_or_variant = law_type:law_isolationism
 					gdp >= 5000000
 				}
 				add = 10000
@@ -4859,7 +4873,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					scope:target_country = {
-						has_law = law_type:law_isolationism
+						has_law_or_variant = law_type:law_isolationism
 						gdp >= 5000000
 					}
 				}
@@ -5229,7 +5243,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					scope:target_country = {
-						has_law = law_type:law_isolationism
+						has_law_or_variant = law_type:law_isolationism
 						gdp >= 5000000
 					}
 				}
@@ -5487,8 +5501,8 @@ ai_strategy_default = {
 
 				if = {
 					limit = { has_technology_researched = civilizing_mission }
-					add = 200		
-					
+					add = 200
+
 					if = {
 						limit = {
 							scope:target_country = {
