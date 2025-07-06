@@ -717,48 +717,8 @@ company_florence_bank = {
 	}	
 }
 
-#Edited Base Game Companies
-company_suez_company = {
-	icon = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
-
-	preferred_headquarters = { STATE_EASTERN_THRACE }
-	
-	building_types = {  
-		building_trade_center
-		building_port
-		building_suez_canal
-		building_shipyards
-		building_military_shipyards
-	}
-	
-	potential = {
-	    OR = {
-		country_has_primary_culture = cu:greek
-		country_has_primary_culture = cu:latinoi
-		}
-	}
-	
-	possible = {
-		any_scope_building = {
-		  is_building_type = building_suez_canal
-		}
-	}
-	
-	prosperity_modifier = {
-		state_trade_capacity_mult = 0.25
-		state_trade_advantage_mult = 0.25
-		unit_convoy_requirements_mult = -0.25
-		country_tax_income_add = 5000 #was 50000
-	}
-
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
-	}	
-}
-
 # Imperial Arsenal
-company_imperial_arsenal = {
+company_br_byz_arsenal = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/imperial_arsenal.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
 	
@@ -769,6 +729,15 @@ company_imperial_arsenal = {
 	building_types = {  
 		building_military_shipyards
 		building_artillery_foundries
+		building_arms_industry
+	}
+
+	extension_building_types = {
+		building_munition_plants
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
 	}
 	
 	potential = {
@@ -781,15 +750,25 @@ company_imperial_arsenal = {
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_military_shipyards
-				level > 10
+				level > 5
 			}
 		}
-		#has_technology_researched = hydraulic_cranes
 	}
 	
 	prosperity_modifier = {
-		unit_navy_defense_mult = 0.1
-		country_prestige_from_navy_power_projection_mult = 0.1
+		unit_navy_defense_mult = 0.05
+		country_prestige_from_navy_power_projection_mult = 0.05
+		building_arms_industry_throughput_add = 0.05
+		building_artillery_foundries_throughput_add = 0.05
+	}
+
+	ai_construction_targets = {
+		building_military_shipyards = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
 	}
 	
 	ai_weight = {
@@ -797,38 +776,82 @@ company_imperial_arsenal = {
 	}
 }
 
-# Chemins de fer Orientaux
-company_orient_express = {
-	icon = "gfx/interface/icons/company_icons/historical_company_icons/chemins_de_fer_orientaux.dds"
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
-	
+company_br_byz_mining_steel = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/spain_duro_y_compania.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
 	flavored_company = yes
-	
-	building_types = {  
-		building_railway
+
+	preferred_headquarters = { STATE_KASTAMONU }
+
+	building_types = {
+		building_coal_mine
+		building_steel_mills
+		building_iron_mine
 	}
-	
+
+	extension_building_types = {
+		building_lead_mine
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_steel_complete_tt
+			has_variable = prestige_good_generic_steel_var
+		}
+	}
+
 	potential = {
-		OR = {
-			has_interest_marker_in_region = region_anatolia
-			has_interest_marker_in_region = region_balkans
+		has_interest_marker_in_region = region_anatolia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KASTAMONU
+			}
 		}
 	}
-	
+
 	possible = {
-		owns_entire_state_region = STATE_EASTERN_THRACE
+		has_technology_researched = steelworking
 		any_scope_state = {
-			region = sr:region_balkans
+			state_region = s:STATE_KASTAMONU
 			is_incorporated = yes
-			has_building = building_railway
-			count >= 4
+			any_scope_building = {
+				is_building_type = building_coal_mine
+				level >= 5
+			}
 		}
 	}
-	
+
 	prosperity_modifier = {
-		country_prestige_mult = 0.1
-	}	
-	
+		building_iron_mine_throughput_add = 0.1
+		building_steel_mills_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = steelworking
+		any_scope_state = {
+			state_region = s:STATE_KASTAMONU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_coal_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KASTAMONU
+			}
+		}
+	}
+
 	ai_weight = {
 		value = 3 # Higher base value for flavored companies
 	}
@@ -885,5 +908,82 @@ company_hansa_trade = {
 
 	ai_weight = {
 		value = 5 # Higher base value for flavored companies
+	}
+}
+
+#Edited Base Game Companies
+company_suez_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+	
+	building_types = {  
+		building_trade_center
+		building_port
+		building_suez_canal
+		building_shipyards
+		building_military_shipyards
+	}
+	
+	potential = {
+	    OR = {
+		country_has_primary_culture = cu:greek
+		country_has_primary_culture = cu:latinoi
+		}
+	}
+	
+	possible = {
+		any_scope_building = {
+		  is_building_type = building_suez_canal
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.25
+		unit_convoy_requirements_mult = -0.25
+		country_tax_income_add = 5000 #was 50000
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Chemins de fer Orientaux
+company_orient_express = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/chemins_de_fer_orientaux.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_railway
+	}
+	
+	potential = {
+		OR = {
+			has_interest_marker_in_region = region_anatolia
+			has_interest_marker_in_region = region_balkans
+		}
+	}
+	
+	possible = {
+		owns_entire_state_region = STATE_EASTERN_THRACE
+		any_scope_state = {
+			region = sr:region_balkans
+			is_incorporated = yes
+			has_building = building_railway
+			count >= 4
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.1
+	}	
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
 	}
 }
