@@ -1,7 +1,7 @@
 ﻿#BR mod unique Companies
 
 company_br_byz_textiles = {
-	icon = "gfx/interface/icons/company_icons/company_br_byz_textiles.dds"
+	icon = "gfx/interface/icons/company_icons/byz_textile_company_icon.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	flavored_company = yes
@@ -699,8 +699,8 @@ company_florence_bank = {
 	}
 	
 	prosperity_modifier = { 
-		country_minting_mult = 0.05
-		country_loan_interest_rate_mult = -0.05
+		country_minting_mult = 0.1
+		country_loan_interest_rate_mult = -0.02
         country_private_construction_allocation_mult = 0.1		
 		
 		state_farmers_investment_pool_contribution_add = 0.015
@@ -719,12 +719,14 @@ company_florence_bank = {
 
 # Imperial Arsenal
 company_br_byz_arsenal = {
-	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_br_byz_arsenal.dds"
+	icon = "gfx/interface/icons/company_icons/company_br_byz_arsenal.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
 	
 	flavored_company = yes
 
 	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+	replaces_company = company_basic_weapons
 	
 	building_types = {  
 		building_military_shipyards
@@ -734,6 +736,7 @@ company_br_byz_arsenal = {
 
 	extension_building_types = {
 		building_munition_plants
+		building_automotive_industry
 	}
 
 	possible_prestige_goods = {
@@ -777,12 +780,14 @@ company_br_byz_arsenal = {
 }
 
 company_br_byz_mining_steel = {
-	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_br_byz_mining_steel.dds"
+	icon = "gfx/interface/icons/company_icons/company_br_byz_mining_steel.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
 
 	flavored_company = yes
 
 	preferred_headquarters = { STATE_KASTAMONU }
+
+	replaces_company = company_basic_metal_mining
 
 	building_types = {
 		building_coal_mine
@@ -856,6 +861,58 @@ company_br_byz_mining_steel = {
 		value = 3 # Higher base value for flavored companies
 	}
 }
+
+company_br_byz_rus = {
+	icon = "gfx/interface/icons/company_icons/company_br_byz_rus.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_forestry
+
+	preferred_headquarters = { STATE_CRIMEA }
+
+	building_types = {  
+		building_trade_center
+		building_logging_camp
+		building_gold_mine
+		building_coal_mine
+	}
+
+	extension_building_types = {
+		building_iron_mine
+		building_paper_mills
+		building_oil_rig
+	}
+
+	potential = {
+		country_has_primary_culture = cu:greek
+	}
+
+	possible_prestige_goods = {
+		prestige_good_rosewood
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:CRIMEA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.1
+		state_trade_advantage_mult = 0.1
+		building_group_bg_logging_throughput_add = 0.1
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
 
 # Hansa
 
