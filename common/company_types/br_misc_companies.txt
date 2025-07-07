@@ -1,0 +1,137 @@
+﻿#BR mod unique misc Companies
+
+company_br_ven_textiles = {
+	icon = "gfx/interface/icons/company_icons/company_br_byz_textiles.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_textiles
+
+	preferred_headquarters = { STATE_VENETIA }
+
+	building_types = {
+		building_textile_mills
+		building_cotton_plantation
+		building_dye_plantation
+		#building_silk_plantation
+	}
+
+	extension_building_types = {
+		building_livestock_ranch
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_ven_clothes
+	}
+
+	potential = {
+		country_has_primary_culture = cu:north_italian
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_VENETIA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mills
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mills_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mills = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_VENETIA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+#Florence TUS
+company_florence_bank = {
+	icon = "gfx/interface/icons/company_icons/medici_bank.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufactering_light.dds"
+
+	preferred_headquarters = { STATE_TUSCANY }
+	
+	building_types = {  
+		building_textile_mills
+		building_furniture_manufacturies
+		building_tooling_workshops
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_spices_plantation
+		building_dye_plantation
+		building_silk_plantation
+		building_banana_plantation
+		building_coal_mine
+		building_iron_mine
+		building_lead_mine
+		building_sulfur_mine
+	}
+
+	potential = {
+		always = yes
+	}
+
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TUSCANY
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_financial_district
+				}
+				level >= 20
+			}
+		}
+		#has_technology_researched = investment_banks
+	}
+	
+	prosperity_modifier = { 
+		country_minting_mult = 0.1
+		country_loan_interest_rate_mult = -0.02
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}	
+}
