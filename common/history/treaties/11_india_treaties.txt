@@ -45,10 +45,13 @@
 		binding_period = { years = 50 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
+			{
+				article = treaty_port
 				source_country = c:MHR
 				target_country = c:br_romaioi_india_company
+				inputs = {
+					{ state = s:STATE_BOMBAY.region_state:MHR }
+				}
 			}
 		}
 	}
@@ -102,17 +105,20 @@
 	}
 	create_treaty = {
 		first_country = c:DEI
-		second_country = c:MUG
+		second_country = c:BGL
 
 		is_draft = no
 		entered_into_force_on = 1736.1.1
 		binding_period = { years = 50 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
-				source_country = c:MUG
+			{
+				article = treaty_port
+				source_country = c:BGL
 				target_country = c:DEI
+				inputs = {
+					{ state = s:STATE_EAST_BENGAL.region_state:BGL }
+				}
 			}
 		}
 	}
