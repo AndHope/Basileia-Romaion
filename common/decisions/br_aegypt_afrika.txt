@@ -351,14 +351,17 @@ aegypt_submit_to_konstantinople_decision = {
 				secret_goal = protect
 			}
 			#trigger_event = { id = br_event.1 }
-		#	hidden_effect = {
-		#		if = {
-		#			limit = {
-		#				exists = c:br_syria
-		#			}
-		#		}
-		#		annex = c:br_syria
-		#	}
+			hidden_effect = {
+				if = {
+					limit = {
+						exists = c:br_syria
+						c:br_syria ?= {
+							is_player = no
+						}
+					}
+				}
+				annex = c:br_syria
+			}
 		}
 		add_loyalists = {
 			value = 0.25
