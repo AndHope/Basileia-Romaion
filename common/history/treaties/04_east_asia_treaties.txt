@@ -173,6 +173,46 @@
 			}
 		}
 	}
+		create_treaty = {
+		first_country = c:JAP
+		second_country = c:KOR
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 25 }
+
+		articles_to_create = {
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:KOR
+				target_country = c:JAP
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:KOR
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:iron }
+					{ quantity = 20 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:KOR
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:lead }
+					{ quantity = 10 }
+				}
+			}
+			{
+				article = foreign_investment_rights
+				source_country = c:KOR
+				target_country = c:JAP
+			}
+		}
+	}
+
 	#Indonesia
 	create_treaty = {
 		first_country = c:OMA

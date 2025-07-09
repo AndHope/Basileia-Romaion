@@ -123,6 +123,87 @@
 			}
 		}
 	}
+	create_treaty = {
+		first_country = c:NET
+		second_country = c:SWE
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 25 }
+
+		articles_to_create = {
+			{ # Defensive Pact
+				article = defensive_pact
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:SWE
+				target_country = c:NET
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:NET
+				target_country = c:SWE
+			}
+			{ # Wood Trade
+				article = goods_transfer
+				source_country = c:SWE
+				target_country = c:NET
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 50 }
+				}
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:SWE
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 15 }
+				}
+			}
+		}
+	}
+	create_treaty = {
+		first_country = c:NET
+		second_country = c:ENG
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 25 }
+
+		articles_to_create = {
+			{ # Military Assistance
+				article = military_assistance
+				source_country = c:NET
+				target_country = c:ENG
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:ENG
+				target_country = c:NET
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:ENG
+				target_country = c:NET
+				inputs = {
+					{ goods = g:fabric }
+					{ quantity = 30 }
+				}
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:ENG
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
 	#HRE
 	create_treaty = {
 		first_country = c:FLA
@@ -142,6 +223,24 @@
 				article = trade_privilege
 				source_country = c:FLA
 				target_country = c:HRE
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:HRE
+				target_country = c:FLA
+				inputs = {
+					{ goods = g:fabric }
+					{ quantity = 30 }
+				}
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:FLA
+				target_country = c:HRE
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 10 }
+				}
 			}
 		}
 	}
