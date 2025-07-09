@@ -1177,6 +1177,39 @@
 			}
 		}
 	}
+	s:STATE_IONIAN_ISLANDS={
+		region_state:VEN={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
+				add_ownership={
+					company={
+						type=company_ven_trade
+						country="c:VEN"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+		}
+	}
+	s:STATE_WESTERN_THRACE={
+		region_state:br_genoa={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
+				add_ownership={
+					company={
+						type=company_gen_trade
+						country="c:br_genoa"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+		}
+	}
+	
 	s:STATE_EASTERN_THRACE={
 		region_state:BYZ={
 			create_building={
@@ -3024,6 +3057,20 @@
 				reserves=1
 			}
 		}
+		region_state:br_romaioi_india_company={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_byz_ric
+						country="c:BYZ"
+						levels=1
+					}
+				}
+				reserves=1
+			}
+		}
 	}
 	s:STATE_ZANZIBAR={
 		region_state:ZAN={
@@ -3549,11 +3596,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 					building={
 						type="building_financial_district"
@@ -3578,11 +3624,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 					building={
 						type="building_financial_district"
@@ -3607,11 +3652,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 					company={
 						type=company_net_trade
@@ -3717,11 +3761,10 @@
 						levels=1
 						region="STATE_YANGHO"
 					}
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 				}
 				reserves=1
@@ -3752,7 +3795,7 @@
 					company={
 						type=company_fla_trade
 						country="c:FLA"
-						levels=1
+						levels=2
 					}
 				}
 				reserves=1
@@ -3765,11 +3808,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=2
-						region="STATE_KYUSHU"
 					}
 				}
 				reserves=1
@@ -3800,7 +3842,7 @@
 					company={
 						type=company_byz_ric
 						country="c:BYZ"
-						levels=4
+						levels=6
 					}
 				}
 				reserves=1
@@ -3816,7 +3858,7 @@
 					building={
 						type="building_financial_district"
 						country="c:EOC"
-						levels=5
+						levels=6
 						region="STATE_SHAOZHOU"
 					}
 				}
@@ -3831,7 +3873,41 @@
 					company={
 						type=company_fla_trade
 						country="c:FLA"
-						levels=1
+						levels=6
+					}
+				}
+				reserves=1
+			}
+		}
+	}
+	s:STATE_SUZHOU={
+		region_state:CHI={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:EOC"
+						levels=2
+						region="STATE_SHAOZHOU"
+					}
+					building={
+						type="building_financial_district"
+						country="c:br_romaioi_india_company"
+						levels=2
+						region="STATE_GUANGDONG"
+					}
+					company={
+						type=company_jap_trade
+						country="c:JAP"
+						levels=2
+					}
+					building={
+						type="building_financial_district"
+						country="c:DEI"
+						levels=2
+						region="STATE_FORMOSA"
 					}
 				}
 				reserves=1
@@ -3973,6 +4049,11 @@
 						levels=2
 						region="STATE_KYUSHU"
 					}
+					company={
+						type=company_jap_trade
+						country="c:JAP"
+						levels=2
+					}
 					building={
 						type="building_financial_district"
 						country="c:DEI"
@@ -3984,6 +4065,20 @@
 						country="c:EOC"
 						levels=3
 						region="STATE_KYUSHU"
+					}
+				}
+				reserves=1
+			}
+		}
+		region_state:EOC={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_fla_trade
+						country="c:FLA"
+						levels=2
 					}
 				}
 				reserves=1
