@@ -18,6 +18,11 @@
 					{ state = s:STATE_MADRAS.region_state:CEY }
 				}
 			}
+			{
+				article = foreign_investment_rights
+				source_country = c:CEY
+				target_country = c:EOC
+			}
 		}
 	}
 	create_treaty = {
@@ -52,6 +57,11 @@
 				inputs = {
 					{ state = s:STATE_BOMBAY.region_state:MHR }
 				}
+			}
+			{
+				article = foreign_investment_rights
+				source_country = c:MHR
+				target_country = c:br_romaioi_india_company
 			}
 		}
 	}
@@ -89,6 +99,11 @@
 				source_country = c:MUG
 				target_country = c:OMA
 			}
+			{
+				article = foreign_investment_rights
+				source_country = c:MUG
+				target_country = c:OMA
+			}
 		}
 	}
 	create_treaty = {
@@ -118,6 +133,11 @@
 		articles_to_create = {
 			{ # Trade Agreement
 				article = trade_privilege
+				source_country = c:CEY
+				target_country = c:DEI
+			}
+			{
+				article = foreign_investment_rights
 				source_country = c:CEY
 				target_country = c:DEI
 			}
@@ -151,10 +171,34 @@
 		binding_period = { years = 50 }
 
 		articles_to_create = {
+			{
+				article = foreign_investment_rights
+				source_country = c:MUG
+				target_country = c:ANL
+			}
 			{ # Trade Agreement
 				article = trade_privilege
 				source_country = c:MUG
 				target_country = c:ANL
+			}
+		}
+	}
+	create_treaty = {
+		first_country = c:ANL
+		second_country = c:ORI
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 50 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:ORI
+				target_country = c:ANL
+				inputs = {
+					{ state = s:STATE_ORISSA.region_state:ORI }
+				}
 			}
 		}
 	}
@@ -166,11 +210,16 @@
 
 		is_draft = no
 		entered_into_force_on = 1736.1.1
-		binding_period = { years = 25 }
+		binding_period = { years = 50 }
 
 		articles_to_create = {
 			{ # Trade Agreement
 				article = trade_privilege
+				source_country = c:MUG
+				target_country = c:br_romaioi_india_company
+			}
+			{
+				article = foreign_investment_rights
 				source_country = c:MUG
 				target_country = c:br_romaioi_india_company
 			}
