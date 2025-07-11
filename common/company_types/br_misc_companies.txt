@@ -132,3 +132,205 @@ company_florence_bank = {
 		country_free_charters_add = 1
 	}	
 }
+
+company_br_vinland_colonization_company = {
+	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_forestry
+
+	preferred_headquarters = { STATE_QUEBEC }
+
+	building_types = {
+		building_wheat_farm
+		building_rye_farm
+		building_vineyard_plantation
+		building_livestock_ranch
+	}
+
+	extension_building_types = {
+		building_food_industry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_new_world_fur
+	}
+
+	potential = {
+		country_has_primary_culture = cu:vinlander
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_maize_farm
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_colony_growth_speed_mult = 0.25
+		#state_non_homeland_colony_growth_speed_mult = 0.1
+		state_conversion_mult = 0.1
+		state_migration_pull_mult = 0.1
+		state_assimilation_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_vinland_timber_company = {
+	icon = "gfx/interface/icons/company_icons/basic_forestry.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_forestry
+
+	preferred_headquarters = { STATE_QUEBEC }
+
+	building_types = {
+		building_logging_camp
+		building_paper_mills
+		building_furniture_manufacturies
+	}
+
+	extension_building_types = {
+		building_sulfur_mine
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_new_world_pine
+	}
+
+	potential = {
+		country_has_primary_culture = cu:vinlander
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_logging_camp_throughput_add = 0.1
+		building_coal_mine_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_vinland_fishing_company = {
+	icon = "gfx/interface/icons/company_icons/basic_fishing.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_fishing
+
+	preferred_headquarters = { STATE_QUEBEC }
+
+	building_types = {
+		building_fishing_wharf
+		building_whaling_station
+		building_shipyards
+	}
+
+	extension_building_types = {
+		building_military_shipyards
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_fish
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_fish_complete_tt
+			has_variable = prestige_good_generic_fish_var
+		}
+	}
+
+	potential = {
+		country_has_primary_culture = cu:vinlander
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_fishing_wharf
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_fishing_wharf_throughput_add = 0.1
+		building_whaling_station_throughput_add = 0.1
+		unit_navy_offense_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
