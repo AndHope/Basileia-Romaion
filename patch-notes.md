@@ -1,6 +1,97 @@
 ####id 2880120246
 
-# Update 139 So far.
+# Update 140 So far.
+
+## Companies
+### added 13 new Companies
+- company_br_byz_arsenal: "Kentrikòn Polemikòn Skeuastērion"
+- company_br_byz_mining_steel: "Metalleutikà Ergastēria tōn Anatolēs"
+- company_br_byz_rus: "Rhōsikē Hetaireía tou Emporíou tou Boreíou"
+- company_br_elysian_mercantile_guild: "Emporikḗ Syntechnía Elysiōn"
+- company_br_elysian_indigo_guild: "Koinōnía tēs Sērikēs kai tēs Baphēs"
+- company_br_elysian_great_estates: "Latifundia Magna Elysiōn"
+- company_br_kykladian_naval: "Naftikḗ Archē tōn Kykladiōn"
+- company_br_elysian_colonization_company: "Oikistikḗ Hetaireía Elysiōn"
+- company_br_elysian_ironworking_company: "Siderourgikḗ Koinōnía Elysiōn"
+- company_br_vinland_colonization_company: "Landnámsfélagið Mikla"
+- company_br_vinland_timber_company: "Viðrfélag Vinlands"
+- company_br_vinland_fishing_company: "Haffangfélagið"
+- company_br_early_swedish_resource_company: "Norrlandska Gruv- och Skogsbolaget"
+
+- limit various companies to their intended tags
+
+## Goods
+### Prestige goods
+- prestige_good_br_ely_silk: "Auriloma Silk"
+- prestige_good_br_new_world_pine: "New World Pine"
+- prestige_good_br_new_world_fur: "New World Fur"
+
+## Treaties
+- treaty adjustments
+Mass migration requires a certain amount of trade to be happening and Elysium needs mass migration.
+
+## Production Methods and Tech
+
+## New Decisions
+
+## Journals
+
+## Events
+
+
+## Buildings
+
+## State traits & modifiers
+- add state_trait_ethiopian_highlands
+- fix and adjust some state traits
+- adjusted greenland, ontario and nunvat "prime land" and added fish and whales
+added more silk and wine to elysiums map data
+
+## Balance changes
+- rebalanced various modifiers generally lowering the buff/debuff rates
+- bit of an increase to incorporation time for non core culture states.
+- Made the palaiologos Italy reform wee bit easier
+- Port rebalance to help with the glut of merchant marines at game start
+- added dalmatia as a releasable
+- Updated trade buildings
+- Moved br_romaioi_india_company to direct chartered company of BR.
+Buffs for ming
+minor EOC pop adjustments
+hostile_climate_colonization tech added to a few more countries
+- adjusted the trade modifiers down a tad bit.
+bit more indian cotton
+- Reduced traditionalism state_market_access_price_impact debuff from -15% to -10%
+- lowered the prestige from the ERE monuments since they start with 3.
+
+- Changed the Chartered Company Countries to Corporate Government type from Presidential Republic.
+- Linked various Chartered Companies that were not previously linked back to their home countries trade companies.
+
+## AI changes
+- Update br_ai_defines.txt to increase trade
+- ai adjustments, increase neutrality due to increase in every war becoming a world war in 1.9
+- If both Aegypt and Basileia Romaion are AI Aegypt will choose to peacefully become a protectorate. Aegypt Player can also take the decision to avoid war.
+
+## Localization changes
+
+## Law Changes
+
+## misc
+- turned dynamic naming off by default because it messes with the mods custom names
+
+
+- New logo for Medici bank
+- resized voc logo a tad
+- removed unused logos
+
+
+## Bug fixes
+- fix various treaty ports
+- Fixed and adjusted various society tech modifiers
+- fixes for various errors
+
+
+
+# Update 139.
 
 ## Treaties
 - Revamped various treaties from basic trade/foreign investment rights to Treaty Port(In places where the Port was already owned by said tag)
