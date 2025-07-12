@@ -65,7 +65,7 @@ br_tech_new_world_crops = {
 br_tech_plantation_system = {
 	# Unlock new Plantations
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/plantation_system.png"
+	texture = "gfx/interface/icons/invention_icons/plantation_system.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -150,11 +150,52 @@ br_tech_horse_drawn_machinery = {
 	}
 
 	unlocking_technologies = {
+		br_tech_selective_breeding
 		br_tech_rotherham_plough
 	}
 
 	ai_weight = {
 		value = 1
+	}
+}
+
+br_tech_standardized_farming = {
+	# Should unlock new PMs for farms
+	# can change name
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/br_tech_standardized_farming.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_horse_drawn_machinery
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_organic_farming = {
+	# Should unlock new PMs for farms
+	# can change name
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/br_tech_organic_farming.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_standardized_farming
+	}
+
+	ai_weight = {
+		value = 2
 	}
 }
 
@@ -177,11 +218,30 @@ br_tech_murano_glass = {
 	category = production
 
 	modifier = {
-		#building_glassworks_throughput_add = 0.1 unlocks leaded glass now
+		building_glassworks_throughput_add = 0.1 unlocks leaded glass now
 	}
 
 	unlocking_technologies = {
 		br_tech_metallurgy
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_leaded_glass = {
+	# Unlock leaded glass
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/murano_glass.png"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_murano_glass
 	}
 
 	ai_weight = {
@@ -205,7 +265,6 @@ br_tech_hand_tools = {
 		value = 2
 	}
 }
-
 
 br_tech_standardized_measures = {
 	# Placeholder for other older techs with regards to standardization
@@ -257,11 +316,34 @@ br_tech_textile_manufacturies = {
 	category = production
 
 	modifier = {
-		building_textile_mills_throughput_add = 0.1
+		#unlock various pms
+		#building_textile_mills_throughput_add = 0.1
 	}
+
 
 	unlocking_technologies = {
 		br_tech_artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_dye_workshops = {
+	# Unlock textile manufacturies
+	# Related tech: https://en.wikipedia.org/wiki/Spinning_jenny
+	# Related tech: https://en.wikipedia.org/wiki/Flying_shuttle
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/fabric.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_textile_manufacturies
 	}
 
 	ai_weight = {
