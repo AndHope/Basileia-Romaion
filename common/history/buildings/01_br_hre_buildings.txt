@@ -133,12 +133,12 @@
 					building={
 						type="building_manor_house"
 						country="c:HRE"
-						levels=2
+						levels=4
 						region="STATE_ILE_DE_FRANCE"
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}	
 			create_building={
 				building="building_textile_mills"
@@ -556,7 +556,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_fishing_wharf"
@@ -688,7 +688,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_arms_industry"
@@ -1402,6 +1402,19 @@
 				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
 			}
 			create_building={
+				building="building_food_industry"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:HRE"
+						levels=1
+						region="STATE_ILE_DE_FRANCE"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_disabled_distillery" }
+			}
+			create_building={
 				building="building_gold_mine"
 				add_ownership={
 					company={
@@ -1783,7 +1796,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_furniture_manufacturies"
@@ -1865,7 +1878,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -2191,7 +2204,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_spiced_food" "pm_disabled_canning" "pm_pot_stills" "pm_manual_dough_processing" }
+				activate_production_methods={ "pm_spiced_food" "pm_disabled_canning" "pm_disabled_distillery" "pm_manual_dough_processing" }
 			}
 			create_building={
 				building="building_textile_mills"
@@ -2924,6 +2937,18 @@
 				activate_production_methods={ "pm_simple_organization" }
 			}
 			create_building={
+				building="building_food_industry"
+				add_ownership={
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_disabled_canning" "pm_bakery" "pm_manual_dough_processing" "pm_pot_stills" }
+			}
+			create_building={
 				building="building_shipyards"
 				add_ownership={
 					building={
@@ -3253,7 +3278,7 @@
 				add_ownership={
 					country={
 						country="c:HRE"
-						levels=1
+						levels=2
 					}
 				}
 				reserves=1
@@ -3329,6 +3354,17 @@
 	s:STATE_NORTH_RHINE={
 		region_state:HRE={
 			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:HRE"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" }
+			}
+			create_building={
 				building="building_tooling_workshops"
 				add_ownership={
 					building={
@@ -3373,7 +3409,7 @@
 					building={
 						type="building_manor_house"
 						country="c:HRE"
-						levels=1
+						levels=2
 						region="STATE_NORTH_RHINE"
 					}
 				}
@@ -3460,6 +3496,18 @@
 				reserves=1
 				activate_production_methods={ "pm_simple_organization" }
 			}	
+			create_building={
+				building="building_food_industry"
+				add_ownership={
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_disabled_canning" "pm_bakery" "pm_manual_dough_processing" "pm_pot_stills" }
+			}
 			create_building={
 				building="building_logging_camp"
 				add_ownership={
@@ -3564,7 +3612,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}		
 			create_building={
 				building="building_coal_mine"
@@ -4106,18 +4154,25 @@
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
 			}
 			create_building={
+				building="building_food_industry"
+				add_ownership={
+					company={
+						type=company_hansa_trade
+						country="c:DEN"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+			}
+			create_building={
 				building="building_arms_industry"
 				add_ownership={
 					building={
 						type="building_financial_district"
 						country="c:BOH"
-						levels=1
+						levels=2
 						region="STATE_BOHEMIA" 
-					}
-					company={
-						type=company_hansa_trade
-						country="c:DEN"
-						levels=1
 					}
 				}
 				subsidized=yes
@@ -5943,6 +5998,19 @@
 	s:STATE_SAXONY={
 		region_state:MEI={
 			create_building={
+				building="building_food_industry"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:BOH"
+						levels=1
+						region="STATE_BOHEMIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
+			}
+			create_building={
 				building="building_coal_mine"
 				add_ownership={
 					building={
@@ -7059,6 +7127,19 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_organization" }
+			}
+			create_building={
+				building="building_food_industry"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_dalmatia"
+						levels=1
+						region="STATE_DALMATIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_disabled_canning" "pm_spiced_food" "pm_manual_dough_processing" "pm_pot_stills" }
 			}
 			create_building={
 				building="building_paper_mills"
