@@ -499,8 +499,8 @@ pm_financial_district_capitalist_owned = {
 	building_modifiers = { 
 		level_scaled = {
 			building_employment_capitalists_add = 50
-			building_employment_shopkeepers_add = 100
-			building_employment_clerks_add = 100
+			building_employment_shopkeepers_add = 25
+			building_employment_clerks_add = 25
 		}
 		unscaled = {
 			building_capitalists_shares_add = 10
@@ -661,6 +661,62 @@ pm_trade_center_bureaucrat_ownership = {
 	building_modifiers = { 
 		level_scaled = {
 			building_employment_bureaucrats_add = 100
+		}
+	}
+}
+
+pm_company_headquarter_privately_owned = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+
+	unlocking_technologies = { stock_exchange }
+
+	disallowing_laws = {
+		law_command_economy
+		law_cooperative_ownership
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_capitalists_add = 25
+			building_employment_clerks_add = 25
+		}
+		unscaled = {
+			building_capitalists_shares_add = 10
+		}
+	}
+}
+
+pm_company_headquarter_merchant_owned = {
+	texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
+	
+	building_modifiers = { 
+		level_scaled = {
+			building_employment_shopkeepers_add = 250
+			building_employment_clerks_add = 150
+		}
+		unscaled = {
+			building_shopkeepers_shares_add = 10
+		}
+	}
+}
+
+pm_company_headquarter_privately_owned = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+
+	unlocking_technologies = { stock_exchange }
+
+	disallowing_laws = {
+		law_command_economy
+		law_cooperative_ownership
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_capitalists_add = 25
+			building_employment_clerks_add = 25
+		}
+		unscaled = {
+			building_capitalists_shares_add = 10
 		}
 	}
 }
