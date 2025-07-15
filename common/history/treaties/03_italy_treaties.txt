@@ -24,7 +24,7 @@
 				target_country = c:BYZ
 				inputs = {
 					{ goods = g:tools }
-					{ quantity = 10 }
+					{ quantity = 20 }
 				}
 			}
 			{ # Trade
@@ -42,7 +42,16 @@
 				target_country = c:VEN
 				inputs = {
 					{ goods = g:tea }
-					{ quantity = 5 }
+					{ quantity = 10 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:BYZ
+				target_country = c:VEN
+				inputs = {
+					{ goods = g:silk }
+					{ quantity = 10 }
 				}
 			}
 
@@ -67,11 +76,20 @@
 			}
 			{ # Trade
 				article = goods_transfer
-				source_country = c:VEN
-				target_country = c:SER
+				source_country = c:SER
+				target_country = c:VEN
 				inputs = {
-					{ goods = g:tools }
-					{ quantity = 5 }
+					{ goods = g:iron }
+					{ quantity = 10 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:SER
+				target_country = c:VEN
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 10 }
 				}
 			}
 
@@ -147,6 +165,11 @@
 				source_country = c:br_aegypt
 				target_country = c:VEN
 			}
+			{
+				article = foreign_investment_rights
+				source_country = c:br_aegypt
+				target_country = c:VEN
+			}
 		}
 	}
 	create_treaty = {
@@ -162,6 +185,11 @@
 				article = military_assistance
 				source_country = c:VEN
 				target_country = c:br_romaioi_india_company
+			}
+			{
+				article = foreign_investment_rights
+				source_country = c:br_romaioi_india_company
+				target_country = c:VEN
 			}
 			{ # Trade Agreement
 				article = trade_privilege
@@ -213,7 +241,7 @@
 				target_country = c:br_genoa
 				inputs = {
 					{ goods = g:tea }
-					{ quantity = 5 }
+					{ quantity = 10 }
 				}
 			}
 		}
@@ -266,19 +294,27 @@
 					{ quantity = 20 }
 				}
 			}
-			{ # Iron Trade
+			{ # Trade
 				article = goods_transfer
 				source_country = c:br_tartaria
 				target_country = c:br_blacksea_colonies
 				inputs = {
 					{ goods = g:fabric }
-					{ quantity = 10 }
+					{ quantity = 20 }
 				}
 			}
-			{ # Trade Agreement
-				article = trade_privilege
+		#	{ # Trade Agreement
+		#		article = trade_privilege
+		#		source_country = c:br_tartaria
+		#		target_country = c:br_blacksea_colonies
+		#	}
+			{
+				article = treaty_port
 				source_country = c:br_tartaria
 				target_country = c:br_blacksea_colonies
+				inputs = {
+					{ state = s:STATE_ROSTOV.region_state:br_tartaria }
+				}
 			}
 		}
 	}

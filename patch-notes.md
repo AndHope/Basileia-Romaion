@@ -1,9 +1,9 @@
 ####id 2880120246
-
-# Update 140 So far.
+# Update 140
 
 ## Companies
-### added 13 new Companies
+
+### Added 14 new Companies
 - company_br_byz_arsenal: "Kentrikòn Polemikòn Skeuastērion"
 - company_br_byz_mining_steel: "Metalleutikà Ergastēria tōn Anatolēs"
 - company_br_byz_rus: "Rhōsikē Hetaireía tou Emporíou tou Boreíou"
@@ -17,94 +17,83 @@
 - company_br_vinland_timber_company: "Viðrfélag Vinlands"
 - company_br_vinland_fishing_company: "Haffangfélagið"
 - company_br_early_swedish_resource_company: "Norrlandska Gruv- och Skogsbolaget"
+- company_br_bavarian_beer: "Bayerische Brauerei"
 
-- limit various companies to their intended tags
+- Limited various companies to their intended tags.
 
 ## Goods
-### Prestige goods
+
+### Prestige Goods
 - prestige_good_br_ely_silk: "Auriloma Silk"
 - prestige_good_br_new_world_pine: "New World Pine"
 - prestige_good_br_new_world_fur: "New World Fur"
 - prestige_good_br_prestige_copper: "Kopparklimp"
-- prestige_good_br_prestige_beer: "Königsbier" 
+- prestige_good_br_prestige_beer: "Königsbier"
 
 ## Treaties
-- added a ERE/Elysium trade treaty Mass migration requires a certain amount of trade to be happening and Elysium needs mass migration.
+- Added an ERE–Elysium trade treaty.
+- Mass migration now requires active trade and Elysium to have mass migration status.
 
-## Production Methods and Tech
-- replaces all the placeholder icons with unique icons for all the mods tech 
-- adds 6 new techs tier 1 and 2 in the production tree
-- added and adjusted various techs and production methods.
+## Production Methods & Tech
+- Replaced all placeholder icons with unique icons.
+- Added 6 new Tier 1–2 technologies in the production tree.
+- Added and adjusted various techs and production methods.
 - Replaced many tech modifiers with production methods.
-- new unique techs added
-	- Chinese Luxuries
-	- Steppe Horse Traditions
-	- Indian Luxuries
-- balanced some countries starting techs.
+- New unique techs added:
+  - Chinese Luxuries
+  - Steppe Horse Traditions
+  - Indian Luxuries
+- Balanced starting techs for some countries.
 
-## New Decisions
+## State Traits & Modifiers
+- Added: state_trait_ethiopian_highlands
+- Fixed and adjusted various state traits.
+- Adjusted Greenland, Ontario, and Nunavut "prime land" regions; added fish and whales.
+- Added more silk and wine to Elysium’s map data.
+- Added more food industry buildings to better balance the world economy.
+- Adjusted active PMs to utilize new early traditional production methods.
 
-## Journals
+## Balance Changes
+- Rebalanced various modifiers (generally lowered buff/debuff values).
+- Slightly increased incorporation time for non-core culture states.
+- Made the Palaiologos Italy reform slightly easier.
+- Rebalanced ports to reduce early merchant marine excess.
+- Added Dalmatia as a releasable nation.
+- Updated trade buildings.
+- Moved `br_romaioi_india_company` to a directly chartered company of the BR.
+- Buffs for Ming.
+- Minor EOC population adjustments.
+- Added `hostile_climate_colonization` tech to more countries.
+- Adjusted trade modifiers down slightly.
+- Slightly increased Indian cotton presence.
+- Reduced `traditionalism` state_market_access_price_impact from -15% to -10%.
+- Lowered prestige of ERE monuments (they start with 3).
+- Slightly increased population in North Rhine.
+- Changed Chartered Company countries to Corporate Government type from Presidential Republic.
+- Linked various unlinked Chartered Companies back to their home country's trade companies.
+- Adjusted Frankish pops in Francia.
+- Adjusted Serb pops in Bosnia.
 
-## Events
+## AI Changes
+- Updated `br_ai_defines.txt` to increase trade.
+- Increased AI neutrality to reduce frequency of global-scale wars.
+- If both Aegypt and the Basileía Rōmaíōn are AI, Aegypt will peacefully become a protectorate.
+- Aegypt player can choose a decision to avoid war.
 
+## Localization Changes
+- Renamed "Shiberia" to "Seihokudō".
 
+## Misc
+- Disabled dynamic naming by default (conflicts with custom mod names).
+- Added new modifier types: tea and dye mult.
+- New logo for Medici Bank.
+- Slightly resized VOC logo.
+- Removed unused logos.
 
-
-## Buildings
-
-## State traits & modifiers
-- add state_trait_ethiopian_highlands
-- fix and adjust some state traits
-- adjusted greenland, ontario and nunvat "prime land" and added fish and whales
-- added more silk and wine to elysiums map data
-- Added more food industry buildings to better balance the world economy
-- adjusted various active pms to make use of the new early traditional production methods
-
-## Balance changes
-- rebalanced various modifiers generally lowering the buff/debuff rates
-- bit of an increase to incorporation time for non core culture states.
-- Made the palaiologos Italy reform wee bit easier
-- Port rebalance to help with the glut of merchant marines at game start
-- added dalmatia as a releasable
-- Updated trade buildings
-- Moved br_romaioi_india_company to direct chartered company of BR.
-Buffs for ming
-minor EOC pop adjustments
-hostile_climate_colonization tech added to a few more countries
-- adjusted the trade modifiers down a tad bit.
-bit more indian cotton
-- Reduced traditionalism state_market_access_price_impact debuff from -15% to -10%
-- lowered the prestige from the ERE monuments since they start with 3.
--  bit more pops to north rhine.
-- Changed the Chartered Company Countries to Corporate Government type from Presidential Republic.
-- Linked various Chartered Companies that were not previously linked back to their home countries trade companies.
-- adjusted frankish pops in Francia.
-- adjusted serb pops in bosnia
-
-## AI changes
-- Update br_ai_defines.txt to increase trade
-- ai adjustments, increase neutrality due to increase in every war becoming a world war in 1.9
-- If both Aegypt and Basileia Romaion are AI Aegypt will choose to peacefully become a protectorate. Aegypt Player can also take the decision to avoid war.
-
-## Localization changes
-- renamed Shiberia to Seihokudō
-
-## Law Changes
-
-## misc
-- turned dynamic naming off by default because it messes with the mods custom names
-- new modifier types tea and dye mult
-- New logo for Medici bank
-- resized voc logo a tad
-- removed unused logos
-
-
-## Bug fixes
-- fix various treaty ports
-- Fixed and adjusted various society tech modifiers
-- fixes for various errors
-
+## Bug Fixes
+- Fixed various treaty ports.
+- Fixed and adjusted multiple society tech modifiers.
+- Miscellaneous error fixes.
 
 
 # Update 139.

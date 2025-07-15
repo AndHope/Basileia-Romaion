@@ -65,10 +65,42 @@
 				source_country = c:br_romaioi_india_company
 				target_country = c:ETH
 			}
+			{
+				article = foreign_investment_rights
+				source_country = c:ETH
+				target_country = c:br_romaioi_india_company
+			}
 			{ # Trade Agreement
 				article = trade_privilege
 				source_country = c:ETH
 				target_country = c:br_romaioi_india_company
+			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:ETH
+				target_country = c:br_romaioi_india_company
+				inputs = {
+					{ goods = g:dye }
+					{ quantity = 25 }
+				}
+			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:ETH
+				target_country = c:br_romaioi_india_company
+				inputs = {
+					{ goods = g:coffee }
+					{ quantity = 35 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:br_romaioi_india_company
+				target_country = c:ETH
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 15 }
+				}
 			}
 		}
 	}
@@ -90,8 +122,27 @@
 				source_country = c:ETH
 				target_country = c:br_aegypt
 			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:ETH
+				target_country = c:br_aegypt
+				inputs = {
+					{ goods = g:coffee }
+					{ quantity = 25 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:br_aegypt
+				target_country = c:ETH
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
 		}
 	}
+
 	create_treaty = {
 		first_country = c:br_aegypt
 		second_country = c:br_afrika
@@ -104,27 +155,15 @@
 			{ # Defensive Pact
 				article = defensive_pact
 			}
-		}
-	}
-
-	create_treaty = {
-		first_country = c:ETH
-		second_country = c:br_romaioi_india_company
-
-		is_draft = no
-		entered_into_force_on = 1736.1.1
-		binding_period = { years = 25 }
-
-		articles_to_create = {
-			{
-				article = transit_rights
-				source_country = c:br_romaioi_india_company
-				target_country = c:ETH
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:br_aegypt
+				target_country = c:br_afrika
 			}
 			{ # Trade Agreement
 				article = trade_privilege
-				source_country = c:ETH
-				target_country = c:br_romaioi_india_company
+				source_country = c:br_afrika
+				target_country = c:br_aegypt
 			}
 		}
 	}
