@@ -25,12 +25,22 @@
 - prestige_good_br_ely_silk: "Auriloma Silk"
 - prestige_good_br_new_world_pine: "New World Pine"
 - prestige_good_br_new_world_fur: "New World Fur"
+- prestige_good_br_prestige_copper: "Kopparklimp"
+- prestige_good_br_prestige_beer: "Königsbier" 
 
 ## Treaties
-- treaty adjustments
-Mass migration requires a certain amount of trade to be happening and Elysium needs mass migration.
+- added a ERE/Elysium trade treaty Mass migration requires a certain amount of trade to be happening and Elysium needs mass migration.
 
 ## Production Methods and Tech
+- replaces all the placeholder icons with unique icons for all the mods tech 
+- adds 6 new techs tier 1 and 2 in the production tree
+- added and adjusted various techs and production methods.
+- Replaced many tech modifiers with production methods.
+- new unique techs added
+	- Chinese Luxuries
+	- Steppe Horse Traditions
+	- Indian Luxuries
+- balanced some countries starting techs.
 
 ## New Decisions
 
@@ -39,13 +49,17 @@ Mass migration requires a certain amount of trade to be happening and Elysium ne
 ## Events
 
 
+
+
 ## Buildings
 
 ## State traits & modifiers
 - add state_trait_ethiopian_highlands
 - fix and adjust some state traits
 - adjusted greenland, ontario and nunvat "prime land" and added fish and whales
-added more silk and wine to elysiums map data
+- added more silk and wine to elysiums map data
+- Added more food industry buildings to better balance the world economy
+- adjusted various active pms to make use of the new early traditional production methods
 
 ## Balance changes
 - rebalanced various modifiers generally lowering the buff/debuff rates
@@ -62,9 +76,11 @@ hostile_climate_colonization tech added to a few more countries
 bit more indian cotton
 - Reduced traditionalism state_market_access_price_impact debuff from -15% to -10%
 - lowered the prestige from the ERE monuments since they start with 3.
-
+-  bit more pops to north rhine.
 - Changed the Chartered Company Countries to Corporate Government type from Presidential Republic.
 - Linked various Chartered Companies that were not previously linked back to their home countries trade companies.
+- adjusted frankish pops in Francia.
+- adjusted serb pops in bosnia
 
 ## AI changes
 - Update br_ai_defines.txt to increase trade
@@ -72,13 +88,13 @@ bit more indian cotton
 - If both Aegypt and Basileia Romaion are AI Aegypt will choose to peacefully become a protectorate. Aegypt Player can also take the decision to avoid war.
 
 ## Localization changes
+- renamed Shiberia to Seihokudō
 
 ## Law Changes
 
 ## misc
 - turned dynamic naming off by default because it messes with the mods custom names
-
-
+- new modifier types tea and dye mult
 - New logo for Medici bank
 - resized voc logo a tad
 - removed unused logos
