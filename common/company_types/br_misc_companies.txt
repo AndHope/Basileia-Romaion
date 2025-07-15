@@ -359,7 +359,7 @@ company_br_early_swedish_resource_company = {
 	}
 
 	potential = {
-		has_interest_marker_in_region = region_baltic
+		country_has_primary_culture = cu:swedish
 	}
 
 	attainable = {
@@ -447,6 +447,10 @@ company_br_bavarian_beer = {
 		}
 	}
 
+	potential = {
+		country_has_primary_culture = cu:bavarian
+	}
+
 	prosperity_modifier = {
 		state_birth_rate_mult = 0.05
 		state_radicals_from_political_movements_mult = -0.1
@@ -461,14 +465,8 @@ company_br_bavarian_beer = {
 	}
 
 	ai_construction_targets = {
-		building_iron_mine = {
+		building_food_industry = {
 			level = 5
-			state_trigger = {
-				state_region = s:STATE_BAVARIA
-			}
-		}
-		building_railway = {
-			level = 1
 			state_trigger = {
 				state_region = s:STATE_BAVARIA
 			}
@@ -483,5 +481,130 @@ company_br_bavarian_beer = {
 				level >= 3
 			}
 		}
+	}
+}
+
+company_br_german_beer = {
+	icon = "gfx/interface/icons/company_icons/company_br_bavarian_beer.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+
+	building_types = {
+		building_food_industry
+		building_wheat_farm
+	}
+
+	extension_building_types = {
+		building_rye_farm
+		building_vineyard_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_beer
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 5
+			}
+		}
+	}
+
+	potential = {
+		OR = {
+			country_has_primary_culture = cu:saxon
+			country_has_primary_culture = cu:frankish
+			country_has_primary_culture = cu:baltic_german
+			country_has_primary_culture = cu:silesian
+			country_has_primary_culture = cu:czech
+		}
+	}
+
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05
+		state_radicals_from_political_movements_mult = -0.1
+	}
+	
+	ai_will_do = {
+		has_technology_researched = distillation
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+}
+
+company_br_vinland_fishing_company = {
+	icon = "gfx/interface/icons/company_icons/company_br_vinland_colonization_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_fishing
+
+	preferred_headquarters = { STATE_QUEBEC }
+
+	building_types = {
+		building_fishing_wharf
+		building_shipyards
+	}
+
+	extension_building_types = {
+		building_military_shipyards
+		building_whaling_station
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_fish
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_fish_complete_tt
+			has_variable = prestige_good_generic_fish_var
+		}
+	}
+
+	potential = {
+		country_has_primary_culture = cu:vinlander
+	}
+
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_fishing_wharf
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_fishing_wharf_throughput_add = 0.1
+		unit_navy_offense_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
 	}
 }
