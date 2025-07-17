@@ -303,6 +303,13 @@ romaioi_damsyria_decision = {
 		c:BYZ ?= this
 		c:SYR ?= {
 			is_subject_of = c:BYZ
+			NOT = {
+				OR = {
+					has_modifier = br_modifier_themata_primacy
+					has_modifier = br_modifier_exarchate
+					exists = c:br_syria
+				}
+			}
 		}
 	}
 
