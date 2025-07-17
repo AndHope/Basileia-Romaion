@@ -4,6 +4,9 @@
 	low_pop_method = yes # AI will activate this method for states with low population
 	
 	building_modifiers = {
+		workforce_scaled = {	
+			goods_output_merchant_marine_add = 1 #added
+		}
 		level_scaled = {
 			building_employment_laborers_add = 175
 			building_employment_clerks_add = 50
@@ -17,15 +20,46 @@
 		}
 	}
 
-}			
+}	
+
+pm_br_small_port = {
+	texture = "gfx/interface/icons/production_method_icons/basic_port.dds"
+	
+	building_modifiers = {
+		workforce_scaled = {	
+			goods_input_clippers_add = 2
+			goods_output_merchant_marine_add = 4
+		}
+		level_scaled = {
+			building_employment_laborers_add = 350
+			building_employment_clerks_add = 100
+			building_employment_bureaucrats_add = 50
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_convoys_capacity_add = 50
+			country_bureaucracy_add = 2
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			state_market_access_price_impact = 0.1
+		}
+		workforce_scaled = {
+			state_infrastructure_add = 2
+		}
+	}
+}	
 
 pm_basic_port = {
 	texture = "gfx/interface/icons/production_method_icons/basic_port.dds"
 	
 	building_modifiers = {
 		workforce_scaled = {	
-			goods_input_clippers_add = 4 # 5 300
-			goods_output_merchant_marine_add = 8 # 10 500
+			goods_input_clippers_add = 5 # 5 300
+			goods_output_merchant_marine_add = 10 # 10 500
 		}
 		level_scaled = {
 			building_employment_laborers_add = 700
