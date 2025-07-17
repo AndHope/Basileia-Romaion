@@ -205,3 +205,40 @@ claim_chernigov_tributary_decision = {
 		value = 50
 	}
 }
+
+annex_russian = {
+	is_shown = {
+		c:br_muscovy ?= this
+		exists = c:RUS
+	}
+
+	possible = {
+		c:br_muscovy ?= this
+		exists = c:RUS
+		c:RUS = {
+			relations:root >= 25
+		}
+		c:RUS ?= {
+			is_player = no
+		}
+		limit = {
+			c:RUS ?= {
+				OR = {
+					is_diplomatic_play_committed_participant = yes
+					is_at_war = yes
+				}
+			}
+		}
+
+	}
+
+	when_taken = {
+		annex = c:RUS
+		change_infamy = 5
+	}
+
+	ai_chance = {
+		value = 75
+	}
+}
+
