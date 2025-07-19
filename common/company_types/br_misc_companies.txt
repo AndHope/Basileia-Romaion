@@ -176,7 +176,7 @@ company_br_vinland_colonization_company = {
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_maize_farm
+				is_building_type = building_logging_camp
 				level >= 5
 			}
 		}
@@ -184,10 +184,7 @@ company_br_vinland_colonization_company = {
 
 	prosperity_modifier = {
 		state_colony_growth_speed_mult = 0.25
-		#state_non_homeland_colony_growth_speed_mult = 0.1
-		state_conversion_mult = 0.1
-		state_migration_pull_mult = 0.1
-		state_assimilation_mult = 0.1
+		goods_output_wood_mult = 0.25
 	}
 
 	ai_will_do = {
@@ -224,10 +221,6 @@ company_br_vinland_timber_company = {
 
 	possible_prestige_goods = {
 		prestige_good_br_new_world_pine
-	}
-
-	potential = {
-		country_has_primary_culture = cu:vinlander
 	}
 
 	attainable = {
@@ -547,68 +540,5 @@ company_br_german_beer = {
 				level >= 3
 			}
 		}
-	}
-}
-
-company_br_vinland_fishing_company = {
-	icon = "gfx/interface/icons/company_icons/company_br_vinland_colonization_company.dds"
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
-
-	flavored_company = yes
-
-	replaces_company = company_basic_fishing
-
-	preferred_headquarters = { STATE_QUEBEC }
-
-	building_types = {
-		building_fishing_wharf
-		building_shipyards
-	}
-
-	extension_building_types = {
-		building_military_shipyards
-		building_whaling_station
-	}
-
-	possible_prestige_goods = {
-		prestige_good_generic_fish
-	}
-
-	prestige_goods_trigger = {
-		custom_tooltip = {
-			text = je_prestige_goods_fish_complete_tt
-			has_variable = prestige_good_generic_fish_var
-		}
-	}
-
-	potential = {
-		country_has_primary_culture = cu:vinlander
-	}
-
-
-	possible = {
-		any_scope_state = {
-			is_incorporated = yes
-			any_scope_building = {
-				is_building_type = building_fishing_wharf
-				level >= 5
-			}
-		}
-	}
-
-	prosperity_modifier = {
-		building_fishing_wharf_throughput_add = 0.1
-		unit_navy_offense_mult = 0.1
-	}
-
-	ai_will_do = {
-		any_scope_state = {
-			state_region = s:STATE_QUEBEC
-			is_incorporated = yes
-		}
-	}
-
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
 	}
 }
