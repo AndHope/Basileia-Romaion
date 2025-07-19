@@ -149,6 +149,26 @@ democracy = {
 	}
 }
 
+br_tech_constitutional_guarantees = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/br_tech_constitutional_guarantees.dds"
+	category = society
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_agitator_slots_add = 1
+		country_institution_social_security_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		democracy
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
 romanticism = {
 	# Unlocks Arts Academy building
 	# Unlocks Greener Grass Campaign Decree
@@ -179,7 +199,7 @@ international_trade = {
 
 	unlocking_technologies = {
 		tech_bureaucracy
-		br_tech_insurance_companies
+		br_tech_mercantile_companies
 	}
 
 	ai_weight = {
@@ -206,13 +226,31 @@ centralization = {
 	}
 }
 
+br_tech_administrative_formalization = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/br_tech_administrative_formalization.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+	}
+
+	unlocking_technologies = {
+		centralization
+		law_enforcement
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
 corporate_charters = {
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
 	category = society
 
 	modifier = {
-		country_max_companies_add = 1
 		country_free_charters_add = 2
 	}
 
@@ -283,7 +321,7 @@ colonization = {
 
 	unlocking_technologies = {
 		br_tech_frontier_expansion
-		centralization
+		br_tech_administrative_formalization
 	}
 
 	ai_weight = {
@@ -374,7 +412,7 @@ mass_communication = {
 	}
 
 	unlocking_technologies = {
-		democracy
+		br_tech_constitutional_guarantees
 	}
 
 	ai_weight = {
@@ -422,7 +460,7 @@ egalitarianism = {
 	}
 
 	unlocking_technologies = {
-		democracy
+		br_tech_constitutional_guarantees
 	}
 
 	ai_weight = {
@@ -567,7 +605,7 @@ central_archives = {
 	}
 
 	unlocking_technologies = {
-		centralization
+		br_tech_administrative_formalization
 	}
 
 	on_researched = {
@@ -752,7 +790,7 @@ labor_movement = {
 
 	modifier = {
 		state_expected_sol_from_literacy = 1
-		country_institution_workplace_safety_max_investment_add = 3
+		country_institution_workplace_safety_max_investment_add = 2
 		country_agitator_slots_add = 1
 	}
 

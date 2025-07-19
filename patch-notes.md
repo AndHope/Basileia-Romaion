@@ -1,4 +1,40 @@
 ####id 2880120246
+
+# Update 141
+
+## Companies
+- company_ven_arsenal and company_gen_arsenal both given unique company icons
+- combine the logging and colonization companies and adjust building ownership
+- Company will have new world pine and new world fur prestige goods
+- improved the mods textile company icons
+
+## Goods
+### Prestige Goods
+- Add prestige_good_br_prestige_manowars: "Bucintoro"
+- replaced the icon for prestige_good_br_byz_clothes and prestige_good_br_ven_clothes
+- added new icon for mods prestige silk
+- added prestige_good_br_prestige_spices: "Indies Spices"
+- added prestige_good_br_prestige_pearls: "Fine Pearls"
+
+
+## Balance changes
+- native conscription nerfed
+- added new port pm Wayport to be between anchorage and Cargo Port and added 1 merchant_marine to anchorage
+- arable land rebalance adjusted south america mostly down a tad, increased "american coast" a bit and increased Caribbean a bit.
+- rebalance the br_modifier_romaioi_culture_supremacy modifier
+- goods_output_wood_mult added
+- added small arms to the arsenal expansion goods
+- lowered the trade companies trade advantage bonus to 15% from 25%
+- adjusted and add various good transfers to starting treaties
+
+
+## Bug fixes
+- I don't know how or why certain players get both syria stacking modifiers but I think its this decision so added more checks
+- fixed some treaty port treaties
+
+## Other 
+- standardized the mods flags at 384x256 and made sure all are .dds
+
 # Update 140
 
 ## Companies
