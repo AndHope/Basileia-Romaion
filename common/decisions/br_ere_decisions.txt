@@ -301,6 +301,7 @@ romaioi_damsyria_decision = {
 
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:SYR ?= {
 			is_subject_of = c:BYZ
 			NOT = {
@@ -446,6 +447,7 @@ romaioi_eastarm_decision = {
 	}
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:ARM ?= {
 			is_subject_of = c:BYZ
 		}
@@ -493,6 +495,7 @@ romaioi_move_armenia_east_decision_02 = {
 	}
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:ARM ?= {
 			is_subject_of = c:BYZ
 			owns_entire_state_region = STATE_ARMENIA
@@ -515,7 +518,6 @@ romaioi_move_armenia_east_decision_02 = {
 
 }
 
-
 romaioi_eastmespotamia_decision = {
 	is_shown = {
 		c:BYZ ?= this
@@ -529,6 +531,7 @@ romaioi_eastmespotamia_decision = {
 	}
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:br_mesopotamia ?= {
 			is_subject_of = c:BYZ
 		}
@@ -567,6 +570,7 @@ romaioi_expand_taurica_decision = {
 	}
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:br_taurica ?= {
 			is_subject_of = c:BYZ
 		}
@@ -608,6 +612,9 @@ chariot_racing_decision = {
 	}
 	
 	possible = {
+		NOT = {
+			has_modifier = modifier_chariot_racing
+		}
 		any_scope_building = {
 			is_building_type = br_building_hippodrome
 		}
@@ -661,6 +668,9 @@ expand_chariot_racing_decision = {
 	possible = {
 		has_modifier = modifier_chariot_racing
 		has_technology_researched = organized_sports
+		NOT = {
+			has_modifier = modifier_expanded_chariot_racing
+		}
 		any_scope_building = {
 			is_building_type = br_building_hippodrome
 		}
@@ -707,9 +717,13 @@ end_latin_privileges_ELY = {
 	possible = {
 		exists = c:br_elysium
 		ROOT = c:br_elysium
-		has_law = law_type:law_interventionism
-		has_law = law_type:law_protectionism
 		has_modifier = br_modifier_latin_privileges
+		country_rank >= rank_value:major_power
+		OR = {
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			game_date > 1800.1.1
+		}
 	}
 
 	when_taken = {
@@ -787,9 +801,13 @@ end_latin_privileges_TAT= {
 	possible = {
 		exists = c:br_tartaria
 		ROOT = c:br_tartaria
-		has_law = law_type:law_interventionism
-		has_law = law_type:law_protectionism
 		has_modifier = br_modifier_latin_privileges
+		country_rank >= rank_value:major_power
+		OR = {
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			game_date > 1800.1.1
+		}
 	}
 
 	when_taken = {
@@ -912,6 +930,7 @@ claim_kyrenaica_colony_decision = {
 
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:br_aegypt ?= {
 			is_subject_of = c:BYZ
 		}
@@ -950,6 +969,7 @@ claim_br_australis_colony_decision = {
 
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:br_aegypt ?= {
 			is_subject_of = c:BYZ
 		}
