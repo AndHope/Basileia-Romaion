@@ -481,6 +481,41 @@ romaioi_eastarm_decision = {
 
 }
 
+romaioi_move_armenia_east_decision_02 = {
+	is_shown = {
+		c:BYZ ?= this
+		c:ARM ?= {
+			is_subject_of = c:BYZ
+			owns_entire_state_region = STATE_ARMENIA
+			owns_entire_state_region = STATE_ERZURUM
+		}
+		
+	}
+	possible = {
+		c:BYZ ?= this
+		c:ARM ?= {
+			is_subject_of = c:BYZ
+			owns_entire_state_region = STATE_ARMENIA
+			owns_entire_state_region = STATE_ERZURUM
+		}
+	}
+	when_taken = {
+		s:STATE_ANKARA.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_DIYARBAKIR.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_ERZURUM = {
+			set_owner_of_provinces = {
+				country = c:BYZ
+				provinces = { x92A943 x59E513 x895074 x52EB9A x7BC870 x90BA49 x740ED1 x795751 x669A31 xC01080 xC41BC3 } #x8F5A6A xFDB72C x27689E
+			}
+		}
+	}
+	ai_chance = {
+		value = 95
+	}
+
+}
+
+
 romaioi_eastmespotamia_decision = {
 	is_shown = {
 		c:BYZ ?= this
