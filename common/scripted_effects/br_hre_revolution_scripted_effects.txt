@@ -708,6 +708,26 @@ br_set_original_imperial_residence_scripted_effect = {
 	}
 }
 
+br_set_alternate_imperial_residence_scripted_effect = {
+	s:STATE_ILE_DE_FRANCE = {
+		every_scope_state = {
+			every_scope_building = {
+				if = {
+					limit = {
+						is_building_type = $BUILDING_TYPE$
+					}
+					save_scope_as = br_alternate_imperial_residence_scope
+				}
+			}
+		}
+	}
+	#also save in a var
+	set_variable = {
+		name = br_alternate_imperial_residence_var
+		value = scope:br_alternate_imperial_residence_scope
+	}
+}
+
 br_var_test_scripted_effect = {
 	set_variable = {
 		name = bla_$VAR_NAME$
