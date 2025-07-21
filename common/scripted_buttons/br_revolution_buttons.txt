@@ -121,6 +121,44 @@ je_3de_estate_button = {
 	}
 }
 
+je_revolution_monarchy_actions_button = {
+	name = "je_revolution_monarchy_actions_button"
+	desc = "je_revolution_monarchy_actions_button_desc"
+
+	visible = { always = yes }
+
+	selected = {
+		has_variable = br_revolution_monarchy_actions_button_selected_var
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_revolution_monarchy_actions_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_revolution_monarchy_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_revolution_monarchy_actions_button_selected_var
+			custom_tooltip = br_show_revolution_monarchy_actions_loc
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
 
 ### First estate Buttons ###
 je_create_new_titles_to_appease_nobles_button = {
@@ -428,6 +466,94 @@ je_subsidize_food_distribution_button = {
 			}
 			br_specific_change_in_3de_estate_disatisfaction_effect = {
 				value = br_medium_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+### Monarchy Buttons ###
+je_move_imperial_residence_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = yes
+				}
+				desc = "je_move_imperial_residence_button"
+			}
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = no
+				}
+				desc = "je_move_imperial_residence_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = yes
+				}
+				desc = "je_move_imperial_residence_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = no
+				}
+				desc = "je_move_imperial_residence_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		has_variable = br_revolution_monarchy_actions_button_selected_var
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = yes
+			}
+			br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
+				BUILDING_TYPE = br_building_versailles
+			}
+
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_large_decrease_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_small_increase_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_medium_increase_in_estate_disatisfaction_value
+			}
+		}
+		else = {
+			br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
+				BUILDING_TYPE = br_building_palais_de_la_cite
+			}
+
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_small_increase_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
 			}
 		}
 	}
