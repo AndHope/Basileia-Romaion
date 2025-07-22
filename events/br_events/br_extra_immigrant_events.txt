@@ -79,3 +79,148 @@ br_extra_immigrants_events.1 = {
 
 }
 
+#Frankish
+br_extra_immigrants_events.2 = {
+	type = country_event
+	placement = ROOT
+	title = br_extra_immigrants_events.2.t
+	desc = br_extra_immigrants_events.2.d
+	flavor = br_extra_immigrants_events.2.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = frank_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = frank_migration_began_variable
+		set_variable = already_has_frank_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_frank_migration_variable }
+				any_scope_state = {
+					cu:frankish = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:dutch } 
+				any_scope_state = {
+					state_region = s:STATE_HOLLAND
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_HOLLAND
+				}
+				save_scope_as = random_dutch_frank_city
+			}
+		}
+	}
+
+	option = {
+		name = br_extra_immigrants_events.2.a
+		default_option = yes
+		ai_chance = { base = 100 }
+		every_scope_state = {
+			limit = {
+				cu:frankish = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_dutch_frank_city = {
+				create_mass_migration = {
+					origin = c:HRE
+					culture = cu:frankish
+				}
+			}
+		}
+	}
+
+}
+
+
+br_extra_immigrants_events.3 = {
+	type = country_event
+	placement = ROOT
+	title = br_extra_immigrants_events.3.t
+	desc = br_extra_immigrants_events.3.d
+	flavor = br_extra_immigrants_events.3.f
+
+	duration = 3
+
+	is_popup = yes
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOT = { has_global_variable = maghrebi_migration_began_variable }
+	}
+	
+	immediate = {
+		set_global_variable = maghrebi_migration_began_variable
+		set_variable = already_has_maghrebi_migration_variable
+		random_country = {
+			limit = {
+				NOT = { has_variable = already_has_maghrebi_migration_variable }
+				any_scope_state = {
+					cu:maghrebi = { has_homeland = PREV }
+				}
+			}
+		}
+		random_country = {
+			limit = { 
+				OR = { country_has_primary_culture = cu:maghrebi } 
+				any_scope_state = {
+					state_region = s:STATE_ALGIERS
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_ALGIERS
+				}
+				save_scope_as = random_maghrebi_maghrebi_city
+			}
+		}
+	}
+
+	option = {
+		name = br_extra_immigrants_events.3.a
+		default_option = yes
+		ai_chance = { base = 100 }
+		every_scope_state = {
+			limit = {
+				cu:maghrebi = { has_homeland = PREV }
+			}
+		}
+		hidden_effect = {
+			scope:random_maghrebi_maghrebi_city = {
+				create_mass_migration = {
+					origin = c:br_afrika
+					culture = cu:maghrebi
+				}
+			}
+		}
+	}
+
+}
