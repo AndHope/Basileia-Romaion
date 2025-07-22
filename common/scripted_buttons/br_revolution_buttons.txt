@@ -564,3 +564,56 @@ je_move_imperial_residence_button = {
 		value = 0
 	}
 }
+
+je_contruct_statue_of_monarch_button = {
+	name = "je_contruct_statue_of_monarch_button"
+	desc = "je_contruct_statue_of_monarch_button_desc"
+
+	visible = {
+		has_variable = br_revolution_monarchy_actions_button_selected_var
+	}
+
+	selected = {
+	}
+
+	possible = {
+		has_law = law_type:law_monarchy
+		any_scope_state = {
+			is_incorporated = yes
+			has_building = building_urban_center
+			NOT = { has_variable = br_monarch_statue_var }
+		}
+		NOT = {
+			ruler = {
+				has_trait = trait_child
+			}
+		}
+	}
+
+	cooldown = { years = 3 }
+
+	effect = {
+		#Trigger event to build a statue
+		trigger_event = {
+			id = hre_revolution_events.9
+			popup = yes
+		}
+
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_medium_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_small_increase_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_medium_increase_in_estate_disatisfaction_value
+		}
+
+		custom_tooltip = br_will_increase_monthly_monarchy_popularity_tt
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}

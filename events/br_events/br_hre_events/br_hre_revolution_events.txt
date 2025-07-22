@@ -337,6 +337,103 @@ hre_revolution_events.8 = {
 	}
 }
 
+# Build a statue of the Monarch
+#this is simply a adjusted copy of the vanilla event "character_events.5 #A statue made of the king"
+hre_revolution_events.9 = { #A statue made of the king
+	type = country_event
+	placement = scope:br_statue_state
+
+	title = hre_revolution_events.9.t
+	desc = hre_revolution_events.9.d
+	flavor = hre_revolution_events.9.f
+
+	duration = 3
+
+	# cooldown = { days = stupidly_long_modifier_time }
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:br_statue_monarch
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	immediate = {
+		ruler = {
+			save_scope_as = br_statue_monarch
+		}
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				has_building = building_urban_center
+				NOT = { has_variable = br_monarch_statue_var }
+			}
+			save_scope_as = br_statue_state
+		}
+	}
+
+	cancellation_trigger = {
+		OR = {
+			NOT = {
+				exists = scope:br_statue_monarch
+			}
+			scope:br_statue_monarch = {
+				is_character_alive = no
+			}
+		}
+	}
+
+	option = { #Do it
+		name = hre_revolution_events.9.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_statue_of_ruler #prestige
+			days = normal_modifier_time
+		}
+		scope:br_statue_state = {
+			set_variable = {
+				name = br_monarch_statue_var
+				days = normal_modifier_time
+			}
+			add_radicals_in_state = {
+  				value = small_radicals
+  			}
+  			set_variable = {
+  				name = fireworks_variable
+  				value = yes
+  				days = 5
+  			}
+		}
+		
+		#Supporters of pro feudalism approve of statue
+		movement_type:br_movement_pro_feudalism = {
+			every_influenced_interest_group = {
+				limit = {
+					law_stance = {
+						law = law_type:law_monarchy
+						value > neutral
+					}
+				}
+				add_modifier = {
+					name = modifier_ig_approve_of_statue
+					days = normal_modifier_time
+				}
+			}
+		}
+
+		#Supporters of anti feudalism disapprove of statue
+		movement_type:br_movement_anti_feudalism = {
+			every_influenced_interest_group = {
+				add_modifier = {
+					name = modifier_ig_disapprove_of_statue
+					days = normal_modifier_time
+				}
+			}
+		}
+	}
+}
 
 ###
 ### Revolution Erupts Events
