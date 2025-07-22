@@ -130,7 +130,106 @@
 
 	}
 
-	c:br_syria ?= {
+	c:BR_ANT ?= {
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_migration_controls	
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_military_wage_level = low
+		set_government_wage_level = low
+
+
+		ig:ig_landowners = {
+			set_interest_group_name = ig_themata_patricians
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 75
+				is_decaying = yes
+			}
+		}
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_tagmata_strategos
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 75
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_rural_folk = {
+			#remove_ideology = ideology_isolationist
+			#add_ideology = ideology_isolationist_expansionism
+			set_interest_group_name = ig_agrotikos
+		}
+		ig:ig_petty_bourgeoisie = {
+			set_interest_group_name = ig_merchant_guilds
+			add_modifier = {
+				name = ig_influence_modifier
+				multiplier = 0.25
+				years = 75
+				is_decaying = yes
+			}
+		}
+		ig:ig_intelligentsia = { 
+			set_interest_group_name = ig_dianooumenoi
+		}
+		ig:ig_industrialists = { 
+			set_interest_group_name = ig_viomixanoi
+		}
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		add_modifier = {
+			name = br_modifier_themata_primacy
+			months = -1
+		}
+
+		add_modifier = {
+			name = br_modifier_latin_privileges
+			years = 50
+		}
+
+		add_modifier = {
+			name = br_modifier_muslim_cultural_discrimination
+			months = -1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_oriental_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_oriental_orthodox_patriarch
+			add_ruling_interest_group = yes
+		}
+
+		#effect_starting_wealthy_merchants = yes
+
+	}
+
+	c:BR_PAL ?= {
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 
