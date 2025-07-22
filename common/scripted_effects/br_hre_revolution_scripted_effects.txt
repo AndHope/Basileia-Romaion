@@ -628,103 +628,122 @@ br_3de_estate_launches_revolution_scripted_effect = {
 }
 
 
+#######################################################################################
 ###
-###Set the Imperial residence
+### The Imperial residence effects
 ###
-
+#######################################################################################
 #set the residece of the imperial family (it is expected to be a building)
-br_set_the_imperial_residence_var_scripted_effect = {
+
+##
+##Current Imperial residence effects
+##
+br_set_current_imperial_residence_var_scripted_effect = {
 	set_variable = {
-		name = br_imperial_residence_var
+		name = br_current_imperial_residence_var
 		value = $BUILDING$
 	}
 }
 
-br_remove_the_imperial_residence_var_scripted_effect = {
+br_remove_current_imperial_residence_var_scripted_effect = {
 	if = {
 		limit = {
-			has_variable = br_imperial_residence_var
+			has_variable = br_current_imperial_residence_var
 		}
-		var:br_imperial_residence_var = {
+		var:br_current_imperial_residence_var = {
 			remove_modifier = br_modifier_imperial_residence
 		}
-		remove_variable = br_imperial_residence_var
+		remove_variable = br_current_imperial_residence_var
 	}
 }
 
-br_set_imperial_residence_to_building_scripted_effect = {
+br_set_current_imperial_residence_to_building_scripted_effect = {
 	#remove all effects form the prev residence
 	root = {
-		br_remove_the_imperial_residence_var_scripted_effect = yes
+		br_remove_current_imperial_residence_var_scripted_effect = yes
 	}
 	
+	#you need to save the building first as a scope and then save it as a var otherwise it will save the countries scope in the var for some unknown reason
 	$BUILDING$ = {
-		save_scope_as = br_imperial_residence_scope
+		save_scope_as = br_current_imperial_residence_scope
 		add_modifier = br_modifier_imperial_residence
 	}
 	#also save in a var
 	root = {
-		br_set_the_imperial_residence_var_scripted_effect = {
-			BUILDING = scope:br_imperial_residence_scope
+		br_set_current_imperial_residence_var_scripted_effect = {
+			BUILDING = scope:br_current_imperial_residence_scope
 		}
 	}
 }
 
 #set the imperial residence initialy on palais de la cité
-br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
-	s:STATE_ILE_DE_FRANCE = {
-		every_scope_state = {
-			every_scope_building = {
-				if = {
-					limit = {
-						is_building_type = $BUILDING_TYPE$
-					}
-					br_set_imperial_residence_to_building_scripted_effect = {
-						BUILDING = this
-					}
-				}
-			}
+br_set_current_imperial_residence_to_building_type_in_state_scripted_effect = {
+	br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+		STATE_REGION = $STATE_REGION$
+		BUILDING_TYPE = $BUILDING_TYPE$
+		EFFECT = br_set_current_imperial_residence_to_building_scripted_effect
+	}
+}
+
+##
+##Original Imperial residence effects
+##
+br_set_original_imperial_residence_to_building_scripted_effect = {
+	#you need to save the building first as a scope and then save it as a var otherwise it will save the countries scope in the var for some unknown reason
+	$BUILDING$ = {
+		save_scope_as = br_original_imperial_residence_scope
+	}
+	root = {
+		#save in a var
+		set_variable = {
+			name = br_original_imperial_residence_var
+			value = scope:br_original_imperial_residence_scope
 		}
 	}
 }
 
-br_set_original_imperial_residence_scripted_effect = {
-	s:STATE_ILE_DE_FRANCE = {
-		every_scope_state = {
-			every_scope_building = {
-				if = {
-					limit = {
-						is_building_type = $BUILDING_TYPE$
-					}
-					save_scope_as = br_original_imperial_residence_scope
-				}
-			}
-		}
-	}
-	#also save in a var
-	set_variable = {
-		name = br_original_imperial_residence_var
-		value = scope:br_original_imperial_residence_scope
+br_set_original_imperial_residence_to_building_type_in_state_scripted_effect = {
+	br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+		STATE_REGION = $STATE_REGION$
+		BUILDING_TYPE = $BUILDING_TYPE$
+		EFFECT = br_set_original_imperial_residence_to_building_scripted_effect
 	}
 }
 
-br_set_alternate_imperial_residence_scripted_effect = {
-	s:STATE_ILE_DE_FRANCE = {
-		every_scope_state = {
-			every_scope_building = {
-				if = {
-					limit = {
-						is_building_type = $BUILDING_TYPE$
-					}
-					save_scope_as = br_alternate_imperial_residence_scope
-				}
-			}
+br_set_current_imperial_residence_to_original_effect = {
+	br_set_current_imperial_residence_to_building_scripted_effect = {
+		BUILDING = var:br_original_imperial_residence_var
+	}
+}
+
+##
+##Alternate Imperial residence effects
+##
+br_set_alternate_imperial_residence_to_building_scripted_effect = {
+	#you need to save the building first as a scope and then save it as a var otherwise it will save the countries scope in the var for some unknown reason
+	$BUILDING$ = {
+		save_scope_as = br_alternate_imperial_residence_scope
+	}
+	root = {
+		#save in a var
+		set_variable = {
+			name = br_alternate_imperial_residence_var
+			value = scope:br_alternate_imperial_residence_scope
 		}
 	}
-	#also save in a var
-	set_variable = {
-		name = br_alternate_imperial_residence_var
-		value = scope:br_alternate_imperial_residence_scope
+}
+
+br_set_alternate_imperial_residence_to_building_type_in_state_scripted_effect = {
+	br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+		STATE_REGION = $STATE_REGION$
+		BUILDING_TYPE = $BUILDING_TYPE$
+		EFFECT = br_set_alternate_imperial_residence_to_building_scripted_effect
+	}
+}
+
+br_set_current_imperial_residence_to_alternate_effect = {
+	br_set_current_imperial_residence_to_building_scripted_effect = {
+		BUILDING = var:br_alternate_imperial_residence_var
 	}
 }
 
@@ -740,7 +759,11 @@ br_var_test_scripted_effect = {
 # 	VAR_VALUE = root
 # }
 
+#######################################################################################
+###
 ### Scripted buttons effects
+###
+#######################################################################################
 br_remove_estate_button_flags_effect = {
 	remove_variable = br_1de_estate_button_selected_var
 	remove_variable = br_2de_estate_button_selected_var
@@ -750,7 +773,8 @@ br_remove_estate_button_flags_effect = {
 
 #Variable cleanup effects
 br_remove_impending_revolution_variables_scripted_effect = {
+	remove_variable = br_current_imperial_residence_var
 	remove_variable = br_original_imperial_residence_var
-	remove_variable = br_imperial_residence_var
+	remove_variable = br_alternate_imperial_residence_var
 	remove_variable = br_monarchy_popularity_var
 }

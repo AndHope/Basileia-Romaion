@@ -107,18 +107,33 @@ br_is_given_estate_3de_estate_scripted_trigger = {
 }
 
 
-##Imperial Residence
-br_has_imperial_residence_scripted_trigger = {
-	has_variable = br_imperial_residence_var
+#######################################################################################
+###
+### The Imperial residence triggers
+###
+#######################################################################################
+br_has_current_imperial_residence_scripted_trigger = {
+	has_variable = br_current_imperial_residence_var
+}
+br_has_original_imperial_residence_scripted_trigger = {
+	has_variable = br_original_imperial_residence_var
+}
+br_has_alternate_imperial_residence_scripted_trigger = {
+	has_variable = br_alternate_imperial_residence_var
 }
 br_is_current_imperial_residence_original_scripted_trigger = {
-	var:br_original_imperial_residence_var = var:br_imperial_residence_var
+	var:br_original_imperial_residence_var = var:br_current_imperial_residence_var
+}
+br_is_current_imperial_residence_alternate_scripted_trigger = {
+	var:br_alternate_imperial_residence_var = var:br_current_imperial_residence_var
 }
 
 
+#######################################################################################
 ###
-###JE pulse events
+### JE pulse events triggers
 ###
+#######################################################################################
 #pulse events are the events triggerd by the on_action in the JE
 br_has_impending_revolution_pulse_event_cooldown = {
 	has_variable = br_impending_revolution_pulse_event_cooldown_var

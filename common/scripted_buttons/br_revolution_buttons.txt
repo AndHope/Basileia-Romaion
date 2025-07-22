@@ -514,6 +514,9 @@ je_move_imperial_residence_button = {
 
 	visible = {
 		has_variable = br_revolution_monarchy_actions_button_selected_var
+
+		#for now you won't be able to change back to the original imperial residence; to allow this simply comment this trigger
+		br_is_current_imperial_residence_original_scripted_trigger = yes
 	}
 
 	selected = {
@@ -527,9 +530,8 @@ je_move_imperial_residence_button = {
 			limit = {
 				br_is_current_imperial_residence_original_scripted_trigger = yes
 			}
-			br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
-				BUILDING_TYPE = br_building_versailles
-			}
+			#Change imperial residence
+			br_set_current_imperial_residence_to_alternate_effect = yes
 
 			br_specific_change_in_1de_estate_disatisfaction_effect = {
 				value = br_large_decrease_in_estate_disatisfaction_value
@@ -542,9 +544,8 @@ je_move_imperial_residence_button = {
 			}
 		}
 		else = {
-			br_set_imperial_residence_to_building_type_in_state_scripted_effect = {
-				BUILDING_TYPE = br_building_palais_de_la_cite
-			}
+			#Change imperial residence
+			br_set_current_imperial_residence_to_original_effect = yes
 
 			br_specific_change_in_1de_estate_disatisfaction_effect = {
 				value = br_small_increase_in_estate_disatisfaction_value
