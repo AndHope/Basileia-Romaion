@@ -78,6 +78,27 @@ br_impending_revolution_complete_scripted_effect = {
 
 #######################################################################################
 ###
+### Revolution is launched scripted effects
+###
+#######################################################################################
+br_1de_estate_launches_revolution_scripted_effect = {
+	#TODO
+}
+
+br_2de_estate_launches_revolution_scripted_effect = {
+	#TODO
+}
+
+br_3de_estate_launches_revolution_scripted_effect = {
+	trigger_event = {
+		id = hre_revolution_events.201
+		popup = yes
+	}
+}
+
+
+#######################################################################################
+###
 ### JE pulse events effects
 ###
 #######################################################################################
@@ -223,6 +244,11 @@ br_remove_estates_for_revolution_scripted_effect = {
 	# 		estate_name = this
 	# 	}
 	# }
+
+	#remove highest disatisfaction var
+	remove_variable = br_estate_with_highest_disatisfaction_var
+
+	#remove each estate
 	br_remove_estate = {
 		estate_name = 1de_estate
 	}
@@ -588,27 +614,6 @@ br_specific_change_in_3de_estate_disatisfaction_effect = {
 	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
 		estate_scope = var:br_3de_estate_var
 		value = $value$
-	}
-}
-
-
-#######################################################################################
-###
-### Revolution is launched scripted effects
-###
-#######################################################################################
-br_1de_estate_launches_revolution_scripted_effect = {
-	#TODO
-}
-
-br_2de_estate_launches_revolution_scripted_effect = {
-	#TODO
-}
-
-br_3de_estate_launches_revolution_scripted_effect = {
-	trigger_event = {
-		id = hre_revolution_events.201
-		popup = yes
 	}
 }
 
