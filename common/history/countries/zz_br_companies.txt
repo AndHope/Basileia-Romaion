@@ -4,7 +4,7 @@ COUNTRIES = {
 	c:BYZ ?= {
 		add_company = company_type:company_byz_ric
 		company:company_byz_ric = {
-			set_company_establishment_date = 1700.1.1
+			set_company_establishment_date = 1536.1.1
 			set_company_state_region = s:STATE_EASTERN_THRACE
 			add_owned_country = c:br_romaioi_india_company #links the country to this company
 		}
@@ -16,6 +16,7 @@ COUNTRIES = {
 			set_company_establishment_date = 1325.1.1
 			set_company_state_region = s:STATE_HOLLAND
 			add_owned_country = c:DEI #links the country to this company
+			add_owned_country = c:br_dutch_west_indies #links the country to this company
 		}
 	}
 
@@ -33,7 +34,42 @@ COUNTRIES = {
 		company:company_hansa_trade = {
 			set_company_establishment_date = 1325.1.1
 			set_company_state_region = s:STATE_SCHLESWIG_HOLSTEIN
-			#add_owned_country = c:EOC #links the country to this company
 		}
 	}
+
+	c:br_taurica ?= {
+		add_company = company_type:company_br_byz_rus
+		company:company_br_byz_rus = {
+			set_company_establishment_date = 1625.1.1
+			set_company_state_region = s:STATE_CRIMEA
+			#add_owned_country = c:br_taurica #links the country to this company
+		}
+	}
+
+	c:br_vinland ?= {
+		add_company = company_type:company_br_vinland_colonization_company
+		company:company_br_vinland_colonization_company = {
+			set_company_establishment_date = 1625.1.1
+			set_company_state_region = s:STATE_QUEBEC
+			add_owned_country = c:br_new_world_company
+		}
+	}
+	c:SWE ?= {
+		add_company = company_type:company_br_early_swedish_resource_company
+		company:company_br_early_swedish_resource_company = {
+			set_company_establishment_date = 1625.1.1
+			set_company_state_region = s:STATE_SVEALAND
+			#add_owned_country = c:
+		}
+	}
+
+	c:BAV ?= {
+		add_company = company_type:company_br_bavarian_beer
+		company:company_br_bavarian_beer = {
+			set_company_establishment_date = 1625.1.1
+			set_company_state_region = s:STATE_BAVARIA
+			#add_owned_country = c:
+		}
+	}
+
 }

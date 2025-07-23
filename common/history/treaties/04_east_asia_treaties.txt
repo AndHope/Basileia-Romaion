@@ -11,10 +11,31 @@
 		binding_period = { years = 50 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
+			{
+				article = treaty_port
 				source_country = c:JAP
 				target_country = c:EOC
+				inputs = {
+					{ state = s:STATE_KYUSHU.region_state:JAP }
+				}
+			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:EOC
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 10 }
+				}
+			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:EOC
+				inputs = {
+					{ goods = g:porcelain }
+					{ quantity = 15 }
+				}
 			}
 		}
 	}
@@ -22,7 +43,7 @@
 	#China
 	create_treaty = {
 		first_country = c:br_romaioi_india_company
-		second_country = c:CHI
+		second_country = c:YUE
 
 		is_draft = no
 		entered_into_force_on = 1736.1.1
@@ -31,7 +52,7 @@
 		articles_to_create = {
 			{
 				article = treaty_port
-				source_country = c:CHI
+				source_country = c:YUE
 				target_country = c:br_romaioi_india_company
 				inputs = {
 					{ state = s:STATE_GUANGDONG.region_state:YUE }
@@ -40,35 +61,51 @@
 			#Trade Goods
 			{ # Silk Trade
 				article = goods_transfer
-				source_country = c:CHI
+				source_country = c:YUE
 				target_country = c:br_romaioi_india_company
 				inputs = {
 					{ goods = g:silk }
-					{ quantity = 10 }
+					{ quantity = 20 }
 				}
 			}
 			{ # Tea Trade
 				article = goods_transfer
-				source_country = c:CHI
+				source_country = c:YUE
 				target_country = c:br_romaioi_india_company
 				inputs = {
 					{ goods = g:tea }
-					{ quantity = 10 }
+					{ quantity = 20 }
 				}
 			}
 			{
-				article = money_transfer
+				article = foreign_investment_rights
+				source_country = c:YUE
+				target_country = c:br_romaioi_india_company
+			}
+			{ # Tea Trade
+				article = goods_transfer
 				source_country = c:br_romaioi_india_company
-				target_country = c:CHI
+				target_country = c:YUE
 				inputs = {
-					{ quantity = 150 } # The rent of Macau was 500 taels, about 700 spanish dollars or 145 pounds in 1840 (based on silver prices)
+					{ goods = g:dye }
+					{ quantity = 5 }
+				}
+			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:br_romaioi_india_company
+				target_country = c:YUE
+				inputs = {
+					{ goods = g:coffee }
+					{ quantity = 5 }
 				}
 			}
 		}
 	}
+	
 	create_treaty = {
 		first_country = c:DEI
-		second_country = c:CHI
+		second_country = c:FRS
 
 		is_draft = no
 		entered_into_force_on = 1736.1.1
@@ -77,7 +114,7 @@
 		articles_to_create = {
 			{
 				article = treaty_port
-				source_country = c:CHI
+				source_country = c:FRS
 				target_country = c:DEI
 				inputs = {
 					{ state = s:STATE_FORMOSA.region_state:FRS }
@@ -86,24 +123,43 @@
 			#Trade Goods
 			{ # Silk Trade
 				article = goods_transfer
-				source_country = c:CHI
+				source_country = c:FRS
 				target_country = c:DEI
 				inputs = {
 					{ goods = g:silk }
 					{ quantity = 25 }
 				}
 			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:YUE
+				target_country = c:DEI
+				inputs = {
+					{ goods = g:tea }
+					{ quantity = 25 }
+				}
+			}
 			{ # Spice Trade
 				article = goods_transfer
 				source_country = c:DEI
-				target_country = c:CHI
+				target_country = c:FRS
 				inputs = {
 					{ goods = g:spices }
 					{ quantity = 25 }
 				}
 			}
+			{ # Spice Trade
+				article = goods_transfer
+				source_country = c:DEI
+				target_country = c:FRS
+				inputs = {
+					{ goods = g:dye }
+					{ quantity = 10 }
+				}
+			}
 		}
 	}
+	
 	create_treaty = {
 		first_country = c:EOC
 		second_country = c:KOR
@@ -113,16 +169,43 @@
 		binding_period = { years = 50 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
+			{
+				article = treaty_port
+				source_country = c:KOR
+				target_country = c:EOC
+				inputs = {
+					{ state = s:STATE_YANGHO.region_state:KOR }
+				}
+			}
+			{
+				article = foreign_investment_rights
 				source_country = c:KOR
 				target_country = c:EOC
 			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:EOC
+				target_country = c:KOR
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 5 }
+				}
+			}
+			{ # Tea Trade
+				article = goods_transfer
+				source_country = c:KOR
+				target_country = c:EOC
+				inputs = {
+					{ goods = g:porcelain }
+					{ quantity = 10 }
+				}
+			}
 		}
 	}
+	
 	create_treaty = {
 		first_country = c:EOC
-		second_country = c:CHI
+		second_country = c:YUE
 
 		is_draft = no
 		entered_into_force_on = 1736.1.1
@@ -131,42 +214,88 @@
 		articles_to_create = {
 			{
 				article = treaty_port
-				source_country = c:CHI
+				source_country = c:YUE
 				target_country = c:EOC
 				inputs = {
 					{ state = s:STATE_SHAOZHOU.region_state:YUE }
 				}
 			}
+			{
+				article = foreign_investment_rights
+				source_country = c:YUE
+				target_country = c:EOC
+			}
 			#Trade Goods
 			{ # Silk Trade
 				article = goods_transfer
-				source_country = c:CHI
+				source_country = c:YUE
 				target_country = c:EOC
 				inputs = {
 					{ goods = g:silk }
-					{ quantity = 10 }
+					{ quantity = 20 }
 				}
 			}
 			{ # Silk Trade
 				article = goods_transfer
-				source_country = c:CHI
+				source_country = c:YUE
 				target_country = c:EOC
 				inputs = {
 					{ goods = g:tea }
-					{ quantity = 10 }
+					{ quantity = 20 }
 				}
 			}
 			{ # Horse Trade
 				article = goods_transfer
 				source_country = c:EOC
-				target_country = c:CHI
+				target_country = c:YUE
 				inputs = {
 					{ goods = g:horse }
-					{ quantity = 10 }
+					{ quantity = 20 }
 				}
 			}
 		}
 	}
+
+	create_treaty = {
+		first_country = c:JAP
+		second_country = c:KOR
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 25 }
+
+		articles_to_create = {
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:KOR
+				target_country = c:JAP
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:KOR
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:iron }
+					{ quantity = 20 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:KOR
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:lead }
+					{ quantity = 10 }
+				}
+			}
+			{
+				article = foreign_investment_rights
+				source_country = c:KOR
+				target_country = c:JAP
+			}
+		}
+	}
+
 	#Indonesia
 	create_treaty = {
 		first_country = c:OMA
@@ -177,13 +306,17 @@
 		binding_period = { years = 50 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
+			{
+				article = treaty_port
 				source_country = c:ACE
 				target_country = c:OMA
+				inputs = {
+					{ state = s:STATE_ACEH.region_state:ACE }
+				}
 			}
 		}
 	}
+	
 	create_treaty = {
 		first_country = c:DEI
 		second_country = c:JAV
@@ -193,10 +326,13 @@
 		binding_period = { years = 50 }
 
 		articles_to_create = {
-			{ # Trade Agreement
-				article = trade_privilege
+			{
+				article = treaty_port
 				source_country = c:JAV
 				target_country = c:DEI
+				inputs = {
+					{ state = s:STATE_EAST_JAVA.region_state:JAV }
+				}
 			}
 			#Trade Goods
 			{ # Spice Trade
@@ -206,6 +342,24 @@
 				inputs = {
 					{ goods = g:spices }
 					{ quantity = 50 }
+				}
+			}
+			{ # Spice Trade
+				article = goods_transfer
+				source_country = c:JAV
+				target_country = c:DEI
+				inputs = {
+					{ goods = g:dye }
+					{ quantity = 25 }
+				}
+			}
+			{ # Spice Trade
+				article = goods_transfer
+				source_country = c:DEI
+				target_country = c:JAV
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 20 }
 				}
 			}
 		}

@@ -1,0 +1,531 @@
+﻿#BR mod unique misc Companies
+
+company_br_ven_textiles = {
+	icon = "gfx/interface/icons/company_icons/company_br_ven_textiles.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_textiles
+
+	preferred_headquarters = { STATE_VENETIA }
+
+	building_types = {
+		building_textile_mills
+		building_cotton_plantation
+		#building_silk_plantation
+	}
+
+	extension_building_types = {
+		building_dye_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_ven_clothes
+	}
+
+	potential = {
+		c:VEN ?= this
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_VENETIA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mills
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mills_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mills = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_VENETIA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+#Florence TUS
+company_florence_bank = {
+	icon = "gfx/interface/icons/company_icons/medici_bank.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufactering_light.dds"
+
+	preferred_headquarters = { STATE_TUSCANY }
+	
+	building_types = {  
+		building_textile_mills
+		building_furniture_manufacturies
+		building_tooling_workshops
+		building_gold_mine
+	}
+
+	extension_building_types = {
+		building_coal_mine
+		building_iron_mine
+		building_lead_mine
+		building_sulfur_mine
+	}
+
+	potential = {
+		c:TUS ?= this
+	}
+
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TUSCANY
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_financial_district
+				}
+				level >= 20
+			}
+		}
+		#has_technology_researched = investment_banks
+	}
+	
+	prosperity_modifier = { 
+		country_minting_mult = 0.1
+		country_loan_interest_rate_mult = -0.02	
+		
+		state_farmers_investment_pool_efficiency_mult= 0.15
+		state_shopkeepers_investment_pool_efficiency_mult = 0.15
+		state_clergymen_investment_pool_efficiency_mult = 0.15
+		state_aristocrats_investment_pool_efficiency_mult = 0.15
+		state_capitalists_investment_pool_efficiency_mult = 0.15
+		
+		country_free_charters_add = 1
+	}	
+}
+
+company_br_vinland_colonization_company = {
+	icon = "gfx/interface/icons/company_icons/company_br_vinland_colonization_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_forestry
+
+	preferred_headquarters = { STATE_QUEBEC }
+
+	building_types = {
+		building_vineyard_plantation
+		building_logging_camp
+		building_livestock_ranch
+	}
+
+	extension_building_types = {
+		building_food_industry
+		building_wheat_farm
+		building_rye_farm
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_new_world_fur
+		prestige_good_br_new_world_pine
+	}
+
+	potential = {
+		country_has_primary_culture = cu:vinlander
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_colony_growth_speed_mult = 0.25
+		goods_output_wood_mult = 0.25
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_vinland_timber_company = {
+	icon = "gfx/interface/icons/company_icons/company_br_vinland_timber_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_forestry
+
+	preferred_headquarters = { STATE_QUEBEC }
+
+	building_types = {
+		building_logging_camp
+		building_paper_mills
+		building_furniture_manufacturies
+	}
+
+	extension_building_types = {
+		building_sulfur_mine
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_new_world_pine
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		goods_output_wood_mult = 0.25
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_vinland_fishing_company = {
+	icon = "gfx/interface/icons/company_icons/company_br_vinland_colonization_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_fishing
+
+	preferred_headquarters = { STATE_QUEBEC }
+
+	building_types = {
+		building_fishing_wharf
+		building_whaling_station
+		building_shipyards
+	}
+
+	extension_building_types = {
+		building_military_shipyards
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_fish
+	}
+
+	potential = {
+		country_has_primary_culture = cu:vinlander
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_fishing_wharf
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_fishing_wharf_throughput_add = 0.1
+		building_whaling_station_throughput_add = 0.1
+		unit_navy_offense_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_early_swedish_resource_company = {
+	icon = "gfx/interface/icons/company_icons/br_early_swedish_resource_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_NORRLAND }
+
+	building_types = {
+		building_iron_mine
+		building_lead_mine #pretend copper
+		building_logging_camp
+	}
+
+	extension_building_types = {
+		building_steel_mills
+		building_paper_mills
+	}
+
+	possible_prestige_goods = {
+		prestige_good_swedish_bar_iron
+		prestige_good_br_prestige_copper
+	}
+
+	potential = {
+		country_has_primary_culture = cu:swedish
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NORRLAND
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = steelworking
+		any_scope_state = {
+			state_region = s:STATE_NORRLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_iron_mine
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_iron_mine_throughput_add = 0.1
+		building_group_bg_logging_throughput_add = 0.1
+		building_lead_mine_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = steelworking
+		any_scope_state = {
+			state_region = s:STATE_NORRLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_iron_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NORRLAND
+			}
+		}
+		building_railway = {
+			level = 1
+			state_trigger = {
+				state_region = s:STATE_NORRLAND
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_bavarian_beer = {
+	icon = "gfx/interface/icons/company_icons/company_br_bavarian_beer.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+
+	building_types = {
+		building_food_industry
+		building_wheat_farm
+		
+	}
+
+	extension_building_types = {
+		building_rye_farm
+		building_vineyard_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_beer
+	}
+
+	potential = {
+		c:BAV ?= this
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 5
+			}
+		}
+	}
+
+
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05
+		state_radicals_from_political_movements_mult = -0.1
+	}
+	
+		ai_will_do = {
+		has_technology_researched = distillation
+		any_scope_state = {
+			state_region = s:STATE_BAVARIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BAVARIA
+			}
+		}
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+}
+
+company_br_german_beer = {
+	icon = "gfx/interface/icons/company_icons/company_br_bavarian_beer.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+
+	building_types = {
+		building_food_industry
+		building_wheat_farm
+	}
+
+	extension_building_types = {
+		building_rye_farm
+		building_vineyard_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_beer
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 5
+			}
+		}
+	}
+
+	potential = {
+		OR = {
+			country_has_primary_culture = cu:saxon
+			country_has_primary_culture = cu:frankish
+			country_has_primary_culture = cu:baltic_german
+			country_has_primary_culture = cu:silesian
+			country_has_primary_culture = cu:czech
+		}
+	}
+
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05
+		state_radicals_from_political_movements_mult = -0.1
+	}
+	
+	ai_will_do = {
+		has_technology_researched = distillation
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+}

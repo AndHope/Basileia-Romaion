@@ -14,10 +14,8 @@
 	#		}
 	#	}
 		articles_to_create = {
-			{ # Guarantee of Independence
-				article = guarantee_independence
-				source_country = c:DEN
-				target_country = c:SAX
+			{ # Defensive Pact
+				article = defensive_pact
 			}
 			{ # Trade Agreement
 				article = trade_privilege
@@ -29,8 +27,18 @@
 				source_country = c:SAX
 				target_country = c:DEN
 			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:DEN
+				target_country = c:SAX
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 25 }
+				}
+			}
 		}
 	}
+	
 	create_treaty = {
 		first_country = c:PLC
 		second_country = c:HUN
@@ -41,7 +49,7 @@
 
 		articles_to_create = {
 			{ # Defensive Pact
-				article = defensive_pact
+				article = alliance
 			}
 			{
 				article = transit_rights
@@ -60,6 +68,7 @@
 			}
 		}
 	}
+	
 	create_treaty = {
 		first_country = c:BAV
 		second_country = c:VEN
@@ -79,8 +88,54 @@
 				source_country = c:BAV
 				target_country = c:VEN
 			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:VEN
+				target_country = c:BAV
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 25 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:VEN
+				target_country = c:BAV
+				inputs = {
+					{ goods = g:sugar }
+					{ quantity = 25 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:BAV
+				target_country = c:VEN
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 25 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:BAV
+				target_country = c:VEN
+				inputs = {
+					{ goods = g:iron }
+					{ quantity = 45 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:BAV
+				target_country = c:VEN
+				inputs = {
+					{ goods = g:lead }
+					{ quantity = 15 }
+				}
+			}
 		}
 	}
+
 	create_treaty = {
 		first_country = c:BOH
 		second_country = c:SAX
@@ -100,8 +155,18 @@
 				source_country = c:BOH
 				target_country = c:SAX
 			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:SAX
+				target_country = c:BOH
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
 		}
 	}
+
 	create_treaty = {
 		first_country = c:HUN
 		second_country = c:VEN
@@ -121,11 +186,149 @@
 				source_country = c:HUN
 				target_country = c:VEN
 			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:VEN
+				target_country = c:HUN
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 25 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:HUN
+				target_country = c:VEN
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 25 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:HUN
+				target_country = c:VEN
+				inputs = {
+					{ goods = g:iron }
+					{ quantity = 25 }
+				}
+			}
 		}
 	}
+	
+	create_treaty = {
+		first_country = c:NET
+		second_country = c:SWE
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 25 }
+
+		articles_to_create = {
+			{ # Defensive Pact
+				article = defensive_pact
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:SWE
+				target_country = c:NET
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:NET
+				target_country = c:SWE
+			}
+			{ # Wood Trade
+				article = goods_transfer
+				source_country = c:SWE
+				target_country = c:NET
+				inputs = {
+					{ goods = g:wood }
+					{ quantity = 75 }
+				}
+			}
+			{ # Wood Trade
+				article = goods_transfer
+				source_country = c:SWE
+				target_country = c:NET
+				inputs = {
+					{ goods = g:hardwood }
+					{ quantity = 10 }
+				}
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:SWE
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 15 }
+				}
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:SWE
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+	
+	create_treaty = {
+		first_country = c:NET
+		second_country = c:ENG
+
+		is_draft = no
+		entered_into_force_on = 1736.1.1
+		binding_period = { years = 25 }
+
+		articles_to_create = {
+			{ # Military Assistance
+				article = military_assistance
+				source_country = c:NET
+				target_country = c:ENG
+			}
+			{ # Trade Agreement
+				article = trade_privilege
+				source_country = c:ENG
+				target_country = c:NET
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:ENG
+				target_country = c:NET
+				inputs = {
+					{ goods = g:fabric }
+					{ quantity = 50 }
+				}
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:ENG
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 10 }
+				}
+			}
+			{ # Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:ENG
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 25 }
+				}
+			}
+		}
+	}
+	
 	#HRE
 	create_treaty = {
-		first_country = c:BRG
+		first_country = c:FLA
 		second_country = c:HRE
 
 		is_draft = no
@@ -134,14 +337,32 @@
 
 		articles_to_create = {
 			{
-				article = transit_rights
+				article = trade_privilege
 				source_country = c:HRE
-				target_country = c:BRG
+				target_country = c:FLA
 			}
 			{ # Trade Agreement
 				article = trade_privilege
-				source_country = c:BRG
+				source_country = c:FLA
 				target_country = c:HRE
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:HRE
+				target_country = c:FLA
+				inputs = {
+					{ goods = g:fabric }
+					{ quantity = 30 }
+				}
+			}
+			{ # Fabric Trade
+				article = goods_transfer
+				source_country = c:FLA
+				target_country = c:HRE
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 10 }
+				}
 			}
 		}
 	}
@@ -162,6 +383,7 @@
 			}
 		}
 	}
+	
 	create_treaty = {
 		first_country = c:br_muscovy
 		second_country = c:SWE

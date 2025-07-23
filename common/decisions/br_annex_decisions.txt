@@ -11,8 +11,12 @@
 		exists = c:FIN
 		ROOT = c:SWE
 		c:FIN = { is_subject_of = c:SWE }
+
+		country_rank >= rank_value:major_power
+
 		NOT = { has_law = law_type:law_hereditary_bureaucrats }
 		NOT = { has_law = law_type:law_oligarchy }
+
 		has_technology_researched = centralization
 		c:FIN = {
 			relations:root >= 45
@@ -61,6 +65,9 @@ annex_norway = {
 		exists = c:NOR
 		ROOT = c:DEN
 		c:NOR = { is_subject_of = c:DEN }
+
+		country_rank >= rank_value:major_power
+
 		NOT = { has_law = law_type:law_hereditary_bureaucrats }
 		NOT = { has_law = law_type:law_oligarchy }
 		has_technology_researched = centralization
@@ -111,8 +118,12 @@ annex_UBD = {
 		exists = c:UBD
 		ROOT = c:SWE
 		c:UBD = { is_subject_of = c:SWE }
+
+		country_rank >= rank_value:major_power
+
 		NOT = { has_law = law_type:law_hereditary_bureaucrats }
 		NOT = { has_law = law_type:law_oligarchy }
+
 		has_technology_researched = centralization
 		c:UBD = {
 			relations:root >= 45
@@ -150,19 +161,22 @@ annex_UBD = {
 
 annex_bedouins = {
 	is_shown = {
-		exists = c:ARA
+		c:ARA ?= this
 		exists = c:JAB
 		exists = c:NEJ
-		ROOT = c:ARA
 	}
 
 	possible = {
-		exists = c:ARA
+		c:ARA ?= this
 		exists = c:JAB
 		exists = c:NEJ
-		ROOT = c:ARA
-		has_technology_researched = civilizing_mission
-
+		country_rank >= rank_value:major_power
+		OR = {
+			has_technology_researched = civilizing_mission
+			has_law = law_type:law_colonial_resettlement
+			has_law = law_type:law_colonial_exploitation
+			game_date > 1800.1.1
+		}
 	}
 
 	when_taken = {
@@ -204,7 +218,10 @@ annex_RIC = {
 		exists = c:br_romaioi_india_company
 		ROOT = c:BYZ
 		c:br_romaioi_india_company = { is_subject_of = c:BYZ }
-		#has_technology_researched = civilizing_mission
+		has_technology_researched = civilizing_mission
+
+		country_rank >= rank_value:great_power
+		
 		OR = {
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
@@ -213,7 +230,7 @@ annex_RIC = {
 			relations:root >= 50
 		}
 		ROOT = {
-			navy_size >= 50
+			navy_size >= 125
 		}
 		c:br_romaioi_india_company = {
 			is_player = no
@@ -439,62 +456,18 @@ annex_NWC = {
 	}
 }
 
-annex_russians = {
-	is_shown = {
-		exists = c:br_muscovy
-		exists = c:br_ryazan
-		exists = c:br_smolensk
-		exists = c:br_nizhny_novgorod
-		exists = c:br_tver
-		exists = c:br_yaroslavl
-		ROOT = c:br_muscovy
-	}
-
-	possible = {
-		exists = c:br_muscovy
-		exists = c:br_ryazan
-		exists = c:br_smolensk
-		exists = c:br_nizhny_novgorod
-		exists = c:br_tver
-		exists = c:br_yaroslavl
-		ROOT = c:br_muscovy
-		c:br_tartaria = {
-			relations:root >= 45
-		}
-		ROOT = {
-			army_size >= 60
-		}
-
-	}
-
-	when_taken = {
-		annex = c:br_smolensk
-		annex = c:br_ryazan
-		annex = c:br_nizhny_novgorod
-		annex = c:br_tver
-		annex = c:br_yaroslavl
-		change_infamy = 25
-	}
-
-	ai_chance = {
-		value = 75
-	}
-}
-
 annex_VAC = {
 	is_shown = {
-		exists = c:VEN
+		c:VEN ?= this
 		exists = c:br_venice_africa_company
-		ROOT = c:VEN
 	}
 
 	possible = {
-		exists = c:VEN
+		c:VEN ?= this
 		exists = c:br_venice_africa_company
-		ROOT = c:VEN
 		c:br_venice_africa_company = { is_subject_of = c:VEN }
-		#has_technology_researched = civilizing_mission
 		OR = {
+			has_technology_researched = civilizing_mission
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
@@ -527,20 +500,19 @@ annex_VAC = {
 		}
 	}
 }
+
 annex_GAC = {
 	is_shown = {
-		exists = c:br_genoa
+		c:br_genoa ?= this
 		exists = c:br_genonese_africa_company
-		ROOT = c:br_genoa
 	}
 
 	possible = {
-		exists = c:br_genoa
+		c:br_genoa ?= this
 		exists = c:br_genonese_africa_company
-		ROOT = c:br_genoa
 		c:br_genonese_africa_company = { is_subject_of = c:br_genoa }
-		#has_technology_researched = civilizing_mission
 		OR = {
+			has_technology_researched = civilizing_mission
 			has_law = law_type:law_colonial_resettlement
 			has_law = law_type:law_colonial_exploitation
 		}
@@ -573,3 +545,88 @@ annex_GAC = {
 		}
 	}
 }
+
+br_decision_annex_aegypt_tribes = {
+	is_shown = {
+		c:br_aegypt ?= this
+		exists = c:br_eastern_desert
+		exists = c:br_kharga
+	}
+
+	possible = {
+		c:br_aegypt ?= this
+		exists = c:br_eastern_desert
+		exists = c:br_kharga
+		OR = {
+			has_technology_researched = civilizing_mission
+			has_law = law_type:law_colonial_resettlement
+			has_law = law_type:law_colonial_exploitation
+			game_date > 1775.1.1
+		}
+
+	}
+
+	when_taken = {
+		annex = c:br_eastern_desert
+		annex = c:br_kharga
+		change_infamy = 5
+	}
+
+	ai_chance = {
+		value = 25
+		if = {
+			limit = {
+				game_date > 1775.1.1
+			}
+			add = 25
+		}
+	}
+}
+
+br_decision_annex_siberian_tribes = {
+	is_shown = {
+		c:br_tartaria ?= this
+		exists = c:br_sibir
+		exists = c:br_buryats
+	}
+
+	possible = {
+		c:br_tartaria ?= this
+		exists = c:br_sibir
+		exists = c:br_buryats
+		country_rank >= rank_value:major_power
+		OR = {
+			has_technology_researched = civilizing_mission
+			has_law = law_type:law_colonial_resettlement
+			has_law = law_type:law_colonial_exploitation
+			game_date > 1800.1.1
+		}
+
+	}
+
+	when_taken = {
+		annex = c:br_sibir
+		annex = c:br_buryats
+		change_infamy = 5
+	}
+
+	ai_chance = {
+		value = 5
+		if = {
+			limit = {
+				game_date > 1750.1.1
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				OR = {
+					is_diplomatic_play_committed_participant = yes
+					is_at_war = yes
+				}
+			}
+			add = -1000
+		}
+	}
+}
+

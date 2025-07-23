@@ -1,5 +1,25 @@
-﻿pm_simple_farming = {
+﻿pm_br_traditional_farming = {
 	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			# output goods													
+			goods_output_grain_add = 18
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 5000
+			building_employment_farmers_add = 500
+		}
+	}
+}
+
+pm_simple_farming = {
+	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"
+
+	unlocking_technologies = {
+		br_tech_four_field_crop_rotation
+	}
+
 	building_modifiers = {
 		workforce_scaled = {
 			# output goods													
@@ -13,11 +33,11 @@
 	}
 }
 
-pm_organic_farming = {
+pm_br_organic_farming = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	
 	unlocking_technologies = {
-		br_tech_four_field_crop_rotation
+		br_tech_organic_farming
 	}
 
 	building_modifiers = {
@@ -141,7 +161,8 @@ pm_tools = {
 	texture = "gfx/interface/icons/production_method_icons/harvesting_tools.dds"
 
 	unlocking_technologies = {
-		br_tech_hand_tools
+		#br_tech_hand_tools
+		br_tech_rotherham_plough
 	}
 
 	building_modifiers = {
@@ -155,6 +176,7 @@ pm_tools = {
 		}
 	}
 }
+
 pm_tractors = {
 	texture = "gfx/interface/icons/production_method_icons/tractors.dds"
 
@@ -219,8 +241,28 @@ pm_citrus_orchards = {
 	}
 }
 
+pm_br_traditional_farming_building_rice_farm = {
+	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			# output goods
+			goods_output_grain_add = 30
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 9500
+			building_employment_farmers_add = 1000
+		}
+	}
+}
+
 pm_simple_farming_building_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"
+
+	unlocking_technologies = {
+		br_tech_four_field_crop_rotation
+	}
+
 	building_modifiers = {
 		workforce_scaled = {
 			# output goods

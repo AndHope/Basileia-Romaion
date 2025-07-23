@@ -4,7 +4,7 @@ br_tech_military_levy = {
 	# The earliest form of conscription
 	# https://en.wikipedia.org/wiki/Conscription#Medieval_levies
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_military_levy.dds"
 	category = military
 
 	ai_weight = {
@@ -16,7 +16,7 @@ br_tech_supply_train = {
 	# Should give some bonuses to armies, perhaps movement speed
 	# https://en.wikipedia.org/wiki/Train_(military)
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_supply_train.dds"
 	category = military
 
 	
@@ -38,7 +38,7 @@ br_tech_lines_of_communication = {
 	# Should give some bonuses to armies, perhaps attrition reduction
 	# https://en.wikipedia.org/wiki/Line_of_communication
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_lines_of_communication.dds"
 	category = military
 
 	modifier = {
@@ -58,7 +58,7 @@ br_tech_tech_hussar = {
 	# Unlocks a better version of traditional cavalry
 	# https://en.wikipedia.org/wiki/Hussar
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_tech_hussar.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -73,7 +73,7 @@ br_tech_tech_hussar = {
 tech_cavalry_specialization = {
 	# moving the other cavalry variants up from military drill will put other bonuses on it. Maybe experiance gain?
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	texture = "gfx/interface/icons/invention_icons/tech_cavalry_specialization.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -105,7 +105,7 @@ br_tech_flintlock_musket = {
 	# Improves the earlier musket techs
 	# https://en.wikipedia.org/wiki/Flintlock
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_flintlock_musket.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -137,12 +137,13 @@ br_tech_threadwheel_crane = {
 	# A very old tech for enabling ports
 	# https://en.wikipedia.org/wiki/Treadwheel_crane
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_threadwheel_crane.dds"
 	category = military
 
 	modifier = {
-		building_shipyards_throughput_add = 0.05
-		building_military_shipyards_throughput_add = 0.05
+		#unlocks buildings
+		#building_shipyards_throughput_add = 0.05
+		#building_military_shipyards_throughput_add = 0.05
 	}
 
 	ai_weight = {
@@ -154,7 +155,7 @@ br_tech_sextant = {
 	# One of the earliest navigation techs
 	# https://en.wikipedia.org/wiki/Sextant
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_sextant.dds"
 	category = military
 	
 	modifier = {
@@ -170,12 +171,13 @@ br_tech_standardized_shipbuilding = {
 	# Gives access to shipyards
 	# https://en.wikipedia.org/wiki/Shipyard#History
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_standardized_shipbuilding.dds"
 	category = military
 
 	modifier = {
-		building_shipyards_throughput_add = 0.05
-		building_military_shipyards_throughput_add = 0.05
+		#unlocks pms and buildings
+		#building_shipyards_throughput_add = 0.05
+		#building_military_shipyards_throughput_add = 0.05
 	}
 
 	unlocking_technologies = {
@@ -204,15 +206,15 @@ navigation = {
 	}
 }
 
-
 br_tech_frigate = {
 	# Not the very oldest ship tech, but should be a pretty old tech
 	# https://en.wikipedia.org/wiki/Frigate#Age_of_sail
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_frigate.dds"
 	category = military
 
 	unlocking_technologies = {
+		#navigation
 		br_tech_standardized_shipbuilding
 	}
 
@@ -225,11 +227,12 @@ br_tech_careening = {
 	# Tech closing the gap between pre-modern and modern shipbuilding
 	# https://en.wikipedia.org/wiki/Careening
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_careening.dds"
 	category = military
 	
 	modifier = {
-		unit_navy_defense_add = 3
+		#ship repair would be a good one
+		building_naval_base_throughput_add = 0.05
 	}
 
 	unlocking_technologies = {
@@ -245,7 +248,7 @@ br_tech_three_deckers = {
 	# Should unlock the best capital sailing ship
 	# https://en.wikipedia.org/wiki/Three-decker
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_three_deckers.dds"
 	category = military
 
 	unlocking_technologies = {

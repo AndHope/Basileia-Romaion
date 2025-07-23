@@ -1,0 +1,514 @@
+﻿#BR mod unique Trade Companies
+
+#Venice
+company_ven_trade = {
+	icon = "gfx/interface/icons/company_icons/Venice_logo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_VENETIA }
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_silk_plantation
+		building_dye_plantation
+	}
+
+	extension_building_types = {
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_spices_plantation
+		building_banana_plantation
+		building_coffee_plantation
+	}
+
+	potential = {
+		c:VEN ?= this
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_byz_silk
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_ven_arsenal = {
+	icon = "gfx/interface/icons/company_icons/company_ven_arsenal.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_VENETIA }
+	
+	building_types = {  
+		building_military_shipyards
+		building_artillery_foundries
+	}
+
+	extension_building_types = {
+		building_shipyards
+		building_arms_industry
+	}
+	
+	potential = {
+		c:VEN ?= this
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_manowars
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_military_shipyards
+				level > 1
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_navy_defense_mult = 0.25
+		country_prestige_from_navy_power_projection_mult = 0.25
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_VENETIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_military_shipyards = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_VENETIA
+			}
+		}
+	}
+	
+	ai_weight = {
+		value = 4 # Higher base value for flavored companies
+	}
+}
+
+#Genoa
+company_gen_trade = {
+	icon = "gfx/interface/icons/company_icons/Genoa_logo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_PIEDMONT }
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_dye_plantation
+		building_silk_plantation
+	}
+
+	extension_building_types = {
+		building_spices_plantation
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_banana_plantation
+		building_coffee_plantation
+	}
+
+	potential = {
+		c:br_genoa ?= this
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_byz_silk
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_PIEDMONT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_gen_arsenal = {
+	icon = "gfx/interface/icons/company_icons/company_gen_arsenal.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_PIEDMONT }
+
+	replaces_company = company_basic_shipyards
+	
+	building_types = {  
+		building_military_shipyards
+		building_artillery_foundries
+	}
+
+	extension_building_types = {
+		building_shipyards
+		building_arms_industry
+	}
+	
+	potential = {
+		c:br_genoa ?= this
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_manowars
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_PIEDMONT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_military_shipyards
+				level > 1
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_navy_defense_mult = 0.25
+		country_prestige_from_navy_power_projection_mult = 0.25
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_PIEDMONT
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_military_shipyards = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_PIEDMONT
+			}
+		}
+	}
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+#Dutch
+company_net_trade = {
+	icon = "gfx/interface/icons/company_icons/voc.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_HOLLAND }
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_spices_plantation
+		building_dye_plantation
+	}
+
+	extension_building_types = {
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_silk_plantation
+		building_banana_plantation
+		building_coffee_plantation
+	}
+
+	potential = {
+		c:NET ?= this
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_HOLLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_spices
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+#Flanders
+company_fla_trade = {
+	icon = "gfx/interface/icons/company_icons/Ostend_Logo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_FLANDERS }
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_spices_plantation
+		building_dye_plantation
+	}
+
+	extension_building_types = {
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_silk_plantation
+		building_banana_plantation
+		building_coffee_plantation
+	}
+
+	potential = {
+		country_has_primary_culture = cu:flemish
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_FLANDERS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_spices
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+#Japan
+company_jap_trade = {
+	icon = "gfx/interface/icons/company_icons/japtrade02.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_coal_mine
+		building_iron_mine
+		building_lead_mine
+		building_sulfur_mine
+	}
+
+	extension_building_types = {
+		building_spices_plantation
+		building_dye_plantation
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_silk_plantation
+		building_banana_plantation
+	}
+
+	potential = {
+		country_has_primary_culture = cu:japanese
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KYUSHU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+	}
+
+	possible_prestige_goods = {
+		prestige_good_tomioka_silk
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+#Oman
+company_oma_trade = {
+	icon = "gfx/interface/icons/company_icons/omantrade.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_coffee_plantation
+	}
+
+	extension_building_types = {
+		building_spices_plantation
+		building_dye_plantation
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_silk_plantation
+		building_banana_plantation
+	}
+
+	potential = {
+		country_has_primary_culture = cu:bedouin
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_coffee
+		prestige_good_generic_opium
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_OMAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Hansa
+company_hansa_trade = {
+	icon = "gfx/interface/icons/company_icons/hansa_trade.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_SCHLESWIG_HOLSTEIN }
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_textile_mills
+		building_tooling_workshops
+		building_furniture_manufacturies
+		building_fishing_wharf
+		building_logging_camp
+	}
+
+	potential = {
+		country_has_primary_culture = cu:baltic_german
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_prestige_beer
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_SCHLESWIG_HOLSTEIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}

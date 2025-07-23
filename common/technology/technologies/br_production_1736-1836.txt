@@ -1,5 +1,6 @@
 ﻿### ERA 1
 
+#agriculture
 sericulture = {
 	# Unlocks Mulberry Groves PM on Rice Farms
 	era = era_1
@@ -19,7 +20,7 @@ sericulture = {
 enclosure = {
 	# Unlocks construction of Farms and Plantations
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/enclosure0.png"
+	texture = "gfx/interface/icons/invention_icons/enclosure_br_ver.dds"
 	category = production
 
 	ai_weight = {
@@ -30,12 +31,12 @@ enclosure = {
 br_tech_four_field_crop_rotation = {
 	# Placeholder for even older agriculture techs
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/four_field_crop_rotation.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_four_field_crop_rotation.dds"
 	category = production
 
 	modifier = {
-		building_group_bg_agriculture_throughput_add = 0.05
-		building_group_bg_plantations_throughput_add = 0.05
+		#building_group_bg_agriculture_throughput_add = 0.05
+		#building_group_bg_plantations_throughput_add = 0.05
 	}
 
 	unlocking_technologies = {
@@ -50,7 +51,7 @@ br_tech_four_field_crop_rotation = {
 br_tech_new_world_crops = {
 	# https://en.wikipedia.org/wiki/New_World_crops
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/four_field_crop_rotation.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_new_world_crops.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -65,7 +66,7 @@ br_tech_new_world_crops = {
 br_tech_plantation_system = {
 	# Unlock new Plantations
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/plantation_system.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_plantation_system.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -81,7 +82,7 @@ br_tech_seed_drill = {
 	# Should unlock new PMs for farms
 	# https://en.wikipedia.org/wiki/Seed_drill#
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/seed_drill.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_seed_drill.dds"
 	category = production
 
 	modifier = {
@@ -103,15 +104,16 @@ br_tech_rotherham_plough = {
 	# https://en.wikipedia.org/wiki/Plough#Improved_designs
 	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/horse_drawn_machinery.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_rotherham_plough.dds"
 	category = production
 
 	modifier = {
-		building_group_bg_agriculture_throughput_add = 0.05
-		building_group_bg_plantations_throughput_add = 0.05
+		#building_group_bg_agriculture_throughput_add = 0.05
+		#building_group_bg_plantations_throughput_add = 0.05
 	}
 
 	unlocking_technologies = {
+		#br_tech_hand_tools
 		br_tech_seed_drill
 	}
 
@@ -122,7 +124,7 @@ br_tech_rotherham_plough = {
 
 br_tech_selective_breeding = {
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/selective_breeding.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_selective_breeding.dds"
 	category = production
 
 	modifier = {
@@ -142,7 +144,7 @@ br_tech_selective_breeding = {
  
 br_tech_horse_drawn_machinery = {
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/horse_drawn_machinery.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_horse_drawn_machinery.dds"
 	category = production
 
 	modifier = {
@@ -150,6 +152,7 @@ br_tech_horse_drawn_machinery = {
 	}
 
 	unlocking_technologies = {
+		br_tech_selective_breeding
 		br_tech_rotherham_plough
 	}
 
@@ -158,10 +161,51 @@ br_tech_horse_drawn_machinery = {
 	}
 }
 
+br_tech_standardized_farming = {
+	# Should unlock new PMs for farms
+	# can change name
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/br_tech_standardized_farming.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_horse_drawn_machinery
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_organic_farming = {
+	# Should unlock new PMs for farms
+	# can change name
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/br_tech_organic_farming.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_standardized_farming
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+#industry
 br_tech_artisan_manufacturing = {
 	# Placeholder for even older manufacturing techs
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/artisan_manufacturing.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_artisan_manufacturing.dds"
 	category = production
 
 	ai_weight = {
@@ -173,10 +217,11 @@ br_tech_murano_glass = {
 	# Unlock leaded glass
 	# https://en.wikipedia.org/wiki/Venetian_glass
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/murano_glass.png"
+	texture = "gfx/interface/icons/invention_icons/br_tech_murano_glass.dds"
 	category = production
 
 	modifier = {
+		#unlocks forest glass
 		#building_glassworks_throughput_add = 0.1 unlocks leaded glass now
 	}
 
@@ -189,11 +234,30 @@ br_tech_murano_glass = {
 	}
 }
 
+br_tech_leaded_glass = {
+	# Unlock leaded glass
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/br_tech_leaded_glass.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_murano_glass
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
 br_tech_hand_tools = {
 	# Unlocks tooling workshops
 	# Related tech: https://en.wikipedia.org/wiki/Machine_tool
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/labor_movement.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_hand_tools.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -206,11 +270,10 @@ br_tech_hand_tools = {
 	}
 }
 
-
 br_tech_standardized_measures = {
 	# Placeholder for other older techs with regards to standardization
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/elevator.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_standardized_measures.dds"
 	category = production
 
 	modifier = {
@@ -232,7 +295,7 @@ br_tech_experimental_construction = {
 	# Should unlock first "efficent" PM for construction sector
 	# https://en.wikipedia.org/wiki/History_of_construction#Early_Modern
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/steel_frame_buildings.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_experimental_construction.dds"
 	category = production
 
 	modifier = {
@@ -249,19 +312,81 @@ br_tech_experimental_construction = {
 }
 
 br_tech_textile_manufacturies = {
+	# Unlock textile manufacturies pms
+	# Related tech: https://en.wikipedia.org/wiki/Spinning_jenny
+	# Related tech: https://en.wikipedia.org/wiki/Flying_shuttle
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_textile_manufacturies.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+
+	unlocking_technologies = {
+		br_tech_artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_furniture_manufacturies = {
+	# Unlock furniture manufacturies pm
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_furniture_manufacturies.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+
+	unlocking_technologies = {
+		br_tech_artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_paper_manufacturies = {
+	# Unlock paper manufacturies pm
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_paper_manufacturies.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+
+	unlocking_technologies = {
+		br_tech_furniture_manufacturies
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_dye_workshops = {
 	# Unlock textile manufacturies
 	# Related tech: https://en.wikipedia.org/wiki/Spinning_jenny
 	# Related tech: https://en.wikipedia.org/wiki/Flying_shuttle
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/fabric.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_dye_workshops.dds"
 	category = production
 
 	modifier = {
-		building_textile_mills_throughput_add = 0.1
+		#unlock various pms
 	}
 
 	unlocking_technologies = {
-		br_tech_artisan_manufacturing
+		br_tech_textile_manufacturies
 	}
 
 	ai_weight = {
@@ -293,7 +418,7 @@ br_tech_metallurgy = {
 	# Placeholder for other older techs
 	# https://en.wikipedia.org/wiki/Metallurgy#History
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/copper.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_metallurgy.dds"
 	category = production
 
 	modifier = {
@@ -356,7 +481,7 @@ br_tech_newcomen_engine = {
 
 br_tech_track = {
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/railways.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_track.dds"
 	category = production
 
 	unlocking_technologies = {

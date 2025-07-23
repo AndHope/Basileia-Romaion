@@ -293,28 +293,40 @@ romaioi_tagmata_decision = {
 
 romaioi_damsyria_decision = {
 	is_shown = {
-		exists = c:BYZ
-		exists = c:SYR
-		ROOT = c:BYZ
-
+		c:BYZ ?= this
+		c:SYR ?= {
+			is_subject_of = c:BYZ
+		}
 	}
 
 	possible = {
-		exists = c:BYZ
-		ROOT = c:BYZ
-		
-		exists = c:SYR
-		c:SYR = { is_subject_of = ROOT }
+		c:BYZ ?= this
+		country_rank >= rank_value:major_power
+		c:SYR ?= {
+			is_subject_of = c:BYZ
+			NOT = {
+				OR = {
+					has_modifier = br_modifier_themata_primacy
+					has_modifier = br_modifier_exarchate
+					exists = c:br_syria
+				}
+			}
+		}
 	}
 
 	when_taken = {
-		
+		trigger_event = {
+			id = veiled_exarchate.4
+		}
 		c:SYR = {
 			change_tag = br_syria
 			remove_primary_culture = cu:bedouin
 			add_primary_culture = cu:syriac
+			add_primary_culture = cu:greek
 			set_state_religion = rel:oriental_orthodox
 			set_country_type = recognized
+			
+			activate_law = law_type:law_mixed_army
 
 			change_relations = {
 				country = c:BYZ
@@ -331,10 +343,6 @@ romaioi_damsyria_decision = {
 
 			add_modifier = {
 				name = br_modifier_themata_primacy
-				months = -1
-			}
-			add_modifier = {
-				name = br_modifier_exarchate
 				months = -1
 			}
 
@@ -429,22 +437,24 @@ romaioi_damsyria_decision = {
 
 romaioi_eastarm_decision = {
 	is_shown = {
-		exists = c:BYZ
-		exists = c:br_arevelyan
-		exists = c:ARM
-		ROOT = c:BYZ
-
+		c:BYZ ?= this
+		c:ARM ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_arevelyan ?= {
+			is_subject_of = c:BYZ
+		}
 	}
-
 	possible = {
-		exists = c:BYZ
-		ROOT = c:BYZ
-		exists = c:ARM
-		c:ARM = { is_subject_of = ROOT }
-		exists = c:br_arevelyan
-		c:br_arevelyan = { is_subject_of = ROOT }
+		c:BYZ ?= this
+		country_rank >= rank_value:major_power
+		c:ARM ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_arevelyan ?= {
+			is_subject_of = c:BYZ
+		}
 	}
-
 	when_taken = {
 		
 		c:ARM = {
@@ -455,37 +465,81 @@ romaioi_eastarm_decision = {
 			}
 			change_relations = {
 				country = c:BYZ
-				value = 100
+				value = 50
 			}
 		}
-
+		s:STATE_ANKARA.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_DIYARBAKIR.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_ERZURUM = {
+			set_owner_of_provinces = {
+				country = c:BYZ
+				provinces = { x92A943 x59E513 x895074 x52EB9A x7BC870 x90BA49 x740ED1 x795751 x669A31 xC01080 xC41BC3 } #x8F5A6A xFDB72C x27689E
+			}
+		}
 	}
-
 	ai_chance = {
 		value = 95
 	}
+
+}
+
+romaioi_move_armenia_east_decision_02 = {
+	is_shown = {
+		c:BYZ ?= this
+		c:ARM ?= {
+			is_subject_of = c:BYZ
+			owns_entire_state_region = STATE_ARMENIA
+			owns_entire_state_region = STATE_ERZURUM
+		}
+		
+	}
+	possible = {
+		c:BYZ ?= this
+		country_rank >= rank_value:major_power
+		c:ARM ?= {
+			is_subject_of = c:BYZ
+			owns_entire_state_region = STATE_ARMENIA
+			owns_entire_state_region = STATE_ERZURUM
+		}
+	}
+	when_taken = {
+		s:STATE_ANKARA.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_DIYARBAKIR.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_ERZURUM = {
+			set_owner_of_provinces = {
+				country = c:BYZ
+				provinces = { x92A943 x59E513 x895074 x52EB9A x7BC870 x90BA49 x740ED1 x795751 x669A31 xC01080 xC41BC3 } #x8F5A6A xFDB72C x27689E
+			}
+		}
+	}
+	ai_chance = {
+		value = 95
+	}
+
 }
 
 romaioi_eastmespotamia_decision = {
 	is_shown = {
-		exists = c:BYZ
-		exists = c:br_assyria
-		exists = c:br_mesopotamia
-		ROOT = c:BYZ
+		c:BYZ ?= this
+		c:br_mesopotamia ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_assyria ?= {
+			is_subject_of = c:BYZ
+		}
 
 	}
-
 	possible = {
-		exists = c:BYZ
-		ROOT = c:BYZ
-		exists = c:br_mesopotamia
-		c:br_mesopotamia = { is_subject_of = ROOT }
-		exists = c:br_assyria
-		c:br_assyria = { is_subject_of = ROOT }
+		c:BYZ ?= this
+		country_rank >= rank_value:major_power
+		c:br_mesopotamia ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_assyria ?= {
+			is_subject_of = c:BYZ
+		}
 	}
-
 	when_taken = {
-		
 		c:br_mesopotamia = {
 			annex = c:br_assyria
 			set_country_type = recognized
@@ -495,12 +549,10 @@ romaioi_eastmespotamia_decision = {
 			}
 			change_relations = {
 				country = c:BYZ
-				value = 100
+				value = 50
 			}
 		}
-
 	}
-
 	ai_chance = {
 		value = 95
 	}
@@ -508,23 +560,25 @@ romaioi_eastmespotamia_decision = {
 
 romaioi_expand_taurica_decision = {
 	is_shown = {
-		exists = c:BYZ
-		exists = c:br_blacksea_colonies
-		exists = c:br_taurica
-		ROOT = c:BYZ
+		c:BYZ ?= this
+		c:br_taurica ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_blacksea_colonies ?= {
+			is_subject_of = c:BYZ
+		}
 	}
-
 	possible = {
-		exists = c:BYZ
-		ROOT = c:BYZ
-		exists = c:br_taurica
-		c:br_taurica = { is_subject_of = ROOT }
-		exists = c:br_blacksea_colonies
-		c:br_blacksea_colonies = { is_subject_of = ROOT }
+		c:BYZ ?= this
+		country_rank >= rank_value:major_power
+		c:br_taurica ?= {
+			is_subject_of = c:BYZ
+		}
+		c:br_blacksea_colonies ?= {
+			is_subject_of = c:BYZ
+		}
 	}
-
 	when_taken = {
-		
 		c:br_taurica = {
 			annex = c:br_blacksea_colonies
 			set_secret_goal = {
@@ -533,12 +587,10 @@ romaioi_expand_taurica_decision = {
 			}
 			change_relations = {
 				country = c:BYZ
-				value = 100
+				value = 50
 			}
 		}
-
 	}
-
 	ai_chance = {
 		value = 95
 	}
@@ -560,6 +612,9 @@ chariot_racing_decision = {
 	}
 	
 	possible = {
+		NOT = {
+			has_modifier = modifier_chariot_racing
+		}
 		any_scope_building = {
 			is_building_type = br_building_hippodrome
 		}
@@ -613,6 +668,9 @@ expand_chariot_racing_decision = {
 	possible = {
 		has_modifier = modifier_chariot_racing
 		has_technology_researched = organized_sports
+		NOT = {
+			has_modifier = modifier_expanded_chariot_racing
+		}
 		any_scope_building = {
 			is_building_type = br_building_hippodrome
 		}
@@ -659,9 +717,13 @@ end_latin_privileges_ELY = {
 	possible = {
 		exists = c:br_elysium
 		ROOT = c:br_elysium
-		has_law = law_type:law_interventionism
-		has_law = law_type:law_protectionism
 		has_modifier = br_modifier_latin_privileges
+		country_rank >= rank_value:major_power
+		OR = {
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			game_date > 1800.1.1
+		}
 	}
 
 	when_taken = {
@@ -739,9 +801,13 @@ end_latin_privileges_TAT= {
 	possible = {
 		exists = c:br_tartaria
 		ROOT = c:br_tartaria
-		has_law = law_type:law_interventionism
-		has_law = law_type:law_protectionism
 		has_modifier = br_modifier_latin_privileges
+		country_rank >= rank_value:major_power
+		OR = {
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			game_date > 1800.1.1
+		}
 	}
 
 	when_taken = {
@@ -864,6 +930,7 @@ claim_kyrenaica_colony_decision = {
 
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:br_aegypt ?= {
 			is_subject_of = c:BYZ
 		}
@@ -902,6 +969,7 @@ claim_br_australis_colony_decision = {
 
 	possible = {
 		c:BYZ ?= this
+		country_rank >= rank_value:major_power
 		c:br_aegypt ?= {
 			is_subject_of = c:BYZ
 		}

@@ -96,49 +96,67 @@ br_byz_easy_agy = {
 
 br_hre_annex_franks = {
 	is_shown = {
-		and = {
+		c:HRE ?= this
+		c:HRE ?= {
+			is_player = no
+		}
+		AND = {
 			exists = c:HES
-			c:HRE ?= this
-			c:HRE = {
+			c:HES = {
 				is_player = no
 			}
-			country_has_primary_culture = cu:frankish
+			exists = c:BAD
+			c:BAD = {
+				is_player = no
+			}
+			exists = c:WUR
+			c:WUR = {
+				is_player = no
+			}
 		}
 	}
 
 	possible = {
 		is_at_war = no
-		country_has_primary_culture = cu:frankish
-		c:HES ?= {
+		c:HRE ?= this
+		c:HRE ?= {
 			is_player = no
 		}
-		OR = {
-			has_law = law_type:law_national_supremacy
-			has_law = law_type:law_ethnostate
+		AND = {
+			exists = c:HES
+			c:HES = {
+				is_player = no
+			}
+			exists = c:BAD
+			c:BAD = {
+				is_player = no
+			}
+			exists = c:WUR
+			c:WUR = {
+				is_player = no
+			}
 		}
 	}
 
 	when_taken = {
-		remove_primary_culture = cu:frankish
+		#remove_primary_culture = cu:frankish
 		add_radicals = {
 			culture = cu:frankish
 			value = 0.15
 		}
 		add_modifier = {
 			name = linguistic_discrimination
-			years = -1
+			years = 15
 		}
-		hidden_effect = {
-			trigger_event = {
-				id = frankish_revolt.1
-				days = 1
-			}
+		trigger_event = {
+			id = frankish_revolt.1
+			days = 1
 		}
 
 	}
 
 	ai_chance = {
-		value = 1
+		value = 25
 		if = {
 			limit = {
 				game_date > 1750.1.1
@@ -260,7 +278,7 @@ br_serb_chaos = {
 	}
 
 	ai_chance = {
-		value = 15
+		value = 25
 		if = {
 			limit = {
 				game_date > 1740.1.1
@@ -915,5 +933,68 @@ br_ai_owns_genoa = {
 			}
 			add = -1000
 		}
+	}
+}
+
+
+br_ai_western_roman_republic = {
+	is_shown = {
+		c:HRE ?= this
+		c:HRE ?= {
+			is_player = no
+		}
+		has_modifier = br_modifier_vive_la_revolution
+		has_modifier = br_modifier_roman_republicanism
+		NOT = { 
+			AND = {
+				has_law = law_type:law_interventionism
+				has_law = law_type:law_professional_army
+				has_law = law_type:law_appointed_bureaucrats
+				has_law = law_type:law_national_guard
+				has_law = law_type:law_per_capita_based_taxation
+			}
+		}
+		NOR = {
+			has_variable = ai_hre_republic_buff_var
+		}
+	}
+
+	possible = {
+		c:HRE ?= this
+		c:HRE ?= {
+			is_player = no
+		}
+		has_modifier = br_modifier_vive_la_revolution
+		has_modifier = br_modifier_roman_republicanism
+		NOT = { 
+			AND = {
+				has_law = law_type:law_interventionism
+				has_law = law_type:law_professional_army
+				has_law = law_type:law_appointed_bureaucrats
+				has_law = law_type:law_national_guard
+				has_law = law_type:law_per_capita_based_taxation
+			}
+		}
+		NOR = {
+			has_variable = ai_hre_republic_buff_var
+		}
+	}
+
+	when_taken = {
+		set_variable = ai_hre_republic_buff_var
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_per_capita_based_taxation
+
+		set_strategy = ai_strategy_progressive_agenda
+		set_strategy = ai_strategy_industrial_expansion
+		set_strategy = ai_strategy_territorial_expansion
+
+	}
+
+	ai_chance = {
+		value = 100
 	}
 }

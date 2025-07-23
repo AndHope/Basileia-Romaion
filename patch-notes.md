@@ -1,12 +1,144 @@
 ####id 2880120246
 
-# Update 139 So far.
+# Update 141
+
+## Companies
+- company_ven_arsenal and company_gen_arsenal both given unique company icons
+- combine the logging and colonization companies and adjust building ownership
+- Company will have new world pine and new world fur prestige goods
+- improved the mods textile company icons
+
+## Goods
+### Prestige Goods
+- Add prestige_good_br_prestige_manowars: "Bucintoro"
+- replaced the icon for prestige_good_br_byz_clothes and prestige_good_br_ven_clothes
+- added new icon for mods prestige silk
+- added prestige_good_br_prestige_spices: "Indies Spices"
+- added prestige_good_br_prestige_pearls: "Fine Pearls"
+
+
+## Balance changes
+- native conscription nerfed
+- added new port pm Wayport to be between anchorage and Cargo Port and added 1 merchant_marine to anchorage
+- arable land rebalance adjusted south america mostly down a tad, increased "american coast" a bit and increased Caribbean a bit.
+- rebalance the br_modifier_romaioi_culture_supremacy modifier
+- goods_output_wood_mult added
+- added small arms to the arsenal expansion goods
+- lowered the trade companies trade advantage bonus to 15% from 25%
+- adjusted and add various good transfers to starting treaties
+
+
+## Bug fixes
+- I don't know how or why certain players get both syria stacking modifiers but I think its this decision so added more checks
+- fixed some treaty port treaties
+
+## Other 
+- standardized the mods flags at 384x256 and made sure all are .dds
+
+# Update 140
+
+## Companies
+
+### Added 14 new Companies
+- company_br_byz_arsenal: "Kentrikòn Polemikòn Skeuastērion"
+- company_br_byz_mining_steel: "Metalleutikà Ergastēria tōn Anatolēs"
+- company_br_byz_rus: "Rhōsikē Hetaireía tou Emporíou tou Boreíou"
+- company_br_elysian_mercantile_guild: "Emporikḗ Syntechnía Elysiōn"
+- company_br_elysian_indigo_guild: "Koinōnía tēs Sērikēs kai tēs Baphēs"
+- company_br_elysian_great_estates: "Latifundia Magna Elysiōn"
+- company_br_kykladian_naval: "Naftikḗ Archē tōn Kykladiōn"
+- company_br_elysian_colonization_company: "Oikistikḗ Hetaireía Elysiōn"
+- company_br_elysian_ironworking_company: "Siderourgikḗ Koinōnía Elysiōn"
+- company_br_vinland_colonization_company: "Landnámsfélagið Mikla"
+- company_br_vinland_timber_company: "Viðrfélag Vinlands"
+- company_br_vinland_fishing_company: "Haffangfélagið"
+- company_br_early_swedish_resource_company: "Norrlandska Gruv- och Skogsbolaget"
+- company_br_bavarian_beer: "Bayerische Brauerei"
+
+- Limited various companies to their intended tags.
+
+## Goods
+
+### Prestige Goods
+- prestige_good_br_ely_silk: "Auriloma Silk"
+- prestige_good_br_new_world_pine: "New World Pine"
+- prestige_good_br_new_world_fur: "New World Fur"
+- prestige_good_br_prestige_copper: "Kopparklimp"
+- prestige_good_br_prestige_beer: "Königsbier"
 
 ## Treaties
-- Revamped various treaties from basic trade/foriegn investment rights to Treaty Port(In places where the Port was already owned by said tag)
+- Added an ERE–Elysium trade treaty.
+- Mass migration now requires active trade and Elysium to have mass migration status.
+
+## Production Methods & Tech
+- Replaced all placeholder icons with unique icons.
+- Added 6 new Tier 1–2 technologies in the production tree.
+- Added and adjusted various techs and production methods.
+- Replaced many tech modifiers with production methods.
+- New unique techs added:
+  - Chinese Luxuries
+  - Steppe Horse Traditions
+  - Indian Luxuries
+- Balanced starting techs for some countries.
+
+## State Traits & Modifiers
+- Added: state_trait_ethiopian_highlands
+- Fixed and adjusted various state traits.
+- Adjusted Greenland, Ontario, and Nunavut "prime land" regions; added fish and whales.
+- Added more silk and wine to Elysium’s map data.
+- Added more food industry buildings to better balance the world economy.
+- Adjusted active PMs to utilize new early traditional production methods.
+
+## Balance Changes
+- Rebalanced various modifiers (generally lowered buff/debuff values).
+- Slightly increased incorporation time for non-core culture states.
+- Made the Palaiologos Italy reform slightly easier.
+- Rebalanced ports to reduce early merchant marine excess.
+- Added Dalmatia as a releasable nation.
+- Updated trade buildings.
+- Moved `br_romaioi_india_company` to a directly chartered company of the BR.
+- Buffs for Ming.
+- Minor EOC population adjustments.
+- Added `hostile_climate_colonization` tech to more countries.
+- Adjusted trade modifiers down slightly.
+- Slightly increased Indian cotton presence.
+- Reduced `traditionalism` state_market_access_price_impact from -15% to -10%.
+- Lowered prestige of ERE monuments (they start with 3).
+- Slightly increased population in North Rhine.
+- Changed Chartered Company countries to Corporate Government type from Presidential Republic.
+- Linked various unlinked Chartered Companies back to their home country's trade companies.
+- Adjusted Frankish pops in Francia.
+- Adjusted Serb pops in Bosnia.
+
+## AI Changes
+- Updated `br_ai_defines.txt` to increase trade.
+- Increased AI neutrality to reduce frequency of global-scale wars.
+- If both Aegypt and the Basileía Rōmaíōn are AI, Aegypt will peacefully become a protectorate.
+- Aegypt player can choose a decision to avoid war.
+
+## Localization Changes
+- Renamed "Shiberia" to "Seihokudō".
+
+## Misc
+- Disabled dynamic naming by default (conflicts with custom mod names).
+- Added new modifier types: tea and dye mult.
+- New logo for Medici Bank.
+- Slightly resized VOC logo.
+- Removed unused logos.
+
+## Bug Fixes
+- Fixed various treaty ports.
+- Fixed and adjusted multiple society tech modifiers.
+- Miscellaneous error fixes.
+
+
+# Update 139.
+
+## Treaties
+- Revamped various treaties from basic trade/foreign investment rights to Treaty Port(In places where the Port was already owned by said tag)
 - Also added in some resource exchanges in treaties instead of trade rights.
 - Update 04_ere_treaties.txt, these treaties are meant to go in the opposite of the intended direction
-- removed foreign_investment_rights from all the starting treaties because they ai appears to hate giving and receiving it and more likely to cause cancelations
+- removed foreign_investment_rights from all the starting treaties because they ai appears to hate giving and receiving it and more likely to cause cancellations
 
 ## Production Methods and Tech
 - Early Mining added as a new option for all mine types that doesn't require tools. Very good for markets that do not start with access to a good supply of tools but not efficient once tools are available.
@@ -22,32 +154,39 @@
 - decisions to take Aegypts colonies as Basileia Romaion if Aegypt is your subject.
 - various decisions that were limited to certain tags have been opened up to more nations that meet the requirements
 - refactored, fixed and additional decisions for Afrika and Aegypt
-- added three new decisions each with an associated event that are about moving your Capital to Karin, back to Ani or to Yerevan
+- added three new decisions for Armenia each with an associated event that are about moving your Capital to Karin, back to Ani or to Yerevan
+- New decisions for Russia to make tributaries of any Rus countries that Tartaria subjugates from PLC. 
+- Various QOL adjustments to BR decisions
 
 ## Journals
 - added journals to get Afrika and Aegypt homelands
 
 ## Events
 - Added two new opening events one for GEO and one for ARM
+- The event to get rid of Thema deterioration is supposed to fire while getting rid of serfdom but doesn't always fire so I switched it to just happen at a certain date.
+- Various QOL adjustments the BR Exarchate events
 
 ## Admin Buildings
 - Made Nanjing Beijing and Delhi use pm_horizontal_drawer_cabinets to make their local paper factories profitable and get more taxes from these locations
 - added couple more admin buildings
 - Gave TWT more starting admin buildings due to near 100% tax waste, brings it down to 20% tax waste
 
-## State traits
+## State traits & Modifiers
 Indochina forests
 - Indochina forest state trait made into a hardwood modifier
-- more natural harbours
+- more natural harbors
 - Update 11_east_asia.txt, decreased japans starting resources a bit
+- moved the irregular buff to a different modifiers and toned down the province defense of Native Conscripts buff.
 
 ## other balance changes
 - Adjusted Georgia and Armenia military formations
 - few more pops for cahokia
 - more iron mines in asia
 - adjusted certain eastern trade countries overlords ai to give any states they get in the indies to their subject
-- light rebalance of various modifiers
+- light re-balance of various modifiers
 - Added a few more pops to Armenia and Georgia
+- various pops starting loyalty re-balanced
+- Removed El
 
 ## misc
 - improved various decision descriptions
@@ -55,7 +194,8 @@ Indochina forests
 - New modifiers for ARM/GEO
 	- New themed Military modifier to replace the generic thema one.
 	- Also gave Pronoia modifier
-- Intergrated various Georgian suggestions from skep17
+- Integrated various Georgian suggestions from skep17
+Gave the ere armies more Thematic names get it Carl more THEMATIC 
 
 
 

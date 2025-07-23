@@ -4,11 +4,11 @@ br_tech_mercantilism = {
 	# Placeholder for earlier trade techs
 	# https://en.wikipedia.org/wiki/Mercantilism#History
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_mercantilism.dds"
 	category = society
 
 	modifier = {
-		state_trade_capacity_mult = 0.05
+		state_trade_capacity_mult = 0.1
 	}
 
 	ai_weight = {
@@ -21,13 +21,14 @@ br_tech_public_sphere = {
 	# https://en.wikipedia.org/wiki/Public_sphere
 	# https://en.wikipedia.org/wiki/The_Structural_Transformation_of_the_Public_Sphere
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_public_sphere.dds"
 	category = society
 
 	modifier = {
 		state_infrastructure_from_population_add = 1
-		state_infrastructure_from_population_max_add = 10
+		state_infrastructure_from_population_max_add = 5
 		country_max_weekly_construction_progress_add = 5
+		state_urbanization_per_level_mult = -0.05
 	}
 
 	ai_weight = {
@@ -41,7 +42,7 @@ br_tech_constabulary = {
 	# https://en.wikipedia.org/wiki/Police#Early_modern
 	# https://en.wikipedia.org/wiki/Private_police#History
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/bureaucracy.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_constabulary.dds"
 	category = society
 
 	modifier = {
@@ -61,13 +62,14 @@ br_tech_municipal_charter = {
 	# Placeholder for earlier "city" techs
 	# https://en.wikipedia.org/wiki/Municipal_charter
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_municipal_charter.dds"
 	category = society
 
 	modifier = {
 		state_infrastructure_from_population_add = 1
-		state_infrastructure_from_population_max_add = 10
+		state_infrastructure_from_population_max_add = 5
 		country_max_weekly_construction_progress_add = 5
+		state_urbanization_per_level_mult = -0.05
 	}
 
 	unlocking_technologies = {
@@ -84,7 +86,7 @@ br_tech_silver_standard = {
 	# Should provide a small bonus to interest rate
 	# https://en.wikipedia.org/wiki/Silver_standard
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_silver_standard.dds"
 	category = society
 
 	modifier = {
@@ -100,11 +102,11 @@ br_tech_insurance_companies = {
 	# Placeholder for earlier trade techs
 	# https://en.wikipedia.org/wiki/Insurance#History
 	era = era_2 
-	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_insurance_companies.dds"
 	category = society
 
 	modifier = {
-		state_trade_capacity_mult = -0.1
+		state_trade_capacity_mult = 0.05
 		country_max_companies_add = 1
 	}
 
@@ -117,12 +119,31 @@ br_tech_insurance_companies = {
 	}
 }
 
+br_tech_mercantile_companies = {
+	era = era_2 
+	texture = "gfx/interface/icons/invention_icons/br_tech_mercantile_companies.dds"
+	category = society
+
+	modifier = {
+		state_trade_capacity_mult = 0.05
+		country_free_charters_add = 1
+	}
+
+	unlocking_technologies = {
+		br_tech_insurance_companies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
 br_tech_agrarianism = {
 	# Provides the agrarianism law, but it should probably be adjusted to bridge
 	# the gap between traditionalism and agrarianism
 	# https://en.wikipedia.org/wiki/Agrarianism#History
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_agrarianism.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -159,11 +180,12 @@ br_tech_smithian_economics = {
 	# Tech that tries to bridges the mercantilist past and free trade future
 	# https://en.wikipedia.org/wiki/Classical_economics#
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_smithian_economics.dds"
 	category = society
 
 	modifier = {
 		building_cash_reserves_mult = 0.2
+		state_market_access_price_impact = 0.05
 	}
 
 	unlocking_technologies = {
@@ -180,7 +202,7 @@ br_tech_early_modern_universities = {
 	# Placeholder for older knowledge techs.
 	# Should probably use a different PM than vanilla
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/academia.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_early_modern_universities.dds"
 	category = society
 
 	modifier = {
@@ -202,7 +224,7 @@ br_tech_skepticism = {
 	# Placeholder for older society techs.
 	# https://en.wikipedia.org/wiki/Philosophical_br_tech_skepticism#Skepticism_in_the_Age_of_Enlightenment
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_skepticism.dds"
 	category = society
 
 	modifier = {
@@ -219,12 +241,11 @@ br_tech_skepticism = {
 	}
 }
 
-
 br_tech_divine_right = {
 	# Should probably be one of the earliest starting techs
 	# https://en.wikipedia.org/wiki/Divine_right_of_kings#
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_divine_right.dds"
 	category = society
 
 	modifier = {
@@ -240,7 +261,7 @@ br_tech_rights_of_man = {
 	# Should be a relatively new tech with expected standard of living increaes from literacy
 	# https://en.wikipedia.org/wiki/Rights_of_Man#
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_rights_of_man.dds"
 	category = society
 
 	modifier = {
@@ -263,7 +284,7 @@ br_tech_separation_of_powers = {
 	# Should probably be a more recent tech
 	# https://en.wikipedia.org/wiki/Separation_of_powers#History
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_separation_of_powers.dds"
 	category = society
 
 	modifier = {
@@ -284,7 +305,7 @@ br_tech_natural_history = {
 	# Should be a relatively recent tech to bridge theology and science
 	# https://en.wikipedia.org/wiki/Natural_history#Modern
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/academia.dds"
+	texture = "gfx/interface/icons/invention_icons/br_tech_natural_history.dds"
 	category = society
 
 	modifier = {

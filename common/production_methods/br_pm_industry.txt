@@ -127,10 +127,76 @@ pm_patent_stills = {
 	}
 }
 
+pm_br_traditional_clothes = {
+	texture = "gfx/interface/icons/production_method_icons/handsewn_clothes.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fabric_add = 35		# x20 =  800
+
+			# output goods
+			goods_output_clothes_add = 35	# 45 x30 = 1350
+		}
+
+		level_scaled = {
+			# profit = 550 (6.3)
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4650
+		}
+	}
+}
+
+pm_handsewn_clothes = {
+	texture = "gfx/interface/icons/production_method_icons/handsewn_clothes.dds"
+
+	unlocking_technologies = { br_tech_textile_manufacturies }
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fabric_add = 40		# x20 =  800
+
+			# output goods
+			goods_output_clothes_add = 45	# 45 x30 = 1350
+		}
+
+		level_scaled = {
+			# profit = 550 (6.3)
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4500
+		}
+	}
+}
+
+#pm_br_early_workshops = {
+#	texture = "gfx/interface/icons/production_method_icons/handsewn_clothes.dds"
+#
+#	unlocking_technologies = { br_tech_textile_manufacturies }
+#
+#	building_modifiers = {
+#		workforce_scaled = {
+#			# input goods
+#			goods_input_fabric_add = 40		# x20 =  800
+#			goods_input_dye_add = 2			# x40 =  200
+#
+#			# output goods
+#			goods_output_clothes_add = 45	# x30 = 1350
+#		}
+#
+#		level_scaled = {
+#			# profit = 550 (6.3)
+#			building_employment_shopkeepers_add = 500
+#			building_employment_laborers_add = 4450
+#			building_employment_machinists_add = 50
+#		}
+#	}
+#}
+
 pm_dye_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/dye_workshops.dds"
 	
-	unlocking_technologies = { br_tech_textile_manufacturies }
+	unlocking_technologies = { br_tech_dye_workshops }
 	
 	building_modifiers = {
 		workforce_scaled = {
@@ -153,6 +219,8 @@ pm_dye_workshops = {
 
 pm_craftsman_sewing = {
 	texture = "gfx/interface/icons/production_method_icons/craftsman_sewing.dds"
+
+	unlocking_technologies = { br_tech_textile_manufacturies }
 
 	building_modifiers = {
 		workforce_scaled = {
@@ -203,8 +271,58 @@ pm_elastics = {
 	}
 }
 
+pm_br_traditional_furniture = {
+	texture = "gfx/interface/icons/production_method_icons/furniture_handicraft.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 25		# x20 =  600
+			goods_input_fabric_add = 5		# x20 =  200
+
+			# output goods
+			goods_output_furniture_add = 30	# x30 = 1350
+		}
+
+		level_scaled = {
+			# profit = 550 (6.4)
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4650
+		}
+	}
+}
+
+pm_handcrafted_furniture = {
+	texture = "gfx/interface/icons/production_method_icons/furniture_handicraft.dds"
+
+	unlocking_technologies = {
+		br_tech_furniture_manufacturies
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 30		# x20 =  600
+			goods_input_fabric_add = 10		# x20 =  200
+
+			# output goods
+			goods_output_furniture_add = 45	# x30 = 1350
+		}
+
+		level_scaled = {
+			# profit = 550 (6.4)
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4500
+		}
+	}
+}
+
 pm_luxury_furniture = {
 	texture = "gfx/interface/icons/production_method_icons/luxury_furniture.dds"
+
+	unlocking_technologies = {
+		br_tech_furniture_manufacturies
+	}
 
 	building_modifiers = {
 		workforce_scaled = {
@@ -252,11 +370,79 @@ pm_precision_tools = {
 		}
 	}
 }
+
+pm_br_traditional_glass = {
+	texture = "gfx/interface/icons/production_method_icons/forest_glass.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 25
+
+			# output goods
+			goods_output_glass_add = 25
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4650
+		}
+	}
+}
+
+pm_forest_glass = {
+	texture = "gfx/interface/icons/production_method_icons/forest_glass.dds"
+
+	unlocking_technologies = { 
+		br_tech_murano_glass #BR 
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 30
+
+			# output goods
+			goods_output_glass_add = 30
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4500
+		}
+	}
+}
+
+#pm_murano_glass = {
+#	texture = "gfx/interface/icons/production_method_icons/leaded_glass.dds"
+#
+#	unlocking_technologies = { 
+#		br_tech_murano_glass #BR 
+#	}
+#
+#	building_modifiers = {
+#		workforce_scaled = {
+#			# input goods
+#			goods_input_wood_add = 25
+#			goods_input_lead_add = 5
+#
+#			# output goods
+#			goods_output_glass_add = 40
+#		}
+#
+#		level_scaled = {
+#			building_employment_shopkeepers_add = 500
+#			building_employment_laborers_add = 4400
+#			building_employment_machinists_add = 50
+#		}
+#	}
+#}
+
 pm_leaded_glass = {
 	texture = "gfx/interface/icons/production_method_icons/leaded_glass.dds"
 	
 	unlocking_technologies = { 
-		br_tech_murano_glass #BR 
+		br_tech_leaded_glass #BR 
 	}
 
 	state_modifiers = {
@@ -272,7 +458,7 @@ pm_leaded_glass = {
 			goods_input_lead_add = 10
 
 			# output goods
-			goods_output_glass_add = 40
+			goods_output_glass_add = 45
 		}
 
 		level_scaled = {
@@ -341,7 +527,7 @@ pm_pig_iron = {
 	texture = "gfx/interface/icons/production_method_icons/pig_iron_tools.dds"
 
 	unlocking_technologies = {
-		steelworking
+		br_tech_blast_furnaces
 	}
 
 	building_modifiers = {
@@ -365,7 +551,7 @@ pm_pig_iron = {
 pm_steel = {
 	texture = "gfx/interface/icons/production_method_icons/bessemer_process.dds"
 	unlocking_technologies = {
-		mechanical_tools
+		steelworking
 	}
 	building_modifiers = {
 		workforce_scaled = {
@@ -407,6 +593,48 @@ pm_rubber_grips = {
 			building_employment_laborers_add = 3000
 			building_employment_machinists_add = 1000
 			building_employment_engineers_add = 500
+		}
+	}
+}
+
+pm_br_traditional_paper = {
+	texture = "gfx/interface/icons/production_method_icons/pulp_pressing.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 25
+
+			# output goods
+			goods_output_paper_add = 30
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4650
+		}
+	}
+}
+
+pm_pulp_pressing = {
+	texture = "gfx/interface/icons/production_method_icons/pulp_pressing.dds"
+
+	unlocking_technologies = {
+		br_tech_paper_manufacturies
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 30
+
+			# output goods
+			goods_output_paper_add = 40
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4500
 		}
 	}
 }
@@ -500,7 +728,7 @@ pm_cementation_process = {
 			# employment
 			building_employment_shopkeepers_add = 500
 			building_employment_laborers_add = 4500
-			building_employment_machinists_add = 500
+			building_employment_machinists_add = 250
 			building_employment_engineers_add = 100
 		}
 	}
@@ -662,6 +890,55 @@ pm_rotary_valve_engine_building_motor_industry = {
 	}
 }
 
+pm_br_traditional_shipbuilding = {
+	texture = "gfx/interface/icons/production_method_icons/wooden_ships.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 35
+			goods_input_fabric_add = 15
+
+			# output goods
+			goods_output_clippers_add = 25
+		}
+
+		level_scaled = {
+			# employment
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4500
+			building_employment_machinists_add = 150
+			building_employment_engineers_add = 50
+		}
+	}
+}
+
+pm_basic_shipbuilding = {
+	texture = "gfx/interface/icons/production_method_icons/wooden_ships.dds"
+
+	unlocking_technologies = {
+		br_tech_standardized_shipbuilding
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add = 40
+			goods_input_fabric_add = 20
+
+			# output goods
+			goods_output_clippers_add = 35
+		}
+
+		level_scaled = {
+			# employment
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 3500
+			building_employment_machinists_add = 750
+			building_employment_engineers_add = 250
+		}
+	}
+}
 
 pm_metal_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/reinforced_steam_ships.dds"
@@ -695,11 +972,6 @@ pm_metal_shipbuilding = {
 			building_employment_engineers_add = 1000
 		}
 	}
-}
-
-
-pm_no_military_shipbuilding = {
-	texture = "gfx/interface/icons/production_method_icons/no_military_shipbuilding.dds"
 }
 
 pm_military_shipbuilding_wooden = {

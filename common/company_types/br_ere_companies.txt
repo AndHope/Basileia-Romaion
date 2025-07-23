@@ -1,0 +1,405 @@
+﻿#BR mod unique E.R.E Companies
+
+company_br_byz_textiles = {
+	icon = "gfx/interface/icons/company_icons/company_br_byz_textiles.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	replaces_company = company_basic_textiles
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+	building_types = {
+		building_textile_mills
+		building_cotton_plantation
+		building_dye_plantation
+		#building_silk_plantation
+	}
+
+	extension_building_types = {
+		building_livestock_ranch
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_byz_clothes
+		#prestige_good_br_byz_silk
+	}
+
+	potential = {
+		country_has_primary_culture = cu:greek
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mills
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mills_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mills = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_byz_arsenal = {
+	icon = "gfx/interface/icons/company_icons/company_br_byz_arsenal.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
+	
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+	replaces_company = company_basic_weapons
+	
+	building_types = {  
+		building_military_shipyards
+		building_artillery_foundries
+		building_arms_industry
+	}
+
+	extension_building_types = {
+		building_munition_plants
+		building_automotive_industry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
+	}
+	
+	potential = {
+		country_has_primary_culture = cu:greek
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_military_shipyards
+				level > 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_navy_defense_mult = 0.05
+		country_prestige_from_navy_power_projection_mult = 0.05
+		building_arms_industry_throughput_add = 0.05
+		building_artillery_foundries_throughput_add = 0.05
+	}
+
+	ai_construction_targets = {
+		building_military_shipyards = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_byz_mining_steel = {
+	icon = "gfx/interface/icons/company_icons/company_br_byz_mining_steel.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KASTAMONU }
+
+	replaces_company = company_basic_metal_mining
+
+	building_types = {
+		building_coal_mine
+		building_steel_mills
+		building_iron_mine
+	}
+
+	extension_building_types = {
+		building_lead_mine
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+
+	potential = {
+		country_has_primary_culture = cu:greek
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KASTAMONU
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = steelworking
+		any_scope_state = {
+			state_region = s:STATE_KASTAMONU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coal_mine
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_iron_mine_throughput_add = 0.1
+		building_steel_mills_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = steelworking
+		any_scope_state = {
+			state_region = s:STATE_KASTAMONU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_coal_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KASTAMONU
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+company_br_byz_rus = {
+	icon = "gfx/interface/icons/company_icons/company_br_byz_rus.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_forestry
+
+	preferred_headquarters = { STATE_CRIMEA }
+
+	building_types = {  
+		building_trade_center
+		building_logging_camp
+		building_gold_mine
+		building_coal_mine
+	}
+
+	extension_building_types = {
+		building_iron_mine
+		building_paper_mills
+		building_oil_rig
+	}
+
+	potential = {
+		country_has_primary_culture = cu:greek
+	}
+
+	possible_prestige_goods = {
+		prestige_good_rosewood
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:CRIMEA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.1
+		state_trade_advantage_mult = 0.1
+		goods_output_wood_mult = 0.1
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_byz_ric = {
+	icon = "gfx/interface/icons/company_icons/aegypt_trade.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	replaces_company = company_basic_shipyards
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+	building_types = {  
+		building_trade_center
+		building_port
+		building_shipyards
+		building_spices_plantation
+		building_silk_plantation
+	}
+
+	extension_building_types = {
+		building_dye_plantation
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_banana_plantation
+		building_coffee_plantation
+	}
+
+	potential = {
+		country_has_primary_culture = cu:greek
+	}
+
+	possible_prestige_goods = {
+		prestige_good_br_byz_silk
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level > 10
+			}
+		}
+		#NOR = {
+		#	has_modifier = br_modifier_latin_privileges
+		#}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+		state_colony_growth_speed_mult = 0.25
+		country_free_charters_add = 1
+	}
+
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+
+
+#Edited Base Game Companies
+company_suez_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+	
+	building_types = {  
+		building_trade_center
+		building_port
+		building_suez_canal
+		building_shipyards
+		building_military_shipyards
+	}
+	
+	potential = {
+	    OR = {
+			country_has_primary_culture = cu:greek
+			country_has_primary_culture = cu:apoikoi
+			country_has_primary_culture = cu:aegyptian
+		}
+	}
+	
+	possible = {
+		any_scope_building = {
+		  is_building_type = building_suez_canal
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.25
+		state_trade_advantage_mult = 0.15
+		unit_convoy_requirements_mult = -0.25
+		country_tax_income_add = 5000 #was 50000
+		country_free_charters_add = 1
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Chemins de fer Orientaux
+company_orient_express = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/chemins_de_fer_orientaux.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
+	
+	flavored_company = yes
+	
+	building_types = {  
+		building_railway
+	}
+	
+	potential = {
+		OR = {
+			has_interest_marker_in_region = region_anatolia
+			has_interest_marker_in_region = region_balkans
+		}
+	}
+	
+	possible = {
+		owns_entire_state_region = STATE_EASTERN_THRACE
+		any_scope_state = {
+			region = sr:region_balkans
+			is_incorporated = yes
+			has_building = building_railway
+			count >= 4
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.1
+	}	
+	
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

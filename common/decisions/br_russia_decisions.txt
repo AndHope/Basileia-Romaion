@@ -1,0 +1,244 @@
+﻿
+annex_russians = {
+	is_shown = {
+		exists = c:br_muscovy
+		exists = c:br_ryazan
+		exists = c:br_smolensk
+		exists = c:br_nizhny_novgorod
+		exists = c:br_tver
+		exists = c:br_yaroslavl
+		ROOT = c:br_muscovy
+	}
+
+	possible = {
+		exists = c:br_muscovy
+		exists = c:br_ryazan
+		exists = c:br_smolensk
+		exists = c:br_nizhny_novgorod
+		exists = c:br_tver
+		exists = c:br_yaroslavl
+		ROOT = c:br_muscovy
+		c:br_tartaria = {
+			relations:root >= 45
+		}
+		ROOT = {
+			army_size >= 60
+		}
+
+	}
+
+	when_taken = {
+		annex = c:br_smolensk
+		annex = c:br_ryazan
+		annex = c:br_nizhny_novgorod
+		annex = c:br_tver
+		annex = c:br_yaroslavl
+		change_infamy = 25
+	}
+
+	ai_chance = {
+		value = 75
+	}
+}
+
+
+claim_kiev_tributary_decision = {
+	is_shown = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_kiev ?= {
+			is_subject_of = c:br_tartaria
+		}	
+	}
+
+	possible = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_tartaria ?= {
+			is_player = no
+		}
+		c:br_kiev ?= {
+			is_subject_of = c:br_tartaria
+		}
+	}
+
+	when_taken = {
+		c:br_muscovy = {
+			create_diplomatic_pact = {
+				country = c:br_kiev
+				type = tributary
+			}
+			change_relations = {
+				country = c:br_tartaria
+				value = -25
+			}
+		}
+	}
+	ai_chance = {
+		value = 50
+	}
+}
+
+claim_polotsk_tributary_decision = {
+	is_shown = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_polotsk ?= {
+			is_subject_of = c:br_tartaria
+		}	
+	}
+
+	possible = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_tartaria ?= {
+			is_player = no
+		}
+		c:br_polotsk ?= {
+			is_subject_of = c:br_tartaria
+		}
+	}
+
+	when_taken = {
+		c:br_muscovy = {
+			create_diplomatic_pact = {
+				country = c:br_polotsk
+				type = tributary
+			}
+			change_relations = {
+				country = c:br_tartaria
+				value = -25
+			}
+		}
+	}
+	ai_chance = {
+		value = 50
+	}
+}
+
+claim_turov_pinsk_tributary_decision = {
+	is_shown = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_turov_pinsk ?= {
+			is_subject_of = c:br_tartaria
+		}	
+	}
+
+	possible = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_tartaria ?= {
+			is_player = no
+		}
+		c:br_turov_pinsk ?= {
+			is_subject_of = c:br_tartaria
+		}
+	}
+
+	when_taken = {
+		c:br_muscovy = {
+			create_diplomatic_pact = {
+				country = c:br_turov_pinsk
+				type = tributary
+			}
+			change_relations = {
+				country = c:br_tartaria
+				value = -25
+			}
+		}
+	}
+	ai_chance = {
+		value = 50
+	}
+}
+
+claim_chernigov_tributary_decision = {
+	is_shown = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_chernigov ?= {
+			is_subject_of = c:br_tartaria
+		}	
+	}
+
+	possible = {
+		c:br_muscovy ?= this
+		c:br_muscovy ?= {
+			is_subject_of = c:br_tartaria
+		}
+		c:br_tartaria ?= {
+			is_player = no
+		}
+		c:br_chernigov ?= {
+			is_subject_of = c:br_tartaria
+		}
+	}
+
+	when_taken = {
+		c:br_muscovy = {
+			create_diplomatic_pact = {
+				country = c:br_chernigov
+				type = tributary
+			}
+			change_relations = {
+				country = c:br_tartaria
+				value = -25
+			}
+		}
+	}
+	ai_chance = {
+		value = 50
+	}
+}
+
+annex_russian = {
+	is_shown = {
+		c:br_muscovy ?= this
+		exists = c:RUS
+	}
+
+	possible = {
+		c:br_muscovy ?= this
+		exists = c:RUS
+		c:RUS = {
+			relations:root >= 25
+		}
+		c:RUS ?= {
+			is_player = no
+		}
+		limit = {
+			c:RUS ?= {
+				OR = {
+					is_diplomatic_play_committed_participant = yes
+					is_at_war = yes
+				}
+			}
+		}
+
+	}
+
+	when_taken = {
+		annex = c:RUS
+		change_infamy = 5
+	}
+
+	ai_chance = {
+		value = 75
+	}
+}
+

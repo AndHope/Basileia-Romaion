@@ -1177,6 +1177,39 @@
 			}
 		}
 	}
+	s:STATE_IONIAN_ISLANDS={
+		region_state:VEN={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
+				add_ownership={
+					company={
+						type=company_ven_trade
+						country="c:VEN"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+		}
+	}
+	s:STATE_WESTERN_THRACE={
+		region_state:br_genoa={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
+				add_ownership={
+					company={
+						type=company_gen_trade
+						country="c:br_genoa"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+		}
+	}
+	
 	s:STATE_EASTERN_THRACE={
 		region_state:BYZ={
 			create_building={
@@ -1728,8 +1761,13 @@
 					building={
 						type="building_manor_house"
 						country="c:br_taurica"
-						levels=3
+						levels=1
 						region="STATE_CRIMEA"
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=3
 					}
 				}
 				reserves=1
@@ -1853,8 +1891,13 @@
 					building={
 						type="building_manor_house"
 						country="c:br_taurica"
-						levels=3
+						levels=1
 						region="STATE_CRIMEA"
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=3
 					}
 				}
 				reserves=1
@@ -2162,7 +2205,7 @@
 					building={
 						type="building_manor_house"
 						country="c:br_taurica"
-						levels=3
+						levels=1
 						region="STATE_CRIMEA"
 					}
 					building={
@@ -2170,6 +2213,11 @@
 						country="c:br_blacksea_colonies"
 						levels=3
 						region="STATE_ROSTOV"
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=3
 					}
 				}
 				reserves=1
@@ -2199,6 +2247,11 @@
 						country="c:br_blacksea_colonies"
 						levels=2
 						region="STATE_ROSTOV"
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=1
 					}
 				}
 				reserves=1
@@ -2267,6 +2320,20 @@
 				reserves=1
 			}
 		}
+		region_state:VEN={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_ven_trade
+						country="c:VEN"
+						levels=3
+					}
+				}
+				reserves=1
+			}
+		}
 	}
 	s:STATE_TAURIDA={
 		region_state:br_tartaria={
@@ -2277,7 +2344,26 @@
 					company={
 						type=company_gen_trade
 						country="c:br_genoa"
-						levels=2
+						levels=1
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=1
+					}
+				}
+				reserves=1
+			}
+		}
+		region_state:br_blacksea_colonies={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_gen_trade
+						country="c:br_genoa"
+						levels=5
 					}
 				}
 				reserves=1
@@ -2296,6 +2382,11 @@
 						levels=1
 						region="STATE_EASTERN_THRACE"
 					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=1
+					}
 				}
 				reserves=1
 			}
@@ -2306,10 +2397,15 @@
 				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
 				add_ownership={
 					building={
-						type="building_financial_district"
+						type="building_manor_house"
 						country="c:br_taurica"
-						levels=2
+						levels=1
 						region="STATE_CRIMEA"
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=1
 					}
 				}
 				reserves=1
@@ -2583,7 +2679,7 @@
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
 					building={
-						type="building_financial_district"
+						type="building_manor_house"
 						country="c:br_vinland"
 						levels=1
 						region="STATE_QUEBEC"
@@ -2612,7 +2708,7 @@
 				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
 				add_ownership={
 					building={
-						type="building_financial_district"
+						type="building_manor_house"
 						country="c:br_vinland"
 						levels=1
 						region="STATE_QUEBEC"
@@ -2629,13 +2725,13 @@
 		}
 	}
 	s:STATE_ONTARIO={
-		region_state:br_new_world_company={
+		region_state:br_vinland={
 			create_building={
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
 				add_ownership={
 					building={
-						type="building_financial_district"
+						type="building_manor_house"
 						country="c:br_vinland"
 						levels=1
 						region="STATE_QUEBEC"
@@ -2961,6 +3057,20 @@
 				reserves=1
 			}
 		}
+		region_state:br_romaioi_india_company={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_byz_ric
+						country="c:BYZ"
+						levels=1
+					}
+				}
+				reserves=1
+			}
+		}
 	}
 	s:STATE_ZANZIBAR={
 		region_state:ZAN={
@@ -2971,8 +3081,13 @@
 					building={
 						type="building_financial_district"
 						country="c:OMA"
-						levels=5
+						levels=3
 						region="STATE_OMAN"
+					}
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=2
 					}
 				}
 				reserves=1
@@ -2988,8 +3103,13 @@
 					building={
 						type="building_financial_district"
 						country="c:OMA"
-						levels=4
+						levels=3
 						region="STATE_OMAN"
+					}
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=2
 					}
 				}
 				reserves=1
@@ -3058,11 +3178,10 @@
 						country="c:BYZ"
 						levels=1
 					}
-					building={
-						type="building_financial_district"
+					company={
+						type=company_oma_trade
 						country="c:OMA"
 						levels=1
-						region="STATE_OMAN"
 					}
 				}
 				reserves=1
@@ -3228,16 +3347,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:br_romaioi_india_company"
-						levels=3
-						region="STATE_BOMBAY"
-					}
 					company={
 						type=company_byz_ric
 						country="c:BYZ"
-						levels=2
+						levels=5
 					}
 				}
 				reserves=1
@@ -3283,11 +3396,10 @@
 						levels=2
 						region="STATE_DELHI"
 					}
-					building={
-						type="building_financial_district"
+					company={
+						type=company_oma_trade
 						country="c:OMA"
 						levels=1
-						region="STATE_OMAN"
 					}
 					building={
 						type="building_financial_district"
@@ -3321,8 +3433,13 @@
 					building={
 						type="building_financial_district"
 						country="c:OMA"
-						levels=3
+						levels=1
 						region="STATE_OMAN"
+					}
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=2
 					}
 				}
 				reserves=1
@@ -3338,8 +3455,13 @@
 					building={
 						type="building_financial_district"
 						country="c:OMA"
-						levels=2
+						levels=1
 						region="STATE_OMAN"
+					}
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=1
 					}
 				}
 				reserves=1
@@ -3355,7 +3477,7 @@
 					building={
 						type="building_financial_district"
 						country="c:DEI"
-						levels=8
+						levels=6
 						region="STATE_EAST_BENGAL"
 					}
 					building={
@@ -3369,6 +3491,20 @@
 						country="c:EOC"
 						levels=3
 						region="STATE_MADRAS"
+					}
+				}
+				reserves=1
+			}
+		}
+		region_state:DEI={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_net_trade
+						country="c:NET"
+						levels=5
 					}
 				}
 				reserves=1
@@ -3392,6 +3528,20 @@
 						country="c:CEY"
 						levels=6
 						region="STATE_MADRAS"
+					}
+				}
+				reserves=1
+			}
+		}
+		region_state:EOC={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_fla_trade
+						country="c:FLA"
+						levels=3
 					}
 				}
 				reserves=1
@@ -3437,6 +3587,23 @@
 			}
 		}
 	}
+	s:STATE_ORISSA={
+		region_state:ANL={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:ANL"
+						levels=3
+						region="STATE_ANDALUSIA"
+					}
+				}
+				reserves=1
+			}
+		}
+	}
 
 
 #South East Asia
@@ -3446,11 +3613,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 					building={
 						type="building_financial_district"
@@ -3475,11 +3641,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 					building={
 						type="building_financial_district"
@@ -3504,11 +3669,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_limited" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 					company={
 						type=company_net_trade
@@ -3614,11 +3778,10 @@
 						levels=1
 						region="STATE_YANGHO"
 					}
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=1
-						region="STATE_KYUSHU"
 					}
 				}
 				reserves=1
@@ -3646,11 +3809,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:EOC"
-						levels=1
-						region="STATE_YANGHO"
+					company={
+						type=company_fla_trade
+						country="c:FLA"
+						levels=2
 					}
 				}
 				reserves=1
@@ -3663,11 +3825,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
+					company={
+						type=company_jap_trade
 						country="c:JAP"
 						levels=2
-						region="STATE_KYUSHU"
 					}
 				}
 				reserves=1
@@ -3695,11 +3856,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:br_romaioi_india_company"
-						levels=2
-						region="STATE_GUANGDONG"
+					company={
+						type=company_byz_ric
+						country="c:BYZ"
+						levels=6
 					}
 				}
 				reserves=1
@@ -3715,7 +3875,7 @@
 					building={
 						type="building_financial_district"
 						country="c:EOC"
-						levels=5
+						levels=6
 						region="STATE_SHAOZHOU"
 					}
 				}
@@ -3727,11 +3887,44 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
+					company={
+						type=company_fla_trade
+						country="c:FLA"
+						levels=6
+					}
+				}
+				reserves=1
+			}
+		}
+	}
+	s:STATE_SUZHOU={
+		region_state:CHI={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
 					building={
 						type="building_financial_district"
 						country="c:EOC"
 						levels=2
 						region="STATE_SHAOZHOU"
+					}
+					building={
+						type="building_financial_district"
+						country="c:br_romaioi_india_company"
+						levels=2
+						region="STATE_GUANGDONG"
+					}
+					company={
+						type=company_jap_trade
+						country="c:JAP"
+						levels=2
+					}
+					building={
+						type="building_financial_district"
+						country="c:DEI"
+						levels=2
+						region="STATE_FORMOSA"
 					}
 				}
 				reserves=1
@@ -3807,6 +4000,38 @@
 			}
 		}
 	}
+	s:STATE_FORMOSA={
+		region_state:DEI={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_net_trade
+						country="c:NET"
+						levels=3
+					}
+				}
+				reserves=1
+			}
+		}
+	}
+	s:STATE_EAST_JAVA={
+		region_state:DEI={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_net_trade
+						country="c:NET"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+		}
+	}
 
 #Japan
 	s:STATE_KYUSHU={
@@ -3827,6 +4052,11 @@
 						levels=2
 						region="STATE_KYUSHU"
 					}
+					company={
+						type=company_jap_trade
+						country="c:JAP"
+						levels=2
+					}
 					building={
 						type="building_financial_district"
 						country="c:DEI"
@@ -3838,6 +4068,20 @@
 						country="c:EOC"
 						levels=3
 						region="STATE_KYUSHU"
+					}
+				}
+				reserves=1
+			}
+		}
+		region_state:EOC={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_fla_trade
+						country="c:FLA"
+						levels=2
 					}
 				}
 				reserves=1
@@ -3891,6 +4135,20 @@
 				reserves=1
 			}
 		}
+		region_state:OMA={
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					company={
+						type=company_oma_trade
+						country="c:OMA"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+		}
 	}	
 	s:STATE_MOLUCCAS={
 		region_state:TID={
@@ -3915,11 +4173,10 @@
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
 				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:DEI"
-						levels=2
-						region="STATE_SUNDA_ISLANDS"
+					company={
+						type=company_net_trade
+						country="c:NET"
+						levels=3
 					}
 				}
 				reserves=1
