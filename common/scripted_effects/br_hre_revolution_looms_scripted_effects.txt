@@ -1,8 +1,100 @@
-﻿#Effects for the impending revolution JE
+﻿###############################
+# Revolution looms JE effects #
+###############################
 
+#by Smekens
+
+#################
+#Effects for the impending revolution JE
+#################
+
+#######################################################################################
 ###
-###Change revoluion progress scripted effects
+### Revolution looms JE finishes effects
 ###
+#######################################################################################
+#executed when the JE is finished
+br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
+	#set a var so we know what estate has the highest disatisfaction
+	br_update_all_estate_disatisfaction_effect = yes
+
+	#if first estate has highest disatisfaction
+	if = {
+		limit = {
+			br_has_given_estate_highest_dissatisfaction_trigger = {
+				estate_scope = var:br_1de_estate_var
+			}
+		}
+		br_1de_estate_launches_revolution_scripted_effect = yes
+	}
+	#if second estate has highest disatisfaction
+	else_if = {
+		limit = {
+			br_has_given_estate_highest_dissatisfaction_trigger = {
+				estate_scope = var:br_2de_estate_var
+			}
+		}
+		br_2de_estate_launches_revolution_scripted_effect = yes
+	}
+	#if first third has highest disatisfaction
+	else_if = {
+		limit = {
+			br_has_given_estate_highest_dissatisfaction_trigger = {
+				estate_scope = var:br_3de_estate_var
+			}
+		}
+		br_3de_estate_launches_revolution_scripted_effect = yes
+	}
+}
+br_revolution_has_finished_errupting_scripted_effect = {
+	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+	add_modifier = {
+		name = br_modifier_vive_la_revolution
+		years = -1
+	}
+	add_modifier = {
+		name = br_modifier_roman_republicanism
+		years = -1
+	}
+	remove_modifier = br_modifier_holy_roman_emperor
+	remove_modifier = br_modifier_noble_privileges
+	remove_modifier = br_modifier_feudalism
+	activate_law = law_type:law_presidential_republic
+	activate_law = law_type:law_wealth_voting #or anarchy
+	activate_law = law_type:law_tenant_farmers
+
+	#complete the erruption of the revolution
+	br_impending_revolution_complete_scripted_effect = yes
+}
+br_impending_revolution_complete_scripted_effect = {
+	#set var so the JE's will know that they need to end
+	hidden_effect = {
+		set_variable = br_impending_revolution_complete_var
+	}
+	br_remove_estates_for_revolution_scripted_effect = yes
+	br_remove_impending_revolution_variables_scripted_effect = yes
+}
+
+
+#######################################################################################
+###
+### JE pulse events effects
+###
+#######################################################################################
+#pulse events are the events triggerd by the on_action in the JE
+br_set_impending_revolution_pulse_event_cooldown = {
+	set_variable = {
+		name = br_impending_revolution_pulse_event_cooldown_var
+		days = br_impending_revolution_pulse_event_cooldown_length
+	}
+}
+
+
+#######################################################################################
+###
+### Change revoluion progress scripted effects
+###
+#######################################################################################
 br_change_in_revolutionary_progress_effect = {
 	je:je_hre_impending_revolution = {
 		add_progress = {
@@ -62,9 +154,198 @@ br_large_increase_in_revolutulionary_tension_effect = {
 	}
 }
 
+
+#######################################################################################
 ###
-###Change estate disatisfaction scripted effects
+### Estates scripted effects
 ###
+#######################################################################################
+
+br_create_new_estate = {
+	create_struct = {
+		struct_scope = $estate_name$
+		struct_type = $estate_type$
+	}
+
+	#save the struct in a var within the root
+	#the var will always be of the form br_estate_name_var
+	root = {
+		set_variable = {
+			name = br_$estate_name$_var
+			value = scope:$estate_name$
+		}
+		add_to_variable_list = {
+			name = br_list_of_estates
+			target = scope:$estate_name$
+		}
+	}
+}
+
+#example of how to use br_create_new_estate
+# br_create_new_estate = {
+# 	estate_name = 3de_estate
+# 	estate_type = 10 #can be used as a name by setting the value as a script_value
+# }
+
+#estates are structs, and structs live forever so have to be removed manually
+#also clean up the var in which the struct is saved
+br_remove_estate = {
+	destroy_struct = {
+		struct = scope:$estate_name$
+	}
+	remove_variable = br_$estate_name$_var
+}
+
+br_create_estates_for_revolution_scripted_effect = {
+	#1ste estate
+	br_create_new_estate = {
+		estate_name = 1de_estate
+		estate_type = br_1de_estate_type
+	}
+
+	#2ste estate
+	br_create_new_estate = {
+		estate_name = 2de_estate
+		estate_type = br_2de_estate_type
+	}
+
+	#3ste estate
+	br_create_new_estate = {
+		estate_name = 3de_estate
+		estate_type = br_3de_estate_type
+	}
+}
+
+br_remove_estates_for_revolution_scripted_effect = {
+	# every_in_list = { #can't get it to remove the var 
+	# 	variable = br_list_of_estates
+	# 	br_remove_estate = {
+	# 		estate_name = this
+	# 	}
+	# }
+	br_remove_estate = {
+		estate_name = 1de_estate
+	}
+	br_remove_estate = {
+		estate_name = 2de_estate
+	}
+	br_remove_estate = {
+		estate_name = 3de_estate
+	}
+	clear_variable_list = br_list_of_estates
+}
+
+##
+## Estates dissatisfaction
+##
+#the estate with the highest dissatisfaction is stored in 'br_estate_with_highest_disatisfaction_var'
+#and the dissatisfaction value of an estate can be accessed thru the var 'br_estate_disatisfaction_var'
+
+#Store the values of estate progress bars in var's
+br_store_1de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
+		}
+	}
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+br_store_2de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
+		}
+	}
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+br_store_3de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
+		}
+	}
+	
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+
+#update the value of estate disatisfaction
+br_1de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_1de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_1de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+br_2de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_2de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_2de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+br_3de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_3de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_3de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+
+br_set_estate_with_highest_disatisfaction_effect = {
+	#set the var to save the estate in
+	every_in_list = {
+		variable = br_list_of_estates
+		limit = { #it seems to apply the effect after it has done the limit for all the items in the list
+			root = {
+				OR = {
+					not = { has_variable = br_estate_with_highest_disatisfaction_var }
+					var:br_estate_with_highest_disatisfaction_var.var:br_estate_disatisfaction_var < prev.var:br_estate_disatisfaction_var
+				}
+			}
+		}
+		root = {
+			set_variable = {
+				name = br_estate_with_highest_disatisfaction_var
+				value = prev
+			}
+		}
+	}
+}
+br_update_all_estate_disatisfaction_effect = {
+	br_1de_estate_update_disatisfaction_from_progress_bar = yes
+	br_2de_estate_update_disatisfaction_from_progress_bar = yes
+	br_3de_estate_update_disatisfaction_from_progress_bar = yes
+	br_set_estate_with_highest_disatisfaction_effect = yes
+}
+
+
+##
+##Change estate disatisfaction scripted effects
+##
 #change the estate disatisfaction of the given estate with the given value
 br_change_specific_estate_disatisfaction_effect = {
 	je:je_hre_impending_revolution = {
@@ -311,307 +592,11 @@ br_specific_change_in_3de_estate_disatisfaction_effect = {
 }
 
 
+#######################################################################################
 ###
-###JE pulse events
+### Revolution is launched scripted effects
 ###
-#pulse events are the events triggerd by the on_action in the JE
-br_set_impending_revolution_pulse_event_cooldown = {
-	set_variable = {
-		name = br_impending_revolution_pulse_event_cooldown_var
-		days = br_impending_revolution_pulse_event_cooldown_length
-	}
-}
-
-
-#executed when the JE is finished
-br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
-	#set a var so we know what estate has the highest disatisfaction
-	br_set_var_for_highest_estate_disatisfaction_values_scripted_effect = yes
-
-	#if first estate has highest disatisfaction
-	if = {
-		limit = {
-			has_variable = br_1de_estate_has_highest_disatisfaction_var
-		}
-		br_1de_estate_launches_revolution_scripted_effect = yes
-	}
-	#if second estate has highest disatisfaction
-	else_if = {
-		limit = {
-			has_variable = br_2de_estate_has_highest_disatisfaction_var
-		}
-		br_2de_estate_launches_revolution_scripted_effect = yes
-	}
-	#if first third has highest disatisfaction
-	else_if = {
-		limit = {
-			has_variable = br_3de_estate_has_highest_disatisfaction_var
-		}
-		br_3de_estate_launches_revolution_scripted_effect = yes
-	}
-}
-br_revolution_has_finished_errupting_scripted_effect = {
-	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-	add_modifier = {
-		name = br_modifier_vive_la_revolution
-		years = -1
-	}
-	add_modifier = {
-		name = br_modifier_roman_republicanism
-		years = -1
-	}
-	remove_modifier = br_modifier_holy_roman_emperor
-	remove_modifier = br_modifier_noble_privileges
-	remove_modifier = br_modifier_feudalism
-	activate_law = law_type:law_presidential_republic
-	activate_law = law_type:law_wealth_voting #or anarchy
-	activate_law = law_type:law_tenant_farmers
-
-	#complete the erruption of the revolution
-	br_impending_revolution_complete_scripted_effect = yes
-}
-br_impending_revolution_complete_scripted_effect = {
-	#set var so the JE's will know that they need to end
-	hidden_effect = {
-		set_variable = br_impending_revolution_complete_var
-	}
-	br_remove_estates_for_revolution_scripted_effect = yes
-	br_remove_impending_revolution_variables_scripted_effect = yes
-}
-
-# br_save_estate_disatisfaction_values_in_list_scripted_effect = {
-# 	#clear list if it already exists
-# 	if = {
-# 		limit = {
-# 			has_local_variable_list = br_list_of_estate_disatisfaction_values
-# 		}
-# 		clear_local_variable_list = br_list_of_estate_disatisfaction_values
-# 	}
-
-# 	#can we get the value of a progress bar directly???
-# 	# je:je_hre_impending_revolution ={ #in the scope journal_entrie because custom_tooltip is at the country scope level
-# 	# 	set_variable = {
-# 	# 		name = test_var
-# 	# 		value = "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
-# 	# 	}
-# 	# }
-# }
-
-br_set_var_for_highest_estate_disatisfaction_values_scripted_effect = {
-	#remove the var's incase they already existed
-	remove_variable = br_1de_estate_has_highest_disatisfaction_var
-	remove_variable = br_1de_estate_has_highest_disatisfaction_var
-	remove_variable = br_1de_estate_has_highest_disatisfaction_var
-
-	if = {
-		limit = {
-			je:je_hre_impending_revolution ?= {
-				"scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
-				"scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
-			}
-		}
-		set_variable = br_1de_estate_has_highest_disatisfaction_var
-	}
-	else_if = {
-		limit = {
-			je:je_hre_impending_revolution ?= {
-				"scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
-				"scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)" > "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
-			}
-		}
-		set_variable = br_2de_estate_has_highest_disatisfaction_var
-	}
-	else_if = {
-		limit = {
-			je:je_hre_impending_revolution ?= {
-				"scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)" >= "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
-				"scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)" >= "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
-			}
-		}
-		set_variable = br_3de_estate_has_highest_disatisfaction_var
-	}
-}
-
-###Estates
-br_create_new_estate = {
-	create_struct = {
-		struct_scope = $estate_name$
-		struct_type = $estate_type$
-	}
-
-	#save the struct in a var within the root
-	#the var will always be of the form br_estate_name_var
-	root = {
-		set_variable = {
-			name = br_$estate_name$_var
-			value = scope:$estate_name$
-		}
-		add_to_variable_list = {
-			name = br_list_of_estates
-			target = scope:$estate_name$
-		}
-	}
-}
-
-#example of how to use br_create_new_estate
-# br_create_new_estate = {
-# 	estate_name = 3de_estate
-# 	estate_type = 10 #can be used as a name by setting the value as a script_value
-# }
-
-#estates are structs, and structs live forever so have to be removed manually
-#also clean up the var in which the struct is saved
-br_remove_estate = {
-	destroy_struct = {
-		struct = scope:$estate_name$
-	}
-	remove_variable = br_$estate_name$_var
-}
-
-br_create_estates_for_revolution_scripted_effect = {
-	#1ste estate
-	br_create_new_estate = {
-		estate_name = 1de_estate
-		estate_type = br_1de_estate_type
-	}
-
-	#2ste estate
-	br_create_new_estate = {
-		estate_name = 2de_estate
-		estate_type = br_2de_estate_type
-	}
-
-	#3ste estate
-	br_create_new_estate = {
-		estate_name = 3de_estate
-		estate_type = br_3de_estate_type
-	}
-}
-
-br_remove_estates_for_revolution_scripted_effect = {
-	# every_in_list = { #can't get it to remove the var 
-	# 	variable = br_list_of_estates
-	# 	br_remove_estate = {
-	# 		estate_name = this
-	# 	}
-	# }
-	br_remove_estate = {
-		estate_name = 1de_estate
-	}
-	br_remove_estate = {
-		estate_name = 2de_estate
-	}
-	br_remove_estate = {
-		estate_name = 3de_estate
-	}
-	clear_variable_list = br_list_of_estates
-}
-
-#Store the values of estate progress bars in var's
-br_store_1de_estate_progress_bar_value_in_var = {
-	$journal_entry$ = {
-		set_global_variable = {
-			name = temporary_progress_bar_value_var
-			value = "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
-		}
-	}
-	#the scope that you want to store the var in
-	$target_scope$ = {
-		set_variable = {
-			name = $variable_name$
-			value = global_var:temporary_progress_bar_value_var
-		}
-	}
-	remove_global_variable = temporary_progress_bar_value_var
-}
-br_store_2de_estate_progress_bar_value_in_var = {
-	$journal_entry$ = {
-		set_global_variable = {
-			name = temporary_progress_bar_value_var
-			value = "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
-		}
-	}
-	#the scope that you want to store the var in
-	$target_scope$ = {
-		set_variable = {
-			name = $variable_name$
-			value = global_var:temporary_progress_bar_value_var
-		}
-	}
-	remove_global_variable = temporary_progress_bar_value_var
-}
-br_store_3de_estate_progress_bar_value_in_var = {
-	$journal_entry$ = {
-		set_global_variable = {
-			name = temporary_progress_bar_value_var
-			value = "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
-		}
-	}
-	
-	#the scope that you want to store the var in
-	$target_scope$ = {
-		set_variable = {
-			name = $variable_name$
-			value = global_var:temporary_progress_bar_value_var
-		}
-	}
-	remove_global_variable = temporary_progress_bar_value_var
-}
-
-#update the value of estate disatisfaction
-br_1de_estate_update_disatisfaction_from_progress_bar = {
-	br_store_1de_estate_progress_bar_value_in_var = {
-		journal_entry = je:je_hre_impending_revolution
-		target_scope = var:br_1de_estate_var
-		variable_name = br_estate_disatisfaction_var
-	}
-}
-br_2de_estate_update_disatisfaction_from_progress_bar = {
-	br_store_2de_estate_progress_bar_value_in_var = {
-		journal_entry = je:je_hre_impending_revolution
-		target_scope = var:br_2de_estate_var
-		variable_name = br_estate_disatisfaction_var
-	}
-}
-br_3de_estate_update_disatisfaction_from_progress_bar = {
-	br_store_3de_estate_progress_bar_value_in_var = {
-		journal_entry = je:je_hre_impending_revolution
-		target_scope = var:br_3de_estate_var
-		variable_name = br_estate_disatisfaction_var
-	}
-}
-
-br_set_estate_with_highest_disatisfaction_effect = {
-	#set the var to save the estate in
-	every_in_list = {
-		variable = br_list_of_estates
-		limit = { #it seems to apply the effect after it has done the limit for all the items in the list
-			root = {
-				OR = {
-					not = { has_variable = br_estate_with_highest_disatisfaction_var }
-					var:br_estate_with_highest_disatisfaction_var.var:br_estate_disatisfaction_var < prev.var:br_estate_disatisfaction_var
-				}
-			}
-		}
-		root = {
-			set_variable = {
-				name = br_estate_with_highest_disatisfaction_var
-				value = prev
-			}
-		}
-	}
-}
-br_update_all_estate_disatisfaction_effect = {
-	br_1de_estate_update_disatisfaction_from_progress_bar = yes
-	br_2de_estate_update_disatisfaction_from_progress_bar = yes
-	br_3de_estate_update_disatisfaction_from_progress_bar = yes
-	br_set_estate_with_highest_disatisfaction_effect = yes
-}
-
-###
-###Revolution is launched scripted effects
-###
-
+#######################################################################################
 br_1de_estate_launches_revolution_scripted_effect = {
 	#TODO
 }
