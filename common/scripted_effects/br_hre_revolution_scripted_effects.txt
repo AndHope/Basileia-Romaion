@@ -636,6 +636,35 @@ br_3de_estate_launches_revolution_scripted_effect = {
 #set the residece of the imperial family (it is expected to be a building)
 
 ##
+##Initialise Imperial residence effects
+##
+br_initialise_imperial_residence_effect = {
+	##Set the Imperial Residence
+	#set the original imperial residence so we know which one was the original
+	br_set_original_imperial_residence_to_building_type_in_state_scripted_effect = {
+		STATE_REGION = $original_residence_state_region$
+		BUILDING_TYPE = $original_residence_building_type$
+	}
+	#set the alternate imperial residence so we know which one is the alternate
+	br_set_alternate_imperial_residence_to_building_type_in_state_scripted_effect = {
+		STATE_REGION = $alternate_residence_state_region$
+		BUILDING_TYPE = $alternate_residence_building_type$
+	}
+
+	#set the original imperial residence as the current residence
+	br_set_current_imperial_residence_to_original_effect = yes
+}
+#example
+# br_initialise_imperial_residence_effect = {
+# 	original_residence_state_region = s:STATE_ILE_DE_FRANCE
+# 	original_residence_building_type = br_building_palais_de_la_cite
+
+# 	alternate_residence_state_region = s:STATE_ILE_DE_FRANCE
+# 	alternate_residence_building_type = br_building_versailles
+# }
+
+
+##
 ##Current Imperial residence effects
 ##
 br_set_current_imperial_residence_var_scripted_effect = {
@@ -710,12 +739,6 @@ br_set_original_imperial_residence_to_building_type_in_state_scripted_effect = {
 	}
 }
 
-br_set_current_imperial_residence_to_original_effect = {
-	br_set_current_imperial_residence_to_building_scripted_effect = {
-		BUILDING = var:br_original_imperial_residence_var
-	}
-}
-
 ##
 ##Alternate Imperial residence effects
 ##
@@ -738,6 +761,16 @@ br_set_alternate_imperial_residence_to_building_type_in_state_scripted_effect = 
 		STATE_REGION = $STATE_REGION$
 		BUILDING_TYPE = $BUILDING_TYPE$
 		EFFECT = br_set_alternate_imperial_residence_to_building_scripted_effect
+	}
+}
+
+##
+##Change current Imperial residence effects
+##
+
+br_set_current_imperial_residence_to_original_effect = {
+	br_set_current_imperial_residence_to_building_scripted_effect = {
+		BUILDING = var:br_original_imperial_residence_var
 	}
 }
 

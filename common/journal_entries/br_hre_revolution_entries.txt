@@ -20,6 +20,7 @@ je_hre_impending_revolution = {
 	scripted_button = je_move_imperial_residence_button
 	scripted_button = je_contruct_statue_of_monarch_button
 
+	##Scripted progress bars
 	scripted_progress_bar = br_hre_impending_revolution_progress_bar
 	scripted_progress_bar = br_hre_impending_revolution_1de_estate_progress_bar
 	scripted_progress_bar = br_hre_impending_revolution_2de_estate_progress_bar
@@ -80,20 +81,12 @@ je_hre_impending_revolution = {
 		br_update_all_estate_disatisfaction_effect = yes
 
 		##Set the Imperial Residence
-		#set the current imperial residence initialy on palais de la cité
-		br_set_current_imperial_residence_to_building_type_in_state_scripted_effect = {
-			STATE_REGION = s:STATE_ILE_DE_FRANCE
-			BUILDING_TYPE = br_building_palais_de_la_cite
-		}
-		#set the original imperial residence so we know which one was the original
-		br_set_original_imperial_residence_to_building_type_in_state_scripted_effect = {
-			STATE_REGION = s:STATE_ILE_DE_FRANCE
-			BUILDING_TYPE = br_building_palais_de_la_cite
-		}
-		#set the alternate imperial residence so we know which one is the alternate
-		br_set_alternate_imperial_residence_to_building_type_in_state_scripted_effect = {
-			STATE_REGION = s:STATE_ILE_DE_FRANCE
-			BUILDING_TYPE = br_building_versailles
+		br_initialise_imperial_residence_effect = {
+			original_residence_state_region = s:STATE_ILE_DE_FRANCE
+			original_residence_building_type = br_building_palais_de_la_cite
+
+			alternate_residence_state_region = s:STATE_ILE_DE_FRANCE
+			alternate_residence_building_type = br_building_versailles
 		}
 
 
