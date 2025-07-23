@@ -4,6 +4,12 @@
 # 	TARGET_COUNTRY = scope:country_2
 # }
 
+
+#######################################################################################
+###
+### Revolution looms JE progress bar triggers
+###
+#######################################################################################
 br_scripted_progress_bar_has_reached_value_scripted_trigger = {
 	scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
 		scripted_bar_progress = {
@@ -79,6 +85,13 @@ br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
 	}
 }
 
+
+#######################################################################################
+###
+### Estate triggers
+###
+#######################################################################################
+
 #Check if the given estate has the given estate_type
 br_check_estate_type_scripted_trigger = {
 	$estate_scope$.var:com_type = $estate_type$
@@ -104,6 +117,10 @@ br_is_given_estate_3de_estate_scripted_trigger = {
 		estate_scope = $estate_scope$
 		estate_type = br_3de_estate_type
 	}
+}
+
+br_has_given_estate_highest_dissatisfaction_trigger = {
+	$estate_scope$ = var:br_estate_with_highest_disatisfaction_var
 }
 
 
