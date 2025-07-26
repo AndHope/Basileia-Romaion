@@ -124,7 +124,7 @@ br_change_in_revolutionary_progress_effect = {
 		}
 	}
 }
-br_specific_change_in_revolutulionary_tension_effect = {
+br_specific_change_in_revolutionary_tension_effect = {
 	hidden_effect = {
 		br_change_in_revolutionary_progress_effect = {
 			value = $value$
@@ -136,7 +136,7 @@ br_specific_change_in_revolutulionary_tension_effect = {
 	}
 
 	#Decide which tt to use
-	br_generate_tt_for_change_in_revolutulionary_tension_loc_effect = {
+	br_generate_tt_for_change_in_revolutionary_tension_loc_effect = {
 		value = $value$
 	}
 }
@@ -145,17 +145,17 @@ br_specific_change_in_revolutulionary_tension_effect = {
 ##Change revolutionary progress/tension loc scripted effects
 ##
 #these effects allow you to generate the loc keys to indicate a amount of change the disatisfaction of a given estate
-br_generate_tt_for_change_in_revolutulionary_tension_loc_effect = {
-	br_select_type_for_change_in_revolutulionary_tension_loc_effect = {
+br_generate_tt_for_change_in_revolutionary_tension_loc_effect = {
+	br_select_type_for_change_in_revolutionary_tension_loc_effect = {
 		value = $value$
 	}
 }
-br_select_type_for_change_in_revolutulionary_tension_loc_effect = {
+br_select_type_for_change_in_revolutionary_tension_loc_effect = {
 	if = {
 		limit = {
 			$value$ >= 0
 		}
-		br_select_amount_for_change_in_revolutulionary_tension_loc_effect = {
+		br_select_amount_for_change_in_revolutionary_tension_loc_effect = {
 			value = $value$
 
 			#tt arguments
@@ -163,7 +163,7 @@ br_select_type_for_change_in_revolutulionary_tension_loc_effect = {
 		}
 	}
 	else = {
-		br_select_amount_for_change_in_revolutulionary_tension_loc_effect = {
+		br_select_amount_for_change_in_revolutionary_tension_loc_effect = {
 			value = $value$
 
 			#tt arguments
@@ -171,13 +171,13 @@ br_select_type_for_change_in_revolutulionary_tension_loc_effect = {
 		}
 	}
 }
-br_select_amount_for_change_in_revolutulionary_tension_loc_effect = {
+br_select_amount_for_change_in_revolutionary_tension_loc_effect = {
 	#Decide which tt to use
 	if = {
 		limit = {
 			or = {
-				$value$ = br_small_increase_in_revolutulionary_tension_value
-				$value$ = br_small_decrease_in_revolutulionary_tension_value
+				$value$ = br_small_increase_in_revolutionary_tension_value
+				$value$ = br_small_decrease_in_revolutionary_tension_value
 			}
 		}
 		custom_tooltip = br_hre_small_$type_change$_in_revolution_progress_tt
@@ -185,8 +185,8 @@ br_select_amount_for_change_in_revolutulionary_tension_loc_effect = {
 	else_if = {
 		limit = {
 			or = {
-				$value$ = br_medium_increase_in_revolutulionary_tension_value
-				$value$ = br_medium_decrease_in_revolutulionary_tension_value
+				$value$ = br_medium_increase_in_revolutionary_tension_value
+				$value$ = br_medium_decrease_in_revolutionary_tension_value
 			}
 		}
 		custom_tooltip = br_hre_medium_$type_change$_in_revolution_progress_tt
@@ -194,8 +194,8 @@ br_select_amount_for_change_in_revolutulionary_tension_loc_effect = {
 	else_if = {
 		limit = {
 			or = {
-				$value$ = br_large_increase_in_revolutulionary_tension_value
-				$value$ = br_large_decrease_in_revolutulionary_tension_value
+				$value$ = br_large_increase_in_revolutionary_tension_value
+				$value$ = br_large_decrease_in_revolutionary_tension_value
 			}
 		}
 		custom_tooltip = br_hre_large_$type_change$_in_revolution_progress_tt
@@ -205,19 +205,19 @@ br_select_amount_for_change_in_revolutulionary_tension_loc_effect = {
 	}
 }
 
-br_small_increase_in_revolutulionary_tension_effect = {
-	br_specific_change_in_revolutulionary_tension_effect = {
-		value = br_small_increase_in_revolutulionary_tension_value
+br_small_increase_in_revolutionary_tension_effect = {
+	br_specific_change_in_revolutionary_tension_effect = {
+		value = br_small_increase_in_revolutionary_tension_value
 	}
 }
-br_medium_increase_in_revolutulionary_tension_effect = {
-	br_specific_change_in_revolutulionary_tension_effect = {
-		value = br_medium_increase_in_revolutulionary_tension_value
+br_medium_increase_in_revolutionary_tension_effect = {
+	br_specific_change_in_revolutionary_tension_effect = {
+		value = br_medium_increase_in_revolutionary_tension_value
 	}
 }
-br_large_increase_in_revolutulionary_tension_effect = {
-	br_specific_change_in_revolutulionary_tension_effect = {
-		value = br_large_increase_in_revolutulionary_tension_value
+br_large_increase_in_revolutionary_tension_effect = {
+	br_specific_change_in_revolutionary_tension_effect = {
+		value = br_large_increase_in_revolutionary_tension_value
 	}
 }
 
