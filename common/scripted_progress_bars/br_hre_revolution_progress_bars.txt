@@ -5,6 +5,8 @@
 
 	default = yes
 
+	is_inverted = yes
+
 	start_value = 0
 	min_value = 0
 	max_value = 100 #represents a percentage
@@ -80,6 +82,8 @@
 
 	default = yes
 
+	is_inverted = yes
+
 	start_value = 0
 	min_value = 0
 	max_value = 100 #represents a percentage
@@ -121,6 +125,43 @@
 		# 	}
 		# }
 		
+		#Feudalism laws effect
+		if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_enforced_loc"
+				value = br_impending_revolution_has_feudalism_enforced_change_in_1de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_codified
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_codified_loc"
+				value = br_impending_revolution_has_feudalism_codified_change_in_1de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_not_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_not_enforced_loc"
+				value = br_impending_revolution_has_feudalism_not_enforced_change_in_1de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_affirmative_action
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_affirmative_action_loc"
+				value = br_impending_revolution_has_feudalism_affirmative_action_change_in_1de_estate_disatisfaction_value
+			}
+		}
 	}
  }
 
@@ -130,6 +171,8 @@
 
 	default_green = yes
 
+	is_inverted = yes
+
 	start_value = 0
 	min_value = 0
 	max_value = 100 #represents a percentage
@@ -171,6 +214,43 @@
 		# 	}
 		# }
 		
+		#Feudalism laws effect
+		if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_enforced_loc"
+				value = br_impending_revolution_has_feudalism_enforced_change_in_2de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_codified
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_codified_loc"
+				value = br_impending_revolution_has_feudalism_codified_change_in_2de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_not_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_not_enforced_loc"
+				value = br_impending_revolution_has_feudalism_not_enforced_change_in_2de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_affirmative_action
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_affirmative_action_loc"
+				value = br_impending_revolution_has_feudalism_affirmative_action_change_in_2de_estate_disatisfaction_value
+			}
+		}
 	}
  }
 
@@ -180,6 +260,8 @@
 
 	default_bad = yes
 
+	is_inverted = yes
+
 	start_value = 0
 	min_value = 0
 	max_value = 100 #represents a percentage
@@ -221,40 +303,77 @@
 		# 	}
 		# }
 		
+		#Feudalism laws effect
+		if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_enforced_loc"
+				value = br_impending_revolution_has_feudalism_enforced_change_in_3de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_codified
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_codified_loc"
+				value = br_impending_revolution_has_feudalism_codified_change_in_3de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_not_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_not_enforced_loc"
+				value = br_impending_revolution_has_feudalism_not_enforced_change_in_3de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_affirmative_action
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_affirmative_action_loc"
+				value = br_impending_revolution_has_feudalism_affirmative_action_change_in_3de_estate_disatisfaction_value
+			}
+		}
 	}
  }
 
- br_hre_revolution_progress_bar = {
-	name = "br_hre_revolution_progress_bar"
-	desc = "br_hre_revolution_progress_bar_desc"
+#  br_hre_revolution_progress_bar = {
+# 	name = "br_hre_revolution_progress_bar"
+# 	desc = "br_hre_revolution_progress_bar_desc"
 
-	double_sided_gold = yes
+# 	double_sided_gold = yes
 
-	start_value = 0
-	min_value = 0
-	max_value = 100 #represents a percentage
+# 	start_value = 0
+# 	min_value = 0
+# 	max_value = 100 #represents a percentage
 
-	monthly_progress = {
-		if = {
-			limit = {
-				radical_population_fraction >= br_impending_revolution_radicals_threshold
-			}
-			add = {
-				desc = "br_impending_revolution_to_many_redicals_loc"
-				value = br_impending_revolution_radicals_change_revoluion_progress_value
-			}
-		}
-		if = {
-			limit = {
-				loyalist_fraction = {
-					value >= br_impending_revolution_loyalist_threshold
-				}
-			}
-			add = {
-				desc = "br_impending_revolution_to_many_loyalists_loc"
-				value = br_impending_revolution_loyalist_change_revoluion_progress_value
-			}
-		}
+# 	monthly_progress = {
+# 		if = {
+# 			limit = {
+# 				radical_population_fraction >= br_impending_revolution_radicals_threshold
+# 			}
+# 			add = {
+# 				desc = "br_impending_revolution_to_many_redicals_loc"
+# 				value = br_impending_revolution_radicals_change_revoluion_progress_value
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				loyalist_fraction = {
+# 					value >= br_impending_revolution_loyalist_threshold
+# 				}
+# 			}
+# 			add = {
+# 				desc = "br_impending_revolution_to_many_loyalists_loc"
+# 				value = br_impending_revolution_loyalist_change_revoluion_progress_value
+# 			}
+# 		}
 		
-	}
- }
+# 	}
+#  }
