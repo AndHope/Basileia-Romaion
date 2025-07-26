@@ -73,147 +73,170 @@ br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold =
 ## Monarchy popularity Values ##
 br_monarchy_popularity_max_value = 100
 br_monarchy_popularity_min_value = -100
+#the percentage of estate disatisfaction that is converted in montly revolution progress
+br_monarchy_popularity_to_revolution_progress_multiplier = 0.1
+
+#monthly change in monarchy pomularity
 br_monarchy_popularity_change_value = {
 	value = 0
 	
 	## SOURCES ##
 	if = {
 		limit = {
-			OR = {
-				has_law = law_type:law_wealth_voting
-				has_law = law_type:law_census_voting
-				has_law = law_type:law_universal_suffrage
-			}
+			has_modifier = modifier_statue_of_ruler
 		}
 		add = {
 			value = 0.5
-			desc = grefm_value_from_voting
-		}
-	}
-	add = {
-		value = {
-			if = {
-				limit = {
-					has_variable = balkfm_land_reform_complete
-				}
-				add = 0.5
-			}
-			if = {
-				limit = {
-					has_variable = balkfm_brigandage_complete
-				}
-				add = 0.5
-			}
-			if = {
-				limit = {
-					has_variable = balkfm_civic_reform_complete
-				}
-				add = 0.5
-			}
-		}
-		desc = grefm_value_from_completed_legacies
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_grefm_nikitas_released
-		}
-		add = {
-			value = 1
-			desc = grefm_value_from_turkeater_unleashed
+			desc = br_revolution_from_statue_of_ruler_loc
 		}
 	}
 	if = {
 		limit = {
-			owns_entire_state_region = STATE_ATTICA
-			s:STATE_ATTICA = {
-				has_building = gbbf_building_palaia_anaktora
-			}
+			has_modifier = br_modifier_antiquated_regime
 		}
 		add = {
-			value = 1
-			desc = grefm_value_from_royal_palace
+			value = -0.5
+			desc = br_revolution_from_antiquated_regime_loc
 		}
 	}
+	# if = {
+	# 	limit = {
+	# 		OR = {
+	# 			has_law = law_type:law_wealth_voting
+	# 			has_law = law_type:law_census_voting
+	# 			has_law = law_type:law_universal_suffrage
+	# 		}
+	# 	}
+	# 	add = {
+	# 		value = 0.5
+	# 		desc = grefm_value_from_voting
+	# 	}
+	# }
+	# add = {
+	# 	value = {
+	# 		if = {
+	# 			limit = {
+	# 				has_variable = balkfm_land_reform_complete
+	# 			}
+	# 			add = 0.5
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_variable = balkfm_brigandage_complete
+	# 			}
+	# 			add = 0.5
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_variable = balkfm_civic_reform_complete
+	# 			}
+	# 			add = 0.5
+	# 		}
+	# 	}
+	# 	desc = grefm_value_from_completed_legacies
+	# }
+	# if = {
+	# 	limit = {
+	# 		has_modifier = modifier_grefm_nikitas_released
+	# 	}
+	# 	add = {
+	# 		value = 1
+	# 		desc = grefm_value_from_turkeater_unleashed
+	# 	}
+	# }
+	# if = {
+	# 	limit = {
+	# 		owns_entire_state_region = STATE_ATTICA
+	# 		s:STATE_ATTICA = {
+	# 			has_building = gbbf_building_palaia_anaktora
+	# 		}
+	# 	}
+	# 	add = {
+	# 		value = 1
+	# 		desc = grefm_value_from_royal_palace
+	# 	}
+	# }
 	
 	## PENALTIES ##
-	if = {
-		limit = {
-			NOR = {
-				has_variable = grefm_bavarocracy_secured
-				has_law = law_type:law_wealth_voting
-				has_law = law_type:law_census_voting
-				has_law = law_type:law_universal_suffrage
-			}
-		}
-		subtract = {
-			value = 1
-			desc = grefm_value_from_no_voting
-		}
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_variable = balkfm_land_reform_complete
-			}
-		}
-		subtract = {
-			value = 1
-			desc = grefm_value_from_land_reform
-		}
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_variable = balkfm_brigandage_complete
-			}
-		}
-		subtract = {
-			value = 1
-			desc = grefm_value_from_brigandage_completed
-		}
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_variable = balkfm_civic_reform_complete
-			}
-		}
-		subtract = {
-			value = 1
-			desc = grefm_value_from_civic_tradition
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_grefm_bavarian_auxiliaries
-		}
-		subtract = {
-			value = 1
-			desc = grefm_value_from_bavarian_auxiliaries
-		}
-	}
-	if = {
-		limit = {
-			OR = {
-				NOT = {
-					exists = heir
-				}
-				heir ?= {
-					has_template = template_grefm_armansperg_josef
-				}
-			}
-		}
-		subtract = {
-			value = 1
-			desc = grefm_value_from_lacking_heir
-		}
-	}
+	# if = {
+	# 	limit = {
+	# 		NOR = {
+	# 			has_variable = grefm_bavarocracy_secured
+	# 			has_law = law_type:law_wealth_voting
+	# 			has_law = law_type:law_census_voting
+	# 			has_law = law_type:law_universal_suffrage
+	# 		}
+	# 	}
+	# 	subtract = {
+	# 		value = 1
+	# 		desc = grefm_value_from_no_voting
+	# 	}
+	# }
+	# if = {
+	# 	limit = {
+	# 		NOT = {
+	# 			has_variable = balkfm_land_reform_complete
+	# 		}
+	# 	}
+	# 	subtract = {
+	# 		value = 1
+	# 		desc = grefm_value_from_land_reform
+	# 	}
+	# }
+	# if = {
+	# 	limit = {
+	# 		NOT = {
+	# 			has_variable = balkfm_brigandage_complete
+	# 		}
+	# 	}
+	# 	subtract = {
+	# 		value = 1
+	# 		desc = grefm_value_from_brigandage_completed
+	# 	}
+	# }
+	# if = {
+	# 	limit = {
+	# 		NOT = {
+	# 			has_variable = balkfm_civic_reform_complete
+	# 		}
+	# 	}
+	# 	subtract = {
+	# 		value = 1
+	# 		desc = grefm_value_from_civic_tradition
+	# 	}
+	# }
+	# if = {
+	# 	limit = {
+	# 		has_modifier = modifier_grefm_bavarian_auxiliaries
+	# 	}
+	# 	subtract = {
+	# 		value = 1
+	# 		desc = grefm_value_from_bavarian_auxiliaries
+	# 	}
+	# }
+	# if = {
+	# 	limit = {
+	# 		OR = {
+	# 			NOT = {
+	# 				exists = heir
+	# 			}
+	# 			heir ?= {
+	# 				has_template = template_grefm_armansperg_josef
+	# 			}
+	# 		}
+	# 	}
+	# 	subtract = {
+	# 		value = 1
+	# 		desc = grefm_value_from_lacking_heir
+	# 	}
+	# }
 	
 	round_to = 0.01
 }
 
 
 ### Estate values ###
+#the percentage of estate disatisfaction that is converted in montly revolution progress
 br_1de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
 br_2de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
 br_3de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
