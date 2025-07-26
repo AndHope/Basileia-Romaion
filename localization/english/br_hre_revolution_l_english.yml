@@ -23,18 +23,29 @@
  br_unspecified_loc: "unspecified"
  ##Change in progress tt
  br_revolution_progress_change_value: "[SCOPE.GetLocalVariable('br_change_in_revolution_progress_var').GetValue|+-]"
+ #revolution progress increase
  br_basic_revolution_progress_increases_loc: "Our progress towards revolution has increased with a"
- br_hre_small_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_revolutulionary_tension_value')|+=]."
- br_hre_medium_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_revolutulionary_tension_value')|+=]."
- br_hre_large_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_revolutulionary_tension_value')|+=]."
- br_hre_unspecified_increase_in_revolution_progress_tt: "$br_basic_revolution_progress_increases_loc$: $br_revolution_progress_change_value$."
+ br_basic_specified_revolution_progress_increases_loc: "$br_basic_revolution_progress_increases_loc$ a"
+ br_basic_unspecified_revolution_progress_increases_loc: "$br_basic_revolution_progress_increases_loc$"
+ br_hre_small_increase_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_increases_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_revolutulionary_tension_value')|-=]."
+ br_hre_medium_increase_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_increases_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_revolutulionary_tension_value')|-=]."
+ br_hre_large_increase_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_increases_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_revolutulionary_tension_value')|-=]."
+ br_hre_unspecified_increase_in_revolution_progress_tt: "$br_basic_unspecified_revolution_progress_increases_loc$: $br_revolution_progress_change_value$."
+ #revolution progress increase
+ br_basic_revolution_progress_decreases_loc: "Our progress towards revolution has decreased with a"
+ br_basic_specified_revolution_progress_decreases_loc: "$br_basic_revolution_progress_decreases_loc$ a"
+ br_basic_unspecified_revolution_progress_decreases_loc: "$br_basic_revolution_progress_decreases_loc$"
+ br_hre_small_decrease_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_decreases_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_decrease_in_revolutulionary_tension_value')|-=]."
+ br_hre_medium_decrease_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_decreases_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_decrease_in_revolutulionary_tension_value')|-=]."
+ br_hre_large_decrease_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_decreases_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_decrease_in_revolutulionary_tension_value')|-=]."
+ br_hre_unspecified_decrease_in_revolution_progress_tt: "$br_basic_unspecified_revolution_progress_decreases_loc$: $br_revolution_progress_change_value$."
 
  ##Change in estate disatisfaction tt
  br_disatisfaction_change_value: "[SCOPE.GetLocalVariable('br_change_in_disatisfaction_var').GetValue|+-]"
  #br_basic_estate_disatisfaction_increases_loc: "[GetPlayer.GetCustom('br_estate_with_increasing_disatisfaction_loc')] disatisfaction increased with a"
  #br_increase_in_estate_disatisfaction_tt: "[SCOPE.GetLocalVariable('br_quantitative_indicator_var').GetName] $br_basic_estate_disatisfaction_increases_loc$ [GetPlayer.GetCustom('br_quantitative_indicator_loc')] amount"
  br_basic_estate_disatisfaction_change_loc: "disatisfaction changed with"
- #estate disatisfaction decrease
+ #estate disatisfaction increase
  br_basic_estate_disatisfaction_increases_loc: "disatisfaction increased with"
  br_basic_specifed_estate_disatisfaction_increase_loc: "$br_basic_estate_disatisfaction_increases_loc$ a"
  br_basic_unspecifed_estate_disatisfaction_increase_loc: "$br_basic_estate_disatisfaction_increases_loc$"
