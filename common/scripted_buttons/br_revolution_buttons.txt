@@ -209,6 +209,7 @@ je_create_new_titles_to_appease_nobles_button = {
 	}
 
 	effect = {
+		#revoke noble titles
 		if = {
 			limit = {
 				has_modifier = br_modifier_new_noble_titles
@@ -222,6 +223,7 @@ je_create_new_titles_to_appease_nobles_button = {
 				value = br_medium_increase_in_estate_disatisfaction_value
 			}
 		}
+		#create new noble titles
 		else = {
 			add_modifier = br_modifier_new_noble_titles
 
@@ -248,13 +250,13 @@ je_clamp_down_on_church_rights_button = {
 				trigger = {
 					not = { has_modifier = br_modifier_special_chruch_rights }
 				}
-				desc = "je_clamp_down_on_church_rights_button"
+				desc = "je_reinstate_chruch_rights_button"
 			}
 			triggered_desc = {
 				trigger = {
 					has_modifier = br_modifier_special_chruch_rights
 				}
-				desc = "je_reinstate_chruch_rights_button"
+				desc = "je_clamp_down_on_church_rights_button"
 			}
 		}
 	}
@@ -264,13 +266,13 @@ je_clamp_down_on_church_rights_button = {
 				trigger = {
 					not = { has_modifier = br_modifier_special_chruch_rights }
 				}
-				desc = "je_clamp_down_on_church_rights_button_desc"
+				desc = "je_reinstate_chruch_rights_button_desc"
 			}
 			triggered_desc = {
 				trigger = {
 					has_modifier = br_modifier_special_chruch_rights
 				}
-				desc = "je_reinstate_chruch_rights_button_desc"
+				desc = "je_clamp_down_on_church_rights_button_desc"
 			}
 		}
 	}
@@ -286,21 +288,12 @@ je_clamp_down_on_church_rights_button = {
 	}
 
 	effect = {
+		#clamp down on church rights
 		if = {
 			limit = {
 				has_modifier = br_modifier_special_chruch_rights
 			}
 			remove_modifier = br_modifier_special_chruch_rights
-
-			# br_specific_change_in_revolutionary_tension_effect = {
-			# 	value = br_small_increase_in_revolutionary_tension_value
-			# }
-			br_specific_change_in_2de_estate_disatisfaction_effect = {
-				value = br_medium_decrease_in_estate_disatisfaction_value
-			}
-		}
-		else = {
-			add_modifier = br_modifier_special_chruch_rights
 
 			br_specific_change_in_revolutionary_tension_effect = {
 				value = br_small_increase_in_revolutionary_tension_value
@@ -308,6 +301,17 @@ je_clamp_down_on_church_rights_button = {
 			br_specific_change_in_2de_estate_disatisfaction_effect = {
 				value = br_large_increase_in_estate_disatisfaction_value
 			}
+		}
+		#reinstate chruch rights
+		else = {
+			add_modifier = br_modifier_special_chruch_rights
+
+			# br_specific_change_in_revolutionary_tension_effect = {
+			# 	value = br_small_increase_in_revolutionary_tension_value
+			# }
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_medium_decrease_in_estate_disatisfaction_value
+			}			
 		}
 	}
 
@@ -363,6 +367,7 @@ je_appoint_bourgeois_ministers_button = {
 	}
 
 	effect = {
+		#fire bourgeois ministers
 		if = {
 			limit = {
 				has_modifier = br_modifier_bourgeois_ministers
@@ -379,6 +384,7 @@ je_appoint_bourgeois_ministers_button = {
 				value = br_small_increase_in_estate_disatisfaction_value
 			}
 		}
+		#appoint new bourgeois ministers
 		else = {
 			add_modifier = br_modifier_bourgeois_ministers
 
@@ -445,6 +451,7 @@ je_subsidize_food_distribution_button = {
 	}
 
 	effect = {
+		#desubsidize food distribution
 		if = {
 			limit = {
 				has_modifier = br_modifier_subsidize_food_distribution
@@ -458,6 +465,7 @@ je_subsidize_food_distribution_button = {
 			# 	value = br_medium_decrease_in_estate_disatisfaction_value
 			# }
 		}
+		#subsidize food distribution
 		else = {
 			add_modifier = br_modifier_subsidize_food_distribution
 
@@ -526,6 +534,7 @@ je_move_imperial_residence_button = {
 	}
 
 	effect = {
+		#move out of the original imperial residence
 		if = {
 			limit = {
 				br_is_current_imperial_residence_original_scripted_trigger = yes
@@ -543,6 +552,7 @@ je_move_imperial_residence_button = {
 				value = br_medium_increase_in_estate_disatisfaction_value
 			}
 		}
+		#move back into the original imperial residence
 		else = {
 			#Change imperial residence
 			br_set_current_imperial_residence_to_original_effect = yes
