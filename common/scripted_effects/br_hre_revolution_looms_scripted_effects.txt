@@ -527,7 +527,10 @@ br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 	#Decide which tt to use
 	if = {
 		limit = {
-			$value$ = br_small_increase_in_revolutulionary_tension_value
+			or = {
+				$value$ = br_small_increase_in_revolutulionary_tension_value
+				$value$ = br_small_decrease_in_revolutulionary_tension_value
+			}
 		}
 		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
 			estate_scope = $estate_scope$
@@ -539,7 +542,10 @@ br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 	}
 	else_if = {
 		limit = {
-			$value$ = br_medium_increase_in_revolutulionary_tension_value
+			or = {
+				$value$ = br_medium_increase_in_revolutulionary_tension_value
+				$value$ = br_medium_decrease_in_revolutulionary_tension_value
+			}
 		}
 		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
 			estate_scope = $estate_scope$
@@ -551,7 +557,10 @@ br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 	}
 	else_if = {
 		limit = {
-			$value$ = br_large_increase_in_revolutulionary_tension_value
+			or = {
+				$value$ = br_large_increase_in_revolutulionary_tension_value
+				$value$ = br_large_decrease_in_revolutulionary_tension_value
+			}
 		}
 		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
 			estate_scope = $estate_scope$
