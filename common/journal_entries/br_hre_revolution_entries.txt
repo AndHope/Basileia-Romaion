@@ -209,7 +209,10 @@ je_hre_impending_revolution = {
 
 	fail = {
 		OR = {
-			has_law = law_type:law_presidential_republic
+			# has_law = law_type:law_presidential_republic
+			NOT = {
+				has_law = law_type:law_monarchy
+			}
 			custom_tooltip = {
 				text = if_journal_timeout_tt
 				has_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
