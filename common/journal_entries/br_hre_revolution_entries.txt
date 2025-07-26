@@ -249,6 +249,26 @@ je_revolution_reform = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	scripted_button = je_revoke_noble_priviliges_button
+	scripted_button = je_begin_modernizing_the_regime_button
+
+	on_monthly_pulse = {
+		effect = {
+			#set a flag if food security has reached a level where it could be considered stable
+			if = {
+				limit = {
+					has_modifier = br_modifier_unreliable_food_security
+					any_scope_pop = {
+						food_security <= br_impending_revolution_food_security_stablity_threshold
+						percent >= br_impending_revolution_min_food_security_population_percentage_threshold_for_stable_food_supply
+					}
+				}
+				trigger_event = {
+					id = hre_revolution_events.501
+					popup = yes
+				}
+			}
+		}
+	}
 
 	complete = {
 		NOT = {
@@ -261,7 +281,10 @@ je_revolution_reform = {
 			has_law = law_type:br_law_feudalism_enforced
 			has_law = law_type:br_law_feudalism_codified
 			has_modifier = br_modifier_noble_privileges
-			has_modifier = br_modifier_feudalism
+			has_modifier = br_modifier_unreliable_food_security
+			has_modifier = br_modifier_antiquated_regime
+			has_modifier = br_modifier_unpopular_regime
+			# has_modifier = br_modifier_feudalism
 		}
 	}
 

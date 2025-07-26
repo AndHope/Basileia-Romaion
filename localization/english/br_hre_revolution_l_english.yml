@@ -117,7 +117,8 @@
  br_je_hre_impending_revolution_failure_header: "The #b Revolution#! will erupt if:\n"
  br_je_hre_impending_revolution_on_failure_header: "The #b Revolution#! erupts:"
  je_revolution_reform: "Revolution: Reform"
- je_revolution_reform_reason: "The time has come to reform the state in order to halt a revolution."
+ je_revolution_reform_reason: "The time has come to reform the state in order to halt a revolution, to do this we will have reform our laws, get rid of [GetStaticModifier('br_modifier_noble_privileges').GetName], fix our #tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_fix_unreliable_food_supply_loc [GetStaticModifier('br_modifier_unreliable_food_security').GetName]#!, modernize and popularize our regime."
+ br_how_to_fix_unreliable_food_supply_loc: "To fix our unreliable food supply we have to make sure that at least [Country.MakeScope.ScriptValue('br_impending_revolution_min_food_security_population_percentage_threshold_for_stable_food_supply')|%0=+] of our population has a [concept_food_security] level of [Country.MakeScope.ScriptValue('br_impending_revolution_food_security_stablity_threshold')|%0=+]. Once this happens we will have stabilized our food supply."
  je_revolution_suppress: "Revolution: Suppress"
  je_revolution_suppress_reason: "We will not bow to the demands of the people, the state will remain as is."
  br_empty_string_loc: "" #this loc is an standard empty string
@@ -168,6 +169,10 @@
  je_move_imperial_residence_button_desc: "Move the [br_concept_imperial_residence] to [GetBuildingType('br_building_versailles').GetName]"
  je_contruct_statue_of_monarch_button: "Contruct statue of monarch"
  je_contruct_statue_of_monarch_button_desc: "Let us construct a statue of the monarch to increase the popularity of the monarchy."
+
+ ##Revolution looms: reform scripted buttons
+ je_begin_modernizing_the_regime_button: "Begin modernizing the Regime"
+ je_begin_modernizing_the_regime_button_desc: "In order to reform the state we will first have to begin modernizing the current regime."
 
 
  ##Events
@@ -258,6 +263,7 @@
  br_modifier_unreliable_food_security: "Unreliable Food Security"
  br_modifier_unpopular_regime: "Unpopular Regime"
  br_modifier_antiquated_regime: "Antiquated Regime"
+ br_modifier_modernizing_the_regime: "Modernizing the Regime"
  br_modifier_imperial_residence: "Imperial Residence"
  br_modifier_special_chruch_rights: "Special Chruch Rights"
  br_modifier_bourgeois_ministers: "Bourgeois Ministers"
