@@ -483,121 +483,125 @@ br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
 	# }
 
 	#Decide which tt to use
+	#contruct tooltip loc dynamicly based on the change in estate disatisfaction and the given estate
+	br_generate_tt_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		value = $value$
+		estate_scope = $estate_scope$
+	}
+}
+
+##
+##Change estate disatisfaction loc scripted effects
+##
+#these effects allow you to generate the loc to indicate a amount of change the disatisfaction of a given estate
+br_generate_tt_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		value = $value$
+		estate_scope = $estate_scope$
+	}
+}
+br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	if = {
+		limit = {
+			$value$ >= 0
+		}
+		br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			value = $value$
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = increase
+		}
+	}
+	else = {
+		br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			value = $value$
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = decrease	
+		}
+	}
+}
+br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	#Decide which tt to use
 	if = {
 		limit = {
 			$value$ = br_small_increase_in_revolutulionary_tension_value
 		}
-		if = {
-			limit = {
-				br_is_given_estate_1de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_small_increase_in_1de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_2de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_small_increase_in_2de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_3de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_small_increase_in_3de_estate_disatisfaction_tt
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = small
 		}
 	}
 	else_if = {
 		limit = {
 			$value$ = br_medium_increase_in_revolutulionary_tension_value
 		}
-		if = {
-			limit = {
-				br_is_given_estate_1de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_medium_increase_in_1de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_2de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_medium_increase_in_2de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_3de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_medium_increase_in_3de_estate_disatisfaction_tt
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = medium
 		}
 	}
 	else_if = {
 		limit = {
 			$value$ = br_large_increase_in_revolutulionary_tension_value
 		}
-		if = {
-			limit = {
-				br_is_given_estate_1de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_large_increase_in_1de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_2de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_large_increase_in_2de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_3de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_large_increase_in_3de_estate_disatisfaction_tt
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = large
 		}
 	}
 	else = {
-		if = {
-			limit = {
-				br_is_given_estate_1de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_unspecified_increase_in_1de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_2de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_unspecified_increase_in_2de_estate_disatisfaction_tt
-		}
-		else_if = {
-			limit = {
-				br_is_given_estate_3de_estate_scripted_trigger = {
-					estate_scope = $estate_scope$
-				}
-			}
-			custom_tooltip = br_hre_unspecified_increase_in_3de_estate_disatisfaction_tt
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = unspecified
 		}
 	}
 }
+br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	#Decide which tt to use
+	if = {
+		limit = {
+			br_is_given_estate_1de_estate_scripted_trigger = {
+				estate_scope = $estate_scope$
+			}
+		}
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_1de_estate_disatisfaction_tt
+	}
+	else_if = {
+		limit = {
+			br_is_given_estate_2de_estate_scripted_trigger = {
+				estate_scope = $estate_scope$
+			}
+		}
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_2de_estate_disatisfaction_tt
+	}
+	else_if = {
+		limit = {
+			br_is_given_estate_3de_estate_scripted_trigger = {
+				estate_scope = $estate_scope$
+			}
+		}
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_3de_estate_disatisfaction_tt
+	}
+}
 
+##
+##Change specific estate disatisfaction presets scripted effects
+##
 br_specific_change_in_1de_estate_disatisfaction_effect = {
 	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
 		estate_scope = var:br_1de_estate_var
