@@ -130,15 +130,15 @@
  br_show_estate_actions_loc: "Show actions you can take towards the"
  br_hide_estate_actions_loc: "Hide actions you can take towards the"
  je_1de_estate_button: "$br_1de_estate_loc$ actions"
- je_1de_estate_button_desc: "We must choose what actions we wish to take towards the $br_1de_estate_loc$."
+ je_1de_estate_button_desc: "We must choose what actions we wish to take towards the [br_concept_1de_estate]."
  br_show_1de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_1de_estate_loc$."
  br_hide_1de_estate_actions_loc: "$br_hide_estate_actions_loc$ $br_1de_estate_loc$."
  je_2de_estate_button: "$br_2de_estate_loc$ actions"
- je_2de_estate_button_desc: "We must choose what actions we wish to take towards the $br_2de_estate_loc$."
+ je_2de_estate_button_desc: "We must choose what actions we wish to take towards the [br_concept_2de_estate]."
  br_show_2de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_2de_estate_loc$."
  br_hide_2de_estate_actions_loc: "$br_hide_estate_actions_loc$ $br_2de_estate_loc$."
  je_3de_estate_button: "$br_3de_estate_loc$ actions"
- je_3de_estate_button_desc: "We must choose what actions we wish to take towards the $br_3de_estate_loc$."
+ je_3de_estate_button_desc: "We must choose what actions we wish to take towards the [br_concept_3de_estate]."
  br_show_3de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_3de_estate_loc$."
  br_hide_3de_estate_actions_loc: "$br_hide_estate_actions_loc$ $br_3de_estate_loc$."
  je_revolution_monarchy_actions_button: "Monarchy actions"
@@ -291,10 +291,24 @@
  br_concept_imperial_residence_location: ", which is currently $br_imperial_residence_building_loc$."
 #tooltip:tooltip_tag,tooltip_body,cooltip your text here#!
 
- #Estates
+ ##Estates
+ #estate names
  br_1de_estate_loc: "First estate"
  br_2de_estate_loc: "Second estate"
  br_3de_estate_loc: "Third estate"
+ #estate concepts
+ br_concept_1de_estate: "$br_1de_estate_loc$"
+ br_concept_1de_estate_desc: "The $br_1de_estate_loc$ is a ...[GetPlayer.GetCustom('br_1de_estate_optional_obj_info_loc')]"
+ br_concept_2de_estate: "$br_2de_estate_loc$"
+ br_concept_2de_estate_desc: "The $br_2de_estate_loc$ is a ...[GetPlayer.GetCustom('br_2de_estate_optional_obj_info_loc')]"
+ br_concept_3de_estate: "$br_3de_estate_loc$"
+ br_concept_3de_estate_desc: "The $br_3de_estate_loc$ is a ...[GetPlayer.GetCustom('br_3de_estate_optional_obj_info_loc')]"
+
+ br_1de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_1de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+ br_2de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_2de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+ br_3de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_3de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+
+ #most disatisfied estates
  br_current_most_disatisfied_estate_loc: "Currently the estate with the highest disatisfaction is the #yellow [GetPlayer.GetCustom('br_estate_with_the_highest_disatisfaction_loc')]#! with $br_estate_with_the_highest_disatisfaction_value_loc$ disatisfaction."
  br_estate_with_the_highest_disatisfaction_value_loc: "[ROOT.GetVariable('br_estate_with_highest_disatisfaction_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
  br_1de_estate_disatisfaction_loc: "[ROOT.GetVariable('br_1de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
