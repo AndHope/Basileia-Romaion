@@ -253,7 +253,7 @@ je_revolution_reform = {
 
 	on_monthly_pulse = {
 		effect = {
-			#set a flag if food security has reached a level where it could be considered stable
+			#trigger an event to stabalise our food security
 			if = {
 				limit = {
 					has_modifier = br_modifier_unreliable_food_security
@@ -264,6 +264,19 @@ je_revolution_reform = {
 				}
 				trigger_event = {
 					id = hre_revolution_events.501
+					popup = yes
+				}
+			}
+			#trigger an event that indicates that the government is popular right now
+			if = {
+				limit = {
+					has_modifier = br_modifier_unpopular_regime
+					br_has_monarchy_popularity_reached_given_value_trigger = {
+						value = br_impending_revolution_monarchy_popularity_threshold_for_popular_regime
+					}
+				}
+				trigger_event = {
+					id = hre_revolution_events.502
 					popup = yes
 				}
 			}
