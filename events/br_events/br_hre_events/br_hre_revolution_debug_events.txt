@@ -1,0 +1,181 @@
+﻿namespace = hre_revolution_debug_events
+
+# Complete the je_hre_impending_revolution
+hre_revolution_debug_events.1 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_impending_revolution_complete_scripted_effect = yes
+	}
+}
+
+# Fail the je_hre_impending_revolution
+hre_revolution_debug_events.2 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_hre_impending_revolution_progress_bar_max_value
+		}
+	}
+}
+
+# Complete the je_revolution_reform
+hre_revolution_debug_events.3 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_elected_bureaucrats
+		activate_law = law_type:law_commercialized_agriculture
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:br_law_feudalism_not_enforced
+		remove_modifier = br_modifier_noble_privileges
+		remove_modifier = br_modifier_unreliable_food_security
+		remove_modifier = br_modifier_antiquated_regime
+		remove_modifier = br_modifier_unpopular_regime
+		# remove_modifier = br_modifier_feudalism
+	}
+}
+
+# Complete the je_revolution_suppress
+hre_revolution_debug_events.4 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_professional_army
+		activate_law = br_law_feudalism_enforced
+		try_form_government_with = {
+			interest_group_type = ig_landowners
+			interest_group_type = ig_armed_forces
+		}
+		#debug event not complete, don't know how to make the ig's powerfull thru effects
+	}
+}
+
+# Max out 1de estate disatisfaction
+hre_revolution_debug_events.5 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_hre_impending_revolution_1de_estate_progress_bar_max_value
+		}
+	}
+}
+# Min out 1de estate disatisfaction
+hre_revolution_debug_events.6 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_enormous_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_enormous_decrease_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# Max out 2de estate disatisfaction
+hre_revolution_debug_events.7 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_hre_impending_revolution_2de_estate_progress_bar_max_value
+		}
+	}
+}
+# Min out 2de estate disatisfaction
+hre_revolution_debug_events.8 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_enormous_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_enormous_decrease_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# Max out 3de estate disatisfaction
+hre_revolution_debug_events.9 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_hre_impending_revolution_3de_estate_progress_bar_max_value
+		}
+	}
+}
+# Min out 3de estate disatisfaction
+hre_revolution_debug_events.10 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_enormous_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_enormous_decrease_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# Max out Monarchy Popularity
+hre_revolution_debug_events.11 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		#twice because it is form -100 to 100
+		br_specific_change_in_monarchy_popularity_effect = {
+			value = br_monarchy_popularity_max_value
+		}
+		br_specific_change_in_monarchy_popularity_effect = {
+			value = br_monarchy_popularity_max_value
+		}
+	}
+}
+# Min out Monarchy Popularity
+hre_revolution_debug_events.12 = {
+	type = country_event
+	
+	hidden = yes
+
+	immediate = {
+		#twice because it is form -100 to 100
+		br_specific_change_in_monarchy_popularity_effect = {
+			value = br_monarchy_popularity_min_value
+		}
+		br_specific_change_in_monarchy_popularity_effect = {
+			value = br_monarchy_popularity_min_value
+		}
+	}
+}
