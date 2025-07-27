@@ -57,37 +57,6 @@ gov_themata = {
 
 }
 
-gov_independent_themata = {								
-	transfer_of_power = hereditary
-	
-	male_ruler = "RULER_TITLE_STRATEGOS"
-	female_ruler = "RULER_TITLE_STRATEGOS"
-
-	male_heir = "RULER_TITLE_BYZ_TOURMARCHES" 
-	female_heir = "RULER_TITLE_BYZ_TOURMARCHES"
-
-	
-	possible = {
-		has_law = law_type:law_monarchy
-		OR = {
-			country_tier = grand_principality
-			country_tier = principality
-			country_tier = city_state
-		}
-		or = {
-			AND = { exists = c:br_kyrenaica c:br_kyrenaica = ROOT }
-		}
-	}	
-	
-	on_government_type_change = {
-		change_to_hereditary = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_hereditary = yes
-	}
-
-}
-
 gov_independent_exarchate = {
 	transfer_of_power = hereditary
 
@@ -109,7 +78,6 @@ gov_independent_exarchate = {
 			AND = { exists = c:br_pontos c:br_pontos = ROOT }
 			AND = { exists = c:br_aegypt c:br_aegypt = ROOT }
 			AND = { exists = c:br_afrika c:br_afrika = ROOT }
-			AND = { exists = c:br_albania c:br_albania = ROOT }
 			AND = { exists = c:SER c:SER = ROOT }
 		}
 	}
@@ -238,8 +206,17 @@ gov_katepano = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		country_tier = grand_principality
-		c:SIC ?= this
+		OR = {
+			country_tier = kingdom
+			country_tier = grand_principality
+		}
+		or = {
+			AND = { exists = c:SIC c:SIC = ROOT }
+			AND = { exists = c:BR_PAL c:BR_PAL = ROOT }
+			AND = { exists = c:BR_ANT c:BR_ANT = ROOT }
+			AND = { exists = c:br_kyrenaica c:br_kyrenaica = ROOT }
+			AND = { exists = c:br_albania c:br_albania = ROOT }
+		}
 	}
 
 	on_government_type_change = {

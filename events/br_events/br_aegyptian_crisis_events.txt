@@ -68,23 +68,23 @@ aegyptian_crisis_events.1 = {
 					target_is = c:br_aegypt
 				}
 				add_escalation = 80
-				add_initiator_backers = { c:ARM c:GEO }
-				#add_target_backers = { c:VEN }
+				add_initiator_backers = { c:ARM c:GEO c:BR_ANT }
+				add_target_backers = { c:BR_PAL }
 				if = {
-					limit = { NOT = { s:STATE_LEBANON.region_state:br_aegypt = { is_target_of_wargoal = c:BYZ } } }
+					limit = { NOT = { s:STATE_LEBANON.region_state:br_aegypt = { is_target_of_wargoal = c:BR_ANT } } }
 					add_war_goal = {
-						holder = c:BYZ
+						holder = c:BR_ANT
 						type = return_state
-						target_state = s:STATE_LEBANON.region_state:br_aegypt
+						target_state = s:STATE_LEBANON.region_state:BR_PAL
 						primary_demand = yes
 					}
 				}
 				if = {
-					limit = { NOT = { s:STATE_PALESTINE.region_state:br_aegypt = { is_target_of_wargoal = c:BYZ } } }
+					limit = { NOT = { s:STATE_PALESTINE.region_state:br_aegypt = { is_target_of_wargoal = c:BR_ANT } } }
 					add_war_goal = {
-						holder = c:BYZ
+						holder = c:BR_ANT
 						type = return_state
-						target_state = s:STATE_PALESTINE.region_state:br_aegypt
+						target_state = s:STATE_PALESTINE.region_state:BR_PAL
 						primary_demand = yes
 					}
 				}
