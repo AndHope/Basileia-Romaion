@@ -1,6 +1,7 @@
 ﻿
 abolish_feudalism_decision = {
 	is_shown = {
+		has_social_hierarchy = br_feudalism_social_hierarchy
 		has_modifier = br_modifier_feudalism
 	}
 
@@ -10,12 +11,16 @@ abolish_feudalism_decision = {
 			has_law = law_type:law_oligarchy
 			has_law = law_type:law_traditionalism
 			has_law = law_type:law_serfdom
+			has_law = law_type:br_law_feudalism_enforced
+			has_law = law_type:br_law_feudalism_codified
 		}
+		has_social_hierarchy = br_feudalism_social_hierarchy
 		has_modifier = br_modifier_feudalism
 	}
 
 	when_taken = {
 		
+		set_social_hierarchy = default_social_hierarchy
 		remove_modifier = br_modifier_feudalism
 
 		add_radicals = {
