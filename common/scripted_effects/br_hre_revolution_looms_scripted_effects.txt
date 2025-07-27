@@ -461,20 +461,23 @@ br_change_specific_estate_disatisfaction_effect = {
 			}
 		}
 	}
+
+	#updated the internal values in the estate structs, so they are consistent with the progress bars
+	br_update_all_estate_disatisfaction_effect = yes
 }
 #set local var to display in loc
-br_set_estate_with_increasing_disatisfaction_effect = {
-	set_local_variable = {
-		name = br_estate_with_increasing_disatisfaction_var
-		value = $estate_scope$
-	}
-}
-br_set_quantitative_indicator_effect = {
-	set_local_variable = {
-		name = br_quantitative_indicator_var
-		value = $quantitative_indicator$
-	}
-}
+# br_set_estate_with_increasing_disatisfaction_effect = {
+# 	set_local_variable = {
+# 		name = br_estate_with_increasing_disatisfaction_var
+# 		value = $estate_scope$
+# 	}
+# }
+# br_set_quantitative_indicator_effect = {
+# 	set_local_variable = {
+# 		name = br_quantitative_indicator_var
+# 		value = $quantitative_indicator$
+# 	}
+# }
 #same as 'br_change_specific_estate_disatisfaction_effect' but with custom_tooltip for predefined values
 br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
 	hidden_effect = {
