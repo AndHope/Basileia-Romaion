@@ -242,6 +242,41 @@ je_create_new_titles_to_appease_nobles_button = {
 	}
 }
 
+#Investigate Noble Tax Evasion
+je_investigate_noble_tax_evasion_button = {
+	name = "je_investigate_noble_tax_evasion_button"
+	desc = "je_investigate_noble_tax_evasion_button_desc"
+
+	visible = {
+		has_variable = br_1de_estate_button_selected_var
+
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	cooldown = { years = 5 }
+
+	effect = {
+		#Investigate Noble Tax Evasion
+		# br_specific_change_in_revolutionary_tension_effect = {
+		# 	value = br_small_increase_in_revolutionary_tension_value
+		# }
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+
 ### Second estate Buttons ###
 je_clamp_down_on_church_rights_button = {
 	name = {
@@ -311,7 +346,7 @@ je_clamp_down_on_church_rights_button = {
 			# }
 			br_specific_change_in_2de_estate_disatisfaction_effect = {
 				value = br_medium_decrease_in_estate_disatisfaction_value
-			}			
+			}
 		}
 	}
 
@@ -320,6 +355,38 @@ je_clamp_down_on_church_rights_button = {
 		value = 0
 	}
 }
+
+#Require Oath of Loyalty from Priests
+je_require_oath_of_loyalty_from_priests_button = {
+	name = "je_require_oath_of_loyalty_from_priests_button"
+	desc = "je_require_oath_of_loyalty_from_priests_button_desc"
+
+	visible = {
+		has_variable = br_2de_estate_button_selected_var
+		not = {
+			has_variable = br_require_oath_of_loyalty_from_priests_var
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		set_variable = br_require_oath_of_loyalty_from_priests_var
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
 
 ### Third estate Buttons ###
 je_appoint_bourgeois_ministers_button = {
