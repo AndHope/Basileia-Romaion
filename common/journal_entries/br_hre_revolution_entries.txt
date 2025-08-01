@@ -115,9 +115,15 @@ je_hre_impending_revolution = {
 				}
 				if = {
 					limit = {
-						any_scope_pop = {
-							food_security <= br_impending_revolution_food_security_threshold
-							percent >= br_impending_revolution_food_security_population_percentage_threshold
+						or = {
+							any_scope_state = {
+								has_famine = yes
+							}
+							
+							any_scope_pop = { #don't know if this trigger is still nessesary, because when this is true there will likely be a famine as well
+								food_security <= br_impending_revolution_food_security_threshold
+								percent >= br_impending_revolution_food_security_population_percentage_threshold
+							}
 						}
 						not = { has_variable = br_hre_impending_revolution_low_food_security_timeout_var }
 					}

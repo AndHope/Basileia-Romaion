@@ -33,7 +33,7 @@
 				value = br_impending_revolution_loyalist_change_revoluion_progress_value
 			}
 		}
-		if = { #commented it temporaritly as monarchy popularity isn't implemented properly yet
+		if = {
 			limit = {
 				has_variable = br_monarchy_popularity_var
 			}
@@ -382,6 +382,22 @@
 		# 		popup = yes
 		# 	}
 		# }
+
+		#Monarchy popularity impact
+		if = {
+			limit = {
+				has_variable = br_monarchy_popularity_var
+
+				#only let monarchy popularity impact disatisfaction if it will decrease disatisfaction, because otherwise disatisfaction increases to fast
+				var:br_monarchy_popularity_var >= 0
+			}
+			add = {
+				desc = "br_impending_revolution_monarchy_popularity_revolution_progress_change_loc"
+				value = var:br_monarchy_popularity_var
+				multiply = -1 #invert the sign because pos popularity has the decrease revolution progress
+				multiply = br_monarchy_popularity_to_3de_estate_disatisfaction_multiplier
+			}
+		}
 		
 		#Feudalism laws effect
 		if = {
