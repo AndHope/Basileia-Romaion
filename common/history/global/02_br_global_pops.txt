@@ -68,8 +68,18 @@ GLOBAL = {
 			}
 		}
 	}
+	
 	#Moderate Monarchies
 	c:HRE ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:french
+				value = 1
+			}
+		}
 		capital = {
 			effect_starting_pop_wealth_very_high = yes
 		}
@@ -96,6 +106,38 @@ GLOBAL = {
 			value = 0.1
 		}
 	}
+	every_country = {
+		limit = {
+			is_subject_of = c:HRE
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:french
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:french
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:french
+				value = 0.25
+			}
+		}
+	}
 	c:ENG ?= {
 		capital = {
 			effect_starting_pop_wealth_very_high = yes
@@ -118,6 +160,24 @@ GLOBAL = {
 		}
 	}
 	c:PLC ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:polish
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:catholic
+				value = 1
+			}
+		}
 		capital = {
 			effect_starting_pop_wealth_very_high = yes
 			add_loyalists_in_state = {
@@ -146,6 +206,202 @@ GLOBAL = {
 			value = 0.1
 		}
 	}
+	every_country = {
+		limit = {
+			is_subject_of = c:PLC
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:polish
+				value = 0.5
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:catholic
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:polish
+				value = 0.5
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:catholic
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:polish
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:catholic
+				value = 1
+			}
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
+	}
+	c:PRU ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:baltic_german
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:baltic_german
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:baltic_german
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
+	}
+	c:UBD ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:baltic_german
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:baltic_german
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:baltic_german
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
+	}
+	
 	c:HUN ?= {
 		add_loyalists = {
 			value = 0.1
@@ -224,6 +480,151 @@ GLOBAL = {
 			value = 0.5
 		}
 	}
+	c:FIN ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 1
+			}
+		}
+	}
+	
+	#Russia
+	c:br_novgorod ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+	}
+	c:br_pskov ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:swedish
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+	}
+
+	#Asia
 	c:PER ?= {
 		add_loyalists = {
 			value = 0.1
@@ -253,6 +654,33 @@ GLOBAL = {
 		}
 	}
 	c:MUG ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:mughal
+				value = 0.1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:mughal
+				value = 0.5
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = soldiers
+			}
+			change_pop_culture = {
+				target = cu:mughal
+				value = 0.25
+			}
+		}
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:mughal
@@ -280,7 +708,66 @@ GLOBAL = {
 			value = 0.25
 		}
 	}
+	every_country = {
+		limit = {
+			is_subject_of = c:MUG
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:mughal
+				value = 0.1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:mughal
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = soldiers
+			}
+			change_pop_culture = {
+				target = cu:mughal
+				value = 0.1
+			}
+		}
+	}
 	c:br_great_yuan ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:mongol
+				value = 0.05
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:mongol
+				value = 0.25
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = soldiers
+			}
+			change_pop_culture = {
+				target = cu:mongol
+				value = 0.1
+			}
+		}
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:mongol
@@ -310,6 +797,33 @@ GLOBAL = {
 		}
 	}
 	c:CHI ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:br_religion_confucian
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:br_religion_confucian
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:br_religion_confucian
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 0.1
 			religion = rel:br_religion_confucian
@@ -339,6 +853,33 @@ GLOBAL = {
 		}
 	}
 	c:JAP ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_religion = {
+				target = rel:shinto
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:shinto
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = soldiers
+			}
+			change_pop_religion = {
+				target = rel:shinto
+				value = 0.5
+			}
+		}
 		capital = {
 			effect_starting_pop_wealth_very_high = yes
 		}
@@ -359,6 +900,52 @@ GLOBAL = {
 			value = 0.25
 		}
 	}
+	c:br_tartaria ?= {
+		add_loyalists = {
+			value = 0.15
+			culture = cu:tatar
+		}
+		add_loyalists = {
+			value = 0.15
+			culture = cu:mongol
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = 0.75
+		}
+		add_radicals = {
+			culture = cu:north_caucasian
+			value = 0.75
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:tatar
+			}
+			add_loyalists_in_state = {
+				value = 0.25
+				culture = cu:mongol
+			}
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = 0.5
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = 0.5
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
+	}
+	
+	#ERE
 	c:br_elysium ?= {
 		capital = {
 			effect_starting_pop_wealth_very_high = yes
@@ -438,6 +1025,33 @@ GLOBAL = {
 		}
 	}
 	c:br_bulgaria ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 0.25
 			culture = cu:greek
@@ -468,6 +1082,33 @@ GLOBAL = {
 		}
 	}
 	c:br_albania ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 0.25
 			culture = cu:greek
@@ -501,7 +1142,6 @@ GLOBAL = {
 			value = 0.1
 		}
 	}
-
 	c:ARM ?= {
 		add_loyalists = {
 			value = 0.1
@@ -568,7 +1208,27 @@ GLOBAL = {
 			value = 0.1
 		}
 	}
+	
+	#Africa
 	c:br_afrika ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:greek
@@ -617,6 +1277,24 @@ GLOBAL = {
 		}
 	}
 	c:br_kyrenaica ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:greek
@@ -661,6 +1339,24 @@ GLOBAL = {
 		}
 	}
 	c:br_aegypt ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:greek
@@ -709,6 +1405,33 @@ GLOBAL = {
 		}
 	}
 	c:BR_ANT ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:greek
@@ -735,6 +1458,33 @@ GLOBAL = {
 		}
 	}
 	c:BR_PAL ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = aristocrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
 		add_loyalists = {
 			value = 1 #its high because they are a small minority ruling a much larger population
 			culture = cu:greek
@@ -760,50 +1510,8 @@ GLOBAL = {
 			value = 0.35
 		}
 	}
-	c:br_tartaria ?= {
-		add_loyalists = {
-			value = 0.15
-			culture = cu:tatar
-		}
-		add_loyalists = {
-			value = 0.15
-			culture = cu:mongol
-		}
-		add_radicals = {
-			religion = rel:orthodox
-			value = 0.75
-		}
-		add_radicals = {
-			culture = cu:north_caucasian
-			value = 0.75
-		}
-		capital = {
-			add_loyalists_in_state = {
-				value = 0.25
-				culture = cu:tatar
-			}
-			add_loyalists_in_state = {
-				value = 0.25
-				culture = cu:mongol
-			}
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = 0.5
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = 0.5
-		}
-		add_radicals = {
-			pop_type = peasants
-			value = 0.1
-		}
-		add_radicals = {
-			pop_type = slaves
-			value = 0.1
-		}
-	}
+
+	#New World
 	c:NAH ?= {
 		add_loyalists = {
 			value = 0.15
@@ -986,5 +1694,164 @@ GLOBAL = {
 		}
 	}
 	
+	#East Indies Colonial
+	c:EOC ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:flemish
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:catholic
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:flemish
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:catholic
+				value = 1
+			}
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
+	}
+	
+	c:DEI ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:dutch
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:dutch
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 1
+			}
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
+	}
+
+	c:br_romaioi_india_company ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+			}
+			change_pop_religion = {
+				target = rel:orthodox
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_culture = {
+				target = cu:greek
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = officers
+			}
+			change_pop_religion = {
+				target = rel:orthodox
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = farmers
+			}
+			change_pop_culture = {
+				target = cu:apoikoi
+				value = 1
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = farmers
+			}
+			change_pop_religion = {
+				target = rel:oriental_orthodox
+				value = 1
+			}
+		}
+		add_radicals = {
+			pop_type = peasants
+			value = 0.1
+		}
+		add_radicals = {
+			pop_type = slaves
+			value = 0.1
+		}
+	}
 
 }	
