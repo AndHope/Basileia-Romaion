@@ -5,16 +5,19 @@
  br_hre_impending_revolution_progress_bar_desc: "As this increases the Revolution draws closer."
  br_je_hre_impending_revolution_progress_reached_max: "The Revolution has erupted."
 
- br_hre_impending_revolution_1de_estate_progress_bar: "First estate disatisfaction"
- br_hre_impending_revolution_1de_estate_progress_bar_desc: "First estate disatisfaction"
- br_hre_impending_revolution_2de_estate_progress_bar: "Second estate disatisfaction"
- br_hre_impending_revolution_2de_estate_progress_bar_desc: "Second estate disatisfaction"
- br_hre_impending_revolution_3de_estate_progress_bar: "Third estate disatisfaction"
- br_hre_impending_revolution_3de_estate_progress_bar_desc: "Third estate disatisfaction"
+ br_hre_impending_revolution_1de_estate_progress_bar: "[br_concept_1de_estate] disatisfaction"
+ br_hre_impending_revolution_1de_estate_progress_bar_desc: "[br_concept_1de_estate] disatisfaction"
+ br_hre_impending_revolution_2de_estate_progress_bar: "[br_concept_2de_estate] disatisfaction"
+ br_hre_impending_revolution_2de_estate_progress_bar_desc: "[br_concept_2de_estate] disatisfaction"
+ br_hre_impending_revolution_3de_estate_progress_bar: "[br_concept_3de_estate] disatisfaction"
+ br_hre_impending_revolution_3de_estate_progress_bar_desc: "[br_concept_3de_estate] disatisfaction"
 
  br_impending_revolution_to_many_redicals_loc: "more than #variable [GetPlayer.MakeScope.ScriptValue('br_impending_revolution_radicals_threshold_percentage')]%#! of the population are radicals."
  br_impending_revolution_to_many_loyalists_loc: "more than #variable [GetPlayer.MakeScope.ScriptValue('br_impending_revolution_loyalist_threshold_percentage')]%#! of the population are loyalists."
- br_impending_revolution_monarchy_popularity_revolution_progress_change_loc: "from the current Monarchy popularity."
+ br_impending_revolution_monarchy_popularity_revolution_progress_change_loc: "the current Monarchy popularity."
+ br_impending_revolution_1de_estate_disatisfaction_revolution_progress_change_loc: "the current [br_concept_1de_estate] disatisfaction."
+ br_impending_revolution_2de_estate_disatisfaction_revolution_progress_change_loc: "the current [br_concept_2de_estate] disatisfaction."
+ br_impending_revolution_3de_estate_disatisfaction_revolution_progress_change_loc: "the current [br_concept_2de_estate] disatisfaction."
 
  br_impending_revolution_has_feudalism_enforced_loc: "has enacted [GetLawType('br_law_feudalism_enforced').GetName]."
  br_impending_revolution_has_feudalism_codified_loc: "has enacted [GetLawType('br_law_feudalism_codified').GetName]."
@@ -259,8 +262,8 @@
 
  #Food security has stabilized
  hre_revolution_events.501.t: "Food security has stabilized"
- hre_revolution_events.501.d: "Food security has stabilized"
- hre_revolution_events.501.f: "Food security has stabilized"
+ hre_revolution_events.501.d: "Our food security has stabilized"
+ #hre_revolution_events.501.f: "Food security has stabilized"
  hre_revolution_events.501.a: "Great"
  #Food security has stabilized
  hre_revolution_events.502.t: "Popular Regime"
@@ -307,11 +310,11 @@
  br_3de_estate_loc: "Third estate"
  #estate concepts
  br_concept_1de_estate: "$br_1de_estate_loc$"
- br_concept_1de_estate_desc: "The $br_1de_estate_loc$ is a ...[GetPlayer.GetCustom('br_1de_estate_optional_obj_info_loc')]"
+ br_concept_1de_estate_desc: "The $br_1de_estate_loc$ is an order within the Feudalism [concept_social_hierarchy]. That represents the Clergy.\n$TOOLTIP_DELIMITER$\n[GetPlayer.GetCustom('br_1de_estate_optional_obj_info_loc')]"
  br_concept_2de_estate: "$br_2de_estate_loc$"
- br_concept_2de_estate_desc: "The $br_2de_estate_loc$ is a ...[GetPlayer.GetCustom('br_2de_estate_optional_obj_info_loc')]"
+ br_concept_2de_estate_desc: "The $br_2de_estate_loc$ is an order within the Feudalism [concept_social_hierarchy]. That represents the Nobility.\n$TOOLTIP_DELIMITER$\n[GetPlayer.GetCustom('br_2de_estate_optional_obj_info_loc')]"
  br_concept_3de_estate: "$br_3de_estate_loc$"
- br_concept_3de_estate_desc: "The $br_3de_estate_loc$ is a ...[GetPlayer.GetCustom('br_3de_estate_optional_obj_info_loc')]"
+ br_concept_3de_estate_desc: "The $br_3de_estate_loc$ is an order within the Feudalism [concept_social_hierarchy]. That represents the remaining rest of the populace.\n$TOOLTIP_DELIMITER$\n[GetPlayer.GetCustom('br_3de_estate_optional_obj_info_loc')]"
 
  br_1de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_1de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
  br_2de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_2de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
@@ -321,9 +324,6 @@
  br_current_most_disatisfied_estate_loc: "Currently the estate with the highest disatisfaction is the #yellow [GetPlayer.GetCustom('br_estate_with_the_highest_disatisfaction_loc')]#! with $br_estate_with_the_highest_disatisfaction_value_loc$ disatisfaction."
  br_estate_with_the_highest_disatisfaction_value_loc: "[ROOT.GetVariable('br_estate_with_highest_disatisfaction_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
  br_1de_estate_disatisfaction_loc: "[ROOT.GetVariable('br_1de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
- br_impending_revolution_1de_estate_disatisfaction_revolution_progress_change_loc: "From the current $br_1de_estate_loc$ disatisfaction."
- br_impending_revolution_2de_estate_disatisfaction_revolution_progress_change_loc: "From the current $br_2de_estate_loc$ disatisfaction."
- br_impending_revolution_3de_estate_disatisfaction_revolution_progress_change_loc: "From the current $br_3de_estate_loc$ disatisfaction."
 
  ##Monarchy Popularity
  br_monarchy_popularity_current_value_loc: "#bold #greece [Country.MakeScope.GetVariable('br_monarchy_popularity_var').GetValue]#!#!" #using ROOT instead of Country.MakeScope will make the br_how_to_popularize_regime_loc tooltip cause the game to crash
