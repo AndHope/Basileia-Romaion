@@ -1049,7 +1049,7 @@ ai_strategy_default = {
 					c:BYZ ?= this
 					scope:target_state.state_region = { is_homeland = cu:greek }
 				}
-				add = 50
+				add = 100
 			}
 
 			if = {
@@ -1266,6 +1266,7 @@ ai_strategy_default = {
 							country_has_primary_culture = cu:french
 							country_has_primary_culture = cu:frankish
 							country_has_primary_culture = cu:occitan
+							country_has_primary_culture = cu:breton
 						}	
 					}
 				}
@@ -1315,7 +1316,19 @@ ai_strategy_default = {
 				}
 				add = 50
 			}
-
+			if = { # Aim should take states in Balkans/Anatolia first
+				limit = {
+					country_has_primary_culture = cu:greek
+					scope:target_state = {
+						region = sr:region_balkans
+						region = sr:region_anatolia
+					}
+					scope:target_country = {
+						country_has_primary_culture = cu:greek	
+					}
+				}
+				add = 100
+			}
 			if = { # Secondary objectives
 				limit = {
 					country_has_primary_culture = cu:greek
@@ -1348,7 +1361,7 @@ ai_strategy_default = {
 						region = sr:region_dixie
 					}
 				}
-				add = 25
+				add = 50
 			}
 
 			if = { # PER wishes to consolidate
@@ -1362,7 +1375,7 @@ ai_strategy_default = {
 						region = sr:region_arabic
 					}
 				}
-				add = 25
+				add = 50
 			}
 			
 			# French Natural Borders
@@ -2725,7 +2738,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 25
+			add = 50
 		}
 
 		if = { 
@@ -2748,7 +2761,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:ukrainian	
 				}
 			}
-			add = 50
+			add = 75
 		}
 		if = { 
 			limit = {
