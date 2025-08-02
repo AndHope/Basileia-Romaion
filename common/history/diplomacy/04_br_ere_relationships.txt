@@ -312,15 +312,17 @@ DIPLOMACY = {
 	}
 
 	c:br_epiros = {
-		set_relations = { country = c:BYZ value = 15 }
+		set_relations = { country = c:BYZ value = -15 }
 		set_relations = { country = c:VEN value = 75 }
+		set_relations = { country = c:SIC value = 75 }
 		set_relations = { country = c:br_genoa value = 75 }
 		add_liberty_desire = -10
 	}
 
 	c:br_morea = {
-		set_relations = { country = c:BYZ value = 15 }
+		set_relations = { country = c:BYZ value = -15 }
 		set_relations = { country = c:VEN value = 75 }
+		set_relations = { country = c:SIC value = 75 }
 		set_relations = { country = c:br_genoa value = 75 }
 		set_relations = { country = c:br_epiros value = 75 }
 		set_relations = { country = c:br_albania value = 75 }
@@ -328,8 +330,8 @@ DIPLOMACY = {
 	}
 
 	c:br_trebizond = {
-		set_relations = { country = c:BYZ value = 15 }
-		set_relations = { country = c:GEO value = 75 }
+		set_relations = { country = c:BYZ value = -15 }
+		set_relations = { country = c:GEO value = 100 }
 		set_relations = { country = c:ARM value = 75 }
 		add_liberty_desire = -10
 	}
@@ -348,28 +350,50 @@ DIPLOMACY = {
 	}
 
 	c:BR_ANT = {
-		set_relations = { country = c:BYZ value = -15 }
+		set_relations = { country = c:BYZ value = -25 }
+		set_relations = { country = c:ARM value = 75 }
+		set_relations = { country = c:GEO value = 75 }
+		set_relations = { country = c:br_mesopotamia value = 50 }
+		set_relations = { country = c:br_assyria value = 50 }
 		add_liberty_desire = 15
+		set_owes_obligation_to = {
+			country = c:ARM
+			setting = yes
+		}
 	}
 
 	c:BR_PAL = {
-		set_relations = { country = c:BYZ value = -15 }
+		set_relations = { country = c:BYZ value = -25 }
 		add_liberty_desire = 15
 	}
 
 	c:br_kappadocia = {
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:br_mesopotamia value = 100 }
 		set_relations = { country = c:br_assyria value = 100 }
+		set_relations = { country = c:ARM value = 75 }
+		set_relations = { country = c:GEO value = 75 }
 		set_owes_obligation_to = {
 			country = c:br_mesopotamia
 			setting = yes
 		}
+		set_owes_obligation_to = {
+			country = c:ARM
+			setting = yes
+		}
 	}
 	c:br_mesopotamia = {
+		set_relations = { country = c:BYZ value = -25 }
 		set_relations = { country = c:br_kappadocia value = 100 }
 		set_relations = { country = c:br_assyria value = 100 }
+		set_relations = { country = c:ARM value = 75 }
+		set_relations = { country = c:GEO value = 75 }
 		set_owes_obligation_to = {
 			country = c:br_kappadocia
+			setting = yes
+		}
+		set_owes_obligation_to = {
+			country = c:ARM
 			setting = yes
 		}
 	}
