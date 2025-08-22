@@ -134,96 +134,6 @@
 			}
 			add = {
 				desc = "br_impending_revolution_has_feudalism_enforced_loc"
-				value = br_impending_revolution_has_feudalism_enforced_change_in_1de_estate_disatisfaction_value
-			}
-		}
-		else_if = {
-			limit = {
-				has_law = law_type:br_law_feudalism_codified
-			}
-			add = {
-				desc = "br_impending_revolution_has_feudalism_codified_loc"
-				value = br_impending_revolution_has_feudalism_codified_change_in_1de_estate_disatisfaction_value
-			}
-		}
-		else_if = {
-			limit = {
-				has_law = law_type:br_law_feudalism_not_enforced
-			}
-			add = {
-				desc = "br_impending_revolution_has_feudalism_not_enforced_loc"
-				value = br_impending_revolution_has_feudalism_not_enforced_change_in_1de_estate_disatisfaction_value
-			}
-		}
-		else_if = {
-			limit = {
-				has_law = law_type:br_law_feudalism_affirmative_action
-			}
-			add = {
-				desc = "br_impending_revolution_has_feudalism_affirmative_action_loc"
-				value = br_impending_revolution_has_feudalism_affirmative_action_change_in_1de_estate_disatisfaction_value
-			}
-		}
-	}
- }
-
-  br_hre_impending_revolution_2de_estate_progress_bar = {
-	name = "br_hre_impending_revolution_2de_estate_progress_bar"
-	desc = "br_hre_impending_revolution_2de_estate_progress_bar_desc"
-
-	default_green = yes
-
-	is_inverted = yes
-
-	#For some reason I can't give it a scripted value or a variable
-	start_value = 0 #br_hre_impending_revolution_2de_estate_progress_bar_start_value
-	min_value = 0 #br_hre_impending_revolution_2de_estate_progress_bar_min_value
-	max_value = 1000 #br_hre_impending_revolution_2de_estate_progress_bar_max_value	#represents a percentage
-
-	monthly_progress = {
-		if = {
-			limit = {
-				radical_population_fraction >= br_impending_revolution_radicals_threshold
-			}
-			add = {
-				desc = "br_impending_revolution_to_many_redicals_loc"
-				value = br_impending_revolution_radicals_change_revoluion_progress_value
-			}
-		}
-		if = {
-			limit = {
-				loyalist_fraction = {
-					value >= br_impending_revolution_loyalist_threshold
-				}
-			}
-			add = {
-				desc = "br_impending_revolution_to_many_loyalists_loc"
-				value = br_impending_revolution_loyalist_change_revoluion_progress_value
-			}
-		}
-
-		
-		#population_below_expected_sol
-
-		# if = {
-		# 	limit = {
-		# 		any_scope_pop = {
-		# 			food_security >= 0.5
-		# 		}
-		# 	}
-		# 	trigger_event = {
-		# 		id = hre_revolution_events.5
-		# 		popup = yes
-		# 	}
-		# }
-		
-		#Feudalism laws effect
-		if = {
-			limit = {
-				has_law = law_type:br_law_feudalism_enforced
-			}
-			add = {
-				desc = "br_impending_revolution_has_feudalism_enforced_loc"
 				value = br_impending_revolution_has_feudalism_enforced_change_in_2de_estate_disatisfaction_value
 			}
 		}
@@ -328,6 +238,96 @@
 			add = {
 				desc = "br_impending_revolution_has_public_schools_loc"
 				value = br_impending_revolution_has_public_schools_change_in_2de_estate_disatisfaction_value
+			}
+		}
+	}
+ }
+
+  br_hre_impending_revolution_2de_estate_progress_bar = {
+	name = "br_hre_impending_revolution_2de_estate_progress_bar"
+	desc = "br_hre_impending_revolution_2de_estate_progress_bar_desc"
+
+	default_green = yes
+
+	is_inverted = yes
+
+	#For some reason I can't give it a scripted value or a variable
+	start_value = 0 #br_hre_impending_revolution_2de_estate_progress_bar_start_value
+	min_value = 0 #br_hre_impending_revolution_2de_estate_progress_bar_min_value
+	max_value = 1000 #br_hre_impending_revolution_2de_estate_progress_bar_max_value	#represents a percentage
+
+	monthly_progress = {
+		if = {
+			limit = {
+				radical_population_fraction >= br_impending_revolution_radicals_threshold
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_redicals_loc"
+				value = br_impending_revolution_radicals_change_revoluion_progress_value
+			}
+		}
+		if = {
+			limit = {
+				loyalist_fraction = {
+					value >= br_impending_revolution_loyalist_threshold
+				}
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_loyalists_loc"
+				value = br_impending_revolution_loyalist_change_revoluion_progress_value
+			}
+		}
+
+		
+		#population_below_expected_sol
+
+		# if = {
+		# 	limit = {
+		# 		any_scope_pop = {
+		# 			food_security >= 0.5
+		# 		}
+		# 	}
+		# 	trigger_event = {
+		# 		id = hre_revolution_events.5
+		# 		popup = yes
+		# 	}
+		# }
+		
+		#Feudalism laws effect
+		if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_enforced_loc"
+				value = br_impending_revolution_has_feudalism_enforced_change_in_1de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_codified
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_codified_loc"
+				value = br_impending_revolution_has_feudalism_codified_change_in_1de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_not_enforced
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_not_enforced_loc"
+				value = br_impending_revolution_has_feudalism_not_enforced_change_in_1de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:br_law_feudalism_affirmative_action
+			}
+			add = {
+				desc = "br_impending_revolution_has_feudalism_affirmative_action_loc"
+				value = br_impending_revolution_has_feudalism_affirmative_action_change_in_1de_estate_disatisfaction_value
 			}
 		}
 	}

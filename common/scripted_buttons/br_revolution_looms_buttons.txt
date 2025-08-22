@@ -161,126 +161,6 @@ je_revolution_monarchy_actions_button = {
 
 
 ### First estate Buttons ###
-je_create_new_titles_to_appease_nobles_button = {
-	name = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					not = { has_modifier = br_modifier_new_noble_titles }
-				}
-				desc = "je_create_new_titles_to_appease_nobles_button"
-			}
-			triggered_desc = {
-				trigger = {
-					has_modifier = br_modifier_new_noble_titles
-				}
-				desc = "je_revoke_new_titles_given_to_nobles_button"
-			}
-		}
-	}
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					not = { has_modifier = br_modifier_new_noble_titles }
-				}
-				desc = "je_create_new_titles_to_appease_nobles_button_desc"
-			}
-			triggered_desc = {
-				trigger = {
-					has_modifier = br_modifier_new_noble_titles
-				}
-				desc = "je_revoke_new_titles_given_to_nobles_button_desc"
-			}
-		}
-	}
-
-	visible = {
-		br_can_button_from_given_estate_action_be_visible_trigger = {
-			estate_action_type = br_1de_estate_action_type
-		}
-
-		#make it single use
-		#not = { has_modifier = br_modifier_new_noble_titles }
-	}
-
-	selected = {
-	}
-
-	possible = {
-	}
-
-	effect = {
-		#revoke noble titles
-		if = {
-			limit = {
-				has_modifier = br_modifier_new_noble_titles
-			}
-			remove_modifier = br_modifier_new_noble_titles
-
-			# br_specific_change_in_revolutionary_tension_effect = {
-			# 	value = br_small_increase_in_revolutionary_tension_value
-			# }
-			br_specific_change_in_1de_estate_disatisfaction_effect = {
-				value = br_medium_increase_in_estate_disatisfaction_value
-			}
-		}
-		#create new noble titles
-		else = {
-			add_modifier = br_modifier_new_noble_titles
-
-			# br_specific_change_in_revolutionary_tension_effect = {
-			# 	value = br_small_increase_in_revolutionary_tension_value
-			# }
-			br_specific_change_in_1de_estate_disatisfaction_effect = {
-				value = br_small_decrease_in_estate_disatisfaction_value
-			}
-		}
-	}
-
-	#Country scope
-	ai_chance = {
-		value = 0
-	}
-}
-
-#Investigate Noble Tax Evasion
-je_investigate_noble_tax_evasion_button = {
-	name = "je_investigate_noble_tax_evasion_button"
-	desc = "je_investigate_noble_tax_evasion_button_desc"
-
-	visible = {
-		br_can_button_from_given_estate_action_be_visible_trigger = {
-			estate_action_type = br_1de_estate_action_type
-		}
-	}
-
-	selected = {
-	}
-
-	possible = {
-	}
-
-	cooldown = { years = 5 }
-
-	effect = {
-		#Investigate Noble Tax Evasion
-		# br_specific_change_in_revolutionary_tension_effect = {
-		# 	value = br_small_increase_in_revolutionary_tension_value
-		# }
-		br_specific_change_in_1de_estate_disatisfaction_effect = {
-			value = br_large_increase_in_estate_disatisfaction_value
-		}
-	}
-
-	#Country scope
-	ai_chance = {
-		value = 0
-	}
-}
-
-
-### Second estate Buttons ###
 je_clamp_down_on_church_rights_button = {
 	name = {
 		first_valid = {
@@ -317,7 +197,7 @@ je_clamp_down_on_church_rights_button = {
 
 	visible = {
 		br_can_button_from_given_estate_action_be_visible_trigger = {
-			estate_action_type = br_2de_estate_action_type
+			estate_action_type = br_1de_estate_action_type
 		}
 	}
 
@@ -338,7 +218,7 @@ je_clamp_down_on_church_rights_button = {
 			br_specific_change_in_revolutionary_tension_effect = {
 				value = br_small_increase_in_revolutionary_tension_value
 			}
-			br_specific_change_in_2de_estate_disatisfaction_effect = {
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
 				value = br_large_increase_in_estate_disatisfaction_value
 			}
 		}
@@ -349,7 +229,7 @@ je_clamp_down_on_church_rights_button = {
 			# br_specific_change_in_revolutionary_tension_effect = {
 			# 	value = br_small_increase_in_revolutionary_tension_value
 			# }
-			br_specific_change_in_2de_estate_disatisfaction_effect = {
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
 				value = br_medium_decrease_in_estate_disatisfaction_value
 			}
 		}
@@ -368,7 +248,7 @@ je_require_oath_of_loyalty_from_priests_button = {
 
 	visible = {
 		br_can_button_from_given_estate_action_be_visible_trigger = {
-			estate_action_type = br_2de_estate_action_type
+			estate_action_type = br_1de_estate_action_type
 		}
 		not = {
 			has_variable = br_require_oath_of_loyalty_from_priests_var
@@ -383,6 +263,126 @@ je_require_oath_of_loyalty_from_priests_button = {
 
 	effect = {
 		set_variable = br_require_oath_of_loyalty_from_priests_var
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+### Second estate Buttons ###
+je_create_new_titles_to_appease_nobles_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_new_noble_titles }
+				}
+				desc = "je_create_new_titles_to_appease_nobles_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_new_noble_titles
+				}
+				desc = "je_revoke_new_titles_given_to_nobles_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_new_noble_titles }
+				}
+				desc = "je_create_new_titles_to_appease_nobles_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_new_noble_titles
+				}
+				desc = "je_revoke_new_titles_given_to_nobles_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_2de_estate_action_type
+		}
+
+		#make it single use
+		#not = { has_modifier = br_modifier_new_noble_titles }
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#revoke noble titles
+		if = {
+			limit = {
+				has_modifier = br_modifier_new_noble_titles
+			}
+			remove_modifier = br_modifier_new_noble_titles
+
+			# br_specific_change_in_revolutionary_tension_effect = {
+			# 	value = br_small_increase_in_revolutionary_tension_value
+			# }
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_medium_increase_in_estate_disatisfaction_value
+			}
+		}
+		#create new noble titles
+		else = {
+			add_modifier = br_modifier_new_noble_titles
+
+			# br_specific_change_in_revolutionary_tension_effect = {
+			# 	value = br_small_increase_in_revolutionary_tension_value
+			# }
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+#Investigate Noble Tax Evasion
+je_investigate_noble_tax_evasion_button = {
+	name = "je_investigate_noble_tax_evasion_button"
+	desc = "je_investigate_noble_tax_evasion_button_desc"
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_2de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	cooldown = { years = 5 }
+
+	effect = {
+		#Investigate Noble Tax Evasion
+		# br_specific_change_in_revolutionary_tension_effect = {
+		# 	value = br_small_increase_in_revolutionary_tension_value
+		# }
 		br_specific_change_in_2de_estate_disatisfaction_effect = {
 			value = br_large_increase_in_estate_disatisfaction_value
 		}
@@ -705,10 +705,10 @@ je_move_imperial_residence_button = {
 			br_set_current_imperial_residence_to_alternate_effect = yes
 
 			br_specific_change_in_1de_estate_disatisfaction_effect = {
-				value = br_large_decrease_in_estate_disatisfaction_value
+				value = br_small_increase_in_estate_disatisfaction_value
 			}
 			br_specific_change_in_2de_estate_disatisfaction_effect = {
-				value = br_small_increase_in_estate_disatisfaction_value
+				value = br_large_decrease_in_estate_disatisfaction_value
 			}
 			br_specific_change_in_3de_estate_disatisfaction_effect = {
 				value = br_medium_increase_in_estate_disatisfaction_value
@@ -720,10 +720,10 @@ je_move_imperial_residence_button = {
 			br_set_current_imperial_residence_to_original_effect = yes
 
 			br_specific_change_in_1de_estate_disatisfaction_effect = {
-				value = br_small_increase_in_estate_disatisfaction_value
+				value = br_small_decrease_in_estate_disatisfaction_value
 			}
 			br_specific_change_in_2de_estate_disatisfaction_effect = {
-				value = br_small_decrease_in_estate_disatisfaction_value
+				value = br_small_increase_in_estate_disatisfaction_value
 			}
 			br_specific_change_in_3de_estate_disatisfaction_effect = {
 				value = br_small_decrease_in_estate_disatisfaction_value
@@ -774,10 +774,10 @@ je_contruct_statue_of_monarch_button = {
 		}
 
 		br_specific_change_in_1de_estate_disatisfaction_effect = {
-			value = br_medium_decrease_in_estate_disatisfaction_value
+			value = br_small_increase_in_estate_disatisfaction_value
 		}
 		br_specific_change_in_2de_estate_disatisfaction_effect = {
-			value = br_small_increase_in_estate_disatisfaction_value
+			value = br_medium_decrease_in_estate_disatisfaction_value
 		}
 		br_specific_change_in_3de_estate_disatisfaction_effect = {
 			value = br_medium_increase_in_estate_disatisfaction_value
