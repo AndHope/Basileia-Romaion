@@ -1,20 +1,34 @@
-﻿###je_hre_impending_revolution
+﻿###############################
+# Revolution looms JE effects #
+###############################
+
+#by Smekens
+
+##############################################
+#Script Values for je_hre_impending_revolution
+##############################################
+
+#######################################################################################
+###
+### Cooldown Script Values
+###
+#######################################################################################
+#timeout values
+br_small_timeout_duration_value = 60
+br_medium_timeout_duration_value = 200
+br_large_timeout_duration_value = 600
 
 br_impending_revolution_timeout = 18250  #50 years
-br_impending_revolution_pulse_event_cooldown_length = 60	#in days
+br_impending_revolution_pulse_event_cooldown_length = br_small_timeout_duration_value	#in days
 br_impending_revolution_specific_pulse_event_cooldown_length = 12	#in months
 
-#estate_types (used for creating structs)
-br_1de_estate_type = 1
-br_2de_estate_type = 2
-br_3de_estate_type = 3
 
-# #quantitative_indicator #was used to try and generate thru dynamic loc for change in  estate disatisfaction (didn't work)
-# br_small = 2
-# br_medium = 2
-# br_large = 2
-# br_unspecified = 4
-
+#######################################################################################
+###
+### Scripted progressbar Script Values
+###
+#######################################################################################
+### Extrema values of the Scripted progressbars
 #For some reason I can't give a scripted value or a variable as the min or max value of a scripted progress bars so for now these don't work, (but keep them in case pdx fixes this)
 #they can also still be used else where
 ##br_hre_impending_revolution_progress_bar
@@ -34,7 +48,62 @@ br_hre_impending_revolution_3de_estate_progress_bar_max_value = 1000		#represent
 br_hre_impending_revolution_3de_estate_progress_bar_min_value = 0
 br_hre_impending_revolution_3de_estate_progress_bar_start_value = br_hre_impending_revolution_3de_estate_progress_bar_min_value
 
+##
+### Monthly pulse values of the Scripted progressbars
+##
+#Monthly change in estate disatisfaction is in it's own category.
 
+#Change progressbar value if you have a certain percentage of radicals.
+br_impending_revolution_radicals_threshold = 0.5
+#br_impending_revolution_radicals_threshold as a percentage, (for loc purposes)
+br_impending_revolution_radicals_threshold_percentage = {
+	value = br_impending_revolution_radicals_threshold
+
+	multiply = 100
+}
+#increase revolution progress with this value
+br_impending_revolution_radicals_change_revoluion_progress_value = 1
+
+#Change progressbar value if you have a certain percentage of loyalists.
+br_impending_revolution_loyalist_threshold = 0.5
+#br_impending_revolution_loyalist_threshold as a percentage, (for loc purposes)
+br_impending_revolution_loyalist_threshold_percentage = {
+	value = br_impending_revolution_loyalist_threshold
+
+	multiply = 100
+}
+#decrease revolution progress with this value
+br_impending_revolution_loyalist_change_revoluion_progress_value = -1
+
+
+#######################################################################################
+###
+### JE pulse event trigger Script Values
+###
+#######################################################################################
+#threshold values for the JE pulse events that will determine when the event can trigger
+#hre_revolution_events.5
+br_impending_revolution_food_security_threshold = 0.3
+br_impending_revolution_food_security_population_percentage_threshold = 0.5
+
+#hre_revolution_events.6
+br_impending_revolution_bandit_turmoil_threshold = 0.2
+br_impending_revolution_bandit_nr_states_threshold = 1
+
+#hre_revolution_events.7
+br_impending_revolution_militia_formation_revolution_progress_threshold = 70
+br_impending_revolution_militia_formation_3de_estate_disatisfaction_threshold = 70
+
+#hre_revolution_events.8
+br_impending_revolution_arms_depots_raided_revolution_progress_threshold = 70
+br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold = 70
+
+
+#######################################################################################
+###
+### Revolutionary tension template values
+###
+#######################################################################################
 #increases in revolutionary tension
 br_small_increase_in_revolutionary_tension_value = 2
 br_medium_increase_in_revolutionary_tension_value = 4
@@ -44,6 +113,17 @@ br_small_decrease_in_revolutionary_tension_value = -2
 br_medium_decrease_in_revolutionary_tension_value = -4
 br_large_decrease_in_revolutionary_tension_value = -6
 
+#the percentage of estate disatisfaction that is converted in montly revolution progress
+br_1de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
+br_2de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
+br_3de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
+
+
+#######################################################################################
+###
+### Estate disatisfaction template values
+###
+#######################################################################################
 #increases in estate disatisfaction
 br_small_increase_in_estate_disatisfaction_value = 2
 br_medium_increase_in_estate_disatisfaction_value = 4
@@ -55,50 +135,16 @@ br_medium_decrease_in_estate_disatisfaction_value = -4
 br_large_decrease_in_estate_disatisfaction_value = -6
 br_enormous_decrease_in_estate_disatisfaction_value = -50
 
-#timeout values
-br_small_timeout_duration_value = 50
-br_medium_timeout_duration_value = 200
-br_large_timeout_duration_value = 600
 
-
-br_impending_revolution_radicals_threshold = 0.5
-br_impending_revolution_loyalist_threshold = 0.5
-
-#br_impending_revolution_radicals_threshold as a percentage
-br_impending_revolution_radicals_threshold_percentage = {
-	value = br_impending_revolution_radicals_threshold
-
-	multiply = 100
-}
-
-#br_impending_revolution_loyalist_threshold as a percentage
-br_impending_revolution_loyalist_threshold_percentage = {
-	value = br_impending_revolution_loyalist_threshold
-
-	multiply = 100
-}
-
-br_impending_revolution_radicals_change_revoluion_progress_value = 1 #increase revolution progress
-br_impending_revolution_loyalist_change_revoluion_progress_value = -1 #decrease revolution progress
-
-br_impending_revolution_food_security_threshold = 0.3
-br_impending_revolution_food_security_population_percentage_threshold = 0.5
-
-br_impending_revolution_bandit_turmoil_threshold = 0.2
-br_impending_revolution_bandit_nr_states_threshold = 1
-
-br_impending_revolution_militia_formation_revolution_progress_threshold = 70
-br_impending_revolution_militia_formation_3de_estate_disatisfaction_threshold = 70
-
-br_impending_revolution_arms_depots_raided_revolution_progress_threshold = 70
-br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold = 70
-
-
-## Revolution reform monthly pulse values
-br_impending_revolution_food_security_stablity_threshold = 0.75
-br_impending_revolution_min_food_security_population_percentage_threshold_for_stable_food_supply = 0.8
-br_impending_revolution_monarchy_popularity_threshold_for_popular_regime = 80	#value from -100 - 100
-
+#######################################################################################
+###
+### Estate Script Values
+###
+#######################################################################################
+#estate_types (used for creating structs)
+br_1de_estate_type = 1
+br_2de_estate_type = 2
+br_3de_estate_type = 3
 
 ### Monthly change in estate disatisfaction values
 ##1de estate values
@@ -139,6 +185,11 @@ br_impending_revolution_has_appointed_bureaucrats_change_in_3de_estate_disatisfa
 br_impending_revolution_has_elected_bureaucrats_change_in_3de_estate_disatisfaction_value = br_small_decrease_in_estate_disatisfaction_value
 
 
+#######################################################################################
+###
+### Monarchy Popularity Script Values
+###
+#######################################################################################
 ## Monarchy popularity Values ##
 br_monarchy_popularity_max_value = 100
 br_monarchy_popularity_min_value = -100
@@ -314,15 +365,28 @@ br_monarchy_popularity_change_value = {
 }
 
 
-### Estate values ###
-#the percentage of estate disatisfaction that is converted in montly revolution progress
-br_1de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
-br_2de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
-br_3de_estate_disatisfaction_to_revolution_progress_multiplier = 0.1
-
-
+#######################################################################################
+###
 ### Scripted buttons values
+###
+#######################################################################################
+## Values to identify which button belongs to which estate's actions or monarchy actions.
 br_1de_estate_action_type = 1
 br_2de_estate_action_type = 2
 br_3de_estate_action_type = 3
 br_monarchy_action_type = 4
+
+
+#######################################################################################
+###
+### je_hre_impending_revolution_reform Script Values
+###
+#######################################################################################
+## Revolution reform monthly pulse values
+#Will determine when food security is stable
+br_impending_revolution_food_security_stablity_threshold = 0.75	#The amount of food_security a pop has to have for his food security to be stable
+br_impending_revolution_min_food_security_population_percentage_threshold_for_stable_food_supply = 0.8	#The percentage of the population who's food security has to be stable
+
+#Will determine when the regime is popular
+#by checking if the current monarchy popularity is above this value
+br_impending_revolution_monarchy_popularity_threshold_for_popular_regime = 80	#value from -100 - 100
