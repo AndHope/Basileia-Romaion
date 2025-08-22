@@ -107,86 +107,8 @@ je_hre_impending_revolution = {
 
 	on_monthly_pulse = {
 		effect = {
+			#update it before the pulse events so we have the latest values
 			br_update_all_estate_disatisfaction_effect = yes
-
-			#Triggers for events
-			# if = {
-			# 	limit = {
-			# 		br_has_impending_revolution_pulse_event_cooldown = no
-			# 	}
-			# 	if = {
-			# 		limit = {
-			# 			or = {
-			# 				any_scope_state = {
-			# 					has_famine = yes
-			# 				}
-							
-			# 				any_scope_pop = { #don't know if this trigger is still nessesary, because when this is true there will likely be a famine as well
-			# 					food_security <= br_impending_revolution_food_security_threshold
-			# 					percent >= br_impending_revolution_food_security_population_percentage_threshold
-			# 				}
-			# 			}
-			# 			not = { has_variable = br_hre_impending_revolution_low_food_security_timeout_var }
-			# 		}
-			# 		trigger_event = {
-			# 			id = hre_revolution_events.5
-			# 			days = 10
-			# 			popup = yes
-			# 		}
-			# 	}
-			# 	else_if = {
-			# 		limit = {
-			# 			any_scope_state = {
-			# 				turmoil >=  br_impending_revolution_bandit_turmoil_threshold
-			# 				count >= br_impending_revolution_bandit_nr_states_threshold 
-			# 			}
-			# 			not = { has_variable = br_hre_impending_revolution_bandits_timeout_var }
-			# 		}
-			# 		trigger_event = {
-			# 			id = hre_revolution_events.6
-			# 			days = 10
-			# 			popup = yes
-			# 		}
-			# 	}
-			# 	else_if = {
-			# 		limit = {
-			# 			br_hre_has_specific_revolution_progress_scripted_trigger = {
-			# 				value = br_impending_revolution_militia_formation_revolution_progress_threshold
-			# 			}
-			# 			br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
-			# 				value = br_impending_revolution_militia_formation_3de_estate_disatisfaction_threshold
-			# 			}
-			# 			not = { has_variable = br_hre_impending_revolution_militias_form_timeout_var }
-			# 		}
-			# 		trigger_event = {
-			# 			id = hre_revolution_events.7
-			# 			days = 10
-			# 			popup = yes
-			# 		}
-			# 	}
-			# 	else_if = {
-			# 		limit = {
-			# 			has_variable = br_hre_impending_revolution_mititias_formed_var
-			# 			br_hre_has_specific_revolution_progress_scripted_trigger = {
-			# 				value = br_impending_revolution_arms_depots_raided_revolution_progress_threshold
-			# 			}
-			# 			br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
-			# 				value = br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold
-			# 			}
-			# 			not = { has_variable = br_hre_impending_revolution_arms_depots_raided_timeout_var }
-			# 		}
-			# 		trigger_event = {
-			# 			id = hre_revolution_events.8
-			# 			days = 10
-			# 			popup = yes
-			# 		}
-			# 	}
-			# }
-
-			#update monarchy popularity popularity 
-			br_specific_change_in_monarchy_popularity_effect = {
-				value = br_monarchy_popularity_change_value
-			}
 		}
 		random_events = {
 			chance_of_no_event = {
@@ -200,6 +122,14 @@ je_hre_impending_revolution = {
 			10 = hre_revolution_events.6
 			10 = hre_revolution_events.7
 			10 = hre_revolution_events.8
+		}
+		effect = {
+			#update it after the pulse events so there changes may be included
+			br_update_all_estate_disatisfaction_effect = yes
+			#update monarchy popularity popularity 
+			br_specific_change_in_monarchy_popularity_effect = {
+				value = br_monarchy_popularity_change_value
+			}
 		}
 	}
 
@@ -318,7 +248,6 @@ je_revolution_reform = {
 			has_modifier = br_modifier_unreliable_food_security
 			has_modifier = br_modifier_antiquated_regime
 			has_modifier = br_modifier_unpopular_regime
-			# has_modifier = br_modifier_feudalism
 		}
 	}
 
@@ -331,7 +260,6 @@ je_revolution_reform = {
 			name = br_modifier_peoples_monarchy
 			years = -1
 		}
-		#remove_modifier = br_modifier_noble_privileges
 	}
 
 	invalid = {
