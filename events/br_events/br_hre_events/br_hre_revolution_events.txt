@@ -181,13 +181,24 @@ hre_revolution_events.5 = {
 
 	duration = 3
 
-	immediate = {
-		#timeout var
-		set_variable = {
-			name = br_hre_impending_revolution_low_food_security_timeout_var
-			days = br_medium_timeout_duration_value
-		}
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
 
+	trigger = {
+		or = {
+			any_scope_state = { 
+				has_famine = yes
+			}
+			
+			any_scope_pop = { #don't know if this trigger is still nessesary, because when this is true there will likely be a famine as well
+				food_security <= br_impending_revolution_food_security_threshold
+				percent >= br_impending_revolution_food_security_population_percentage_threshold
+			}
+		}
+	}
+
+	immediate = {
 		#flag var
 		br_set_impending_revolution_pulse_event_cooldown = yes
 	}
@@ -224,13 +235,18 @@ hre_revolution_events.6 = {
 
 	duration = 3
 
-	immediate = {
-		#timeout var
-		set_variable = {
-			name = br_hre_impending_revolution_bandits_timeout_var
-			days = br_medium_timeout_duration_value
-		}
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
 
+	trigger = {
+		any_scope_state = {
+			turmoil >=  br_impending_revolution_bandit_turmoil_threshold
+			count >= br_impending_revolution_bandit_nr_states_threshold 
+		}
+	}
+
+	immediate = {
 		#flag var
 		set_variable = br_hre_impending_revolution_bandits_var
 		br_set_impending_revolution_pulse_event_cooldown = yes
@@ -268,13 +284,20 @@ hre_revolution_events.7 = {
 
 	duration = 3
 
-	immediate = {
-		#timeout var
-		set_variable = {
-			name = br_hre_impending_revolution_militias_form_timeout_var
-			days = br_large_timeout_duration_value
-		}
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
 
+	trigger = {
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_militia_formation_revolution_progress_threshold
+		}
+		br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_militia_formation_3de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
 		#flag var
 		set_variable = br_hre_impending_revolution_mititias_formed_var
 		br_set_impending_revolution_pulse_event_cooldown = yes
@@ -312,13 +335,21 @@ hre_revolution_events.8 = {
 
 	duration = 3
 
-	immediate = {
-		#timeout var
-		set_variable = {
-			name = br_hre_impending_revolution_arms_depots_raided_timeout_var
-			days = br_medium_timeout_duration_value
-		}
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
 
+	trigger = {
+		has_variable = br_hre_impending_revolution_mititias_formed_var
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_arms_depots_raided_revolution_progress_threshold
+		}
+		br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
 		#flag var
 		set_variable = br_hre_impending_revolution_arms_depots_raided_var
 		br_set_impending_revolution_pulse_event_cooldown = yes
