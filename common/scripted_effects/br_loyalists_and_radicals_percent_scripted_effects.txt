@@ -1,0 +1,201 @@
+﻿###############################################################################################################
+###                                                                                                         ###
+###	These scripted effects calculate the percentage of people in a country that are loyalists or radicals	###
+###                                                                                                         ###
+###############################################################################################################
+
+#Calculates the percent of a given countries population that is loyal
+#This effect takes TARGET_COUNTRY as parameters
+br_calculate_percent_of_loyalists_in_given_country_effect = {
+	br_calculate_percent_of_loyalists_or_radicals_in_given_country_effect = {
+		TARGET_COUNTRY = $TARGET_COUNTRY$
+		loyalist_or_radical = loyalist
+		return_var_name = $return_var_name$
+	}
+}
+
+#Calculates the percent of a given countries population that is radical
+#This effect takes TARGET_COUNTRY as parameters
+br_calculate_percent_of_radicals_in_given_country_effect = {
+	br_calculate_percent_of_loyalists_or_radicals_in_given_country_effect = {
+		TARGET_COUNTRY = $TARGET_COUNTRY$
+		loyalist_or_radical = radical
+		return_var_name = $return_var_name$
+	}
+}
+
+#Calculates the percent of a given countries population that is loyal/radical
+#This effect takes TARGET_COUNTRY and loyalist_or_radical as parameters
+br_calculate_percent_of_loyalists_or_radicals_in_given_country_effect = {
+	
+	$TARGET_COUNTRY$ = {
+		br_calculate_percent_of_loyalists_or_radicals_in_root_country_effect = {
+			loyalist_or_radical = $loyalist_or_radical$
+			return_var_name = $return_var_name$
+		}
+	}
+}
+
+#Calculates the percent of a countries population that follow a given religion
+#Should be called in the scope of the target country
+#Has TARGET_RELIGION as a parameter that expects a religion scope
+br_calculate_percent_of_loyalists_or_radicals_in_root_country_effect = {
+	#calculate the percentage of pops that is loyalist/radical (which one depends on wheater you have given loyalist or radical as value to argument the loyalist_or_radicals)
+	if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value = 0
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value > 0
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.1
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.05
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.1
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.2
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.1
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.2
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.3
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.2
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.3
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.4
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.3
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.4
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.5
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.4
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.5
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.6
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.5
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.6
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.7
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.6
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.7
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.8
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.7
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.8
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 0.9
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.8
+		}
+	}
+	else_if = {
+		limit = {
+			$loyalist_or_radical$_fraction = {
+				value >= 0.9
+			}
+			$loyalist_or_radical$_fraction = {
+				value < 1
+			}
+		}
+		set_variable = {
+			name = $return_var_name$
+			value = 0.9
+		}
+	}
+	else = {
+		set_variable = {
+			name = $return_var_name$
+			value = 1
+		}
+	}
+}

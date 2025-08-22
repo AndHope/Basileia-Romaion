@@ -83,6 +83,9 @@ je_hre_impending_revolution = {
 		br_create_estates_for_revolution_scripted_effect = yes
 		br_update_all_estate_disatisfaction_effect = yes
 
+		#update the percentage of loyalists and radicals
+		br_calculate_percentage_of_loyalists_and_radicals_in_root_country = yes
+
 		##Set the Imperial Residence
 		br_initialise_imperial_residence_effect = {
 			original_residence_state_region = s:STATE_ILE_DE_FRANCE
@@ -126,10 +129,14 @@ je_hre_impending_revolution = {
 		effect = {
 			#update it after the pulse events so there changes may be included
 			br_update_all_estate_disatisfaction_effect = yes
+
 			#update monarchy popularity popularity 
 			br_specific_change_in_monarchy_popularity_effect = {
 				value = br_monarchy_popularity_change_value
 			}
+
+			#update the percentage of loyalists and radicals
+			br_calculate_percentage_of_loyalists_and_radicals_in_root_country = yes
 		}
 	}
 

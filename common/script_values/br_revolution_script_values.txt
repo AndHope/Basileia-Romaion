@@ -53,27 +53,25 @@ br_hre_impending_revolution_3de_estate_progress_bar_start_value = br_hre_impendi
 ##
 #Monthly change in estate disatisfaction is in it's own category.
 
-#Change progressbar value if you have a certain percentage of radicals.
-br_impending_revolution_radicals_threshold = 0.5
-#br_impending_revolution_radicals_threshold as a percentage, (for loc purposes)
-br_impending_revolution_radicals_threshold_percentage = {
-	value = br_impending_revolution_radicals_threshold
-
-	multiply = 100
-}
-#increase revolution progress with this value
-br_impending_revolution_radicals_change_revoluion_progress_value = 1
-
 #Change progressbar value if you have a certain percentage of loyalists.
-br_impending_revolution_loyalist_threshold = 0.5
+#You can adjust the multiplier to change the disatisfaction change.
+br_impending_revolution_progress_bar_loyalist_multiplier = 1
 #br_impending_revolution_loyalist_threshold as a percentage, (for loc purposes)
-br_impending_revolution_loyalist_threshold_percentage = {
-	value = br_impending_revolution_loyalist_threshold
+br_impending_revolution_loyalist_percentage_as_integer = {
+	value = var:br_percentage_of_loyalists_var
 
 	multiply = 100
 }
-#decrease revolution progress with this value
-br_impending_revolution_loyalist_change_revoluion_progress_value = -1
+
+#Change progressbar value if you have a certain percentage of radicals.
+#You can adjust the multiplier to change the disatisfaction change.
+br_impending_revolution_progress_bar_radicals_multiplier = 1
+#br_impending_revolution_radicals_threshold as a percentage, (for loc purposes)
+br_impending_revolution_radicals_percentage_as_integer = {
+	value = var:br_percentage_of_radicals_var
+
+	multiply = 100
+}
 
 
 #######################################################################################
