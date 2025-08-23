@@ -13,16 +13,22 @@
 	max_value = 1000 #br_hre_impending_revolution_progress_bar_max_value	#represents a percentage
 
 	monthly_progress = {
-		add = {
-			desc = "br_impending_revolution_to_many_loyalists_loc"
-			value = var:br_percentage_of_loyalists_var
-			multiply = -1 #invert the sign because loyalists decreases revolution progress
-			multiply = br_impending_revolution_progress_bar_loyalist_multiplier
-		}
-		add = {
-			desc = "br_impending_revolution_to_many_radicals_loc"
-			value = var:br_percentage_of_radicals_var
-			multiply = br_impending_revolution_progress_bar_radicals_multiplier
+		if = { #each add needs to be in a if statement if the value it's adding is a var, otherwise it will spam errors.
+			limit = {
+				has_variable = br_percentage_of_loyalists_var
+				has_variable = br_percentage_of_radicals_var
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_loyalists_loc"
+				value = var:br_percentage_of_loyalists_var
+				multiply = -1 #invert the sign because loyalists decreases revolution progress
+				multiply = br_impending_revolution_progress_bar_loyalist_multiplier
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_radicals_loc"
+				value = var:br_percentage_of_radicals_var
+				multiply = br_impending_revolution_progress_bar_radicals_multiplier
+			}
 		}
 		if = {
 			limit = {
@@ -82,16 +88,22 @@
 	max_value = 1000 #br_hre_impending_revolution_1de_estate_progress_bar_max_value	#represents a percentage
 
 	monthly_progress = {
-		add = {
-			desc = "br_impending_revolution_to_many_loyalists_loc"
-			value = var:br_percentage_of_loyalists_var
-			multiply = -1 #invert the sign because loyalists decreases revolution progress
-			multiply = br_impending_revolution_progress_bar_loyalist_multiplier
-		}
-		add = {
-			desc = "br_impending_revolution_to_many_radicals_loc"
-			value = var:br_percentage_of_radicals_var
-			multiply = br_impending_revolution_progress_bar_radicals_multiplier
+		if = { #each add needs to be in a if statement if the value it's adding is a var, otherwise it will spam errors.
+			limit = {
+				has_variable = br_percentage_of_loyalists_var
+				has_variable = br_percentage_of_radicals_var
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_loyalists_loc"
+				value = var:br_percentage_of_loyalists_var
+				multiply = -1 #invert the sign because loyalists decreases revolution progress
+				multiply = br_impending_revolution_progress_bar_loyalist_multiplier
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_radicals_loc"
+				value = var:br_percentage_of_radicals_var
+				multiply = br_impending_revolution_progress_bar_radicals_multiplier
+			}
 		}
 
 		
@@ -239,16 +251,22 @@
 	max_value = 1000 #br_hre_impending_revolution_2de_estate_progress_bar_max_value	#represents a percentage
 
 	monthly_progress = {
-		add = {
-			desc = "br_impending_revolution_to_many_loyalists_loc"
-			value = var:br_percentage_of_loyalists_var
-			multiply = -1 #invert the sign because loyalists decreases revolution progress
-			multiply = br_impending_revolution_progress_bar_loyalist_multiplier
-		}
-		add = {
-			desc = "br_impending_revolution_to_many_radicals_loc"
-			value = var:br_percentage_of_radicals_var
-			multiply = br_impending_revolution_progress_bar_radicals_multiplier
+		if = { #each add needs to be in a if statement if the value it's adding is a var, otherwise it will spam errors.
+			limit = {
+				has_variable = br_percentage_of_loyalists_var
+				has_variable = br_percentage_of_radicals_var
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_loyalists_loc"
+				value = var:br_percentage_of_loyalists_var
+				multiply = -1 #invert the sign because loyalists decreases revolution progress
+				multiply = br_impending_revolution_progress_bar_loyalist_multiplier
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_radicals_loc"
+				value = var:br_percentage_of_radicals_var
+				multiply = br_impending_revolution_progress_bar_radicals_multiplier
+			}
 		}
 
 		
@@ -320,16 +338,22 @@
 	max_value = 1000 #br_hre_impending_revolution_3de_estate_progress_bar_max_value	#represents a percentage
 
 	monthly_progress = {
-		add = {
-			desc = "br_impending_revolution_to_many_loyalists_loc"
-			value = var:br_percentage_of_loyalists_var
-			multiply = -1 #invert the sign because loyalists decreases revolution progress
-			multiply = br_impending_revolution_progress_bar_loyalist_multiplier
-		}
-		add = {
-			desc = "br_impending_revolution_to_many_radicals_loc"
-			value = var:br_percentage_of_radicals_var
-			multiply = br_impending_revolution_progress_bar_radicals_multiplier
+		if = { #each add needs to be in a if statement if the value it's adding is a var, otherwise it will spam errors.
+			limit = {
+				has_variable = br_percentage_of_loyalists_var
+				has_variable = br_percentage_of_radicals_var
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_loyalists_loc"
+				value = var:br_percentage_of_loyalists_var
+				multiply = -1 #invert the sign because loyalists decreases revolution progress
+				multiply = br_impending_revolution_progress_bar_loyalist_multiplier
+			}
+			add = {
+				desc = "br_impending_revolution_to_many_radicals_loc"
+				value = var:br_percentage_of_radicals_var
+				multiply = br_impending_revolution_progress_bar_radicals_multiplier
+			}
 		}
 
 		
