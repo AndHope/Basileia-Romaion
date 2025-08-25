@@ -765,6 +765,96 @@ hre_revolution_events.307 = {
 	}
 }
 
+###
+### Enlightenment events
+###
+#Generic enlightenment ideas spread event
+hre_revolution_events.400 = {
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.400.t
+	desc = hre_revolution_events.400.d
+	flavor = hre_revolution_events.400.f
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.400.a
+		default_option = yes
+		br_increase_enlightenment_value_effect = yes
+	}
+}
+
+#Church and state should be seperated
+hre_revolution_events.401 = {
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/ep1_printing_press.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.401.t
+	desc = hre_revolution_events.401.d
+	flavor = hre_revolution_events.401.f
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	trigger = {
+		#The min amount of days the JE age should have before this event can trigger, (in days).
+		scope:journal_entry = {
+			journal_entry_age >= br_impending_revolution_enlightenment_idea_chuch_and_state_separated_min_je_age
+		}
+		not = {
+			var:br_3de_estate_var = {
+				has_modifier = br_modifier_chruch_and_state_should_be_separated
+			}
+		}
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.401.a
+		default_option = yes
+		br_increase_enlightenment_value_effect = yes
+		custom_tooltip = {
+			text = br_3de_estate_believes_chruch_and_state_should_be_separated_tt
+			br_give_estate_modifier_effect = {
+				estate_scope = var:br_3de_estate_var
+				modifier = br_modifier_chruch_and_state_should_be_separated
+			}
+		}
+	}
+}
+
 
 ###
 ### Revolution looms reform and suppress pulse events
