@@ -472,6 +472,18 @@
 				value = br_impending_revolution_not_has_chruch_and_state_should_be_separated_change_in_3de_estate_disatisfaction_value
 			}
 		}
+
+		#Having enlightenment value effects
+		if = {
+			limit = {
+				has_variable = br_enlightenment_value_var
+			}
+			add = {
+				desc = "br_impending_revolution_enlightenment_value_estate_disatisfaction_change_loc"
+				value = var:br_enlightenment_value_var
+				multiply = br_enlightenment_value_to_3de_estate_disatisfaction_multiplier
+			}
+		}
 		
 		#This does work but for some reason the desc is not displayed
 		# every_in_list = {
