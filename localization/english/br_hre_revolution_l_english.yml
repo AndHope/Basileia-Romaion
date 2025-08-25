@@ -138,7 +138,7 @@
  ##journal entries
  je_hre_impending_revolution: "The Revolution Looms"
  je_hre_impending_revolution_status: "We must address the current situation within the realm if we wish to prevent Revolution."
- je_hre_impending_revolution_reason: "The situation in the HRE has grown desperate and the people have had enough. If we don’t do anything then the situation could get out of control and our 1000 year government could be overthrown. We will have to consider carefully how to deal with the situation, do we reform the state or do we choose to suppress these so-called revolutionaries. In case we fail to do anything the consequences could be disastrous.\n$TOOLTIP_DELIMITER$\n@information! When the revolution progress reaches #variable 100%#! then the revolution will erupt. The revolution will be launched by the estate that has the highest disatisfaction. The disatisfaction of estates will change over time thru events and decisions you will take. $br_current_most_disatisfied_estate_loc$\n$TOOLTIP_DELIMITER$\n$br_monarchy_popularity_loc$"
+ je_hre_impending_revolution_reason: "The situation in the HRE has grown desperate and the people have had enough. If we don’t do anything then the situation could get out of control and our 1000 year government could be overthrown. We will have to consider carefully how to deal with the situation, do we reform the state or do we choose to suppress these so-called revolutionaries. In case we fail to do anything the consequences could be disastrous.\n$TOOLTIP_DELIMITER$\n@information! When the revolution progress reaches #variable 100%#! then the revolution will erupt. The revolution will be launched by the estate that has the highest disatisfaction. The disatisfaction of estates will change over time thru events and decisions you will take. $br_current_most_disatisfied_estate_loc$\n$br_how_to_change_estate_disatisfaction_tt_loc$\n$TOOLTIP_DELIMITER$\n$br_monarchy_popularity_loc$"
  br_monarchy_popularity_loc: "Currently, the Emperor enjoys $br_monarchy_popularity_current_value_loc$ [br_concept_monarchy_popularity].\nThis is expected to change by #tooltippable;tooltip:[Country.GetTooltipTag],je_monarchy_popularity_main_breakdown [Country.MakeScope.ScriptValue('br_monarchy_popularity_change_value')|+=]#! next month."
  je_monarchy_popularity_main_breakdown: "[Country.MakeScope.GetScriptValueDesc('br_monarchy_popularity_change_value')]\n$TOOLTIP_DELIMITER$\nMaximum value: [Country.MakeScope.ScriptValue('br_monarchy_popularity_max_value')|+=]\nMinimum value: [Country.MakeScope.ScriptValue('br_monarchy_popularity_min_value')|+=]"
  br_je_hre_impending_revolution_completion_header: "Will prevent #b Revolution#! if:\n"
@@ -387,6 +387,25 @@
  br_current_most_disatisfied_estate_loc: "Currently the estate with the highest disatisfaction is the #yellow [GetPlayer.GetCustom('br_estate_with_the_highest_disatisfaction_loc')]#! with $br_estate_with_the_highest_disatisfaction_value_loc$ disatisfaction."
  br_estate_with_the_highest_disatisfaction_value_loc: "[ROOT.GetVariable('br_estate_with_highest_disatisfaction_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
  br_1de_estate_disatisfaction_loc: "[ROOT.GetVariable('br_1de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+
+ #How to change estate disatisfaction
+ br_how_to_change_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_estate_disatisfaction_tt_body_loc How to change the disatisfaction of an estate.#!"
+ br_how_to_change_estate_disatisfaction_tt_body_loc: "#b How to change estate disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_change_1de_estate_disatisfaction_tt_loc$\n$br_how_to_change_2de_estate_disatisfaction_tt_loc$\n$br_how_to_change_3de_estate_disatisfaction_tt_loc$"
+ #How to change 1de estate disatisfaction
+ br_how_to_change_1de_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_1de_estate_disatisfaction_tt_body_loc How to change the disatisfaction of the [br_concept_1de_estate].#!"
+ br_how_to_change_1de_estate_disatisfaction_tt_body_loc: "#b How to change $br_1de_estate_loc$ disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_increase_1de_estate_disatisfaction_loc$\n\n$br_how_to_decrease_1de_estate_disatisfaction_loc$"
+ br_how_to_increase_1de_estate_disatisfaction_loc: "To increase $br_1de_estate_loc$ disatisfaction try to pass laws that would strip power away from the church or try to take actions against the estate thru the buttons in the [concept_journal_entry]."
+ br_how_to_decrease_1de_estate_disatisfaction_loc: "To decrease $br_1de_estate_loc$ disatisfaction try to pass laws that would give to the church or try to take actions supporting the estate thru the buttons in the [concept_journal_entry]."
+ #How to change 2de estate disatisfaction
+ br_how_to_change_2de_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_2de_estate_disatisfaction_tt_body_loc How to change the disatisfaction of the [br_concept_2de_estate].#!"
+ br_how_to_change_2de_estate_disatisfaction_tt_body_loc: "#b How to change $br_2de_estate_loc$ disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_increase_2de_estate_disatisfaction_loc$\n\n$br_how_to_decrease_2de_estate_disatisfaction_loc$"
+ br_how_to_increase_2de_estate_disatisfaction_loc: "To increase $br_2de_estate_loc$ disatisfaction try to pass laws that would strip power away from the nobility or try to take actions against the estate thru the buttons in the [concept_journal_entry]."
+ br_how_to_decrease_2de_estate_disatisfaction_loc: "To decrease $br_2de_estate_loc$ disatisfaction try to pass laws that would give to the nobility or try to take actions supporting the estate thru the buttons in the [concept_journal_entry]."
+ #How to change 1de estate disatisfaction
+ br_how_to_change_3de_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_3de_estate_disatisfaction_tt_body_loc How to change the disatisfaction of the [br_concept_3de_estate].#!"
+ br_how_to_change_3de_estate_disatisfaction_tt_body_loc: "#b How to change $br_3de_estate_loc$ disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_increase_3de_estate_disatisfaction_loc$\n\n$br_how_to_decrease_3de_estate_disatisfaction_loc$"
+ br_how_to_increase_3de_estate_disatisfaction_loc: "To increase $br_3de_estate_loc$ disatisfaction try to pass laws that would strip power away from the commoners/give power to the nobility or try to take actions against the estate thru the buttons in the [concept_journal_entry]."
+ br_how_to_decrease_3de_estate_disatisfaction_loc: "To decrease $br_3de_estate_loc$ disatisfaction try to pass laws that would give to the commoners or try to take actions supporting the estate thru the buttons in the [concept_journal_entry]."
 
  #######################################################################################
 
