@@ -470,8 +470,20 @@ hre_revolution_events.9 = { #A statue made of the king
 ### Revolution Erupts Events
 ###
 
+##
+## 1de estate launches revolution Events
+##
+
+##
+## 2de estate launches revolution Events
+##
+
+##
+## 3de estate launches revolution Events
+##
+
 # Mob of the 3de estate storms the Royal residence (versail or palais de la cite)
-hre_revolution_events.201 = {
+hre_revolution_events.301 = {
 
 	type = country_event
 
@@ -485,9 +497,9 @@ hre_revolution_events.201 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.201.t
-	desc = hre_revolution_events.201.d
-	flavor = hre_revolution_events.201.f
+	title = hre_revolution_events.301.t
+	desc = hre_revolution_events.301.d
+	flavor = hre_revolution_events.301.f
 
 	duration = 3
 
@@ -495,18 +507,18 @@ hre_revolution_events.201 = {
 	}
 
 	option = {
-		name = hre_revolution_events.201.a
+		name = hre_revolution_events.301.a
 		default_option = yes
 
 		trigger_event = {
-			id = hre_revolution_events.202
+			id = hre_revolution_events.302
 			popup = yes
 		}
 	}
 }
 
 # Emperor can chose to cooperate with the mob or resist
-hre_revolution_events.202 = {
+hre_revolution_events.302 = {
 
 	type = country_event
 
@@ -520,9 +532,9 @@ hre_revolution_events.202 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.202.t
-	desc = hre_revolution_events.202.d
-	flavor = hre_revolution_events.202.f
+	title = hre_revolution_events.302.t
+	desc = hre_revolution_events.302.d
+	flavor = hre_revolution_events.302.f
 
 	duration = 3
 
@@ -530,26 +542,26 @@ hre_revolution_events.202 = {
 	}
 
 	option = {
-		name = hre_revolution_events.202.a
+		name = hre_revolution_events.302.a
 
 		trigger_event = {
-			id = hre_revolution_events.203
+			id = hre_revolution_events.303
 			popup = yes
 		}
 	}
 	option = {
-		name = hre_revolution_events.202.b
+		name = hre_revolution_events.302.b
 		default_option = yes
 
 		trigger_event = {
-			id = hre_revolution_events.204
+			id = hre_revolution_events.304
 			popup = yes
 		}
 	}
 }
 
 # The emperor attempts to speak to the crowd
-hre_revolution_events.203 = {
+hre_revolution_events.303 = {
 
 	type = country_event
 	
@@ -564,9 +576,9 @@ hre_revolution_events.203 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.203.t
-	desc = hre_revolution_events.203.d
-	flavor = hre_revolution_events.203.f
+	title = hre_revolution_events.303.t
+	desc = hre_revolution_events.303.d
+	flavor = hre_revolution_events.303.f
 
 	duration = 3
 
@@ -574,7 +586,7 @@ hre_revolution_events.203 = {
 	}
 
 	option = {
-		name = hre_revolution_events.203.a
+		name = hre_revolution_events.303.a
 		default_option = yes
 
 		#set the current imperial residence to the original one if it wasn't the same already
@@ -583,13 +595,13 @@ hre_revolution_events.203 = {
 				br_is_current_imperial_residence_original_scripted_trigger = no
 			}
 			trigger_event = {
-				id = hre_revolution_events.205
+				id = hre_revolution_events.305
 				popup = yes
 			}
 		}
 		else = {
 			trigger_event = {
-				id = hre_revolution_events.206
+				id = hre_revolution_events.306
 				popup = yes
 			}
 		}
@@ -597,7 +609,7 @@ hre_revolution_events.203 = {
 }
 
 # The emperor orders the crowd dispersed
-hre_revolution_events.204 = {
+hre_revolution_events.304 = {
 
 	type = country_event
 	
@@ -611,9 +623,9 @@ hre_revolution_events.204 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.204.t
-	desc = hre_revolution_events.204.d
-	flavor = hre_revolution_events.204.f
+	title = hre_revolution_events.304.t
+	desc = hre_revolution_events.304.d
+	flavor = hre_revolution_events.304.f
 
 	duration = 3
 
@@ -621,7 +633,7 @@ hre_revolution_events.204 = {
 	}
 
 	option = {
-		name = hre_revolution_events.204.a
+		name = hre_revolution_events.304.a
 		default_option = yes
 
 		#set the current imperial residence to the original one if it wasn't the same already
@@ -630,13 +642,13 @@ hre_revolution_events.204 = {
 				br_is_current_imperial_residence_original_scripted_trigger = no
 			}
 			trigger_event = {
-				id = hre_revolution_events.205
+				id = hre_revolution_events.305
 				popup = yes
 			}
 		}
 		else = {
 			trigger_event = {
-				id = hre_revolution_events.206
+				id = hre_revolution_events.306
 				popup = yes
 			}
 		}
@@ -644,7 +656,7 @@ hre_revolution_events.204 = {
 }
 
 # If the Emperor lived in Versailles he and his familly are forced to move to palais de la cité in Paris (if the Emperor already lived there this event is skipped)
-hre_revolution_events.205 = {
+hre_revolution_events.305 = {
 
 	type = country_event
 	
@@ -658,9 +670,9 @@ hre_revolution_events.205 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.205.t
-	desc = hre_revolution_events.205.d
-	flavor = hre_revolution_events.205.f
+	title = hre_revolution_events.305.t
+	desc = hre_revolution_events.305.d
+	flavor = hre_revolution_events.305.f
 
 	duration = 3
 
@@ -668,7 +680,7 @@ hre_revolution_events.205 = {
 	}
 
 	option = {
-		name = hre_revolution_events.205.a
+		name = hre_revolution_events.305.a
 		default_option = yes
 
 		#set the current imperial residence to the original one if it wasn't the same already
@@ -680,14 +692,14 @@ hre_revolution_events.205 = {
 		}
 
 		trigger_event = {
-			id = hre_revolution_events.206
+			id = hre_revolution_events.306
 			popup = yes
 		}
 	}
 }
 
 # Emperor is put under house arrest
-hre_revolution_events.206 = {
+hre_revolution_events.306 = {
 
 	type = country_event
 
@@ -701,9 +713,9 @@ hre_revolution_events.206 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.206.t
-	desc = hre_revolution_events.206.d
-	flavor = hre_revolution_events.206.f
+	title = hre_revolution_events.306.t
+	desc = hre_revolution_events.306.d
+	flavor = hre_revolution_events.306.f
 
 	duration = 3
 
@@ -711,18 +723,18 @@ hre_revolution_events.206 = {
 	}
 
 	option = {
-		name = hre_revolution_events.206.a
+		name = hre_revolution_events.306.a
 		default_option = yes
 
 		trigger_event = {
-			id = hre_revolution_events.207
+			id = hre_revolution_events.307
 			popup = yes
 		}
 	}
 }
 
 # A revolutionary council of the 3de estate conviens and drafts a constitution
-hre_revolution_events.207 = {
+hre_revolution_events.307 = {
 
 	type = country_event
 
@@ -736,9 +748,9 @@ hre_revolution_events.207 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.207.t
-	desc = hre_revolution_events.207.d
-	flavor = hre_revolution_events.207.f
+	title = hre_revolution_events.307.t
+	desc = hre_revolution_events.307.d
+	flavor = hre_revolution_events.307.f
 
 	duration = 3
 
@@ -746,7 +758,7 @@ hre_revolution_events.207 = {
 	}
 
 	option = {
-		name = hre_revolution_events.207.a
+		name = hre_revolution_events.307.a
 		default_option = yes
 		custom_tooltip = br_revolution_errupts_warning_tt
 		br_revolution_has_finished_errupting_scripted_effect = yes
@@ -757,7 +769,7 @@ hre_revolution_events.207 = {
 ###
 ### Revolution looms reform and suppress pulse events
 ###
-hre_revolution_events.500 = {
+hre_revolution_events.500 = { #event not currently used
 	type = country_event
 
 	gui_window = event_window_superevent_modern_full
@@ -770,9 +782,9 @@ hre_revolution_events.500 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.207.t
-	desc = hre_revolution_events.207.d
-	flavor = hre_revolution_events.207.f
+	title = hre_revolution_events.500.t
+	desc = hre_revolution_events.500.d
+	flavor = hre_revolution_events.500.f
 
 	duration = 3
 
@@ -780,10 +792,8 @@ hre_revolution_events.500 = {
 	}
 
 	option = {
-		name = hre_revolution_events.207.a
+		name = hre_revolution_events.500.a
 		default_option = yes
-		custom_tooltip = br_revolution_errupts_warning_tt
-		br_revolution_has_finished_errupting_scripted_effect = yes
 	}
 }
 
