@@ -46,7 +46,45 @@ br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
 		br_3de_estate_launches_revolution_scripted_effect = yes
 	}
 }
-br_revolution_has_finished_errupting_scripted_effect = {
+br_1de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
+	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+	add_modifier = {
+		name = br_modifier_holiest_of_empires
+		years = -1
+	}
+	remove_modifier = br_modifier_holy_roman_emperor
+	remove_modifier = br_modifier_noble_privileges
+	activate_law = law_type:law_theocracy
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_appointed_bureaucrats
+	activate_law = law_type:law_religious_schools
+
+	set_ruling_interest_groups = {
+		ig_devout
+	}
+
+	#general effects for when a revolution errupts
+	br_revolution_has_finished_errupting_scripted_effect = yes
+}
+br_2de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
+	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+	add_modifier = {
+		name = br_modifier_an_aristocratic_empire
+		years = -1
+	}
+	remove_modifier = br_modifier_holy_roman_emperor
+	activate_law = law_type:law_oligarchy
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:br_law_feudalism_enforced
+
+	set_ruling_interest_groups = {
+		ig_landowners
+	}
+
+	#general effects for when a revolution errupts
+	br_revolution_has_finished_errupting_scripted_effect = yes
+}
+br_3de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
 	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
 	add_modifier = {
 		name = br_modifier_vive_la_revolution
@@ -58,11 +96,23 @@ br_revolution_has_finished_errupting_scripted_effect = {
 	}
 	remove_modifier = br_modifier_holy_roman_emperor
 	remove_modifier = br_modifier_noble_privileges
-	remove_modifier = br_modifier_feudalism
 	activate_law = law_type:law_presidential_republic
 	activate_law = law_type:law_wealth_voting #or anarchy
 	activate_law = law_type:law_tenant_farmers
 	activate_law = law_type:br_law_feudalism_not_enforced
+
+	set_ruling_interest_groups = {
+		ig_intelligentsia
+		ig_petty_bourgeoisie
+		ig_rural_folk
+	}
+
+	#general effects for when a revolution errupts
+	br_revolution_has_finished_errupting_scripted_effect = yes
+}
+#general effects for when a revolution errupts
+br_revolution_has_finished_errupting_scripted_effect = {
+	#potential generic effects for when a revolution errupts
 
 	#complete the erruption of the revolution
 	br_impending_revolution_complete_scripted_effect = yes
@@ -71,9 +121,9 @@ br_impending_revolution_complete_scripted_effect = {
 	#set var so the JE's will know that they need to end
 	hidden_effect = {
 		set_variable = br_impending_revolution_complete_var
+		br_remove_estates_for_revolution_scripted_effect = yes
+		br_remove_impending_revolution_variables_scripted_effect = yes
 	}
-	br_remove_estates_for_revolution_scripted_effect = yes
-	br_remove_impending_revolution_variables_scripted_effect = yes
 }
 
 
