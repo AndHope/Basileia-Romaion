@@ -352,6 +352,25 @@ GER = { # Germany
 	}
 }
 
+HRE = {
+	dynamic_country_name = {
+		name = dyn_c_hre_theocracy
+		adjective = dyn_c_hre_theocracy_adj
+
+		is_main_tag_only = yes
+		priority = 20
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				OR = {
+					has_law = law_type:law_theocracy
+				}
+			}
+		}
+	}
+}
+
 KUR = {
 	dynamic_country_name = {
 		name = dyn_c_kurd_princes
