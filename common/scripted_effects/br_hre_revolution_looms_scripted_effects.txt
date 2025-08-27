@@ -48,9 +48,12 @@ br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
 }
 br_1de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
 	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-	add_modifier = {
-		name = br_modifier_holiest_of_empires
-		years = -1
+	if = { #using if statement to prevent duplicate modifiers will make debugging easier
+		limit = { not = { has_modifier = br_modifier_holiest_of_empires } }
+		add_modifier = {
+			name = br_modifier_holiest_of_empires
+			years = -1
+		}
 	}
 	remove_modifier = br_modifier_holy_roman_emperor
 	remove_modifier = br_modifier_noble_privileges
@@ -68,9 +71,12 @@ br_1de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
 }
 br_2de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
 	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-	add_modifier = {
-		name = br_modifier_an_aristocratic_empire
-		years = -1
+	if = {
+		limit = { not = { has_modifier = br_modifier_an_aristocratic_empire } }
+		add_modifier = {
+			name = br_modifier_an_aristocratic_empire
+			years = -1
+		}
 	}
 	remove_modifier = br_modifier_holy_roman_emperor
 	activate_law = law_type:law_oligarchy
@@ -86,13 +92,19 @@ br_2de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
 }
 br_3de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
 	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-	add_modifier = {
-		name = br_modifier_vive_la_revolution
-		years = -1
+	if = {
+		limit = { not = { has_modifier = br_modifier_vive_la_revolution } }
+		add_modifier = {
+			name = br_modifier_vive_la_revolution
+			years = -1
+		}
 	}
-	add_modifier = {
-		name = br_modifier_roman_republicanism
-		years = -1
+	if = {
+		limit = { not = { has_modifier = br_modifier_roman_republicanism } }
+		add_modifier = {
+			name = br_modifier_roman_republicanism
+			years = -1
+		}
 	}
 	remove_modifier = br_modifier_holy_roman_emperor
 	remove_modifier = br_modifier_noble_privileges
@@ -105,6 +117,14 @@ br_3de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
 		ig_intelligentsia
 		ig_petty_bourgeoisie
 		ig_rural_folk
+	}
+
+	ig:ig_petty_bourgeoisie = {
+		leader = {
+			set_ideology = ideology:ideology_republican_leader
+		}
+		remove_ideology = ideology_reactionary
+		add_ideology = ideology_republican
 	}
 
 	#general effects for when a revolution errupts
