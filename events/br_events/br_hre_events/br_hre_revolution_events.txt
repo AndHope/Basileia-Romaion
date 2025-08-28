@@ -830,8 +830,31 @@ hre_revolution_events.205 = {
 	#A Van Vlaanderen ruler
 	option = {
 		name = hre_revolution_events.205.c
-		create_character = {
-			template = dynamic_van_vlaanderen_ruler_template
+		if = {
+			limit = {
+				exists = c:FLA
+				is_player = no #only the Ai can become a PU off FLA
+			}
+			c:FLA = {
+				br_remove_diplomatic_pact_subject = {
+					country = root
+				}
+				create_diplomatic_pact = {
+					country = root
+					type = personal_union
+				}
+				add_modifier = br_modifier_holy_roman_emperor
+			}
+			add_modifier = br_modifier_a_new_foreign_emperor
+		}
+		else = {
+			create_character = {
+				template = dynamic_van_vlaanderen_ruler_template
+			}
+		}
+
+		ai_chance = {
+			base = 100
 		}
 	}
 	#A D'Orléans ruler
@@ -844,8 +867,31 @@ hre_revolution_events.205 = {
 	#A Von Bayern ruler
 	option = {
 		name = hre_revolution_events.205.g
-		create_character = {
-			template = dynamic_von_bayern_ruler_template
+		if = {
+			limit = {
+				exists = c:BAV
+				is_player = no #only the Ai can become a PU off BAV
+			}
+			c:BAV = {
+				br_remove_diplomatic_pact_subject = {
+					country = root
+				}
+				create_diplomatic_pact = {
+					country = root
+					type = personal_union
+				}
+				add_modifier = br_modifier_holy_roman_emperor
+			}
+			add_modifier = br_modifier_a_new_foreign_emperor
+		}
+		else = {
+			create_character = {
+				template = dynamic_von_bayern_ruler_template
+			}	
+		}
+
+		ai_chance = {
+			base = 100
 		}
 	}
 	after = {
