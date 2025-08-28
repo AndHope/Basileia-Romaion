@@ -135,14 +135,23 @@ br_revolution_has_finished_errupting_scripted_effect = {
 	#potential generic effects for when a revolution errupts
 
 	#complete the erruption of the revolution
+	set_variable = br_impending_revolution_erupted_var
+	br_impending_revolution_complete_scripted_effect = yes
+}
+#general effects for when a revolution gets prevented
+br_revolution_has_been_prevented_scripted_effect = {
+	set_variable = br_impending_revolution_prevented_var
 	br_impending_revolution_complete_scripted_effect = yes
 }
 br_impending_revolution_complete_scripted_effect = {
 	#set var so the JE's will know that they need to end
 	hidden_effect = {
-		set_variable = br_impending_revolution_complete_var
+		set_variable = br_impending_revolution_finished_var
 		br_remove_estates_for_revolution_scripted_effect = yes
 		br_remove_impending_revolution_variables_scripted_effect = yes
+
+		#make vanilla revolution posible again
+		# set_immune_to_revolutions = yes	#for now i'll let the HRE remain immune can change later
 	}
 }
 

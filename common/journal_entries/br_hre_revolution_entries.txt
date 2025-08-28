@@ -153,19 +153,11 @@ je_hre_impending_revolution = {
 	complete = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = br_impending_revolution_complete_var
+			has_variable = br_impending_revolution_prevented_var
 		}
 	}
 
 	on_complete = {
-		# trigger_event = {
-		# 	id = hre_revolution_events.2
-		# 	popup = yes
-		# }
-
-		# hidden_effect = {
-		# 	set_variable = br_impending_revolution_complete_var
-		# }
 		add_journal_entry = {
 			type = je_national_identity
 		}
@@ -200,6 +192,17 @@ je_hre_impending_revolution = {
 	#on_timeout the revolution happens
 	on_timeout = {
 		br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = yes
+	}
+
+	invalid = {
+		#It's hidden because this is just to make sure that the JE gets removed when debugging
+		hidden_trigger = {
+			custom_tooltip = {
+				text = finished_revolution_tt
+				has_variable = br_impending_revolution_finished_var
+				not = { has_variable = br_impending_revolution_prevented_var }
+			}
+		}
 	}
 
 	weight = 10000
@@ -280,7 +283,7 @@ je_revolution_reform = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = br_impending_revolution_complete_var
+			has_variable = br_impending_revolution_finished_var
 		}
 	}
 
@@ -335,7 +338,7 @@ je_revolution_suppress = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = br_impending_revolution_complete_var
+			has_variable = br_impending_revolution_finished_var
 		}
 	}
 
@@ -380,7 +383,7 @@ je_revolution_suppress = {
 # 	invalid = {
 # 		custom_tooltip = {
 # 			text = finished_revolution_tt
-# 			has_variable = br_impending_revolution_complete_var
+# 			has_variable = br_impending_revolution_prevented_var
 # 		}
 # 	}
 
