@@ -652,6 +652,208 @@ hre_revolution_events.105 = {
 ##
 ## 2de estate launches revolution Events
 ##
+# A group of nobles is hosting a lavish feast outside the capital
+hre_revolution_events.201 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.201.t
+	desc = hre_revolution_events.201.d
+	flavor = hre_revolution_events.201.f
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.201.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.202
+			popup = yes
+		}
+	}
+}
+
+# The Emperor attends the feast
+hre_revolution_events.202 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.202.t
+	desc = hre_revolution_events.202.d
+	flavor = hre_revolution_events.202.f
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.202.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.203
+			popup = yes
+		}
+	}
+}
+
+# The nobles seize the Emperor
+hre_revolution_events.203 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.203.t
+	desc = hre_revolution_events.203.d
+	flavor = hre_revolution_events.203.f
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.203.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.204
+			popup = yes
+		}
+	}
+}
+
+# The nobility gathers in the capital
+hre_revolution_events.204 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.204.t
+	desc = hre_revolution_events.204.d
+	flavor = hre_revolution_events.204.f
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.204.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.205
+			popup = yes
+		}
+	}
+}
+
+# The nobility decides on who will be Emperor
+hre_revolution_events.205 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.205.t
+	desc = hre_revolution_events.205.d
+	flavor = hre_revolution_events.205.f
+
+	duration = 3
+
+	immediate = {
+	}
+
+	#A Carolingian ruler
+	option = {
+		name = hre_revolution_events.205.a
+		create_character = {
+			template = dynamic_carolingian_ruler_template
+		}
+	}
+	#A Merovingian ruler
+	option = {
+		name = hre_revolution_events.205.b
+		default_option = yes
+		create_character = {
+			template = dynamic_merovingian_ruler_template
+		}
+	}
+	#A Van Vlaanderen ruler
+	option = {
+		name = hre_revolution_events.205.c
+		create_character = {
+			template = dynamic_van_vlaanderen_ruler_template
+		}
+	}
+	#A D'Orléans ruler
+	option = {
+		name = hre_revolution_events.205.e
+		create_character = {
+			template = dynamic_orleanist_ruler_template
+		}
+	}
+	#A Von Bayern ruler
+	option = {
+		name = hre_revolution_events.205.g
+		create_character = {
+			template = dynamic_von_bayern_ruler_template
+		}
+	}
+	after = {
+		# custom_tooltip = br_revolution_errupts_warning_tt	#commented out as there is no JE for now
+		#br_2de_estate_has_finished_overthrowing_the_monarch_scripted_effect = yes
+	}
+}
+
 
 ##
 ## 3de estate launches revolution Events
