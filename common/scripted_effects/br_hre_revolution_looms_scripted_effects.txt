@@ -15,10 +15,10 @@
 #######################################################################################
 #executed when the JE is finished
 br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
-	#set a var so we know what estate has the highest disatisfaction
-	br_update_all_estate_disatisfaction_effect = yes
+	#set a var so we know what estate has the highest dissatisfaction
+	br_update_all_estate_dissatisfaction_effect = yes
 
-	#if first estate has highest disatisfaction
+	#if first estate has highest dissatisfaction
 	if = {
 		limit = {
 			br_has_given_estate_highest_dissatisfaction_trigger = {
@@ -27,7 +27,7 @@ br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
 		}
 		br_1de_estate_launches_revolution_scripted_effect = yes
 	}
-	#if second estate has highest disatisfaction
+	#if second estate has highest dissatisfaction
 	else_if = {
 		limit = {
 			br_has_given_estate_highest_dissatisfaction_trigger = {
@@ -36,7 +36,7 @@ br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
 		}
 		br_2de_estate_launches_revolution_scripted_effect = yes
 	}
-	#if first third has highest disatisfaction
+	#if first third has highest dissatisfaction
 	else_if = {
 		limit = {
 			br_has_given_estate_highest_dissatisfaction_trigger = {
@@ -254,7 +254,7 @@ br_specific_change_in_revolutionary_tension_effect = {
 ##
 ##Change revolutionary progress/tension loc scripted effects
 ##
-#these effects allow you to generate the loc keys to indicate a amount of change the disatisfaction of a given estate
+#these effects allow you to generate the loc keys to indicate a amount of change the dissatisfaction of a given estate
 br_generate_tt_for_change_in_revolutionary_tension_loc_effect = {
 	br_select_type_for_change_in_revolutionary_tension_loc_effect = {
 		value = $value$
@@ -401,8 +401,8 @@ br_remove_estates_for_revolution_scripted_effect = {
 	# 	}
 	# }
 
-	#remove highest disatisfaction var
-	remove_variable = br_estate_with_highest_disatisfaction_var
+	#remove highest dissatisfaction var
+	remove_variable = br_estate_with_highest_dissatisfaction_var
 
 	#remove each estate
 	br_remove_estate = {
@@ -432,8 +432,8 @@ br_give_estate_modifier_effect = {
 ##
 ## Estates dissatisfaction
 ##
-#the estate with the highest dissatisfaction is stored in 'br_estate_with_highest_disatisfaction_var'
-#and the dissatisfaction value of an estate can be accessed thru the var 'br_estate_disatisfaction_var'
+#the estate with the highest dissatisfaction is stored in 'br_estate_with_highest_dissatisfaction_var'
+#and the dissatisfaction value of an estate can be accessed thru the var 'br_estate_dissatisfaction_var'
 
 #Store the values of estate progress bars in var's
 br_store_1de_estate_progress_bar_value_in_var = {
@@ -486,62 +486,62 @@ br_store_3de_estate_progress_bar_value_in_var = {
 	remove_global_variable = temporary_progress_bar_value_var
 }
 
-#update the value of estate disatisfaction
-br_1de_estate_update_disatisfaction_from_progress_bar = {
+#update the value of estate dissatisfaction
+br_1de_estate_update_dissatisfaction_from_progress_bar = {
 	br_store_1de_estate_progress_bar_value_in_var = {
 		journal_entry = je:je_hre_impending_revolution
 		target_scope = var:br_1de_estate_var
-		variable_name = br_estate_disatisfaction_var
+		variable_name = br_estate_dissatisfaction_var
 	}
 }
-br_2de_estate_update_disatisfaction_from_progress_bar = {
+br_2de_estate_update_dissatisfaction_from_progress_bar = {
 	br_store_2de_estate_progress_bar_value_in_var = {
 		journal_entry = je:je_hre_impending_revolution
 		target_scope = var:br_2de_estate_var
-		variable_name = br_estate_disatisfaction_var
+		variable_name = br_estate_dissatisfaction_var
 	}
 }
-br_3de_estate_update_disatisfaction_from_progress_bar = {
+br_3de_estate_update_dissatisfaction_from_progress_bar = {
 	br_store_3de_estate_progress_bar_value_in_var = {
 		journal_entry = je:je_hre_impending_revolution
 		target_scope = var:br_3de_estate_var
-		variable_name = br_estate_disatisfaction_var
+		variable_name = br_estate_dissatisfaction_var
 	}
 }
 
-br_set_estate_with_highest_disatisfaction_effect = {
+br_set_estate_with_highest_dissatisfaction_effect = {
 	#set the var to save the estate in
 	every_in_list = {
 		variable = br_list_of_estates
 		limit = { #it seems to apply the effect after it has done the limit for all the items in the list
 			root = {
 				OR = {
-					not = { has_variable = br_estate_with_highest_disatisfaction_var }
-					var:br_estate_with_highest_disatisfaction_var.var:br_estate_disatisfaction_var < prev.var:br_estate_disatisfaction_var
+					not = { has_variable = br_estate_with_highest_dissatisfaction_var }
+					var:br_estate_with_highest_dissatisfaction_var.var:br_estate_dissatisfaction_var < prev.var:br_estate_dissatisfaction_var
 				}
 			}
 		}
 		root = {
 			set_variable = {
-				name = br_estate_with_highest_disatisfaction_var
+				name = br_estate_with_highest_dissatisfaction_var
 				value = prev
 			}
 		}
 	}
 }
-br_update_all_estate_disatisfaction_effect = {
-	br_1de_estate_update_disatisfaction_from_progress_bar = yes
-	br_2de_estate_update_disatisfaction_from_progress_bar = yes
-	br_3de_estate_update_disatisfaction_from_progress_bar = yes
-	br_set_estate_with_highest_disatisfaction_effect = yes
+br_update_all_estate_dissatisfaction_effect = {
+	br_1de_estate_update_dissatisfaction_from_progress_bar = yes
+	br_2de_estate_update_dissatisfaction_from_progress_bar = yes
+	br_3de_estate_update_dissatisfaction_from_progress_bar = yes
+	br_set_estate_with_highest_dissatisfaction_effect = yes
 }
 
 
 ##
-##Change estate disatisfaction scripted effects
+##Change estate dissatisfaction scripted effects
 ##
-#change the estate disatisfaction of the given estate with the given value
-br_change_specific_estate_disatisfaction_effect = {
+#change the estate dissatisfaction of the given estate with the given value
+br_change_specific_estate_dissatisfaction_effect = {
 	je:je_hre_impending_revolution = {
 		if = {
 			limit = {
@@ -585,12 +585,12 @@ br_change_specific_estate_disatisfaction_effect = {
 	}
 
 	#updated the internal values in the estate structs, so they are consistent with the progress bars
-	br_update_all_estate_disatisfaction_effect = yes
+	br_update_all_estate_dissatisfaction_effect = yes
 }
 #set local var to display in loc
-# br_set_estate_with_increasing_disatisfaction_effect = {
+# br_set_estate_with_increasing_dissatisfaction_effect = {
 # 	set_local_variable = {
-# 		name = br_estate_with_increasing_disatisfaction_var
+# 		name = br_estate_with_increasing_dissatisfaction_var
 # 		value = $estate_scope$
 # 	}
 # }
@@ -600,29 +600,29 @@ br_change_specific_estate_disatisfaction_effect = {
 # 		value = $quantitative_indicator$
 # 	}
 # }
-#same as 'br_change_specific_estate_disatisfaction_effect' but with custom_tooltip for predefined values
-br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+#same as 'br_change_specific_estate_dissatisfaction_effect' but with custom_tooltip for predefined values
+br_specific_change_in_estate_dissatisfaction_for_specific_estate_effect = {
 	hidden_effect = {
-		br_change_specific_estate_disatisfaction_effect = {
+		br_change_specific_estate_dissatisfaction_effect = {
 			estate_scope = $estate_scope$
 			value = $value$
 		}
 	}
 	set_local_variable = {
-		name = br_change_in_disatisfaction_var
+		name = br_change_in_dissatisfaction_var
 		value = $value$
 	}
 
 	##This was to attemt and make the loc more dynamic, will try later again?
 	# custom_tooltip = {
 	# 	#Set the estate in a local var so it can be displayed in the tt loc
-	# 	br_set_estate_with_increasing_disatisfaction_effect = {
+	# 	br_set_estate_with_increasing_dissatisfaction_effect = {
 	# 		estate_scope = $estate_scope$
 	# 	}
 
 	# 	if = {
 	# 		limit = {
-	# 			$value$ = br_small_increase_in_estate_disatisfaction_value
+	# 			$value$ = br_small_increase_in_estate_dissatisfaction_value
 	# 		}
 	# 		br_set_quantitative_indicator_effect = {
 	# 			quantitative_indicator = br_small
@@ -630,7 +630,7 @@ br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
 	# 	}
 	# 	else_if = {
 	# 		limit = {
-	# 			$value$ = br_medium_increase_in_estate_disatisfaction_value
+	# 			$value$ = br_medium_increase_in_estate_dissatisfaction_value
 	# 		}
 	# 		br_set_quantitative_indicator_effect = {
 	# 			quantitative_indicator = br_medium
@@ -638,7 +638,7 @@ br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
 	# 	}
 	# 	else_if = {
 	# 		limit = {
-	# 			$value$ = br_large_increase_in_estate_disatisfaction_value
+	# 			$value$ = br_large_increase_in_estate_dissatisfaction_value
 	# 		}
 	# 		br_set_quantitative_indicator_effect = {
 	# 			quantitative_indicator = br_large
@@ -650,33 +650,33 @@ br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
 	# 		}
 	# 	}
 
-	# 	text = br_increase_in_estate_disatisfaction_tt
+	# 	text = br_increase_in_estate_dissatisfaction_tt
 	# }
 
 	#Decide which tt to use
-	#contruct tooltip loc dynamicly based on the change in estate disatisfaction and the given estate
-	br_generate_tt_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	#contruct tooltip loc dynamicly based on the change in estate dissatisfaction and the given estate
+	br_generate_tt_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 		value = $value$
 		estate_scope = $estate_scope$
 	}
 }
 
 ##
-##Change estate disatisfaction loc scripted effects
+##Change estate dissatisfaction loc scripted effects
 ##
-#these effects allow you to generate the loc to indicate a amount of change the disatisfaction of a given estate
-br_generate_tt_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
-	br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+#these effects allow you to generate the loc to indicate a amount of change the dissatisfaction of a given estate
+br_generate_tt_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
+	br_select_type_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 		value = $value$
 		estate_scope = $estate_scope$
 	}
 }
-br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+br_select_type_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 	if = {
 		limit = {
 			$value$ >= 0
 		}
-		br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		br_select_amount_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 			value = $value$
 			estate_scope = $estate_scope$
 
@@ -685,7 +685,7 @@ br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effec
 		}
 	}
 	else = {
-		br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		br_select_amount_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 			value = $value$
 			estate_scope = $estate_scope$
 
@@ -694,16 +694,16 @@ br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effec
 		}
 	}
 }
-br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+br_select_amount_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 	#Decide which tt to use
 	if = {
 		limit = {
 			or = {
-				$value$ = br_small_increase_in_estate_disatisfaction_value
-				$value$ = br_small_decrease_in_estate_disatisfaction_value
+				$value$ = br_small_increase_in_estate_dissatisfaction_value
+				$value$ = br_small_decrease_in_estate_dissatisfaction_value
 			}
 		}
-		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		br_select_estate_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 			estate_scope = $estate_scope$
 
 			#tt arguments
@@ -714,11 +714,11 @@ br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 	else_if = {
 		limit = {
 			or = {
-				$value$ = br_medium_increase_in_estate_disatisfaction_value
-				$value$ = br_medium_decrease_in_estate_disatisfaction_value
+				$value$ = br_medium_increase_in_estate_dissatisfaction_value
+				$value$ = br_medium_decrease_in_estate_dissatisfaction_value
 			}
 		}
-		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		br_select_estate_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 			estate_scope = $estate_scope$
 
 			#tt arguments
@@ -729,11 +729,11 @@ br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 	else_if = {
 		limit = {
 			or = {
-				$value$ = br_large_increase_in_estate_disatisfaction_value
-				$value$ = br_large_decrease_in_estate_disatisfaction_value
+				$value$ = br_large_increase_in_estate_dissatisfaction_value
+				$value$ = br_large_decrease_in_estate_dissatisfaction_value
 			}
 		}
-		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		br_select_estate_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 			estate_scope = $estate_scope$
 
 			#tt arguments
@@ -742,7 +742,7 @@ br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 		}
 	}
 	else = {
-		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		br_select_estate_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 			estate_scope = $estate_scope$
 
 			#tt arguments
@@ -751,7 +751,7 @@ br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 		}
 	}
 }
-br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+br_select_estate_for_change_in_estate_dissatisfaction_for_specific_estate_loc_effect = {
 	#Decide which tt to use
 	if = {
 		limit = {
@@ -759,7 +759,7 @@ br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 				estate_scope = $estate_scope$
 			}
 		}
-		custom_tooltip = br_hre_$amount_change$_$type_change$_in_1de_estate_disatisfaction_tt
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_1de_estate_dissatisfaction_tt
 	}
 	else_if = {
 		limit = {
@@ -767,7 +767,7 @@ br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 				estate_scope = $estate_scope$
 			}
 		}
-		custom_tooltip = br_hre_$amount_change$_$type_change$_in_2de_estate_disatisfaction_tt
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_2de_estate_dissatisfaction_tt
 	}
 	else_if = {
 		limit = {
@@ -775,27 +775,27 @@ br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_eff
 				estate_scope = $estate_scope$
 			}
 		}
-		custom_tooltip = br_hre_$amount_change$_$type_change$_in_3de_estate_disatisfaction_tt
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_3de_estate_dissatisfaction_tt
 	}
 }
 
 ##
-##Change specific estate disatisfaction presets scripted effects
+##Change specific estate dissatisfaction presets scripted effects
 ##
-br_specific_change_in_1de_estate_disatisfaction_effect = {
-	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+br_specific_change_in_1de_estate_dissatisfaction_effect = {
+	br_specific_change_in_estate_dissatisfaction_for_specific_estate_effect = {
 		estate_scope = var:br_1de_estate_var
 		value = $value$
 	}
 }
-br_specific_change_in_2de_estate_disatisfaction_effect = {
-	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+br_specific_change_in_2de_estate_dissatisfaction_effect = {
+	br_specific_change_in_estate_dissatisfaction_for_specific_estate_effect = {
 		estate_scope = var:br_2de_estate_var
 		value = $value$
 	}
 }
-br_specific_change_in_3de_estate_disatisfaction_effect = {
-	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+br_specific_change_in_3de_estate_dissatisfaction_effect = {
+	br_specific_change_in_estate_dissatisfaction_for_specific_estate_effect = {
 		estate_scope = var:br_3de_estate_var
 		value = $value$
 	}
