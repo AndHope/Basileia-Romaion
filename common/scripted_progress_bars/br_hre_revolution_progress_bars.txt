@@ -393,6 +393,50 @@
 				value = br_impending_revolution_has_feudalism_affirmative_action_change_in_2de_estate_disatisfaction_value
 			}
 		}
+		#Voting laws effects
+		if = {
+			limit = {
+				not = {
+					or = {
+						has_law = law_type:law_autocracy
+						has_law = law_type:law_oligarchy
+					}
+				}
+			}
+			add = {
+				desc = "br_impending_revolution_not_has_autocracy_or_oligarchy_loc"
+				value = br_impending_revolution_not_has_autocracy_or_oligarchy_change_in_2de_estate_disatisfaction_value
+			}
+		}
+		#Bureaucracy laws effects
+		if = {
+			limit = {
+				has_law = law_type:law_hereditary_bureaucrats
+				always = no	#currently does not affect their disatisfaction
+			}
+			add = {
+				desc = "br_impending_revolution_has_hereditary_bureaucrats_loc"
+				value = br_impending_revolution_has_hereditary_bureaucrats_change_in_2de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:law_appointed_bureaucrats
+			}
+			add = {
+				desc = "br_impending_revolution_has_appointed_bureaucrats_loc"
+				value = br_impending_revolution_has_appointed_bureaucrats_change_in_2de_estate_disatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				has_law = law_type:law_elected_bureaucrats
+			}
+			add = {
+				desc = "br_impending_revolution_has_elected_bureaucrats_loc"
+				value = br_impending_revolution_has_elected_bureaucrats_change_in_2de_estate_disatisfaction_value
+			}
+		}
 	}
  }
 
