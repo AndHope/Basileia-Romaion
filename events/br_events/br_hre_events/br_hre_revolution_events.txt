@@ -447,7 +447,10 @@ hre_revolution_events.9 = { #A statue made of the king
 		}
 		
 		#Supporters of pro feudalism approve of statue
-		movement_type:br_movement_pro_feudalism = {
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = br_movement_pro_feudalism
+			}
 			every_influenced_interest_group = {
 				limit = {
 					law_stance = {
@@ -463,7 +466,10 @@ hre_revolution_events.9 = { #A statue made of the king
 		}
 
 		#Supporters of anti feudalism disapprove of statue
-		movement_type:br_movement_anti_feudalism = {
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = br_movement_anti_feudalism
+			}
 			every_influenced_interest_group = {
 				add_modifier = {
 					name = modifier_ig_disapprove_of_statue
@@ -1417,34 +1423,34 @@ hre_revolution_events.401 = {
 ###
 ### Revolution looms reform and suppress pulse events
 ###
-hre_revolution_events.500 = { #event not currently used
-	type = country_event
+# hre_revolution_events.500 = { #event not currently used
+# 	type = country_event
 
-	gui_window = event_window_superevent_modern_full
+# 	gui_window = event_window_superevent_modern_full
 	
-	event_image = {
-		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
-	}
+# 	event_image = {
+# 		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+# 	}
 
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+# 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+# 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+# 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.500.t
-	desc = hre_revolution_events.500.d
-	flavor = hre_revolution_events.500.f
-	dlc = dlc_basileia_romaion
+# 	title = hre_revolution_events.500.t
+# 	desc = hre_revolution_events.500.d
+# 	flavor = hre_revolution_events.500.f
+# 	dlc = dlc_basileia_romaion
 
-	duration = 3
+# 	duration = 3
 
-	immediate = {
-	}
+# 	immediate = {
+# 	}
 
-	option = {
-		name = hre_revolution_events.500.a
-		default_option = yes
-	}
-}
+# 	option = {
+# 		name = hre_revolution_events.500.a
+# 		default_option = yes
+# 	}
+# }
 
 #Food security has stabilized
 hre_revolution_events.501 = {
