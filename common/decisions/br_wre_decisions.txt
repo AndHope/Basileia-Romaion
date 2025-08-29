@@ -1,0 +1,30 @@
+﻿
+br_proclaim_ambition_to_restore_wre_decision = {
+	is_shown = {
+		not = {
+			or = {
+				this ?= c:HRE
+				this ?= c:BYZ
+				religion = rel:orthodox
+				has_variable = br_ambition_to_restore_wre_var
+			}
+		}
+		any_primary_culture = {
+			has_discrimination_trait = european_heritage
+		}
+	}
+
+	possible = {
+	}
+
+	when_taken = {
+		set_variable = br_ambition_to_restore_wre_var
+		add_primary_culture = cu:latinoi
+		change_infamy = 50
+		custom_tooltip = br_can_now_form_wre_tt
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}

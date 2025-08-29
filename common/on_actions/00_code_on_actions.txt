@@ -2549,6 +2549,15 @@ on_country_formed = {
 			}
 			trigger_event = { id = fsa_events.1 popup = yes }
 		}
+
+		#BR expanded events, because it will otherwise trigger the vanilla formation.17 event via the else-statement
+		else_if = {
+			limit = {
+				c:br_WRE ?= ROOT
+			}
+			trigger_event = { id = br_wre_event.1 popup = yes }
+		}
+
 		else = {
 			trigger_event = { id = formation.17 popup = yes }
 		}

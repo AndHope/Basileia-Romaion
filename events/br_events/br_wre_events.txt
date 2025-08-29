@@ -1,0 +1,72 @@
+﻿namespace = br_wre_event
+
+# WRE formation event
+br_wre_event.1 = {
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_superevent_newspaper_full
+
+	title = br_wre_event.1.t
+	desc = br_wre_event.1.d
+	flavor = br_wre_event.1.f
+	dlc = dlc_basileia_romaion
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	trigger = {
+		c:br_WRE ?= THIS
+		NOT = { has_global_variable = br_has_formed_wre_var }
+	}
+
+	immediate = {
+		set_global_variable = br_has_formed_wre_var
+		save_scope_as = formation_country
+		every_country = {
+			limit = {
+				has_diplomatic_relevance = ROOT
+			}
+			post_notification = unification_notification_byz
+		}
+	}
+
+	option = {
+		name = br_wre_event.1.a
+		default_option = yes
+		add_modifier = {
+			name = unification_prestige
+			days = very_long_modifier_time
+		}
+		every_state_region = {
+			limit = {
+				OR = {
+					region = sr:region_rhine
+					region = sr:region_france
+					region = sr:region_england
+					region = sr:region_occitania
+					region = sr:region_south_germany
+					region = sr:region_italy
+					region = sr:region_balkans
+					region = sr:region_iberia
+					region = sr:region_north_africa
+				}
+				any_scope_state = {
+					NOT = { owner = ROOT }
+					NOT = { has_claim_by = ROOT }
+				}
+			}
+			add_claim = ROOT
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
