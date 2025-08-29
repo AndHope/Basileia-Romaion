@@ -119,22 +119,22 @@ je_hre_impending_revolution = {
 		}
 		random_events = {
 			chance_of_no_event = {
-				value = 0
+				value = 100
 				if = { #So there is no chance of an event triggering if the cooldown is active.
 					limit = { br_has_impending_revolution_pulse_event_cooldown = no }
-					multiply = 5
+					multiply = 0	#currently does not affect the change of no event
 				}
 			}
 			#events that change revolution progress and estate disatisfaction
-			0 = hre_revolution_events.5
-			0 = hre_revolution_events.6
-			0 = hre_revolution_events.7
-			0 = hre_revolution_events.8
-			0 = hre_revolution_events.10
-			0 = hre_revolution_events.11
+			10 = hre_revolution_events.5
+			10 = hre_revolution_events.6
+			10 = hre_revolution_events.7
+			10 = hre_revolution_events.8
+			10 = hre_revolution_events.10
+			10 = hre_revolution_events.11
 			#enlightenment events
-			1000 = hre_revolution_events.400
-			0 = hre_revolution_events.401
+			10 = hre_revolution_events.400
+			10 = hre_revolution_events.401
 		}
 		effect = {
 			#update it after the pulse events so there changes may be included
