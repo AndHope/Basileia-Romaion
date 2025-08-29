@@ -28,30 +28,32 @@
 ### HRE
 - HRE-Savoy Journal/Event to expand into Italy. HRE can help facilitate this to grow their subject possibly rename Savoy to Italy once it controls most of North Italy. Possible ERE tie in as they will likely want to limit HRE expansion into Italy.
 - More localizations
-- French identity changes tag for FRA can lead back to a Bonaparte Empire semi liberal constitution. 
-- New flag for Western Roman Republic
+- French identity changes tag for FRA can lead back to a Bonaparte Empire semi liberal constitution.
+- New flag for Western Roman Republic	-Done
 - Rise of Napoleon type figure for FRA or Western Roman Republic
 
 - Create unqiue mechanics for HRE power bloc.
 	- Goal would be to make a way to have it replace the vassal with indepdent countries that could not leave the power bloc at least not the way it currently works.
 		- attempted but it was buggy
 	#### HRE revolution update
-	- Add localization for the Western Roman Empire name change to all languages.
-	- Change journal icons and event images.
-	- Add flavor localization
+	- Add localization for the Western Roman Empire name change to all languages.	-Done
+	- Change journal icons and event images.	-Done
+	- Add flavor localization	-Done
 	- Add more completion effect to the identity and reconquest journals and events.
-	- Add icons to the new modifiers
+	- Add icons to the new modifiers	-Done
 	- make the remove frankish as primary culture better.
 
 	- Add unique frankish names
 	- Add Unique characters to the HRE and give them the right ideology
-	- Allow 3 kind of revolutions to happen one by each estate
+	- Allow 3 kind of revolutions to happen one by each estate	-Done
 	- Add effects to the new modifiers
 	- Incease Monarchy popularity event ideas
-		- build a statue of the emperor to increase popularity (use the existing statue of monarch modifier)
+		- build a statue of the emperor to increase popularity (use the existing statue of monarch modifier)	-Done
 	- Change revolution progress event ideas
-		- bandits roam in the counrty side
+		- bandits roam in the counrty side	-Done
 	- Some kind of institution for the revolution perhaps
+	- Add unique icons for the merovingian and carolingian ideologies
+	- Add a flag for a theocratic HRE
 
 ## General
 - Most of the mods flags and names are not set up in the flag definitions and country names files and do not change currently.
