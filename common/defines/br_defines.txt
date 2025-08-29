@@ -57,6 +57,9 @@ NEconomy = {
 	DEBT_SLAVERY_MAX_STATE_SLAVE_FRACTION = 0.15 # If more than this % of a state's population are slaves, do not enslave any more pops under debt slavery
 	SLAVE_TRADE_BASE_SLAVES_PER_WEEK = 50		#was 100 Base number of slaves that will be traded per marker per week
 
+	# The below value exists to ensure the world market imports are seeded with 'new' goods by adding the trade quantity of the good * times this to world market demand
+	# This is so that it's always profitable to be the first country exporting something
+	WORLD_MARKET_GOODS_DEMAND_BUFFER = 100 #10
 }
 
 #BR: Higher infamy threshold slower decay
@@ -77,7 +80,7 @@ NDiplomacy = {
 	WAR_GOAL_INFAMY_MAKE_TRIBUTARY = 1.5 #2.0
 
 	# Tension is used instead of relations by colonizable countries
-	TENSION_DECAY_RATE = 2.5 # Per year was 5
+	#TENSION_DECAY_RATE = 2.5 # Per year was 5
 
 	#ECONOMIC_DEPENDENCE_MIN = 0
 	#ECONOMIC_DEPENDENCE_MAX = 2 #5
