@@ -2,6 +2,17 @@
 
 # Update 141
 
+## HRE impending revolution rework
+- The lead up to the revolution within the HRE has been reworked.
+- A new JE that simulates the dissatisfaction of the 3 estates within feudalism, you will need to keep the dissatisfaction of these estates as well as revolution progress as low as possible. You will be able to do this by taking decisions in the JE, thru dynamic events and by passing laws that the estates desire. If the revoltion progress reaches it maximum value, than the estate with the highest dissatisfaction will launch a revolution (so not only the peasants can overthrow the monarchy but also the nobles or the clergy).
+- 32 new events, many new modifiers, 2 new character ideologies.
+- A new social hierarchy Feudalism (along with special laws) will be available for every european nation (that is not greek or greco-roman).
+- 2 new political movements pro and anti-feudalism with each a respective pro and anti-feudalism ideology.
+- Added a decision that allows you to abolish Feudalism if you have passed the correct laws.
+- A new objective screen for the HRE and the ERE.
+- A new dlc icon for the mod.
+- A gui popup that warns you if you are playing without CMF.
+
 ## Companies
 - company_ven_arsenal and company_gen_arsenal both given unique company icons
 - combine the logging and colonization companies and adjust building ownership
