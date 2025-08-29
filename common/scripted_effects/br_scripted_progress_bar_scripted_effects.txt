@@ -1,0 +1,28 @@
+﻿#Generic scripted effects for scripted progress bars
+
+#Stores the value of a specified progress bar from a specified journal_entry in a var
+br_store_progress_bar_value_in_var = {
+	je:$journal_entry_name$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = $progress_bar$
+		}
+	}
+	set_variable = {
+		name = $variable_name$
+		value = global_var:temporary_progress_bar_value_var
+	}
+}
+#example
+# br_store_progress_bar_value_in_var = {
+# 	journal_entry_name = je_hre_impending_revolution
+# 	progress_bar = "scripted_bar_progress(br_hre_impending_revolution_progress_bar)" #seems I can't pass these as an argument
+# 	variable_name = progress_test_var
+# }
+
+# je:je_hre_impending_revolution = {
+#    set_variable = {
+# 	name = test_var
+# 	value = je:je_hre_impending_revolution.scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)
+#    }
+# }

@@ -1,0 +1,227 @@
+﻿# How to use "br_is_county_supporting_independence_scripted_trigger"
+# br_is_county_supporting_independence_scripted_trigger = {
+# 	INITIATOR_COUNTRY = scope:country
+# 	TARGET_COUNTRY = scope:country_2
+# }
+
+
+#######################################################################################
+###
+### Revolution looms JE progress bar triggers
+###
+#######################################################################################
+br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+	scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
+		scripted_bar_progress = {
+			name = $PROGRESS_BAR$
+			value >= $VALUE$
+		}
+	}
+}
+
+br_hre_has_max_revolution_progress_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_progress_bar
+			VALUE = br_hre_impending_revolution_progress_bar_max_value
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max
+	}
+}
+
+br_hre_has_specific_revolution_progress_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_progress_bar
+			VALUE = $value$
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max
+	}
+}
+
+br_has_max_1ste_estate_disatisfaction_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_1de_estate_progress_bar
+			VALUE = br_hre_impending_revolution_1de_estate_progress_bar_max_value
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max #TODO
+	}
+}
+
+br_has_max_2ste_estate_disatisfaction_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_2de_estate_progress_bar
+			VALUE = br_hre_impending_revolution_2de_estate_progress_bar_max_value
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max #TODO
+	}
+}
+
+br_has_max_3ste_estate_disatisfaction_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_3de_estate_progress_bar
+			VALUE = br_hre_impending_revolution_3de_estate_progress_bar_max_value
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max #TODO
+	}
+}
+
+br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
+	#The revolution progress has reached 100%
+	custom_tooltip = {
+		br_scripted_progress_bar_has_reached_value_scripted_trigger = {
+			PROGRESS_BAR = br_hre_impending_revolution_3de_estate_progress_bar
+			VALUE = $value$
+		}
+		text = br_je_hre_impending_revolution_progress_reached_max #TODO
+	}
+}
+
+
+#######################################################################################
+###
+### Estate triggers
+###
+#######################################################################################
+
+#Check if a estate exists
+br_country_has_1de_estate_trigger = {
+	has_variable = br_1de_estate_var
+}
+br_country_has_2de_estate_trigger = {
+	has_variable = br_2de_estate_var
+}
+br_country_has_3de_estate_trigger = {
+	has_variable = br_3de_estate_var
+}
+
+#Check if the given estate has the given estate_type
+br_check_estate_type_scripted_trigger = {
+	$estate_scope$.var:com_type = $estate_type$
+}
+
+#Check if the given estate is the first estate
+br_is_given_estate_1de_estate_scripted_trigger = {
+	br_check_estate_type_scripted_trigger = {
+		estate_scope = $estate_scope$
+		estate_type = br_1de_estate_type
+	}
+}
+#Check if the given estate is the second estate
+br_is_given_estate_2de_estate_scripted_trigger = {
+	br_check_estate_type_scripted_trigger = {
+		estate_scope = $estate_scope$
+		estate_type = br_2de_estate_type
+	}
+}
+#Check if the given estate is the third estate
+br_is_given_estate_3de_estate_scripted_trigger = {
+	br_check_estate_type_scripted_trigger = {
+		estate_scope = $estate_scope$
+		estate_type = br_3de_estate_type
+	}
+}
+
+br_has_given_estate_highest_dissatisfaction_trigger = {
+	$estate_scope$ = var:br_estate_with_highest_disatisfaction_var
+}
+
+
+#######################################################################################
+###
+### Monarchy Popularity triggers
+###
+#######################################################################################
+br_has_monarchy_popularity_reached_given_value_trigger = {
+	var:br_monarchy_popularity_var >= $value$
+}
+
+br_has_monarchy_popularity_reached_max_value_trigger = {
+	br_has_monarchy_popularity_reached_given_value_trigger = {
+		value = br_monarchy_popularity_max_value
+	}
+}
+
+br_has_monarchy_popularity_reached_min_value_trigger = {
+	var:br_monarchy_popularity_var <= br_monarchy_popularity_max_value
+}
+
+
+#######################################################################################
+###
+### The Imperial residence triggers
+###
+#######################################################################################
+br_has_current_imperial_residence_scripted_trigger = {
+	has_variable = br_current_imperial_residence_var
+}
+br_has_original_imperial_residence_scripted_trigger = {
+	has_variable = br_original_imperial_residence_var
+}
+br_has_alternate_imperial_residence_scripted_trigger = {
+	has_variable = br_alternate_imperial_residence_var
+}
+br_is_current_imperial_residence_original_scripted_trigger = {
+	var:br_original_imperial_residence_var = var:br_current_imperial_residence_var
+}
+br_is_current_imperial_residence_alternate_scripted_trigger = {
+	var:br_alternate_imperial_residence_var = var:br_current_imperial_residence_var
+}
+
+
+#######################################################################################
+###
+### JE pulse events triggers
+###
+#######################################################################################
+#pulse events are the events triggerd by the on_action in the JE
+br_has_impending_revolution_pulse_event_cooldown = {
+	has_variable = br_impending_revolution_pulse_event_cooldown_var
+}
+
+
+#######################################################################################
+###
+### Scripted buttons effects
+###
+#######################################################################################
+#Check if a scripted button hidden behind on of the estate actions buttons should be set as visible or not
+#It expects a estate_action_type as argument, which should be one of the 3 posible estate action types or the br_monarchy_action_type
+br_can_button_from_given_estate_action_be_visible_trigger = {
+	or = {
+	trigger_if = {
+		limit = {
+			$estate_action_type$ = br_1de_estate_action_type
+		}
+		has_variable = br_1de_estate_button_selected_var
+	}
+	trigger_else_if = {
+		limit = {
+			$estate_action_type$ = br_2de_estate_action_type
+		}
+		has_variable = br_2de_estate_button_selected_var
+	}
+	trigger_else_if = {
+		limit = {
+			$estate_action_type$ = br_3de_estate_action_type
+		}
+		has_variable = br_3de_estate_button_selected_var
+	}
+	trigger_else_if = {
+		limit = {
+			$estate_action_type$ = br_monarchy_action_type
+		}
+		has_variable = br_revolution_monarchy_actions_button_selected_var
+	}
+	
+	#The AI should always be able to view the buttons, as it will otherwise mess with their ability to interact with all the buttons.
+	is_player = no
+}

@@ -103,3 +103,109 @@ br_create_recieve_investment_rights_treaty_scripted_effect = {
 		DURATION = $DURATION$
 	}
 }
+
+
+#######################################################################################
+###
+### Diplomatic pacts effects
+###
+#######################################################################################
+#removes a subject type diplomatic pact between the root scope (a country) and the argument 'country'
+br_remove_diplomatic_pact_subject = {
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = protectorate
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = protectorate
+		}
+	}
+	else_if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = puppet
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = puppet
+		}
+	}
+	else_if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = dominion
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = dominion
+		}
+	}
+	else_if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = personal_union
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = personal_union
+		}
+	}
+	else_if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = vassal
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = vassal
+		}
+	}
+	else_if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = tributary
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = tributary
+		}
+	}
+	else_if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = colony
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = colony
+		}
+	}
+	else_if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = $country$
+				type = chartered_company
+			}
+		}
+		remove_diplomatic_pact = {
+			country = $country$
+			type = chartered_company
+		}
+	}
+}

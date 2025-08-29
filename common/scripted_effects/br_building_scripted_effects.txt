@@ -1,0 +1,26 @@
+﻿#Effects for buildings
+
+#apply an effect to buildings of a given building_type in a given state region
+#the given effect has to be a scripted effect that has a argument "BUILDING", otherwise it won't work
+br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+	$STATE_REGION$ = {
+		every_scope_state = {
+			every_scope_building = {
+				if = {
+					limit = {
+						is_building_type = $BUILDING_TYPE$
+					}
+					$EFFECT$ = {
+						BUILDING = this
+					}
+				}
+			}
+		}
+	}
+}
+#example
+# br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+# 	STATE_REGION = s:STATE_ILE_DE_FRANCE
+# 	BUILDING_TYPE = br_building_palais_de_la_cite
+# 	EFFECT = br_set_current_imperial_residence_to_building_scripted_effect
+# }

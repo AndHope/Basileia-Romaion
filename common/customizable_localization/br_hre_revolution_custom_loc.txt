@@ -1,0 +1,138 @@
+﻿###
+###Custom loc for je_hre_impending_revolution
+###
+
+#add custom loc for the conference demands here
+br_imperial_residence_location_loc = {
+	type = country
+	
+	text = {
+		trigger = {
+			br_has_current_imperial_residence_scripted_trigger = yes
+		}
+		localization_key = br_concept_imperial_residence_location
+	}
+	
+	#generic loc
+	text = {
+		localization_key = br_point_string_loc
+	}
+	
+}
+
+br_estate_with_the_highest_disatisfaction_loc = {
+	type = country
+
+	text = {
+		trigger = {
+			var:br_estate_with_highest_disatisfaction_var.var:com_type = br_1de_estate_type
+		}
+		localization_key = [br_concept_1de_estate]
+	}
+	text = {
+		trigger = {
+			var:br_estate_with_highest_disatisfaction_var.var:com_type = br_2de_estate_type
+		}
+		localization_key = [br_concept_2de_estate]
+	}
+	text = {
+		trigger = {
+			var:br_estate_with_highest_disatisfaction_var.var:com_type = br_3de_estate_type
+		}
+		localization_key = [br_concept_3de_estate]
+	}
+}
+
+br_1de_estate_optional_obj_info_loc = {
+	type = country
+
+	text = {
+		trigger = {
+			br_country_has_1de_estate_trigger = yes
+		}
+		localization_key = br_1de_estate_obj_info_loc
+	}
+	text = {
+		localization_key = br_point_string_loc
+	}
+}
+br_2de_estate_optional_obj_info_loc = {
+	type = country
+
+	text = {
+		trigger = {
+			br_country_has_2de_estate_trigger = yes
+		}
+		localization_key = br_2de_estate_obj_info_loc
+	}
+	text = {
+		localization_key = br_point_string_loc
+	}
+}
+br_3de_estate_optional_obj_info_loc = {
+	type = country
+
+	text = {
+		trigger = {
+			br_country_has_3de_estate_trigger = yes
+		}
+		localization_key = br_3de_estate_obj_info_loc
+	}
+	text = {
+		localization_key = br_point_string_loc
+	}
+}
+
+# #can't get this to work because the local var that is set in a custom tooltip seems to be deleted because going to a custom_loc is a context switch
+# #Will try to make it work later TODO
+# br_estate_with_increasing_disatisfaction_loc = {
+# 	type = country
+
+# 	text = {
+# 		trigger = {
+# 			local_var:br_estate_with_increasing_disatisfaction_var.var:com_type = br_1de_estate_type
+# 		}
+# 		localization_key = br_1de_estate_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_estate_with_increasing_disatisfaction_var.var:com_type = br_2de_estate_type
+# 		}
+# 		localization_key = br_2de_estate_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_estate_with_increasing_disatisfaction_var.var:com_type = br_3de_estate_type
+# 		}
+# 		localization_key = br_3de_estate_loc
+# 	}
+# }
+
+# #can't get this to work because the local var that is set in a custom tooltip seems to be deleted because going to a custom_loc is a context switch
+# br_quantitative_indicator_loc = {
+# 	type = country
+
+# 	text = {
+# 		trigger = {
+# 			local_var:br_quantitative_indicator_var = br_small
+# 		}
+# 		localization_key = br_small_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_quantitative_indicator_var = br_medium
+# 		}
+# 		localization_key = br_medium_loc
+# 	}
+# 	text = {
+# 		trigger = {
+# 			local_var:br_quantitative_indicator_var = br_large
+# 		}
+# 		localization_key = br_large_loc
+# 	}
+
+# 	#generic loc
+# 	text = {
+# 		localization_key = br_unspecified_loc
+# 	}
+# }

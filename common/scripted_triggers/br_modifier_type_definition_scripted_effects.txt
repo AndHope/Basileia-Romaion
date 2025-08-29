@@ -1,0 +1,28 @@
+﻿#####################################
+# Modifier type definitons triggers #
+#####################################
+
+#by Smekens
+
+#########################################
+#Triggers for the Modifier type definitons
+#########################################
+
+#######################################################################################
+###
+### Has modifier type definitons trigger
+###
+#######################################################################################
+
+#To check if the current scope has a given modifier type definition, (this is for modifier type definitions that are not booleans)
+br_has_modifier_type_definition_trigger = {
+	or = {
+		modifier:$modifier_type_definiton$ > 0
+		modifier:$modifier_type_definiton$ < 0
+	}
+}
+
+#example
+# br_has_modifier_type_definition_trigger = {
+# 	modifier_type_definiton = country_will_add_1de_estate_monthly_disatisfaction_increase
+# }

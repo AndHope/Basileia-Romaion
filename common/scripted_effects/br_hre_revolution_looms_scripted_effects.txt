@@ -1,0 +1,1048 @@
+﻿###############################
+# Revolution looms JE effects #
+###############################
+
+#by Smekens
+
+#################
+#Effects for the impending revolution JE
+#################
+
+#######################################################################################
+###
+### Revolution looms JE finishes effects
+###
+#######################################################################################
+#executed when the JE is finished
+br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = {
+	#set a var so we know what estate has the highest disatisfaction
+	br_update_all_estate_disatisfaction_effect = yes
+
+	#if first estate has highest disatisfaction
+	if = {
+		limit = {
+			br_has_given_estate_highest_dissatisfaction_trigger = {
+				estate_scope = var:br_1de_estate_var
+			}
+		}
+		br_1de_estate_launches_revolution_scripted_effect = yes
+	}
+	#if second estate has highest disatisfaction
+	else_if = {
+		limit = {
+			br_has_given_estate_highest_dissatisfaction_trigger = {
+				estate_scope = var:br_2de_estate_var
+			}
+		}
+		br_2de_estate_launches_revolution_scripted_effect = yes
+	}
+	#if first third has highest disatisfaction
+	else_if = {
+		limit = {
+			br_has_given_estate_highest_dissatisfaction_trigger = {
+				estate_scope = var:br_3de_estate_var
+			}
+		}
+		br_3de_estate_launches_revolution_scripted_effect = yes
+	}
+}
+br_1de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
+	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+	if = { #using if statement to prevent duplicate modifiers will make debugging easier
+		limit = { not = { has_modifier = br_modifier_holiest_of_empires } }
+		add_modifier = {
+			name = br_modifier_holiest_of_empires
+			years = -1
+		}
+	}
+	remove_modifier = br_modifier_holy_roman_emperor
+	remove_modifier = br_modifier_noble_privileges
+	activate_law = law_type:law_theocracy
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_appointed_bureaucrats
+	activate_law = law_type:law_religious_schools
+
+	set_ruling_interest_groups = {
+		ig_devout
+	}
+
+	#general effects for when a revolution errupts
+	br_revolution_has_finished_errupting_scripted_effect = yes
+}
+br_2de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
+	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+	if = {
+		limit = { not = { has_modifier = br_modifier_an_aristocratic_empire } }
+		add_modifier = {
+			name = br_modifier_an_aristocratic_empire
+			years = -1
+		}
+	}
+	remove_modifier = br_modifier_holy_roman_emperor
+	activate_law = law_type:law_oligarchy
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:br_law_feudalism_enforced
+
+	set_ruling_interest_groups = {
+		ig_landowners
+	}
+
+	#general effects for when a revolution errupts
+	br_revolution_has_finished_errupting_scripted_effect = yes
+}
+br_3de_estate_has_finished_overthrowing_the_monarch_scripted_effect = {
+	#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
+	if = {
+		limit = { not = { has_modifier = br_modifier_vive_la_revolution } }
+		add_modifier = {
+			name = br_modifier_vive_la_revolution
+			years = -1
+		}
+	}
+	if = {
+		limit = { not = { has_modifier = br_modifier_roman_republicanism } }
+		add_modifier = {
+			name = br_modifier_roman_republicanism
+			years = -1
+		}
+	}
+	remove_modifier = br_modifier_holy_roman_emperor
+	remove_modifier = br_modifier_noble_privileges
+	activate_law = law_type:law_presidential_republic
+	activate_law = law_type:law_wealth_voting #or anarchy
+	activate_law = law_type:law_tenant_farmers
+	activate_law = law_type:br_law_feudalism_not_enforced
+
+	set_ruling_interest_groups = {
+		ig_intelligentsia
+		ig_petty_bourgeoisie
+		ig_rural_folk
+	}
+
+	ig:ig_petty_bourgeoisie = {
+		leader = {
+			set_ideology = ideology:ideology_republican_leader
+		}
+		remove_ideology = ideology_reactionary
+		add_ideology = ideology_republican
+	}
+
+	#general effects for when a revolution errupts
+	br_revolution_has_finished_errupting_scripted_effect = yes
+}
+#general effects for when a revolution errupts
+br_revolution_has_finished_errupting_scripted_effect = {
+	#potential generic effects for when a revolution errupts
+	add_journal_entry = {	#for now I will make national_identity available for all of the paths but later I will add a special JE for the 3de estate revolution
+		type = je_national_identity
+	}
+
+	#complete the erruption of the revolution
+	set_variable = br_impending_revolution_erupted_var
+	br_impending_revolution_complete_scripted_effect = yes
+}
+#general effects for when a revolution gets prevented
+br_revolution_has_been_prevented_scripted_effect = {
+	set_variable = br_impending_revolution_prevented_var
+	br_impending_revolution_complete_scripted_effect = yes
+}
+br_impending_revolution_complete_scripted_effect = {
+	#set var so the JE's will know that they need to end
+	hidden_effect = {
+		set_variable = br_impending_revolution_finished_var
+		br_remove_estates_for_revolution_scripted_effect = yes
+		br_remove_impending_revolution_variables_scripted_effect = yes
+
+		#make vanilla revolution posible again
+		# set_immune_to_revolutions = yes	#for now i'll let the HRE remain immune can change later
+	}
+}
+
+
+#######################################################################################
+###
+### Revolution is launched scripted effects
+###
+#######################################################################################
+br_1de_estate_launches_revolution_scripted_effect = {
+	trigger_event = {
+		id = hre_revolution_events.101
+		popup = yes
+	}
+}
+
+br_2de_estate_launches_revolution_scripted_effect = {
+	trigger_event = {
+		id = hre_revolution_events.201
+		popup = yes
+	}
+}
+
+br_3de_estate_launches_revolution_scripted_effect = {
+	trigger_event = {
+		id = hre_revolution_events.301
+		popup = yes
+	}
+}
+
+
+#######################################################################################
+###
+### JE pulse events effects
+###
+#######################################################################################
+#pulse events are the events triggerd by the on_action in the JE
+
+#no other pulse events will be triggered while this cooldown is active
+br_set_impending_revolution_pulse_event_cooldown = {
+	set_variable = {
+		name = br_impending_revolution_pulse_event_cooldown_var
+		days = br_impending_revolution_pulse_event_cooldown_length
+	}
+}
+
+#######################################################################################
+###
+### JE pulse effects
+###
+#######################################################################################
+br_calculate_percentage_of_loyalists_and_radicals_in_root_country = {
+	#calulate the percentage of loyalists
+	br_calculate_percent_of_loyalists_in_given_country_effect = {
+		TARGET_COUNTRY = root
+		return_var_name = br_percentage_of_loyalists_var
+	}
+	#calulate the percentage of radicals
+	br_calculate_percent_of_radicals_in_given_country_effect = {
+		TARGET_COUNTRY = root
+		return_var_name = br_percentage_of_radicals_var
+	}
+}
+
+
+
+#######################################################################################
+###
+### Change revoluion progress scripted effects
+###
+#######################################################################################
+br_change_in_revolutionary_progress_effect = {
+	je:je_hre_impending_revolution = {
+		add_progress = {
+			name = br_hre_impending_revolution_progress_bar
+			value = $value$
+		}
+	}
+}
+br_specific_change_in_revolutionary_tension_effect = {
+	hidden_effect = {
+		br_change_in_revolutionary_progress_effect = {
+			value = $value$
+		}
+	}
+	set_local_variable = {
+		name = br_change_in_revolution_progress_var
+		value = $value$
+	}
+
+	#Decide which tt to use
+	br_generate_tt_for_change_in_revolutionary_tension_loc_effect = {
+		value = $value$
+	}
+}
+
+##
+##Change revolutionary progress/tension loc scripted effects
+##
+#these effects allow you to generate the loc keys to indicate a amount of change the disatisfaction of a given estate
+br_generate_tt_for_change_in_revolutionary_tension_loc_effect = {
+	br_select_type_for_change_in_revolutionary_tension_loc_effect = {
+		value = $value$
+	}
+}
+br_select_type_for_change_in_revolutionary_tension_loc_effect = {
+	if = {
+		limit = {
+			$value$ >= 0
+		}
+		br_select_amount_for_change_in_revolutionary_tension_loc_effect = {
+			value = $value$
+
+			#tt arguments
+			type_change = increase
+		}
+	}
+	else = {
+		br_select_amount_for_change_in_revolutionary_tension_loc_effect = {
+			value = $value$
+
+			#tt arguments
+			type_change = decrease	
+		}
+	}
+}
+br_select_amount_for_change_in_revolutionary_tension_loc_effect = {
+	#Decide which tt to use
+	if = {
+		limit = {
+			or = {
+				$value$ = br_small_increase_in_revolutionary_tension_value
+				$value$ = br_small_decrease_in_revolutionary_tension_value
+			}
+		}
+		custom_tooltip = br_hre_small_$type_change$_in_revolution_progress_tt
+	}
+	else_if = {
+		limit = {
+			or = {
+				$value$ = br_medium_increase_in_revolutionary_tension_value
+				$value$ = br_medium_decrease_in_revolutionary_tension_value
+			}
+		}
+		custom_tooltip = br_hre_medium_$type_change$_in_revolution_progress_tt
+	}
+	else_if = {
+		limit = {
+			or = {
+				$value$ = br_large_increase_in_revolutionary_tension_value
+				$value$ = br_large_decrease_in_revolutionary_tension_value
+			}
+		}
+		custom_tooltip = br_hre_large_$type_change$_in_revolution_progress_tt
+	}
+	else = {
+		custom_tooltip = br_hre_unspecified_$type_change$_in_revolution_progress_tt
+	}
+}
+
+br_small_increase_in_revolutionary_tension_effect = {
+	br_specific_change_in_revolutionary_tension_effect = {
+		value = br_small_increase_in_revolutionary_tension_value
+	}
+}
+br_medium_increase_in_revolutionary_tension_effect = {
+	br_specific_change_in_revolutionary_tension_effect = {
+		value = br_medium_increase_in_revolutionary_tension_value
+	}
+}
+br_large_increase_in_revolutionary_tension_effect = {
+	br_specific_change_in_revolutionary_tension_effect = {
+		value = br_large_increase_in_revolutionary_tension_value
+	}
+}
+
+
+#######################################################################################
+###
+### Estates scripted effects
+###
+#######################################################################################
+
+br_create_new_estate = {
+	create_struct = {
+		struct_scope = $estate_name$
+		struct_type = $estate_type$
+	}
+
+	#save the struct in a var within the root
+	#the var will always be of the form br_estate_name_var
+	root = {
+		set_variable = {
+			name = br_$estate_name$_var
+			value = scope:$estate_name$
+		}
+		add_to_variable_list = {
+			name = br_list_of_estates
+			target = scope:$estate_name$
+		}
+	}
+}
+
+#example of how to use br_create_new_estate
+# br_create_new_estate = {
+# 	estate_name = 3de_estate
+# 	estate_type = 10 #can be used as a name by setting the value as a script_value
+# }
+
+#estates are structs, and structs live forever so have to be removed manually
+#also clean up the var in which the struct is saved
+br_remove_estate = {
+	destroy_struct = {
+		struct = scope:$estate_name$
+	}
+	remove_variable = br_$estate_name$_var
+}
+
+br_create_estates_for_revolution_scripted_effect = {
+	#1ste estate
+	br_create_new_estate = {
+		estate_name = 1de_estate
+		estate_type = br_1de_estate_type
+	}
+
+	#2ste estate
+	br_create_new_estate = {
+		estate_name = 2de_estate
+		estate_type = br_2de_estate_type
+	}
+
+	#3ste estate
+	br_create_new_estate = {
+		estate_name = 3de_estate
+		estate_type = br_3de_estate_type
+	}
+}
+
+br_remove_estates_for_revolution_scripted_effect = {
+	# every_in_list = { #can't get it to remove the var 
+	# 	variable = br_list_of_estates
+	# 	br_remove_estate = {
+	# 		estate_name = this
+	# 	}
+	# }
+
+	#remove highest disatisfaction var
+	remove_variable = br_estate_with_highest_disatisfaction_var
+
+	#remove each estate
+	br_remove_estate = {
+		estate_name = 1de_estate
+	}
+	br_remove_estate = {
+		estate_name = 2de_estate
+	}
+	br_remove_estate = {
+		estate_name = 3de_estate
+	}
+	clear_variable_list = br_list_of_estates
+}
+
+##
+## Estate gets modifier
+##
+#You will need to do custom tooltips
+br_give_estate_modifier_effect = { 
+	#Add the actual modifier to the estate
+	$estate_scope$ = {
+		add_modifier = $modifier$
+	}
+}
+
+
+##
+## Estates dissatisfaction
+##
+#the estate with the highest dissatisfaction is stored in 'br_estate_with_highest_disatisfaction_var'
+#and the dissatisfaction value of an estate can be accessed thru the var 'br_estate_disatisfaction_var'
+
+#Store the values of estate progress bars in var's
+br_store_1de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_1de_estate_progress_bar)"
+		}
+	}
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+br_store_2de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_2de_estate_progress_bar)"
+		}
+	}
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+br_store_3de_estate_progress_bar_value_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_hre_impending_revolution_3de_estate_progress_bar)"
+		}
+	}
+	
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+
+#update the value of estate disatisfaction
+br_1de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_1de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_1de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+br_2de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_2de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_2de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+br_3de_estate_update_disatisfaction_from_progress_bar = {
+	br_store_3de_estate_progress_bar_value_in_var = {
+		journal_entry = je:je_hre_impending_revolution
+		target_scope = var:br_3de_estate_var
+		variable_name = br_estate_disatisfaction_var
+	}
+}
+
+br_set_estate_with_highest_disatisfaction_effect = {
+	#set the var to save the estate in
+	every_in_list = {
+		variable = br_list_of_estates
+		limit = { #it seems to apply the effect after it has done the limit for all the items in the list
+			root = {
+				OR = {
+					not = { has_variable = br_estate_with_highest_disatisfaction_var }
+					var:br_estate_with_highest_disatisfaction_var.var:br_estate_disatisfaction_var < prev.var:br_estate_disatisfaction_var
+				}
+			}
+		}
+		root = {
+			set_variable = {
+				name = br_estate_with_highest_disatisfaction_var
+				value = prev
+			}
+		}
+	}
+}
+br_update_all_estate_disatisfaction_effect = {
+	br_1de_estate_update_disatisfaction_from_progress_bar = yes
+	br_2de_estate_update_disatisfaction_from_progress_bar = yes
+	br_3de_estate_update_disatisfaction_from_progress_bar = yes
+	br_set_estate_with_highest_disatisfaction_effect = yes
+}
+
+
+##
+##Change estate disatisfaction scripted effects
+##
+#change the estate disatisfaction of the given estate with the given value
+br_change_specific_estate_disatisfaction_effect = {
+	je:je_hre_impending_revolution = {
+		if = {
+			limit = {
+				root = { #has to happen in root because estate_scope does not exist in JE scope
+					br_is_given_estate_1de_estate_scripted_trigger = {
+						estate_scope = $estate_scope$
+					}
+				}
+			}
+			add_progress = {
+				name = br_hre_impending_revolution_1de_estate_progress_bar
+				value = $value$
+			}
+		}
+		else_if = {
+			limit = {
+				root = { #has to happen in root because estate_scope does not exist in JE scope
+					br_is_given_estate_2de_estate_scripted_trigger = {
+						estate_scope = $estate_scope$
+					}
+				}
+			}
+			add_progress = {
+				name = br_hre_impending_revolution_2de_estate_progress_bar
+				value = $value$
+			}
+		}
+		else_if = {
+			limit = {
+				root = { #has to happen in root because estate_scope does not exist in JE scope
+					br_is_given_estate_3de_estate_scripted_trigger = {
+						estate_scope = $estate_scope$
+					}
+				}
+			}
+			add_progress = {
+				name = br_hre_impending_revolution_3de_estate_progress_bar
+				value = $value$
+			}
+		}
+	}
+
+	#updated the internal values in the estate structs, so they are consistent with the progress bars
+	br_update_all_estate_disatisfaction_effect = yes
+}
+#set local var to display in loc
+# br_set_estate_with_increasing_disatisfaction_effect = {
+# 	set_local_variable = {
+# 		name = br_estate_with_increasing_disatisfaction_var
+# 		value = $estate_scope$
+# 	}
+# }
+# br_set_quantitative_indicator_effect = {
+# 	set_local_variable = {
+# 		name = br_quantitative_indicator_var
+# 		value = $quantitative_indicator$
+# 	}
+# }
+#same as 'br_change_specific_estate_disatisfaction_effect' but with custom_tooltip for predefined values
+br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+	hidden_effect = {
+		br_change_specific_estate_disatisfaction_effect = {
+			estate_scope = $estate_scope$
+			value = $value$
+		}
+	}
+	set_local_variable = {
+		name = br_change_in_disatisfaction_var
+		value = $value$
+	}
+
+	##This was to attemt and make the loc more dynamic, will try later again?
+	# custom_tooltip = {
+	# 	#Set the estate in a local var so it can be displayed in the tt loc
+	# 	br_set_estate_with_increasing_disatisfaction_effect = {
+	# 		estate_scope = $estate_scope$
+	# 	}
+
+	# 	if = {
+	# 		limit = {
+	# 			$value$ = br_small_increase_in_estate_disatisfaction_value
+	# 		}
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_small
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			$value$ = br_medium_increase_in_estate_disatisfaction_value
+	# 		}
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_medium
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			$value$ = br_large_increase_in_estate_disatisfaction_value
+	# 		}
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_large
+	# 		}
+	# 	}
+	# 	else = {
+	# 		br_set_quantitative_indicator_effect = {
+	# 			quantitative_indicator = br_unspecified
+	# 		}
+	# 	}
+
+	# 	text = br_increase_in_estate_disatisfaction_tt
+	# }
+
+	#Decide which tt to use
+	#contruct tooltip loc dynamicly based on the change in estate disatisfaction and the given estate
+	br_generate_tt_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		value = $value$
+		estate_scope = $estate_scope$
+	}
+}
+
+##
+##Change estate disatisfaction loc scripted effects
+##
+#these effects allow you to generate the loc to indicate a amount of change the disatisfaction of a given estate
+br_generate_tt_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+		value = $value$
+		estate_scope = $estate_scope$
+	}
+}
+br_select_type_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	if = {
+		limit = {
+			$value$ >= 0
+		}
+		br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			value = $value$
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = increase
+		}
+	}
+	else = {
+		br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			value = $value$
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = decrease	
+		}
+	}
+}
+br_select_amount_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	#Decide which tt to use
+	if = {
+		limit = {
+			or = {
+				$value$ = br_small_increase_in_estate_disatisfaction_value
+				$value$ = br_small_decrease_in_estate_disatisfaction_value
+			}
+		}
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = small
+		}
+	}
+	else_if = {
+		limit = {
+			or = {
+				$value$ = br_medium_increase_in_estate_disatisfaction_value
+				$value$ = br_medium_decrease_in_estate_disatisfaction_value
+			}
+		}
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = medium
+		}
+	}
+	else_if = {
+		limit = {
+			or = {
+				$value$ = br_large_increase_in_estate_disatisfaction_value
+				$value$ = br_large_decrease_in_estate_disatisfaction_value
+			}
+		}
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = large
+		}
+	}
+	else = {
+		br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+			estate_scope = $estate_scope$
+
+			#tt arguments
+			type_change = $type_change$
+			amount_change = unspecified
+		}
+	}
+}
+br_select_estate_for_change_in_estate_disatisfaction_for_specific_estate_loc_effect = {
+	#Decide which tt to use
+	if = {
+		limit = {
+			br_is_given_estate_1de_estate_scripted_trigger = {
+				estate_scope = $estate_scope$
+			}
+		}
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_1de_estate_disatisfaction_tt
+	}
+	else_if = {
+		limit = {
+			br_is_given_estate_2de_estate_scripted_trigger = {
+				estate_scope = $estate_scope$
+			}
+		}
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_2de_estate_disatisfaction_tt
+	}
+	else_if = {
+		limit = {
+			br_is_given_estate_3de_estate_scripted_trigger = {
+				estate_scope = $estate_scope$
+			}
+		}
+		custom_tooltip = br_hre_$amount_change$_$type_change$_in_3de_estate_disatisfaction_tt
+	}
+}
+
+##
+##Change specific estate disatisfaction presets scripted effects
+##
+br_specific_change_in_1de_estate_disatisfaction_effect = {
+	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+		estate_scope = var:br_1de_estate_var
+		value = $value$
+	}
+}
+br_specific_change_in_2de_estate_disatisfaction_effect = {
+	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+		estate_scope = var:br_2de_estate_var
+		value = $value$
+	}
+}
+br_specific_change_in_3de_estate_disatisfaction_effect = {
+	br_specific_change_in_estate_disatisfaction_for_specific_estate_effect = {
+		estate_scope = var:br_3de_estate_var
+		value = $value$
+	}
+}
+
+
+#######################################################################################
+###
+### Monarchy popularity effects
+###
+#######################################################################################
+br_specific_change_in_monarchy_popularity_effect = {
+	change_variable = {
+		name = br_monarchy_popularity_var
+		add = $value$
+	}
+	clamp_variable = {
+		name = br_monarchy_popularity_var
+		max = br_monarchy_popularity_max_value
+		min = br_monarchy_popularity_min_value
+	}
+}
+
+
+#######################################################################################
+###
+### The Imperial residence effects
+###
+#######################################################################################
+#set the residece of the imperial family (it is expected to be a building)
+
+##
+##Initialise Imperial residence effects
+##
+br_initialise_imperial_residence_effect = {
+	##Set the Imperial Residence
+	#set the original imperial residence so we know which one was the original
+	br_set_original_imperial_residence_to_building_type_in_state_scripted_effect = {
+		STATE_REGION = $original_residence_state_region$
+		BUILDING_TYPE = $original_residence_building_type$
+	}
+	#set the alternate imperial residence so we know which one is the alternate
+	br_set_alternate_imperial_residence_to_building_type_in_state_scripted_effect = {
+		STATE_REGION = $alternate_residence_state_region$
+		BUILDING_TYPE = $alternate_residence_building_type$
+	}
+
+	#set the original imperial residence as the current residence
+	br_set_current_imperial_residence_to_original_effect = yes
+}
+#example
+# br_initialise_imperial_residence_effect = {
+# 	original_residence_state_region = s:STATE_ILE_DE_FRANCE
+# 	original_residence_building_type = br_building_palais_de_la_cite
+
+# 	alternate_residence_state_region = s:STATE_ILE_DE_FRANCE
+# 	alternate_residence_building_type = br_building_versailles
+# }
+
+
+##
+##Current Imperial residence effects
+##
+br_set_current_imperial_residence_var_scripted_effect = {
+	set_variable = {
+		name = br_current_imperial_residence_var
+		value = $BUILDING$
+	}
+}
+
+br_remove_current_imperial_residence_var_scripted_effect = {
+	if = {
+		limit = {
+			has_variable = br_current_imperial_residence_var
+		}
+		var:br_current_imperial_residence_var = {
+			remove_modifier = br_modifier_imperial_residence
+		}
+		remove_variable = br_current_imperial_residence_var
+	}
+}
+
+br_set_current_imperial_residence_to_building_scripted_effect = {
+	#remove all effects form the prev residence
+	root = {
+		br_remove_current_imperial_residence_var_scripted_effect = yes
+	}
+	
+	#you need to save the building first as a scope and then save it as a var otherwise it will save the countries scope in the var for some unknown reason
+	$BUILDING$ = {
+		save_scope_as = br_current_imperial_residence_scope
+		add_modifier = br_modifier_imperial_residence
+	}
+	#also save in a var
+	root = {
+		br_set_current_imperial_residence_var_scripted_effect = {
+			BUILDING = scope:br_current_imperial_residence_scope
+		}
+	}
+}
+
+#set the imperial residence initialy on palais de la cité
+br_set_current_imperial_residence_to_building_type_in_state_scripted_effect = {
+	br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+		STATE_REGION = $STATE_REGION$
+		BUILDING_TYPE = $BUILDING_TYPE$
+		EFFECT = br_set_current_imperial_residence_to_building_scripted_effect
+	}
+}
+
+##
+##Original Imperial residence effects
+##
+br_set_original_imperial_residence_to_building_scripted_effect = {
+	#you need to save the building first as a scope and then save it as a var otherwise it will save the countries scope in the var for some unknown reason
+	$BUILDING$ = {
+		save_scope_as = br_original_imperial_residence_scope
+	}
+	root = {
+		#save in a var
+		set_variable = {
+			name = br_original_imperial_residence_var
+			value = scope:br_original_imperial_residence_scope
+		}
+	}
+}
+
+br_set_original_imperial_residence_to_building_type_in_state_scripted_effect = {
+	br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+		STATE_REGION = $STATE_REGION$
+		BUILDING_TYPE = $BUILDING_TYPE$
+		EFFECT = br_set_original_imperial_residence_to_building_scripted_effect
+	}
+}
+
+##
+##Alternate Imperial residence effects
+##
+br_set_alternate_imperial_residence_to_building_scripted_effect = {
+	#you need to save the building first as a scope and then save it as a var otherwise it will save the countries scope in the var for some unknown reason
+	$BUILDING$ = {
+		save_scope_as = br_alternate_imperial_residence_scope
+	}
+	root = {
+		#save in a var
+		set_variable = {
+			name = br_alternate_imperial_residence_var
+			value = scope:br_alternate_imperial_residence_scope
+		}
+	}
+}
+
+br_set_alternate_imperial_residence_to_building_type_in_state_scripted_effect = {
+	br_apply_effect_to_buildings_of_given_type_in_given_state_effect = {
+		STATE_REGION = $STATE_REGION$
+		BUILDING_TYPE = $BUILDING_TYPE$
+		EFFECT = br_set_alternate_imperial_residence_to_building_scripted_effect
+	}
+}
+
+##
+##Change current Imperial residence effects
+##
+
+br_set_current_imperial_residence_to_original_effect = {
+	br_set_current_imperial_residence_to_building_scripted_effect = {
+		BUILDING = var:br_original_imperial_residence_var
+	}
+}
+
+br_set_current_imperial_residence_to_alternate_effect = {
+	br_set_current_imperial_residence_to_building_scripted_effect = {
+		BUILDING = var:br_alternate_imperial_residence_var
+	}
+}
+
+
+#######################################################################################
+###
+### Scripted buttons effects
+###
+#######################################################################################
+br_remove_estate_button_flags_effect = {
+	#action buttons flags
+	remove_variable = br_1de_estate_button_selected_var
+	remove_variable = br_2de_estate_button_selected_var
+	remove_variable = br_3de_estate_button_selected_var
+	remove_variable = br_revolution_monarchy_actions_button_selected_var
+}
+
+
+#######################################################################################
+###
+### Enlightenment effects
+###
+#######################################################################################
+br_increase_enlightenment_value_effect = {
+	custom_tooltip = {
+		change_variable = {
+			name = br_enlightenment_value_var
+			add = br_basic_change_in_enlightenment_value
+		}
+		text = br_hre_impending_revolution_increase_enlightenment_value_tt
+	}
+}
+br_decrease_enlightenment_value_effect = {
+	custom_tooltip = {
+		change_variable = {
+			name = br_enlightenment_value_var
+			subtract = br_basic_change_in_enlightenment_value
+		}
+		text = br_hre_impending_revolution_decrease_enlightenment_value_tt
+	}
+}
+br_cleanup_enlightenment_variables_effect = {
+	remove_variable = br_enlightenment_value_var
+}
+
+
+#######################################################################################
+###
+### Variable cleanup effects
+###
+#######################################################################################
+br_button_variables_cleanup_scripted_effect = {
+	#action buttons flags
+	br_remove_estate_button_flags_effect = yes
+
+	#sub action buttons flags
+	remove_variable = br_require_oath_of_loyalty_from_priests_var
+}
+
+br_je_pulse_events_variable_cleanup_scripted_effect = {
+	remove_variable = br_hre_impending_revolution_mititias_formed_var
+	remove_variable = br_hre_impending_revolution_arms_depots_raided_var
+	remove_variable = br_hre_impending_revolution_divine_right_denied_var
+	remove_variable = br_hre_impending_revolution_whispers_of_a_new_monarch_var
+}
+
+br_remove_impending_revolution_variables_scripted_effect = {
+	remove_variable = br_current_imperial_residence_var
+	remove_variable = br_original_imperial_residence_var
+	remove_variable = br_alternate_imperial_residence_var
+	remove_variable = br_monarchy_popularity_var
+	remove_variable = br_percentage_of_loyalists_var
+	remove_variable = br_percentage_of_radicals_var
+	br_button_variables_cleanup_scripted_effect = yes
+	br_je_pulse_events_variable_cleanup_scripted_effect = yes
+	br_cleanup_enlightenment_variables_effect = yes
+}

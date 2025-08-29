@@ -1,0 +1,54 @@
+﻿# BR Mod - This is executed last among all history
+GLOBAL = {
+	every_country = {
+		if = {
+			limit = {
+				religion = {
+					has_discrimination_trait = christian
+				}
+				
+				any_primary_culture = {
+					has_discrimination_trait = european_heritage
+					not = {
+						has_discrimination_trait = greek_culture
+						has_discrimination_trait = greco_roman_heritage
+					}
+				}
+			}
+			set_social_hierarchy = br_feudalism_social_hierarchy
+			add_modifier = br_modifier_feudalism
+
+			#variable has to be set in the country scope so the law group of the social hierarchy is displayed, otherwise it won't show
+			set_variable = {
+				name = custom_social_hierarchy
+				value = active_law:br_lawgroup_feudalism_hegemony
+			}
+
+			#Add feudalism ideologies to IG's
+			ig:ig_armed_forces = {
+				add_ideology = ideology_pro_feudalism
+			}
+			ig:ig_devout = {
+				add_ideology = ideology_pro_feudalism
+			}
+			# ig:ig_industrialists = {
+			# 	add_ideology = ideology_pro_feudalism
+			# }
+			ig:ig_intelligentsia = {
+				add_ideology = ideology_anti_feudalism
+			}
+			ig:ig_landowners = {
+				add_ideology = ideology_pro_feudalism
+			}
+			ig:ig_petty_bourgeoisie = {
+				add_ideology = ideology_anti_feudalism
+			}
+			ig:ig_rural_folk = {
+				add_ideology = ideology_anti_feudalism
+			}
+			ig:ig_trade_unions = {
+				add_ideology = ideology_anti_feudalism
+			}
+		}
+	}
+}

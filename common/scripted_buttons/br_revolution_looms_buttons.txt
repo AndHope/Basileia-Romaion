@@ -1,0 +1,833 @@
+﻿# UI can obtain a datamodel with all the scripted buttons via "[JournalEntry.GetScriptedButtons]". Each scripted button can be referred to via "ScriptedButton".
+# Scripted buttons' properties can be accessed by UI via
+# - [ScriptedButton.GetName] -> provides a string
+# - [ScriptedButton.GetDesc] -> provides a string
+# - [ScriptedButton.GetEffectDesc] -> provides a string
+# - [ScriptedButton.IsVisible] -> provides a bool
+# - [ScriptedButton.IsPossible] -> provides a bool
+# - [ScriptedButton.ExecuteEffect] -> provides nothing, executes the effect
+
+je_1de_estate_button = {
+	name = "je_1de_estate_button"
+	desc = "je_1de_estate_button_desc"
+
+	visible = { always = yes }
+
+	selected = {
+		has_variable = br_1de_estate_button_selected_var
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_1de_estate_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_1de_estate_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_1de_estate_button_selected_var
+			custom_tooltip = br_show_1de_estate_actions_loc
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+je_2de_estate_button = {
+	name = "je_2de_estate_button"
+	desc = "je_2de_estate_button_desc"
+
+	visible = { always = yes }
+
+	selected = {
+		has_variable = br_2de_estate_button_selected_var
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_2de_estate_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_2de_estate_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_2de_estate_button_selected_var
+			custom_tooltip = br_show_2de_estate_actions_loc
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+je_3de_estate_button = {
+	name = "je_3de_estate_button"
+	desc = "je_3de_estate_button_desc"
+
+	visible = { always = yes }
+
+	selected = {
+		has_variable = br_3de_estate_button_selected_var
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_3de_estate_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_3de_estate_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_3de_estate_button_selected_var
+			custom_tooltip = br_show_3de_estate_actions_loc
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+je_revolution_monarchy_actions_button = {
+	name = "je_revolution_monarchy_actions_button"
+	desc = "je_revolution_monarchy_actions_button_desc"
+
+	visible = { always = yes }
+
+	selected = {
+		has_variable = br_revolution_monarchy_actions_button_selected_var
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#if you already have the flag just remove the flag, else set the flag
+		if = {
+			limit = {
+				has_variable = br_revolution_monarchy_actions_button_selected_var
+			}
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			custom_tooltip = br_hide_revolution_monarchy_actions_loc
+		}
+		else = {
+			#remove the flag var of all the estate buttons
+			br_remove_estate_button_flags_effect = yes
+			#set the flag to know if the button is selected
+			set_variable = br_revolution_monarchy_actions_button_selected_var
+			custom_tooltip = br_show_revolution_monarchy_actions_loc
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+### First estate Buttons ###
+je_clamp_down_on_church_rights_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_special_chruch_rights }
+				}
+				desc = "je_reinstate_chruch_rights_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_special_chruch_rights
+				}
+				desc = "je_clamp_down_on_church_rights_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_special_chruch_rights }
+				}
+				desc = "je_reinstate_chruch_rights_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_special_chruch_rights
+				}
+				desc = "je_clamp_down_on_church_rights_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_1de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#clamp down on church rights
+		if = {
+			limit = {
+				has_modifier = br_modifier_special_chruch_rights
+			}
+			remove_modifier = br_modifier_special_chruch_rights
+
+			br_specific_change_in_revolutionary_tension_effect = {
+				value = br_small_increase_in_revolutionary_tension_value
+			}
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_large_increase_in_estate_disatisfaction_value
+			}
+		}
+		#reinstate chruch rights
+		else = {
+			add_modifier = br_modifier_special_chruch_rights
+
+			# br_specific_change_in_revolutionary_tension_effect = {
+			# 	value = br_small_increase_in_revolutionary_tension_value
+			# }
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_medium_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+#Require Oath of Loyalty from Priests
+je_require_oath_of_loyalty_from_priests_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_require_oath_of_loyalty_from_priests }
+				}
+				desc = "je_require_oath_of_loyalty_from_priests_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_require_oath_of_loyalty_from_priests
+				}
+				desc = "je_no_longer_require_oath_of_loyalty_from_priests_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_require_oath_of_loyalty_from_priests }
+				}
+				desc = "je_require_oath_of_loyalty_from_priests_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_require_oath_of_loyalty_from_priests
+				}
+				desc = "je_no_longer_require_oath_of_loyalty_from_priests_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_1de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#no longer require a oath of loyalty from priests
+		if = {
+			limit = {
+				has_modifier = br_modifier_require_oath_of_loyalty_from_priests
+			}
+			remove_modifier = br_modifier_require_oath_of_loyalty_from_priests
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+		}
+		#require a oath of loyalty from priests
+		else = {
+			add_modifier = br_modifier_require_oath_of_loyalty_from_priests
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_large_increase_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+### Second estate Buttons ###
+je_create_new_titles_to_appease_nobles_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_new_noble_titles }
+				}
+				desc = "je_create_new_titles_to_appease_nobles_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_new_noble_titles
+				}
+				desc = "je_revoke_new_titles_given_to_nobles_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_new_noble_titles }
+				}
+				desc = "je_create_new_titles_to_appease_nobles_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_new_noble_titles
+				}
+				desc = "je_revoke_new_titles_given_to_nobles_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_2de_estate_action_type
+		}
+
+		#make it single use
+		#not = { has_modifier = br_modifier_new_noble_titles }
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#revoke noble titles
+		if = {
+			limit = {
+				has_modifier = br_modifier_new_noble_titles
+			}
+			remove_modifier = br_modifier_new_noble_titles
+
+			# br_specific_change_in_revolutionary_tension_effect = {
+			# 	value = br_small_increase_in_revolutionary_tension_value
+			# }
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_medium_increase_in_estate_disatisfaction_value
+			}
+		}
+		#create new noble titles
+		else = {
+			add_modifier = br_modifier_new_noble_titles
+
+			# br_specific_change_in_revolutionary_tension_effect = {
+			# 	value = br_small_increase_in_revolutionary_tension_value
+			# }
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+#Investigate Noble Tax Evasion
+je_investigate_noble_tax_evasion_button = {
+	name = "je_investigate_noble_tax_evasion_button"
+	desc = "je_investigate_noble_tax_evasion_button_desc"
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_2de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	cooldown = { years = 5 }
+
+	effect = {
+		#Investigate Noble Tax Evasion
+		# br_specific_change_in_revolutionary_tension_effect = {
+		# 	value = br_small_increase_in_revolutionary_tension_value
+		# }
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+### Third estate Buttons ###
+je_appoint_bourgeois_ministers_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_bourgeois_ministers }
+				}
+				desc = "je_appoint_bourgeois_ministers_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_bourgeois_ministers
+				}
+				desc = "je_fire_bourgeois_ministers_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_bourgeois_ministers }
+				}
+				desc = "je_appoint_bourgeois_ministers_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_bourgeois_ministers
+				}
+				desc = "je_fire_bourgeois_ministers_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_3de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#fire bourgeois ministers
+		if = {
+			limit = {
+				has_modifier = br_modifier_bourgeois_ministers
+			}
+			remove_modifier = br_modifier_bourgeois_ministers
+
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_small_increase_in_estate_disatisfaction_value
+			}
+		}
+		#appoint new bourgeois ministers
+		else = {
+			add_modifier = br_modifier_bourgeois_ministers
+
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_small_increase_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_small_increase_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+je_subsidize_food_distribution_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_subsidize_food_distribution }
+				}
+				desc = "je_subsidize_food_distribution_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_subsidize_food_distribution
+				}
+				desc = "je_desubsidize_food_distribution_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_subsidize_food_distribution }
+				}
+				desc = "je_subsidize_food_distribution_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_subsidize_food_distribution
+				}
+				desc = "je_desubsidize_food_distribution_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_3de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#desubsidize food distribution
+		if = {
+			limit = {
+				has_modifier = br_modifier_subsidize_food_distribution
+			}
+			remove_modifier = br_modifier_subsidize_food_distribution
+
+			# br_specific_change_in_revolutionary_tension_effect = {
+			# 	value = br_small_decrease_in_revolutionary_tension_value
+			# }
+			# br_specific_change_in_3de_estate_disatisfaction_effect = {
+			# 	value = br_medium_decrease_in_estate_disatisfaction_value
+			# }
+		}
+		#subsidize food distribution
+		else = {
+			add_modifier = br_modifier_subsidize_food_distribution
+
+			br_specific_change_in_revolutionary_tension_effect = {
+				value = br_small_decrease_in_revolutionary_tension_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_medium_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+je_reduce_taxes_for_the_peasantry_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_reduced_land_taxes }
+				}
+				desc = "je_reduce_taxes_for_the_peasantry_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_reduced_land_taxes
+				}
+				desc = "je_revoke_reduced_taxes_for_the_peasantry_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_reduced_land_taxes }
+				}
+				desc = "je_reduce_taxes_for_the_peasantry_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_reduced_land_taxes
+				}
+				desc = "je_revoke_reduced_taxes_for_the_peasantry_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_3de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#revoke reduced taxes
+		if = {
+			limit = {
+				has_modifier = br_modifier_reduced_land_taxes
+			}
+			remove_modifier = br_modifier_reduced_land_taxes
+
+			br_specific_change_in_revolutionary_tension_effect = {
+				value = br_medium_increase_in_revolutionary_tension_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_large_increase_in_estate_disatisfaction_value
+			}
+		}
+		#give reduced taxes
+		else = {
+			add_modifier = {
+				name = br_modifier_reduced_land_taxes
+				days = br_impending_revolution_timeout	#so it won't remain longer than the JE
+			}
+
+			br_specific_change_in_revolutionary_tension_effect = {
+				value = br_large_decrease_in_revolutionary_tension_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_large_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+### Monarchy Buttons ###
+je_move_imperial_residence_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = yes
+				}
+				desc = "je_move_imperial_residence_button"
+			}
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = no
+				}
+				desc = "je_move_imperial_residence_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = yes
+				}
+				desc = "je_move_imperial_residence_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					br_is_current_imperial_residence_original_scripted_trigger = no
+				}
+				desc = "je_move_imperial_residence_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_monarchy_action_type
+		}
+
+		#for now you won't be able to change back to the original imperial residence; to allow this simply comment this trigger
+		br_is_current_imperial_residence_original_scripted_trigger = yes
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#move out of the original imperial residence
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = yes
+			}
+			#Change imperial residence
+			br_set_current_imperial_residence_to_alternate_effect = yes
+
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_small_increase_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_large_decrease_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_medium_increase_in_estate_disatisfaction_value
+			}
+		}
+		#move back into the original imperial residence
+		else = {
+			#Change imperial residence
+			br_set_current_imperial_residence_to_original_effect = yes
+
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_2de_estate_disatisfaction_effect = {
+				value = br_small_increase_in_estate_disatisfaction_value
+			}
+			br_specific_change_in_3de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+je_contruct_statue_of_monarch_button = {
+	name = "je_contruct_statue_of_monarch_button"
+	desc = "je_contruct_statue_of_monarch_button_desc"
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_monarchy_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+		has_law = law_type:law_monarchy
+		any_scope_state = {
+			is_incorporated = yes
+			has_building = building_urban_center
+			NOT = { has_variable = br_monarch_statue_var }
+		}
+		NOT = {
+			ruler = {
+				has_trait = trait_child
+			}
+		}
+	}
+
+	cooldown = { years = 3 }
+
+	effect = {
+		#Trigger event to build a statue
+		trigger_event = {
+			id = hre_revolution_events.9
+			popup = yes
+		}
+
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_small_increase_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_medium_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_medium_increase_in_estate_disatisfaction_value
+		}
+
+		custom_tooltip = br_will_increase_monthly_monarchy_popularity_tt
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}

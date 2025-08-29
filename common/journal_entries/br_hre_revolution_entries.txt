@@ -1,9 +1,33 @@
 ﻿# A revolution is brewing
-je_the_revolution = {
+je_hre_impending_revolution = {
 
-	icon = "gfx/interface/icons/event_icons/event_election.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 	
 	group = je_group_internal_affairs
+
+	scripted_button = je_1de_estate_button
+	scripted_button = je_2de_estate_button
+	scripted_button = je_3de_estate_button
+	scripted_button = je_revolution_monarchy_actions_button
+	#first estate buttons
+	scripted_button = je_clamp_down_on_church_rights_button
+	scripted_button = je_require_oath_of_loyalty_from_priests_button
+	#second estate buttons
+	scripted_button = je_create_new_titles_to_appease_nobles_button
+	scripted_button = je_investigate_noble_tax_evasion_button
+	#thrird estate buttons
+	scripted_button = je_appoint_bourgeois_ministers_button
+	scripted_button = je_subsidize_food_distribution_button
+	scripted_button = je_reduce_taxes_for_the_peasantry_button
+	#monarchy buttons
+	scripted_button = je_move_imperial_residence_button
+	scripted_button = je_contruct_statue_of_monarch_button
+
+	##Scripted progress bars
+	scripted_progress_bar = br_hre_impending_revolution_progress_bar
+	scripted_progress_bar = br_hre_impending_revolution_1de_estate_progress_bar
+	scripted_progress_bar = br_hre_impending_revolution_2de_estate_progress_bar
+	scripted_progress_bar = br_hre_impending_revolution_3de_estate_progress_bar
 
 	is_shown_when_inactive = {
 		and = {
@@ -20,6 +44,62 @@ je_the_revolution = {
 	}
 
 	immediate = {
+		#make vanilla revolution imposible
+		set_immune_to_revolutions = yes
+
+		#create the political movements
+		create_political_movement = {
+			type = br_movement_anti_feudalism
+		}
+		create_political_movement = {
+			type = br_movement_pro_feudalism
+		}
+
+		#set variables
+		set_variable = {
+			name = br_monarchy_popularity_var
+			value = 0
+		}
+		set_variable = {
+			name = br_enlightenment_value_var
+			value = 0
+		}
+
+		#add revolution modifiers
+		add_modifier = {
+			name = br_modifier_unreliable_food_security
+			days = br_impending_revolution_timeout #even if you suppress the revolution before that the modifier will stay
+		}
+		add_modifier = {
+			name = br_modifier_unpopular_regime
+			days = br_impending_revolution_timeout #even if you suppress the revolution before that the modifier will stay
+		}
+		add_modifier = {
+			name = br_modifier_antiquated_regime
+			days = br_impending_revolution_timeout #even if you suppress the revolution before that the modifier will stay
+		}
+		add_modifier = {
+			name = br_modifier_special_chruch_rights
+			days = -1
+		}
+
+		##Create the estates
+		br_create_estates_for_revolution_scripted_effect = yes
+		br_update_all_estate_disatisfaction_effect = yes
+
+		#update the percentage of loyalists and radicals
+		br_calculate_percentage_of_loyalists_and_radicals_in_root_country = yes
+
+		##Set the Imperial Residence
+		br_initialise_imperial_residence_effect = {
+			original_residence_state_region = s:STATE_ILE_DE_FRANCE
+			original_residence_building_type = br_building_palais_de_la_cite
+
+			alternate_residence_state_region = s:STATE_ILE_DE_FRANCE
+			alternate_residence_building_type = br_building_versailles
+		}
+
+
 		trigger_event = { 
 			id = hre_revolution_events.1
 			popup = yes
@@ -32,82 +112,99 @@ je_the_revolution = {
 		}
 	}
 
+	on_monthly_pulse = {
+		effect = {
+			#update it before the pulse events so we have the latest values
+			br_update_all_estate_disatisfaction_effect = yes
+		}
+		random_events = {
+			chance_of_no_event = {
+				value = 100
+				if = { #So there is no chance of an event triggering if the cooldown is active.
+					limit = { br_has_impending_revolution_pulse_event_cooldown = no }
+					multiply = 0	#currently does not affect the change of no event
+				}
+			}
+			#events that change revolution progress and estate disatisfaction
+			10 = hre_revolution_events.5
+			10 = hre_revolution_events.6
+			10 = hre_revolution_events.7
+			10 = hre_revolution_events.8
+			10 = hre_revolution_events.10
+			10 = hre_revolution_events.11
+			#enlightenment events
+			10 = hre_revolution_events.400
+			10 = hre_revolution_events.401
+		}
+		effect = {
+			#update it after the pulse events so there changes may be included
+			br_update_all_estate_disatisfaction_effect = yes
+
+			#update monarchy popularity popularity 
+			br_specific_change_in_monarchy_popularity_effect = {
+				value = br_monarchy_popularity_change_value
+			}
+
+			#update the percentage of loyalists and radicals
+			br_calculate_percentage_of_loyalists_and_radicals_in_root_country = yes
+		}
+	}
+
+	custom_completion_header = br_je_hre_impending_revolution_completion_header
+
 	complete = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = br_revolution_complete_var
+			has_variable = br_impending_revolution_prevented_var
 		}
 	}
 
 	on_complete = {
-		# trigger_event = {
-		# 	id = hre_revolution_events.2
-		# 	popup = yes
-		# }
-
-		# hidden_effect = {
-		# 	set_variable = br_revolution_complete_var
-		# }
 		add_journal_entry = {
 			type = je_national_identity
 		}
 	}
 
+	custom_failure_header = br_je_hre_impending_revolution_failure_header
+
 	fail = {
 		OR = {
-			has_law = law_type:law_presidential_republic
+			# has_law = law_type:law_presidential_republic
+			NOT = {
+				has_law = law_type:law_monarchy
+			}
 			custom_tooltip = {
 				text = if_journal_timeout_tt
 				has_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
 			}
+
+			#The revolution progress has reached 100%
+			br_hre_has_max_revolution_progress_scripted_trigger = yes
 		}
 	}
 	
-	on_fail = {
-		# hidden_effect = {
-		# 	set_variable = br_revolution_complete_var #done in the event now
-		# }
-		trigger_event = { id = hre_revolution_events.2 }
+	# custom_on_failure_header = br_je_hre_impending_revolution_on_failure_header
 
-		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-		show_as_tooltip = {
-			add_modifier = {
-				name = br_modifier_vive_la_revolution
-				years = -1
-			}
-			add_modifier = {
-				name = br_modifier_roman_republicanism
-				years = -1
-			}
-			remove_modifier = br_modifier_holy_roman_emperor
-			remove_modifier = br_modifier_noble_privileges
-			remove_modifier = br_modifier_feudalism
-			activate_law = law_type:law_presidential_republic
-			activate_law = law_type:law_wealth_voting #or anarchy
-			activate_law = law_type:law_tenant_farmers
-		}
+	on_fail = {
+		br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = yes
 	}
 
-	timeout = 18250  #50 years
+	timeout = br_impending_revolution_timeout
 
 	#on_timeout the revolution happens
 	on_timeout = {
-		# hidden_effect = {
-		# 	set_variable = br_revolution_complete_var
-		# }
-		trigger_event = { id = hre_revolution_events.2 }
+		br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = yes
+	}
 
-		#effects executed in the event so that it does not have to be dupplicated for on_fail and on_timeout
-		# show_as_tooltip = {
-		# 	add_modifier = {
-		# 		name = br_modifier_roman_republicanism
-		# 		years = -1
-		# 	}
-		# 	remove_modifier = br_modifier_noble_privileges
-		# 	activate_law = law_type:law_presidential_republic
-		# 	activate_law = law_type:law_wealth_voting #or anarchy
-		# 	activate_law = law_type:law_tenant_farmers
-		# }
+	invalid = {
+		#It's hidden because this is just to make sure that the JE gets removed when debugging
+		hidden_trigger = {
+			custom_tooltip = {
+				text = finished_revolution_tt
+				has_variable = br_impending_revolution_finished_var
+				not = { has_variable = br_impending_revolution_prevented_var }
+			}
+		}
 	}
 
 	weight = 10000
@@ -120,7 +217,42 @@ je_revolution_reform = {
 
 	group = je_group_internal_affairs
 
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	scripted_button = je_revoke_noble_priviliges_button
+	scripted_button = je_begin_modernizing_the_regime_button
+
+	on_monthly_pulse = {
+		effect = {
+			#trigger an event to stabalise our food security
+			if = {
+				limit = {
+					has_modifier = br_modifier_unreliable_food_security
+					any_scope_pop = {
+						food_security >= br_impending_revolution_food_security_stablity_threshold
+						percent >= br_impending_revolution_min_food_security_population_percentage_threshold_for_stable_food_supply
+					}
+				}
+				trigger_event = {
+					id = hre_revolution_events.501
+					popup = yes
+				}
+			}
+			#trigger an event that indicates that the government is popular right now
+			if = {
+				limit = {
+					has_modifier = br_modifier_unpopular_regime
+					br_has_monarchy_popularity_reached_given_value_trigger = {
+						value = br_impending_revolution_monarchy_popularity_threshold_for_popular_regime
+					}
+				}
+				trigger_event = {
+					id = hre_revolution_events.502
+					popup = yes
+				}
+			}
+		}
+	}
 
 	complete = {
 		NOT = {
@@ -130,8 +262,12 @@ je_revolution_reform = {
 			has_law = law_type:law_hereditary_bureaucrats
 			has_law = law_type:law_serfdom
 			has_law = law_type:law_traditionalism
+			has_law = law_type:br_law_feudalism_enforced
+			has_law = law_type:br_law_feudalism_codified
 			has_modifier = br_modifier_noble_privileges
-			has_modifier = br_modifier_feudalism
+			has_modifier = br_modifier_unreliable_food_security
+			has_modifier = br_modifier_antiquated_regime
+			has_modifier = br_modifier_unpopular_regime
 		}
 	}
 
@@ -144,13 +280,12 @@ je_revolution_reform = {
 			name = br_modifier_peoples_monarchy
 			years = -1
 		}
-		#remove_modifier = br_modifier_noble_privileges
 	}
 
 	invalid = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = br_revolution_complete_var
+			has_variable = br_impending_revolution_finished_var
 		}
 	}
 
@@ -164,7 +299,7 @@ je_revolution_suppress = {
 
 	group = je_group_internal_affairs
 
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	complete = {
 		has_law = law_type:law_autocracy
@@ -175,6 +310,10 @@ je_revolution_suppress = {
 		}
 		NOT = {
 			has_law = law_type:law_peasant_levies
+		}
+		OR = {
+			has_law = law_type:br_law_feudalism_enforced
+			has_law = law_type:br_law_feudalism_codified
 		}
 		ig:ig_landowners = {
 			is_powerful = yes
@@ -201,7 +340,7 @@ je_revolution_suppress = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_revolution_tt
-			has_variable = br_revolution_complete_var
+			has_variable = br_impending_revolution_finished_var
 		}
 	}
 
@@ -209,3 +348,48 @@ je_revolution_suppress = {
 
 	#should_be_pinned_by_default = yes
 }
+
+# The actual revolution
+# je_hre_revolution = {
+
+# 	group = je_group_internal_affairs
+
+# 	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+# 	scripted_progress_bar = br_hre_revolution_progress_bar
+
+# 	is_shown_when_inactive = {
+# 		c:HRE = this
+# 	}
+
+# 	possible = {
+# 		c:HRE = this
+# 	}
+
+# 	complete = {
+
+# 	}
+
+# 	on_complete = {
+# 		trigger_event = {
+# 			id = hre_revolution_events.4
+# 			popup = no
+# 		}
+# 		add_modifier = {
+# 			name = br_modifier_heir_of_augustus
+# 			years = -1
+# 		}
+# 		#remove_modifier = br_modifier_noble_privileges
+# 	}
+
+# 	invalid = {
+# 		custom_tooltip = {
+# 			text = finished_revolution_tt
+# 			has_variable = br_impending_revolution_prevented_var
+# 		}
+# 	}
+
+# 	weight = 8000
+
+# 	should_be_pinned_by_default = yes
+# }

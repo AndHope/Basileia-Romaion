@@ -137,6 +137,9 @@ law_commercialized_agriculture = {
 
 	disallowing_laws = {
 		law_traditionalism
+
+		#feudalism laws
+		br_law_feudalism_enforced
 	}
 
 	unlocking_technologies = {
@@ -211,6 +214,145 @@ law_commercialized_agriculture = {
 				}
 			}
 			add = 1000
+		}
+	}
+}
+
+law_homesteading = {
+	group = lawgroup_land_reform
+
+	icon = "gfx/interface/icons/law_icons/freeholders.dds"
+
+	progressiveness = 25
+
+	disallowing_laws = {
+		#feudalism laws
+		br_law_feudalism_enforced
+	}
+
+	modifier = {
+		country_farmers_pol_str_mult = 0.25
+		building_group_bg_agriculture_allowed_collectivization_add = 0.5
+		building_group_bg_ranching_allowed_collectivization_add = 0.5
+	}
+
+	on_enact = {
+		if = {
+			limit = {
+				NOR = {
+					has_law = law_type:law_commercialized_agriculture
+					has_law = law_type:law_homesteading
+				}
+			}
+			custom_tooltip = farmers_pb_ig_shift_effect_tt
+		}
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_commercialized_agriculture
+					has_law = law_type:law_collectivized_agriculture
+				}
+			}
+			custom_tooltip = rural_laborers_tu_ig_shift_effect_negative_tt
+		}
+		if = {
+			limit = {
+				has_journal_entry = je_pedro_brazil
+				NOT = { has_variable = landreform_pedropoint }
+			}
+			set_variable = landreform_pedropoint
+			remove_pedropoint_effect = yes
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+
+		# AI should really try to get out of Serfdom under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = {
+						law_stance = {
+							law = law_type:law_homesteading
+							value > neutral
+						}
+						political_movement_support >= 0.10
+					}
+				}
+			}
+			add = 1000
+		}
+	}
+}
+
+law_collectivized_agriculture = {
+	group = lawgroup_land_reform
+
+	icon = "gfx/interface/icons/law_icons/collectivized_agriculture.dds"
+
+	progressiveness = 50
+
+	disallowing_laws = {
+		#feudalism laws
+		br_law_feudalism_enforced
+	}
+
+	modifier = {
+		building_group_bg_agriculture_allowed_collectivization_add = 1.0
+		building_group_bg_ranching_allowed_collectivization_add = 1.0
+		building_group_bg_plantations_allowed_collectivization_add = 1.0
+	}
+
+	on_enact = {
+		custom_tooltip = rural_laborers_tu_ig_shift_effect_tt
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_commercialized_agriculture
+					has_law = law_type:law_homesteading
+				}
+			}
+			custom_tooltip = farmers_pb_ig_shift_effect_negative_tt
+		}
+		if = {
+			limit = {
+				has_journal_entry = je_pedro_brazil
+				NOT = { has_variable = landreform_pedropoint }
+			}
+			set_variable = landreform_pedropoint
+			remove_pedropoint_effect = yes
+		}
+	}
+
+	unlocking_laws = {
+		law_command_economy
+		law_cooperative_ownership
+	}
+
+	unlocking_technologies = { socialism }
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+
+		if = {
+			limit = {
+				has_law = law_type:law_council_republic
+			}
+			add = 250
 		}
 	}
 }

@@ -1,0 +1,531 @@
+﻿l_english:
+
+ #requires the capital state to be saved in br_capital_scope
+ br_capital_city_loc: "[SCOPE.sState('br_capital_scope').GetStateRegion.GetCityHubName]"
+
+ #######################################################################################
+ ##Scripted progressbars
+ br_hre_impending_revolution_progress_bar: "Impending Revolution"
+ br_hre_impending_revolution_progress_bar_desc: "As this increases the Revolution draws closer."
+ br_je_hre_impending_revolution_progress_reached_max: "The Revolution has erupted."
+
+ br_hre_impending_revolution_1de_estate_progress_bar: "[br_concept_1de_estate] disatisfaction"
+ br_hre_impending_revolution_1de_estate_progress_bar_desc: "[br_concept_1de_estate] disatisfaction"
+ br_hre_impending_revolution_2de_estate_progress_bar: "[br_concept_2de_estate] disatisfaction"
+ br_hre_impending_revolution_2de_estate_progress_bar_desc: "[br_concept_2de_estate] disatisfaction"
+ br_hre_impending_revolution_3de_estate_progress_bar: "[br_concept_3de_estate] disatisfaction"
+ br_hre_impending_revolution_3de_estate_progress_bar_desc: "[br_concept_3de_estate] disatisfaction"
+
+ br_impending_revolution_to_many_loyalists_loc: "more than #variable [GetPlayer.MakeScope.ScriptValue('br_impending_revolution_loyalist_percentage_as_integer')]%#! of the population are [concept_loyalist]."
+ br_impending_revolution_to_many_radicals_loc: "more than #variable [GetPlayer.MakeScope.ScriptValue('br_impending_revolution_radicals_percentage_as_integer')]%#! of the population are [concept_radical]."
+ br_impending_revolution_monarchy_popularity_revolution_progress_change_loc: "the current Monarchy popularity."
+ br_impending_revolution_enlightenment_value_estate_disatisfaction_change_loc: "having a [br_concept_enlightenment_value] of [GetPlayer.MakeScope.GetVariable('br_enlightenment_value_var').GetValue]."
+ br_impending_revolution_1de_estate_disatisfaction_revolution_progress_change_loc: "the current [br_concept_1de_estate] disatisfaction."
+ br_impending_revolution_2de_estate_disatisfaction_revolution_progress_change_loc: "the current [br_concept_2de_estate] disatisfaction."
+ br_impending_revolution_3de_estate_disatisfaction_revolution_progress_change_loc: "the current [br_concept_3de_estate] disatisfaction."
+
+ #Having modifiers effecs
+ br_impending_revolution_has_special_chruch_rights_loc: "has [GetStaticModifier('br_modifier_special_chruch_rights').GetName|v]."
+ br_impending_revolution_has_require_oath_of_loyalty_from_priests_loc: "has [GetStaticModifier('br_modifier_require_oath_of_loyalty_from_priests').GetName|v]."
+ br_impending_revolution_has_new_noble_titles_loc: "has [GetStaticModifier('br_modifier_new_noble_titles').GetName|v]."
+ br_impending_revolution_has_reduced_land_taxes_loc: "has [GetStaticModifier('br_modifier_reduced_land_taxes').GetName|v]."
+ br_impending_revolution_has_subsidize_food_distribution_loc: "has [GetStaticModifier('br_modifier_subsidize_food_distribution').GetName|v]."
+ br_impending_revolution_has_bourgeois_ministers_loc: "has [GetStaticModifier('br_modifier_bourgeois_ministers').GetName|v]."
+ #Having enlightenment Modifiers effects
+ br_impending_revolution_not_has_chruch_and_state_should_be_separated_loc: "not has [GetStaticModifier('br_modifier_chruch_and_state_should_be_separated').GetName|v]"
+
+ #Feudalism laws effect
+ br_impending_revolution_has_feudalism_enforced_loc: "has enacted [GetLawType('br_law_feudalism_enforced').GetName]."
+ br_impending_revolution_has_feudalism_codified_loc: "has enacted [GetLawType('br_law_feudalism_codified').GetName]."
+ br_impending_revolution_has_feudalism_not_enforced_loc: "has enacted [GetLawType('br_law_feudalism_not_enforced').GetName]."
+ br_impending_revolution_has_feudalism_affirmative_action_loc: "has enacted [GetLawType('br_law_feudalism_affirmative_action').GetName]."
+ #Voting laws effects
+ br_impending_revolution_has_autocracy_loc: "has enacted [GetLawType('law_autocracy').GetName]"
+ br_impending_revolution_has_oligarchy_loc: "has enacted [GetLawType('law_oligarchy').GetName]"
+ br_impending_revolution_not_has_autocracy_or_oligarchy_loc: "not has enacted [GetLawType('law_autocracy').GetName] or [GetLawType('law_oligarchy').GetName]"
+ br_impending_revolution_has_a_law_that_allows_you_to_vote_loc: "has a law that allows you to vote."
+ #Bureaucracy laws effects
+ br_impending_revolution_has_hereditary_bureaucrats_loc: "has enacted [GetLawType('law_hereditary_bureaucrats').GetName]"
+ br_impending_revolution_has_appointed_bureaucrats_loc: "has enacted [GetLawType('law_appointed_bureaucrats').GetName]"
+ br_impending_revolution_has_elected_bureaucrats_loc: "has enacted [GetLawType('law_elected_bureaucrats').GetName]"
+ #Chruch and State laws effect
+ br_impending_revolution_has_state_religion_loc: "has enacted [GetLawType('law_state_religion').GetName]"
+ br_impending_revolution_has_freedom_of_conscience_loc: "has enacted [GetLawType('law_freedom_of_conscience').GetName]"
+ br_impending_revolution_has_total_separation_loc: "has enacted [GetLawType('law_total_separation').GetName]"
+ br_impending_revolution_has_state_atheism_loc: "has enacted [GetLawType('law_state_atheism').GetName]"
+ #Education laws effect
+ br_impending_revolution_has_no_schools_loc: "has enacted [GetLawType('law_no_schools').GetName]"
+ br_impending_revolution_has_religious_schools_loc: "has enacted [GetLawType('law_religious_schools').GetName]"
+ br_impending_revolution_has_private_schools_loc: "has enacted [GetLawType('law_private_schools').GetName]"
+ br_impending_revolution_has_public_schools_loc: "has enacted [GetLawType('law_public_schools').GetName]"
+
+ #######################################################################################
+
+
+#  #br_quantitative_indicator_loc
+#  br_small_loc: "small"
+#  br_medium_loc: "medium"
+#  br_large_loc: "large"
+#  br_unspecified_loc: "unspecified"
+ ##Change in progress tt
+ br_revolution_progress_change_value: "[SCOPE.GetLocalVariable('br_change_in_revolution_progress_var').GetValue|+-]"
+ #revolution progress increase
+ br_basic_revolution_progress_increases_loc: "Our progress towards revolution has increased with a"
+ br_basic_specified_revolution_progress_increases_loc: "$br_basic_revolution_progress_increases_loc$ a"
+ br_basic_unspecified_revolution_progress_increases_loc: "$br_basic_revolution_progress_increases_loc$"
+ br_hre_small_increase_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_increases_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_revolutionary_tension_value')|-=]."
+ br_hre_medium_increase_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_increases_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_revolutionary_tension_value')|-=]."
+ br_hre_large_increase_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_increases_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_revolutionary_tension_value')|-=]."
+ br_hre_unspecified_increase_in_revolution_progress_tt: "$br_basic_unspecified_revolution_progress_increases_loc$: $br_revolution_progress_change_value$."
+ #revolution progress increase
+ br_basic_revolution_progress_decreases_loc: "Our progress towards revolution has decreased with a"
+ br_basic_specified_revolution_progress_decreases_loc: "$br_basic_revolution_progress_decreases_loc$ a"
+ br_basic_unspecified_revolution_progress_decreases_loc: "$br_basic_revolution_progress_decreases_loc$"
+ br_hre_small_decrease_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_decreases_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_decrease_in_revolutionary_tension_value')|-=]."
+ br_hre_medium_decrease_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_decreases_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_decrease_in_revolutionary_tension_value')|-=]."
+ br_hre_large_decrease_in_revolution_progress_tt: "$br_basic_specified_revolution_progress_decreases_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_decrease_in_revolutionary_tension_value')|-=]."
+ br_hre_unspecified_decrease_in_revolution_progress_tt: "$br_basic_unspecified_revolution_progress_decreases_loc$: $br_revolution_progress_change_value$."
+
+ ##Change in estate disatisfaction tt
+ br_disatisfaction_change_value: "[SCOPE.GetLocalVariable('br_change_in_disatisfaction_var').GetValue|+-]"
+ #br_basic_estate_disatisfaction_increases_loc: "[GetPlayer.GetCustom('br_estate_with_increasing_disatisfaction_loc')] disatisfaction increased with a"
+ #br_increase_in_estate_disatisfaction_tt: "[SCOPE.GetLocalVariable('br_quantitative_indicator_var').GetName] $br_basic_estate_disatisfaction_increases_loc$ [GetPlayer.GetCustom('br_quantitative_indicator_loc')] amount"
+ br_basic_estate_disatisfaction_change_loc: "disatisfaction changed with"
+ #estate disatisfaction increase
+ br_basic_estate_disatisfaction_increases_loc: "disatisfaction increased with"
+ br_basic_specifed_estate_disatisfaction_increase_loc: "$br_basic_estate_disatisfaction_increases_loc$ a"
+ br_basic_unspecifed_estate_disatisfaction_increase_loc: "$br_basic_estate_disatisfaction_increases_loc$"
+ br_hre_small_increase_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_medium_increase_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_large_increase_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_small_increase_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_medium_increase_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_large_increase_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_small_increase_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_medium_increase_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_large_increase_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_specifed_estate_disatisfaction_increase_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_increase_in_estate_disatisfaction_value')|-=]."
+ br_hre_unspecified_increase_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_unspecifed_estate_disatisfaction_increase_loc$: $br_disatisfaction_change_value$."
+ br_hre_unspecified_increase_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_unspecifed_estate_disatisfaction_increase_loc$: $br_disatisfaction_change_value$."
+ br_hre_unspecified_increase_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_unspecifed_estate_disatisfaction_increase_loc$: $br_disatisfaction_change_value$."
+ #estate disatisfaction decrease
+ br_basic_estate_disatisfaction_decreases_loc: "disatisfaction decreased with"
+ br_basic_specifed_estate_disatisfaction_decrease_loc: "$br_basic_estate_disatisfaction_decreases_loc$ a"
+ br_basic_unspecifed_estate_disatisfaction_decrease_loc: "$br_basic_estate_disatisfaction_decreases_loc$"
+ br_hre_small_decrease_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_medium_decrease_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_large_decrease_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_small_decrease_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_medium_decrease_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_large_decrease_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_small_decrease_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ small amount: [GetPlayer.MakeScope.ScriptValue('br_small_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_medium_decrease_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ medium amount: [GetPlayer.MakeScope.ScriptValue('br_medium_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_large_decrease_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_specifed_estate_disatisfaction_decrease_loc$ large amount: [GetPlayer.MakeScope.ScriptValue('br_large_decrease_in_estate_disatisfaction_value')|-=]."
+ br_hre_unspecified_decrease_in_1de_estate_disatisfaction_tt: "[br_concept_1de_estate] $br_basic_unspecifed_estate_disatisfaction_decrease_loc$: $br_disatisfaction_change_value$."
+ br_hre_unspecified_decrease_in_2de_estate_disatisfaction_tt: "[br_concept_2de_estate] $br_basic_unspecifed_estate_disatisfaction_decrease_loc$: $br_disatisfaction_change_value$."
+ br_hre_unspecified_decrease_in_3de_estate_disatisfaction_tt: "[br_concept_3de_estate] $br_basic_unspecifed_estate_disatisfaction_decrease_loc$: $br_disatisfaction_change_value$."
+
+ #######################################################################################
+
+ ##Script value breakdowns
+ br_revolution_from_holy_roman_emperor_loc: "From having [GetStaticModifier('br_modifier_holy_roman_emperor').GetName]"
+ br_revolution_from_statue_of_ruler_loc: "From having [GetStaticModifier('modifier_statue_of_ruler').GetName]"
+ br_revolution_from_antiquated_regime_loc: "From having [GetStaticModifier('br_modifier_antiquated_regime').GetName]"
+ br_revolution_from_unpopular_regime_loc: "From having [GetStaticModifier('br_modifier_unpopular_regime').GetName]"
+ br_revolution_from_bourgeois_ministers_loc: "From having [GetStaticModifier('br_modifier_bourgeois_ministers').GetName]"
+ br_revolution_from_divine_right_denied_loc: "From having Divine Right denied"
+ #temp grefm loc (TODO remove later)
+ grefm_value_from_voting: "From enacting #yellow Voting Rights#!"
+ grefm_value_from_completed_legacies: "From completed #bold Ottoman Legacy#! [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ grefm_value_from_turkeater_unleashed: "From #bold Releasing #greece Nikitaras#!#!"
+ grefm_value_from_royal_palace: "From #bold Building the Royal Palace#!"
+ grefm_value_from_no_voting: "From #bold not#! having any #yellow Voting Rights#!"
+ grefm_value_from_land_reform: "From not #bold Reforming Our Land Policy#!"
+ grefm_value_from_brigandage_completed: "From not #bold Controlling the Brigands#!"
+ grefm_value_from_civic_tradition: "From lacking a #bold Civic Tradition#!"
+ grefm_value_from_bavarian_auxiliaries: "From #bold Hosting the Bavarian Auxiliaries#!"
+ grefm_value_from_lacking_heir: "From #bold Lacking an Heir#!"
+ grefm_value_from_ruler_popularity: "From our [concept_ruler]'s [concept_popularity]"
+ grefm_value_from_liberal_movements: "From #bold Pro-Voting#! [concept_political_movement] [concept_activism]"
+
+ #######################################################################################
+
+ ##journal entries
+ je_hre_impending_revolution: "The Revolution Looms"
+ je_hre_impending_revolution_status: "We must address the current situation within the realm if we wish to prevent Revolution."
+ je_hre_impending_revolution_reason: "The situation in the HRE has grown desperate and the people have had enough. If we don’t do anything then the situation could get out of control and our 1000 year government could be overthrown. We will have to consider carefully how to deal with the situation, do we reform the state or do we choose to suppress these so-called revolutionaries. In case we fail to do anything the consequences could be disastrous.\n$TOOLTIP_DELIMITER$\n@information! When the revolution progress reaches #variable 100%#! then the revolution will erupt. The revolution will be launched by the estate that has the highest disatisfaction. The disatisfaction of estates will change over time thru events and decisions you will take. $br_current_most_disatisfied_estate_loc$\n$br_how_to_change_estate_disatisfaction_tt_loc$\n$TOOLTIP_DELIMITER$\n$br_monarchy_popularity_loc$"
+ br_monarchy_popularity_loc: "Currently, the Emperor enjoys $br_monarchy_popularity_current_value_loc$ [br_concept_monarchy_popularity].\nThis is expected to change by #tooltippable;tooltip:[Country.GetTooltipTag],je_monarchy_popularity_main_breakdown [Country.MakeScope.ScriptValue('br_monarchy_popularity_change_value')|+=]#! next month."
+ je_monarchy_popularity_main_breakdown: "[Country.MakeScope.GetScriptValueDesc('br_monarchy_popularity_change_value')]\n$TOOLTIP_DELIMITER$\nMaximum value: [Country.MakeScope.ScriptValue('br_monarchy_popularity_max_value')|+=]\nMinimum value: [Country.MakeScope.ScriptValue('br_monarchy_popularity_min_value')|+=]"
+ br_je_hre_impending_revolution_completion_header: "Will prevent #b Revolution#! if:\n"
+ finished_revolution_tt: "We have dealt with the revolution in a manner of our choice."
+ br_je_hre_impending_revolution_failure_header: "The #b Revolution#! will erupt if:\n"
+ br_je_hre_impending_revolution_on_failure_header: "The #b Revolution#! erupts:"
+ je_revolution_reform: "Revolution: Reform"
+ je_revolution_reform_reason: "The time has come to reform the state in order to halt a revolution, to do this we will have reform our laws, get rid of [GetStaticModifier('br_modifier_noble_privileges').GetName], fix our #tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_fix_unreliable_food_supply_loc [GetStaticModifier('br_modifier_unreliable_food_security').GetName]#!, modernize and #tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_popularize_regime_loc popularize our regime#!."
+ br_how_to_fix_unreliable_food_supply_loc: "To fix our unreliable food supply we have to make sure that at least [Country.MakeScope.ScriptValue('br_impending_revolution_min_food_security_population_percentage_threshold_for_stable_food_supply')|%0=+] of our population has a [concept_food_security] level of [Country.MakeScope.ScriptValue('br_impending_revolution_food_security_stablity_threshold')|%0=+]. Once this happens we will have stabilized our food supply."
+ br_how_to_popularize_regime_loc: "To popularize our regime we must make sure that the popularity of our monarch is at least [Country.MakeScope.ScriptValue('br_impending_revolution_monarchy_popularity_threshold_for_popular_regime')|+], currently our [br_concept_monarchy_popularity] is $br_monarchy_popularity_current_value_loc$"
+ je_revolution_suppress: "Revolution: Suppress"
+ je_revolution_suppress_reason: "We will not bow to the demands of the people, the state will remain as is."
+ br_empty_string_loc: "" #this loc is an standard empty string
+ br_point_string_loc: "." #this loc is an standard point string
+ br_comma_string_loc: "," #this loc is an standard comma string
+
+ #######################################################################################
+
+ ##Scripted Buttons
+ br_show_estate_actions_loc: "Show actions you can take towards the"
+ br_hide_estate_actions_loc: "Hide actions you can take towards the"
+ je_1de_estate_button: "$br_1de_estate_loc$ actions"
+ je_1de_estate_button_desc: "We must choose what actions we wish to take towards the [br_concept_1de_estate]."
+ br_show_1de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_1de_estate_loc$."
+ br_hide_1de_estate_actions_loc: "$br_hide_estate_actions_loc$ $br_1de_estate_loc$."
+ je_2de_estate_button: "$br_2de_estate_loc$ actions"
+ je_2de_estate_button_desc: "We must choose what actions we wish to take towards the [br_concept_2de_estate]."
+ br_show_2de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_2de_estate_loc$."
+ br_hide_2de_estate_actions_loc: "$br_hide_estate_actions_loc$ $br_2de_estate_loc$."
+ je_3de_estate_button: "$br_3de_estate_loc$ actions"
+ je_3de_estate_button_desc: "We must choose what actions we wish to take towards the [br_concept_3de_estate]."
+ br_show_3de_estate_actions_loc: "$br_show_estate_actions_loc$ $br_3de_estate_loc$."
+ br_hide_3de_estate_actions_loc: "$br_hide_estate_actions_loc$ $br_3de_estate_loc$."
+ je_revolution_monarchy_actions_button: "Monarchy actions"
+ je_revolution_monarchy_actions_button_desc: "We must choose what actions we wish to take in regards of the Monarchy."
+ br_show_revolution_monarchy_actions_loc: "$br_show_estate_actions_loc$ Monarchy."
+ br_hide_revolution_monarchy_actions_loc: "$br_hide_estate_actions_loc$ Monarchy."
+ #1ste estate buttons
+ je_clamp_down_on_church_rights_button: "Clamp down on chruch rights"
+ je_clamp_down_on_church_rights_button_desc: "The chruch is currently in a advantages position, because of special rights that are bestowed to them. It would benefit us if we were to revoke thes priviliges."
+ je_reinstate_chruch_rights_button: "Reinstate chruch rights"
+ je_reinstate_chruch_rights_button_desc: "We must reinstate the special priviliges of the church to curry favor with them."
+ je_require_oath_of_loyalty_from_priests_button: "Require oath of loyalty from priests"
+ je_require_oath_of_loyalty_from_priests_button_desc: "We must ensure that the Clergy is loyal to the Crown and not to Rome."
+ je_no_longer_require_oath_of_loyalty_from_priests_button: "No longer require oath of loyalty from priests"
+ je_no_longer_require_oath_of_loyalty_from_priests_button_desc: "This oath is only making them more disloyal."
+ #2de estate buttons
+ je_create_new_titles_to_appease_nobles_button: "Create new titles to appease Nobles"
+ je_create_new_titles_to_appease_nobles_button_desc: "Create new titles so the Nobility is appeased."
+ je_revoke_new_titles_given_to_nobles_button: "Revoke new titles given to nobles"
+ je_revoke_new_titles_given_to_nobles_button_desc: "Revoke the new titles given to the Nobility."
+ je_investigate_noble_tax_evasion_button: "Investigate Noble tax evasion"
+ je_investigate_noble_tax_evasion_button_desc: "We must investigate the Nobility for tax evation."
+ #3de estate buttons
+ je_appoint_bourgeois_ministers_button: "Apoint Bourgeois ministers"
+ je_appoint_bourgeois_ministers_button_desc: "Apoint members of the bourgeoisie to the position of minister as to appease the $br_3de_estate_loc$."
+ je_fire_bourgeois_ministers_button: "Fire Bourgeois ministers"
+ je_fire_bourgeois_ministers_button_desc: "Fire minister who are members of the bourgeoisie as to appease the $br_2de_estate_loc$ and $br_2de_estate_loc$. However this will anger the $br_3de_estate_loc$."
+ je_subsidize_food_distribution_button: "Subsidize food distribution"
+ je_subsidize_food_distribution_button_desc: "Start subsidizing food distributions to lessen the current food shortages."
+ je_desubsidize_food_distribution_button: "Desubsidize food distribution"
+ je_desubsidize_food_distribution_button_desc: "Stop subsidizing food distributions."
+ je_reduce_taxes_for_the_peasantry_button: "Reduce taxes for the peasantry"
+ je_reduce_taxes_for_the_peasantry_button_desc: "Reduce the taxes for the peasantry, this will definitely appease the [br_concept_3de_estate]."
+ je_revoke_reduced_taxes_for_the_peasantry_button: "Revoke reduced taxes for the peasantry"
+ je_revoke_reduced_taxes_for_the_peasantry_button_desc: "Revoke the reduced taxes for the peasantry, this will definitely upset the [br_concept_3de_estate]."
+ #Monarchy buttons
+ je_move_imperial_residence_button: "Move the [br_concept_imperial_residence]"
+ je_move_imperial_residence_button_desc: "Move the [br_concept_imperial_residence] to [GetBuildingType('br_building_versailles').GetName]"
+ je_contruct_statue_of_monarch_button: "Contruct statue of monarch"
+ je_contruct_statue_of_monarch_button_desc: "Let us construct a statue of the monarch to increase the popularity of the monarchy."
+
+ ##Revolution looms: reform scripted buttons
+ je_begin_modernizing_the_regime_button: "Begin modernizing the Regime"
+ je_begin_modernizing_the_regime_button_desc: "In order to reform the state we will first have to begin modernizing the current regime."
+
+ #######################################################################################
+
+ ##Events
+ #A Revolution looms
+ hre_revolution_events.1.t: "A Revolution looms"
+ hre_revolution_events.1.d: "There is unrest within our Empire it has come to our attention that there may be a revolution brewing. If we don't do anything one of our estates may launch a revolution."
+ hre_revolution_events.1.f: "Though our nation has always stood as the beacon of civilization and stability in the Christian parts of West Europe, issues continue to arise. Over time cracks have started to show as our military, economy, and our God given social structure continue to become more and more outdated. Furthermore, our autonomous vassals and colonies have been calling more and more for increased freedoms and even independence! But before we can truly focus outward, we must focus inward. Due to our internal issues, increasing unrest among the so-called Third Estate has put us under increased threat of revolution, and if one happens, we would be unable to truly stop it. In this, we have two possible solutions… We can either embrace some of these would be Revolutionaries ideas and reform our great nation and bring it into this increasingly liberalizing world, by granting freedoms, abolishing serfdom, and replacing our outmoded economic and military structures! Or… We can embrace our own reforms, and suppress these Godless liberals by modernizing our military, centralizing our government around God’s chosen Emperor of the Romans, and bringing our economy to a state of modernized Feudalism! In either of these solutions, we will have some push back among the First and Second Estates, but if we fail, and the patience of the people wanes, our monarchy and our way of life will be drastically and irrevocably altered… Regardless, one of our first possible steps will be to deal with our schism on our national identity in this world where national identity is growing in importance."
+ hre_revolution_events.1.a: "We must address it."
+ #The Revolution Erupts
+ #hre_revolution_events.2.t: "The Revolution Erupts"
+ #hre_revolution_events.2.d: "A wave of unrest sweeps through our lands. The people, emboldened by their desire for change, rise up. The flames of revolution have been lit, and the future of the Empire now hangs in the balance."
+ #hre_revolution_events.2.f: "The revolution has ignited. The cries of the people echo through the streets, calling for a new order."
+ #hre_revolution_events.2.a: "We stand at the crossroads. We must act decisively."
+ #The Revolution Prevented
+ hre_revolution_events.3.t: "The Revolution Prevented"
+ hre_revolution_events.3.d: "Through swift and deliberate reforms, we have managed to quell the revolution before it could spread further. The demands of the people have been heard, and the crisis has been averted—at least for now."
+ hre_revolution_events.3.f: "By addressing the root causes of unrest, we have successfully prevented the revolution. However, the seeds of discontent remain."
+ hre_revolution_events.3.a: "The danger is not over, but we have bought ourselves time to heal the fractures within our realm."
+ #The Revolution Suppressed
+ hre_revolution_events.4.t: "The Revolution Suppressed"
+ hre_revolution_events.4.d: "After months of chaos and bloodshed, we have successfully crushed the revolution. The streets are once again calm, but the scars of conflict remain. The cost has been high, but the Empire stands—if only just."
+ hre_revolution_events.4.f: "The revolution has been suppressed, though the cost has been steep. The Empire is fractured, and the road to recovery will be long."
+ hre_revolution_events.4.a: "Victory has come at a price. The Empire will need to rebuild and reconcile in the wake of this struggle."
+ #Food insecurity
+ hre_revolution_events.5.t: "Food insecurity"
+ hre_revolution_events.5.d: "There is currently a lot of Food insecurity amongst our population. This is increasing the unrest amongst the population."
+ hre_revolution_events.5.f: "The tanner looked around all around his village, the faces of all the people that passed by him looked emaciated. How long would this travesty continue, if they don’t get more food soon the entire village will starve to death, does the Emperor not care at all about his subjects. The nobles they all get to live in luxury waisting food on their pointless parties, while they are starving in the mud. DO THEY NOT CARE AT ALL."
+ hre_revolution_events.5.a: "This isn't good"
+ #Bandits room the countryside
+ hre_revolution_events.6.t: "Bandits room the countryside"
+ hre_revolution_events.6.d: "Bandits are terrorising the villages in the countryside."
+ hre_revolution_events.6.f: "News has reached us that apperantly there are a sizable number of bandit groups that are rooming the countryside and terrorising the local villages, while their local authorities have been unable to stop them. This has majorly increased disatisfaction within the population, if we want to prevent things from getting worse we should look at solving the issue."
+ hre_revolution_events.6.a: "This isn't good"
+ #3de estate forms mititias
+ hre_revolution_events.7.t: "3de estate forms mititias"
+ hre_revolution_events.7.d: "Members of the 3de estate have begun to form local mititias."
+ hre_revolution_events.7.f: "We have recieve word that all over the country members of the 3de estate have begun forming mititias, this could present a great threat to the government if left uncheckt."
+ hre_revolution_events.7.a: "This isn't looking good."
+ #3de estate mititias raid arms depots
+ hre_revolution_events.8.t: "Mititias raid arms depots"
+ hre_revolution_events.8.d: "Militias have raided army arms depots in the capital, it seems the 3de estate has begun arming it self."
+ hre_revolution_events.8.f: "A messanger enters the Emperors room, the news he brings is most disturbing 'The peasants have begun arming themselfs.'. Apperantly early in the morning a large mob of people march on one of the arms depots in the city and seems to have seized it by force and looted all of the weapons there. Information is limited, we don’t even know what has become of the soldiers guarding the depots, are they dead or, did they desert?"
+ hre_revolution_events.8.a: "Can this get any worse."
+ #Build a statue of the monarch
+ hre_revolution_events.9.t: "Monument to the [SCOPE.sCharacter('br_statue_monarch').GetPrimaryRoleTitle]"
+ hre_revolution_events.9.d: "A statue of [SCOPE.sCharacter('br_statue_monarch').GetPrimaryRoleTitle] [SCOPE.sCharacter('br_statue_monarch').GetFullName] was commissioned and it has been suggested that it be displayed proudly in [SCOPE.sState('br_statue_state').GetName]. "
+ hre_revolution_events.9.f: "'[SCOPE.sCharacter('br_statue_monarch').GetCustom('personality_traits_loc')] is how you would describe the look on the face of the statue when it smiles down on you. Eyes that flicker in the opposite direction of the sun.\n\nThough maybe you are just imagining it?'"
+ hre_revolution_events.9.a: "A monument worthy of the [SCOPE.sCharacter('br_statue_monarch').GetPrimaryRoleTitle]."
+ #Priests refuses to acknowledge the Emperors divine right to rule
+ hre_revolution_events.10.t: "Divine right to rule denied"
+ hre_revolution_events.10.d: "Multiple priests across the realm have begon refusing to acknowledge the Emperors divine right to rule."
+ hre_revolution_events.10.f: "The priest of the realm have become disatisfied with the monarch and as protest they are now refusing to acknowledge the Emperor as God’s representative on earth."
+ hre_revolution_events.10.a: "Sacrilege!"
+ #Nobels whisper of a new monarch
+ hre_revolution_events.11.t: "Whispers of a new monarch"
+ hre_revolution_events.11.d: "It seems that the Nobels of the realm have begun whispering talks of a new Monarch."
+ hre_revolution_events.11.f: "Rumors have begun reaching us about the fact that some nobles have been discussing questions of who would have the strongest claim on the trone besides the Emperor."
+ hre_revolution_events.11.a: "Worrying."
+ #Cardinal blocks emperor form going to church
+ hre_revolution_events.101.t: "Blocked form church"
+ hre_revolution_events.101.d: "When the Emperor attempted to go to church this morning he found the Cardinal of $br_capital_city_loc$ blocking the entrance, upon which a fierce discussion errupted. Noticing that the situation was escalating the Emperor decided to withdraw back to his palace to prevent further embarassment."
+ hre_revolution_events.101.f: "The Emperor can't believe his eyes the Cardinal of $br_capital_city_loc$ and other members of the Clergy are blocking his entrance to the church. The astonishment of the Emperor quickly turns to anger. 'How dare they, don't they realize that they aren't just blocking any random person, they are are blocking the #b one#! person on this planet ordained by God to rule this nation.' An intense argument erupt between both sides, neither side willing to budge, but then the Emperor starts to notice the eyes of the people around them, this is turning into quiet the embarassment. So in order to prevent himself from being humiliated any further the Emperor decides that it is best to withdraw back to the Palace, to prevent things from escalating anymore."
+ hre_revolution_events.101.a: "How embarrassing."
+ #Emperor orders the cardinal to be sacked
+ hre_revolution_events.102.t: "Cardinal sacked"
+ hre_revolution_events.102.d: "After what happened at the entrance of the church the emperor orders the Cardinal of $br_capital_city_loc$ to be sacked."
+ hre_revolution_events.102.f: "The Emperor is furious, to oppose the monarch is treason the cardinal will pay, but as long as he is cardinal he will enjoy protection from the Church, so his first punished will be to loose his title. The Emperor will have his revenge for this embarassment. However his advisors warn him that this will have risks, after all it is the Papacy that gets to apoint church positions."
+ hre_revolution_events.102.a: "Revenge will be sweet."
+ #Pope excommunicates the emperor
+ hre_revolution_events.103.t: "Excommunicated"
+ hre_revolution_events.103.d: "It seems that the Pope has sided with the cardinal again the Emperor, because after he heard that the emperor had sacked him he decided to excommunicate the emperor."
+ hre_revolution_events.103.f: "The Emperor is shaking he looks at the letter from the Pope infront of him but he still can't believe it, he knew the Pope wouldn't be happy but this is not what he had expected. This is horrible with the current instability in the nation, this could be disastrous. All dissidents have just been given an excuse to oppose him, this must be fixed quickly but how?"
+ hre_revolution_events.103.a: "THE POPE DID WHAT."
+ #Emperor tries to plead with the Cardinal but gets imprisoned
+ hre_revolution_events.104.t: "The Emperor pleads but is ceased"
+ hre_revolution_events.104.d: "In a desperate attempt to reverse his Excommunication the Emperor decide to go plead with the deposed cardinal offering to reinstate him, but when he go's to meet him, the Emperor gets ceased by the cardinal and other members of the Clergy. They are now holding him hostage."
+ hre_revolution_events.104.f: "The Emperor enters the dimly lit room, the cardinal is standing in the center of the room, hesitantly he start walking to the cardinal and drops to his knees offering him excuses, his reinstatement and anything else if he can just get the Pope to revert his Excommunication. But then out of nowhere a bunch of men storm the room, from their clothes it is clear that they are members of the Clergy. Before the Emperor can even move the cardinal grabs him and hold him inplace. The Emperor now realizes that it was a mistake to even try and plead with the cardinal, but it is to late now."
+ hre_revolution_events.104.a: "How did it come to this."
+ #The clergy seizes the state
+ hre_revolution_events.105.t: "A truly holy empire"
+ hre_revolution_events.105.d: "While they where ceasing the Emperor, the rest of the Clergy have manage to assume control of the country, and they have decided that from now on the Chruch will run the country.\n$br_hre_impending_revolution_1de_estate_has_overthrown_the_monarch_tt$"
+ hre_revolution_events.105.f: "The former Cardinal of $br_capital_city_loc$ looks around the table, all off the important member of the Church from within the country are present. They just decided that the empire will be reorganised as a theocracy and a vote has decided that the former cardinal will be its new leader. They have already recieve support from the Pope for their coup, now all that is left is to actually implement their reforms."
+ hre_revolution_events.105.a: "Deus Vult."
+ #A group of nobles is hosting a lavish feast outside the capital
+ hre_revolution_events.201.t: "Nobles host a lavish feast"
+ hre_revolution_events.201.d: "A group of powerfull nobles have decided to host a lavish feast outside of the capital and they have invited the Emperor as the guest of honour."
+ hre_revolution_events.201.f: "The Emperor looks at the man infront of him, one of his nobles vassals who has come to personally invite him to a party, that he and a group of other nobles have organised. Apperantly it's going to be a lavish feast that practically every noble from within the realm is going to attend and of course the organisers want the Emperor to attend as the guest of honour, after all its only fitting the Emperor would be the most important person there."
+ hre_revolution_events.201.a: "How exciting."
+ #The Emperor attends the feast
+ hre_revolution_events.202.t: "The Emperor attends the feast"
+ hre_revolution_events.202.d: "The party organised by the nobles is now in full swing with the Emperor in attendance."
+ hre_revolution_events.202.f: "The Emperor looks around him everything is perfect and incredibly lavish, and he is surrounded by every powerfull noble off the realm. Truly he is having the time of his life, #r surely nothing can ruin this perfect day...#!"
+ hre_revolution_events.202.a: "Lets Party!"
+ #The nobles seize the Emperor
+ hre_revolution_events.203.t: "#r Betrayal#!"
+ hre_revolution_events.203.d: "Then suddenly, when the Emperor is distracted by the party, the nobles around him rush forward and tie him to a chair. It's clear now this party was a mear setup to capture him."
+ hre_revolution_events.203.f: "Suddenly the Emperor feels a bunch of hands grabbing him, then they push him into a chair. The Emperor tries to react but the licore has made his movements sluggish, and so without much resistance the nobles have manage to tie up and capture their own liege. The Emperor tries screaming to his guard to help him and to arrest the traitors, but the guard don't do anything, they just watch everything unfold, showing no intent to intervene. It's clear now that not only his nobles have betrayed him but also his soldiers. One can only wonder what will happen now."
+ hre_revolution_events.203.a: "The bastards!"
+ #The nobility gathers in the capital
+ hre_revolution_events.204.t: "The nobility gathers in the capital"
+ hre_revolution_events.204.d: "After having imprisoned the Emperor the conspirators most of the Nobility was quick to side with the conspirators thus handing control of the entire realm to the Nobility. Now they must decide what to do next."
+ hre_revolution_events.204.f: "Destain of the current Emperor has lead most off the Nobility to turn again the Monarch. Now all of the most powerfull nobles have gathered in the capital to decide who will take the Crown, however one thing is certain it won't be the current Emperor."
+ hre_revolution_events.204.a: "How interesting."
+ #The nobility decides on who will be Emperor
+ hre_revolution_events.205.t: "A new Emperor"
+ hre_revolution_events.205.d: "Having assembled in the capital the nobles of the realm must now decide who will be the new Emperor.\n$br_hre_impending_revolution_1de_estate_has_overthrown_the_monarch_tt$"
+ hre_revolution_events.205.f: "The Nobility gets to chose who gets to sit on the Imperial throne, will they chose to keep the current dynasty in power, or will they chose a claimant of an other dynasty?"
+ hre_revolution_events.205.a: "A Carolingian."
+ hre_revolution_events.205.b: "A $Merovingian$."
+ hre_revolution_events.205.c: "A $Van_vlaanderen$."
+ hre_revolution_events.205.e: "A $d_Orleans$."
+ hre_revolution_events.205.g: "A $von_Bayern$."
+ #Revolution erupts events
+ hre_revolution_events.301.t: "March on the Royal Residence"
+ hre_revolution_events.301.d: "A large number of members of the 3de estate have decided to march on the [br_concept_imperial_residence]."
+ hre_revolution_events.301.f: "At the Imperial Residence in $br_imperial_residence_building_loc$. The door of the Imperial chamber slams open, the Emperor looks up form his work visably irritated, to the man who just stormed in unannounced, the completely out of breath tries to speak. 'They're ... they're comming'. Early this morning a large mob of members of the 3de estate had gathered on a square in Paris. It started out as a simple protest for change, but it quickly escalated and now the protesters have decided to petition their demands directly to the Emperor. So now they are on their way, on their way to the Imperial Palace. The Emperor starts franticly pacing the room, what should he do, should he flee, should he call in the Military or should he try to negotiate with the mob."
+ hre_revolution_events.301.a: "This does not look good."
+ #Emperor can chose to cooperate with the mob or resist
+ hre_revolution_events.302.t: "The Emperors choice"
+ hre_revolution_events.302.d: "With the mob now infront of the [br_concept_imperial_residence], the Emperor must now choose what to do."
+ hre_revolution_events.302.f: "The Emperor anxiously looks out the window at the mob infront of the palace, he can hear the calls of the crowd they are demanding he face them. Uncertain the Emperor looks across the room at the people standing around him, and he asks them what they think he should do. Almost immediately the commander of the guard steps forward tells him to let his men disperse the crowd, with violence if necessary, but that could make the situation only worse. Then his wife speaks up, she suggests he should go speak to the crowd and hear their pleas. But whatever happens it is the Emperors choice to make."
+ hre_revolution_events.302.a: "Try to address the mob."
+ hre_revolution_events.302.b: "Order the guards to disperse the mob."
+ #The emperor attempts to speak to the crowd
+ hre_revolution_events.303.t: "The Emperors speaks"
+ hre_revolution_events.303.d: "The Emperor speaks to the crowd but his words are no longer enough. They want action, so the leaders of the mob demands he surrenders himself to them and lets them in on the governance of the country."
+ hre_revolution_events.303.f: "From the balcony the Emperor looks out over the crowd, just now he had tried to calm them by speaking to the crowd, but it seems his words have fallen on deaf ears. By now the cries of the crowd have become deafening, the Emperor still tries to speak to them but nobody can hear him anymore. They have even started trowing objects at the balcony, the Emperor realizes he has lost all favor with the crowd. Realising that he is out of options the Emperor has decided to surrender himself to the leaders of the crowd who have claimed to represent the 3de estate."
+ hre_revolution_events.303.a: "The Emperor surrenders himself."
+ #The emperor orders the crowd dispersed
+ hre_revolution_events.304.t: "The guards attempt to disperse the crowd"
+ hre_revolution_events.304.d: "The Imperial guards attempts to disperse the crowd but they quickly lose control, the mob starts violently fighting back and manages to break into the [br_concept_imperial_residence], seizing the Imperial Family."
+ hre_revolution_events.304.f: "The Imperial guards attempts to disperse the crowd, at first peacefully, but it quickly becomes obvious that the protesters are not going to back down. On the contrary the mob is pushing forward attempting to enter the Palace. It is in this chaos that eventually calamity strikes, someone fires a shot, no one knows who fired it, but that does not matter. Before anyone can diffuse the situation the guard believing to be under attack fire into the crowd, at which point all hell breaks loose and full scale fighting erupts infront of the Palace. Many are killed, but eventually the mob manages to overwhelm and kill the guards. From above the Emperor looks on in horror as the situation desolves, he knows the situation is inescapable. So when the mob, which has at this point transformed into a full scale revolution, breaks down the doors and forces their way into the Imperial chambers, the Emperor surrender himself to them."
+ hre_revolution_events.304.a: "The Emperor surrenders himself."
+ #The emperor moves to paris
+ hre_revolution_events.305.t: "The Emperors moves"
+ hre_revolution_events.305.d: "The [br_concept_imperial_residence] is currently located in $br_imperial_residence_building_loc$, but now that the revolutionaries have seized the imperial family they have decided that they will be moved back to $br_original_imperial_residence_building_loc$ in the center of Paris where they can keep an eye on him."
+ hre_revolution_events.305.f: "The Imperial family had previously moved to $br_imperial_residence_building_loc$ outside of the city of Paris so they where removed form the unreast and instability of the city, but now the revolutionaries want them to return to the city, so they can show that the Monarchy is under the control of the new revolutionary regime."
+ hre_revolution_events.305.a: "The Monarchy returns to Paris."
+ #The emperor is put under house arrest
+ hre_revolution_events.306.t: "The Emperors under house arrest"
+ hre_revolution_events.306.d: "The new Revolutionary Government has put the Emperor under house arrest in $br_imperial_residence_building_loc$."
+ hre_revolution_events.306.f: "The new Revolutionary Government has put the Imperial family under house arrest in their [br_concept_imperial_residence] as to insure that the Monarch remains under control of the new regime."
+ hre_revolution_events.306.a: "What will this mean for the Monarchy."
+ #A revolutionary council of the 3de estate conviens and drafts a constitution
+ hre_revolution_events.307.t: "A Constitution, the Revolution has begun"
+ hre_revolution_events.307.d: "Today a revolutionary council of the 3de estate has conviened and has drafted a constitution, with this they have officially overthrown the previous regime and established their own, the #bold Revolution#! has now truly begun.\n$br_hre_impending_revolution_1de_estate_has_overthrown_the_monarch_tt$"
+ hre_revolution_events.307.f: "As of now there is a new government in Paris, this new Revolutionary government has pledged to change the country and transform it into a enlightent and modern nation. However while the new government has solidified its rule over the capital it is yet uncertain if the rest of the country will loyally follow this new course for the nation, as many within the Empire still see the Emperor as the true legitimate ruler of the Empire.\nFor now the government is trying to uphold the illusion that the Emperor supports the revolution, so for the moment the Monarchy remains in place. However it is yet to be seen if the Emperor will truly back this new course or if he will simply try to undo the Revolution. So perhaps it would be better if there was no Monarchy and perhaps we should abolish this 1000 year antiquated system and return to the republic of old. Perhaps it would indeed be better if we followed in the footsteps of the old Romans and abolished the Monarchy to create a republic, this would perhaps be unpopular but the road to Enlightenment requires #r Sacrifices#!."
+ hre_revolution_events.307.a: "The Revolution has begun."
+ br_revolution_errupts_warning_tt: "#r From now on the Revolution has errupted and you will have to manage the stability of the revolution thru a new Journal Entry.#!"
+
+ #Generic enlightenment ideas spread event
+ hre_revolution_events.400.t: "Enlightenment ideas spread"
+ hre_revolution_events.400.d: "Writers and philosophers across the country have begun spreading ideas across the people."
+ hre_revolution_events.400.f: "All across the country people have begun spreading the enlightened ideas. This idea has especially taken off amongst members of the [br_concept_3de_estate]."
+ hre_revolution_events.400.a: "New ideas hey."
+ #Church and state should be seperated
+ hre_revolution_events.401.t: "Separation of Church and State"
+ hre_revolution_events.401.d: "Writers and philosophers across the country have begun spreading ideas of how the church should be separated from the state."
+ hre_revolution_events.401.f: "All across the country people have begun spreading the idea that there should be a separation between the church and the state. This idea has especially taken off amongst members of the [br_concept_3de_estate]."
+ hre_revolution_events.401.a: "What an interesting new idea."
+ br_3de_estate_believes_chruch_and_state_should_be_separated_tt: "[br_concept_3de_estate] gets [GetStaticModifier('br_modifier_chruch_and_state_should_be_separated').GetName|v]."
+
+ #Food security has stabilized
+ hre_revolution_events.501.t: "Food security has stabilized"
+ hre_revolution_events.501.d: "Our food security has stabilized"
+ #hre_revolution_events.501.f: "Food security has stabilized"
+ hre_revolution_events.501.a: "Great"
+ #Food security has stabilized
+ hre_revolution_events.502.t: "Popular Regime"
+ hre_revolution_events.502.d: "Our regime is now popular."
+ hre_revolution_events.502.f: "Due to the popularity of our monarch our regime is no longer considered unpopular."
+ hre_revolution_events.502.a: "Great"
+
+ #######################################################################################
+
+ ##Modifiers
+ br_modifier_unreliable_food_security: "Unreliable Food Security"
+ br_modifier_unpopular_regime: "Unpopular Regime"
+ br_modifier_antiquated_regime: "Antiquated Regime"
+ br_modifier_modernizing_the_regime: "Modernizing the Regime"
+ br_modifier_imperial_residence: "Imperial Residence"
+ br_modifier_special_chruch_rights: "Special Chruch Rights"
+ br_modifier_require_oath_of_loyalty_from_priests: "Require an oath of loyalty from Priests"
+ br_modifier_bourgeois_ministers: "Bourgeois Ministers"
+ br_modifier_subsidize_food_distribution: "Subsidize food distribution"
+ br_modifier_new_noble_titles: "New Noble titles"
+ br_modifier_reduced_land_taxes: "Reduced land taxes"
+ br_modifier_holiest_of_empires: "Holiest of Empires"
+ br_modifier_an_aristocratic_empire: "An Aristocratic Empire"
+ br_modifier_a_new_foreign_emperor: "A Foreign Emperor"
+ #Enlightenment Modifiers
+ br_modifier_chruch_and_state_should_be_separated: "Church and state should be separated"
+
+ #######################################################################################
+
+ ##Modifier Types
+ br_modifier_will_increase_monthly_disatisfaction_loc: "This modifier will increase the disatisfaction of the"
+ br_modifier_will_decrease_monthly_disatisfaction_loc: "This modifier will decrease the disatisfaction of the"
+ br_every_month: "every month"
+ country_will_add_1de_estate_monthly_disatisfaction_increase: "$br_modifier_will_increase_monthly_disatisfaction_loc$ [br_concept_1de_estate] $br_every_month$"
+ country_will_add_1de_estate_monthly_disatisfaction_decrease: "$br_modifier_will_decrease_monthly_disatisfaction_loc$ [br_concept_1de_estate] $br_every_month$"
+ country_will_add_2de_estate_monthly_disatisfaction_increase: "$br_modifier_will_increase_monthly_disatisfaction_loc$ [br_concept_2de_estate] $br_every_month$"
+ country_will_add_2de_estate_monthly_disatisfaction_decrease: "$br_modifier_will_decrease_monthly_disatisfaction_loc$ [br_concept_2de_estate] $br_every_month$"
+ country_will_add_3de_estate_monthly_disatisfaction_increase: "$br_modifier_will_increase_monthly_disatisfaction_loc$ [br_concept_3de_estate] $br_every_month$"
+ country_will_add_3de_estate_monthly_disatisfaction_decrease: "$br_modifier_will_decrease_monthly_disatisfaction_loc$ [br_concept_3de_estate] $br_every_month$"
+
+ #######################################################################################
+
+ # political movements
+ br_movement_anti_feudalism: "Anti Feudalism Movement"
+ br_movement_anti_feudalism_name: "$br_movement_anti_feudalism$"
+ br_movement_pro_feudalism: "Pro Feudalism Movement"
+ br_movement_pro_feudalism_name: "$br_movement_pro_feudalism$"
+
+ #######################################################################################
+
+ # ideologies
+ ideology_anti_feudalism: "Anti Feudalism"
+ ideology_anti_feudalism_desc: "This character opposes the ideas of Feudalism."
+ ideology_pro_feudalism: "Pro Feudalism"
+ ideology_pro_feudalism_desc: "This character believes ones worth and standing in society is derived from birth."
+
+ #######################################################################################
+
+ #Imperial Residence
+ br_imperial_residence_building_loc: "[GetPlayer.MakeScope.GetVariable( 'br_current_imperial_residence_var' ).GetBuilding.GetName]"
+ br_original_imperial_residence_building_loc: "[GetPlayer.MakeScope.GetVariable( 'br_original_imperial_residence_var' ).GetBuilding.GetName]"
+ br_concept_imperial_residence:1 "Imperial Residence"
+ br_concept_imperial_residence:0 "Royal Residence"
+ br_concept_imperial_residence_desc:1 "The $br_concept_imperial_residence$ is the location wheir the Imperial families lives[GetPlayer.GetCustom('br_imperial_residence_location_loc')]"
+ br_concept_imperial_residence_location: ", which is currently $br_imperial_residence_building_loc$."
+ #tooltip:tooltip_tag,tooltip_body,cooltip your text here#!
+
+ #######################################################################################
+
+ ##Estates
+ #estate names
+ br_1de_estate_loc: "First estate"
+ br_2de_estate_loc: "Second estate"
+ br_3de_estate_loc: "Third estate"
+ #estate concepts
+ br_concept_1de_estate: "$br_1de_estate_loc$"
+ br_concept_1de_estate_desc: "The $br_1de_estate_loc$ is an order within the Feudalism [concept_social_hierarchy]. That represents the Clergy.\n$TOOLTIP_DELIMITER$\n[GetPlayer.GetCustom('br_1de_estate_optional_obj_info_loc')]"
+ br_concept_2de_estate: "$br_2de_estate_loc$"
+ br_concept_2de_estate_desc: "The $br_2de_estate_loc$ is an order within the Feudalism [concept_social_hierarchy]. That represents the Nobility.\n$TOOLTIP_DELIMITER$\n[GetPlayer.GetCustom('br_2de_estate_optional_obj_info_loc')]"
+ br_concept_3de_estate: "$br_3de_estate_loc$"
+ br_concept_3de_estate_desc: "The $br_3de_estate_loc$ is an order within the Feudalism [concept_social_hierarchy]. That represents the remaining rest of the populace.\n$TOOLTIP_DELIMITER$\n[GetPlayer.GetCustom('br_3de_estate_optional_obj_info_loc')]"
+
+ br_1de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_1de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+ br_2de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_2de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+ br_3de_estate_obj_info_loc: "This estate has a current disatisfaction of [ROOT.GetVariable('br_3de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+
+ #most disatisfied estates
+ br_current_most_disatisfied_estate_loc: "Currently the estate with the highest disatisfaction is the #yellow [GetPlayer.GetCustom('br_estate_with_the_highest_disatisfaction_loc')]#! with $br_estate_with_the_highest_disatisfaction_value_loc$ disatisfaction."
+ br_estate_with_the_highest_disatisfaction_value_loc: "[ROOT.GetVariable('br_estate_with_highest_disatisfaction_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+ br_1de_estate_disatisfaction_loc: "[ROOT.GetVariable('br_1de_estate_var').GetVariable('br_estate_disatisfaction_var').GetValue|+-]"
+
+ #How to change estate disatisfaction
+ br_how_to_change_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_estate_disatisfaction_tt_body_loc How to change the disatisfaction of an estate.#!"
+ br_how_to_change_estate_disatisfaction_tt_body_loc: "#b How to change estate disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_change_1de_estate_disatisfaction_tt_loc$\n$br_how_to_change_2de_estate_disatisfaction_tt_loc$\n$br_how_to_change_3de_estate_disatisfaction_tt_loc$"
+ #How to change 1de estate disatisfaction
+ br_how_to_change_1de_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_1de_estate_disatisfaction_tt_body_loc How to change the disatisfaction of the [br_concept_1de_estate].#!"
+ br_how_to_change_1de_estate_disatisfaction_tt_body_loc: "#b How to change $br_1de_estate_loc$ disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_increase_1de_estate_disatisfaction_loc$\n\n$br_how_to_decrease_1de_estate_disatisfaction_loc$"
+ br_how_to_increase_1de_estate_disatisfaction_loc: "To increase $br_1de_estate_loc$ disatisfaction try to pass laws that would strip power away from the church or try to take actions against the estate thru the buttons in the [concept_journal_entry]."
+ br_how_to_decrease_1de_estate_disatisfaction_loc: "To decrease $br_1de_estate_loc$ disatisfaction try to pass laws that would give to the church or try to take actions supporting the estate thru the buttons in the [concept_journal_entry]."
+ #How to change 2de estate disatisfaction
+ br_how_to_change_2de_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_2de_estate_disatisfaction_tt_body_loc How to change the disatisfaction of the [br_concept_2de_estate].#!"
+ br_how_to_change_2de_estate_disatisfaction_tt_body_loc: "#b How to change $br_2de_estate_loc$ disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_increase_2de_estate_disatisfaction_loc$\n\n$br_how_to_decrease_2de_estate_disatisfaction_loc$"
+ br_how_to_increase_2de_estate_disatisfaction_loc: "To increase $br_2de_estate_loc$ disatisfaction try to pass laws that would strip power away from the nobility or try to take actions against the estate thru the buttons in the [concept_journal_entry]."
+ br_how_to_decrease_2de_estate_disatisfaction_loc: "To decrease $br_2de_estate_loc$ disatisfaction try to pass laws that would give to the nobility or try to take actions supporting the estate thru the buttons in the [concept_journal_entry]."
+ #How to change 1de estate disatisfaction
+ br_how_to_change_3de_estate_disatisfaction_tt_loc: "#tooltippable;tooltip:[Country.GetTooltipTag],br_how_to_change_3de_estate_disatisfaction_tt_body_loc How to change the disatisfaction of the [br_concept_3de_estate].#!"
+ br_how_to_change_3de_estate_disatisfaction_tt_body_loc: "#b How to change $br_3de_estate_loc$ disatisfaction.#!\n$TOOLTIP_DELIMITER$\n$br_how_to_increase_3de_estate_disatisfaction_loc$\n\n$br_how_to_decrease_3de_estate_disatisfaction_loc$"
+ br_how_to_increase_3de_estate_disatisfaction_loc: "To increase $br_3de_estate_loc$ disatisfaction try to pass laws that would strip power away from the commoners/give power to the nobility or try to take actions against the estate thru the buttons in the [concept_journal_entry]."
+ br_how_to_decrease_3de_estate_disatisfaction_loc: "To decrease $br_3de_estate_loc$ disatisfaction try to pass laws that would give to the commoners or try to take actions supporting the estate thru the buttons in the [concept_journal_entry]."
+
+ br_hre_impending_revolution_1de_estate_has_overthrown_the_monarch_tt: "@information! The [br_concept_1de_estate] has launched its revolution overthrowing the Monarch."
+ br_hre_impending_revolution_2de_estate_has_overthrown_the_monarch_tt: "@information! The [br_concept_2de_estate] has launched its revolution overthrowing the Monarch."
+ br_hre_impending_revolution_3de_estate_has_overthrown_the_monarch_tt: "@information! The [br_concept_3de_estate] has launched its revolution overthrowing the Monarch."
+
+ #######################################################################################
+
+ ##Monarchy Popularity
+ br_monarchy_popularity_current_value_loc: "#bold #greece [Country.MakeScope.GetVariable('br_monarchy_popularity_var').GetValue]#!#!" #using ROOT instead of Country.MakeScope will make the br_how_to_popularize_regime_loc tooltip cause the game to crash
+ #change in monarchy popularity
+ br_will_increase_monthly_monarchy_popularity_tt: "This will increase the monthly [br_concept_monarchy_popularity]."
+ br_will_decrease_monthly_monarchy_popularity_tt: "This will decrease the monthly [br_concept_monarchy_popularity]."
+ #monarchy popularity concept
+ br_concept_monarchy_popularity: "Monarchy Popularity"
+ br_concept_monarchy_popularity_desc: "This represents how popular the monarchy is among the people."
+
+
+ #######################################################################################
+
+ ##Enlightenment
+ br_concept_enlightenment_value: "Enlightenment value"
+ br_concept_enlightenment_value_desc: "This represents the spread of enlightened ideas amongst the people of our nation."
+ 
+ br_hre_impending_revolution_increase_enlightenment_value_tt: "[br_concept_enlightenment_value] increased with [GetPlayer.MakeScope.ScriptValue('br_basic_change_in_enlightenment_value')|-=]"
+ br_hre_impending_revolution_decrease_enlightenment_value_tt: "[br_concept_enlightenment_value] decreased with [GetPlayer.MakeScope.ScriptValue('br_basic_change_in_enlightenment_value')|+=]"

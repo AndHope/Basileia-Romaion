@@ -4,19 +4,20 @@
 hre_revolution_events.1 = {
 	type = country_event
 	placement = root
-	title = hre_revolution_events.1.t  #loc needed
+	title = hre_revolution_events.1.t
 	desc = hre_revolution_events.1.d
 	flavor = hre_revolution_events.1.f
+	dlc = dlc_basileia_romaion
 
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	on_opened_soundeffect = "event:/SFX/Events/middleeast/courtroom_upheaval"
-	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	trigger = {
 	}
@@ -41,52 +42,52 @@ hre_revolution_events.1 = {
 }
 
 # The revolution erupts
-hre_revolution_events.2 = {
+# hre_revolution_events.2 = {
 
-	type = country_event
-	event_image = {
-		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
-	}
+# 	type = country_event
+# 	event_image = {
+# 		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+# 	}
 
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+# 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+# 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
 
-	icon = "gfx/interface/icons/event_icons/event_election.dds"
+# 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	title = hre_revolution_events.2.t
-	desc = hre_revolution_events.2.d
-	flavor = hre_revolution_events.2.f
+# 	title = hre_revolution_events.2.t
+# 	desc = hre_revolution_events.2.d
+# 	flavor = hre_revolution_events.2.f
 
-	duration = 3
+# 	duration = 3
 
-	immediate = {
-		set_variable = br_revolution_complete_var
-	}
+# 	immediate = {
+# 		set_variable = br_impending_revolution_prevented_var
+# 	}
 
-	option = {
-		name = hre_revolution_events.2.a
-		default_option = yes
+# 	option = {
+# 		name = hre_revolution_events.2.a
+# 		default_option = yes
 
-		add_modifier = {
-			name = br_modifier_vive_la_revolution
-			years = -1
-		}
-		add_modifier = {
-			name = br_modifier_roman_republicanism
-			years = -1
-		}
-		remove_modifier = br_modifier_holy_roman_emperor
-		remove_modifier = br_modifier_noble_privileges
-		remove_modifier = br_modifier_feudalism
-		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_wealth_voting #or anarchy
-		activate_law = law_type:law_tenant_farmers
+# 		add_modifier = {
+# 			name = br_modifier_vive_la_revolution
+# 			years = -1
+# 		}
+# 		add_modifier = {
+# 			name = br_modifier_roman_republicanism
+# 			years = -1
+# 		}
+# 		remove_modifier = br_modifier_holy_roman_emperor
+# 		remove_modifier = br_modifier_noble_privileges
+# 		remove_modifier = br_modifier_feudalism
+# 		activate_law = law_type:law_presidential_republic
+# 		activate_law = law_type:law_wealth_voting #or anarchy
+# 		activate_law = law_type:law_tenant_farmers
 		
-		add_journal_entry = {
-			type = je_national_identity
-		}
-	}
-}
+# 		add_journal_entry = {
+# 			type = je_national_identity
+# 		}
+# 	}
+# }
 
 # The revolution is prevented thru reform
 hre_revolution_events.3 = {
@@ -94,21 +95,22 @@ hre_revolution_events.3 = {
 	type = country_event
 	
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	title = hre_revolution_events.3.t
 	desc = hre_revolution_events.3.d
 	flavor = hre_revolution_events.3.f
+	dlc = dlc_basileia_romaion
 
 	duration = 3
 
 	immediate = {
-		set_variable = br_revolution_complete_var
+		br_impending_revolution_complete_scripted_effect = yes
 	}
 
 	option = {
@@ -120,7 +122,7 @@ hre_revolution_events.3 = {
 				name = br_modifier_peoples_monarchy
 				years = -1
 			}
-			#remove_modifier = br_modifier_noble_privileges
+			br_revolution_has_been_prevented_scripted_effect = yes
 		}
 	}
 }
@@ -131,21 +133,22 @@ hre_revolution_events.4 = {
 	type = country_event
 	
 	event_image = {
-		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	title = hre_revolution_events.4.t
 	desc = hre_revolution_events.4.d
 	flavor = hre_revolution_events.4.f
+	dlc = dlc_basileia_romaion
 
 	duration = 3
 
 	immediate = {
-		set_variable = br_revolution_complete_var
+		br_impending_revolution_complete_scripted_effect = yes
 	}
 
 	option = {
@@ -157,7 +160,1378 @@ hre_revolution_events.4 = {
 				name = br_modifier_heir_of_augustus
 				years = -1
 			}
-			#remove_modifier = br_modifier_noble_privileges
+			br_revolution_has_been_prevented_scripted_effect = yes
+		}
+	}
+}
+
+# Low food security
+hre_revolution_events.5 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_russian_serfs.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/food.dds"
+
+	title = hre_revolution_events.5.t
+	desc = hre_revolution_events.5.d
+	flavor = hre_revolution_events.5.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
+
+	trigger = {
+		or = {
+			any_scope_state = {
+				has_famine = yes
+			}
+			
+			any_scope_pop = { #don't know if this trigger is still nessesary, because when this is true there will likely be a famine as well
+				food_security <= br_impending_revolution_food_security_threshold
+				percent >= br_impending_revolution_food_security_population_percentage_threshold
+			}
+		}
+	}
+
+	immediate = {
+		#flag var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.5.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_medium_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_medium_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# Bandits room the countryside
+hre_revolution_events.6 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/rp1_social_banditry.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.6.t
+	desc = hre_revolution_events.6.d
+	flavor = hre_revolution_events.6.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
+
+	trigger = {
+		any_scope_state = {
+			turmoil >=  br_impending_revolution_bandit_turmoil_threshold
+			count >= br_impending_revolution_bandit_nr_states_threshold 
+		}
+	}
+
+	immediate = {
+		#flag var
+		set_variable = br_hre_impending_revolution_bandits_var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.6.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_medium_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_medium_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# 3de estate forms mititias
+hre_revolution_events.7 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.7.t
+	desc = hre_revolution_events.7.d
+	flavor = hre_revolution_events.7.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
+
+	trigger = {
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_militia_formation_revolution_progress_threshold
+		}
+		br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_militia_formation_3de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
+		#flag var
+		set_variable = br_hre_impending_revolution_mititias_formed_var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.7.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_medium_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_medium_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# 3de estate mititias raid arms depots
+hre_revolution_events.8 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.8.t
+	desc = hre_revolution_events.8.d
+	flavor = hre_revolution_events.8.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	} 
+
+	trigger = {
+		has_variable = br_hre_impending_revolution_mititias_formed_var
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_arms_depots_raided_revolution_progress_threshold
+		}
+		br_has_specific_3ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_arms_depots_raided_3de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
+		#flag var
+		set_variable = br_hre_impending_revolution_arms_depots_raided_var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.8.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_large_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# Build a statue of the Monarch
+#this is simply a adjusted copy of the vanilla event "character_events.5 #A statue made of the king"
+hre_revolution_events.9 = { #A statue made of the king
+	type = country_event
+	placement = scope:br_statue_state
+
+	title = hre_revolution_events.9.t
+	desc = hre_revolution_events.9.d
+	flavor = hre_revolution_events.9.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	# cooldown = { days = stupidly_long_modifier_time }
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:br_statue_monarch
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	immediate = {
+		ruler = {
+			save_scope_as = br_statue_monarch
+		}
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				has_building = building_urban_center
+				NOT = { has_variable = br_monarch_statue_var }
+			}
+			save_scope_as = br_statue_state
+		}
+	}
+
+	cancellation_trigger = {
+		OR = {
+			NOT = {
+				exists = scope:br_statue_monarch
+			}
+			scope:br_statue_monarch = {
+				is_character_alive = no
+			}
+		}
+	}
+
+	option = { #Do it
+		name = hre_revolution_events.9.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_statue_of_ruler #prestige
+			days = normal_modifier_time
+		}
+		scope:br_statue_state = {
+			set_variable = {
+				name = br_monarch_statue_var
+				days = normal_modifier_time
+			}
+			add_radicals_in_state = {
+  				value = small_radicals
+  			}
+  			set_variable = {
+  				name = fireworks_variable
+  				value = yes
+  				days = 5
+  			}
+		}
+		
+		#Supporters of pro feudalism approve of statue
+		movement_type:br_movement_pro_feudalism = {
+			every_influenced_interest_group = {
+				limit = {
+					law_stance = {
+						law = law_type:law_monarchy
+						value > neutral
+					}
+				}
+				add_modifier = {
+					name = modifier_ig_approve_of_statue
+					days = normal_modifier_time
+				}
+			}
+		}
+
+		#Supporters of anti feudalism disapprove of statue
+		movement_type:br_movement_anti_feudalism = {
+			every_influenced_interest_group = {
+				add_modifier = {
+					name = modifier_ig_disapprove_of_statue
+					days = normal_modifier_time
+				}
+			}
+		}
+	}
+}
+
+# Priests refuses to acknowledge the Emperors divine right to rule
+hre_revolution_events.10 = {
+
+	type = country_event
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_orthodox_monastery.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/catholic.dds"
+
+	title = hre_revolution_events.10.t
+	desc = hre_revolution_events.10.d
+	flavor = hre_revolution_events.10.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	trigger = {
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_divine_right_denied_revolution_progress_threshold
+		}
+		br_has_specific_1ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_divine_right_denied_1de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
+		#flag var
+		set_variable = br_hre_impending_revolution_divine_right_denied_var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.10.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_large_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# Nobels whisper of a new monarch
+hre_revolution_events.11 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/aristocrats.dds"
+
+	title = hre_revolution_events.11.t
+	desc = hre_revolution_events.11.d
+	flavor = hre_revolution_events.11.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	trigger = {
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_whispers_of_a_new_monarch_revolution_progress_threshold
+		}
+		br_has_specific_2ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_whispers_of_a_new_monarch_2de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
+		#flag var
+		set_variable = br_hre_impending_revolution_whispers_of_a_new_monarch_var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.11.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_large_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+
+###
+### Revolution Erupts Events
+###
+
+##
+## 1de estate launches revolution Events
+##
+# Cardinal blocks emperor form going to church
+hre_revolution_events.101 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_byzantine_hall.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.101.t
+	desc = hre_revolution_events.101.d
+	flavor = hre_revolution_events.101.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+		capital = {
+			save_scope_as = br_capital_scope
+		}
+	}
+
+	option = {
+		name = hre_revolution_events.101.a
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.102
+			popup = yes
+		}
+	}
+}
+
+# Emperor orders the cardinal to be sacked
+hre_revolution_events.102 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_byzantine_hall.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.102.t
+	desc = hre_revolution_events.102.d
+	flavor = hre_revolution_events.102.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.102.a
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.103
+			popup = yes
+		}
+	}
+}
+
+# Pope excommunicates the emperor
+hre_revolution_events.103 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_byzantine_hall.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.103.t
+	desc = hre_revolution_events.103.d
+	flavor = hre_revolution_events.103.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.103.a
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.104
+			popup = yes
+		}
+	}
+}
+
+# Emperor tries to plead with the Cardinal but gets imprisoned
+hre_revolution_events.104 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_byzantine_hall.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.104.t
+	desc = hre_revolution_events.104.d
+	flavor = hre_revolution_events.104.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.104.a
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.105
+			popup = yes
+		}
+	}
+}
+
+# The clergy seizes the state
+hre_revolution_events.105 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_byzantine_hall.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.105.t
+	desc = hre_revolution_events.105.d
+	flavor = hre_revolution_events.105.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.105.a
+		default_option = yes
+		# custom_tooltip = br_revolution_errupts_warning_tt	#commented out as there is no JE for now
+		br_1de_estate_has_finished_overthrowing_the_monarch_scripted_effect = yes
+	}
+}
+
+
+##
+## 2de estate launches revolution Events
+##
+# A group of nobles is hosting a lavish feast outside the capital
+hre_revolution_events.201 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.201.t
+	desc = hre_revolution_events.201.d
+	flavor = hre_revolution_events.201.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.201.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.202
+			popup = yes
+		}
+	}
+}
+
+# The Emperor attends the feast
+hre_revolution_events.202 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.202.t
+	desc = hre_revolution_events.202.d
+	flavor = hre_revolution_events.202.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.202.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.203
+			popup = yes
+		}
+	}
+}
+
+# The nobles seize the Emperor
+hre_revolution_events.203 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.203.t
+	desc = hre_revolution_events.203.d
+	flavor = hre_revolution_events.203.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.203.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.204
+			popup = yes
+		}
+	}
+}
+
+# The nobility gathers in the capital
+hre_revolution_events.204 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.204.t
+	desc = hre_revolution_events.204.d
+	flavor = hre_revolution_events.204.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.204.a
+		default_option = yes
+		trigger_event = {
+			id = hre_revolution_events.205
+			popup = yes
+		}
+	}
+}
+
+# The nobility decides on who will be Emperor
+hre_revolution_events.205 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.205.t
+	desc = hre_revolution_events.205.d
+	flavor = hre_revolution_events.205.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	#A Carolingian ruler
+	option = {
+		name = hre_revolution_events.205.a
+		create_character = {
+			template = dynamic_carolingian_ruler_template
+		}
+	}
+	#A Merovingian ruler
+	option = {
+		name = hre_revolution_events.205.b
+		default_option = yes
+		create_character = {
+			template = dynamic_merovingian_ruler_template
+		}
+	}
+	#A Van Vlaanderen ruler
+	option = {
+		name = hre_revolution_events.205.c
+		if = {
+			limit = {
+				exists = c:FLA
+				is_player = no #only the Ai can become a PU off FLA
+			}
+			c:FLA = {
+				br_remove_diplomatic_pact_subject = {
+					country = root
+				}
+				create_diplomatic_pact = {
+					country = root
+					type = personal_union
+				}
+				add_modifier = br_modifier_holy_roman_emperor
+			}
+			add_modifier = br_modifier_a_new_foreign_emperor
+		}
+		else = {
+			create_character = {
+				template = dynamic_van_vlaanderen_ruler_template
+			}
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+	#A D'Orléans ruler
+	option = {
+		name = hre_revolution_events.205.e
+		create_character = {
+			template = dynamic_orleanist_ruler_template
+		}
+	}
+	#A Von Bayern ruler
+	option = {
+		name = hre_revolution_events.205.g
+		if = {
+			limit = {
+				exists = c:BAV
+				is_player = no #only the Ai can become a PU off BAV
+			}
+			c:BAV = {
+				br_remove_diplomatic_pact_subject = {
+					country = root
+				}
+				create_diplomatic_pact = {
+					country = root
+					type = personal_union
+				}
+				add_modifier = br_modifier_holy_roman_emperor
+			}
+			add_modifier = br_modifier_a_new_foreign_emperor
+		}
+		else = {
+			create_character = {
+				template = dynamic_von_bayern_ruler_template
+			}	
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+	after = {
+		# custom_tooltip = br_revolution_errupts_warning_tt	#commented out as there is no JE for now
+		br_2de_estate_has_finished_overthrowing_the_monarch_scripted_effect = yes
+	}
+}
+
+
+##
+## 3de estate launches revolution Events
+##
+
+# Mob of the 3de estate storms the Royal residence (versail or palais de la cite)
+hre_revolution_events.301 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.301.t
+	desc = hre_revolution_events.301.d
+	flavor = hre_revolution_events.301.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.301.a
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.302
+			popup = yes
+		}
+	}
+}
+
+# Emperor can chose to cooperate with the mob or resist
+hre_revolution_events.302 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.302.t
+	desc = hre_revolution_events.302.d
+	flavor = hre_revolution_events.302.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.302.a
+
+		trigger_event = {
+			id = hre_revolution_events.303
+			popup = yes
+		}
+	}
+	option = {
+		name = hre_revolution_events.302.b
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.304
+			popup = yes
+		}
+	}
+}
+
+# The emperor attempts to speak to the crowd
+hre_revolution_events.303 = {
+
+	type = country_event
+	
+	gui_window = event_window_superevent_modern_full
+
+	event_image = {
+		# video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2"
+		video = "gfx/event_pictures/votp_agitator_speaking.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.303.t
+	desc = hre_revolution_events.303.d
+	flavor = hre_revolution_events.303.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.303.a
+		default_option = yes
+
+		#set the current imperial residence to the original one if it wasn't the same already
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = no
+			}
+			trigger_event = {
+				id = hre_revolution_events.305
+				popup = yes
+			}
+		}
+		else = {
+			trigger_event = {
+				id = hre_revolution_events.306
+				popup = yes
+			}
+		}
+	}
+}
+
+# The emperor orders the crowd dispersed
+hre_revolution_events.304 = {
+
+	type = country_event
+	
+	gui_window = event_window_superevent_modern_full
+
+	event_image = {
+		video = "gfx/event_pictures/votp_cops_march.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.304.t
+	desc = hre_revolution_events.304.d
+	flavor = hre_revolution_events.304.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.304.a
+		default_option = yes
+
+		#set the current imperial residence to the original one if it wasn't the same already
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = no
+			}
+			trigger_event = {
+				id = hre_revolution_events.305
+				popup = yes
+			}
+		}
+		else = {
+			trigger_event = {
+				id = hre_revolution_events.306
+				popup = yes
+			}
+		}
+	}
+}
+
+# If the Emperor lived in Versailles he and his familly are forced to move to palais de la cité in Paris (if the Emperor already lived there this event is skipped)
+hre_revolution_events.305 = {
+
+	type = country_event
+	
+	gui_window = event_window_superevent_modern_full
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_london_center.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.305.t
+	desc = hre_revolution_events.305.d
+	flavor = hre_revolution_events.305.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.305.a
+		default_option = yes
+
+		#set the current imperial residence to the original one if it wasn't the same already
+		if = {
+			limit = {
+				br_is_current_imperial_residence_original_scripted_trigger = no
+			}
+			br_set_current_imperial_residence_to_original_effect = yes
+		}
+
+		trigger_event = {
+			id = hre_revolution_events.306
+			popup = yes
+		}
+	}
+}
+
+# Emperor is put under house arrest
+hre_revolution_events.306 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_turkish_palace2.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.306.t
+	desc = hre_revolution_events.306.d
+	flavor = hre_revolution_events.306.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.306.a
+		default_option = yes
+
+		trigger_event = {
+			id = hre_revolution_events.307
+			popup = yes
+		}
+	}
+}
+
+# A revolutionary council of the 3de estate conviens and drafts a constitution
+hre_revolution_events.307 = {
+
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.307.t
+	desc = hre_revolution_events.307.d
+	flavor = hre_revolution_events.307.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.307.a
+		default_option = yes
+		# custom_tooltip = br_revolution_errupts_warning_tt	#commented out as there is no JE for now
+		br_3de_estate_has_finished_overthrowing_the_monarch_scripted_effect = yes
+	}
+}
+
+###
+### Enlightenment events
+###
+#Generic enlightenment ideas spread event
+hre_revolution_events.400 = {
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.400.t
+	desc = hre_revolution_events.400.d
+	flavor = hre_revolution_events.400.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.400.a
+		default_option = yes
+		br_increase_enlightenment_value_effect = yes
+	}
+}
+
+#Church and state should be seperated
+hre_revolution_events.401 = {
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/ep1_printing_press.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.401.t
+	desc = hre_revolution_events.401.d
+	flavor = hre_revolution_events.401.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	trigger = {
+		#The min amount of days the JE age should have before this event can trigger, (in days).
+		scope:journal_entry = {
+			journal_entry_age >= br_impending_revolution_enlightenment_idea_chuch_and_state_separated_min_je_age
+		}
+		not = {
+			var:br_3de_estate_var = {
+				has_modifier = br_modifier_chruch_and_state_should_be_separated
+			}
+		}
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.401.a
+		default_option = yes
+		br_increase_enlightenment_value_effect = yes
+		custom_tooltip = {
+			text = br_3de_estate_believes_chruch_and_state_should_be_separated_tt
+			br_give_estate_modifier_effect = {
+				estate_scope = var:br_3de_estate_var
+				modifier = br_modifier_chruch_and_state_should_be_separated
+			}
+		}
+	}
+}
+
+
+###
+### Revolution looms reform and suppress pulse events
+###
+hre_revolution_events.500 = { #event not currently used
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = hre_revolution_events.500.t
+	desc = hre_revolution_events.500.d
+	flavor = hre_revolution_events.500.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.500.a
+		default_option = yes
+	}
+}
+
+#Food security has stabilized
+hre_revolution_events.501 = {
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/food.dds"
+
+	title = hre_revolution_events.501.t
+	desc = hre_revolution_events.501.d
+	# flavor = hre_revolution_events.501.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.501.a
+		default_option = yes
+
+		remove_modifier = br_modifier_unreliable_food_security
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_large_decrease_in_revolutionary_tension_value
+		}
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_small_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_medium_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_large_decrease_in_estate_disatisfaction_value
+		}
+	}
+}
+
+#Regime has become popular
+hre_revolution_events.502 = {
+	type = country_event
+
+	gui_window = event_window_superevent_modern_full
+	
+	event_image = {
+		video = "gfx/event_pictures/votp_monarch_holding_court.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/sovereign_empire.dds"
+
+	title = hre_revolution_events.502.t
+	desc = hre_revolution_events.502.d
+	flavor = hre_revolution_events.502.f
+	dlc = dlc_basileia_romaion
+
+	duration = 3
+
+	immediate = {
+	}
+
+	option = {
+		name = hre_revolution_events.502.a
+		default_option = yes
+
+		remove_modifier = br_modifier_unpopular_regime
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_large_decrease_in_revolutionary_tension_value
+		}
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_large_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_large_decrease_in_estate_disatisfaction_value
+		}
+		br_specific_change_in_3de_estate_disatisfaction_effect = {
+			value = br_large_decrease_in_estate_disatisfaction_value
 		}
 	}
 }
