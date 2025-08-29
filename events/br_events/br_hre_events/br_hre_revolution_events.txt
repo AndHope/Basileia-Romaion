@@ -466,6 +466,109 @@ hre_revolution_events.9 = { #A statue made of the king
 	}
 }
 
+# Priests refuses to acknowledge the Emperors divine right to rule
+hre_revolution_events.10 = {
+
+	type = country_event
+	
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/eocfm_orthodox_monastery.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/catholic.dds"
+
+	title = hre_revolution_events.10.t
+	desc = hre_revolution_events.10.d
+	flavor = hre_revolution_events.10.f
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	trigger = {
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_divine_right_denied_revolution_progress_threshold
+		}
+		br_has_specific_1ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_divine_right_denied_1de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
+		#flag var
+		set_variable = br_hre_impending_revolution_divine_right_denied_var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.10.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_large_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_1de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+# Nobels whisper of a new monarch
+hre_revolution_events.11 = {
+
+	type = country_event
+	
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+	icon = "gfx/interface/icons/event_icons/aristocrats.dds"
+
+	title = hre_revolution_events.11.t
+	desc = hre_revolution_events.11.d
+	flavor = hre_revolution_events.11.f
+
+	duration = 3
+
+	cooldown = {
+		months = br_impending_revolution_specific_pulse_event_cooldown_length
+	}
+
+	trigger = {
+		br_hre_has_specific_revolution_progress_scripted_trigger = {
+			value = br_impending_revolution_whispers_of_a_new_monarch_revolution_progress_threshold
+		}
+		br_has_specific_2ste_estate_disatisfaction_scripted_trigger = {
+			value = br_impending_revolution_whispers_of_a_new_monarch_2de_estate_disatisfaction_threshold
+		}
+	}
+
+	immediate = {
+		#flag var
+		set_variable = br_hre_impending_revolution_whispers_of_a_new_monarch_var
+		br_set_impending_revolution_pulse_event_cooldown = yes
+	}
+
+	option = {
+		name = hre_revolution_events.11.a
+		default_option = yes
+		
+		br_specific_change_in_revolutionary_tension_effect = {
+			value = br_large_increase_in_revolutionary_tension_value
+		}
+		br_specific_change_in_2de_estate_disatisfaction_effect = {
+			value = br_large_increase_in_estate_disatisfaction_value
+		}
+	}
+}
+
+
 ###
 ### Revolution Erupts Events
 ###
