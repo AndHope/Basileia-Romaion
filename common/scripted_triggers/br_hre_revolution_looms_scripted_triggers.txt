@@ -219,31 +219,32 @@ br_has_impending_revolution_pulse_event_cooldown = {
 #It expects a estate_action_type as argument, which should be one of the 3 posible estate action types or the br_monarchy_action_type
 br_can_button_from_given_estate_action_be_visible_trigger = {
 	or = {
-	trigger_if = {
-		limit = {
-			$estate_action_type$ = br_1de_estate_action_type
+		trigger_if = {
+			limit = {
+				$estate_action_type$ = br_1de_estate_action_type
+			}
+			has_variable = br_1de_estate_button_selected_var
 		}
-		has_variable = br_1de_estate_button_selected_var
-	}
-	trigger_else_if = {
-		limit = {
-			$estate_action_type$ = br_2de_estate_action_type
+		trigger_else_if = {
+			limit = {
+				$estate_action_type$ = br_2de_estate_action_type
+			}
+			has_variable = br_2de_estate_button_selected_var
 		}
-		has_variable = br_2de_estate_button_selected_var
-	}
-	trigger_else_if = {
-		limit = {
-			$estate_action_type$ = br_3de_estate_action_type
+		trigger_else_if = {
+			limit = {
+				$estate_action_type$ = br_3de_estate_action_type
+			}
+			has_variable = br_3de_estate_button_selected_var
 		}
-		has_variable = br_3de_estate_button_selected_var
-	}
-	trigger_else_if = {
-		limit = {
-			$estate_action_type$ = br_monarchy_action_type
+		trigger_else_if = {
+			limit = {
+				$estate_action_type$ = br_monarchy_action_type
+			}
+			has_variable = br_revolution_monarchy_actions_button_selected_var
 		}
-		has_variable = br_revolution_monarchy_actions_button_selected_var
+		
+		#The AI should always be able to view the buttons, as it will otherwise mess with their ability to interact with all the buttons.
+		is_player = no
 	}
-	
-	#The AI should always be able to view the buttons, as it will otherwise mess with their ability to interact with all the buttons.
-	is_player = no
 }
