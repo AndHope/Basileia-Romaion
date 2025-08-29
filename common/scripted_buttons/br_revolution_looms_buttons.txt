@@ -243,15 +243,42 @@ je_clamp_down_on_church_rights_button = {
 
 #Require Oath of Loyalty from Priests
 je_require_oath_of_loyalty_from_priests_button = {
-	name = "je_require_oath_of_loyalty_from_priests_button"
-	desc = "je_require_oath_of_loyalty_from_priests_button_desc"
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_require_oath_of_loyalty_from_priests }
+				}
+				desc = "je_require_oath_of_loyalty_from_priests_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_require_oath_of_loyalty_from_priests
+				}
+				desc = "je_no_longer_require_oath_of_loyalty_from_priests_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_require_oath_of_loyalty_from_priests }
+				}
+				desc = "je_require_oath_of_loyalty_from_priests_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_require_oath_of_loyalty_from_priests
+				}
+				desc = "je_no_longer_require_oath_of_loyalty_from_priests_button_desc"
+			}
+		}
+	}
 
 	visible = {
 		br_can_button_from_given_estate_action_be_visible_trigger = {
 			estate_action_type = br_1de_estate_action_type
-		}
-		not = {
-			has_variable = br_require_oath_of_loyalty_from_priests_var
 		}
 	}
 
@@ -262,9 +289,22 @@ je_require_oath_of_loyalty_from_priests_button = {
 	}
 
 	effect = {
-		set_variable = br_require_oath_of_loyalty_from_priests_var
-		br_specific_change_in_1de_estate_disatisfaction_effect = {
-			value = br_large_increase_in_estate_disatisfaction_value
+		#no longer require a oath of loyalty from priests
+		if = {
+			limit = {
+				has_modifier = br_modifier_require_oath_of_loyalty_from_priests
+			}
+			remove_modifier = br_modifier_require_oath_of_loyalty_from_priests
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_small_decrease_in_estate_disatisfaction_value
+			}
+		}
+		#require a oath of loyalty from priests
+		else = {
+			add_modifier = br_modifier_require_oath_of_loyalty_from_priests
+			br_specific_change_in_1de_estate_disatisfaction_effect = {
+				value = br_large_increase_in_estate_disatisfaction_value
+			}
 		}
 	}
 
