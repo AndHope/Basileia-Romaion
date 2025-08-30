@@ -1,0 +1,102 @@
+﻿je_br_wre_reconquer_the_east = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	group = je_group_foreign_affairs
+
+	immediate = {
+		#give claims on the ERE
+		every_state_region = {
+			limit = {
+				OR = {
+					region = sr:region_balkans
+					region = sr:region_anatolia
+				}
+				any_scope_state = {
+					NOT = { owner = ROOT }
+					NOT = { has_claim_by = ROOT }
+				}
+			}
+			add_claim = ROOT
+		}
+		s:STATE_DOBRUDJA = {
+			add_claim = ROOT
+		}
+		s:STATE_ALEPPO = {
+			add_claim = ROOT
+		}
+		s:STATE_LEBANON = {
+			add_claim = ROOT
+		}
+		s:STATE_SYRIA = {
+			add_claim = ROOT
+		}
+		s:STATE_PALESTINE = {
+			add_claim = ROOT
+		}
+		s:STATE_TRANSJORDAN = {
+			add_claim = ROOT
+		}
+		s:STATE_SINAI = {
+			add_claim = ROOT
+		}
+		s:STATE_LOWER_EGYPT = {
+			add_claim = ROOT
+		}
+		s:STATE_MIDDLE_EGYPT = {
+			add_claim = ROOT
+		}
+		s:STATE_UPPER_EGYPT = {
+			add_claim = ROOT
+		}
+		s:STATE_EGYPTIAN_DESERT = {
+			add_claim = ROOT
+		}
+		s:STATE_MATRUH = {
+			add_claim = ROOT
+		}
+		s:STATE_LIBYA = {
+			add_claim = ROOT
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = br_when_you_own_all_ere_states_tt
+			country_or_subject_owned_all_ere_region_states = yes
+		}
+		country_or_subject_owned_all_ere_region_states = yes
+	}
+	
+	on_complete = {
+		add_treasury = 75000
+		add_modifier = {
+			name = br_modifier_restitutor_orbis
+			days = -1
+		}
+		add_loyalists = {
+			pop_type = aristocrats
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = officers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = soldiers
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			pop_type = bureaucrats
+			value = very_large_radicals
+		}
+		set_variable = br_wre_reconquered_the_east_var
+	}
+	
+	should_be_pinned_by_default = yes
+}
+
+
