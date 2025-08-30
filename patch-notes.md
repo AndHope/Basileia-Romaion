@@ -1,6 +1,6 @@
 ####id 2880120246
 
-# Update 141
+# Update 142
 
 ## HRE impending revolution rework
 - The lead up to the revolution within the HRE has been reworked.
@@ -12,6 +12,61 @@
 - A new objective screen for the HRE and the ERE.
 - A new dlc icon for the mod.
 - A gui popup that warns you if you are playing without CMF.
+
+## Other changes
+- reorganized the main ai history file
+- revert tension changes
+- fix bug if EOC disappears
+- red clothes for br subjects purple only for BR proper
+- various small ai tweaks
+- various ai adjustments
+- increased irregular infantry defense as it was weird it was the only infantry that did not have higher defense than attack.
+- gave hussars the occupation bonus that all other cavalry have
+- adjusted country names to be a bit cleaner and more standardized
+- adjusted the anatolian ere minors to encourage them to help armenia
+- increase the world market goods demand buffer from 10 to 100 to hopefully increase trade demand
+- bit more restriction to aegypt ai taking the decision to sumbit to ere
+- wee bit more boldness
+- add in movements support for mods ai strategies
+- Adjusted trains market access to go up with the type of trains you have similar to port.
+- adjusted merchant owned and publicly trade to have less clerks to better balance with capitalist.
+- lowered amount of clerks employed by trade centers.
+- started adjusting ownership share to spread the wealth a bit more and hopefully allow organic liberalization over time especially in western europe.
+- Many buildings are now owned by the workers, not done yet but goal should be for the merchant class to be more powerful especially over time.
+- more sheep earlier
+- add meat mult modifier
+- Split the starting Syria thats an ere subject into two tags.
+	- BR_ANT: "Antiokheías kai Kyprou"
+	- BR_PAL: "Palaistíneía"
+- add flags for antioch and palestine
+- added unique tech for English fabric
+- company changes and fixes
+- rebalance Medici bank again
+- remove the double company_br_vinland_fishing_company
+- change the modifier for company_br_vinland_colonization_company
+- added three new society techs to help fill in the area between tier 2 and 3 thats a little light.
+- br_tech_mercantile_companies: "Mercantile Companies"
+- br_tech_mercantile_companies_desc: "The establishment of chartered companies that are granted exclusive rights to trade and colonize specific regions. These companies often played a - - - significant role in European expansion and imperialism."
+- br_tech_administrative_formalization: "Administrative Formalization"
+- br_tech_administrative_formalization_desc: "The process of creating formal structures and procedures for managing government functions and public administration. This includes the establishment of standardized bureaucracies, legal systems, and administrative practices."
+- br_tech_constitutional_guarantees: "Constitutional Guarantees"
+- br_tech_constitutional_guarantees_desc: "Democratic reforms give rise to legal frameworks that explicitly protect the rights of all citizens. By embedding equality and freedoms into constitutional law, states begin to move beyond representation toward true legal parity."
+- added new port pm Wayport to be between anchorage and Cargo Port and added 1 merchant_marine to anchorage
+- replaced the icon for prestige_good_br_byz_clothes and prestige_good_br_ven_clothes
+- rebalance the br_modifier_romaioi_culture_supremacy modifier
+- add another decision to move armenia east once all of eastern and western armenia under control.
+- minor decision updates
+- HRE performance improvements for the ai
+- bit of ownership changes
+- some starting pop adjustments
+- upgraded the saxony North Sea treaty to a defensive pact to hopefully help NSE not get wiped by Sweden every game
+- Turkic, Kipchak, Tatar, and Mongol-influenced names for Tartaria
+- Japanese-style hub names for the regions of Okhotsk, Chukotka, Outer Manchuria and Kamchatka
+eastern armenia given armenian names
+
+
+
+# 141
 
 ## Companies
 - company_ven_arsenal and company_gen_arsenal both given unique company icons
