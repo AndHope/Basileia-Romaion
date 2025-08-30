@@ -288,6 +288,22 @@ br_on_state_occupied = {
 	}
 }
 
+on_country_formed ={
+	on_actions = {
+		on_wre_formed
+	}
+}
+on_wre_formed = {
+	effect = {
+		if = {
+			limit = {
+				c:br_WRE ?= ROOT
+			}
+			trigger_event = { id = br_wre_event.1 popup = yes }
+		}
+	}
+}
+
 grefm_monthly_pulse_1 = {
 	trigger = {
 		country_has_primary_culture = cu:greek
