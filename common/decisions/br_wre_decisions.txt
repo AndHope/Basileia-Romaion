@@ -3,8 +3,8 @@ br_proclaim_ambition_to_restore_wre_decision = {
 	is_shown = {
 		not = {
 			or = {
-				this ?= c:HRE
-				this ?= c:BYZ
+				c:HRE ?= this
+				c:BYZ ?= this
 				religion = rel:orthodox
 				has_variable = br_ambition_to_restore_wre_var
 			}
@@ -26,5 +26,28 @@ br_proclaim_ambition_to_restore_wre_decision = {
 
 	ai_chance = {
 		value = 0
+	}
+}
+
+br_wre_swap_flag_decision = {
+	is_shown = {
+		c:br_WRE ?= this
+	}
+
+	possible = {
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = br_wre_swap_to_alternate_flag_tt
+
+			if = {
+				limit = { has_variable = br_wre_alternate_flag_var }
+				remove_variable = br_wre_alternate_flag_var
+			}
+			else = {
+				set_variable = br_wre_alternate_flag_var
+			}
+		}
 	}
 }
