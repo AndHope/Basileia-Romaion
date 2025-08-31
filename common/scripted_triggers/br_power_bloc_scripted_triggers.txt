@@ -3,43 +3,39 @@
     
     trigger_if = {
         limit = {
-            NOT = {
-                is_country_type = unrecognized
-            }
+            is_country_type = recognized
         }
         #country_rank >= rank_value:major_power
-        is_country_type = recognized
-            prestige >= { # Within 90% of prestige of top recognized country
-                add = {
-                    ordered_country = {
-                        order_by = prestige
-                        position = 0
-                        
-                        add = prestige
-                        multiply = 0.1
-                    }
+        prestige >= { # Within 90% of prestige of top recognized country
+            add = {
+                ordered_country = {
+                    order_by = prestige
+                    position = 0
+                    
+                    add = prestige
+                    multiply = 0.1
                 }
             }
+        }
     }
     trigger_else_if = {
         limit = {
-            NOT = {
-                is_country_type = unrecognized
-                is_country_type = recognized
+            or = {
+                is_country_type = colonial
+                is_country_type = company
             }
         }
-        is_country_type = colonial
-            prestige >= { # Within 85% of prestige of top recognized country
-                add = {
-                    ordered_country = {
-                        order_by = prestige
-                        position = 0
-                        
-                        add = prestige
-                        multiply = 0.15
-                    }
+        prestige >= { # Within 85% of prestige of top recognized country
+            add = {
+                ordered_country = {
+                    order_by = prestige
+                    position = 0
+                    
+                    add = prestige
+                    multiply = 0.15
                 }
             }
+        }
     }
     trigger_else = {
         country_rank >= rank_value:unrecognized_regional_power
