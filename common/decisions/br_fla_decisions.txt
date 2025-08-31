@@ -8,14 +8,26 @@ merge_east_indies_decision = {
 		AND = {
 			c:DEI ?= {
 				OR = {
-					is_subject_of = c:FLA
-					is_subject_of = c:HRE
+					and = {
+						exists ?= c:FLA
+						is_subject_of = c:FLA
+					}
+					and = {
+						exists ?= c:HRE
+						is_subject_of = c:HRE
+					}
 				}
 			}
 			c:EOC ?= {
 				OR = {
-					is_subject_of = c:FLA
-					is_subject_of = c:HRE
+					and = {
+						exists ?= c:FLA
+						is_subject_of = c:FLA
+					}
+					and = {
+						exists ?= c:HRE
+						is_subject_of = c:HRE
+					}
 				}
 			}
 		}

@@ -48,7 +48,10 @@ br_byz_easy_agy = {
 		}
 		NOT = {
 			c:br_aegypt ?= {
-				is_subject_of = c:BYZ
+				and = {
+					exists ?= c:BYZ
+					is_subject_of = c:BYZ
+				}
 			}
 		}
 		hidden_trigger = {
