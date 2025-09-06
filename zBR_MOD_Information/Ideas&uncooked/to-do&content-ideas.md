@@ -1,5 +1,14 @@
 # TODO & Content Ideas
 
+## Laws 
+- Change the mods unique laws to law varients.
+
+## Cultures
+- Re do culture files, remove unedited vanilla cultures and prepare for 1.10
+
+## States and Map
+- set up any new states that are added in 1.10
+
 ## Country name defintions
 - Give countries nativized names
 - Make Countries use their greek name if a subject of BR. 
