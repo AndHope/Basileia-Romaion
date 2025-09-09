@@ -266,3 +266,77 @@ poland.6 = {
         }
     }
 }
+
+#New pagan religion pop up
+poland.7 = {
+    type = country_event
+    placement = root
+    title = poland.7.t
+    desc = poland.7.d
+    flavor = poland.7.f
+    dlc = dlc_basileia_romaion
+
+    event_image = {
+		video = "gfx/event_pictures/europenorthamerica_russian_serfs.bk2"
+	}
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+    icon = "gfx/interface/icons/religion_icons/slavic.dds"
+    
+    duration = 3
+
+    trigger = {
+        c:PLC ?= this
+        has_technology_researched = nationalism
+    }
+
+    #suppress the new religions
+    option = {
+        name = poland.7.a
+        #Pops convert to the new religion
+        every_scope_state = {
+			convert_population = {
+				target = rel:br_religion_slavic
+				value = 0.05
+			}
+		}
+    }
+    #tolerate the new religions
+    option = {
+        name = poland.7.b
+        trigger = {
+            or = {
+                has_law = law_type:law_freedom_of_conscience
+                has_law = law_type:law_total_separation
+            }
+        }
+        #Pops convert to the new religion
+        every_scope_state = {
+			convert_population = {
+				target = rel:br_religion_slavic
+				value = 0.10
+			}
+		}
+    }
+    #convert to the new religions
+    option = {
+        name = poland.7.c
+        trigger = {
+            or = {
+                has_law = law_type:law_freedom_of_conscience
+                has_law = law_type:law_total_separation
+            }
+        }
+        br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_slavic }
+        show_as_tooltip = {
+            every_scope_state = {
+                convert_population = {
+                    target = rel:br_religion_slavic
+                    value = 0.10
+                }
+		    }
+        }
+    }
+}
