@@ -19,6 +19,14 @@
 				trigger = {
 					exists = c:AUS
 					THIS = c:AUS
+					any_interest_group = {
+						is_in_government = yes
+						party ?= {
+							is_party_type = fascist_party
+						}
+					}
+					has_law_or_variant = law_type:law_single_party_state
+					has_variable = fatherland_front_var
 				}
 			}
 			triggered_desc = {
@@ -252,6 +260,11 @@
 					OR = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
+					}
+					NOR = {
+						c:AUS ?= this
+						c:KUK ?= this
+						c:HRE ?= this
 					}
 				}
 			}
@@ -489,7 +502,10 @@
 		}
 		if = { # patriots are inclined towards fascism
 			limit = {
-				has_ideology = ideology:ideology_patriotic
+				OR = {
+					has_ideology = ideology:ideology_military_absolutist
+					has_ideology = ideology:ideology_patriotic
+				}
 			}
 			add = {
 				value = 4
@@ -500,7 +516,7 @@
 			limit = {
 				has_ideology = ideology:ideology_isolationist
 				owner = {
-					has_law = law_type:law_no_migration_controls
+					has_law_or_variant = law_type:law_no_migration_controls
 				}
 			}
 			add = {
@@ -513,10 +529,11 @@
 				OR = {
 					has_paternalist_ideology = yes
 					has_ideology = ideology:ideology_patriotic
+					has_ideology = ideology:ideology_military_absolutist
 				}
 				owner = {
 					has_technology_researched = law_enforcement
-					has_law = law_type:law_no_police
+					has_law_or_variant = law_type:law_no_police
 				}
 			}
 			add = {
@@ -538,7 +555,7 @@
 					}
 				}
 				owner = {
-					has_law = law_type:law_peasant_levies
+					has_law_or_variant = law_type:law_peasant_levies
 				}
 			}
 			add = {
@@ -553,14 +570,14 @@
 					AND = {
 						has_ideology = ideology:ideology_loyalist
 						owner = {
-							NOT = { has_law = law_type:law_graduated_taxation }
+							NOT = { has_law_or_variant = law_type:law_graduated_taxation }
 						}
 					}
 				}
 				owner = {
 					NOR = {
-						has_law = law_type:law_proportional_taxation
-						has_law = law_type:law_per_capita_based_taxation
+						has_law_or_variant = law_type:law_proportional_taxation
+						has_law_or_variant = law_type:law_per_capita_based_taxation
 					}
 				}
 			}
