@@ -684,6 +684,89 @@ je_reduce_taxes_for_the_peasantry_button = {
 	}
 }
 
+je_reduce_conscription_button = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_reduced_conscription }
+				}
+				desc = "je_reduce_conscription_button"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_reduced_conscription
+				}
+				desc = "je_revoke_reduced_conscription_button"
+			}
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					not = { has_modifier = br_modifier_reduced_conscription }
+				}
+				desc = "je_reduce_conscription_button_desc"
+			}
+			triggered_desc = {
+				trigger = {
+					has_modifier = br_modifier_reduced_conscription
+				}
+				desc = "je_revoke_reduced_conscription_button_desc"
+			}
+		}
+	}
+
+	visible = {
+		br_can_button_from_given_estate_action_be_visible_trigger = {
+			estate_action_type = br_3de_estate_action_type
+		}
+	}
+
+	selected = {
+	}
+
+	possible = {
+	}
+
+	effect = {
+		#revoke reduced taxes
+		if = {
+			limit = {
+				has_modifier = br_modifier_reduced_conscription
+			}
+			remove_modifier = br_modifier_reduced_conscription
+
+			br_specific_change_in_revolutionary_tension_effect = {
+				value = br_medium_increase_in_revolutionary_tension_value
+			}
+			br_specific_change_in_3de_estate_dissatisfaction_effect = {
+				value = br_large_increase_in_estate_dissatisfaction_value
+			}
+		}
+		#give reduced taxes
+		else = {
+			add_modifier = {
+				name = br_modifier_reduced_conscription
+				days = br_impending_revolution_timeout	#so it won't remain longer than the JE
+			}
+
+			br_specific_change_in_revolutionary_tension_effect = {
+				value = br_large_decrease_in_revolutionary_tension_value
+			}
+			br_specific_change_in_3de_estate_dissatisfaction_effect = {
+				value = br_large_decrease_in_estate_dissatisfaction_value
+			}
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
 
 ### Monarchy Buttons ###
 je_move_imperial_residence_button = {
