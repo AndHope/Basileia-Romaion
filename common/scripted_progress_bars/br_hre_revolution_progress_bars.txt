@@ -648,6 +648,55 @@
 				value = br_impending_revolution_has_elected_bureaucrats_change_in_3de_estate_dissatisfaction_value
 			}
 		}
+
+
+		#Tax level effects
+		#posible tax levels very_low/low/medium/high/very_high
+		if = {
+			limit = {
+				tax_level <= very_low
+			}
+			add = {
+				desc = "br_impending_revolution_has_very_low_tax_level_loc"
+				value = br_impending_revolution_has_very_low_tax_level_change_in_3de_estate_dissatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				tax_level = low
+			}
+			add = {
+				desc = "br_impending_revolution_has_low_tax_level_loc"
+				value = br_impending_revolution_has_low_tax_level_change_in_3de_estate_dissatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				tax_level = medium
+			}
+			add = {
+				desc = "br_impending_revolution_has_medium_tax_level_loc"
+				value = br_impending_revolution_has_medium_tax_level_change_in_3de_estate_dissatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				tax_level = high
+			}
+			add = {
+				desc = "br_impending_revolution_has_high_tax_level_loc"
+				value = br_impending_revolution_has_high_tax_level_change_in_3de_estate_dissatisfaction_value
+			}
+		}
+		else_if = {
+			limit = {
+				tax_level >= very_high
+			}
+			add = {
+				desc = "br_impending_revolution_has_very_high_tax_level_loc"
+				value = br_impending_revolution_has_very_high_tax_level_change_in_3de_estate_dissatisfaction_value
+			}
+		}
 	}
  }
 
