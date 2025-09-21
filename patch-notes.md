@@ -1,5 +1,17 @@
 ####id 2880120246
 
+# Update 143 (1.10 update)
+
+## HRE impending revolution changes
+- subsidize food now adds government expenses and increased welfare cost
+- added a reduce conscription button
+- taxation level now affects monthly 3de estate dissatisfaction change
+
+## Other changes
+- Added a warning tooltip for when you change religion
+- Added a conversion event to the PLC, when you research nationalism
+- Fixed Sweden getting 'independent german state' modifier when accepting baltic culture
+
 # Update 142
 
 ## HRE impending revolution rework
