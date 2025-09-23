@@ -26,8 +26,8 @@ law_mercantilism = {
 	# Don't change back to mercantilism once we have protectionism or free trade
 	ai_will_do = {
 		NOR = {
-			has_law = law_type:law_protectionism
-			has_law = law_type:law_free_trade
+			has_law_or_variant = law_type:law_protectionism
+			has_law_or_variant = law_type:law_free_trade
 		}
 	}
 
@@ -42,7 +42,7 @@ law_mercantilism = {
 		if = {
 			limit = {
 				has_journal_entry = je_meiji_diplomacy
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
 			}
 			add = 1000
 		}
@@ -80,7 +80,7 @@ law_protectionism = {
 		if = {
 			limit = {
 				has_journal_entry = je_meiji_diplomacy
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
 			}
 			add = 1000
 		}
@@ -131,7 +131,7 @@ law_free_trade = {
 		if = {
 			limit = {
 				has_journal_entry = je_meiji_diplomacy
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
 			}
 			add = 1000
 		}

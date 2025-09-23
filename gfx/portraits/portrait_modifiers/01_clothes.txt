@@ -1956,11 +1956,11 @@
                                 AND = {
                                     is_ruler = yes
                                     home_country ?= { # Junta leaders get to wear the late uniform
-                                        has_law = law_type:law_presidential_republic
+                                        has_law_or_variant = law_type:law_presidential_republic
                                         country_has_voting_franchise = no
                                         OR = {
-                                            has_law = law_type:law_mass_conscription
-                                            has_law = law_type:law_professional_army
+                                            has_law_or_variant = law_type:law_mass_conscription
+                                            has_law_or_variant = law_type:law_professional_army
                                         }
                                         ig:ig_armed_forces = {
                                             is_in_government = yes
@@ -2054,7 +2054,7 @@
                 scope:character ?= {
                     is_ruler = yes
                     owner ?= {
-                        NOT = { has_law = law_type:law_monarchy }
+                        NOT = { has_law_or_variant = law_type:law_monarchy }
                         c:BIC ?= this
                         is_subject_type = subject_type_colony # Only when it's the British Raj, not the British East India Company
                         exists = c:GBR
@@ -4116,7 +4116,7 @@
                         is_heir = yes
                     }
                     owner ?= {
-                        has_law = law_type:law_monarchy
+                        has_law_or_variant = law_type:law_monarchy
                     }
                     OR = {
                         culture = {
@@ -4638,13 +4638,13 @@
                                 AND = {
                                     is_ruler = no
                                     home_country ?= {
-                                        has_law = law_type:law_monarchy
+                                        has_law_or_variant = law_type:law_monarchy
                                     }
                                 }
                                 AND = {
                                     is_ruler = yes
                                     home_country ?= {
-                                        NOT = { has_law = law_type:law_monarchy }
+                                        NOT = { has_law_or_variant = law_type:law_monarchy }
                                     }
                                 }
                             }
@@ -4713,13 +4713,13 @@
                                 AND = {
                                     is_ruler = no
                                     home_country ?= {
-                                        has_law = law_type:law_monarchy
+                                        has_law_or_variant = law_type:law_monarchy
                                     }
                                 }
                                 AND = {
                                     is_ruler = yes
                                     home_country ?= {
-                                        NOT = { has_law = law_type:law_monarchy }
+                                        NOT = { has_law_or_variant = law_type:law_monarchy }
                                     }
                                 }
                             }
@@ -4919,13 +4919,13 @@
                                         AND = {
                                             is_ruler = no
                                             home_country ?= {
-                                                has_law = law_type:law_monarchy
+                                                has_law_or_variant = law_type:law_monarchy
                                             }
                                         }
                                         AND = {
                                             is_ruler = yes
                                             home_country ?= {
-                                                NOT = { has_law = law_type:law_monarchy }
+                                                NOT = { has_law_or_variant = law_type:law_monarchy }
                                             }
                                         }
                                     }
@@ -5525,7 +5525,7 @@
                     scope:character ?= {
                         is_ruler = yes
                         owner ?= {
-                            has_law = law_type:law_monarchy
+                            has_law_or_variant = law_type:law_monarchy
                         }
                     }
                     military_clothes_trigger = yes
@@ -6130,7 +6130,7 @@
                         AND = {
                             is_ruler = yes
                             home_country = {
-                                has_law = law_type:law_monarchy
+                                has_law_or_variant = law_type:law_monarchy
                             }
                         }
                         has_role = general
@@ -6201,7 +6201,7 @@
                         NAND = {    # monarchs wear other stuff
                             is_ruler = yes
                             owner ?={
-                                has_law = law_type:law_monarchy
+                                has_law_or_variant = law_type:law_monarchy
                             }
                         }
                         culture = {
@@ -6282,7 +6282,7 @@
                     is_female = no
                     owner ?= {
                         c:PER ?= this
-                        has_law = law_type:law_monarchy
+                        has_law_or_variant = law_type:law_monarchy
                     }
                     culture = {
                         has_discrimination_trait = iranian_turanian_culture_group
@@ -6792,7 +6792,7 @@
                             ruler_clothes_trigger = yes
                             exists = home_country
                             home_country = {
-                                has_law = law_type:law_theocracy
+                                has_law_or_variant = law_type:law_theocracy
                             }
                         }
                     }
@@ -6823,7 +6823,7 @@
                     exists = home_country
                     home_country = c:PAP
                     home_country = {
-                        has_law = law_type:law_theocracy
+                        has_law_or_variant = law_type:law_theocracy
                     }
                     is_female = no
                 }
@@ -7340,7 +7340,7 @@ indigenous_oceanic_pop_clothes = {
                     is_female = no
                     owner ?= {
                         c:MUG ?= this
-                        has_law = law_type:law_monarchy
+                        has_law_or_variant = law_type:law_monarchy
                     }
                 }
             }
@@ -7575,7 +7575,7 @@ indigenous_oceanic_pop_clothes = {
                         NAND = {    # monarchs wear other stuff
                             is_ruler = yes
                             owner ?={
-                                has_law = law_type:law_monarchy
+                                has_law_or_variant = law_type:law_monarchy
                             }
                         }
                         OR = {
@@ -9149,7 +9149,7 @@ indigenous_oceanic_pop_clothes = {
                             }
                             exists = home_country
                             home_country = {
-                                has_law = law_type:law_theocracy
+                                has_law_or_variant = law_type:law_theocracy
                             }
                         }
                     }
@@ -9395,7 +9395,7 @@ indigenous_oceanic_pop_clothes = {
                             AND = {
                                 is_ruler = yes
                                 owner ?= {
-                                    NOT = { has_law = law_type:law_monarchy}
+                                    NOT = { has_law_or_variant = law_type:law_monarchy}
                                 }
                             }
                         }
@@ -9758,7 +9758,7 @@ indigenous_oceanic_pop_clothes = {
                                         AND = {
                                             has_technology_researched = investment_banks
                                             NOT = {
-                                                has_law = law_type:law_isolationism
+                                                has_law_or_variant = law_type:law_isolationism
                                             }
                                         }
                                         is_country_type = recognized

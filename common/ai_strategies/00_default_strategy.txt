@@ -404,7 +404,7 @@ ai_strategy_default = {
 				c:JAP ?= this
 				NOT = {
 					has_law_or_variant = law_type:law_isolationism
-					has_law = law_type:law_closed_borders
+					has_law_or_variant = law_type:law_closed_borders
 				}
 				scope:country = {
 					country_has_primary_culture = cu:korean
@@ -499,7 +499,7 @@ ai_strategy_default = {
 			limit = {
 				exists = c:JAP
 				this = c:JAP
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
 				scope:diplomatic_play = {
 					has_play_goal = open_market
 				}
@@ -1226,7 +1226,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_has_primary_culture = cu:tatar
-					has_law = law_type:law_national_supremacy
+					has_law_or_variant = law_type:law_national_supremacy
 					has_technology_researched = nationalism
 					scope:target_state = {
 						owner = {
@@ -1904,7 +1904,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_has_primary_culture = cu:tatar
-					has_law = law_type:law_national_supremacy
+					has_law_or_variant = law_type:law_national_supremacy
 					has_technology_researched = nationalism
 					OR = {
 						AND = {
@@ -2919,7 +2919,7 @@ ai_strategy_default = {
 		if = { #Tartaria Central Asia
 			limit = {
 				country_has_primary_culture = cu:tatar
-				has_law = law_type:law_national_supremacy
+				has_law_or_variant = law_type:law_national_supremacy
 				scope:target_country = {
 					any_scope_state = {
 						OR = {
@@ -2937,8 +2937,8 @@ ai_strategy_default = {
 			limit = {
 				country_has_primary_culture = cu:japanese
 				NOT = {
-					has_law = law_type:law_isolationism
-					has_law = law_type:law_closed_borders
+					has_law_or_variant = law_type:law_isolationism
+					has_law_or_variant = law_type:law_closed_borders
 				}
 				scope:target_country = {
 					is_country_type = unrecognized
@@ -3179,11 +3179,11 @@ ai_strategy_default = {
         # Great Powers with slavery banned should be more aggressive against an openly slave trading Brazil
 		if = {
 			limit = {
-				has_law = law_type:law_slavery_banned
+				has_law_or_variant = law_type:law_slavery_banned
 				country_rank >= rank_value:great_power
 				scope:target_country = {
 					has_modifier = brazil_slaving_pariah_modifier
-					has_law = law_type:law_slave_trade
+					has_law_or_variant = law_type:law_slave_trade
 				}
 			}
 			add = 10
@@ -3622,7 +3622,7 @@ ai_strategy_default = {
 		}
 
 		if = {
-			limit = { has_law = law_type:law_national_militia }
+			limit = { has_law_or_variant = law_type:law_national_militia }
 			multiply = 0.33
 		}
 
@@ -3836,15 +3836,15 @@ ai_strategy_default = {
 			}
 
 			if = {
-				limit = { has_law = law_type:law_peasant_levies }
+				limit = { has_law_or_variant = law_type:law_peasant_levies }
 				multiply = 0.5
 			}
 			else_if = {
-				limit = { has_law = law_type:law_national_militia }
+				limit = { has_law_or_variant = law_type:law_national_militia }
 				multiply = 0.75
 			}
 			else_if = {
-				limit = { has_law = law_type:law_professional_army }
+				limit = { has_law_or_variant = law_type:law_professional_army }
 				multiply = 1.25
 			}
 		}
@@ -3856,19 +3856,19 @@ ai_strategy_default = {
 			}
 
 			if = {
-				limit = { has_law = law_type:law_national_militia }
+				limit = { has_law_or_variant = law_type:law_national_militia }
 				multiply = 0.5
 			}
 			else_if = {
-				limit = { has_law = law_type:law_professional_army }
+				limit = { has_law_or_variant = law_type:law_professional_army }
 				multiply = 1.25
 			}
 			else_if = {
-				limit = { has_law = law_type:law_peasant_levies }
+				limit = { has_law_or_variant = law_type:law_peasant_levies }
 				multiply = 1.5
 			}	
 			else_if = {
-				limit = { has_law = law_type:law_tribal_armies }
+				limit = { has_law_or_variant = law_type:law_tribal_armies }
 				multiply = 3.5
 			}		
 		}
@@ -3906,27 +3906,27 @@ ai_strategy_default = {
 	conscript_battalion_ratio = {
 		value = 0.5
 		if = {
-			limit = { has_law = law_type:law_national_militia }
+			limit = { has_law_or_variant = law_type:law_national_militia }
 			add = 5
 		}
 		else_if = {
-			limit = { has_law = law_type:law_professional_army }
+			limit = { has_law_or_variant = law_type:law_professional_army }
 			add = 0.5
 		}			
 		else_if = {
-			limit = { has_law = law_type:law_peasant_levies }
+			limit = { has_law_or_variant = law_type:law_peasant_levies }
 			add = 2
 		}	
 		else_if = {
-			limit = { has_law = law_type:law_mixed_army }
+			limit = { has_law_or_variant = law_type:law_mixed_army }
 			add = 1.5
 		}
 		else_if = {
-			limit = { has_law = law_type:law_tribal_armies }
+			limit = { has_law_or_variant = law_type:law_tribal_armies }
 			add = 3
 		}
 		else_if = {
-			limit = { has_law = law_type:law_mass_conscription }
+			limit = { has_law_or_variant = law_type:law_mass_conscription }
 			add = 2
 		}	
 		if = {
@@ -4065,7 +4065,7 @@ ai_strategy_default = {
 
 		if = {
 			limit = {
-				has_law = law_type:law_command_economy
+				has_law_or_variant = law_type:law_command_economy
 			}
 
 			add = 100
@@ -4180,7 +4180,7 @@ ai_strategy_default = {
 			trigger = {
 				has_technology_researched = centralization
 				total_population >= 1000000
-				NOT = { has_law = law_type:law_traditionalism }
+				NOT = { has_law_or_variant = law_type:law_traditionalism }
 			}
 		}
 		electricity = {
@@ -4826,7 +4826,7 @@ ai_strategy_default = {
 					exists = c:SPA
 					scope:target_country = {
 						c:SPA = this
-						has_law = law_type:law_monarchy
+						has_law_or_variant = law_type:law_monarchy
 					}
 				}
 				multiply = 1.5
@@ -5175,7 +5175,7 @@ ai_strategy_default = {
 					exists = c:PAP
 					scope:target_country = {
 						c:PAP = this
-						has_law = law_type:law_theocracy
+						has_law_or_variant = law_type:law_theocracy
 					}
 				}
 				multiply = 1.5
@@ -5560,7 +5560,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_has_primary_culture = cu:russian
-					has_law = law_type:law_national_supremacy
+					has_law_or_variant = law_type:law_national_supremacy
 					has_technology_researched = nationalism
 					scope:target_country = {
 						OR = {
@@ -5925,7 +5925,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_has_primary_culture = cu:russian
-					has_law = law_type:law_national_supremacy
+					has_law_or_variant = law_type:law_national_supremacy
 					has_technology_researched = nationalism
 					scope:target_country = {
 						OR = {
@@ -6313,7 +6313,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_has_primary_culture = cu:russian
-					has_law = law_type:law_national_supremacy
+					has_law_or_variant = law_type:law_national_supremacy
 					has_technology_researched = nationalism
 					scope:target_country = {
 						OR = {

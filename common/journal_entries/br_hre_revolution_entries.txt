@@ -170,9 +170,9 @@ je_hre_impending_revolution = {
 
 	fail = {
 		OR = {
-			# has_law = law_type:law_presidential_republic
+			# has_law_or_variant = law_type:law_presidential_republic
 			NOT = {
-				has_law = law_type:law_monarchy
+				has_law_or_variant = law_type:law_monarchy
 			}
 			custom_tooltip = {
 				text = if_journal_timeout_tt
@@ -257,14 +257,14 @@ je_revolution_reform = {
 
 	complete = {
 		NOT = {
-			has_law = law_type:law_autocracy
-			has_law = law_type:law_oligarchy
-			has_law = law_type:law_landed_voting
-			has_law = law_type:law_hereditary_bureaucrats
-			has_law = law_type:law_serfdom
-			has_law = law_type:law_traditionalism
-			has_law = law_type:br_law_feudalism_enforced
-			has_law = law_type:br_law_feudalism_codified
+			has_law_or_variant = law_type:law_autocracy
+			has_law_or_variant = law_type:law_oligarchy
+			has_law_or_variant = law_type:law_landed_voting
+			has_law_or_variant = law_type:law_hereditary_bureaucrats
+			has_law_or_variant = law_type:law_serfdom
+			has_law_or_variant = law_type:law_traditionalism
+			has_law_or_variant = law_type:br_law_feudalism_enforced
+			has_law_or_variant = law_type:br_law_feudalism_codified
 			has_modifier = br_modifier_noble_privileges
 			has_modifier = br_modifier_unreliable_food_security
 			has_modifier = br_modifier_antiquated_regime
@@ -303,18 +303,18 @@ je_revolution_suppress = {
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	complete = {
-		has_law = law_type:law_autocracy
-		has_law = law_type:law_censorship
+		has_law_or_variant = law_type:law_autocracy
+		has_law_or_variant = law_type:law_censorship
 		OR = {
-			has_law = law_type:law_national_guard
-			has_law = law_type:law_professional_army
+			has_law_or_variant = law_type:law_national_guard
+			has_law_or_variant = law_type:law_professional_army
 		}
 		NOT = {
-			has_law = law_type:law_peasant_levies
+			has_law_or_variant = law_type:law_peasant_levies
 		}
 		OR = {
-			has_law = law_type:br_law_feudalism_enforced
-			has_law = law_type:br_law_feudalism_codified
+			has_law_or_variant = law_type:br_law_feudalism_enforced
+			has_law_or_variant = law_type:br_law_feudalism_codified
 		}
 		ig:ig_landowners = {
 			is_powerful = yes

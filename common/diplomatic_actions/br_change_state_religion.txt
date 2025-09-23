@@ -29,10 +29,10 @@ change_state_religion = {
 		in_default = no
 		NOT = {
 			has_war_with = scope:target_country
-			has_law = law_type:law_state_atheism
+			has_law_or_variant = law_type:law_state_atheism
 		}
 		scope:target_country = {
-			NOT = { has_law = law_type:law_state_atheism }
+			NOT = { has_law_or_variant = law_type:law_state_atheism }
 		}
 		scope:target_country.relations:root > relations_threshold:cordial
 		has_diplomatic_relevance = scope:target_country

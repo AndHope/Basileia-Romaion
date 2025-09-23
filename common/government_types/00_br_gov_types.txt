@@ -8,7 +8,7 @@
 	female_heir = "RULER_TITLE_BYZ_GOVERNOR"
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		exists = c:BYZ
 		is_subject_of = c:BYZ
 
@@ -38,7 +38,7 @@ gov_themata = {
 
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		exists = c:BYZ
 		is_subject_of = c:BYZ
 
@@ -67,7 +67,7 @@ gov_independent_exarchate = {
 	female_heir = "RULER_TITLE_BYZ_GOVERNOR"
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		OR = {
 			country_tier = kingdom
 			country_tier = principality
@@ -101,7 +101,7 @@ gov_satrapy = {
 	female_heir = "" # Empty on purpose
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		exists = c:PER
 		is_subject_of = c:PER
 
@@ -130,7 +130,7 @@ gov_byz_empire = {
 	female_heir = "RULER_TITLE_CAISARISSA"
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		country_has_voting_franchise = yes
 		c:BYZ ?= this
 	}
@@ -154,8 +154,8 @@ gov_byzantine_empire_autocratic = {
 	female_heir = "RULER_TITLE_KAISARISSA"
 	
 	possible = {
-		has_law = law_type:law_monarchy
-		#has_law = law_type:law_autocracy
+		has_law_or_variant = law_type:law_monarchy
+		#has_law_or_variant = law_type:law_autocracy
 		country_has_voting_franchise = no
 		c:BYZ ?= this
 	}
@@ -180,7 +180,7 @@ gov_celestial_empire = {
 	possible = {
 		exists = c:CHI
 		c:CHI = ROOT
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		or = {
 			AND = { exists = c:CHI c:CHI = ROOT }
 		}
@@ -205,7 +205,7 @@ gov_katepano = {
 	female_heir = "RULER_TITLE_STRATEGOS"
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		OR = {
 			country_tier = kingdom
 			country_tier = grand_principality
@@ -238,7 +238,7 @@ gov_br_caliphate = {
 	female_heir = "" # Empty on purpose
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		exists = c:ARA
 		c:ARA = ROOT
 	}
@@ -259,7 +259,7 @@ gov_merchant_republic = {
 	female_ruler = "RULER_TITLE_DOGE"
 	
 	possible = {
-		has_law = law_type:law_presidential_republic
+		has_law_or_variant = law_type:law_presidential_republic
 		or = {
 			AND = { exists = c:VEN c:VEN = ROOT }
 			AND = { exists = c:br_genoa c:br_genoa = ROOT }
@@ -283,7 +283,7 @@ gov_br_colonial_administration = {
 	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
 	
 	possible = {
-		has_law = law_type:law_presidential_republic
+		has_law_or_variant = law_type:law_presidential_republic
 		OR = {
 			is_subject_type = subject_type_colony
 			is_subject_type = subject_type_dominion
@@ -325,11 +325,11 @@ gov_br_crown_colony = {
 	female_ruler = "RULER_TITLE_GOVERNOR"
 	
 	possible = {
-		has_law = law_type:law_presidential_republic
+		has_law_or_variant = law_type:law_presidential_republic
 		exists = c:HRE
 		is_subject_of = c:HRE
 		c:HRE = {
-			has_law = law_type:law_monarchy
+			has_law_or_variant = law_type:law_monarchy
 		}
 		is_subject_type = subject_type_colony
 		is_country_type = colonial
@@ -356,10 +356,10 @@ gov_br_roman_colony = {
 	female_ruler = "RULER_TITLE_BYZ_GOVERNOR"
 	
 	possible = {
-		has_law = law_type:law_presidential_republic
+		has_law_or_variant = law_type:law_presidential_republic
 		exists = c:BYZ
 		c:BYZ = {
-			has_law = law_type:law_monarchy
+			has_law_or_variant = law_type:law_monarchy
 		}
 		OR = {
 			is_subject_of = c:BYZ
@@ -396,10 +396,10 @@ gov_br_roman_council_colony = {
 	female_ruler = "RULER_TITLE_BYZ_GOVERNOR"
 	
 	possible = {
-		has_law = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_parliamentary_republic
 		exists = c:BYZ
 		c:BYZ = {
-			has_law = law_type:law_monarchy
+			has_law_or_variant = law_type:law_monarchy
 		}
 		OR = {
 			is_subject_of = c:BYZ
@@ -438,7 +438,7 @@ gov_br_chartered_company = {
 	possible = {
 		exists = c:BYZ
 		c:BYZ = {
-			has_law = law_type:law_monarchy
+			has_law_or_variant = law_type:law_monarchy
 		}
 		OR = {
 			is_subject_of = c:BYZ

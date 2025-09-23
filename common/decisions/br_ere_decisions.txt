@@ -9,7 +9,7 @@
 	possible = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		NOT = { has_law = law_type:law_hereditary_bureaucrats }
+		NOT = { has_law_or_variant = law_type:law_hereditary_bureaucrats }
 		has_modifier = br_modifier_romaioi_bureaucratic_corruption
 		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
@@ -79,8 +79,8 @@ end_latin_privileges = {
 	possible = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		has_law = law_type:law_interventionism
-		has_law = law_type:law_protectionism
+		has_law_or_variant = law_type:law_interventionism
+		has_law_or_variant = law_type:law_protectionism
 		has_modifier = br_modifier_latin_privileges
 		NOT = { has_journal_entry = je_palaiologos_reforms_main }
 	}
@@ -146,8 +146,8 @@ romaioi_themata_decision = {
 		exists = c:BYZ
 		ROOT = c:BYZ
 		OR = {
-			has_law = law_type:law_tenant_farmers
-			has_law = law_type:law_homesteading
+			has_law_or_variant = law_type:law_tenant_farmers
+			has_law_or_variant = law_type:law_homesteading
 		}
 		OR = {
 			has_modifier = br_modifier_tagmata_primacy
@@ -222,7 +222,7 @@ romaioi_tagmata_decision = {
 	possible = {
 		exists = c:BYZ
 		ROOT = c:BYZ
-		has_law = law_type:law_professional_army
+		has_law_or_variant = law_type:law_professional_army
 		OR = {
 			has_modifier = br_modifier_themata_primacy
 			has_modifier = br_modifier_reformed_pronoia
@@ -720,8 +720,8 @@ end_latin_privileges_ELY = {
 		has_modifier = br_modifier_latin_privileges
 		country_rank >= rank_value:major_power
 		OR = {
-			has_law = law_type:law_interventionism
-			has_law = law_type:law_protectionism
+			has_law_or_variant = law_type:law_interventionism
+			has_law_or_variant = law_type:law_protectionism
 			game_date > 1800.1.1
 		}
 	}
@@ -804,8 +804,8 @@ end_latin_privileges_TAT= {
 		has_modifier = br_modifier_latin_privileges
 		country_rank >= rank_value:major_power
 		OR = {
-			has_law = law_type:law_interventionism
-			has_law = law_type:law_protectionism
+			has_law_or_variant = law_type:law_interventionism
+			has_law_or_variant = law_type:law_protectionism
 			game_date > 1800.1.1
 		}
 	}

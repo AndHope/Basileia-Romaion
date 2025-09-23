@@ -12,8 +12,8 @@ ARA = {
 			exists = scope:actor
 			scope:actor = {
 				OR = {
-					has_law = law_type:law_monarchy
-					has_law = law_type:law_theocracy
+					has_law_or_variant = law_type:law_monarchy
+					has_law_or_variant = law_type:law_theocracy
 				}
 			}
 		}
@@ -62,7 +62,7 @@ BYZ = {
 		
 		trigger = {
 			scope:actor ?= {
-				has_law = law_type:law_monarchy
+				has_law_or_variant = law_type:law_monarchy
 			}
 		}
 	}
@@ -76,13 +76,13 @@ BYZ = {
 			coa_def_republic_flag_trigger = yes
 			scope:actor ?= {
 				OR = {
-					has_law = law_type:law_presidential_republic
-					has_law = law_type:law_parliamentary_republic
+					has_law_or_variant = law_type:law_presidential_republic
+					has_law_or_variant = law_type:law_parliamentary_republic
 				}
 				OR = {
-					has_law = law_type:law_oligarchy
-					has_law = law_type:law_landed_voting
-					has_law = law_type:law_wealth_voting
+					has_law_or_variant = law_type:law_oligarchy
+					has_law_or_variant = law_type:law_landed_voting
+					has_law_or_variant = law_type:law_wealth_voting
 				}
 			}
 		}
@@ -97,13 +97,13 @@ BYZ = {
 			coa_def_republic_flag_trigger = yes
 			scope:actor ?= {
 				OR = {
-					has_law = law_type:law_presidential_republic
-					has_law = law_type:law_parliamentary_republic
+					has_law_or_variant = law_type:law_presidential_republic
+					has_law_or_variant = law_type:law_parliamentary_republic
 				}
 				OR = {
-					NOT = { has_law = law_type:law_oligarchy }
-					NOT = { has_law = law_type:law_landed_voting }
-					NOT = { has_law = law_type:law_wealth_voting }
+					NOT = { has_law_or_variant = law_type:law_oligarchy }
+					NOT = { has_law_or_variant = law_type:law_landed_voting }
+					NOT = { has_law_or_variant = law_type:law_wealth_voting }
 				}
 			}
 		}
@@ -364,8 +364,8 @@ HRE = {
 			exists = scope:actor
 			scope:actor ?= {
 				OR = {
-					has_law = law_type:law_monarchy
-					has_law = law_type:law_theocracy
+					has_law_or_variant = law_type:law_monarchy
+					has_law_or_variant = law_type:law_theocracy
 				}
 			}
 		}
@@ -381,8 +381,8 @@ HRE = {
 			exists = scope:actor
 			scope:actor ?= {
 				OR = {
-					has_law = law_type:law_parliamentary_republic
-					has_law = law_type:law_presidential_republic
+					has_law_or_variant = law_type:law_parliamentary_republic
+					has_law_or_variant = law_type:law_presidential_republic
 				}
 			}
 		}
@@ -397,7 +397,7 @@ HRE = {
 		trigger = {
 			exists = scope:actor
 			scope:actor ?= {
-				has_law = law_type:law_council_republic
+				has_law_or_variant = law_type:law_council_republic
 			}
 		}
 	}
@@ -411,10 +411,10 @@ HRE = {
 		trigger = {
 			scope:actor ?= {
 				OR = {
-					has_law = law_type:law_parliamentary_republic
-					has_law = law_type:law_presidential_republic
+					has_law_or_variant = law_type:law_parliamentary_republic
+					has_law_or_variant = law_type:law_presidential_republic
 				}
-				has_law = law_type:law_technocracy
+				has_law_or_variant = law_type:law_technocracy
 			}
 		}
 	}
@@ -429,7 +429,7 @@ HRE = {
 			scope:actor ?= {
 				coa_fascist_trigger = yes
 				NOT = {
-					has_law = law_type:law_council_republic
+					has_law_or_variant = law_type:law_council_republic
 				}
 			}
 		}
@@ -445,7 +445,7 @@ HRE = {
 			exists = scope:actor
 			scope:actor ?= {
 				OR = {
-					has_law = law_type:law_theocracy
+					has_law_or_variant = law_type:law_theocracy
 				}
 			}
 		}

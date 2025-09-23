@@ -135,7 +135,7 @@ poland.4 = {
         if = { 
             limit = {
                 ROOT = {
-                    has_law = law_type:law_serfdom
+                    has_law_or_variant = law_type:law_serfdom
                 }
             }
             add_modifier = {
@@ -207,7 +207,7 @@ poland.5 = {
                 change_tag = RUT
                 if = {
 					limit = {
-						NOT = { has_law = law_type:law_tenant_farmers }
+						NOT = { has_law_or_variant = law_type:law_tenant_farmers }
 					}
 					activate_law = law_type:law_tenant_farmers
 				}
@@ -308,8 +308,8 @@ poland.7 = {
         name = poland.7.b
         trigger = {
             or = {
-                has_law = law_type:law_freedom_of_conscience
-                has_law = law_type:law_total_separation
+                has_law_or_variant = law_type:law_freedom_of_conscience
+                has_law_or_variant = law_type:law_total_separation
             }
         }
         #Pops convert to the new religion
@@ -325,8 +325,8 @@ poland.7 = {
         name = poland.7.c
         trigger = {
             or = {
-                has_law = law_type:law_freedom_of_conscience
-                has_law = law_type:law_total_separation
+                has_law_or_variant = law_type:law_freedom_of_conscience
+                has_law_or_variant = law_type:law_total_separation
             }
         }
         br_religion_swap_when_taken_effect = { TARGET_RELIGION = rel:br_religion_slavic }

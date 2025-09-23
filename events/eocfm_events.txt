@@ -411,7 +411,7 @@ eocfm.011 = { # Bible Translation Published
 			has_variable = eocfm_bible_translated
 		}
 		NOT = {
-			has_law = law_type:law_ethnostate
+			has_law_or_variant = law_type:law_ethnostate
 		}
 		NOT = {
 			c:GRE ?= this # Greece has its own version of this event
@@ -479,7 +479,7 @@ eocfm.012 = { # A Heretical Ruler
 		NOT = {
 			has_variable = eocfm_ruler_conversion_considered
 		}
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		ruler = {
 			NOT = {
 				has_religion = orthodox
@@ -2245,7 +2245,7 @@ eocfm.121 = { # Council of X
 		trigger = {
 			NOT = { has_global_variable = eocfm_crusades_unlocked }
 			c:BYZ ?= this
-			has_law = law_type:law_state_religion
+			has_law_or_variant = law_type:law_state_religion
 		}
 		trigger_event = {
 			id = eocfm.122 # Birth of the New Crusades
@@ -2421,7 +2421,7 @@ eocfm.123 = { # Epistle to the Easterners
 		if = { ##TODO This is copied in from eocfm_update_patriarch_variables_effect, I need a universal scripted effect for this functionality in the future
 			limit = {
 				c:PAP ?= {
-					has_law = law_type:law_theocracy
+					has_law_or_variant = law_type:law_theocracy
 				}
 			}
 			c:PAP ?= {
@@ -3478,7 +3478,7 @@ eocfm.151 = { # Delegation Arrives from Seat
 		default_option = yes
 		trigger = {
 			NOT = {
-				has_law = law_type:law_total_separation
+				has_law_or_variant = law_type:law_total_separation
 			}
 		}
 		show_as_unavailable = {
@@ -3496,7 +3496,7 @@ eocfm.151 = { # Delegation Arrives from Seat
 		name = eocfm.151.b
 		trigger = {
 			NOT = {
-				has_law = law_type:law_state_religion
+				has_law_or_variant = law_type:law_state_religion
 			}
 		}
 		show_as_unavailable = {
@@ -3621,12 +3621,12 @@ eocfm.161 = { # The Patriarch's Blessings
 		}
 		calc_true_if = {
 			amount >= 4
-			has_law = law_type:law_theocracy
-			has_law = law_type:law_state_religion
-			has_law = law_type:law_charitable_health_system
-			has_law = law_type:law_no_womens_rights
+			has_law_or_variant = law_type:law_theocracy
+			has_law_or_variant = law_type:law_state_religion
+			has_law_or_variant = law_type:law_charitable_health_system
+			has_law_or_variant = law_type:law_no_womens_rights
 			NOT = {
-				has_law = law_type:law_no_social_security
+				has_law_or_variant = law_type:law_no_social_security
 			}
 		}
 	}
@@ -3675,8 +3675,8 @@ eocfm.162 = { # Ecumenical Partiarch Denounces Secularism
 	trigger = {
 		var:eocfm_constantinople_relations_var < 20
 		OR = {
-			has_law = law_type:law_total_separation
-			has_law = law_type:law_state_atheism
+			has_law_or_variant = law_type:law_total_separation
+			has_law_or_variant = law_type:law_state_atheism
 		}
 		NOT = {
 			has_modifier = modifier_eocfm_secularism_denounced
@@ -3856,9 +3856,9 @@ eocfm.169 = { # The Living Law
 		NOT = {
 			has_modifier = modifier_eocfm_lex_animata
 		}
-		has_law = law_type:law_monarchy
-		has_law = law_type:law_autocracy
-		has_law = law_type:law_state_religion
+		has_law_or_variant = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		has_law_or_variant = law_type:law_state_religion
 	}
 	
 	immediate = {
@@ -4707,8 +4707,8 @@ eocfm.188 = { # Agitator Condemns Schism (Stall Event)
 		name = eocfm.188.b
 		trigger = {
 			NOR = {
-				has_law = law_type:law_protected_speech
-				has_law = law_type:law_right_of_assembly
+				has_law_or_variant = law_type:law_protected_speech
+				has_law_or_variant = law_type:law_right_of_assembly
 			}
 		}
 		show_as_unavailable = {
@@ -4817,9 +4817,9 @@ eocfm.190 = { # Removes Lex Animata Modifier
 		has_modifier = modifier_eocfm_lex_animata
 		NAND = {
 			has_variable = eocfm_is_autocephalous
-			has_law = law_type:law_monarchy
-			has_law = law_type:law_autocracy
-			has_law = law_type:law_state_religion
+			has_law_or_variant = law_type:law_monarchy
+			has_law_or_variant = law_type:law_autocracy
+			has_law_or_variant = law_type:law_state_religion
 		}
 	}
 	

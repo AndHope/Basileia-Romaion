@@ -2,7 +2,7 @@
 GLOBAL = {
 	
 	every_country = {
-		limit = { NOT = { has_law = law_type:law_slavery_banned } }
+		limit = { NOT = { has_law_or_variant = law_type:law_slavery_banned } }
 		ig:ig_landowners = { add_ideology = ideology_pro_slavery }
 	}
 	
@@ -51,7 +51,7 @@ GLOBAL = {
 	
 	#Serf's Up
 	every_country = {
-	   limit = { has_law = law_type:law_serfdom }
+	   limit = { has_law_or_variant = law_type:law_serfdom }
 	   set_variable = serfs_up_ach_possible
 	}
 	

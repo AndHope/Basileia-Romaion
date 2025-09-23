@@ -28,10 +28,10 @@ br_ideology_oligarchic_leader = {
 			limit = {
 				owner = {
 					OR = {
-						has_law = law_type:law_single_party_state
-						has_law = law_type:law_wealth_voting
-						has_law = law_type:law_landed_voting
-						has_law = law_type:law_oligarchy
+						has_law_or_variant = law_type:law_single_party_state
+						has_law_or_variant = law_type:law_wealth_voting
+						has_law_or_variant = law_type:law_landed_voting
+						has_law_or_variant = law_type:law_oligarchy
 					} 
 				}
 			}
@@ -44,7 +44,7 @@ br_ideology_oligarchic_leader = {
 					is_in_government = no
 				}
 				owner = {
-					has_law = law_type:law_autocracy
+					has_law_or_variant = law_type:law_autocracy
 				}
 			}
 			add = 50
@@ -170,8 +170,8 @@ br_ideology_aristocratic_leader = {
 					ig_approval > happy
 				}
 				owner = {
-					has_law = law_type:law_hereditary_bureaucrats
-					has_law = law_type:law_monarchy
+					has_law_or_variant = law_type:law_hereditary_bureaucrats
+					has_law_or_variant = law_type:law_monarchy
 				}
 			}
 			add = 50
@@ -189,7 +189,7 @@ br_ideology_aristocratic_leader = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_tenant_farmers
+					has_law_or_variant = law_type:law_tenant_farmers
 				}
 			}
 			add = -25
@@ -235,11 +235,11 @@ br_ideology_land_reformer = {
 			has_role = agitator
 			owner = {
 				NOT = {
-					has_law = law_type:law_tenant_farmers
+					has_law_or_variant = law_type:law_tenant_farmers
 				}
 				OR = {
-					has_law = law_type:law_homesteading
-					has_law = law_type:law_collectivized_agriculture
+					has_law_or_variant = law_type:law_homesteading
+					has_law_or_variant = law_type:law_collectivized_agriculture
 				}
 			}
 		}
@@ -255,8 +255,8 @@ br_ideology_land_reformer = {
 			limit = {
 				owner = {
 					OR = {
-						has_law = law_type:law_serfdom
-						has_law = law_type:law_land_based_taxation
+						has_law_or_variant = law_type:law_serfdom
+						has_law_or_variant = law_type:law_land_based_taxation
 					}
 				}
 			}
@@ -269,8 +269,8 @@ br_ideology_land_reformer = {
 				ig_approval <= 0
 				owner = {
 					OR = {
-						has_law = law_type:law_serfdom
-						has_law = law_type:law_land_based_taxation
+						has_law_or_variant = law_type:law_serfdom
+						has_law_or_variant = law_type:law_land_based_taxation
 					}
 				}
 			}
@@ -293,8 +293,8 @@ br_ideology_land_reformer = {
 			limit = {
 				owner = {
 					OR = {
-						has_law = law_type:law_agrarianism
-						has_law = law_type:law_industry_banned
+						has_law_or_variant = law_type:law_agrarianism
+						has_law_or_variant = law_type:law_industry_banned
 					}
 				}
 			}
@@ -305,11 +305,11 @@ br_ideology_land_reformer = {
 			limit = {
 				owner = {
 					NOT = {
-						has_law = law_type:law_land_based_taxation
+						has_law_or_variant = law_type:law_land_based_taxation
 					}
 					OR = {
-						has_law = law_type:law_homesteading
-						has_law = law_type:law_collectivized_agriculture
+						has_law_or_variant = law_type:law_homesteading
+						has_law_or_variant = law_type:law_collectivized_agriculture
 					}
 				}
 			}

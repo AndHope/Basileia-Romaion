@@ -138,7 +138,7 @@
                                 NAND = {
                                     is_ruler = yes
                                     home_country ?= {
-                                        has_law = law_type:law_monarchy
+                                        has_law_or_variant = law_type:law_monarchy
                                     }
                                 }
                                 OR = {
@@ -891,7 +891,7 @@
                                 is_ruler = yes
 								exists = home_country
                                 home_country = {
-                                    has_law = law_type:law_monarchy
+                                    has_law_or_variant = law_type:law_monarchy
                                 }
                             }
                         }
@@ -1001,7 +1001,7 @@
                         is_ruler = yes
 						exists = home_country
                         home_country = {
-                            NOT = { has_law = law_type:law_monarchy}
+                            NOT = { has_law_or_variant = law_type:law_monarchy}
                         }
                     }
                 }
@@ -1050,13 +1050,13 @@
                                     is_ruler = no
                                     is_heir = no
                                     home_country ?= {
-                                        has_law = law_type:law_monarchy
+                                        has_law_or_variant = law_type:law_monarchy
                                     }
                                 }
                                 AND = {
                                     is_ruler = yes
                                     home_country ?= {
-                                        NOT = { has_law = law_type:law_monarchy }
+                                        NOT = { has_law_or_variant = law_type:law_monarchy }
                                     }
                                 }
                             }
@@ -1115,13 +1115,13 @@
                                     is_ruler = no
                                     is_heir = no
                                     home_country ?= {
-                                        has_law = law_type:law_monarchy
+                                        has_law_or_variant = law_type:law_monarchy
                                     }
                                 }
                                 AND = {
                                     is_ruler = yes
                                     home_country ?= {
-                                        NOT = { has_law = law_type:law_monarchy }
+                                        NOT = { has_law_or_variant = law_type:law_monarchy }
                                     }
                                 }
                             }
@@ -2074,7 +2074,7 @@
                     is_female = no
                     owner ?= {
                         c:MUG ?= this
-                        has_law = law_type:law_monarchy
+                        has_law_or_variant = law_type:law_monarchy
                     }
                 }
             }
@@ -2910,7 +2910,7 @@
                         NAND = {    # monarchs never wear this hat
                             is_ruler = yes
                             owner ?={
-                                has_law = law_type:law_monarchy
+                                has_law_or_variant = law_type:law_monarchy
                             }
                         }
                         culture = {
@@ -2955,7 +2955,7 @@
                     is_ruler = yes
                     owner ?= {
                         c:PER ?= this
-                        has_law = law_type:law_monarchy
+                        has_law_or_variant = law_type:law_monarchy
                     }
                 }
             }
@@ -3058,7 +3058,7 @@
                 scope:character ?= {
                     is_ruler = yes
                     owner ?= {
-                        has_law = law_type:law_monarchy
+                        has_law_or_variant = law_type:law_monarchy
                         OR = {
                             c:AFG ?= this
                             can_form_nation = AFG
@@ -3099,7 +3099,7 @@
                     scope:character ?= {
                         is_ruler = yes
                         owner ?= {
-                            has_law = law_type:law_monarchy
+                            has_law_or_variant = law_type:law_monarchy
                         }
                     }
                     military_clothes_trigger = yes
@@ -3310,7 +3310,7 @@
                 scope:character ?= {
                     owner ?= {
                         c:PAP ?= this
-                        has_law = law_type:law_theocracy
+                        has_law_or_variant = law_type:law_theocracy
                     }
                     is_ruler = yes
                 }
@@ -3361,7 +3361,7 @@
                             ruler_clothes_trigger = yes
                             exists = home_country
                             home_country = {
-                                has_law = law_type:law_theocracy
+                                has_law_or_variant = law_type:law_theocracy
                             }
                         }
                     }
@@ -3398,7 +3398,7 @@
                     NOT = { # not for kings
                         is_ruler = yes
                         owner ?= {
-                            has_law = law_type:law_monarchy
+                            has_law_or_variant = law_type:law_monarchy
                         }
                     }
                     OR = {
@@ -3535,7 +3535,7 @@
                                         AND = {
                                             has_technology_researched = investment_banks
                                             NOT = {
-                                                has_law = law_type:law_isolationism
+                                                has_law_or_variant = law_type:law_isolationism
                                             }
                                         }
                                         is_country_type = recognized

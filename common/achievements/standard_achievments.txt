@@ -50,7 +50,7 @@ anarchy_in_the_uk = {
 	}
 	happened = {
         c:DEN ?= this
-		has_law = law_type:law_anarchy
+		has_law_or_variant = law_type:law_anarchy
 	}
 }
 
@@ -88,10 +88,10 @@ i_didnt_vote_for_pedro = {
     happened = {
         c:br_antarctique ?= this
         OR = {
-            has_law = law_type:law_presidential_republic
-            has_law = law_type:law_parliamentary_republic
+            has_law_or_variant = law_type:law_presidential_republic
+            has_law_or_variant = law_type:law_parliamentary_republic
         }
-        has_law = law_type:law_universal_suffrage
+        has_law_or_variant = law_type:law_universal_suffrage
     }
 }
 
@@ -154,8 +154,8 @@ the_paris_commune = {
     }
     happened = {
         c:FRA ?= this
-        has_law = law_type:law_command_economy
-        has_law = law_type:law_council_republic
+        has_law_or_variant = law_type:law_command_economy
+        has_law_or_variant = law_type:law_council_republic
     }
 }
 
@@ -194,7 +194,7 @@ miners_and_minors = {
                 state_region = s:STATE_WEST_BORNEO
                 is_incorporated = yes
             }
-            has_law = law_type:law_compulsory_primary_school
+            has_law_or_variant = law_type:law_compulsory_primary_school
         }
     }
 }
@@ -258,7 +258,7 @@ bourbon_for_everyone = {
         hidden_trigger = {
             c:ANL = {
                 root.average_sol >= 20
-                has_law = law_type:law_monarchy
+                has_law_or_variant = law_type:law_monarchy
             }
         }
     }
@@ -386,7 +386,7 @@ deeds_not_words = {
     }
     happened = {
         hidden_trigger = {
-            has_law = law_type:law_womens_suffrage
+            has_law_or_variant = law_type:law_womens_suffrage
         }
     }
 }
@@ -439,7 +439,7 @@ serfs_up = {
     }
     happened = {
         hidden_trigger = {
-            has_law = law_type:law_worker_protections
+            has_law_or_variant = law_type:law_worker_protections
             has_variable = serfs_up_ach_possible
         }
     }
@@ -486,7 +486,7 @@ enlightened_despot = {
     }
     happened = {
         hidden_trigger = {
-            has_law = law_type:law_autocracy
+            has_law_or_variant = law_type:law_autocracy
             any_scope_state = {
                 percent = 1
                 is_production_method_active = {
@@ -693,8 +693,8 @@ star_swarmed_banner = {
                 is_incorporated = yes
                 count >= 100
             }
-            has_law = law_type:law_presidential_republic
-            NOT = { has_law = law_type:law_autocracy }
+            has_law_or_variant = law_type:law_presidential_republic
+            NOT = { has_law_or_variant = law_type:law_autocracy }
         }
     }
 }

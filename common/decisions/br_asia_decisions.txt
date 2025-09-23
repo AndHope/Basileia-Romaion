@@ -5,15 +5,15 @@
 
 	possible = {
 		has_modifier = br_modifier_china_political_turmoil
-		NOT = { has_law = law_type:law_peasant_levies
-				has_law = law_type:law_serfdom
-				has_law = law_type:law_tenant_farmers
-				has_law = law_type:law_land_based_taxation
-				has_law = law_type:law_no_workers_rights
-				has_law = law_type:law_no_health_system 
-				has_law = law_type:law_outlawed_dissent
-				has_law = law_type:law_child_labor_allowed 
-				has_law = law_type:law_no_social_security
+		NOT = { has_law_or_variant = law_type:law_peasant_levies
+				has_law_or_variant = law_type:law_serfdom
+				has_law_or_variant = law_type:law_tenant_farmers
+				has_law_or_variant = law_type:law_land_based_taxation
+				has_law_or_variant = law_type:law_no_workers_rights
+				has_law_or_variant = law_type:law_no_health_system 
+				has_law_or_variant = law_type:law_outlawed_dissent
+				has_law_or_variant = law_type:law_child_labor_allowed 
+				has_law_or_variant = law_type:law_no_social_security
 			}
 	}
 
@@ -53,12 +53,12 @@ br_remove_china_rampant_corruption_decision = {
 
 	possible = {
 		has_modifier = br_modifier_rampant_corruption
-		NOT = { has_law = law_type:law_hereditary_bureaucrats
-				has_law = law_type:law_oligarchy
-				has_law = law_type:law_traditionalism 
-				has_law = law_type:law_land_based_taxation
-				has_law = law_type:law_local_police
-				has_law = law_type:law_outlawed_dissent
+		NOT = { has_law_or_variant = law_type:law_hereditary_bureaucrats
+				has_law_or_variant = law_type:law_oligarchy
+				has_law_or_variant = law_type:law_traditionalism 
+				has_law_or_variant = law_type:law_land_based_taxation
+				has_law_or_variant = law_type:law_local_police
+				has_law_or_variant = law_type:law_outlawed_dissent
 			}
 	}
 
@@ -109,10 +109,10 @@ br_mandate_heaven_decision = {
 		ROOT = c:br_great_yuan
 		NOT = { exists = c:CHI }
 		AND = {
-			has_law = law_type:law_monarchy
+			has_law_or_variant = law_type:law_monarchy
 			NOT = { 
-				has_law = law_type:law_total_separation 
-				has_law = law_type:law_state_atheism
+				has_law_or_variant = law_type:law_total_separation 
+				has_law_or_variant = law_type:law_state_atheism
 			}
 		}
 	}

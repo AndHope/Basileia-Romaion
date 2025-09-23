@@ -4,14 +4,14 @@
 		### Royalist movements
 		if = {
 			limit = {
-				has_law = law_type:law_monarchy
+				has_law_or_variant = law_type:law_monarchy
 				country_has_voting_franchise = no
 			}
 			create_political_movement = { type = movement_royalist_absolutist }
 		}
 		else_if = {
 			limit = {
-				has_law = law_type:law_monarchy
+				has_law_or_variant = law_type:law_monarchy
 				country_has_voting_franchise = yes
 			}
 			create_political_movement = { type = movement_royalist_constitutional }
@@ -20,7 +20,7 @@
 		### Abolitionist movements
 		if = {
 			limit = {
-				NOT = { has_law = law_type:law_slavery_banned }
+				NOT = { has_law_or_variant = law_type:law_slavery_banned }
 			}
 			create_political_movement = { type = movement_pro_slavery }
 			
@@ -66,10 +66,10 @@
 			limit = {
 				has_technology_researched = democracy
 				OR = {
-					has_law = law_type:law_landed_voting
-					has_law = law_type:law_wealth_voting
-					has_law = law_type:law_census_voting
-					has_law = law_type:law_universal_suffrage
+					has_law_or_variant = law_type:law_landed_voting
+					has_law_or_variant = law_type:law_wealth_voting
+					has_law_or_variant = law_type:law_census_voting
+					has_law_or_variant = law_type:law_universal_suffrage
 					is_subject_of = c:HRE
 				}
 				#NOT = { c:TAG ?= this }

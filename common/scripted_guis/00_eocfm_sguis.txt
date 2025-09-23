@@ -327,8 +327,8 @@ eocfm_establish_schools_sgui = {
 	}
 	
 	is_valid = {
-		NOT = { has_law = law_type:law_no_schools }
-		NOT = { has_law = law_type:law_total_separation }
+		NOT = { has_law_or_variant = law_type:law_no_schools }
+		NOT = { has_law_or_variant = law_type:law_total_separation }
 		NOT = { has_modifier = modifier_eocfm_disbanded_sunday_schools }
 	}
 	
@@ -417,7 +417,7 @@ eocfm_declare_autocephaly_sgui = {
 			}
 		}
 		NOR = {
-			has_law = law_type:law_theocracy
+			has_law_or_variant = law_type:law_theocracy
 			has_modifier = modifier_eocfm_autocephaly_abandoned
 		}
 		trigger_if = {

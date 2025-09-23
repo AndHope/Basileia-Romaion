@@ -279,8 +279,8 @@ ai_strategy_trade_imperialism = {
 					scope:target_country.country_rank < rank_value:major_power
 					scope:target_country = {
 						NOR = { 
-							has_law = law_type:law_free_trade 
-							has_law = law_type:law_isolationism
+							has_law_or_variant = law_type:law_free_trade 
+							has_law_or_variant = law_type:law_isolationism
 						}
 					}
 				}
@@ -322,7 +322,7 @@ ai_strategy_trade_imperialism = {
 			limit = {
 				can_reach_target_state = yes
 				scope:target_country = {
-					has_law = law_type:law_isolationism
+					has_law_or_variant = law_type:law_isolationism
 					gdp >= 2000000 # Not worth doing against very small markets
 				}
 				scope:target_state = { is_incorporated = yes }
@@ -348,7 +348,7 @@ ai_strategy_trade_imperialism = {
 					country_rank = rank_value:great_power
 					can_reach_target_country = yes
 					scope:target_country = {
-						has_law = law_type:law_isolationism
+						has_law_or_variant = law_type:law_isolationism
 						gdp >= 5000000 # Not worth doing against small markets
 					}
 				}
