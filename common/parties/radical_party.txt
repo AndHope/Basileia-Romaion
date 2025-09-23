@@ -86,7 +86,7 @@ radical_party = {
 				trigger = {
 					exists = c:GBR
 					THIS = c:GBR
-					has_law = law_type:law_universal_suffrage
+					has_law_or_variant = law_type:law_universal_suffrage
 				}
 			}
 			triggered_desc = {
@@ -94,7 +94,7 @@ radical_party = {
 				trigger = {
 					exists = c:TUR
 					THIS = c:TUR
-					has_law = law_type:law_monarchy
+					has_law_or_variant = law_type:law_monarchy
 				}
 			}
 			triggered_desc = {
@@ -102,7 +102,7 @@ radical_party = {
 				trigger = {
 					exists = c:TUR
 					THIS = c:TUR
-					NOT = { has_law = law_type:law_monarchy }
+					NOT = { has_law_or_variant = law_type:law_monarchy }
 				}
 			}
 			triggered_desc = {
@@ -117,16 +117,14 @@ radical_party = {
 				trigger = {
 					exists = c:CHI
 					THIS = c:CHI
-					has_law = law_type:law_monarchy
+					has_law_or_variant = law_type:law_monarchy
 				}
 			}
 			triggered_desc = {
 				desc = party_republican_union
 				trigger = {
-					OR = {
-						country_has_primary_culture = cu:french
-						country_has_primary_culture = cu:frankish
-					}
+					exists = c:FRA
+					THIS = c:FRA
 				}
 			}
 			triggered_desc = {
@@ -135,6 +133,11 @@ radical_party = {
 					OR = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
+					}
+					NOR = {
+						c:AUS ?= this
+						c:KUK ?= this
+						c:HRE ?= this
 					}
 				}
 			}
@@ -151,7 +154,7 @@ radical_party = {
 							country_has_primary_culture = cu:yi
 							country_has_primary_culture = cu:yue
 						}
-						NOT = { has_law = law_type:law_monarchy }
+						NOT = { has_law_or_variant = law_type:law_monarchy }
 					}
 				}
 			}
@@ -200,7 +203,7 @@ radical_party = {
 				desc = party_farroupilha
 				trigger = {
 					country_has_primary_culture = cu:brazilian
-					has_law = law_type:law_monarchy
+					has_law_or_variant = law_type:law_monarchy
 				}
 			}
 			triggered_desc = {
@@ -229,7 +232,7 @@ radical_party = {
 				trigger = {
 					exists = c:GBR
 					THIS = c:GBR
-					NOT = { has_law = law_type:law_universal_suffrage }
+					NOT = { has_law_or_variant = law_type:law_universal_suffrage }
 				}
 			}
 			triggered_desc = {
@@ -333,7 +336,7 @@ radical_party = {
 				owner = {
 					country_is_in_south_america = yes
 					any_primary_culture = {
-						has_discrimination_trait = hispanophone
+						has_discrimination_trait = language_hispanophone
 					}
 				}
 			}
@@ -350,7 +353,7 @@ radical_party = {
 						country_has_primary_culture = cu:yankee
 						country_has_primary_culture = cu:dixie
 					}
-					has_law = law_type:law_presidential_republic
+					has_law_or_variant = law_type:law_presidential_republic
 				}
 			}
 			add = {
@@ -434,7 +437,7 @@ radical_party = {
 					}
 				}
 				owner = {
-					NOT = { has_law = law_type:law_council_republic }
+					NOT = { has_law_or_variant = law_type:law_council_republic }
 					any_interest_group = {
 						is_powerful = yes
 						leader = {
@@ -480,8 +483,8 @@ radical_party = {
 				}
 				owner = {
 					OR = {
-						has_law = law_type:law_monarchy
-						has_law = law_type:law_theocracy
+						has_law_or_variant = law_type:law_monarchy
+						has_law_or_variant = law_type:law_theocracy
 					}
 				}
 			}
@@ -495,8 +498,8 @@ radical_party = {
 				has_ideology = ideology:ideology_particularist
 				owner = {
 					OR = {
-						has_law = law_type:law_serfdom
-						has_law = law_type:law_debt_slavery
+						has_law_or_variant = law_type:law_serfdom
+						has_law_or_variant = law_type:law_debt_slavery
 					}
 				}
 			}
@@ -519,7 +522,7 @@ radical_party = {
 		if = { # from lack of democracy
 			limit = {
 				owner = {
-					NOT = { has_law = law_type:law_universal_suffrage }
+					NOT = { has_law_or_variant = law_type:law_universal_suffrage }
 				}
 				OR = {
 					has_ideology = ideology:ideology_populist
@@ -533,7 +536,7 @@ radical_party = {
 				}
 			}
 			add = {
-				value = 10
+				value = 5
 				desc = "from_no_universal_suffrage"
 			}
 		}
@@ -548,8 +551,8 @@ radical_party = {
 				}
 				owner = {
 					OR = {
-						has_law = law_type:law_outlawed_dissent
-						has_law = law_type:law_censorship
+						has_law_or_variant = law_type:law_outlawed_dissent
+						has_law_or_variant = law_type:law_censorship
 					}
 				}
 			}
@@ -569,7 +572,7 @@ radical_party = {
 					}
 				}
 				owner = {
-					has_law = law_type:law_outlawed_dissent
+					has_law_or_variant = law_type:law_outlawed_dissent
 				}
 			}
 			add = {
@@ -590,10 +593,7 @@ radical_party = {
 					}
 				}
 				owner = {
-					OR = {
-						has_law = law_type:law_national_guard
-						has_law = law_type:law_secret_police
-					}
+					has_law_or_variant = law_type:law_secret_police
 				}
 			}
 			add = {
@@ -605,8 +605,9 @@ radical_party = {
 			limit = {
 				owner = {
 					OR = {
-						has_law = law_type:law_legacy_slavery
-						has_law = law_type:law_slave_trade
+						has_law_or_variant = law_type:law_legacy_slavery
+						has_law_or_variant = law_type:law_slave_trade
+						has_law_or_variant = law_type:law_colonial_slavery
 					}
 				}
 				OR = {
@@ -624,7 +625,7 @@ radical_party = {
 		if = { # anti-serfdom
 			limit = {
 				owner = {
-					has_law = law_type:law_serfdom
+					has_law_or_variant = law_type:law_serfdom
 				}
 				OR = {
 					has_ideology = ideology:ideology_egalitarian
@@ -652,7 +653,7 @@ radical_party = {
 					has_ideology = ideology:ideology_socialist
 				}
 				owner = {
-					NOT = { has_law = law_type:law_universal_suffrage }
+					NOT = { has_law_or_variant = law_type:law_universal_suffrage }
 				}
 			}
 			add = {
@@ -661,8 +662,8 @@ radical_party = {
 					limit = {
 						owner = {
 							OR = {
-								has_law = law_type:law_landed_voting
-								has_law = law_type:law_wealth_voting
+								has_law_or_variant = law_type:law_landed_voting
+								has_law_or_variant = law_type:law_wealth_voting
 							}
 						}
 					}
@@ -671,7 +672,7 @@ radical_party = {
 				if = {
 					limit = {
 						owner = {
-							has_law = law_type:law_census_voting
+							has_law_or_variant = law_type:law_census_voting
 						}
 					}
 					add = 5

@@ -170,14 +170,14 @@ STATES = {
 	}
 
 	s:STATE_WEST_GALICIA = {
-	#	create_state = {
-	#		country = c:HUN
-	#		owned_provinces = { x90E060 x1161E0 x66DCEE xA63CE6 xC7B7B8 x9061E0 }
-	#		state_type = unincorporated
-	#	}
+		#	create_state = {
+		#		country = c:HUN
+		#		owned_provinces = { x90E060 x1161E0 x66DCEE xA63CE6 xC7B7B8 x9061E0 }
+		#		state_type = unincorporated
+		#	}
 		create_state = {
 			country = c:PLC
-			owned_provinces = { x90E060 x1161E0 x66DCEE xA63CE6 xC7B7B8 x9061E0 x906060 x11E061 x5F3456 x56599F xFCC35F xC8690C xA550A9 }
+			owned_provinces = { x906060 x11E061 x90E060 x1161E0 xC8690C x66DCEE xA63CE6 xFCC35F xC7B7B8 x5F3456 x56599F xA550A9 }
 		}
 		add_homeland = cu:polish
 	}
@@ -208,42 +208,48 @@ STATES = {
 	}
 	s:STATE_WEST_PRUSSIA = {
 		create_state = {
-			country = c:PRU
-			owned_provinces = { x6E8875 x7A6061 x80A0A0 }
-		}
-		create_state = {
 			country = c:PLC
-			owned_provinces = { x374AC3 x41A021 x55FD02 x3E3572 x0180A0 x178C99 x611F2F x7CB839 x945000 xBAF66D }
-			#state_type = unincorporated
+			owned_provinces = { x178C99 x374AC3 x41A021 x55FD02 x611F2F x7CB839 x80A0A0 x945000 xBAF66D }
 		}
-		add_claim = c:PRU
+
 		add_homeland = cu:baltic_german
 		add_homeland = cu:polish
 	}
 	s:STATE_EAST_PRUSSIA = {
 		create_state = {
 			country = c:PRU
-			owned_provinces = { x1E73B9 x2399A2 x4121A0 x47C900 x5428E6 x7D6DC3 x975566 x9FD037 xABC4AE xAEA6D6 xBF9F20 xC020A0 xC04521 xEEF586 }
+			owned_provinces = { x1E73B9 x2399A2 x40A0A0 x4121A0 x47C900 x5428E6 x6E8875 x72FDF3 x7A6061 x7D6DC3 x975566 x981EBE x9FD037 xABC4AE xAEA6D6 xBF9F20 xC020A0 xC04521 xEEF586 }
 		}
-		create_state = {
-			country = c:PLC
-			owned_provinces = { x40A0A0 x72FDF3 x981EBE }
-			state_type = unincorporated
-		}
-		add_claim = c:PRU
+		#	create_state = {
+		#		country = c:PLC
+		#		owned_provinces = { x40A0A0 x72FDF3 x981EBE }
+		#		state_type = unincorporated
+		#	}
+
 		add_homeland = cu:baltic_german
 		add_homeland = cu:polish
 		add_homeland = cu:lithuanian
 	}
-	s:STATE_SILESIA = {
+	s:STATE_LOWER_SILESIA = {
 		create_state = {
 			country = c:br_silesia
-			owned_provinces = { xC108EA x732DC0 x6E617F x1B72C9 x272E48 xC00121 xCE74AB x94D624 xAF9F20 x88194B x90B12B x821F52 x5E9091 x7B2F62 }
+			owned_provinces = { x1B72C9 x272E48 x614121 x6E617F x732DC0 x94D624 xC00121 xC108EA xCE74AB }
 		}
-		
-		add_claim = c:BOH
+
 		add_homeland = cu:silesian
 		add_homeland = cu:saxon
+		add_homeland = cu:sorb
+	}
+	s:STATE_UPPER_SILESIA = {
+		create_state = {
+			country = c:br_silesia
+			owned_provinces = { x5E9091 x7B2F62 x821F52 x90B12B xAF9F20 x71E080 xF0E080 x88194B x9061E0 x71E080 xF0E080 }
+		}
+
+		add_homeland = cu:silesian
+		add_homeland = cu:saxon
+		add_homeland = cu:polish
+		add_homeland = cu:czech
 	}
 
 	s:STATE_GREATER_POLAND = {
@@ -380,27 +386,23 @@ STATES = {
 		add_homeland = cu:latvian
 		add_homeland = cu:baltic_german
 	}
-
 	s:STATE_KAUNAS = {
 		create_state = {
 			country = c:PLC
-			owned_provinces = { x0980C8 x0B6577 x21F318 x232B98 x406DC9 x6175AD x629C46 x7A5D64 x8060A0 x80D858 x95171C xA8FF51 xAF73F2 xBFE867 xC0A0A0 xCC4C28 xCD7291 xE0B943 }
+			owned_provinces = { x00E0A0 x0980C8 x0B6577 x21F318 x232B98 x406DC9 x4177AF x4678E5 x577C69 x6175AD x629C46 x7A5D64 x8060A0 x80D858 x95171C xA8FF51 xA916E3 xAF73F2 xBFE867 xC0A0A0 xCC4C28 xCD7291 xE0B943 }
 			state_type = unincorporated
 		}
-		
-		add_homeland = cu:lithuanian
-		#add_homeland = cu:baltic_german
-		add_claim = c:UBD
-	}
 
+		add_homeland = cu:lithuanian
+	}
 	s:STATE_VILNIUS = {
 		create_state = {
 			country = c:PLC
-			owned_provinces = { x00E0A0 x0161A0 x4177AF x41E061 x4678E5 x577C69 xA916E3 xF2CB3D }
+			owned_provinces = { x0161A0 x41E061 xF2CB3D }
+			state_type = unincorporated
 		}
-		
+
 		add_homeland = cu:lithuanian
-		add_homeland = cu:polish
 	}
 
 

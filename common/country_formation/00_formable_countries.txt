@@ -648,36 +648,54 @@ PAN = {
 	use_culture_states = yes
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
+
+	possible = {
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
+	}
 }
 
 MUG = {
 	use_culture_states = yes
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 }
 
 DRA = {
 	use_culture_states = yes
-	
+
 	required_states_fraction = 0.75
 
 	ai_will_do = { always = yes }
 
 	possible = {
 		has_technology_researched = pan-nationalism
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
 	}
 }
 
 CAR = {
 	use_culture_states = yes
-	
+
 	required_states_fraction = 0.75
 
 	ai_will_do = { always = yes }
+
+	possible = {
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
+	}
 }
 
 BGL = {
@@ -686,4 +704,66 @@ BGL = {
 	required_states_fraction = 0.5
 	
 	ai_will_do = { always = yes }
+
+	possible = {
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
+	}
+
+}
+
+GAL = {
+	states = {
+		STATE_EAST_GALICIA
+		STATE_WEST_GALICIA
+	}
+
+	required_states_fraction = 1
+
+	ai_will_do = { always = yes }
+}
+
+UZB = {
+	states = {
+		STATE_UZBEKIA
+		STATE_FERGANA
+		STATE_KHIVA
+	}
+
+	required_states_fraction = 0.66
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
+
+KYR = {
+	states = {
+		STATE_KIRGHIZIA
+	}
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
+
+TJI = {
+	states = {
+		STATE_TAJIKISTAN
+		STATE_BALKH
+	}
+
+	required_states_fraction = 0.5
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = nationalism
+	}
 }

@@ -18,13 +18,13 @@
     }
 }
 
-STATE_SILESIA = {
+STATE_LOWER_SILESIA = {
     id = 155
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x1B72C9" "x272E48" "x5E9091" "x6E617F" "x732DC0" "x7B2F62" "x821F52" "x88194B" "x90B12B" "x94D624" "xAF9F20" "xC00121" "xC108EA" "xCE74AB" }
-    traits = { "state_trait_oder_river" "state_trait_upper_silesia_coalfield" }
+    provinces = { "x1B72C9" "x272E48" "x614121" "x6E617F" "x732DC0" "x94D624" "xC00121" "xC108EA" "xCE74AB" }
+    traits = { "state_trait_oder_river" }
     city = "x6E617F"
-    farm = "xAF9F20"
+    farm = "xC108EA"
     mine = "x272E48"
     wood = "x90B12B"
     arable_land = 105
@@ -52,6 +52,27 @@ STATE_SILESIA = {
         type = "bg_sulfur_mining"
         undiscovered_amount = 20
         discovered_amount = 14
+    }
+}
+
+STATE_UPPER_SILESIA = {
+    id = 924
+    subsistence_building = "building_subsistence_farms"
+    provinces = { "x5E9091" "x71E080" "x7B2F62" "x821F52" "x88194B" "x9061E0" "x90B12B" "xAF9F20" "xF0E080" }
+    traits = { "state_trait_oder_river" "state_trait_upper_silesia_coalfield" }
+    prime_land = { "xF0E080" }
+    city = "x90B12B"
+    farm = "xF0E080"
+    mine = "x821F52"
+    wood = "x9061E0"
+    arable_land = 45
+    arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
+    capped_resources = {
+        bg_coal_mining = 110
+        bg_iron_mining = 40
+        bg_lead_mining = 50
+        bg_sulfur_mining = 31
+        bg_logging = 4
     }
 }
 
@@ -122,7 +143,7 @@ STATE_LESSER_POLAND = {
 STATE_WEST_PRUSSIA = {
     id = 158
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x0180A0" "x178C99" "x374AC3" "x3E3572" "x41A021" "x55FD02" "x611F2F" "x6E8875" "x7A6061" "x7CB839" "x80A0A0" "x945000" "xBAF66D" }
+    provinces = { "x178C99" "x374AC3" "x41A021" "x55FD02" "x611F2F" "x7CB839" "x80A0A0" "x945000" "xBAF66D" }
     traits = { "state_trait_natural_harbors" }
     city = "x7CB839"
     port = "x611F2F"
@@ -146,7 +167,7 @@ STATE_WEST_PRUSSIA = {
 STATE_EAST_PRUSSIA = {
     id = 159
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x1E73B9" "x2399A2" "x40A0A0" "x4121A0" "x47C900" "x5428E6" "x72FDF3" "x7D6DC3" "x975566" "x981EBE" "x9FD037" "xABC4AE" "xAEA6D6" "xBF9F20" "xC020A0" "xC04521" "xEEF586" }
+    provinces = { "x1E73B9" "x2399A2" "x40A0A0" "x4121A0" "x47C900" "x5428E6" "x6E8875" "x72FDF3" "x7A6061" "x7D6DC3" "x975566" "x981EBE" "x9FD037" "xABC4AE" "xAEA6D6" "xBF9F20" "xC020A0" "xC04521" "xEEF586" }
     city = "x1E73B9"
     port = "x72FDF3"
     farm = "x2399A2"
@@ -184,12 +205,12 @@ STATE_POSEN = {
 STATE_WEST_GALICIA = {
     id = 161
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x1161E0" "x11E061" "x56599F" "x5F3456" "x66DCEE" "x906060" "x9061E0" "x90E060" "xA550A9" "xA63CE6" "xC7B7B8" "xC8690C" "xFCC35F" }
+    provinces = { "x1161E0" "x11E061" "x56599F" "x5F3456" "x66DCEE" "x906060" "x90E060" "xA550A9" "xA63CE6" "xC7B7B8" "xC8690C" "xFCC35F" }
     prime_land = { "x5F3456" "xFCC35F" }
     city = "x906060"
     farm = "x5F3456"
     mine = "x5F3456"
-    wood = "x9061E0"
+    wood = "x5F3456" # TODO FIX
     arable_land = 145
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
@@ -222,7 +243,7 @@ STATE_WEST_GALICIA = {
 STATE_EAST_GALICIA = {
     id = 162
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x053163" "x11A021" "x489C42" "x4D0305" "x53932F" "x7EDD9E" "x8F9F20" "x9D8087" "xA2805F" "xA3CF78" "xB021A0" "xC1B262" "xC58E1C" "xCAE5B0" "xCDD223" "xD0E061" "xE369C4" "xEFE270" }
+    provinces = { "x053163" "x11A021" "x489C42" "x4D0305" "x53932F" "x7EDD9E" "x8F9F20" "x9D8087" "xA2805F" "xA3CF78" "xB021A0" "xC1B262" "xC58E1C" "xCAE5B0" "xCDD223" "xE369C4" "xEFE270" }
     city = "x11A021"
     farm = "xC58E1C"
     mine = "x7EDD9E"
@@ -343,7 +364,7 @@ STATE_BANAT = {
     id = 167
     subsistence_building = "building_subsistence_farms"
     provinces = { "x078D13" "x1161A0" "x15C7D1" "x2C0A00" "x4D9139" "x90E021" "xC381B6" "xD1FEBD" "xF56517" }
-    traits = { "state_trait_pannonian_plain" }
+    traits = { "state_trait_pannonian_plain" "state_trait_danube_river" }
     city = "x90E021"
     farm = "x15C7D1"
     mine = "x2C0A00"
@@ -359,15 +380,15 @@ STATE_BANAT = {
     }
 }
 
-STATE_WEST_SLOVAKIA = {
+STATE_SLOVAKIA = {
     id = 168
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x082416" "x1F3F2B" "x51306A" "x516161" "x695F42" "x6B444C" "x853117" "x90E0E0" "xB386BA" "xCA932B" "xD06161" "xFC6F14" }
+    provinces = { "x02CE3A" "x082416" "x1F3F2B" "x20C000" "x51306A" "x516161" "x51E061" "x695F42" "x6B444C" "x7DE5D3" "x853117" "x90E0E0" "xB23DA0" "xB386BA" "xC54074" "xCA932B" "xD06161" "xFC6F14" }
     traits = { "state_trait_danube_river" }
     city = "xCA932B"
-    farm = "x90E0E0"
-    mine = "x853117"
-    wood = "x51306A"
+    farm = "x7DE5D3"
+    mine = "x51306A"
+    wood = "x853117"
     arable_land = 105
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_vineyard_plantations" }
     capped_resources = {
@@ -390,14 +411,14 @@ STATE_WEST_SLOVAKIA = {
     }
 }
 
-STATE_EAST_SLOVAKIA = {
+STATE_RUTHENIA = {
     id = 169
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x02CE3A" "x20C000" "x359378" "x51E061" "x69BAC7" "x7DE5D3" "xA0531B" "xB23DA0" "xC54074" "xC85CD0" }
-    city = "x7DE5D3"
-    farm = "xC85CD0"
-    mine = "xA0531B"
-    wood = "x02CE3A"
+    provinces = { "x359378" "x69BAC7" "xA0531B" "xC85CD0" "xD0E061" }
+    city = "xA0531B"
+    farm = "xA0531B"
+    mine = "x69BAC7"
+    wood = "x69BAC7"
     arable_land = 70
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_vineyard_plantations" }
     capped_resources = {
@@ -472,10 +493,10 @@ STATE_NORTHERN_TRANSYLVANIA = {
 STATE_MOLDAVIA = {
     id = 172
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x00A7F4" "x067DF0" "x0983EE" "x0D8A56" "x30E0A0" "x31A0A0" "x35CE84" "x3CE97E" "x556DE7" "x56839F" "x734EFF" "x7E6263" "x80D8F3" "x946A66" "xB0A0E0" "xEF2060" "xF40045" "xFF2F40" "xFFCCDA" }
+    provinces = { "x0983EE" "x0D8A56" "x30E0A0" "x35CE84" "x3CE97E" "x556DE7" "x56839F" "x734EFF" "x80D8F3" "x946A66" "xB0A0E0" "xEF2060" "xF40045" "xFF2F40" }
     city = "x946A66"
     farm = "x30E0A0"
-    mine = "xFFCCDA"
+    mine = "x35CE84"
     wood = "x0D8A56"
     arable_land = 100
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_silk_plantations" "bg_cotton_plantations" "bg_vineyard_plantations" }
@@ -492,7 +513,22 @@ STATE_MOLDAVIA = {
         undiscovered_amount = 40
     }
 }
-
+STATE_BUKOVINA = {
+    id = 922
+    subsistence_building = "building_subsistence_farms"
+    provinces = { "x00A7F4" "x067DF0" "x31A0A0" "x7E6263" "xFFCCDA" }
+    city = "x00A7F4"
+    farm = "x00A7F4"
+    mine = "x00A7F4"
+    wood = "x00A7F4"
+    arable_land = 100
+    arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_vineyard_plantations" }
+    capped_resources = {
+        bg_iron_mining = 4
+        bg_coal_mining = 2
+        bg_logging = 7
+    }
+}
 STATE_WALLACHIA = {
     id = 173
     subsistence_building = "building_subsistence_farms"
@@ -545,4 +581,3 @@ STATE_BESSARABIA = {
     }
     naval_exit_id = 3036
 }
-
