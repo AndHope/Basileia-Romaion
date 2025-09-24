@@ -17,20 +17,49 @@
 			create_political_movement = { type = movement_royalist_constitutional }
 		}
 
+		### Liberal movements
+		if = {
+			limit = {
+				has_technology_researched = democracy
+				OR = {
+					has_law_or_variant = law_type:law_landed_voting
+					has_law_or_variant = law_type:law_wealth_voting
+					has_law_or_variant = law_type:law_census_voting
+					has_law_or_variant = law_type:law_universal_suffrage
+				}
+			}
+			create_political_movement = { type = movement_liberal }
+		}
+
+		### Labour movements
+		if = {
+			limit = {
+				has_technology_researched = labor_movement
+			}
+			create_political_movement = { type = movement_labor }
+		}
+
 		### Abolitionist movements
 		if = {
 			limit = {
 				NOT = { has_law_or_variant = law_type:law_slavery_banned }
 			}
-			create_political_movement = { type = movement_pro_slavery }
-			
 			if = {
-				limit = { 
-					has_technology_researched = empiricism 
+				limit = {
+					NOT = {
+						has_law_or_variant = law_type:law_colonial_slavery
+					}
+				}
+				create_political_movement = { type = movement_pro_slavery }
+			}
+			if = {
+				limit = {
+					has_technology_researched = empiricism
+					NOT = { c:BIC ?= this } # British India has Utilitarians
 				}
 				create_political_movement = { type = movement_anti_slavery }
 			}
-		}		
+		}
 
 		### Religious movements
 		if = {
@@ -40,8 +69,7 @@
 			create_political_movement = { type = movement_religious_minority religion = rel:hindu }
 			create_political_movement = { type = movement_religious_minority religion = rel:sikh }
 		}
-
-		else_if = {
+		else_if = { # France gets Legitimists instead
 			limit = {
 				NOT = {
 					c:FRA ?= this
@@ -51,9 +79,6 @@
 		}
 
 		### Cultural majority movements
-		create_political_movement = { type = movement_cultural_majority }
-
-		### Labour movements
 		if = {
 			limit = {
 				has_technology_researched = labor_movement
@@ -77,6 +102,16 @@
 			create_political_movement = { type = movement_liberal }
 		}
 	}	
+	c:HUN ?= {
+		create_political_movement = { type = movement_liberal }
+		create_political_movement = { type = movement_cultural_minority culture = cu:serb }
+	}
+	c:CRO ?= {
+		create_political_movement = { type = movement_yugoslav_national }
+	}
+	c:SER ?= {
+		create_political_movement = { type = movement_yugoslav_national }
+	}
 	c:BYZ ?= {
 		#create_political_movement = { type = movement_cultural_minority culture = cu:latinoi }
 		create_political_movement = { type = movement_cultural_minority culture = cu:armenian }
