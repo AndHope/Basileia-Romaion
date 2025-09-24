@@ -118,6 +118,34 @@
         }
     }
 
+    historical_william_hanover_accessories = {
+        dna_modifiers = {
+            accessory = {
+               mode = add
+               gene = top_layer
+               template = european_top_layer
+               accessory = male_top_layer_european_royal_01
+            }
+            accessory = {
+               mode = add
+               gene = belts
+               template = all_belts
+               accessory = male_belt_generic_02
+            }
+        }
+
+        weight = {
+            base = 0
+            modifier = {
+                add = 95000
+                scope:character ?= {
+                    has_template = gbr_william_hanover_template
+                    is_ruler = yes
+                }
+            }
+        }
+    }
+
 ### END OF HISTORICAL CHARACTER ACCESSORIES ###
 
     european_shopkeeper_clothes = {
@@ -587,6 +615,145 @@
         }
     }
 
+    french_commander_sash = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = sashes
+                template = european_sashes_colours
+                accessory = male_sash_european_01_red
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 20000
+
+                has_dlc_feature = ep1_cosmetics
+                has_dlc_feature = voice_of_the_people_content
+
+                scope:character ?= {
+                    age >= define:NCharacters|ADULT_AGE
+                    is_female = no
+                }
+                french_empire_clothes_trigger = yes
+                OR = {
+                    monarchy_clothes_trigger = yes
+                    scope:character ?= {
+                        has_role = general
+                    }
+                    AND = {
+                        armed_forces_clothes_trigger = yes
+                        politician_clothes_trigger = yes
+                    }
+                }
+                scope:character ?= {
+                    OR = {
+                        has_trait = ambitious # Dress for the job you want
+                        is_ruler = yes
+                        commander_rank >= 5
+                    }
+                }
+            }
+        }
+    }
+
+    greek_royal_sash = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = sashes
+                template = european_sashes_colours
+                accessory = male_sash_european_01_red
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 20000
+                scope:character ?= {
+                    age >= define:NCharacters|ADULT_AGE
+                }
+                greek_clothes_trigger = yes
+                has_dlc_feature = ip3_cosmetics
+                AND = {
+                    monarchy_clothes_trigger = yes
+                    scope:character ?= {
+                        owner ?= {
+                            NOT = {
+                                has_technology_researched = rifling
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    austrian_commander_sash = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = sashes
+                template = male_sashes_austrian_01
+                range = { 0 0.6 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 20000
+                has_dlc_feature = ip3_cosmetics
+                scope:character ?= {
+                    age >= define:NCharacters|ADULT_AGE
+                    home_country ?= {
+                        NOT = {
+                            has_technology_researched = automatic_machine_guns
+                        }
+                    }
+                    NOR = {
+                        culture ?= { cu:hungarian ?= this }
+                        home_country ?= { c:HUN ?= this }
+                    }
+                }
+                austrian_empire_clothes_trigger = yes
+                OR = {
+                    military_clothes_trigger = yes
+                    AND = {
+                        armed_forces_clothes_trigger = yes
+                        OR = {
+                            politician_clothes_trigger = yes
+                            ruler_clothes_trigger = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    austrian_royal_sash = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = sashes
+                template = male_sashes_austrian_01
+                accessory = male_sashes_austrian_01
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 40000
+                scope:character ?= {
+                    age >= define:NCharacters|ADULT_AGE
+                }
+                austrian_empire_clothes_trigger = yes
+                has_dlc_feature = ip3_cosmetics
+                monarchy_clothes_trigger = yes
+            }
+        }
+    }
+
 	african_expedition_necklace = {
 		dna_modifiers = {
 			accessory = {
@@ -670,6 +837,7 @@
                 british_empire_clothes_trigger = no
                 french_empire_clothes_trigger = no
                 russian_empire_clothes_trigger = no
+                austrian_empire_clothes_trigger = no
                 monarchy_clothes_trigger = yes
                 OR = {
                     european_clothes_trigger = yes
@@ -768,6 +936,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -811,6 +980,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -854,6 +1024,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -1031,6 +1202,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -1149,6 +1321,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -1265,6 +1438,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -1381,6 +1555,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -1495,6 +1670,7 @@
 
                 scope:character ?= {
                     is_ruler = yes
+                    is_historical = no
 
                     age >= define:NCharacters|ADULT_AGE
 
@@ -1556,7 +1732,23 @@
                     }
                 }
                 OR = {
-                    arabic_clothes_trigger = yes
+                    AND = {
+                        arabic_clothes_trigger = yes
+                        # necklace doesn't work with keffiyeh headwear
+                        scope:character ?= {
+                            NOT = {
+                                religion = {
+                                    has_discrimination_trait = heritage_islamic
+                                }
+                                culture = {
+                                    OR = {
+                                        cu:bedouin = this
+                                        cu:mashriqi = this
+                                    }
+                                }
+                            }
+                        }
+                    }
                     chinese_imperial_clothes_trigger = yes
                     indian_clothes_trigger = yes
                     japanese_clothes_trigger = yes
@@ -1565,7 +1757,7 @@
                     AND = {
                         african_clothes_trigger = yes
                         scope:character ?= {
-                            NOT = { culture = { has_discrimination_trait = ethiopian } }
+                            NOT = { culture = { has_discrimination_trait = heritage_abyssinian } }
                         }
                     }
                     scope:character ?= {
@@ -1574,14 +1766,12 @@
                             NOT = { has_law_or_variant = law_type:law_monarchy }
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                     scope:character ?= {
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = central_asian_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1602,8 +1792,7 @@
                             has_law_or_variant = law_type:law_monarchy
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1642,7 +1831,23 @@
                     }
                 }
                 OR = {
-                    arabic_clothes_trigger = yes
+                    AND = {
+                        arabic_clothes_trigger = yes
+                        # necklace doesn't work with keffiyeh headwear
+                        scope:character ?= {
+                            NOT = {
+                                religion = {
+                                    has_discrimination_trait = heritage_islamic
+                                }
+                                culture = {
+                                    OR = {
+                                        cu:bedouin = this
+                                        cu:mashriqi = this
+                                    }
+                                }
+                            }
+                        }
+                    }
                     chinese_imperial_clothes_trigger = yes
                     indian_clothes_trigger = yes
                     japanese_clothes_trigger = yes
@@ -1651,7 +1856,7 @@
                     AND = {
                         african_clothes_trigger = yes
                         scope:character ?= {
-                            NOT = { culture = { has_discrimination_trait = ethiopian } }
+                            NOT = { culture = { has_discrimination_trait = heritage_abyssinian } }
                         }
                     }
                     scope:character ?= {
@@ -1660,14 +1865,12 @@
                             NOT = { has_law_or_variant = law_type:law_monarchy }
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                     scope:character ?= {
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = central_asian_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1688,8 +1891,7 @@
                             has_law_or_variant = law_type:law_monarchy
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1728,7 +1930,23 @@
                     }
                 }
                 OR = {
-                    arabic_clothes_trigger = yes
+                    AND = {
+                        arabic_clothes_trigger = yes
+                        # necklace doesn't work with keffiyeh headwear
+                        scope:character ?= {
+                            NOT = {
+                                religion = {
+                                    has_discrimination_trait = heritage_islamic
+                                }
+                                culture = {
+                                    OR = {
+                                        cu:bedouin = this
+                                        cu:mashriqi = this
+                                    }
+                                }
+                            }
+                        }
+                    }
                     chinese_imperial_clothes_trigger = yes
                     indian_clothes_trigger = yes
                     japanese_clothes_trigger = yes
@@ -1737,7 +1955,7 @@
                     AND = {
                         african_clothes_trigger = yes
                         scope:character ?= {
-                            NOT = { culture = { has_discrimination_trait = ethiopian } }
+                            NOT = { culture = { has_discrimination_trait = heritage_abyssinian } }
                         }
                     }
                     scope:character ?= {
@@ -1746,14 +1964,12 @@
                             NOT = { has_law_or_variant = law_type:law_monarchy }
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                     scope:character ?= {
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = central_asian_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1774,8 +1990,7 @@
                             has_law_or_variant = law_type:law_monarchy
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1814,7 +2029,23 @@
                     }
                 }
                 OR = {
-                    arabic_clothes_trigger = yes
+                    AND = {
+                        arabic_clothes_trigger = yes
+                        # necklace doesn't work with keffiyeh headwear
+                        scope:character ?= {
+                            NOT = {
+                                religion = {
+                                    has_discrimination_trait = heritage_islamic
+                                }
+                                culture = {
+                                    OR = {
+                                        cu:bedouin = this
+                                        cu:mashriqi = this
+                                    }
+                                }
+                            }
+                        }
+                    }
                     chinese_imperial_clothes_trigger = yes
                     indian_clothes_trigger = yes
                     japanese_clothes_trigger = yes
@@ -1823,7 +2054,7 @@
                     AND = {
                         african_clothes_trigger = yes
                         scope:character ?= {
-                            NOT = { culture = { has_discrimination_trait = ethiopian } }
+                            NOT = { culture = { has_discrimination_trait = heritage_abyssinian } }
                         }
                     }
                     scope:character ?= {
@@ -1832,14 +2063,12 @@
                             NOT = { has_law_or_variant = law_type:law_monarchy }
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                     scope:character ?= {
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = central_asian_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1861,7 +2090,6 @@
                         }
                         culture = {
                             has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
                         }
                     }
                 }
@@ -1900,7 +2128,23 @@
                     }
                 }
                 OR = {
-                    arabic_clothes_trigger = yes
+                    AND = {
+                        arabic_clothes_trigger = yes
+                        # necklace doesn't work with keffiyeh headwear
+                        scope:character ?= {
+                            NOT = {
+                                religion = {
+                                    has_discrimination_trait = heritage_islamic
+                                }
+                                culture = {
+                                    OR = {
+                                        cu:bedouin = this
+                                        cu:mashriqi = this
+                                    }
+                                }
+                            }
+                        }
+                    }
                     chinese_imperial_clothes_trigger = yes
                     indian_clothes_trigger = yes
                     japanese_clothes_trigger = yes
@@ -1909,7 +2153,7 @@
                     AND = {
                         african_clothes_trigger = yes
                         scope:character ?= {
-                            NOT = { culture = { has_discrimination_trait = ethiopian } }
+                            NOT = { culture = { has_discrimination_trait = heritage_abyssinian } }
                         }
                     }
                     scope:character ?= {
@@ -1918,14 +2162,12 @@
                             NOT = { has_law_or_variant = law_type:law_monarchy }
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                     scope:character ?= {
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = central_asian_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
@@ -1946,8 +2188,7 @@
                             has_law_or_variant = law_type:law_monarchy
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
                         }
                     }
                 }
