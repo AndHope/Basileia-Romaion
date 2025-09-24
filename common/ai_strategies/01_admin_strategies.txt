@@ -67,6 +67,13 @@
 		}
 
 		if = {
+			limit = {
+				is_princely_state = yes
+			}
+			add = 10
+		}
+
+		if = {
 			limit = { literacy_rate < 0.25 }
 			multiply = 1.5
 		}
@@ -84,7 +91,7 @@
 		if = {
 			limit = {
 				exists = ig:ig_landowners
-				ig:ig_landowners = { is_powerful = yes }
+				ig:ig_landowners ?= { is_powerful = yes }
 			}
 			multiply = 1.5
 		}
@@ -168,9 +175,16 @@ ai_strategy_plantation_economy = {
 		if = {
 			limit = {
 				exists = ig:ig_landowners
-				ig:ig_landowners = { is_powerful = yes }
+				ig:ig_landowners ?= { is_powerful = yes }
 			}
 			multiply = 1.5
+		}
+
+		if = {
+			limit = {
+				is_princely_state = yes
+			}
+			add = 20
 		}
 
 		if = {
@@ -383,6 +397,15 @@ ai_strategy_industrial_expansion = {
 			add = 50
 		}
 
+		# Metternich agenda of 1844 - inclined to industrialise
+		if = {
+			limit = {
+				c:AUS ?= this
+				has_journal_entry = je_metternich
+			}
+           add = 10
+		}
+
 		if = {
 			limit = {
 				has_law_or_variant = law_type:law_command_economy
@@ -497,7 +520,7 @@ ai_strategy_placate_population = {
 		if = {
 			limit = {
 				exists = ig:ig_rural_folk
-				ig:ig_rural_folk = { is_powerful = yes }
+				ig:ig_rural_folk ?= { is_powerful = yes }
 			}
 			multiply = 1.5
 		}
