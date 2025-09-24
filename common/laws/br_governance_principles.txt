@@ -59,7 +59,7 @@ law_monarchy = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_governance_principles_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -117,6 +117,45 @@ law_monarchy = {
 				fra_handle_republic_monarch_assignment = yes
 			}
 		}
+		if = {
+			limit = {
+				country_has_primary_culture = cu:vietnamese
+			}
+			if = {
+				limit = {
+					any_scope_state = {
+						state_region = s:STATE_CAMBODIA
+					}
+				}
+				random_scope_state = {
+					limit = {
+						state_region = s:STATE_CAMBODIA
+					}
+					STATE_CAMBODIA_state_name_assign = yes
+				}
+			}
+			if = {
+				limit = {
+					any_scope_state = {
+						state_region = s:STATE_LAOS
+					}
+				}
+				random_scope_state = {
+					limit = {
+						state_region = s:STATE_LAOS
+					}
+					STATE_LAOS_state_name_assign = yes
+				}
+			}
+		}
+		crown_land_republic_effect = yes
+		if = {
+			limit = {
+				has_law = law_type:law_neo_absolutism
+			}
+			deactivate_law = law_type:law_neo_absolutism
+			activate_law = law_type:law_autocracy
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -133,7 +172,7 @@ law_monarchy = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_monarchy
+				has_law = law_type:law_monarchy
 				has_strategy = ai_strategy_reactionary_agenda
 				power_bloc ?= { has_identity = identity:identity_ideological_union }
 				scope:target_country = { # Is their law different enough from what we want to impose?
@@ -144,7 +183,7 @@ law_monarchy = {
 			add = base_impose_law_weight
 			if = {
 				limit = {
-					scope:target_country = { has_law_or_variant = law_type:council_republic }
+					scope:target_country = { has_law_or_variant = law_type:law_council_republic }
 					NOT = { has_strategy = ai_strategy_egalitarian_agenda }
 				}
 				multiply = 5
@@ -187,7 +226,7 @@ law_presidential_republic = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_governance_principles_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -228,12 +267,39 @@ law_presidential_republic = {
 				add_ideology = ideology_republican
 			}
 		}
+		crown_land_republic_effect = yes
+		if = {
+			limit = {
+				has_law = law_type:law_neo_absolutism
+			}
+			deactivate_law = law_type:law_neo_absolutism
+			activate_law = law_type:law_autocracy
+		}
 	}
 
 	ai_will_do = {
 		exists = ruler
-		ruler = {
-			has_ideology = ideology:ideology_republican_leader
+		OR = {
+			ruler = {
+				OR = {
+					has_ideology = ideology:ideology_republican_leader
+					has_ideology = ideology:ideology_radical
+					has_ideology = ideology:ideology_positivist
+					has_socialist_ideology = yes
+				}
+			}
+			any_interest_group = {
+				is_in_government = yes
+				is_powerful = yes
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_republican_leader
+						has_ideology = ideology:ideology_radical
+						has_ideology = ideology:ideology_positivist
+						has_socialist_ideology = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -256,7 +322,7 @@ law_presidential_republic = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_presidential_republic
+				has_law = law_type:law_presidential_republic
 				has_strategy = ai_strategy_progressive_agenda
 				power_bloc ?= { has_identity = identity:identity_ideological_union }
 				scope:target_country = { # Is their law different enough from what we want to impose?
@@ -267,7 +333,7 @@ law_presidential_republic = {
 			add = base_impose_law_weight
 			if = {
 				limit = {
-					scope:target_country = { has_law_or_variant = law_type:council_republic }
+					scope:target_country = { has_law_or_variant = law_type:law_council_republic }
 					NOT = { has_strategy = ai_strategy_egalitarian_agenda }
 				}
 				multiply = 5

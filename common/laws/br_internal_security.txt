@@ -40,6 +40,13 @@ law_national_guard = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_hawaii
+			}
+			add = 10000
+		}
 	}
 }
 
@@ -61,7 +68,9 @@ law_secret_police = {
 	institution = institution_home_affairs
 	institution_modifier = {
 		country_suppression_attraction_factor = -0.05
-		political_movement_radicalism_add = -0.1
+		political_movement_radicalism_add = -0.05
+		country_support_separatism_resistance_mult = 0.05
+		country_support_separatism_strength_mult = 0.05
 	}
 
 	on_enact = {
@@ -74,6 +83,13 @@ law_secret_police = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_hawaii
+			}
+			add = 10000
 		}
 	}
 }

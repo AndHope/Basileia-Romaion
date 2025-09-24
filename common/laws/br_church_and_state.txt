@@ -9,6 +9,12 @@ law_state_religion = {
 
 	progressiveness = -50
 
+	is_visible = { # Turkey should only unlock this as a possibility if it abolishes the Millet System
+		NOT = {
+			has_law = law_type:law_millet_system
+		}
+	}
+
 	on_enact = {
 		recalculate_pop_ig_support = yes
 		if = {
@@ -31,9 +37,10 @@ law_state_religion = {
 		#country_state_religion_wages_mult = 0.1
 		country_non_state_religion_wages_mult = -0.15
 
-		country_acceptance_state_religion_add = 30 #was 25
-		country_acceptance_shared_religious_trait_add = 0 #was 0
-		country_acceptance_religion_base_add = -30	 #was -25
+		country_acceptance_state_religion_add = 25
+		country_acceptance_shared_religious_trait_add = 0
+		country_acceptance_shared_religious_trait_group_add = -10
+		country_acceptance_no_shared_religious_trait_add = -25
 
 		country_allow_conversion_violent_hostility_bool = yes
 		country_allow_conversion_cultural_erasure_bool = yes
@@ -48,7 +55,7 @@ law_state_religion = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -76,7 +83,7 @@ law_state_religion = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_state_religion
+				has_law = law_type:law_state_religion
 				power_bloc ?= { has_identity = identity:identity_religious }
 				religion = scope:target_country.religion
 			}
@@ -148,7 +155,8 @@ law_freedom_of_conscience = {
 
 		country_acceptance_state_religion_add = 20 #was 20
 		country_acceptance_shared_religious_trait_add = 15
-		country_acceptance_religion_base_add = 0 #was 0
+		country_acceptance_shared_religious_trait_group_add = 5
+		country_acceptance_no_shared_religious_trait_add = 0
 
 		country_allow_conversion_violent_hostility_bool = yes
 		country_allow_conversion_cultural_erasure_bool = yes
@@ -163,7 +171,7 @@ law_freedom_of_conscience = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -230,8 +238,9 @@ law_total_separation = {
 
 	modifier = {
 		country_acceptance_state_religion_add = 15
-		country_acceptance_shared_religious_trait_add = 10
-		country_acceptance_religion_base_add = 10
+		country_acceptance_shared_religious_trait_add = 15
+		country_acceptance_shared_religious_trait_group_add = 15
+		country_acceptance_no_shared_religious_trait_add = 15
 
 		country_allow_conversion_violent_hostility_bool = no
 		country_allow_conversion_cultural_erasure_bool = no
@@ -246,7 +255,7 @@ law_total_separation = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -279,7 +288,7 @@ law_state_atheism = {
 	}
 
 	can_enact = {
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			is_in_government = no
 		}
 		OR = {
@@ -297,7 +306,8 @@ law_state_atheism = {
 
 		country_acceptance_state_religion_add = 15
 		country_acceptance_shared_religious_trait_add = 0
-		country_acceptance_religion_base_add = -10
+		country_acceptance_shared_religious_trait_group_add = -5
+		country_acceptance_no_shared_religious_trait_add = -10
 
 		country_allow_conversion_violent_hostility_bool = yes
 		country_allow_conversion_cultural_erasure_bool = yes
@@ -307,6 +317,11 @@ law_state_atheism = {
 	}
 
 	on_enact = {
+
+	}
+
+	on_activate = {
+		set_state_religion = rel:atheist
 		add_modifier = {
 			name = antireligious_policies
 			days = long_modifier_time
@@ -326,17 +341,13 @@ law_state_atheism = {
 		recalculate_pop_ig_support = yes
 	}
 
-	on_activate = {
-		set_state_religion = rel:atheist
-	}
-
 	can_impose = {
 		OR = {
 			AND = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes

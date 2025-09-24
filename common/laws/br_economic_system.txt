@@ -21,6 +21,7 @@ law_traditionalism = {
 
 	modifier = {
 		state_shopkeepers_investment_pool_efficiency_mult = -0.5
+		state_bureaucrats_investment_pool_efficiency_mult = -0.5
 		state_capitalists_investment_pool_efficiency_mult = -0.5
 		state_farmers_investment_pool_efficiency_mult = -0.5
 		state_clergymen_investment_pool_efficiency_mult = -0.5
@@ -96,6 +97,7 @@ law_interventionism = {
 					has_modifier = shogun_ig_forced_to_open_market
 					has_journal_entry = je_meiji_main
 					has_journal_entry = je_great_reforms_serfdom
+					has_journal_entry = je_hawaii
 				}
 				has_law_or_variant = law_type:law_traditionalism
 			}
@@ -151,7 +153,6 @@ law_agrarianism = {
 		country_government_dividends_reinvestment_add = 0.5
 		country_government_dividends_efficiency_add = 0.3
 		country_free_charters_add = 1
-
 		country_disable_nationalization_without_compensation_bool = yes
 		
 		country_aristocrats_pol_str_mult = 0.2
@@ -324,15 +325,7 @@ law_extraction_economy = {
 	}
 
 	can_enact = {
-		trigger_if = {
-			limit = {
-				game_date > 1736.1.1
-			}
-			is_subject = yes # Subject relationships load after laws' validities are checked
-		}
-		trigger_else = {
-			always = yes
-		}
+		is_subject = yes
 	}
 
 	on_activate = {
@@ -426,6 +419,7 @@ law_laissez_faire = {
 		law_serfdom
 		law_isolationism
 		law_anarchy
+		law_guild_system
 	}
 
 	unlocking_technologies = {
@@ -461,6 +455,7 @@ law_laissez_faire = {
 					has_modifier = shogun_ig_forced_to_open_market
 					has_journal_entry = je_meiji_main
 					has_journal_entry = je_great_reforms_serfdom
+					has_journal_entry = je_hawaii
 				}
 				has_law_or_variant = law_type:law_traditionalism
 			}

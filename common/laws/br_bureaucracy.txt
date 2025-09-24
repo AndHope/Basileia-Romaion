@@ -11,6 +11,21 @@
 		country_aristocrats_pol_str_mult = 0.35
 	}
 
+	is_visible = {
+		NOR = {
+			c:AUS ?= this # For the Austrian Empire and its subjects
+			AND = {
+				exists = c:AUS
+				is_subject_of = c:AUS
+			}
+		}
+	}
+
+	modifier = {
+		state_bureaucracy_population_base_cost_factor_mult = -0.25
+		country_aristocrats_pol_str_mult = 0.25
+	}
+
 	on_enact = {
 		custom_tooltip = urban_aristocrats_int_ig_shift_effect_tt
 		if = {
@@ -99,8 +114,6 @@ law_elected_bureaucrats = {
 	progressiveness = 50
 
 	disallowing_laws = {
-		law_autocracy
-		law_oligarchy
 		law_technocracy
 		law_elder_council
 	}

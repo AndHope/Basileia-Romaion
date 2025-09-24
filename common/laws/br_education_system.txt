@@ -71,7 +71,7 @@ law_religious_schools = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_education_system_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -109,7 +109,7 @@ law_religious_schools = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_religious_schools
+				has_law = law_type:law_religious_schools
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = base_impose_law_weight
@@ -117,7 +117,7 @@ law_religious_schools = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_religious_schools
+				has_law = law_type:law_religious_schools
 				scope:target_country = {
 					has_law_or_variant = law_type:law_no_schools
 				}
@@ -174,7 +174,7 @@ law_private_schools = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_education_system_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -212,7 +212,7 @@ law_private_schools = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_private_schools
+				has_law = law_type:law_private_schools
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = base_impose_law_weight
@@ -220,7 +220,7 @@ law_private_schools = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_private_schools
+				has_law = law_type:law_private_schools
 				scope:target_country = {
 					has_law_or_variant = law_type:law_no_schools
 				}
@@ -270,6 +270,7 @@ law_public_schools = {
 		state_assimilation_mult = 0.125
 		state_education_access_wealth_add = 0.001 # was none
 		state_education_access_add = 0.08
+		country_education_fervor_add = 5
 		country_bureaucrats_pol_str_mult = 0.1 #was none
 		country_academics_pol_str_mult = 0.25 #was none
 		country_bureaucracy_investment_cost_factor_mult = 0.02 #was none
@@ -281,7 +282,7 @@ law_public_schools = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_education_system_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -319,7 +320,7 @@ law_public_schools = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_public_schools
+				has_law = law_type:law_public_schools
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = base_impose_law_weight
@@ -327,7 +328,7 @@ law_public_schools = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_public_schools
+				has_law = law_type:law_public_schools
 				scope:target_country = {
 					has_law_or_variant = law_type:law_no_schools
 				}

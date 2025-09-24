@@ -14,25 +14,13 @@ law_autocracy = {
 		law_parliamentary_republic
 	}
 
+	is_visible = {
+		NOT = { # Replaced by Neo-Absolutism
+			has_law = law_type:law_neo_absolutism
+		}
+	}
+
 	on_activate = {
-		if = {
-			limit = {
-				has_law_or_variant = law_type:law_elected_bureaucrats
-				has_law_or_variant = law_type:law_monarchy
-			}
-			deactivate_law = law_type:law_elected_bureaucrats
-			activate_law = law_type:law_appointed_bureaucrats
-		}
-		else_if = {
-			limit = {
-				has_law_or_variant = law_type:law_elected_bureaucrats
-				NOT = {
-					has_law_or_variant = law_type:law_monarchy
-				}
-			}
-			deactivate_law = law_type:law_elected_bureaucrats
-			activate_law = law_type:law_hereditary_bureaucrats
-		}
 		scripted_effect_parties_disappearence = yes
 		if = {
 			limit = {
@@ -57,6 +45,7 @@ law_autocracy = {
 			limit = {
 				c:BIC ?= ROOT
 				is_subject = yes
+				NOT = { has_law = scope:law }
 			}
 			custom_tooltip = {
 				text = BIC_not_able_to_change_distribution_of_power_tt
@@ -71,7 +60,7 @@ law_autocracy = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_distribution_of_power_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -92,7 +81,7 @@ law_autocracy = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_autocracy
+				has_law = law_type:law_autocracy
 				OR = {
 					AND = {
 						power_bloc ?= { has_identity = identity:identity_ideological_union }
@@ -137,7 +126,7 @@ law_technocracy = {
 	on_activate = {
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_elected_bureaucrats
+				has_law = law_type:law_elected_bureaucrats
 			}
 			deactivate_law = law_type:law_elected_bureaucrats
 			activate_law = law_type:law_appointed_bureaucrats
@@ -149,6 +138,8 @@ law_technocracy = {
 			}
 			remove_modifier = missouri_compromise
 		}
+		add_journal_entry = { type = je_technocracy }
+		clear_geheime_staatskonferenz = yes
 	}
 
 	modifier = {
@@ -159,7 +150,9 @@ law_technocracy = {
 		country_academics_pol_str_mult = 0.33
 		country_engineers_pol_str_mult = 0.33
 		country_officers_pol_str_mult = 0.33
-		country_authority_add = 150
+		country_authority_add = 100
+		country_max_companies_add = 1
+		country_free_charters_add = 1
 	}
 
 	unlocking_technologies = {
@@ -171,6 +164,7 @@ law_technocracy = {
 			limit = {
 				c:BIC ?= ROOT
 				is_subject = yes
+				NOT = { has_law = scope:law }
 			}
 			custom_tooltip = {
 				text = BIC_not_able_to_change_distribution_of_power_tt
@@ -185,7 +179,7 @@ law_technocracy = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_distribution_of_power_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -206,7 +200,7 @@ law_technocracy = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_technocracy
+				has_law = law_type:law_technocracy
 				"ai_ideological_opinion(scope:target_country)" >= 25 # Only want to do this on ideologically similar countries
 				scope:target_country = { # Is their law different enough from what we want to impose?
 					NOT = { has_law_or_variant = law_type:law_single_party_state }
@@ -239,25 +233,14 @@ law_oligarchy = {
 
 	progressiveness = -50
 
+	is_visible = {
+		NAND = {
+			country_has_primary_culture = cu:romanian
+			is_subject = yes
+		}
+	}
+
 	on_activate = {
-		if = {
-			limit = {
-				has_law_or_variant = law_type:law_elected_bureaucrats
-				has_law_or_variant = law_type:law_monarchy
-			}
-			deactivate_law = law_type:law_elected_bureaucrats
-			activate_law = law_type:law_appointed_bureaucrats
-		}
-		else_if = {
-			limit = {
-				has_law_or_variant = law_type:law_elected_bureaucrats
-				NOT = {
-					has_law_or_variant = law_type:law_monarchy
-				}
-			}
-			deactivate_law = law_type:law_elected_bureaucrats
-			activate_law = law_type:law_hereditary_bureaucrats
-		}
 		scripted_effect_parties_disappearence = yes
 		if = {
 			limit = {
@@ -265,6 +248,7 @@ law_oligarchy = {
 			}
 			remove_modifier = missouri_compromise
 		}
+		clear_geheime_staatskonferenz = yes
 	}
 
 	modifier = {
@@ -284,6 +268,7 @@ law_oligarchy = {
 			limit = {
 				c:BIC ?= ROOT
 				is_subject = yes
+				NOT = { has_law = scope:law }
 			}
 			custom_tooltip = {
 				text = BIC_not_able_to_change_distribution_of_power_tt
@@ -300,7 +285,7 @@ law_oligarchy = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_distribution_of_power_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -321,7 +306,7 @@ law_oligarchy = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_oligarchy
+				has_law = law_type:law_oligarchy
 				OR = {
 					AND = {
 						power_bloc ?= { has_identity = identity:identity_ideological_union }
@@ -374,21 +359,21 @@ law_elder_council = {
 	on_activate = {
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_elected_bureaucrats
+				has_law = law_type:law_elected_bureaucrats
 				has_law_or_variant = law_type:law_monarchy
 			}
 			deactivate_law = law_type:law_elected_bureaucrats
-			activate_law = law_type:law_appointed_bureaucrats
+			activate_law = law_type:law_hereditary_bureaucrats
 		}
 		else_if = {
 			limit = {
-				has_law_or_variant = law_type:law_elected_bureaucrats
+				has_law = law_type:law_elected_bureaucrats
 				NOT = {
 					has_law_or_variant = law_type:law_monarchy
 				}
 			}
 			deactivate_law = law_type:law_elected_bureaucrats
-			activate_law = law_type:law_hereditary_bureaucrats
+			activate_law = law_type:law_appointed_bureaucrats
 		}
 		scripted_effect_parties_disappearence = yes
 		if = {
@@ -397,6 +382,7 @@ law_elder_council = {
 			}
 			remove_modifier = missouri_compromise
 		}
+		clear_geheime_staatskonferenz = yes
 	}
 
 	modifier = {
@@ -453,6 +439,7 @@ law_landed_voting = {
 			limit = {
 				c:BIC ?= ROOT
 				is_subject = yes
+				NOT = { has_law = scope:law }
 			}
 			custom_tooltip = {
 				text = BIC_not_able_to_change_distribution_of_power_tt
@@ -463,6 +450,20 @@ law_landed_voting = {
 
 	on_activate = {
 		scripted_effect_parties_emergence = yes
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_monarchy
+				has_variable = king_in_parliament_possible
+				NOT = {
+					has_journal_entry = je_king_in_parliament
+				}
+			}
+			custom_tooltip = {
+				text = king_in_parliament_tt
+				add_journal_entry = { type = je_king_in_parliament }
+			}
+		}
+		clear_geheime_staatskonferenz = yes
 	}
 
 	can_impose = {
@@ -472,7 +473,7 @@ law_landed_voting = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_distribution_of_power_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -493,7 +494,7 @@ law_landed_voting = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_landed_voting
+				has_law = law_type:law_landed_voting
 				OR = {
 					AND = {
 						power_bloc ?= { has_identity = identity:identity_ideological_union }
@@ -559,6 +560,7 @@ law_wealth_voting = {
 			limit = {
 				c:BIC ?= ROOT
 				is_subject = yes
+				NOT = { has_law = scope:law }
 			}
 			custom_tooltip = {
 				text = BIC_not_able_to_change_distribution_of_power_tt
@@ -569,6 +571,20 @@ law_wealth_voting = {
 
 	on_activate = {
 		scripted_effect_parties_emergence = yes
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_monarchy
+				has_variable = king_in_parliament_possible
+				NOT = {
+					has_journal_entry = je_king_in_parliament
+				}
+			}
+			custom_tooltip = {
+				text = king_in_parliament_tt
+				add_journal_entry = { type = je_king_in_parliament }
+			}
+		}
+		clear_geheime_staatskonferenz = yes
 	}
 
 	can_impose = {
@@ -578,7 +594,7 @@ law_wealth_voting = {
 				is_in_same_power_bloc = scope:target_country
 				AND = {
 					modifier:country_can_impose_same_lawgroup_distribution_of_power_in_power_bloc_bool = yes
-					has_law_or_variant = scope:law
+					has_law = scope:law
 				}
 			}
 			can_impose_law_default = yes
@@ -599,7 +615,7 @@ law_wealth_voting = {
 
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_wealth_voting
+				has_law = law_type:law_wealth_voting
 				has_strategy = ai_strategy_progressive_agenda
 				scope:target_country = { # Is their law different enough from what we want to impose?
 					NOR = {
