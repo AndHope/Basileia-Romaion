@@ -15,7 +15,7 @@
 #		this = c:SWE
 #
 #        exists = ig:ig_armed_forces
-#        ig:ig_armed_forces = {
+#        ig:ig_armed_forces ?= {
 #            is_in_government = yes
 #        }
 #	}
@@ -442,5 +442,49 @@ plc_pink = {
 		exists = c:PLC
 		THIS = c:PLC
 		has_variable = greater_commonwealth_var
+	}
+}
+
+venetian_teal = {
+	color = "venice_teal"
+
+	possible = {
+		c:VEN ?= this
+		OR = {
+			has_law_or_variant = law_type:law_parliamentary_republic
+			has_law_or_variant = law_type:law_presidential_republic
+		}
+	}
+}
+
+illyria_colour = {
+	color = "illyria_teal"
+
+	possible = {
+		c:YUG ?= this
+		OR = {
+			country_has_state_religion = rel:catholic
+			was_formed_from = CRO
+			was_formed_from = SLO
+		}
+	}
+}
+
+greater_yugoslavia = {
+	color = "bulgaria_yugoslavia_green"
+
+	possible = {
+		c:YUG ?= this
+		was_formed_from = BUL
+	}
+}
+
+bulgarian_empire = {
+	color = "bulgaria_purple"
+
+	possible = {
+		c:BUL ?= this
+		has_variable = bul_proclaimed_bulgarian_empire
+		has_law_or_variant = law_type:law_monarchy
 	}
 }
