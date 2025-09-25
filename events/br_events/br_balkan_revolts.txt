@@ -22,7 +22,7 @@ br_balkan_revolt.1 = {
 					AND = {
 						NOT = { exists = c:SER }
 						NOT = { exists = c:YUG }
-						any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA }
+						any_scope_state = { state_region = s:STATE_WESTERN_SERBIA }
 					}
 					AND = {
 						NOT = { exists = c:MON }
@@ -79,7 +79,7 @@ br_balkan_revolt.1 = {
 				NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
 				NOT = { any_scope_state = { state_region = s:STATE_ATTICA } }
 				NOT = { any_scope_state = { state_region = s:STATE_BULGARIA } }
-				NOT = { any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_WESTERN_SERBIA } }
 				NOT = { any_scope_state = { state_region = s:STATE_BOSNIA } }	
 				NOT = { any_scope_state = { state_region = s:STATE_CROATIA } }	
 				NOT = { any_scope_state = { state_region = s:STATE_SLAVONIA } }	
@@ -165,7 +165,7 @@ br_balkan_revolt.1 = {
 					AND = {
 						NOT = { exists = c:SER }
 						NOT = { exists = c:YUG }
-						any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA }
+						any_scope_state = { state_region = s:STATE_WESTERN_SERBIA }
 					}
 					AND = {
 						NOT = { exists = c:MON }
@@ -225,7 +225,7 @@ br_balkan_revolt.1 = {
 				NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
 				NOT = { any_scope_state = { state_region = s:STATE_ATTICA } }
 				NOT = { any_scope_state = { state_region = s:STATE_BULGARIA } }
-				NOT = { any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA } }
+				NOT = { any_scope_state = { state_region = s:STATE_WESTERN_SERBIA } }
 				NOT = { any_scope_state = { state_region = s:STATE_BOSNIA } }	
 				NOT = { any_scope_state = { state_region = s:STATE_CROATIA } }	
 				NOT = { any_scope_state = { state_region = s:STATE_SLAVONIA } }	
@@ -469,8 +469,8 @@ br_balkan_revolt.3 = {
 			}
 			change_infamy = -15
 			if = {
-				limit = { any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
-				s:STATE_SOUTHERN_SERBIA = {
+				limit = { any_state = { state_region = s:STATE_EASTERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
+				s:STATE_EASTERN_SERBIA = {
 					set_owner_of_provinces = {
 						country = c:BUL
 						provinces = { x18B761 }
@@ -551,14 +551,14 @@ br_balkan_revolt.4 = {
 		NOT = { has_variable = completed_separatism_palaiologos_reforms_je }
 		NOT = { exists = c:SER }
 		NOT = { exists = c:YUG }
-		any_scope_state = { state_region = s:STATE_NORTHERN_SERBIA }
+		any_scope_state = { state_region = s:STATE_WESTERN_SERBIA }
 		NOT = { has_global_variable = SER_already_revolted }
 	}
 
 	immediate = {
 		set_global_variable = SER_already_revolted
 		random_scope_state = {
-			limit = { state_region = s:STATE_NORTHERN_SERBIA }
+			limit = { state_region = s:STATE_WESTERN_SERBIA }
 			save_scope_as = rebelling_state_scope
 		}
 	}
@@ -594,8 +594,8 @@ br_balkan_revolt.4 = {
 			}
 			change_infamy = -15
 			if = {
-				limit = { any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
-				s:STATE_SOUTHERN_SERBIA = {
+				limit = { any_state = { state_region = s:STATE_EASTERN_SERBIA owner = { OR = { ROOT = THIS is_subject_of = ROOT } } } }
+				s:STATE_EASTERN_SERBIA = {
 					set_owner_of_provinces = {
 						country = c:SER
 						provinces = { 
@@ -1122,7 +1122,7 @@ br_balkan_revolt.10 = {
 					any_scope_state = {
 						OR = {
 							state_region = s:STATE_BULGARIA
-							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_EASTERN_SERBIA
 							state_region = s:STATE_DOBRUDJA
 							state_region = s:STATE_NORTHERN_THRACE
 						}
@@ -1145,8 +1145,8 @@ br_balkan_revolt.10 = {
 				c:BYZ = {
 					any_scope_state = {
 						OR = {
-							state_region = s:STATE_NORTHERN_SERBIA
-							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_WESTERN_SERBIA
+							state_region = s:STATE_EASTERN_SERBIA
 						}
 					}
 				}
@@ -1414,7 +1414,7 @@ br_balkan_revolt.10 = {
 					any_scope_state = {
 						OR = {
 							state_region = s:STATE_BULGARIA
-							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_EASTERN_SERBIA
 							state_region = s:STATE_DOBRUDJA
 							state_region = s:STATE_NORTHERN_THRACE
 						}
@@ -1422,8 +1422,8 @@ br_balkan_revolt.10 = {
 				}
 			}
 			if = {
-				limit = { any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } }
-				s:STATE_SOUTHERN_SERBIA = {
+				limit = { any_state = { state_region = s:STATE_EASTERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } }
+				s:STATE_EASTERN_SERBIA = {
 					set_owner_of_provinces = {
 						country = c:BUL
 						provinces = { x18B761 }
@@ -1477,7 +1477,7 @@ br_balkan_revolt.10 = {
 					limit = {
 						OR = {
 							state_region = s:STATE_BULGARIA
-							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_EASTERN_SERBIA
 							state_region = s:STATE_DOBRUDJA
 							state_region = s:STATE_NORTHERN_THRACE
 						}
@@ -1509,8 +1509,8 @@ br_balkan_revolt.10 = {
 				c:BYZ = {
 					any_scope_state = {
 						OR = {
-							state_region = s:STATE_NORTHERN_SERBIA
-							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_WESTERN_SERBIA
+							state_region = s:STATE_EASTERN_SERBIA
 						}
 					}
 				}
@@ -1518,7 +1518,7 @@ br_balkan_revolt.10 = {
 			c:BYZ = {
 				every_scope_state = {
 					limit = {
-						OR = { state_region = s:STATE_NORTHERN_SERBIA }
+						OR = { state_region = s:STATE_WESTERN_SERBIA }
 					}
 					set_state_owner = ROOT
 				}
@@ -1527,9 +1527,9 @@ br_balkan_revolt.10 = {
 				limit = { 
 					exists = c:SER
 					c:SER = ROOT
-					any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+					any_state = { state_region = s:STATE_EASTERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
 				}
-				s:STATE_SOUTHERN_SERBIA = {
+				s:STATE_EASTERN_SERBIA = {
 					set_owner_of_provinces = {
 						country = c:SER
 						provinces = { 
@@ -1547,9 +1547,9 @@ br_balkan_revolt.10 = {
 					NOT = { exists = c:SER }
 					exists = c:YUG
 					c:YUG = ROOT
-					any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+					any_state = { state_region = s:STATE_EASTERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
 				}
-				s:STATE_SOUTHERN_SERBIA = {
+				s:STATE_EASTERN_SERBIA = {
 					set_owner_of_provinces = {
 						country = c:YUG
 						provinces = { 
@@ -1566,8 +1566,8 @@ br_balkan_revolt.10 = {
 				every_scope_state = {
 					limit = {
 						OR = {
-							state_region = s:STATE_NORTHERN_SERBIA
-							state_region = s:STATE_SOUTHERN_SERBIA
+							state_region = s:STATE_WESTERN_SERBIA
+							state_region = s:STATE_EASTERN_SERBIA
 						}
 					}
 					add_radicals_in_state = {
@@ -1608,7 +1608,7 @@ br_balkan_revolt.10 = {
 				limit = { 
 					any_state = { state_region = s:STATE_EASTERN_THRACE owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
 					OR = {
-						any_state = { state_region = s:STATE_SOUTHERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
+						any_state = { state_region = s:STATE_EASTERN_SERBIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } } 
 						any_state = { state_region = s:STATE_ALBANIA owner = { OR = { c:BYZ = THIS is_subject_of = c:BYZ } } }
 					}
 				}
