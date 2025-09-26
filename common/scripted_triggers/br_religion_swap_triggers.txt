@@ -207,47 +207,36 @@ br_country_can_convert_to_baltic = {
 }
 
 br_country_can_convert_to_slavic = {
-	OR = {
-		any_primary_culture = { 
-			has_discrimination_trait = jugoslav
-		}
-		any_primary_culture = { 
-			has_discrimination_trait = west_slavic
-		}
-		any_primary_culture = { 
-			has_discrimination_trait = east_slavic
+	any_primary_culture = {
+		or = {
+			has_discrimination_trait = heritage_east_slavic
+			has_discrimination_trait = heritage_south_slavic
+			has_discrimination_trait = heritage_west_slavic
 		}
 	}
 	NOT = { country_has_state_religion = rel:br_religion_slavic }
 }
 
 br_country_can_convert_to_tengri = {
-	OR = {
-		any_primary_culture = { 
-			has_discrimination_trait = north_asian_heritage
-		}
-		any_primary_culture = { 
-			has_discrimination_trait = turkic
+	any_primary_culture = {
+		or = {
+			has_discrimination_trait_group = heritage_group_north_asian
+			has_discrimination_trait = heritage_turkmen
 		}
 	}
 	NOT = { country_has_state_religion = rel:br_religion_tengri }
 }
 
 br_country_can_convert_to_celtic = {
-	OR = {
-		any_primary_culture = { 
-			has_discrimination_trait = european_heritage
-			has_discrimination_trait = celtic_people
-		}
+	any_primary_culture = {
+		has_discrimination_trait_group = language_group_celtic
 	}
 	NOT = { country_has_state_religion = rel:br_religion_celtic }
 }
 
 br_country_can_convert_to_finno_ugric = {
-	OR = {
-		any_primary_culture = { 
-			has_discrimination_trait = finnic
-		}
+	any_primary_culture = { 
+		has_discrimination_trait_group = language_group_uralic
 	}
 	NOT = { country_has_state_religion = rel:br_religion_finno_ugric }
 }
@@ -266,7 +255,7 @@ br_country_can_convert_to_akom = {
 br_country_can_convert_to_fetishist = {
 	OR = {
 		any_primary_culture = {
-			has_discrimination_trait = african_heritage
+			has_discrimination_trait_group = heritage_group_african
 		}
 	}
 	NOT = { country_has_state_religion = rel:br_religion_fetishist }
