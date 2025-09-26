@@ -21,7 +21,7 @@ GLOBAL = {
 		set_variable = king_in_parliament_possible
 	}
 
-	### Debt
+	### Debt and Gold Reserves ###
 
 	c:MUG ?= {
 		every_subject_or_below = {
@@ -48,6 +48,80 @@ GLOBAL = {
 			multiply = -0.6
 		}
 	}
+
+	every_country = {
+		limit = {
+			OR = {
+				c:EOC ?= this
+				c:DEI ?= this
+				c:br_romaioi_india_company ?= this
+				c:TUS ?= this
+				c:LOM ?= this
+				c:br_taurica ?= this
+				c:br_blacksea_colonies ?= this
+				c:br_dutch_west_indies ?= this
+				c:MAL ?= this
+				c:OMA ?= this
+			}
+		}
+		add_treasury = {
+			value = gold_reserves_limit
+			multiply = 2.5
+		}
+	}
+	every_country = {
+		limit = {
+			OR = {
+				c:FLA ?= this
+				c:SAR ?= this
+				c:VEN ?= this
+				c:NET ?= this
+				c:br_genoa ?= this
+				c:BOH ?= this
+				c:SYR ?= this
+			}
+		}
+		add_treasury = {
+			value = gold_reserves_limit
+			multiply = 1.5
+		}
+	}
+	
+	every_country = {
+		limit = {
+			OR = {
+				c:HUN ?= this
+				c:BYZ ?= this
+				c:PER ?= this
+				c:CHI ?= this
+			}
+		}
+		add_treasury = {
+			value = gold_reserves_limit
+			multiply = -0.75
+		}
+	}
+	every_country = {
+		limit = {
+			OR = {
+				c:ANL ?= this
+				c:JAP ?= this
+				c:DEN ?= this
+				c:PLC ?= this
+			}
+		}
+		add_treasury = {
+			value = gold_reserves_limit
+			multiply = -1.5
+		}
+	}
+	c:HRE ?= {
+		add_treasury = {
+			value = gold_reserves_limit
+			multiply = -2.5
+		}
+	}
+
 ###ACHIEVEMENT VARIABLES###
 
 	#Serf's Up
