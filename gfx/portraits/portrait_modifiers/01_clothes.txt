@@ -138,7 +138,7 @@
                         exists = scope:character
                         scope:character = {
                             OR = {
-                                culture = cu:elyrics
+                                culture = cu:elyrics #intentional change
                                 culture = cu:skraeling
                                 culture = cu:nahua
                                 culture = cu:quechua
@@ -4708,7 +4708,7 @@
                     european_clothes_trigger = yes
                     scope:character ?= {
                         OR = {
-                            culture = cu:elyrics
+                            culture = cu:elyrics #intentional change
                             culture = cu:skraeling
                             culture = cu:nahua
                             culture = cu:quechua
@@ -4891,7 +4891,7 @@
                             exists = scope:character
                             scope:character = {
                                 OR = {
-                                    culture = cu:elyrics
+                                    culture = cu:elyrics #intentional change
                                     culture = cu:skraeling
                                     culture = cu:nahua
                                     culture = cu:quechua
@@ -5019,7 +5019,7 @@
                         exists = scope:character
                         scope:character = {
                             OR = {
-                                culture = cu:elyrics
+                                culture = cu:elyrics #intentional change
                                 culture = cu:skraeling
                                 culture = cu:nahua
                                 culture = cu:quechua
@@ -5093,7 +5093,7 @@
                         exists = scope:character
                         scope:character = {
                             OR = {
-                                culture = cu:elyrics
+                                culture = cu:elyrics #intentional change
                                 culture = cu:skraeling
                                 culture = cu:nahua
                                 culture = cu:quechua
@@ -5152,7 +5152,7 @@
                     european_clothes_trigger = yes
                     scope:character ?= {
                         OR = {
-                            culture = cu:elyrics
+                            culture = cu:elyrics #intentional change
                             culture = cu:skraeling
                             culture = cu:nahua
                             culture = cu:quechua
@@ -6423,11 +6423,11 @@
                     age >= define:NCharacters|ADULT_AGE
                     culture = {
                         OR = {
-                            has_discrimination_trait = caucasus_group
-                            has_discrimination_trait = east_slavic
+                            has_discrimination_trait = heritage_caucasian
+                            has_discrimination_trait = heritage_north_caucasian
                         }
                     }
-                    NOR = { 
+                    NOR = { #intentional change
                         culture = cu:armenian 
                         #culture = cu:georgian - Chokha is traditional georgian costume, how come to block it for Georgians?
                     }
@@ -6454,11 +6454,11 @@
                         AND = {
                             culture = {
                                 OR = {
-                                    has_discrimination_trait = caucasus_group
-                                    has_discrimination_trait = east_slavic
+                                    has_discrimination_trait = heritage_caucasian
+                                    has_discrimination_trait = heritage_north_caucasian
                                 } 
                             }
-                            NOR = { 
+                            NOR = { #intentional change
                                 culture = cu:armenian 
                                 #culture = cu:georgian - chokha is traditional georgian costume, how come to block it for georgians?
                             }
@@ -6470,7 +6470,7 @@
                         }
                         AND = {
                             culture = {
-                                has_discrimination_trait = turkic
+                                has_discrimination_trait = heritage_east_slavic
                             }
                             state = {
                                 OR = {
@@ -6498,10 +6498,10 @@
                 scope:character ?= {
                     age >= define:NCharacters|ADULT_AGE
                     culture = {
-                        has_discrimination_trait = turkic
+                        has_discrimination_trait = heritage_turkmen #intentional change
                     }
                     owner ?= {
-                        c:br_tartaria ?= this
+                        c:br_tartaria ?= this #intentional change
                     }
                     is_ruler = no
                     is_heir = no
@@ -10800,7 +10800,7 @@
                             exists = scope:character
                             scope:character = {
                                 OR = {
-                                    culture = cu:elyrics
+                                    culture = cu:elyrics #intentional change
                                     culture = cu:skraeling
                                     culture = cu:nahua
                                     culture = cu:quechua
@@ -10877,7 +10877,7 @@
                             exists = scope:character
                             scope:character = {
                                 OR = {
-                                    culture = cu:elyrics
+                                    culture = cu:elyrics #intentional change
                                     culture = cu:skraeling
                                     culture = cu:nahua
                                     culture = cu:quechua
@@ -10986,10 +10986,10 @@
                     scope:pop ?= {
                         is_pop_type = aristocrats
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
+                            has_discrimination_trait_group = language_group_iranic
                         }
                         OR = {
-                            culture = cu:aegyptian 
+                            culture = cu:aegyptian #intentional change
                             culture = cu:syriac
                             culture = cu:assyrian
                             culture = cu:armenian
@@ -11017,16 +11017,16 @@
                             }
                         }
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = middle_eastern_heritage
+                            has_discrimination_trait_group = language_group_iranic
+                            has_discrimination_trait_group = heritage_group_middle_eastern
                         }
                     }
                     scope:character ?= {
                         is_ruler = yes
                         age >= define:NCharacters|ADULT_AGE
                         culture = {
-                            has_discrimination_trait = iranian_turanian_culture_group
-                            has_discrimination_trait = central_asian_heritage
+                            has_discrimination_trait_group = language_group_iranic
+                            has_discrimination_trait_group = heritage_group_central_asian
                         }
                     }
                 }
@@ -11035,7 +11035,7 @@
                 add = 90000
                 scope:character ?= {
                     OR = {
-                        culture = cu:aegyptian 
+                        culture = cu:aegyptian #intentional change
                         culture = cu:syriac
                         culture = cu:assyrian
                         culture = cu:armenian
@@ -11088,8 +11088,8 @@
                         has_law_or_variant = law_type:law_monarchy
                     }
                     culture = {
-                        has_discrimination_trait = iranian_turanian_culture_group
-                        has_discrimination_trait = middle_eastern_heritage
+                        has_discrimination_trait_group = language_group_iranic
+                        has_discrimination_trait_group = heritage_group_middle_eastern
                     }
                 }
             }
@@ -11097,7 +11097,7 @@
                 add = 15000
                 scope:character ?= {
                     OR = {
-                        culture = cu:aegyptian 
+                        culture = cu:aegyptian #intentional change
                         culture = cu:syriac
                         culture = cu:assyrian
                         culture = cu:armenian
@@ -13838,7 +13838,7 @@ indigenous_oceanic_pop_clothes = {
                     is_ruler = no
                     NOT = {
                         OR = {
-                            culture = cu:elyrics
+                            culture = cu:elyrics #intentional change
                             culture = cu:skraeling
                             culture = cu:nahua
                             culture = cu:quechua
