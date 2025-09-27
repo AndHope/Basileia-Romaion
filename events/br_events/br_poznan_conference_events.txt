@@ -479,6 +479,12 @@ br_poznan_conference_event.8 = {
 	option = {
 		name = br_poznan_conference_event.8.h
 		default_option = yes
+		#Check if the plc owns memel
+		trigger = {
+			scope:br_commonwealth_scope ?= {
+				has_state_in_state_region = STATE_EAST_PRUSSIA
+			}
+		}
 		if = {
 			limit = { 
 				not = { br_poznan_conference_is_demanding_prussian_annexation_of_memel_trigger = yes }
