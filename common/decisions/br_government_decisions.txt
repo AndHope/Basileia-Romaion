@@ -58,7 +58,23 @@ abolish_feudalism_decision = {
 		value = 1
 		if = {
 			limit = {
-				game_date > 1800.1.1
+				game_date > 1789.1.1
+			}
+			add = 10
+		}
+		if = {
+			limit = { produced_bureaucracy > 5000 }
+			add = 10
+		}
+		if = {
+			limit = {
+				has_strategy = ai_strategy_progressive_agenda
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				has_technology_researched = nationalism
 			}
 			add = 10
 		}
