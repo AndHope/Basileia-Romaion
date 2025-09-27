@@ -2271,27 +2271,27 @@ on_character_death = {
 			remove_global_variable = garibaldi_is_alive_global_var
 		}
 		### Caudillo Kingmaker
-		if = {
-			limit = {
-				NOT = { has_variable = caudillo_kingmaker }
-				has_role = politician
-				interest_group = {
-					is_interest_group_type = ig_armed_forces
-					is_marginal = no
-				}
-				owner = {
-					in_election_campaign = no
-					country_has_voting_franchise = yes
-					OR = {
-						has_journal_entry = je_caudillo
-						has_modifier = age_of_caudillos_modifier
-					}
-				}
-			}
-			owner = {
-				trigger_event = { id = caudillo.5 days = 1 }
-			}
-		}
+		# if = { #BR EDIT
+		# 	limit = {
+		# 		NOT = { has_variable = caudillo_kingmaker }
+		# 		has_role = politician
+		# 		interest_group = {
+		# 			is_interest_group_type = ig_armed_forces
+		# 			is_marginal = no
+		# 		}
+		# 		owner = {
+		# 			in_election_campaign = no
+		# 			country_has_voting_franchise = yes
+		# 			OR = {
+		# 				has_journal_entry = je_caudillo
+		# 				has_modifier = age_of_caudillos_modifier
+		# 			}
+		# 		}
+		# 	}
+		# 	owner = {
+		# 		trigger_event = { id = caudillo.5 days = 1 }
+		# 	}
+		# }
 
 		if = { # Override to make the ruler of British India always an Industrialist
 			limit = {
@@ -2528,71 +2528,71 @@ on_new_ruler = {
 			}
 			change_character_religion = owner.religion
 		}
-		if = {
-			limit = {
-				owner = {
-					c:RUS ?= this
-					has_law_or_variant = law_type:law_monarchy
-				}
-				is_ruler = yes
-			}
-			if = {
-				limit = {
-					has_template = RUS_alexander_ii
-				}
-				owner = {
-					trigger_event = { id = russia_monarchy.1 popup = yes }
-				}
-			}
-			else_if = {
-				limit = {
-					has_template = RUS_tsarevich_nicholas_alexandrovich
-				}
-				owner = {
-					trigger_event = { id = russia_monarchy.3 popup = yes }
-				}
-			}
-			else_if = {
-				limit = {
-					has_template = RUS_alexander_iii
-				}
-				owner = {
-					trigger_event = { id = russia_monarchy.4 popup = yes }
-				}
-			}
-			else_if = {
-				limit = {
-					has_template = RUS_nicholas_ii
-				}
-				owner = {
-					trigger_event = { id = russia_monarchy.5 popup = yes }
-				}
-			}
-			else_if = {
-				limit = {
-					has_template = RUS_alexei_ii
-				}
-				owner = {
-					trigger_event = { id = russia_monarchy.9 popup = yes }
-				}
-			}
-			else_if = {
-				limit = {
-					has_template = RUS_michael_ii
-				}
-				owner = {
-					trigger_event = { id = russia_monarchy.10 popup = yes }
-				}
-			}
-			else_if = {
-				limit = {
-					has_template = RUS_george_i
-				}
-				owner = {
-					trigger_event = { id = russia_monarchy.11 popup = yes }
-				}
-			}
-		}
+		# if = { #BR EDIT
+		# 	limit = {
+		# 		owner = {
+		# 			c:RUS ?= this
+		# 			has_law_or_variant = law_type:law_monarchy
+		# 		}
+		# 		is_ruler = yes
+		# 	}
+		# 	if = {
+		# 		limit = {
+		# 			has_template = RUS_alexander_ii
+		# 		}
+		# 		owner = {
+		# 			trigger_event = { id = russia_monarchy.1 popup = yes }
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_template = RUS_tsarevich_nicholas_alexandrovich
+		# 		}
+		# 		owner = {
+		# 			trigger_event = { id = russia_monarchy.3 popup = yes }
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_template = RUS_alexander_iii
+		# 		}
+		# 		owner = {
+		# 			trigger_event = { id = russia_monarchy.4 popup = yes }
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_template = RUS_nicholas_ii
+		# 		}
+		# 		owner = {
+		# 			trigger_event = { id = russia_monarchy.5 popup = yes }
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_template = RUS_alexei_ii
+		# 		}
+		# 		owner = {
+		# 			trigger_event = { id = russia_monarchy.9 popup = yes }
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_template = RUS_michael_ii
+		# 		}
+		# 		owner = {
+		# 			trigger_event = { id = russia_monarchy.10 popup = yes }
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_template = RUS_george_i
+		# 		}
+		# 		owner = {
+		# 			trigger_event = { id = russia_monarchy.11 popup = yes }
+		# 		}
+		# 	}
+		# }
 		if = {
 			limit = {
 				owner = {
@@ -5117,31 +5117,31 @@ on_secession_start = {
 			chi_remove_1_fragile_unity = yes
 			set_variable = china_warlord_explosion_revolution
 		}
-		if = {
-			limit = {
-				NOT = {
-					exists = c:RSM
-				}
-				scope:target ?= {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-				}
-				ROOT = {
-					NOR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-				}
-				any_country = {
-					has_journal_entry = je_risorgimento
-				}
-			}
-			root = {
-				trigger_event = { id = italian_unification.7 days = 3 }
-			}
-		}
+		# if = { #BR EDIT
+		# 	limit = {
+		# 		NOT = {
+		# 			exists = c:RSM
+		# 		}
+		# 		scope:target ?= {
+		# 			OR = {
+		# 				country_has_primary_culture = cu:north_italian
+		# 				country_has_primary_culture = cu:south_italian
+		# 			}
+		# 		}
+		# 		ROOT = {
+		# 			NOR = {
+		# 				country_has_primary_culture = cu:north_italian
+		# 				country_has_primary_culture = cu:south_italian
+		# 			}
+		# 		}
+		# 		any_country = {
+		# 			has_journal_entry = je_risorgimento
+		# 		}
+		# 	}
+		# 	root = {
+		# 		trigger_event = { id = italian_unification.7 days = 3 }
+		# 	}
+		# }
 		if = {
 			limit = {
 				NOR = {
