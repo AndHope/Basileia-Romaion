@@ -37,6 +37,32 @@ br_convert_immigrants_to_settler_cultures_effect = {
 			}
 		}
 	#French Colonies 
+		else_if = { #  european -> cajun
+			limit = {
+				country_has_primary_culture = cu:cajun
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_americas = yes
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait_group = heritage_group_european
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:cajun
+					value = 1 
+				}
+			}
+		}
 		else_if = { #  european -> colonial-french
 			limit = {
 				country_has_primary_culture = cu:colonial_french
