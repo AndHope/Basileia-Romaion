@@ -49,6 +49,7 @@ GLOBAL = {
 		}
 	}
 
+	#smaller rich countries 
 	every_country = {
 		limit = {
 			OR = {
@@ -62,22 +63,34 @@ GLOBAL = {
 				c:br_dutch_west_indies ?= this
 				c:MAL ?= this
 				c:OMA ?= this
+				c:BOH ?= this
 			}
 		}
 		add_treasury = {
 			value = gold_reserves_limit
-			multiply = 2.5
+			multiply = 3.5
 		}
 	}
+	#Medium rich countries
 	every_country = {
 		limit = {
 			OR = {
 				c:FLA ?= this
-				c:SAR ?= this
 				c:VEN ?= this
 				c:NET ?= this
 				c:br_genoa ?= this
-				c:BOH ?= this
+			}
+		}
+		add_treasury = {
+			value = gold_reserves_limit
+			multiply = 2.0
+		}
+	}
+	#Well Off
+	every_country = {
+		limit = {
+			OR = {
+				c:SAR ?= this
 				c:SYR ?= this
 			}
 		}
@@ -86,7 +99,7 @@ GLOBAL = {
 			multiply = 1.5
 		}
 	}
-	
+	#Small starting debt
 	every_country = {
 		limit = {
 			OR = {
@@ -94,6 +107,7 @@ GLOBAL = {
 				c:BYZ ?= this
 				c:PER ?= this
 				c:CHI ?= this
+				c:JAP ?= this
 			}
 		}
 		add_treasury = {
@@ -101,24 +115,25 @@ GLOBAL = {
 			multiply = -0.75
 		}
 	}
+	#Medium starting debt
 	every_country = {
 		limit = {
 			OR = {
 				c:ANL ?= this
-				c:JAP ?= this
 				c:DEN ?= this
 				c:PLC ?= this
 			}
 		}
 		add_treasury = {
 			value = gold_reserves_limit
-			multiply = -1.5
+			multiply = -1.8
 		}
 	}
+	#High debt
 	c:HRE ?= {
 		add_treasury = {
 			value = gold_reserves_limit
-			multiply = -2.5
+			multiply = -3.5
 		}
 	}
 
