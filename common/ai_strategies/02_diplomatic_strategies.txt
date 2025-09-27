@@ -1062,54 +1062,56 @@ ai_strategy_economic_imperialism = {
 
 	secret_goal_scores = {
 		dominate = {
-			if = {
-				limit = {
-					NOT = { scope:target_country = { is_subject_of = root } }
-					has_technology_researched = nationalism  # Just to make sure it doesn't happen immediately in 1836
-					country_rank = rank_value:great_power
-					navy_size >= 25
-					scope:target_country = {
-						has_law_or_variant = law_type:law_isolationism
-						gdp >= 2000000
-						capital.region = sr:region_japan
-					}
-				}
-				add = 500
-			}
-			else_if = {
-				limit = {
-					NOT = { scope:target_country = { is_subject_of = root } }
-					has_strategic_adjacency = scope:target_country
-					scope:target_country = {
-						has_law_or_variant = law_type:law_isolationism
-						gdp >= 2000000
-						NOT = { capital.region = sr:region_japan }
-					}
-				}
-				add = 100
-			}
-
-			if = {
-				limit = {
-					NOT = { scope:target_country = { is_subject_of = root } }
-					has_strategic_adjacency = scope:target_country
-					root.country_rank > scope:target_country.country_rank
-					scope:target_country.country_rank < rank_value:major_power
-					scope:target_country = {
-						NOR = {
-							has_law_or_variant = law_type:law_free_trade
+			score = {
+				if = {
+					limit = {
+						NOT = { scope:target_country = { is_subject_of = root } }
+						has_technology_researched = nationalism  # Just to make sure it doesn't happen immediately in 1836
+						country_rank = rank_value:great_power
+						navy_size >= 25
+						scope:target_country = {
 							has_law_or_variant = law_type:law_isolationism
+							gdp >= 2000000
+							capital.region = sr:region_japan
 						}
 					}
+					add = 500
 				}
-				add = 50
+				else_if = {
+					limit = {
+						NOT = { scope:target_country = { is_subject_of = root } }
+						has_strategic_adjacency = scope:target_country
+						scope:target_country = {
+							has_law_or_variant = law_type:law_isolationism
+							gdp >= 2000000
+							NOT = { capital.region = sr:region_japan }
+						}
+					}
+					add = 100
+				}
 
 				if = {
 					limit = {
 						NOT = { scope:target_country = { is_subject_of = root } }
-						scope:target_country = { is_country_type = unrecognized }
+						has_strategic_adjacency = scope:target_country
+						root.country_rank > scope:target_country.country_rank
+						scope:target_country.country_rank < rank_value:major_power
+						scope:target_country = {
+							NOR = {
+								has_law_or_variant = law_type:law_free_trade
+								has_law_or_variant = law_type:law_isolationism
+							}
+						}
 					}
 					add = 50
+
+					if = {
+						limit = {
+							NOT = { scope:target_country = { is_subject_of = root } }
+							scope:target_country = { is_country_type = unrecognized }
+						}
+						add = 50
+					}
 				}
 			}
 		}
