@@ -1032,10 +1032,22 @@ je_palaiologos_reforms_egypt = {
 				#country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
 			}
 			AND = {
-				owns_entire_state_region = STATE_SINAI
-				owns_entire_state_region = STATE_UPPER_EGYPT
-				owns_entire_state_region = STATE_MIDDLE_EGYPT
-				owns_entire_state_region = STATE_LOWER_EGYPT
+				any_scope_state = {
+					state_region = s:STATE_UPPER_EGYPT
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_MIDDLE_EGYPT
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_LOWER_EGYPT
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_SINAI
+					is_largest_state_in_region = yes
+				}
 			}
 		}
 	}
@@ -1117,10 +1129,22 @@ je_palaiologos_reforms_italy = {
 				country_or_subject_owns_entire_state_region = STATE_APULIA
 			}
 			AND = {
-				owns_entire_state_region = STATE_SICILY
-				owns_entire_state_region = STATE_CAMPANIA
-				owns_entire_state_region = STATE_CALABRIA
-				owns_entire_state_region = STATE_APULIA
+				any_scope_state = {
+					state_region = s:STATE_SICILY
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_CAMPANIA
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_CALABRIA
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_APULIA
+					is_largest_state_in_region = yes
+				}
 			}
 		}
 	}
@@ -1181,9 +1205,18 @@ je_palaiologos_reforms_africa = {
 				country_or_subject_owns_entire_state_region = STATE_LIBYA
 			}
 			AND = {
-				owns_entire_state_region = STATE_TUNISIA
-				owns_entire_state_region = STATE_TRIPOLI
-				owns_entire_state_region = STATE_LIBYA
+				any_scope_state = {
+					state_region = s:STATE_TUNISIA
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_TRIPOLI
+					is_largest_state_in_region = yes
+				}
+				any_scope_state = {
+					state_region = s:STATE_LIBYA
+					is_largest_state_in_region = yes
+				}
 			}
 		}
 	}
@@ -1444,6 +1477,7 @@ je_palaiologos_reforms_centralization_east= {
 		# TODO add state modifer that needs to be removed to procede
 		country_or_subject_owns_entire_state_region = STATE_GREATER_CAUCASUS
 		country_or_subject_owns_entire_state_region = STATE_KARS
+		country_or_subject_owns_entire_state_region = STATE_ERZURUM
 		any_scope_state = {
 			state_region = s:STATE_ANKARA
 			is_largest_state_in_region = yes
@@ -1454,10 +1488,6 @@ je_palaiologos_reforms_centralization_east= {
 		}
 		any_scope_state = {
 			state_region = s:STATE_DIYARBAKIR
-			is_largest_state_in_region = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_ERZURUM
 			is_largest_state_in_region = yes
 		}
 	}
