@@ -86,6 +86,10 @@ je_invite_members_to_league_button = {
 
 	visible = { always = yes }
 
+	cooldown = {
+		days = 1
+	}
+
 	#Country scope
 	ai_chance = {
 		value = 0
@@ -132,7 +136,7 @@ je_invite_members_to_league_button = {
 				NOT = {
 					br_is_county_supporting_independence_scripted_trigger = {
 						INITIATOR_COUNTRY = scope:league_leader
-						TARGET_COUNTRY = this
+						TARGET_COUNTRY = prev
 					}
 				}
 			}
