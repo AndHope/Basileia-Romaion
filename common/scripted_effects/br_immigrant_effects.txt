@@ -170,6 +170,32 @@ br_convert_immigrants_to_settler_cultures_effect = {
 				}
 			}
 		}
+		else_if = { #  european -> amerigan
+			limit = {
+				country_has_primary_culture = cu:amerigan
+				any_scope_state = {
+					is_incorporated = yes
+					state_is_in_europe = no
+				}
+			}
+			every_scope_pop = {
+				limit = {
+					is_pop_type = peasants
+					culture = {
+						has_discrimination_trait_group = heritage_group_european
+					}
+					NOT = {
+						culture = {
+							has_discrimination_trait = colonial_heritage
+						}
+					}
+				}
+				change_pop_culture = {
+					target = cu:amerigan
+					value = 1 
+				}
+			}
+		}
 	#Colonial andalusian
 		else_if = { #  european -> colonial_andalusian
 			limit = {
