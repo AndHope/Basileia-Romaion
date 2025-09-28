@@ -2363,11 +2363,11 @@ br_balkan_revolt.13 = {
 				exists = c:br_bulgaria
 				exists = s:STATE_BULGARIA.region_state:BYZ
 			}
-			s:STATE_BULGARIA.region_state:BYZ = { set_state_owner = c:br_bulgaria }
+			s:STATE_BULGARIA.region_state:BYZ ?= { set_state_owner = c:br_bulgaria }
 		}
 		if = {
 			limit = { exists = s:STATE_DOBRUDJA.region_state:BYZ }
-			s:STATE_DOBRUDJA.region_state:BYZ = { set_state_owner = c:br_bulgaria }
+			s:STATE_DOBRUDJA.region_state:BYZ ?= { set_state_owner = c:br_bulgaria }
 		}
 		if = {
 			limit = {

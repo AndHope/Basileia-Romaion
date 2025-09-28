@@ -468,8 +468,8 @@ romaioi_eastarm_decision = {
 				value = 50
 			}
 		}
-		s:STATE_ANKARA.region_state:ARM = { set_state_owner = c:BYZ }
-		s:STATE_DIYARBAKIR.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_ANKARA.region_state:ARM ?= { set_state_owner = c:BYZ }
+		s:STATE_DIYARBAKIR.region_state:ARM ?= { set_state_owner = c:BYZ }
 		s:STATE_ERZURUM = {
 			set_owner_of_provinces = {
 				country = c:BYZ
@@ -503,8 +503,8 @@ romaioi_move_armenia_east_decision_02 = {
 		}
 	}
 	when_taken = {
-		s:STATE_ANKARA.region_state:ARM = { set_state_owner = c:BYZ }
-		s:STATE_DIYARBAKIR.region_state:ARM = { set_state_owner = c:BYZ }
+		s:STATE_ANKARA.region_state:ARM ?= { set_state_owner = c:BYZ }
+		s:STATE_DIYARBAKIR.region_state:ARM ?= { set_state_owner = c:BYZ }
 		s:STATE_ERZURUM = {
 			set_owner_of_provinces = {
 				country = c:BYZ
