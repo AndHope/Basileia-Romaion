@@ -230,21 +230,51 @@ GLOBAL = {
             has_game_rule = bulgaria_game_rule_large
         }
 		c:BYZ ?= {
-			remove_diplomatic_pact = {
+			br_remove_diplomatic_pact_subject = {
 				country = c:br_bulgaria
-				type = dominion
 			}
         }
         c:br_bulgaria ?= {
 			set_country_type = recognized
-			change_tag = BUL
-			annex = c:br_vidin
-			annex = c:WAL
-			annex = c:MOL
-			annex = c:SER2
-			s:STATE_SKOPIA.region_state:BYZ = { set_state_owner = c:br_bulgaria }
-			s:STATE_NORTHERN_THRACE.region_state:BYZ = { set_state_owner = c:br_bulgaria }
-
+			change_tag = BUL	#because br_bulgaria doesn't have bulgarian as a primary culture
+			# annex = c:br_vidin
+			# annex = c:WAL
+			# annex = c:MOL
+			# annex = c:SER2
+			s:STATE_BULGARIA = {
+				every_scope_state = {
+					limit = {
+						not = { c:BUL ?= owner }
+					}
+					set_state_owner = c:BUL
+				}
+			}
+			s:STATE_KOSOVO = {
+				every_scope_state = {
+					limit = {
+						not = { c:BUL ?= owner }
+					}
+					set_state_owner = c:BUL
+				}
+			}
+			s:STATE_WALLACHIA = {
+				every_scope_state = {
+					limit = {
+						not = { c:BUL ?= owner }
+					}
+					set_state_owner = c:BUL
+				}
+			}
+			s:STATE_MOLDAVIA = {
+				every_scope_state = {
+					limit = {
+						not = { c:BUL ?= owner }
+					}
+					set_state_owner = c:BUL
+				}
+			}
+			s:STATE_SKOPIA.region_state:BYZ = { set_state_owner = c:BUL }
+			s:STATE_NORTHERN_THRACE.region_state:BYZ = { set_state_owner = c:BUL }
         }
     }
 
