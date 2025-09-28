@@ -2,6 +2,17 @@
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds" #change later
 	
 	group = je_group_foreign_affairs
+
+	is_shown_in_lobby = {
+		country_is_in_europe = yes
+		and = {
+			exists = c:HRE #to prevent errors if the HRE does not exist
+			is_subject_of = c:HRE
+		}
+		NOT = {
+			has_global_variable = princely_league_complete
+		}
+	}
 	
 	is_shown_when_inactive = {
 		country_is_in_europe = yes

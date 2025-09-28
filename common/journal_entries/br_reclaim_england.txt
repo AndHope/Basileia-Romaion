@@ -3,6 +3,13 @@
 
 	group = je_group_foreign_affairs
 
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:british
+		any_neighbouring_state = {
+			is_homeland_of_country_cultures = ROOT
+		}
+	}
+
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:british
 		any_neighbouring_state = {
@@ -66,6 +73,11 @@ je_conquer_wales = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_foreign_affairs
+
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:british
+		NOT = { owns_entire_state_region = STATE_WALES }
+	}
 
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:british

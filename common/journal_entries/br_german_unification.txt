@@ -3,6 +3,14 @@
 	
 	group = je_group_historical_content
 
+	is_shown_in_lobby = {
+		hidden_trigger = { NOT = { has_global_variable = schleswig_holstein_question_solved } }		
+		OR = {
+			country_has_primary_culture = cu:saxon
+			country_has_primary_culture = cu:baltic_german
+		}
+	}
+
 	is_shown_when_inactive = {
 		hidden_trigger = { NOT = { has_global_variable = schleswig_holstein_question_solved } }		
 		OR = {
@@ -120,6 +128,14 @@ je_pomerania_question = {
 	
 	group = je_group_historical_content
 
+	is_shown_in_lobby = {
+		hidden_trigger = { NOT = { has_global_variable = pomerania_question_solved } }		
+		OR = {
+			country_has_primary_culture = cu:saxon
+			country_has_primary_culture = cu:baltic_german
+		}
+	}
+
 	is_shown_when_inactive = {
 		hidden_trigger = { NOT = { has_global_variable = pomerania_question_solved } }		
 		OR = {
@@ -227,6 +243,13 @@ je_german_unification_idea = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_historical_content
+
+	is_shown_in_lobby = {
+		any_primary_culture = {
+			has_discrimination_trait = heritage_germanic
+			percent >= 1
+		}
+	}
 
 	is_shown_when_inactive = {
 		OR = {
@@ -456,6 +479,10 @@ je_north_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_historical_content
+
+	is_shown_in_lobby = {
+		country_has_a_north_german_primary_culture = yes
+	}
 	
 	complete = {
 		custom_tooltip = {
@@ -517,6 +544,11 @@ je_south_german_unification = {
 	
 	group = je_group_historical_content
 
+	is_shown_in_lobby = {
+		country_has_a_south_german_primary_culture = yes
+		not = { country_has_primary_culture = cu:french }
+	}
+
 	complete = {
 		custom_tooltip = {
 			has_global_variable = schleswig_holstein_question_solved
@@ -575,6 +607,13 @@ je_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_historical_content
+
+	is_shown_in_lobby = {
+		any_primary_culture = {
+			has_discrimination_trait = heritage_germanic
+			percent >= 1
+		}
+	}
 
 	is_shown_when_inactive = {
 		has_variable = je_german_confederate_unifier

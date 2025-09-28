@@ -8,6 +8,13 @@
         br_modifier_inward_perfection
     }
 
+	is_shown_in_lobby = {
+		c:CHI ?= this
+		c:br_great_yuan ?= this
+		c:JAP ?= this
+		c:MUG ?= this
+	}
+
 	is_shown_when_inactive = {
 		#Manually placed in country file
 	}
@@ -50,7 +57,7 @@
 }
 
 #Navy reform
-je_china_reforms_navy = {
+je_china_reforms_navy = {	#this event is currently not beeing used
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 
 	group = je_group_internal_affairs
@@ -58,6 +65,10 @@ je_china_reforms_navy = {
 	#modifiers_while_active = {
 	#	br_modifier_regionalized_navy
 	#}
+
+	# is_shown_in_lobby = {
+	# 	c:CHI ?= this
+	# }
 
 	complete = {
 		navy_size >= 125

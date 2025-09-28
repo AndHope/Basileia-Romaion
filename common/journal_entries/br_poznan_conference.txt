@@ -10,11 +10,16 @@
     scripted_button = br_poznan_conference_approve_button
     scripted_button = br_poznan_conference_disapprove_button
 
+	is_shown_in_lobby = {
+		OR = {
+			country_has_a_north_german_primary_culture = yes
+			country_has_primary_culture = cu:polish
+		}
+	}
+
 	is_shown_when_inactive = {
 		OR = {
-			country_has_primary_culture = cu:saxon
-			country_has_primary_culture = cu:baltic_german
-
+			country_has_a_north_german_primary_culture = yes
 			country_has_primary_culture = cu:polish
 		}
 	}
@@ -33,9 +38,7 @@
 			c:PLC ?= this
 		}
 		OR = {
-			country_has_primary_culture = cu:saxon
-			country_has_primary_culture = cu:baltic_german
-
+			country_has_a_north_german_primary_culture = yes
 			country_has_primary_culture = cu:polish
 		}
 	}

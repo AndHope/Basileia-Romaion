@@ -2,6 +2,14 @@
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
 	
 	group = je_group_foreign_affairs
+
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:flemish
+		owns_entire_state_region = STATE_FLANDERS
+		NOT = {
+			has_variable = lowland_expansion_complete
+		}
+	}
 	
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:flemish
@@ -56,6 +64,15 @@ je_control_the_northern_lowlands = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
 	
 	group = je_group_foreign_affairs
+
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:flemish
+		owns_entire_state_region = STATE_FLANDERS
+		NOT = {
+			has_variable = lowland_expansion_complete
+		}
+		exists = c:NET
+	}
 	
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:flemish
@@ -92,6 +109,21 @@ je_control_the_southern_lowlands = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds"
 	
 	group = je_group_foreign_affairs
+
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:flemish
+		owns_entire_state_region = STATE_FLANDERS
+		NOT = {
+			OR = {
+				has_variable = lowland_expansion_complete
+				
+				AND = {
+					country_or_subject_owns_entire_state_region = STATE_FRENCH_LOW_COUNTRIES
+					country_or_subject_owns_entire_state_region = STATE_WALLONIA
+				}
+			}
+		}
+	}
 	
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:flemish
