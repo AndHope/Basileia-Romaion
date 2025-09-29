@@ -12,6 +12,68 @@
 - Added a conversion event to the PLC, when you research nationalism
 - Fixed Sweden getting 'independent german state' modifier when accepting baltic culture
 
+## Cultures & Pops
+- Major rework of base culture files and modifiers.  
+- Added new static cultural modifiers.  
+- Split Colonial French, Colonial Italian, and Amerigan cultures.  
+- Added Amerigan modifiers.  
+- Renamed and removed outdated culture entries.  
+- Adjusted culture suggestions from community feedback (thanks Capon!).  
+- Added East German cultural content.  
+- Romanization Decree now allows homeland assimilation.  
+- Various pop distribution and balancing changes.  
+
+## Religion
+- Added tooltip warning when changing religion.  
+- Added new conversion event for the PLC.  
+- Updated religion definitions and localization.  
+- Adjusted discrimination traits and fixed related errors.  
+- Expanded religious laws and decree updates.  
+
+## Laws & Politics
+- Overhauled and expanded cultural and citizenship laws.  
+- Added law variants and unique sub-laws for the ERE.  
+- Introduced Colonial Slavery law content.  
+- Updated Palaiologos Reforms and Internal Security laws.  
+- Expanded global social hierarchies.  
+- Added national awakenings and new movement definitions.  
+- Taxation levels now affect Third Estate dissatisfaction.  
+
+## Map & States
+- Extensive updates to mapdata, state regions, and strategic regions.  
+- Fixed broken and duplicate states (including removal of STATE_SILESIA).  
+- Refined treaty port locations for cleaner borders.  
+- Fixed Sweden incorrectly creating an independent German state.  
+- Ongoing fixes to mapdata and large Bulgaria game rule (still unstable).  
+
+## AI & Gameplay
+- Adjusted AI decision weights and chance behavior.  
+- Fixed AI strategies errors.  
+- Fixed invalid buildings and incorrect country references in treaties.  
+- Updated on_actions and prevented broken vanilla event references.  
+
+## Events & Journal Entries
+- Added JE’s (Journal Entries) visible in nation selection screen, with lobby localization.  
+- Updated PLC events (including conversion and Memel ownership).  
+- Added Turtle Island JE for decentralized nations.  
+- Updated Polish, HRE, and ERE event files.  
+
+## Military
+- Created military formations in correct states.  
+- Updated minor military formation definitions for the ERE.  
+
+## Buildings & Economy
+- Updated building files to 1.10 standards (clothes, headgear, accessories, etc.).  
+- Reworked economic buildings and state-based building distribution.  
+- Fixed invalid buildings and updated regional assignments.  
+
+## Miscellaneous
+- Updated metadata, global rules, and default setup.  
+- Added new company definitions and updated misc company files.  
+- Fixed various localization crashes and duplicate keys.  
+- Gave PLC Memel back and updated Poznan Conference conditions.  
+- Numerous cleanup passes across laws, decrees, and traditions files.  
+
 # Update 142
 
 ## HRE impending revolution rework
