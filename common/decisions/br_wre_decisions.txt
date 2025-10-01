@@ -1,20 +1,59 @@
 ﻿
 br_proclaim_ambition_to_restore_wre_decision = {
 	is_shown = {
-		not = {
-			or = {
-				c:HRE ?= this
-				c:BYZ ?= this
-				religion = rel:orthodox
-				has_variable = br_ambition_to_restore_wre_var
+		hidden_trigger = {
+			not = {
+				or = {
+					c:HRE ?= this
+					c:BYZ ?= this
+					religion = rel:orthodox
+					religion = rel:oriental_orthodox
+					has_variable = br_ambition_to_restore_wre_var
+				}
 			}
 		}
 		any_primary_culture = {
 			has_discrimination_trait_group = heritage_group_european
 		}
+		religion = {
+			shares_heritage_trait_with_religion = rel:catholic
+		}
+		custom_tooltip = {
+			text = br_is_capital_in_europe_tt
+			capital = {
+				br_is_strategic_region_in_europe = {
+					strategic_region = region
+				}
+			}
+		}
 	}
 
 	possible = {
+		hidden_trigger = {
+			not = {
+				or = {
+					c:HRE ?= this
+					c:BYZ ?= this
+					religion = rel:orthodox
+					religion = rel:oriental_orthodox
+					has_variable = br_ambition_to_restore_wre_var
+				}
+			}
+		}
+		any_primary_culture = {
+			has_discrimination_trait_group = heritage_group_european
+		}
+		religion = {
+			shares_heritage_trait_with_religion = rel:catholic
+		}
+		custom_tooltip = {
+			text = br_is_capital_in_europe_tt
+			capital = {
+				br_is_strategic_region_in_europe = {
+					strategic_region = region
+				}
+			}
+		}
 	}
 
 	when_taken = {
