@@ -290,7 +290,19 @@ br_on_state_occupied = {
 
 on_country_formed ={
 	on_actions = {
+		br_on_any_country_formed
 		on_wre_formed
+	}
+}
+br_on_any_country_formed = {
+	effect = {
+		if = {
+			limit = {
+				has_variable = br_ambition_to_restore_wre_var
+				not = { country_has_primary_culture = cu:latinoi }
+			}
+			add_primary_culture = cu:latinoi
+		}
 	}
 }
 on_wre_formed = {
