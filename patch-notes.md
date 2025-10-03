@@ -1,6 +1,8 @@
 ####id 2880120246
 
-# Update 143 (1.10 update)
+# Update 144 (1.10 update)
+
+Full list of changes: https://github.com/AndHope/Basileia-Romaion/compare/141...144
 
 ## HRE impending revolution changes
 - subsidize food now adds government expenses and increased welfare cost

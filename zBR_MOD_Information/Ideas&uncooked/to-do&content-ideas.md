@@ -77,7 +77,10 @@
 		- Identify more on their regional rural hill/mountain identity and black sea.
 	- Anatolian
 		- Identify with conservative rural values, strongly militant.
-	- Kappadocian maybe
+	- Kappadocian event that converges the Romaioi into Kappadocians to happen after nationalism is invented will make a small story to explain the divergance so I don't get bunch of angry greek historian messages lol
+	- Event to happen once tanks are researched the last Kataphroacti small story.
+	
+	- Flavor 
 	- Add unique hierarchy for ERE. 
 	- Add decisions to purchase Italian trade posts and black sea colonies.
 	- Create a chariot racing section similar to the sports in Morganrote
