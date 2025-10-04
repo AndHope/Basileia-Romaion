@@ -1,5 +1,13 @@
 ####id 2880120246
 
+# 144.2
+- fix vanilla bug that made subjects more docile than intended.
+- fix: broken military formations and other buildings
+- more journals lobby
+- tweak to prevent wonky flags
+- fixed WRE not being formable
+- made the WRE a hegemony
+
 # Update 144 (1.10 update)
 
 Full list of changes: https://github.com/AndHope/Basileia-Romaion/compare/141...144
