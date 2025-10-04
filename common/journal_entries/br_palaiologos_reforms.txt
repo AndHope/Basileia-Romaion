@@ -982,21 +982,9 @@ je_palaiologos_reforms_syria = {
 	}
 
 	complete = {
-		OR = {
-			AND = {
-				exists = c:br_syria
-				c:br_syria = {
-					is_subject_of = ROOT
-					is_subject_type = subject_type_puppet
-				}
-				c:br_syria = { liberty_desire <= 50 }
-			}
-			AND = {
-				owns_entire_state_region = STATE_ALEPPO
-				owns_entire_state_region = STATE_LEBANON
-				owns_entire_state_region = STATE_PALESTINE
-			}
-		}
+		country_or_subject_owns_entire_state_region = STATE_ALEPPO
+		country_or_subject_owns_entire_state_region = STATE_LEBANON
+		country_or_subject_owns_entire_state_region = STATE_PALESTINE
 	}
 
 	on_complete = {
