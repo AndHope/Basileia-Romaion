@@ -20,21 +20,15 @@ aegyptian_crisis_events.1 = {
 
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	trigger = {
-		NOT = { has_variable = aegyptian_crisis }
-		exists = c:br_aegypt
-		c:br_aegypt = {
-			aggressive_diplomatic_plays_permitted = yes
-			any_scope_state = {
-				has_claim_by = c:BYZ
-				OR = {
-					state_region = s:STATE_ALEPPO
-					state_region = s:STATE_LEBANON
-					state_region = s:STATE_PALESTINE
-				}
-			}
-		}
-	}
+	
+#	trigger = {
+#		NOT = { has_variable = aegyptian_crisis }
+#		exists = c:br_aegypt
+#		any_scope_state = {
+#			state_region = s:STATE_ALEPPO
+#			owner = c:BYZ
+#		}
+#	}
 
 	immediate = {
 		s:STATE_EASTERN_THRACE = {

@@ -57,23 +57,34 @@ br_byz_easy_agy = {
 		hidden_trigger = {
 			NOT = { has_variable = aegyptian_crisis_started }
 		}
-	}
-
-	possible = {
-		AND = {
+		c:BYZ ?= {
 			any_scope_state = {
 				state_region = s:STATE_ALEPPO
 				owner = c:BYZ
 			}
-			any_scope_state = {
-				state_region = s:STATE_LEBANON
-				owner = c:br_aegypt
-			}
-			any_scope_state = {
-				state_region = s:STATE_PALESTINE
-				owner = c:br_aegypt
-			}
 		}
+	}
+
+	possible = {
+		c:BYZ ?= {
+			any_scope_state = {
+				state_region = s:STATE_ALEPPO
+				owner = c:BYZ
+			}
+			is_at_war = no
+			#highest_secession_progress < 0.5
+		}
+		
+	#	AND = {
+	#		any_scope_state = {
+	#			state_region = s:STATE_LEBANON
+	#			owner = c:br_aegypt
+	#		}
+	#		any_scope_state = {
+	#			state_region = s:STATE_PALESTINE
+	#			owner = c:br_aegypt
+	#		}
+	#	}
 		hidden_trigger = {
 			NOT = { has_variable = aegyptian_crisis_started }
 		}
@@ -82,6 +93,8 @@ br_byz_easy_agy = {
 				is_subject_of = c:BYZ
 			}
 		}
+		is_at_war = no
+		#highest_secession_progress < 0.5
 	}
 
 	when_taken = {
@@ -92,7 +105,7 @@ br_byz_easy_agy = {
 		c:BYZ ?= {
 			trigger_event = {
 				id = aegyptian_crisis_events.4
-				days = 65
+				days = 1
 			}
 		}
 	}
