@@ -507,8 +507,9 @@ je_palaiologos_reforms_land_reform = {
 
 
 	complete = {
+		has_law_or_variant = law_type:law_homesteading
 		NOT = {
-			has_law_or_variant = law_type:law_serfdom
+			has_law_or_variant = law_type:law_land_based_taxation
 			has_law_or_variant = law_type:law_traditionalism
 		}
 	#	NOR = {
@@ -551,10 +552,14 @@ je_palaiologos_reforms_land_reform = {
 			limit = {
 				has_modifier = br_modifier_corrupt_pronoia
 			}
+			#Moved to scripted to happen no matter what
 		#	trigger_event = {
 		#		id = palaiologos_events.3
 		#		days = 1
 		#	}
+		}
+		trigger_event = {
+			id = palaiologos_events.12
 		}
 	}
 
