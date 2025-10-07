@@ -1303,3 +1303,62 @@ palaiologos_events.10 = {
 		}
 	}
 }
+
+palaiologos_events.11 = { 
+	type = country_event
+	placement = scope:bandit_raided_state
+
+	title = palaiologos_events.11.t
+	desc = palaiologos_events.11.d
+	flavor = palaiologos_events.11.f
+
+	event_image = {
+		video = "gfx/event_pictures/rp1_social_banditry.bk2"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+		any_scope_state = {
+			NOT = { has_modifier = br_modifier_bandit_raids }
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_palaiologos_reforms_security
+		}
+	}
+
+	cooldown = {
+		years = 3
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				NOT = { has_modifier = br_modifier_bandit_raids }
+			}
+			save_scope_as = bandit_raided_state
+		}
+	}
+
+	option = {
+		name = palaiologos_events.11.a
+		default_option = yes
+		scope:bandit_raided_state = {
+			add_modifier = {
+				name = br_modifier_bandit_raids
+				days = normal_modifier_time
+			}
+			add_radicals_in_state = {
+				value = small_radicals
+			}
+		}
+	}
+
+}
