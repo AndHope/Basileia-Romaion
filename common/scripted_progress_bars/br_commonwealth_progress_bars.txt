@@ -1,0 +1,26 @@
+﻿ ### For je_religion_swap
+
+ br_plc_sucession_reform_progress_bar = {
+	name = "br_plc_sucession_reform_progress_bar"
+	desc = "br_plc_sucession_reform_progress_bar_desc"
+
+	default = yes
+
+	start_value = 0
+	min_value = 0
+	max_value = 100 #represents a percentage
+
+	monthly_progress = {
+		if = { #each add needs to be in a if statement if the value it's adding is a var, otherwise it will spam errors.
+			limit = {
+				always = yes
+			}
+			add = {
+				desc = "br_plc_succession_from_intelligentsia_clout_loc"
+				value = var:br_plc_succession_intelligentsia_clout_var
+				multiply = 3
+			}
+		}
+		
+	}
+ }

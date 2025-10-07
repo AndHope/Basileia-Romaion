@@ -1,8 +1,9 @@
-﻿je_golden_liberty = {
+﻿br_je_plc_succession = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
 
+    scripted_progress_bar = br_plc_sucession_reform_progress_bar
 
     modifiers_while_active = {
         br_modifier_liberum_veto
@@ -12,74 +13,108 @@
 		c:PLC ?= this
 	}
 
-    complete = {
-        OR = {
-            AND = {
-                ig:ig_landowners = {
-			        is_powerful = yes
-			        is_in_government = yes
-		        }
-		        has_insurrectionary_interest_groups = no
-                owns_entire_state_region = STATE_MAZOVIA
-                has_law_or_variant = law_type:law_hereditary_bureaucrats
-                has_law_or_variant = law_type:law_agrarianism
-                has_law_or_variant = law_type:law_serfdom
-                has_law_or_variant = law_type:law_oligarchy
+    immediate = {
+        br_calc_given_ig_clout = {
+            ig = ig:ig_intelligentsia
+            result_var = br_plc_succession_intelligentsia_clout_var
+        }
+
+        #Update reform support var's
+        #because the je scope can't be scoped to directly in the immediate block
+        br_plc_succession_update_reform_support_vars_when_je_scope_not_init = yes
+    }
+
+    on_monthly_pulse = {
+        effect = {
+            br_calc_given_ig_clout = {
+                ig = ig:ig_intelligentsia
+                result_var = br_plc_succession_intelligentsia_clout_var
             }
-            AND = {
-                ig:ig_landowners = {
-			        is_powerful = no
-			        is_in_government = no
-		        }
-                has_insurrectionary_interest_groups = no
-                owns_entire_state_region = STATE_MAZOVIA
-                has_law_or_variant = law_type:law_interventionism
-                has_law_or_variant = law_type:law_wealth_voting
-                NOT = {
-                    has_law_or_variant = law_type:law_hereditary_bureaucrats
-                    has_law_or_variant = law_type:law_serfdom
-                }
-            }
+
+            #Update reform support var's
+            br_plc_succession_update_reform_support_vars = yes
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                ig:ig_landowners = {
-			        is_powerful = yes
-			        is_in_government = yes
-		        }
-            }
-            trigger_event = {
-			    id = poland.2
-		    }
-        }
-        else = {
-            trigger_event = {
-			    id = poland.3
-		    }
-        }
-    }
+    # complete = {
+    #     OR = {
+    #         AND = {
+    #             ig:ig_landowners = {
+	# 		        is_powerful = yes
+	# 		        is_in_government = yes
+	# 	        }
+	# 	        has_insurrectionary_interest_groups = no
+    #             owns_entire_state_region = STATE_MAZOVIA
+    #             has_law_or_variant = law_type:law_hereditary_bureaucrats
+    #             has_law_or_variant = law_type:law_agrarianism
+    #             has_law_or_variant = law_type:law_serfdom
+    #             has_law_or_variant = law_type:law_oligarchy
+    #         }
+    #         AND = {
+    #             ig:ig_landowners = {
+	# 		        is_powerful = no
+	# 		        is_in_government = no
+	# 	        }
+    #             has_insurrectionary_interest_groups = no
+    #             owns_entire_state_region = STATE_MAZOVIA
+    #             has_law_or_variant = law_type:law_interventionism
+    #             has_law_or_variant = law_type:law_wealth_voting
+    #             NOT = {
+    #                 has_law_or_variant = law_type:law_hereditary_bureaucrats
+    #                 has_law_or_variant = law_type:law_serfdom
+    #             }
+    #         }
+    #     }
+    # }
 
-    timeout = 26425
+    # on_complete = {
+    #     # if = {
+    #     #     limit = {
+    #     #         ig:ig_landowners = {
+	# 	# 	        is_powerful = yes
+	# 	# 	        is_in_government = yes
+	# 	#         }
+    #     #     }
+    #     #     trigger_event = {
+	# 	# 	    id = poland.2
+	# 	#     }
+    #     # }
+    #     # else = {
+    #     #     trigger_event = {
+	# 	# 	    id = poland.3
+	# 	#     }
+    #     # }
+    # }
+
+    timeout = 1825
 
     on_timeout = {
-        if = {
-            limit = {
-                ig:ig_landowners = {
-			        is_powerful = yes
-			        is_in_government = yes
-		        }
-            }
-            trigger_event = {
-			    id = poland.2
-		    }
+        ruler = {
+            kill_character = yes
         }
-        else = {
-            trigger_event = {
-			    id = poland.3
-		    }
+        if = {  #No Support
+            limit = {
+                var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_minor_support_flag
+            }
+            add_modifier = br_modifier_plc_succession_minor_support
+        }
+        else_if = {  #Moderate Support
+            limit = {
+                var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_moderate_support_flag
+            }
+            add_modifier = br_modifier_plc_succession_moderate_support
+        }
+        else_if = {  #Major Support
+            limit = {
+                var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_major_support_flag
+            }
+            add_modifier = br_modifier_plc_succession_major_support
+        }
+        else_if = {  #Stunted opposition
+            limit = {
+                var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_stunted_opposition_flag
+            }
+            add_modifier = br_modifier_plc_succession_stunted_opposition
         }
 	}
 
