@@ -1324,7 +1324,7 @@ palaiologos_events.11 = {
 
 	trigger = {
 		any_scope_state = {
-			NOT = { has_modifier = br_modifier_bandit_raids }
+			NOT = { has_modifier = br_modifier_ere_bandit_raids }
 		}
 	}
 
@@ -1341,7 +1341,7 @@ palaiologos_events.11 = {
 	immediate = {
 		random_scope_state = {
 			limit = {
-				NOT = { has_modifier = br_modifier_bandit_raids }
+				NOT = { has_modifier = br_modifier_ere_bandit_raids }
 			}
 			save_scope_as = bandit_raided_state
 		}
@@ -1352,7 +1352,7 @@ palaiologos_events.11 = {
 		default_option = yes
 		scope:bandit_raided_state = {
 			add_modifier = {
-				name = br_modifier_bandit_raids
+				name = br_modifier_ere_bandit_raids
 				days = normal_modifier_time
 			}
 			add_radicals_in_state = {
@@ -1531,6 +1531,41 @@ palaiologos_events.16 = {
 		default_option = yes
 		add_modifier = {
 			name = br_modifier_ere_modernized_education
+			days = long_modifier_time
+		}
+	}
+
+}
+
+palaiologos_events.17 = {
+	type = country_event
+	placement = root
+
+	title = palaiologos_events.17.t
+	desc = palaiologos_events.17.d
+	flavor = palaiologos_events.17.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = palaiologos_events.17.a
+		default_option = yes
+		add_modifier = {
+			name = br_modifier_ere_modernized_policing
 			days = long_modifier_time
 		}
 	}
