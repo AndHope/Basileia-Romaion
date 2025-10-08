@@ -18,7 +18,59 @@
 			add = {
 				desc = "br_plc_succession_from_intelligentsia_clout_loc"
 				value = var:br_plc_succession_intelligentsia_clout_var
-				multiply = 3
+				multiply = br_plc_succession_intelligentsia_clout_monthly_change_in_reform_support_multiplier_value
+			}
+		}
+
+		#Distribution of power laws effects
+		if = {
+			limit = {
+				or = {
+					has_law_or_variant = law_type:law_universal_suffrage
+					has_law_or_variant = law_type:law_census_voting
+					has_law_or_variant = law_type:law_wealth_voting
+				}
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_distribution_of_power_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_distribution_of_power_law_monthly_change_in_reform_support_value
+			}
+		}
+		#Governance principles laws effects
+		if = {
+			limit = {
+				or = {
+					has_law_or_variant = law_type:law_universal_suffrage
+					has_law_or_variant = law_type:law_census_voting
+					has_law_or_variant = law_type:law_wealth_voting
+				}
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_governance_principles_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_governance_principles_law_monthly_change_in_reform_support_value
+			}
+		}
+		#Bureaucracy laws effects
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_appointed_bureaucrats
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_bureaucracy_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_bureaucracy_law_monthly_change_in_reform_support_value
+			}
+		}
+		#Taxation laws effects
+		if = {
+			limit = {
+				or = {
+					has_law_or_variant = law_type:law_per_capita_based_taxation
+					has_law_or_variant = law_type:law_proportional_taxation
+				}
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_taxation_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_taxation_law_monthly_change_in_reform_support_value
 			}
 		}
 		
