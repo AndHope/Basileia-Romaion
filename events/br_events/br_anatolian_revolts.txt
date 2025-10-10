@@ -595,3 +595,46 @@ br_anatolian_revolt.5 = {
 		}
 	}
 }
+
+#Antiochian Dynatói Revolts
+br_anatolian_revolt.6 = {
+	type = country_event
+	placement = c:BR_ANT.capital
+
+	title = br_anatolian_revolt.6.t
+	desc = br_anatolian_revolt.6.d
+	flavor = br_anatolian_revolt.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/asia_sepoy_mutiny.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {   
+	}
+	immediate = {
+
+	}
+
+	option = {
+		name = br_anatolian_revolt.6.a
+		default_option = yes
+
+
+		hidden_effect = {
+			trigger_event = {
+				id = romaion_emp_rally.1
+				days = 14
+			}
+			change_infamy = -25
+		}
+
+	}
+
+}
