@@ -50,6 +50,12 @@ br_ere_culture_change.1 = {
 		s:STATE_DIYARBAKIR ?= {
 			add_homeland = cu:cappadocian
 		}
+		c:BYZ = {
+			trigger_event = {
+				id = br_ere_culture_change.3
+				days = 5
+			}
+		}
 
 		custom_tooltip = {
 			text = br_ere_culture_change_cappadocian
@@ -110,5 +116,32 @@ br_ere_culture_change.2 = {
 			text = br_ere_culture_change_pontic
 		}
 	}
+	}
+}
+
+br_ere_culture_change.3 = {
+	type = country_event
+	placement = c:br_kappadocia
+	
+	title = br_ere_culture_change.1.t
+	desc = br_ere_culture_change.1.d
+	flavor = br_ere_culture_change.1.f
+	
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+	
+	trigger = {
+	}
+
+	option = {
+		name = br_ere_culture_change.1.a
+		default_option = yes
 	}
 }
