@@ -1,24 +1,21 @@
 # TODO & Content Ideas
 
 ## Laws 
-- Change the mods unique laws to law varients.
+- More unique law varients.
 
 ## Cultures
-- Re do culture files, remove unedited vanilla cultures and prepare for 1.10
 
 ## States and Map
-- set up any new states that are added in 1.10
 
 ## Country name defintions
 - Give countries nativized names
 - Make Countries use their greek name if a subject of BR. 
 
 ## Organization
-- reogranize modifiers by catagory/type instead of country. 
 
 ## Balance
 - Continue tech balance
-	- add more diversity to tech pictures
+	- 
 	- create more production methods instead of modifiers.
 	- add more techs though-out the tree to spread stuff out. Eventually come up with Roman Steam-Punk techs.
 
