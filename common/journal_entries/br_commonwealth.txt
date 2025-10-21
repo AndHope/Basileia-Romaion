@@ -6,7 +6,6 @@
     scripted_progress_bar = br_plc_sucession_reform_progress_bar
 
     modifiers_while_active = {
-        br_modifier_liberum_veto
     }
 
     is_shown_in_lobby = {
@@ -155,6 +154,12 @@ br_je_plc_reform_main = {
         add_journal_entry = {
             type = br_je_plc_jadwigan_reform_1
         }
+        add_journal_entry = {
+            type = br_je_plc_jadwigan_reform_2
+        }
+        add_journal_entry = {
+            type = br_je_plc_jadwigan_reform_3
+        }
     }
 
 	complete = {
@@ -210,9 +215,91 @@ br_je_plc_jadwigan_reform_1 = {
 	}
 
 	on_complete = {
+        br_plc_reform_increase_jadwigan_progress = yes
 		remove_modifier = br_modifier_the_issue_of_serfdom
         add_modifier = br_modifier_plc_reform_jadwigan_land_reforms
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Jadwigan Reforms: Improving the Golden Liberty
+br_je_plc_jadwigan_reform_2 = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_census_voting
+        or = {
+            has_law_or_variant = law_type:law_appointed_bureaucrats
+            has_law_or_variant = law_type:law_elected_bureaucrats
+        }
+	}
+
+	on_complete = {
         br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_liberum_veto
+        add_modifier = br_modifier_plc_reform_jadwigan_liberties
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Jadwigan Reforms: The Minorities of the Commonwealth
+br_je_plc_jadwigan_reform_3 = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_total_separation
+        not = {
+            or = {
+                has_law_or_variant = law_type:law_ethnostate
+                has_law_or_variant = law_type:law_national_supremacy
+            }
+        }
+        country_has_primary_culture = cu:lithuanian
+        country_has_primary_culture = cu:ukrainian
+	}
+
+	on_complete = {
+        br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_eastern_oppression
+        add_modifier = br_modifier_plc_reform_restored_warsaw_confederation
 	}
 
     fail = {
