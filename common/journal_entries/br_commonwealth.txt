@@ -215,9 +215,9 @@ br_je_plc_jadwigan_reform_1 = {
 	}
 
     fail = {
-        je:br_je_plc_reform_main ?= {
-			"scripted_bar_progress(br_je_plc_reform_main_progress_bar)" <= 0
-		}
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
     }
 
 	timeout = 10950
