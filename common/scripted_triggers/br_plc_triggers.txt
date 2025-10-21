@@ -1,0 +1,23 @@
+﻿######################################################################
+###
+### br_je_plc_reform_main effects
+###
+######################################################################
+
+br_plc_reform_has_completed_all_jadwigan_reforms = {
+	custom_tooltip = {
+		text = br_plc_reform_has_completed_all_jadwigan_reforms_tt
+		scope:journal_entry ?= {
+			"scripted_bar_progress(br_je_plc_reform_main_progress_bar)" >= 10
+		}
+	}
+}
+
+br_plc_reform_has_completed_all_moderate_reforms = {
+	custom_tooltip = {
+		text = br_plc_reform_has_completed_all_moderate_reforms_tt
+		scope:journal_entry ?= {
+			"scripted_bar_progress(br_je_plc_reform_main_progress_bar)" <= 0
+		}
+	}
+}
