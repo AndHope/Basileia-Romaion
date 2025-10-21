@@ -8,10 +8,21 @@
  br_je_plc_succession_lobby: "Our King, Sigismund III, is slowly dying. We must prepare for the assention of his heir Princess Jadwiga."
  br_je_plc_succession_status: "We have currently reached #b #blue [GetPlayer.MakeScope.Var('br_plc_succession_acquired_reform_support_progress_var').GetFlagName]#!#! when it comes to reform support"
  br_je_plc_succession_reason: "Our King, Sigismund III, is slowly dying. For years, his health has been failing more and more, and by all rights, he is king in name only. While in reality, the Sejm has always had full power compared to our monarchs, there was once hope for it to change in Sigismund. Sigismund’s heir now holds that hope for reform, a bright and well educated young woman named after Poland’s first female monarch and Saint. It took much political maneuvering on Sigismund’s part to secure her as his heir. Now as the nation waits for the inevitable, support for Jadwiga should be built up to help both ease the transition of power and for the sake of helping get some initial reforms through.\n$TOOLTIP_DELIMITER$\nThe goal of this journal is to get the reform support as high as possible, when the [concept_journal_entry] comes at an end you will get bonuses based on how high the reform support is.\nYou can increase reform support by increasing the [concept_clout] of the [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant]. While you have access to this journal you have also been given a special decree, the [GetDecreeType('br_decree_increase_jadwigan_support').GetName] decree, to help boost the [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant]. Another way to increase support is to pass laws that are supported by the [GetIdeology('br_ideology_jadwigan_reformist').GetName] [concept_ideology].\n\nList of support tiers:\n#b #blue [GetStaticModifier('br_modifier_plc_succession_minor_support').GetName] | [GetStaticModifier('br_modifier_plc_succession_moderate_support').GetName] | [GetStaticModifier('br_modifier_plc_succession_major_support').GetName] | [GetStaticModifier('br_modifier_plc_succession_stunted_opposition').GetName]#!#!"
+ #br_je_plc_reform_main
+ br_je_plc_reform_main: "Commonwealth Reforms"
+ br_je_plc_reform_main_lobby: "TODO"
+ br_je_plc_reform_main_reason: "TODO"
+ #br_je_plc_jadwigan_reform_1
+ br_je_plc_jadwigan_reform_1: "Jadwigan Reforms: Memories of the Slavic Slave Trade"
+ br_je_plc_jadwigan_reform_1_lobby: "$br_je_plc_jadwigan_reform_1_reason$"
+ br_je_plc_jadwigan_reform_1_reason: "Though it ended centuries ago, the Slavic Slave Trade is still in our memory, it has created a unique hatred towards it within our culture. Afterall, it is the word Slav that the more modern Slave word comes from. Yet, we still practice it, but we call it Serfdom. Its defenders will try to say otherwise, but people are tied to the land of a lord. How is there a difference? It must be abolished, both for our modernization and for our morals!"
+ br_plc_reform_has_completed_all_jadwigan_reforms_tt: "Has completed all Jadwigan Reform [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ br_plc_reform_has_completed_all_moderate_reforms_tt: "Has completed all Moderate Reform [Concept('concept_journal_entry', '$concept_journal_entries$')]"
 
  ###
  ###Scripted Progress Bars
  ###
+ #br_plc_sucession_reform_progress_bar
  br_plc_sucession_reform_progress_bar: "Reform support"
  br_plc_sucession_reform_progress_bar_desc: "$br_plc_sucession_reform_progress_bar$"
  br_plc_succession_from_intelligentsia_clout_loc: "[GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] [concept_clout]"
@@ -19,6 +30,10 @@
  br_plc_succession_has_jadwigan_approved_governance_principles_law_loc: " has a [GetLawGroup('lawgroup_governance_principles').GetName] that is supported by [GetIdeology('br_ideology_jadwigan_reformist').GetName]"
  br_plc_succession_has_jadwigan_approved_bureaucracy_law_loc: " has a [GetLawGroup('lawgroup_bureaucracy').GetName] that is supported by [GetIdeology('br_ideology_jadwigan_reformist').GetName]"
  br_plc_succession_has_jadwigan_approved_taxation_law_loc: " has a [GetLawGroup('lawgroup_taxation').GetName] that is supported by [GetIdeology('br_ideology_jadwigan_reformist').GetName]"
+ #br_je_plc_reform_main_progress_bar
+ br_je_plc_reform_main_progress_bar: "Moderate Vs Jadwigan reforms"
+ br_je_plc_reform_main_progress_bar_desc: "Moderate"
+ br_je_plc_reform_main_progress_bar_second_desc: "Jadwigan"
 
  ###
  ###Decrees
