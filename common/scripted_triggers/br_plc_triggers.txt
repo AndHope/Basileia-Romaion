@@ -7,17 +7,13 @@
 br_plc_reform_has_completed_all_jadwigan_reforms = {
 	custom_tooltip = {
 		text = br_plc_reform_has_completed_all_jadwigan_reforms_tt
-		scope:journal_entry ?= {
-			"scripted_bar_progress(br_je_plc_reform_main_progress_bar)" >= 10
-		}
+		var:br_plc_reform_nr_of_completed_jadwigan_reform_je_var >= br_plc_reform_total_nr_of_jadwigan_reform_je_value
 	}
 }
 
 br_plc_reform_has_completed_all_moderate_reforms = {
 	custom_tooltip = {
 		text = br_plc_reform_has_completed_all_moderate_reforms_tt
-		scope:journal_entry ?= {
-			"scripted_bar_progress(br_je_plc_reform_main_progress_bar)" <= 0
-		}
+		var:br_plc_reform_nr_of_completed_moderate_reform_je_var >= br_plc_reform_total_nr_of_moderate_reform_je_value
 	}
 }
