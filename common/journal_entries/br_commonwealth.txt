@@ -59,63 +59,63 @@
 	should_be_pinned_by_default = yes
 }
 
-je_eastern_resistance = {
-    icon = "gfx/interface/icons/event_icons/event_military.dds"
+# je_eastern_resistance = {
+#     icon = "gfx/interface/icons/event_icons/event_military.dds"
     
-	group = je_group_internal_affairs
+# 	group = je_group_internal_affairs
 
-    modifiers_while_active = {
-        br_modifier_eastern_oppression
-    }
+#     modifiers_while_active = {
+#         br_modifier_eastern_oppression
+#     }
 
-    is_shown_in_lobby = {
-		c:PLC ?= this
-	}
+#     is_shown_in_lobby = {
+# 		c:PLC ?= this
+# 	}
 	
-    is_shown_when_inactive = {
-        exists = c:PLC
-        c:PLC = root
-    }
+#     is_shown_when_inactive = {
+#         exists = c:PLC
+#         c:PLC = root
+#     }
 
-    possible = {
-        exists = c:PLC
-        c:PLC = root
-        owns_entire_state_region = STATE_KIEV
-    }
+#     possible = {
+#         exists = c:PLC
+#         c:PLC = root
+#         owns_entire_state_region = STATE_KIEV
+#     }
 
-    complete = { 
-        NOT = { 
-            has_law_or_variant = law_type:law_serfdom
-        }
-        NOT = {  country_has_primary_culture = cu:ukrainian }
-    }  
+#     complete = { 
+#         NOT = { 
+#             has_law_or_variant = law_type:law_serfdom
+#         }
+#         NOT = {  country_has_primary_culture = cu:ukrainian }
+#     }  
 
-    fail = {
-        any_country = { 	
-            is_secessionist = yes
-            is_diplomatic_play_target = yes
-            OR = {
-                country_has_primary_culture = cu:ukrainian
-            }
-        }
-    }
+#     fail = {
+#         any_country = { 	
+#             is_secessionist = yes
+#             is_diplomatic_play_target = yes
+#             OR = {
+#                 country_has_primary_culture = cu:ukrainian
+#             }
+#         }
+#     }
 
-    on_fail = {
-        trigger_event = {
-            id = poland.5
-            days = 21
-        }
-    }
+#     on_fail = {
+#         trigger_event = {
+#             id = poland.5
+#             days = 21
+#         }
+#     }
 
-    on_complete = {
-        trigger_event = {
-            id = poland.6
-        }
-    }
+#     on_complete = {
+#         trigger_event = {
+#             id = poland.6
+#         }
+#     }
 
-    weight = 100
-	should_be_pinned_by_default = yes
-}
+#     weight = 100
+# 	should_be_pinned_by_default = yes
+# }
 
 #########################################################################################################################
 ###
