@@ -168,28 +168,31 @@ br_je_plc_reform_main = {
         }
     }
 
+    custom_completion_header = br_je_plc_reform_main_completion_header
+
 	complete = {
 		br_plc_reform_has_completed_all_jadwigan_reforms = yes
 	}
 
 	on_complete = {
-		# TODO
+		add_modifier = br_modifier_plc_reform_jadwigan_reforms
+        ruler = {
+            add_trait = br_succesful_reformer
+        }
 	}
+
+    custom_failure_header = br_je_plc_reform_main_failure_header
 
     fail = {
         br_plc_reform_has_completed_all_moderate_reforms = yes
     }
 
-    event_outcome_failed_desc = {
-			first_valid = {
-				triggered_desc = {
-					desc = holstein_is_annexed
-					trigger = {
-						exists = c:HRE
-					}
-				}
-			}
-		}	
+    on_fail = {
+        add_modifier = br_modifier_plc_reform_moderate_reforms
+        ruler = {
+            add_trait = br_succesful_compromiser
+        }
+    }
 
 	timeout = br_je_plc_reform_main_timeout
 
