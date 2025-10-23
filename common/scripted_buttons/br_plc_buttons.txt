@@ -1,0 +1,100 @@
+﻿#########################################################################################################################
+###
+### PLC reform: br_je_plc_jadwigan_reform_3 Buttons
+###
+#########################################################################################################################
+br_je_add_lithuanian_as_primary_culture_button = {
+	name = "br_je_add_lithuanian_as_primary_culture_button"
+	desc = "br_je_add_lithuanian_as_primary_culture_button_desc"
+
+	visible = {
+	}
+
+	selected = {
+	}
+
+	possible = {
+		NOT = { 
+			country_has_primary_culture = cu:lithuanian
+			or = {
+                has_law_or_variant = law_type:law_ethnostate
+				has_law_or_variant = law_type:law_subjecthood
+            }
+		}
+	}
+
+	effect = {
+		add_primary_culture = cu:lithuanian
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+br_je_add_ukrainian_as_primary_culture_button = {
+	name = "br_je_add_ukrainian_as_primary_culture_button"
+	desc = "br_je_add_ukrainian_as_primary_culture_button_desc"
+
+	visible = {
+	}
+
+	selected = {
+	}
+
+	possible = {
+		NOT = { 
+			country_has_primary_culture = cu:ukrainian
+			or = {
+                has_law_or_variant = law_type:law_ethnostate
+                has_law_or_variant = law_type:law_national_supremacy
+				has_law_or_variant = law_type:law_subjecthood
+            }
+		}
+	}
+
+	effect = {
+		add_primary_culture = cu:ukrainian
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
+
+br_je_negotiate_with_the_cossacks_button = {
+	name = "br_je_negotiate_with_the_cossacks_button"
+	desc = "br_je_negotiate_with_the_cossacks_button_desc"
+
+	visible = {
+	}
+
+	selected = {
+	}
+
+	possible = {
+		has_law_or_variant = law_type:law_homesteading
+		any_state = {
+			owner ?= c:PLC
+			has_modifier = br_modifier_cossacks
+		}
+	}
+
+	effect = {
+		every_state = {
+			limit = {
+				c:PLC ?= owner
+				has_modifier = br_modifier_cossacks
+			}
+			remove_modifier = br_modifier_cossacks
+			add_modifier = br_modifier_integrated_cossacks
+		}
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+	}
+}
