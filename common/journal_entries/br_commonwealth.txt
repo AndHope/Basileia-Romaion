@@ -194,7 +194,9 @@ br_je_plc_reform_main = {
         ruler = {
             add_trait = br_succesful_reformer
         }
-        custom_tooltip = br_je_plc_reform_main_on_complete_tt
+        add_journal_entry = {
+            type = br_je_plc_reform_the_commonwealth
+        }
 	}
 
     custom_failure_header = br_je_plc_reform_main_failure_header
@@ -208,7 +210,9 @@ br_je_plc_reform_main = {
         ruler = {
             add_trait = br_succesful_compromiser
         }
-        custom_tooltip = br_je_plc_reform_main_on_fail_tt
+        add_journal_entry = {
+            type = br_je_plc_centralizing_the_commonwealth
+        }
     }
 
 	timeout = br_je_plc_reform_main_timeout
@@ -611,4 +615,75 @@ br_je_plc_moderate_reform_5 = {
 	}
 
 	weight = 5000
+}
+
+#########################################################################################################################
+###
+### Reform the Commonwealth
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_reform_the_commonwealth = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+    scripted_button = br_je_plc_reform_the_commonwealth_form_the_commonwealth_button
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		br_plc_has_formed_the_commonwealth = yes
+	}
+
+	on_complete = {
+        add_primary_culture = cu:polish
+        add_primary_culture = cu:lithuanian
+        add_primary_culture = cu:ukrainian
+        add_primary_culture = cu:ashkenazi
+        add_primary_culture = cu:baltic_german
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Centralizing the Commonwealth Buttons
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_centralizing_the_commonwealth = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+    scripted_button = br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_button
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		br_plc_has_formed_the_commonwealth = yes
+	}
+
+	on_complete = {
+        add_primary_culture = cu:polish
+        add_primary_culture = cu:lithuanian
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
 }
