@@ -549,3 +549,21 @@ br_WRE = {
 		}
 	}
 }
+
+PLC = {
+	dynamic_country_name = {
+		name = dyn_c_commonwealth	#vanilla loc
+		adjective = dyn_c_commonwealth_adj	#vanilla loc
+
+		priority = 100
+
+		trigger = {
+			scope:actor ?= {
+				or = {
+					has_variable = br_je_plc_reform_the_commonwealth_form_the_commonwealth_var
+					has_variable = br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_var
+				}
+			}
+		}
+	}
+}
