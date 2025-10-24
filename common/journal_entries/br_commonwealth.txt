@@ -219,6 +219,18 @@ br_je_plc_reform_main = {
 
 	on_timeout = {
         custom_tooltip = br_je_plc_reform_main_on_timeout_tt
+        set_variable = br_plc_reform_nr_of_completed_jadwigan_reform_je_var
+        every_subject_or_below = {
+			capital = {
+				or = {
+					region = sr:region_poland
+					region = sr:region_baltic
+					region = sr:region_dnieper
+					region = sr:region_belarus
+				}
+			}
+            make_independent = yes
+		}
 	}
 
 	weight = 10000
