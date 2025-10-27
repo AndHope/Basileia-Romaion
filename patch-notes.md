@@ -1,5 +1,74 @@
 ####id 2880120246
 
+# Basileía Rōmaíōn – October 2025 Update
+
+## Highlights
+- Fixed the now-broken **artillery building** and restored other military formation functionality  
+- Major **Aegyptian Crisis** rework with improved logic and AI handling  
+- Added new **journal events** across multiple reform categories  
+- Introduced several new **languages** and **culture journal effects**  
+- The **Western Roman Empire (WRE)** is now properly **formable** and functions as a **hegemony**
+
+---
+
+## Gameplay & Mechanics
+- Fixed broken **artillery building**  
+- Restored functionality to **military formations** and related buildings  
+- Rebalanced **prestige calculation** for fairer global rankings  
+- Adjusted **arable land** and **resource distributions** for improved balance  
+- Added **blockade mechanics** for **dreadnoughts** and **battleships**  
+- Updated **horse production methods** and **mobilization options**
+
+---
+
+## Decisions & Triggers
+- Added new trigger: `br_is_strategic_region_in_europe`  
+- Updated **“Proclaim Ambition to Restore the WRE”** decision  
+- WRE now functions as a **hegemony** and is correctly **formable**  
+- Expanded **adopt culture** and **citizenship** decision sets  
+- Aegyptian Crisis now only fires for **AI-controlled Aegypt**, improving performance and logic
+
+---
+
+## Journals & Events
+- Added multiple new journal events:
+  - **Army Journal**  
+  - **Bureaucracy Reform Journal**  
+  - **Economy Journal**  
+  - **Education Journal**  
+  - **Police Journal**  
+  - **Insecurity Journal** (now includes a *Bandit Raids* event)
+- Reworked **Land Reform** and **Lobby** journals  
+- Added new **Palaiologos Reforms** content  
+- Updated and flavored **journal modifiers** for consistency and immersion  
+- Implemented comprehensive **Aegyptian Crisis rework**, refining event flow and triggers  
+
+---
+
+## Cultures & Languages
+- Created **Elysian** as a distinct language  
+- Added:
+  - **Bolgarikē (Bulgaro-Roman)**  
+  - **Illyrikē (Illyro-Roman)**  
+- Expanded **culture journals** for Aegypt and Africa to include `change_pop_culture` effects  
+- Added **heritage_anatolian** and new **special minority groups** for the Basileía Rōmaíōn  
+
+---
+
+## Mod Structure & Technical
+- Updated **metadata.json** and various internal defines  
+- Removed deprecated and redundant files  
+- Reorganized **subject types** and added **diplomatic strategies**  
+- Updated multiple **localization files** (`br_journals_l_english.yml`, `br_decisions_l_english.yml`, etc.)  
+- Fixed **spelling and grammar** errors across event and modifier text  
+
+---
+
+## Contributors
+- **@AndHope** – Core fixes, event reworks, cultural additions, and balancing  
+- **@Smekens20** – WRE updates, decision improvements, and localization support  
+
+
 # 144.2
 - fix vanilla bug that made subjects more docile than intended.
 - fix: broken military formations and other buildings

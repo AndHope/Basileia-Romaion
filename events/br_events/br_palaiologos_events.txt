@@ -1303,3 +1303,271 @@ palaiologos_events.10 = {
 		}
 	}
 }
+
+palaiologos_events.11 = { 
+	type = country_event
+	placement = scope:bandit_raided_state
+
+	title = palaiologos_events.11.t
+	desc = palaiologos_events.11.d
+	flavor = palaiologos_events.11.f
+
+	event_image = {
+		video = "gfx/event_pictures/rp1_social_banditry.bk2"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+		any_scope_state = {
+			NOT = { has_modifier = br_modifier_ere_bandit_raids }
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_palaiologos_reforms_security
+		}
+	}
+
+	cooldown = {
+		years = 3
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				NOT = { has_modifier = br_modifier_ere_bandit_raids }
+			}
+			save_scope_as = bandit_raided_state
+		}
+	}
+
+	option = {
+		name = palaiologos_events.11.a
+		default_option = yes
+		scope:bandit_raided_state = {
+			add_modifier = {
+				name = br_modifier_ere_bandit_raids
+				days = normal_modifier_time
+			}
+			add_radicals_in_state = {
+				value = small_radicals
+			}
+		}
+	}
+
+}
+
+palaiologos_events.12 = {
+	type = country_event
+	placement = root
+
+	title = palaiologos_events.12.t
+	desc = palaiologos_events.12.d
+	flavor = palaiologos_events.12.f
+
+	event_image = {
+		video = "europenorthamerica_russian_serfs"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = palaiologos_events.12.a
+		default_option = yes
+		add_modifier = {
+			name = br_modifier_ere_agriculture
+			days = long_modifier_time
+		}
+	}
+}
+
+palaiologos_events.13 = {
+	type = country_event
+	placement = root
+
+	title = palaiologos_events.13.t
+	desc = palaiologos_events.13.d
+	flavor = palaiologos_events.13.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = palaiologos_events.13.a
+		default_option = yes
+		add_modifier = {
+			name = br_modifier_ere_modernized_army
+			days = long_modifier_time
+		}
+	}
+
+}
+
+palaiologos_events.14 = {
+	type = country_event
+	placement = root
+
+	title = palaiologos_events.14.t
+	desc = palaiologos_events.14.d
+	flavor = palaiologos_events.14.f
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = palaiologos_events.14.a
+		default_option = yes
+		add_modifier = {
+			name = romaioi_bureaucracy
+			days = long_modifier_time
+		}
+	}
+
+}
+
+palaiologos_events.15 = {
+	type = country_event
+	placement = root
+
+	title = palaiologos_events.15.t
+	desc = palaiologos_events.15.d
+	flavor = palaiologos_events.15.f
+
+	event_image = {
+		video = "ip2_india_factory_floor"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = palaiologos_events.15.a
+		default_option = yes
+		add_modifier = {
+			name = romaioi_urbanization
+			days = long_modifier_time
+		}
+	}
+
+}
+
+palaiologos_events.16 = {
+	type = country_event
+	placement = root
+
+	title = palaiologos_events.16.t
+	desc = palaiologos_events.16.d
+	flavor = palaiologos_events.16.f
+
+	event_image = {
+		video = "middleeast_middleclass_cafe"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = palaiologos_events.16.a
+		default_option = yes
+		add_modifier = {
+			name = br_modifier_ere_modernized_education
+			days = long_modifier_time
+		}
+	}
+
+}
+
+palaiologos_events.17 = {
+	type = country_event
+	placement = root
+
+	title = palaiologos_events.17.t
+	desc = palaiologos_events.17.d
+	flavor = palaiologos_events.17.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = palaiologos_events.17.a
+		default_option = yes
+		add_modifier = {
+			name = br_modifier_ere_modernized_policing
+			days = long_modifier_time
+		}
+	}
+
+}
