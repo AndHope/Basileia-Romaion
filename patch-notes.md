@@ -1,5 +1,22 @@
 ####id 2880120246
 
+# Update 146
+
+## Poland-Lithuania Content has been reworked
+- 2 old Journal entries have been removed
+- 19 new Journal entries have been added
+- New Journal content around the assension off an new female ruler
+- New Journal content around reforming the state, and in doing so having to chose between following the Moderates or the Jadwigan's
+- The Commonwealth has been renamed at game start to Poland-Lithuania
+- After the reforms you will have the option to transform Poland-Lithuania into the Commonwealth
+- New Journals around various other things like conquest east, securing naval access, and colonialization
+- Special event for the PLC to have the option to convert to Slavic upon researching nationalism
+- 26 new modifiers which can be earned through the Journal Entries
+- New starting ruler and heir, with custom character traits
+- Renamed all of the PLC IG's with custom flavor names
+- Renamed all of the PLC political parties with custom flavor names
+- New optional flag for the Commonwealth, that you get when Ruthenian is a primary culture
+
 # Basileía Rōmaíōn – October 2025 Update
 
 ## Highlights
