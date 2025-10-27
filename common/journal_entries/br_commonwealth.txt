@@ -778,3 +778,49 @@ br_je_plc_access_to_the_black_sea = {
 
 	should_be_pinned_by_default = yes
 }
+
+#########################################################################################################################
+###
+### Securing of Our Eastern Front
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_securing_of_our_eastern_front = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    possible = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_PSKOV
+        country_or_subject_owns_entire_state_region = STATE_SMOLENSK
+        country_or_subject_owns_entire_state_region = STATE_ORYOL
+        country_or_subject_owns_entire_state_region = STATE_KURSK
+        country_or_subject_owns_entire_state_region = STATE_KHARKOV
+        country_or_subject_owns_entire_state_region = STATE_TAURIDA
+        country_or_subject_owns_entire_state_region = STATE_CRIMEA
+        country_or_subject_owns_entire_state_region = STATE_CHERSON
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_plc_well_defended_states
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
