@@ -668,7 +668,7 @@ br_je_plc_reform_the_commonwealth = {
 
 #########################################################################################################################
 ###
-### Centralizing the Commonwealth Buttons
+### Centralizing the Commonwealth
 ###
 #########################################################################################################################
 #A JE that allows you to reform into the commonwealth
@@ -679,9 +679,7 @@ br_je_plc_centralizing_the_commonwealth = {
 
     scripted_button = br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_button
 
-	is_shown_in_lobby = {
-		c:PLC ?= THIS
-    }
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
 
     immediate = {
     }
@@ -696,6 +694,45 @@ br_je_plc_centralizing_the_commonwealth = {
 	}
 
 	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Reclaiming the Baltic
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_reclaiming_the_baltic = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    possible = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		country_or_subject_owned_all_baltic_region_states = yes
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_plc_reformed_baltic_fleet
+	}
+
+	weight = 1000
 
 	should_be_pinned_by_default = yes
 }
