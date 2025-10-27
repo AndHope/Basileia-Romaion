@@ -1,5 +1,5 @@
 ﻿br_je_plc_succession = {
-    icon = "gfx/interface/icons/event_icons/event_military.dds"
+    icon = "gfx/interface/icons/event_icons/simple_Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
 
 	group = je_group_internal_affairs
 
@@ -730,6 +730,48 @@ br_je_plc_reclaiming_the_baltic = {
 
 	on_complete = {
         add_modifier = br_modifier_plc_reformed_baltic_fleet
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Access to the Black Sea
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_access_to_the_black_sea = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    possible = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_BESSARABIA
+        country_or_subject_owns_entire_state_region = STATE_CHERSON
+        country_or_subject_owns_entire_state_region = STATE_CRIMEA
+        country_or_subject_owns_entire_state_region = STATE_TAURIDA
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_black_sea_trade
 	}
 
 	weight = 1000
