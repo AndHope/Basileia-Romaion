@@ -730,6 +730,9 @@ br_je_plc_reclaiming_the_baltic = {
 
 	on_complete = {
         add_modifier = br_modifier_plc_reformed_baltic_fleet
+        add_journal_entry = {
+            type = br_je_plc_extending_our_reach
+        }
 	}
 
 	weight = 1000
@@ -814,6 +817,62 @@ br_je_plc_securing_of_our_eastern_front = {
         country_or_subject_owns_entire_state_region = STATE_TAURIDA
         country_or_subject_owns_entire_state_region = STATE_CRIMEA
         country_or_subject_owns_entire_state_region = STATE_CHERSON
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_plc_well_defended_states
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Extending Our Reach
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_extending_our_reach = {
+    icon = "gfx/interface/icons/event_icons/event_navigation.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		or = {
+            any_scope_state = {
+                count = 3
+                not = {
+                    custom_tooltip = {
+                        text = br_je_plc_extending_our_reach_complete_tt
+                        br_is_strategic_region_in_europe = {
+                            strategic_region = region
+                        }
+                    }
+                }
+            }
+            any_subject_or_below = {
+                any_scope_state = {
+                    count = 3
+                    not = {
+                        custom_tooltip = {
+                            text = br_je_plc_extending_our_reach_complete_tt
+                            br_is_strategic_region_in_europe = {
+                                strategic_region = region
+                            }
+                        }
+                    }
+                }
+            }
+        }
 	}
 
 	on_complete = {
