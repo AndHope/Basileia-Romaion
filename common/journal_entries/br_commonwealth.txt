@@ -883,3 +883,85 @@ br_je_plc_extending_our_reach = {
 
 	should_be_pinned_by_default = yes
 }
+
+#########################################################################################################################
+###
+### The Legacy of the Winged Hussars
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_the_legacy_of_the_winged_hussars = {
+    icon = "gfx/interface/icons/event_icons/military_drill.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        PLC ?= this
+    }
+
+    possible = {
+        has_technology_researched = trench_works
+    }
+
+    immediate = {
+    }
+
+	complete = {
+        or = {
+            has_technology_researched = stormtroopers
+            has_technology_researched = military_aviation
+            has_technology_researched = mobile_armor
+        }
+	}
+
+	on_complete = {
+        remove_modifier = br_modifier_winged_hussars
+        if = {
+            limit = {
+                has_technology_researched = stormtroopers
+            }
+            add_modifier = br_modifier_plc_angels_of_death
+        }
+        else_if = {
+            limit = {
+                has_technology_researched = military_aviation
+            }
+            add_modifier = br_modifier_plc_true_winged_hussars
+        }
+        else_if = {
+            limit = {
+                has_technology_researched = mobile_armor
+            }
+            add_modifier = br_modifier_plc_hussarian_armor_corps
+        }
+	}
+
+    event_outcome_completed_effect_desc = {
+        header = br_je_if_has_researched_stormtroopers_tt
+        effect = {
+            add_modifier = br_modifier_plc_angels_of_death
+        }
+    }
+    event_outcome_completed_effect_desc = {
+        header = br_je_if_has_researched_military_aviation_tt
+        effect = {
+            add_modifier = br_modifier_plc_true_winged_hussars
+        }
+    }
+    event_outcome_completed_effect_desc = {
+        header = br_je_if_has_researched_mobile_armor_tt
+        effect = {
+            add_modifier = br_modifier_plc_hussarian_armor_corps
+        }
+    }
+
+    timeout = 7300
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
