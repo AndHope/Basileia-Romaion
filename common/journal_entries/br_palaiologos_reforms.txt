@@ -76,10 +76,6 @@ je_palaiologos_reforms_economy = {
 
 	group = je_group_internal_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	complete = {
 		NOR = { 
 			has_law_or_variant = law_type:law_traditionalism
@@ -106,15 +102,15 @@ je_palaiologos_reforms_economy = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
-		trigger_event = {
-			id = palaiologos_events.15
-		}
+	#	trigger_event = {
+	#		id = add_event_here.1
+	#	}
 	}
 
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_economy_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -137,7 +133,7 @@ je_palaiologos_reforms_economy = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_economy_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -153,14 +149,9 @@ je_palaiologos_reforms_economy = {
 je_palaiologos_reforms_education = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	group = je_group_internal_affairs
 
 	complete = {
-		#has_law_or_variant = law_type:law_public_schools
 		any_scope_building = {
 			is_building_type = building_university
 			occupancy > 0.9
@@ -192,9 +183,9 @@ je_palaiologos_reforms_education = {
 			name = palaiologos_reforms_var
 			add = 1
 		}
-		trigger_event = {
-			id = palaiologos_events.16
-		}
+	#	trigger_event = {
+	#		id = 
+	#	}
 	}
 
 	current_value = {
@@ -209,7 +200,7 @@ je_palaiologos_reforms_education = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_education_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -218,7 +209,7 @@ je_palaiologos_reforms_education = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_education_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -236,10 +227,6 @@ je_palaiologos_reforms_separatism = {
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
 	group = je_group_internal_affairs
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
 	modifiers_while_active = {
 		br_modifier_national_separatism
@@ -324,7 +311,7 @@ je_palaiologos_reforms_separatism = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_separatism_palaiologos_reforms_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -333,7 +320,7 @@ je_palaiologos_reforms_separatism = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_separatism_palaiologos_reforms_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -351,10 +338,6 @@ je_palaiologos_reforms_security = {
 
 	group = je_group_internal_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	modifiers_while_active = {
 		br_modifier_lawless_countryside
 	}
@@ -371,17 +354,13 @@ je_palaiologos_reforms_security = {
 		NOT = {
 			any_scope_state = {
 				turmoil > 0.25
-				is_incorporated = yes
 			}
 			#radical_population_fraction >= 0.5
 		}
 	}
 
 	on_complete = {
-		trigger_event = {
-			id = palaiologos_events.17
-		}
-		set_variable = completed_security_palaiologos_reforms_je
+		#set_variable = completed_security_palaiologos_reforms_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -389,18 +368,11 @@ je_palaiologos_reforms_security = {
 		}
 	}
 
-	on_monthly_pulse = {
-		random_events = {
-			chance_of_no_event = 95
-			5 = palaiologos_events.11
-		}
-	}
-
 
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_security_palaiologos_reforms_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -409,7 +381,7 @@ je_palaiologos_reforms_security = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_security_palaiologos_reforms_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -424,10 +396,6 @@ je_palaiologos_reforms_security = {
 # Bureaucractic Reform
 je_palaiologos_reforms_bureaucracy = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
 	group = je_group_internal_affairs
 
@@ -465,9 +433,9 @@ je_palaiologos_reforms_bureaucracy = {
 				days = normal_modifier_time
 			}
 		}
-		trigger_event = {
-			id = palaiologos_events.14
-		}
+	#	trigger_event = {
+	#		id = add_event_here.2
+	#	}
 	}
 
 	#on_monthly_pulse = {
@@ -480,7 +448,7 @@ je_palaiologos_reforms_bureaucracy = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_bureaucracy_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -489,7 +457,7 @@ je_palaiologos_reforms_bureaucracy = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_bureaucracy_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -506,15 +474,10 @@ je_palaiologos_reforms_land_reform = {
 
 	group = je_group_internal_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 
 	complete = {
-		has_law_or_variant = law_type:law_homesteading
 		NOT = {
-			has_law_or_variant = law_type:law_land_based_taxation
+			has_law_or_variant = law_type:law_serfdom
 			has_law_or_variant = law_type:law_traditionalism
 		}
 	#	NOR = {
@@ -541,7 +504,7 @@ je_palaiologos_reforms_land_reform = {
 	}
 
 	on_complete = {
-		set_variable = completed_palaiologos_reforms_land_reform_je
+		#set_variable = completed_palaiologos_reforms_land_reform_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -557,14 +520,10 @@ je_palaiologos_reforms_land_reform = {
 			limit = {
 				has_modifier = br_modifier_corrupt_pronoia
 			}
-			#Moved to scripted to happen no matter what
 		#	trigger_event = {
 		#		id = palaiologos_events.3
 		#		days = 1
 		#	}
-		}
-		trigger_event = {
-			id = palaiologos_events.12
 		}
 	}
 
@@ -578,7 +537,7 @@ je_palaiologos_reforms_land_reform = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_land_reform_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -587,7 +546,7 @@ je_palaiologos_reforms_land_reform = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_land_reform_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -603,10 +562,6 @@ je_palaiologos_reforms_end_curruption = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
     complete = {
         OR = {
@@ -637,7 +592,6 @@ je_palaiologos_reforms_end_curruption = {
 	}
 
 	on_complete = {
-		set_variable = completed_palaiologos_reforms_end_curruption_je
 		custom_tooltip = palaiologos.3.tt2
 		custom_tooltip = palaiologos.3.tt1
         custom_tooltip = je_palaiologos_reforms_advance
@@ -688,14 +642,14 @@ je_palaiologos_reforms_end_curruption = {
     invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_end_curruption_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_end_curruption_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -712,10 +666,6 @@ je_palaiologos_reforms_end_latin_privileges = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
     complete = {
 		has_law_or_variant = law_type:law_interventionism
@@ -734,7 +684,6 @@ je_palaiologos_reforms_end_latin_privileges = {
 	}
 
 	on_complete = {
-		set_variable = completed_palaiologos_reforms_end_latin_privileges_je
         custom_tooltip = je_palaiologos_reforms_advance
 		remove_modifier = br_modifier_latin_privileges
 		change_variable = {
@@ -790,14 +739,14 @@ je_palaiologos_reforms_end_latin_privileges = {
     invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_end_latin_privileges_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_end_latin_privileges_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -817,10 +766,6 @@ je_palaiologos_reforms_army = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
 	complete = {
 		army_size >= 250
@@ -871,10 +816,6 @@ je_palaiologos_reforms_army = {
 	#	add_journal_entry = {
 	#		type = je_palaiologos_reforms_navy
 	#	}
-		trigger_event = {
-			id = palaiologos_events.13
-			days = 1
-		}
 	}
 
 	on_monthly_pulse = {
@@ -886,7 +827,7 @@ je_palaiologos_reforms_army = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_army_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -895,7 +836,7 @@ je_palaiologos_reforms_army = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_army_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -913,10 +854,6 @@ je_palaiologos_reforms_navy = {
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 
 	group = je_group_internal_affairs
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
 	modifiers_while_active = {
 		br_modifier_regionalized_navy
@@ -958,7 +895,7 @@ je_palaiologos_reforms_navy = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_palaiologos_reforms_navy_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -967,7 +904,7 @@ je_palaiologos_reforms_navy = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_palaiologos_reforms_navy_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -988,10 +925,6 @@ je_palaiologos_reforms_syria = {
 
 	group = je_group_foreign_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	immediate = {
 		s:STATE_ALEPPO = {
 			add_claim = c:BYZ
@@ -1005,9 +938,21 @@ je_palaiologos_reforms_syria = {
 	}
 
 	complete = {
-		country_or_subject_owns_entire_state_region = STATE_ALEPPO
-		country_or_subject_owns_entire_state_region = STATE_LEBANON
-		country_or_subject_owns_entire_state_region = STATE_PALESTINE
+		OR = {
+			AND = {
+				exists = c:br_syria
+				c:br_syria = {
+					is_subject_of = ROOT
+					is_subject_type = subject_type_puppet
+				}
+				c:br_syria = { liberty_desire <= 50 }
+			}
+			AND = {
+				owns_entire_state_region = STATE_ALEPPO
+				owns_entire_state_region = STATE_LEBANON
+				owns_entire_state_region = STATE_PALESTINE
+			}
+		}
 	}
 
 	on_complete = {
@@ -1025,21 +970,20 @@ je_palaiologos_reforms_syria = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_syria_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
-	#on_weekly_pulse = {
-		#Currently set to fire via an AI decision 
-	#	events = {
-	#		aegyptian_crisis_events.1
-	#	}
-	#}
+	on_weekly_pulse = {
+		events = {
+			aegyptian_crisis_events.1
+		}
+	}
 
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_syria_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -1057,10 +1001,6 @@ je_palaiologos_reforms_egypt = {
 
 	group = je_group_foreign_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	modifiers_while_active = {
 		br_modifier_echthros_tou_thronou
 	}
@@ -1069,7 +1009,7 @@ je_palaiologos_reforms_egypt = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 	 	NOT = {
-	 		has_variable = completed_aegypt_je
+	 		has_variable = palaiologos_reforms_complete
 	 	}
 	}
 	possible = {
@@ -1117,7 +1057,6 @@ je_palaiologos_reforms_egypt = {
 	}
 
 	on_complete = {
-		set_variable = completed_aegypt_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		every_scope_state = {
 			limit = { OR = { state_region = s:STATE_LOWER_EGYPT } }
@@ -1149,7 +1088,7 @@ je_palaiologos_reforms_egypt = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_aegypt_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -1163,14 +1102,10 @@ je_palaiologos_reforms_italy = {
 
 	group = je_group_foreign_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_italia_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -1219,7 +1154,6 @@ je_palaiologos_reforms_italy = {
 	}
 
 	on_complete = {
-		set_variable = completed_italia_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -1236,7 +1170,7 @@ je_palaiologos_reforms_italy = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_italia_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -1250,14 +1184,10 @@ je_palaiologos_reforms_africa = {
 
 	group = je_group_foreign_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_afrika_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -1296,7 +1226,6 @@ je_palaiologos_reforms_africa = {
 	}
 
 	on_complete = {
-		set_variable = completed_afrika_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -1313,7 +1242,7 @@ je_palaiologos_reforms_africa = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_afrika_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -1327,14 +1256,10 @@ je_palaiologos_reforms_elysium = {
 
 	group = je_group_foreign_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_elysium_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -1357,7 +1282,6 @@ je_palaiologos_reforms_elysium = {
 	}
 
 	on_complete = {
-		set_variable = completed_elysium_je
 		custom_tooltip = je_palaiologos_reforms_advance
 
 		change_variable = {
@@ -1373,7 +1297,7 @@ je_palaiologos_reforms_elysium = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_elysium_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -1387,14 +1311,10 @@ je_palaiologos_reforms_australis = {
 
 	group = je_group_foreign_affairs
 
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
-
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_elysium_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -1421,7 +1341,6 @@ je_palaiologos_reforms_australis = {
 	}
 
 	on_complete = {
-		set_variable = completed_elysium_je
 		custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -1436,7 +1355,7 @@ je_palaiologos_reforms_australis = {
 	invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_elysium_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -1451,10 +1370,6 @@ je_palaiologos_reforms_centralization_west = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
 	immediate = {
 		s:STATE_ALBANIA = {
@@ -1512,7 +1427,6 @@ je_palaiologos_reforms_centralization_west = {
 	}
 
 	on_complete = {
-		set_variable = completed_balkan_centralization_je
         custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -1526,7 +1440,7 @@ je_palaiologos_reforms_centralization_west = {
     invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_balkan_centralization_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -1535,7 +1449,7 @@ je_palaiologos_reforms_centralization_west = {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_balkan_centralization_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {
@@ -1550,10 +1464,6 @@ je_palaiologos_reforms_centralization_east= {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
-
-	is_shown_in_lobby = {
-		c:BYZ ?= this
-	}
 
 	immediate = {
 		s:STATE_TRABZON = {
@@ -1587,7 +1497,6 @@ je_palaiologos_reforms_centralization_east= {
 	}
 
 	on_complete = {
-		set_variable = completed_anatolian_centralization_je
         custom_tooltip = je_palaiologos_reforms_advance
 		change_variable = {
 			name = palaiologos_reforms_var
@@ -1598,7 +1507,7 @@ je_palaiologos_reforms_centralization_east= {
     invalid = {
 		custom_tooltip = {
 			text = finished_palaiologos_reforms_tt
-			has_variable = completed_anatolian_centralization_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 
@@ -1607,7 +1516,7 @@ je_palaiologos_reforms_centralization_east= {
 	is_shown_when_inactive = {
 		c:BYZ ?= this
 		NOT = {
-			has_variable = completed_anatolian_centralization_je
+			has_variable = palaiologos_reforms_complete
 		}
 	}
 	possible = {

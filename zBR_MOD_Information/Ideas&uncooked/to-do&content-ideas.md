@@ -1,21 +1,24 @@
 # TODO & Content Ideas
 
 ## Laws 
-- More unique law varients.
+- Change the mods unique laws to law varients.
 
 ## Cultures
+- Re do culture files, remove unedited vanilla cultures and prepare for 1.10
 
 ## States and Map
+- set up any new states that are added in 1.10
 
 ## Country name defintions
 - Give countries nativized names
 - Make Countries use their greek name if a subject of BR. 
 
 ## Organization
+- reogranize modifiers by catagory/type instead of country. 
 
 ## Balance
 - Continue tech balance
-	- 
+	- add more diversity to tech pictures
 	- create more production methods instead of modifiers.
 	- add more techs though-out the tree to spread stuff out. Eventually come up with Roman Steam-Punk techs.
 
@@ -74,10 +77,7 @@
 		- Identify more on their regional rural hill/mountain identity and black sea.
 	- Anatolian
 		- Identify with conservative rural values, strongly militant.
-	- Kappadocian event that converges the Romaioi into Kappadocians to happen after nationalism is invented will make a small story to explain the divergance so I don't get bunch of angry greek historian messages lol
-	- Event to happen once tanks are researched the last Kataphroacti small story.
-	
-	- Flavor 
+	- Kappadocian maybe
 	- Add unique hierarchy for ERE. 
 	- Add decisions to purchase Italian trade posts and black sea colonies.
 	- Create a chariot racing section similar to the sports in Morganrote

@@ -20,15 +20,21 @@ aegyptian_crisis_events.1 = {
 
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	
-#	trigger = {
-#		NOT = { has_variable = aegyptian_crisis }
-#		exists = c:br_aegypt
-#		any_scope_state = {
-#			state_region = s:STATE_ALEPPO
-#			owner = c:BYZ
-#		}
-#	}
+	trigger = {
+		NOT = { has_variable = aegyptian_crisis }
+		exists = c:br_aegypt
+		c:br_aegypt = {
+			aggressive_diplomatic_plays_permitted = yes
+			any_scope_state = {
+				has_claim_by = c:BYZ
+				OR = {
+					state_region = s:STATE_ALEPPO
+					state_region = s:STATE_LEBANON
+					state_region = s:STATE_PALESTINE
+				}
+			}
+		}
+	}
 
 	immediate = {
 		s:STATE_EASTERN_THRACE = {
@@ -52,7 +58,6 @@ aegyptian_crisis_events.1 = {
 				name = oriental_crisis_name
 				target_country = c:br_aegypt
 				type = dp_make_protectorate
-				target_state = c:br_aegypt.capital
 			}
 		}
 
@@ -63,23 +68,23 @@ aegyptian_crisis_events.1 = {
 					target_is = c:br_aegypt
 				}
 				add_escalation = 80
-				add_initiator_backers = { c:ARM c:GEO }
-				#add_target_backers = { c:BR_PAL }
+				add_initiator_backers = { c:ARM c:GEO c:BR_ANT }
+				add_target_backers = { c:BR_PAL }
 				if = {
-					limit = { NOT = { s:STATE_LEBANON.region_state:br_aegypt = { is_target_of_wargoal = c:BYZ } } }
+					limit = { NOT = { s:STATE_LEBANON.region_state:br_aegypt = { is_target_of_wargoal = c:BR_ANT } } }
 					add_war_goal = {
-						holder = c:BYZ
+						holder = c:BR_ANT
 						type = return_state
-						target_state = s:STATE_LEBANON.region_state:br_aegypt
+						target_state = s:STATE_LEBANON.region_state:BR_PAL
 						primary_demand = yes
 					}
 				}
 				if = {
-					limit = { NOT = { s:STATE_PALESTINE.region_state:br_aegypt = { is_target_of_wargoal = c:BYZ } } }
+					limit = { NOT = { s:STATE_PALESTINE.region_state:br_aegypt = { is_target_of_wargoal = c:BR_ANT } } }
 					add_war_goal = {
-						holder = c:BYZ
+						holder = c:BR_ANT
 						type = return_state
-						target_state = s:STATE_PALESTINE.region_state:br_aegypt
+						target_state = s:STATE_PALESTINE.region_state:BR_PAL
 						primary_demand = yes
 					}
 				}
@@ -167,14 +172,14 @@ aegyptian_crisis_events.4 = {
 	duration = 3
 
 	immediate = {
-		#if = {
-		#	limit = {
-		#		exists = c:BR_PAL
-		#	}
-		#}
-		#s:STATE_ALEPPO.region_state:br_syria ?= { set_state_owner = c:BYZ }
-		#s:STATE_LEBANON.region_state:br_syria ?= { set_state_owner = c:br_aegypt }
-		#s:STATE_PALESTINE.region_state:br_syria ?= { set_state_owner = c:br_aegypt }
+		if = {
+			limit = {
+				exists = c:br_syria
+			}
+		}
+		s:STATE_ALEPPO.region_state:br_syria ?= { set_state_owner = c:BYZ }
+		s:STATE_LEBANON.region_state:br_syria ?= { set_state_owner = c:br_aegypt }
+		s:STATE_PALESTINE.region_state:br_syria ?= { set_state_owner = c:br_aegypt }
 	}
 
 	option = {
