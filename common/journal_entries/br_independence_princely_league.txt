@@ -1,7 +1,9 @@
-﻿je_princely_league_main = {
+﻿br_je_create_the_princely_league = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds" #change later
 	
 	group = je_group_foreign_affairs
+
+	scripted_button = je_create_princely_league_button
 
 	is_shown_in_lobby = {
 		country_is_in_europe = yes
@@ -35,9 +37,6 @@
 		# 	years = 75
 		# }
 	}
-
-	scripted_button = je_create_princely_league_button
-	scripted_button = je_invite_members_to_league_button
 	
 	complete = {
 		custom_tooltip = {
@@ -66,5 +65,275 @@
 	transferable = no
 
 	weight = 5000
+	should_be_pinned_by_default = yes
+}
+
+je_princely_league_main = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_com_situations
+
+	scripted_button = sb_com_rise_of_communism_test
+    scripted_button = sb_com_rise_of_communism_test2
+    scripted_button = sb_com_rise_of_communism_test3
+	scripted_button = br_je_princely_league_main_join_left_side_button
+	scripted_button = br_je_princely_league_main_join_right_side_button
+	scripted_button = br_je_princely_league_main_left_side_favour_independence_button
+	scripted_button = br_je_princely_league_main_left_side_favour_autonomy_button
+
+    status_desc = {
+        desc = br_princely_league_status
+    }
+
+	modifiers_while_active = {
+		br_modifier_princely_league
+	}
+
+	immediate = {
+		#The setup of the situation should only run once, in this case when the princely league leader activates the JE
+		if = {
+			limit = { has_modifier = br_modifier_princely_league_leader }
+			# Setup base situation
+			# The id can be anything that can be stored in a variable like a flag, value or scope
+			create_com_situation = {
+				situation_id = br_princely_league_situation_id
+				icon = com_icon_rise_of_communism	#temp
+
+				side_leader_country_left = c:FLA
+				side_name_left = br_princely_league_left_side_name
+				side_desc_left = br_princely_league_left_side_desc
+
+				side_leader_country_right = c:HRE
+				side_name_right = br_princely_league_right_side_name
+				side_desc_right = br_princely_league_right_side_desc
+			}
+
+			set_com_situation_header = {
+				text = je_com_rise_of_communism_header
+			}
+
+			# Create Hardliners faction
+			create_com_situation_faction = {
+				side = left
+				name = br_princely_league_left_faction_members
+				desc = br_princely_league_left_faction_members_desc
+			}
+			create_com_situation_faction = {
+				side = neutral
+				name = br_princely_league_neutral_faction_members
+				desc = br_princely_league_neutral_faction_members_desc
+			}
+			create_com_situation_faction = {
+				side = right
+				name = br_princely_league_right_faction_members
+				desc = br_princely_league_right_faction_members_desc
+			}
+			c:HRE = {
+				every_direct_subject = {
+					limit = {
+						country_is_in_europe = yes #every european state gets notefied
+						NOT = {
+							is_com_situation_side_leader = {
+								side = left
+							}
+						}
+					}
+					save_temporary_scope_as = br_princely_league_new_neutral_side_member_scope
+					# save_com_situation_scope = {
+					# 	situation_id = br_princely_league_situation_id
+					# }
+					add_com_situation_faction_country = {
+						side = neutral
+						name = br_princely_league_neutral_faction_members
+						country = scope:br_princely_league_new_neutral_side_member_scope
+					}
+					error_log = br_test_if_situation_works
+					debug_log_scopes = yes
+					create_ongoing_com_situation_journal_entry = {
+						journal = je_princely_league_side
+						situation_id = br_princely_league_situation_id
+					}
+					add_journal_entry = {
+						type = je_princely_league_main
+					}
+					# add_journal_entry = {
+					# 	type = je_princely_league_side
+					# }
+				}
+			}
+			
+			# Create Main Actions button group
+			create_com_situation_button_group = {
+				name = je_com_rise_of_communism_button_group_main_actions
+				desc = je_com_rise_of_communism_button_group_main_actions_desc
+			}
+			add_com_situation_button_group_element = {
+				group = je_com_rise_of_communism_button_group_main_actions
+				name = sb_com_rise_of_communism_test
+			}
+
+			# Create Diplomatic Actions button group
+			create_com_situation_button_group = {
+				name = je_com_rise_of_communism_button_group_diplomatic_actions
+				desc = je_com_rise_of_communism_button_group_diplomatic_actions_desc
+			}
+			add_com_situation_button_group_element = {
+				group = je_com_rise_of_communism_button_group_diplomatic_actions
+				name = sb_com_rise_of_communism_test2
+			}
+			add_com_situation_button_group_element = {
+				group = je_com_rise_of_communism_button_group_diplomatic_actions
+				name = sb_com_rise_of_communism_test3
+			}
+			create_com_situation_button_group = {
+				name = br_je_princely_league_main_chose_side_button_group
+				desc = br_je_princely_league_main_join_chose_side_button_group_desc
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_side_button_group
+				name = br_je_princely_league_main_join_left_side_button
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_side_button_group
+				name = br_je_princely_league_main_join_right_side_button
+			}
+			create_com_situation_button_group = {
+				name = br_je_princely_league_main_chose_stance_button_group
+				desc = br_je_princely_league_main_chose_stance_button_group_desc
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_stance_button_group
+				name = br_je_princely_league_main_left_side_favour_independence_button
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_stance_button_group
+				name = br_je_princely_league_main_left_side_favour_autonomy_button
+			}
+
+			#Do the setup for the stances feature
+			br_princely_league_main_set_up_left_side_stances = yes
+		}
+		else = {
+			add_ongoing_com_situation = {
+				situation_id = br_princely_league_situation_id
+			}
+		}
+	}
+
+    complete = {
+		custom_tooltip = {
+			text = princely_league_exists_tt
+			has_variable = princely_league_formed
+		}
+		NOT = {
+			is_subject_of = c:HRE
+		}
+	}
+	
+	on_complete = {
+		trigger_event = {
+			id = princely_league_completion.1 #complete custom event
+			popup = yes
+		}
+		hidden_effect = {
+			set_global_variable = {
+				name = princely_league_complete
+			}
+		}
+	}
+
+    fail = {
+		c:HRE = {
+        	has_modifier = border_cowardice
+		}
+    }
+
+    progressbar = yes
+    goal_add_value = 100
+    current_value = 10
+
+	transferable = no
+	can_revolution_inherit = yes
+
+	weight = 200
+	should_be_pinned_by_default = yes
+}
+
+je_princely_league_side = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_com_situations
+
+	scripted_button = sb_com_rise_of_communism_test
+    scripted_button = sb_com_rise_of_communism_test2
+    scripted_button = sb_com_rise_of_communism_test3
+	scripted_button = br_je_princely_league_main_join_left_side_button
+	scripted_button = br_je_princely_league_main_join_right_side_button
+
+    status_desc = {
+        desc = br_princely_league_status
+    }
+
+	immediate = {
+        # Setup base situation
+        # The id can be anything that can be stored in a variable like a flag, value or scope
+        # create_com_situation = {
+        #     situation_id = br_princely_league_situation_id
+        #     icon = com_icon_rise_of_communism	#temp
+
+        #     side_leader_country_left = c:FLA
+        #     side_name_left = br_princely_league_left_side_name
+        #     side_desc_left = br_princely_league_left_side_desc
+
+        #     side_leader_country_right = c:FLA
+        #     side_name_right = br_princely_league_right_side_name
+        #     side_desc_right = br_princely_league_right_side_desc
+        # }
+		# add_ongoing_com_situation = {
+		# 	situation_id = br_princely_league_situation_id
+		# }
+		# scope:journal_entry = {
+		# 	c:HRE = {
+		# 		set_variable = br_test_var
+		# 	}
+		# }
+	}
+
+    complete = {
+		custom_tooltip = {
+			text = princely_league_exists_tt
+			has_variable = princely_league_formed
+		}
+		NOT = {
+			is_subject_of = c:HRE
+		}
+	}
+	
+	on_complete = {
+		trigger_event = {
+			id = princely_league_completion.1 #complete custom event
+			popup = yes
+		}
+		hidden_effect = {
+			set_global_variable = {
+				name = princely_league_complete
+			}
+		}
+	}
+
+    fail = {
+		c:HRE = {
+        	has_modifier = border_cowardice
+		}
+    }
+
+    # progressbar = yes
+    # goal_add_value = 100
+    # current_value = 10
+
+	# transferable = no
+	# can_revolution_inherit = yes
+
+	weight = 200
 	should_be_pinned_by_default = yes
 }

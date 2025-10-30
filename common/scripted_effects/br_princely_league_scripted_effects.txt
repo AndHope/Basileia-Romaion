@@ -1,0 +1,49 @@
+﻿#######################################################################################
+###
+### je_princely_league_main effects
+###
+#######################################################################################
+#This effect will do the nessesary set up for the stances feature of the left side faction
+br_princely_league_main_set_up_left_side_stances = {
+	# Set up the var's needed to count the nr of countries that support each stance
+	je:je_princely_league_main = {
+		set_variable = {
+			name = br_princely_league_main_nr_of_independence_stance_members_var
+			value = 0
+		}
+		set_variable = {
+			name = br_princely_league_main_nr_of_autonomy_stance_members_var
+			value = 0
+		}
+	}
+}
+
+#This effect will change the stance of the member country in who's scope this is called to independence
+br_princely_league_main_left_side_member_change_stance_to_independence = {
+	set_variable = {
+		name = br_princely_league_main_left_side_member_stance_var
+		value = flag:br_princely_league_main_independence_stance_flag
+	}
+
+	je:je_princely_league_main = {
+		change_variable = {
+			name = br_princely_league_main_nr_of_independence_stance_members_var
+			add = 1
+		}
+	}
+}
+
+#This effect will change the stance of the member country in who's scope this is called to autonomy
+br_princely_league_main_left_side_member_change_stance_to_autonomy = {
+	set_variable = {
+		name = br_princely_league_main_left_side_member_stance_var
+		value = flag:br_princely_league_main_autonomy_stance_flag
+	}
+
+	je:je_princely_league_main = {
+		change_variable = {
+			name = br_princely_league_main_nr_of_autonomy_stance_members_var
+			add = 1
+		}
+	}
+}
