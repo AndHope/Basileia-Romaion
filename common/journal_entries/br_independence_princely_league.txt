@@ -225,8 +225,22 @@ je_princely_league_main = {
 			text = princely_league_exists_tt
 			has_variable = princely_league_formed
 		}
-		NOT = {
-			is_subject_of = c:HRE
+		any_com_situation_countries  = {
+			filter = {
+				or = {
+					is_com_situation_faction_member = {
+						side = left
+						faction = br_princely_league_left_faction_members
+					}
+					is_com_situation_side_leader = {
+						side = left
+					}
+				}
+			}
+			NOT = {
+				is_subject_of = c:HRE
+			}
+			count >= scope:com_situation.var:br_princely_league_main_nr_of_left_side_members_var
 		}
 	}
 	
@@ -240,12 +254,14 @@ je_princely_league_main = {
 				name = princely_league_complete
 			}
 		}
+		add_modifier = br_modifier_princely_league_success
 	}
 
     fail = {
 		c:HRE = {
         	has_modifier = border_cowardice
 		}
+		add_modifier = br_modifier_princely_league_failure
     }
 
     progressbar = yes
