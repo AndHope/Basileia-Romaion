@@ -6,7 +6,7 @@
 #This effect will do the nessesary set up for the stances feature of the left side faction
 br_princely_league_main_set_up_left_side_stances = {
 	# Set up the var's needed to count the nr of countries that support each stance
-	je:je_princely_league_main = {
+	scope:journal_entry = {	#needs to be 'scope:journal_entry' and not a je: direct scope is because the direct scope is inaccessible in the immediate block of a JE
 		set_variable = {
 			name = br_princely_league_main_nr_of_independence_stance_members_var
 			value = 0
