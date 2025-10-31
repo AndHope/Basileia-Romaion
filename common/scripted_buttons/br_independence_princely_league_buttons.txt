@@ -92,72 +92,72 @@ je_create_princely_league_button = {
 	}
 }
 
-br_je_invite_members_to_league_button = {
-	name = "je_invite_members_to_league_button"
-	desc = "je_invite_members_to_league_button_desc"
+# br_je_invite_members_to_league_button = {
+# 	name = "je_invite_members_to_league_button"
+# 	desc = "je_invite_members_to_league_button_desc"
 
-	#TODO write custom tooltips for the buttons effect
+# 	#TODO write custom tooltips for the buttons effect
 
-	visible = { always = yes }
+# 	visible = { always = yes }
 
-	cooldown = {
-		months = 1
-	}
+# 	cooldown = {
+# 		months = 1
+# 	}
 
-	possible = {
-		# not = {
-		# 	has_variable = inviting_members_to_league
-		# }
-		has_modifier = br_modifier_princely_league_leader
-		custom_tooltip = {
-			text = formed_princely_league_tt
-			has_variable = created_princely_league
-		}
-	}
+# 	possible = {
+# 		# not = {
+# 		# 	has_variable = inviting_members_to_league
+# 		# }
+# 		has_modifier = br_modifier_princely_league_leader
+# 		custom_tooltip = {
+# 			text = formed_princely_league_tt
+# 			has_variable = created_princely_league
+# 		}
+# 	}
 
-	effect = {
-		# set_variable = inviting_members_to_league
+# 	effect = {
+# 		# set_variable = inviting_members_to_league
 		
-		root = {
-			save_scope_as = league_leader
-		}
+# 		root = {
+# 			save_scope_as = league_leader
+# 		}
 
-		# overlord = {
-		# 	create_unidirectional_truce = {  
-		# 		country = root
-		# 		months = 36
-		# 	} 
-		# }
+# 		# overlord = {
+# 		# 	create_unidirectional_truce = {  
+# 		# 		country = root
+# 		# 		months = 36
+# 		# 	} 
+# 		# }
 
-		every_country = {
-			limit = {
-				country_is_in_europe = yes
-				is_subject = yes
-				NOT = { this = root }
-				overlord = c:HRE
-				liberty_desire > 75
-				NOT = {
-					br_is_county_supporting_independence_scripted_trigger = {
-						INITIATOR_COUNTRY = scope:league_leader
-						TARGET_COUNTRY = prev
-					}
-				}
-			}
-			trigger_event = { id = princely_league_invitation.1 popup = yes }
-		}
-	}
+# 		every_country = {
+# 			limit = {
+# 				country_is_in_europe = yes
+# 				is_subject = yes
+# 				NOT = { this = root }
+# 				overlord = c:HRE
+# 				liberty_desire > 75
+# 				NOT = {
+# 					br_is_county_supporting_independence_scripted_trigger = {
+# 						INITIATOR_COUNTRY = scope:league_leader
+# 						TARGET_COUNTRY = prev
+# 					}
+# 				}
+# 			}
+# 			trigger_event = { id = princely_league_invitation.1 popup = yes }
+# 		}
+# 	}
 
-	#Country scope
-	ai_chance = {
-		value = 0
-		if = {
-			limit = {
-				c:FLA = { liberty_desire >= 50 }
-			}
-			add = 5
-		}
-	}
-}
+# 	#Country scope
+# 	ai_chance = {
+# 		value = 0
+# 		if = {
+# 			limit = {
+# 				c:FLA = { liberty_desire >= 50 }
+# 			}
+# 			add = 5
+# 		}
+# 	}
+# }
 
 br_je_princely_league_main_join_left_side_button = {
 	name = "br_je_princely_league_main_join_left_side_button"
