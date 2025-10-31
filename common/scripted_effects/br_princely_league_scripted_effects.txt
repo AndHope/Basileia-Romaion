@@ -31,7 +31,7 @@ br_princely_league_main_left_side_member_change_stance_to_independence = {
 		value = flag:br_princely_league_main_independence_stance_flag
 	}
 
-	je:je_princely_league_main = {
+	scope:com_situation = {
 		change_variable = {
 			name = br_princely_league_main_nr_of_independence_stance_members_var
 			add = 1
@@ -46,7 +46,7 @@ br_princely_league_main_left_side_member_change_stance_to_autonomy = {
 		value = flag:br_princely_league_main_autonomy_stance_flag
 	}
 
-	je:je_princely_league_main = {
+	scope:com_situation = {
 		change_variable = {
 			name = br_princely_league_main_nr_of_autonomy_stance_members_var
 			add = 1
@@ -99,5 +99,60 @@ br_princely_league_main_establish_a_princely_league_membership_treaty_with_all_c
 			}
 		}
 	}
-	
+}
+
+#Remove a Princely League Membership treaty between a given 'first_country' and 'second_country'
+br_princely_league_main_remove_princely_league_membership_treaty = {
+	$first_country$ = {
+		every_scope_treaty = {
+			limit = {
+				$second_country$ ?= second_country
+				any_scope_article = {
+					has_type = br_princely_league_membership
+				}
+			}
+			$first_country$ = {
+				set_variable = br_can_withdraw_from_princely_league_membership_treaty
+			}
+			withdraw = {
+				country = $first_country$
+			}
+		}
+	}
+}
+
+# br_princely_league_main_remove_a_princely_league_membership_treaty = {
+# 	first_country = c:BRI
+# 	second_country = c:FLA
+# }
+
+#Remove a Princely League Membership treaty between all other countries currently in the Princely League
+#root is expected to be a country scope
+br_princely_league_main_remove_princely_league_membership_treaty_with_all_countries_currently_in_the_league = {
+	#First get access to the scope:com_situation for all of the situation effects to work correctly
+	save_com_situation_scope = {
+		situation_id = br_princely_league_situation_id
+	}
+	every_com_situation_countries  = {
+		if = {
+			limit = {
+				not = { this ?= root }
+				or = {
+					is_com_situation_faction_member = {
+						side = left
+						faction = br_princely_league_left_faction_members
+					}
+					is_com_situation_side_leader = {
+						side = left
+					}
+				}
+			}
+			#need to save scope because giving this as argument (to a macro) to causes the wrong scope to be used in the called scripted effect
+			save_temporary_scope_as = br_princely_league_second_country
+			br_princely_league_main_remove_princely_league_membership_treaty = {
+				first_country = root
+				second_country = scope:br_princely_league_second_country
+			}
+		}
+	}
 }
