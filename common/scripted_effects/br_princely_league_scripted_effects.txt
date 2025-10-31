@@ -53,3 +53,51 @@ br_princely_league_main_left_side_member_change_stance_to_autonomy = {
 		}
 	}
 }
+
+#Establishes a Princely League Membership treaty between a given 'first_country' and 'second_country'
+br_princely_league_main_establish_a_princely_league_membership_treaty = {
+	create_treaty = {
+		name = br_princely_league_membership_treaty_name
+		first_country = $first_country$
+		second_country = $second_country$
+
+		is_draft = no
+		# binding_period = { years = 0 }
+
+		articles_to_create = {
+			{ # Princely League Membership
+				article = br_princely_league_membership
+			}
+		}
+	}
+}
+
+#Establishes a Princely League Membership treaty between all other countries currently in the Princely League
+#root is expected to be a country scope
+br_princely_league_main_establish_a_princely_league_membership_treaty_with_all_countries_currently_in_the_league = {
+	#First get access to the scope:com_situation for all of the situation effects to work correctly
+	save_com_situation_scope = {
+		situation_id = br_princely_league_situation_id
+	}
+	every_com_situation_countries  = {
+		if = {
+			limit = {
+				not = { this ?= root }
+				or = {
+					is_com_situation_faction_member = {
+						side = left
+						faction = br_princely_league_left_faction_members
+					}
+					is_com_situation_side_leader = {
+						side = left
+					}
+				}
+			}
+			br_princely_league_main_establish_a_princely_league_membership_treaty = {
+				first_country = root
+				second_country = this
+			}
+		}
+	}
+	
+}
