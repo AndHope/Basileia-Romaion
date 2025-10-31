@@ -52,10 +52,15 @@
 	on_entry_into_force = {}
 
 	can_withdraw = {
-		always = no
+		scope:withdrawing_country = {
+			has_variable = br_can_withdraw_from_princely_league_membership_treaty
+		}
 	}
 
 	on_withdrawal = {
+		scope:withdrawing_country = {
+			remove_variable = br_can_withdraw_from_princely_league_membership_treaty
+		}
 	}
 	on_break = {
 	}
