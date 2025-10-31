@@ -25,10 +25,6 @@
 
 	usage_limit = once_per_side
 
-	target_modifier = {
-		country_treaty_leverage_generation_add = 300
-	}
-
 	visible = {
 	}
 
@@ -37,15 +33,19 @@
 
 	requirement_to_maintain = {
 		trigger = {
-			scope:source_country = {
-				NOT = { has_subject_relation_with = scope:target_country }
+			scope:first_country = {
+				NOT = { has_subject_relation_with = scope:second_country }
+				br_does_princely_league_exist = yes
 			}
 		}
 	}
 
 	requirement_to_maintain = {
 		trigger = {
-			scope:target_country = { is_subject = yes }
+			scope:second_country = {
+				NOT = { has_subject_relation_with = scope:first_country }
+				br_does_princely_league_exist = yes
+			}
 		}
 	}
 
