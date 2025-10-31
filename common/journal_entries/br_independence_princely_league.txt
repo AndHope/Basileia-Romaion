@@ -66,7 +66,42 @@ je_princely_league_main = {
 	scripted_button = br_je_princely_league_main_left_side_favour_autonomy_button
 
     status_desc = {
-        desc = br_princely_league_status
+		first_valid = {
+			triggered_desc = {
+				desc = br_je_princely_league_main_status_desc_left_side
+				trigger = {
+					or = {
+						is_com_situation_faction_member = {
+							side = left
+							faction = br_princely_league_left_faction_members
+						}
+						is_com_situation_side_leader = {
+							side = left
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = br_je_princely_league_main_status_desc_right_side
+				trigger = {
+					or = {
+						is_com_situation_faction_member = {
+							side = right
+							faction = br_princely_league_right_faction_members
+						}
+						is_com_situation_side_leader = {
+							side = right
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = br_je_princely_league_main_status_desc_neutral_side
+				trigger = {
+					always = yes
+				}
+			}
+		}
     }
 
 	modifiers_while_active = {

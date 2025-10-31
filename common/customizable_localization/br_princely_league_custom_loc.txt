@@ -1,0 +1,48 @@
+﻿###
+###Custom loc for br_generic_religion_swap_decision
+###
+
+#CURENTLY NOT USED (MAYBE LATER)
+
+#Custom loc for the reason of the je_princely_league_main JE
+je_princely_league_main_reason_custom_loc = {
+	type = country
+	
+	#left side loc
+	text = {
+		trigger = {
+			or = {
+				is_com_situation_faction_member = {
+					side = left
+					faction = br_princely_league_left_faction_members
+				}
+				is_com_situation_side_leader = {
+					side = left
+				}
+			}
+		}
+		localization_key = br_je_princely_league_main_reason_left_side
+	}
+
+	#right side loc
+	text = {
+		trigger = {
+			or = {
+				is_com_situation_faction_member = {
+					side = right
+					faction = br_princely_league_right_faction_members
+				}
+				is_com_situation_side_leader = {
+					side = right
+				}
+			}
+		}
+		localization_key = br_je_princely_league_main_reason_right_side
+	}
+	
+	#neutral loc
+	text = {
+		localization_key = br_je_princely_league_main_reason_left_side
+	}
+	
+}
