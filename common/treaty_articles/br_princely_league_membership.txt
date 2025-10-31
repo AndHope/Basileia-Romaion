@@ -1,0 +1,366 @@
+﻿br_princely_league_membership = {
+	kind = mutual
+	cost = 50
+
+	relations_progress_per_day = 1
+	relations_improvement_max = 80
+
+	icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/support_independence_treaties.dds"
+
+	flags = {
+		is_guarantee_independence
+		is_support_independence
+		friendly
+	}
+
+	automatically_support = {
+		dp_independence
+		dp_increase_autonomy
+		dp_reduce_autonomy
+		dp_annex_subject
+		dp_return_state
+		dp_hungarian_revolution
+		dp_sepoy_mutiny
+	}
+
+	usage_limit = once_per_side
+
+	target_modifier = {
+		country_treaty_leverage_generation_add = 300
+	}
+
+	visible = {
+	}
+
+	possible = {
+	}
+
+	requirement_to_maintain = {
+		trigger = {
+			scope:source_country = {
+				NOT = { has_subject_relation_with = scope:target_country }
+			}
+		}
+	}
+
+	requirement_to_maintain = {
+		trigger = {
+			scope:target_country = { is_subject = yes }
+		}
+	}
+
+	on_entry_into_force = {}
+
+	can_withdraw = {
+		always = no
+	}
+
+	on_withdrawal = {
+	}
+	on_break = {
+	}
+
+	# ai = {
+
+	# 	treaty_categories = {
+	# 		military_defense
+	# 	}
+
+	# 	evaluation_chance = {
+	# 		value = 0.1
+
+	# 		add = {
+	# 			value = country_rank
+	# 			multiply = 0.05
+	# 		}
+
+	# 		# Rebellious subjects should very actively seek fellow subjects to rebel together with
+	# 		if = {
+	# 			limit = {
+	# 				is_subject = yes
+	# 				has_attitude = {
+	# 					who = overlord
+	# 					attitude = rebellious
+	# 				}
+	# 			}
+	# 			add = 1.0
+	# 		}
+	# 	}
+
+	# 	article_ai_usage = {
+    #         offer
+    #         request
+    #     }
+
+	# 	inherent_accept_score = {
+	# 		value = 0
+
+	# 		if = {
+	# 			limit = {
+	# 				scope:source_country ?= this
+	# 			}
+
+	# 			# We are doing this to be able to reuse loc across treaties and diplomatic actions
+	# 			scope:source_country = {
+	# 				save_temporary_scope_as = target
+	# 			}
+	# 			scope:target_country = {
+	# 				save_temporary_scope_as = actor
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_BASE_ADDITIONAL"
+	# 				value = -20
+	# 			}
+
+	# 			if = {
+	# 				limit = {
+	# 					scope:target_country = {
+	# 						is_subject = yes
+	# 						overlord = scope:source_country.overlord
+	# 					}
+	# 				}
+	# 				add = {
+	# 					desc = "DIPLOMATIC_ACCEPTANCE_FELLOW_SUBJECT"
+	# 					value = 50
+	# 				}
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_ARMY_STRENGTH"
+	# 				value = "scope:source_country.ai_army_comparison(scope:target_country)"
+	# 				multiply = -3
+	# 				min = -50
+	# 				max = 50
+	# 			}
+
+	# 			if = {
+	# 				limit = {
+	# 					NOT = { is_country_type = unrecognized }
+	# 					scope:target_country = { is_country_type = unrecognized }
+	# 				}
+	# 				add = {
+	# 					desc = "DIPLOMATIC_ACCEPTANCE_UNRECOGNIZED"
+	# 					value = -25
+	# 				}
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_ATTITUDE"
+	# 				if = {
+	# 					limit = {
+	# 						has_attitude = {
+	# 							who = scope:target_country
+	# 							attitude = protective
+	# 						}
+	# 					}
+	# 					value = 25
+	# 				}
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							has_attitude = {
+	# 								who = scope:target_country
+	# 								attitude = antagonistic
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:target_country
+	# 								attitude = belligerent
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:target_country
+	# 								attitude = rebellious
+	# 							}
+	# 						}
+	# 					}
+	# 					value = -1000
+	# 				}
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_ATTITUDE_TOWARDS_ACTOR_OVERLORD"
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							has_attitude = {
+	# 								who = scope:target_country.overlord
+	# 								attitude = antagonistic
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:target_country.overlord
+	# 								attitude = rebellious
+	# 							}
+	# 						}
+	# 					}
+	# 					value = 50
+	# 				}
+	# 				else_if = {
+	# 					limit = {
+	# 						OR = {
+	# 							has_attitude = {
+	# 								who = scope:target_country.overlord
+	# 								attitude = belligerent
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:target_country.overlord
+	# 								attitude = domineering
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:target_country.overlord
+	# 								attitude = defiant
+	# 							}
+	# 						}
+	# 					}
+	# 					value = 30
+	# 				}
+	# 				else = {
+	# 					value = -500
+	# 				}
+	# 			}
+	# 		}
+	# 		else = {
+	# 			scope:source_country = {
+	# 				save_temporary_scope_as = actor
+	# 			}
+	# 			scope:target_country = {
+	# 				save_temporary_scope_as = target
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_BASE_ADDITIONAL"
+	# 				value = -10
+	# 			}
+
+	# 			if = {
+	# 				limit = {
+	# 					scope:source_country = {
+	# 						is_subject = yes
+	# 						overlord = scope:target_country.overlord
+	# 					}
+	# 				}
+	# 				add = {
+	# 					desc = "DIPLOMATIC_ACCEPTANCE_FELLOW_SUBJECT"
+	# 					value = 25
+	# 				}
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_ARMY_STRENGTH"
+	# 				value = "scope:source_country.ai_army_comparison(scope:target_country)"
+	# 				multiply = 4
+	# 				min = -50
+	# 				max = 50
+	# 			}
+
+	# 			if = {
+	# 				limit = {
+	# 					scope:target_country ?= {
+	# 						is_subject = yes # For arcane reasons that I will not go into we are repeating this check here
+	# 					}
+	# 					scope:source_country ?= {
+	# 						is_subject = no
+	# 					}
+	# 					"scope:source_country.ai_army_comparison(scope:target_country.overlord)" > 0
+	# 				}
+	# 				add = {
+	# 					desc = "DIPLOMATIC_ACCEPTANCE_ARMY_STRENGTH_AGAINST_OVERLORD"
+	# 					value = "scope:source_country.ai_army_comparison(scope:target_country.overlord)"
+	# 					multiply = 2
+	# 					max = 50
+	# 				}
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_ATTITUDE_TOWARDS_OWN_OVERLORD"
+	# 				if = {
+	# 					limit = {
+	# 						has_attitude = {
+	# 							who = overlord
+	# 							attitude = rebellious
+	# 						}
+	# 					}
+	# 					value = 50
+	# 				}
+	# 				else_if = {
+	# 					limit = {
+	# 						has_attitude = {
+	# 							who = overlord
+	# 							attitude = defiant
+	# 						}
+	# 					}
+	# 					value = 25
+	# 				}
+	# 				else_if = {
+	# 					limit = {
+	# 						OR = {
+	# 							has_attitude = {
+	# 								who = overlord
+	# 								attitude = loyal
+	# 							}
+	# 							has_attitude = {
+	# 								who = overlord
+	# 								attitude = aloof
+	# 							}
+	# 						}
+	# 					}
+	# 					value = -1000
+	# 				}
+	# 			}
+
+	# 			add = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_ATTITUDE"
+	# 				if = {
+	# 					limit = {
+	# 						has_attitude = {
+	# 							who = scope:source_country
+	# 							attitude = genial
+	# 						}
+	# 					}
+	# 					value = 25
+	# 				}
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							has_attitude = {
+	# 								who = scope:source_country
+	# 								attitude = protective
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:source_country
+	# 								attitude = antagonistic
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:source_country
+	# 								attitude = domineering
+	# 							}
+	# 							has_attitude = {
+	# 								who = scope:source_country
+	# 								attitude = belligerent
+	# 							}
+	# 						}
+	# 					}
+	# 					value = -1000
+	# 				}
+	# 			}
+	# 		}
+
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { exists = scope:is_treaty_active }
+	# 				exists = scope:treaty
+	# 				scope:treaty.binding_period >= 1825
+	# 			}
+	# 			multiply = {
+	# 				desc = "DIPLOMATIC_ACCEPTANCE_BINDING_PERIOD"
+	# 				value = 1
+	# 				add = {
+	# 					value = scope:treaty.binding_period
+	# 					min = 365
+	# 					divide = 3650
+	# 				}
+	# 				max = 2
+	# 			}
+	# 		}
+	# 	}
+	# }
+}
