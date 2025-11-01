@@ -17,6 +17,9 @@
 - Renamed all of the PLC political parties with custom flavor names
 - New optional flag for the Commonwealth, that you get when Ruthenian is a primary culture
 
+## Reworked the Princely League content
+- The Princely League journal for HRE subjects has been reworked completely using the new CMF situations
+
 # Basileía Rōmaíōn – October 2025 Update
 
 ## Highlights
