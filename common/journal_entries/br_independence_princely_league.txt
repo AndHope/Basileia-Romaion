@@ -250,24 +250,37 @@ je_princely_league_main = {
 	}
 	
 	on_complete = {
-		trigger_event = {
-			id = princely_league_completion.1 #complete custom event
-			popup = yes
-		}
-		hidden_effect = {
-			set_global_variable = {
-				name = princely_league_complete
+		if = {
+			limit = {
+				not = { c:HRE ?= this }
 			}
+				trigger_event = {
+				id = princely_league_completion.1 #complete custom event
+				popup = yes
+			}
+			hidden_effect = {
+				set_global_variable = {
+					name = princely_league_complete
+				}
+			}
+			add_modifier = br_modifier_princely_league_success
 		}
-		add_modifier = br_modifier_princely_league_success
 	}
 
     fail = {
 		c:HRE = {
         	has_modifier = border_cowardice
 		}
-		add_modifier = br_modifier_princely_league_failure
     }
+
+	on_fail = {
+		if = {
+			limit = {
+				not = { c:HRE ?= this }
+			}
+			add_modifier = br_modifier_princely_league_failure
+		}
+	}
 
 	transferable = yes
 	can_revolution_inherit = yes
