@@ -1,0 +1,63 @@
+﻿br_princely_league_membership = {
+	kind = mutual
+	cost = 50
+
+	relations_progress_per_day = 1
+	relations_improvement_max = 80
+
+	icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/support_independence_treaties.dds"
+
+	flags = {
+		friendly
+	}
+
+	automatically_support = {
+		dp_independence
+		dp_increase_autonomy
+		dp_reduce_autonomy
+		dp_annex_subject
+		dp_return_state
+	}
+
+	usage_limit = once_per_side
+
+	visible = {
+	}
+
+	possible = {
+	}
+
+	requirement_to_maintain = {
+		trigger = {
+			scope:first_country = {
+				NOT = { has_subject_relation_with = scope:second_country }
+				br_does_princely_league_exist = yes
+			}
+		}
+	}
+
+	requirement_to_maintain = {
+		trigger = {
+			scope:second_country = {
+				NOT = { has_subject_relation_with = scope:first_country }
+				br_does_princely_league_exist = yes
+			}
+		}
+	}
+
+	on_entry_into_force = {}
+
+	can_withdraw = {
+		scope:withdrawing_country = {
+			has_variable = br_can_withdraw_from_princely_league_membership_treaty
+		}
+	}
+
+	on_withdrawal = {
+		scope:withdrawing_country = {
+			remove_variable = br_can_withdraw_from_princely_league_membership_treaty
+		}
+	}
+	on_break = {
+	}
+}
