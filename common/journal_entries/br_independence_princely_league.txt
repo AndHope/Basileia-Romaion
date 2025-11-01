@@ -268,8 +268,12 @@ je_princely_league_main = {
 	}
 
     fail = {
-		c:HRE = {
-        	has_modifier = border_cowardice
+		any_com_situation_countries  = {
+			is_com_situation_faction_member = {
+				side = right
+				faction = br_princely_league_right_faction_members
+			}
+			percent >= 1
 		}
     }
 
