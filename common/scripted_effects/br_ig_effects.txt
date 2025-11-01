@@ -59,3 +59,140 @@ br_confucian_devout_effect = {
 		set_ig_trait = ig_trait:br_ig_trait_right_of_rebellion
 	}
 }
+
+######################################################################
+###
+### Calculate an IG's clout
+###
+######################################################################
+
+#A function that calculates the clout of a given IG and stores the result in a given variable
+br_calc_given_ig_clout = {
+	#Can't use recursive functions so I have to do it this way
+	if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.1
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.1
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.2
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.2
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.3
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.3
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.4
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.4
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.5
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.5
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.6
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.6
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.7
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.7
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.8
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.8
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 0.9
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 0.9
+		}
+	}
+	else_if = {
+		limit = {
+			$ig$ = {
+				ig_clout <= 1
+			}
+		}
+		set_variable = {
+			name = $result_var$
+			value = 1
+		}
+	}
+}
+#example for how to use
+# br_calc_given_ig_clout = {
+# 	ig = ig:ig_armed_forces
+# 	result_var = br_test_var
+# }

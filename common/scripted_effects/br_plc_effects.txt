@@ -1,0 +1,182 @@
+﻿######################################################################
+###
+### br_je_plc_succession effects
+###
+######################################################################
+
+#Update reform support var's
+br_plc_succession_update_reform_support_vars = {
+	#store the reform progress from the scripted progress bar
+	br_plc_succession_store_reform_support_progress_in_var = {
+		journal_entry = je:br_je_plc_succession
+		target_scope = this
+		variable_name = br_plc_succession_reform_support_progress_var
+	}
+	#store the aquired reform progress
+	br_plc_succession_store_acquired_reform_support_in_var = {
+		journal_entry = je:br_je_plc_succession
+		variable_name = br_plc_succession_acquired_reform_support_progress_var
+	}
+}
+
+br_plc_succession_update_reform_support_vars_when_je_scope_not_init = {
+	#store the reform progress from the scripted progress bar
+	br_plc_succession_store_reform_support_progress_in_var = {
+		journal_entry = scope:journal_entry #because the je scope can't be scoped to directly in the immediate block
+		target_scope = this
+		variable_name = br_plc_succession_reform_support_progress_var
+	}
+	#store the aquired reform progress
+	br_plc_succession_store_acquired_reform_support_in_var = {
+		journal_entry = scope:journal_entry
+		variable_name = br_plc_succession_acquired_reform_support_progress_var
+	}
+}
+
+#store the reform progress in a var
+br_plc_succession_store_reform_support_progress_in_var = {
+	$journal_entry$ = {
+		set_global_variable = {
+			name = temporary_progress_bar_value_var
+			value = "scripted_bar_progress(br_plc_sucession_reform_progress_bar)"
+		}
+	}
+	#the scope that you want to store the var in
+	$target_scope$ = {
+		set_variable = {
+			name = $variable_name$
+			value = global_var:temporary_progress_bar_value_var
+		}
+	}
+	remove_global_variable = temporary_progress_bar_value_var
+}
+
+br_plc_succession_store_acquired_reform_support_in_var = {
+	if = {  #No Support
+		limit = {
+			$journal_entry$ ?= {
+				"scripted_bar_progress(br_plc_sucession_reform_progress_bar)" < 25
+			}
+		}
+		set_variable = {
+			name = $variable_name$
+			value = flag:br_plc_succession_minor_support_flag
+		}
+	}
+	else_if = {  #Moderate Support
+		limit = {
+			$journal_entry$ ?= {
+				"scripted_bar_progress(br_plc_sucession_reform_progress_bar)" < 50
+			}
+		}
+		set_variable = {
+			name = $variable_name$
+			value = flag:br_plc_succession_moderate_support_flag
+		}
+	}
+	else_if = {  #Major Support
+		limit = {
+			$journal_entry$ ?= {
+				"scripted_bar_progress(br_plc_sucession_reform_progress_bar)" < 75
+			}
+		}
+		set_variable = {
+			name = $variable_name$
+			value = flag:br_plc_succession_major_support_flag
+		}
+	}
+	else_if = {  #Stunted opposition
+		limit = {
+			$journal_entry$ ?= {
+				"scripted_bar_progress(br_plc_sucession_reform_progress_bar)" <= 100
+			}
+		}
+		set_variable = {
+			name = $variable_name$
+			value = flag:br_plc_succession_stunted_opposition_flag
+		}
+	}
+}
+
+#Triggered when the br_je_plc_succession JE finishes
+br_plc_succession_add_reform_support_modifier = {
+	if = {  #No Support
+		limit = {
+			var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_minor_support_flag
+		}
+		add_modifier = br_modifier_plc_succession_minor_support
+	}
+	else_if = {  #Moderate Support
+		limit = {
+			var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_moderate_support_flag
+		}
+		add_modifier = br_modifier_plc_succession_moderate_support
+	}
+	else_if = {  #Major Support
+		limit = {
+			var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_major_support_flag
+		}
+		add_modifier = br_modifier_plc_succession_major_support
+	}
+	else_if = {  #Stunted opposition
+		limit = {
+			var:br_plc_succession_acquired_reform_support_progress_var ?= flag:br_plc_succession_stunted_opposition_flag
+		}
+		add_modifier = br_modifier_plc_succession_stunted_opposition
+	}
+}
+
+br_plc_succession_variable_cleanup_scripted_effect = {
+	remove_variable = br_plc_succession_intelligentsia_clout_var
+	remove_variable = br_plc_succession_reform_support_progress_var
+	remove_variable = br_plc_succession_acquired_reform_support_progress_var
+}
+
+
+######################################################################
+###
+### br_je_plc_reform_main effects
+###
+######################################################################
+
+br_plc_reform_increase_jadwigan_progress = {
+	custom_tooltip = br_plc_reform_increase_jadwigan_progress_tt
+	change_variable = {
+		name = br_plc_reform_total_nr_of_completed_je_var
+		add = 1
+	}
+	change_variable = {
+		name = br_plc_reform_nr_of_completed_jadwigan_reform_je_var
+		add = 1
+	}
+	je:br_je_plc_reform_main = {
+		add_progress = {
+			name = br_je_plc_reform_main_progress_bar
+			value = -1
+		}
+	}
+}
+
+br_plc_reform_increase_moderates_progress = {
+	custom_tooltip = br_plc_reform_increase_moderates_progress_tt
+	change_variable = {
+		name = br_plc_reform_total_nr_of_completed_je_var
+		add = 1
+	}
+	change_variable = {
+		name = br_plc_reform_nr_of_completed_moderate_reform_je_var
+		add = 1
+	}
+	je:br_je_plc_reform_main = {
+		add_progress = {
+			name = br_je_plc_reform_main_progress_bar
+			value = 1
+		}
+	}
+}
+
+br_plc_reform_variable_cleanup_scripted_effect = {
+	remove_variable = br_plc_reform_total_nr_of_completed_je_var
+	remove_variable = br_plc_reform_nr_of_completed_jadwigan_reform_je_var
+	remove_variable = br_plc_reform_nr_of_completed_moderate_reform_je_var
+}

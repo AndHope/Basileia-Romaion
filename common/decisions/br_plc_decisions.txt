@@ -1,0 +1,43 @@
+﻿
+br_plc_form_the_commonwealth_decision = {
+	is_shown = {
+		has_variable = br_plc_reform_main_has_timedout_var
+	}
+
+	possible = {
+		hidden_trigger = {
+			has_variable = br_plc_reform_main_has_timedout_var
+		}
+		owns_entire_state_region = STATE_WEST_PRUSSIA
+		owns_entire_state_region = STATE_EAST_PRUSSIA
+		owns_entire_state_region = STATE_KAUNAS
+		owns_entire_state_region = STATE_POSEN
+		owns_entire_state_region = STATE_MAZOVIA
+		owns_entire_state_region = STATE_LESSER_POLAND
+		owns_entire_state_region = STATE_GREATER_POLAND
+		owns_entire_state_region = STATE_VILNIUS
+		owns_entire_state_region = STATE_BREST
+		owns_entire_state_region = STATE_WEST_GALICIA
+		owns_entire_state_region = STATE_EAST_GALICIA
+		owns_entire_state_region = STATE_VOLHYNIA
+		owns_entire_state_region = STATE_KIEV
+		owns_entire_state_region = STATE_MINSK
+		owns_entire_state_region = STATE_CHERNIHIV
+		owns_entire_state_region = STATE_MOGILEV
+		owns_entire_state_region = STATE_VITEBSK
+		s:STATE_KHARKOV = {
+			any_scope_state = {
+				owner = root
+			}
+		}
+	}
+
+	when_taken = {
+		set_variable = br_je_plc_form_the_commonwealth_via_decision_var
+		custom_tooltip = br_je_plc_form_the_commonwealth_decision_tt
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}

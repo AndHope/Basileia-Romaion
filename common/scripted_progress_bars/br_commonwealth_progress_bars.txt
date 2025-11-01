@@ -1,0 +1,92 @@
+﻿ ### For br_je_plc_succession
+
+ br_plc_sucession_reform_progress_bar = {
+	name = "br_plc_sucession_reform_progress_bar"
+	desc = "br_plc_sucession_reform_progress_bar_desc"
+
+	default = yes
+
+	start_value = 0
+	min_value = 0
+	max_value = 100 #represents a percentage
+
+	monthly_progress = {
+		if = { #each add needs to be in a if statement if the value it's adding is a var, otherwise it will spam errors.
+			limit = {
+				always = yes
+			}
+			add = {
+				desc = "br_plc_succession_from_intelligentsia_clout_loc"
+				value = var:br_plc_succession_intelligentsia_clout_var
+				multiply = br_plc_succession_intelligentsia_clout_monthly_change_in_reform_support_multiplier_value
+			}
+		}
+
+		#Distribution of power laws effects
+		if = {
+			limit = {
+				or = {
+					has_law_or_variant = law_type:law_universal_suffrage
+					has_law_or_variant = law_type:law_census_voting
+					has_law_or_variant = law_type:law_wealth_voting
+				}
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_distribution_of_power_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_distribution_of_power_law_monthly_change_in_reform_support_value
+			}
+		}
+		#Governance principles laws effects
+		if = {
+			limit = {
+				or = {
+					has_law_or_variant = law_type:law_universal_suffrage
+					has_law_or_variant = law_type:law_census_voting
+					has_law_or_variant = law_type:law_wealth_voting
+				}
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_governance_principles_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_governance_principles_law_monthly_change_in_reform_support_value
+			}
+		}
+		#Bureaucracy laws effects
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_appointed_bureaucrats
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_bureaucracy_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_bureaucracy_law_monthly_change_in_reform_support_value
+			}
+		}
+		#Taxation laws effects
+		if = {
+			limit = {
+				or = {
+					has_law_or_variant = law_type:law_per_capita_based_taxation
+					has_law_or_variant = law_type:law_proportional_taxation
+				}
+			}
+			add = {
+				desc = "br_plc_succession_has_jadwigan_approved_taxation_law_loc"
+				value = br_plc_succession_has_jadwigan_approved_taxation_law_monthly_change_in_reform_support_value
+			}
+		}
+	}
+ }
+
+### For br_je_plc_reform_main
+br_je_plc_reform_main_progress_bar = {
+	name = "br_je_plc_reform_main_progress_bar"
+	desc = "br_je_plc_reform_main_progress_bar_desc"
+	second_desc = "br_je_plc_reform_main_progress_bar_second_desc"
+
+	double_sided_gold = yes
+
+	start_value = 5
+	min_value = 0
+	max_value = 10 #represents a the nr of sub journals that have to be completed (5 per side)
+
+	#Progress will be added by effects when you complete sub journals
+}
