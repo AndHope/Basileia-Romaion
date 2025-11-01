@@ -4,21 +4,10 @@
 	group = je_group_foreign_affairs
 
 	scripted_button = je_create_princely_league_button
-
-	is_shown_in_lobby = {
-		country_is_in_europe = yes
-		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
-		and = {
-			exists = c:HRE #to prevent errors if the HRE does not exist
-			is_subject_of = c:HRE
-		}
-		NOT = {
-			has_global_variable = princely_league_complete
-		}
-	}
 	
 	is_shown_when_inactive = {
 		country_is_in_europe = yes
+		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
 		and = {
 			exists = c:HRE #to prevent errors if the HRE does not exist
 			is_subject_of = c:HRE
@@ -64,6 +53,18 @@ br_je_princely_league_main = {
 	scripted_button = br_je_princely_league_main_join_right_side_button
 	scripted_button = br_je_princely_league_main_left_side_favour_independence_button
 	scripted_button = br_je_princely_league_main_left_side_favour_autonomy_button
+
+	is_shown_in_lobby = {
+		country_is_in_europe = yes
+		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
+		and = {
+			exists = c:HRE #to prevent errors if the HRE does not exist
+			is_subject_of = c:HRE
+		}
+		NOT = {
+			has_global_variable = princely_league_complete
+		}
+	}
 
     status_desc = {
 		first_valid = {
