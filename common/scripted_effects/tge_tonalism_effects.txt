@@ -1,0 +1,230 @@
+﻿tge_weekly_tonalism_effect = {
+	set_variable = {
+		name = tge_tonalli_progress_var
+		value = tge_tonalli_progress_value
+	}
+	change_variable = {
+		name = tge_tonalli_var
+		add = var:tge_tonalli_progress_var
+	}
+	clamp_variable = {
+		name = tge_tonalli_var
+		max = 1000
+		min = 0
+	}
+	scope:journal_entry = {
+		set_bar_progress = {
+			name = tge_tonalism_progressbar
+			value = owner.var:tge_tonalli_var
+		}
+	}
+	remove_modifier = modifier_tge_tonalli
+	add_modifier = {
+		name = modifier_tge_tonalli
+		multiplier = tge_tonalli_multiplier_value
+	}
+}
+
+tge_update_devotion_effect = {
+	hidden_effect = {
+		remove_modifier = modifier_tge_tezcatlipoca
+		remove_modifier = modifier_tge_tlaloc
+		remove_modifier = modifier_tge_quetzalcoatl
+		remove_modifier = modifier_tge_huitzilopochtli
+		if = {
+			limit = {
+				var:tge_tonalli_diety_var = flag:tge_tezcatlipoca
+			}
+			add_modifier = {
+				name = modifier_tge_tezcatlipoca
+				multiplier = tge_tonalli_multiplier_value
+			}
+		}
+		if = {
+			limit = {
+				var:tge_tonalli_diety_var = flag:tge_tlaloc
+			}
+			add_modifier = {
+				name = modifier_tge_tlaloc
+				multiplier = tge_tonalli_multiplier_value
+			}
+		}
+		if = {
+			limit = {
+				var:tge_tonalli_diety_var = flag:tge_quetzalcoatl
+			}
+			add_modifier = {
+				name = modifier_tge_quetzalcoatl
+				multiplier = tge_tonalli_multiplier_value
+			}
+		}
+		if = {
+			limit = {
+				var:tge_tonalli_diety_var = flag:tge_huitzilopochtli
+			}
+			add_modifier = {
+				name = modifier_tge_huitzilopochtli
+				multiplier = tge_tonalli_multiplier_value
+			}
+		}
+	}
+}
+
+tge_devotion_to_tezcatlipoca_effect = {
+	tge_remove_devotion_modifiers_effect = yes
+	custom_tooltip = tge_devotion_tezcatlipoca_GET
+	add_modifier = modifier_tge_tezcatlipoca
+	set_variable = {
+		name = tge_tonalli_diety_var
+		value = flag:tge_tezcatlipoca
+	}
+}
+
+tge_devotion_to_tlaloc_effect = {
+	tge_remove_devotion_modifiers_effect = yes
+	custom_tooltip = tge_devotion_tlaloc_GET
+	add_modifier = modifier_tge_tlaloc
+	set_variable = {
+		name = tge_tonalli_diety_var
+		value = flag:tge_tlaloc
+	}
+}
+
+tge_devotion_to_quetzalcoatl_effect = {
+	tge_remove_devotion_modifiers_effect = yes
+	custom_tooltip = tge_devotion_quetzalcoatl_GET
+	add_modifier = modifier_tge_quetzalcoatl
+	set_variable = {
+		name = tge_tonalli_diety_var
+		value = flag:tge_quetzalcoatl
+	}
+}
+
+tge_devotion_to_huitzilopochtli_effect = {
+	tge_remove_devotion_modifiers_effect = yes
+	custom_tooltip = tge_devotion_huitzilopochtli_GET
+	add_modifier = modifier_tge_huitzilopochtli
+	set_variable = {
+		name = tge_tonalli_diety_var
+		value = flag:tge_huitzilopochtli
+	}
+}
+
+tge_devotion_timeout_effect = {
+	custom_tooltip = {
+		text = tge_deity_timeout_GET
+		set_variable = {
+			name = tge_deity_cooldown_var
+			years = 10
+		}
+	}
+}
+
+tge_remove_devotion_modifiers_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_tge_tezcatlipoca
+		}
+		remove_modifier = modifier_tge_tezcatlipoca
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_tge_tlaloc
+		}
+		remove_modifier = modifier_tge_tlaloc
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_tge_quetzalcoatl
+		}
+		remove_modifier = modifier_tge_quetzalcoatl
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_tge_huitzilopochtli
+		}
+		remove_modifier = modifier_tge_huitzilopochtli
+	}
+	set_variable = {
+		name = tge_tonalli_diety_var
+		value = flag:tge_no_deity
+	}
+}
+
+tge_cleanup_tonalism_effect = {
+	hidden_effect = {
+		remove_variable = tge_tonalli_var
+		remove_variable = tge_tonalli_progress_var
+		remove_variable = tge_tonalli_diety_var
+		remove_variable = tge_selecting_deity_var
+		remove_variable = tge_deity_cooldown_var
+
+		remove_modifier = modifier_tge_tezcatlipoca
+		remove_modifier = modifier_tge_tlaloc
+		remove_modifier = modifier_tge_quetzalcoatl
+		remove_modifier = modifier_tge_huitzilopochtli
+		remove_modifier = modifier_tge_ritual_bloodletting
+		remove_modifier = modifier_tge_new_fire_hosted
+		remove_modifier = modifier_tge_new_fire_neglected
+	}
+}
+
+tge_add_small_grandeur_effect = {
+	custom_tooltip = {
+		text = tge_add_small_grandeur
+		change_variable = { 
+			name = tge_new_fire_var
+			add = 1
+		}
+	}
+}
+
+tge_add_medium_grandeur_effect = {
+	custom_tooltip = {
+		text = tge_add_medium_grandeur
+		change_variable = {
+			name = tge_new_fire_var
+			add = 2
+		}
+	}
+}
+
+tge_add_large_grandeur_effect = {
+	custom_tooltip = {
+		text = tge_add_large_grandeur
+		change_variable = {
+			name = tge_new_fire_var
+			add = 3
+		}
+	}
+}
+
+tge_remove_small_grandeur_effect = {
+	custom_tooltip = {
+		text = tge_remove_small_grandeur
+		change_variable = {
+			name = tge_new_fire_var
+			subtract = 1
+		}
+	}
+}
+
+tge_remove_medium_grandeur_effect = {
+	custom_tooltip = {
+		text = tge_remove_medium_grandeur
+		change_variable = {
+			name = tge_new_fire_var
+			subtract = 2
+		}
+	}
+}
+
+tge_remove_large_grandeur_effect = {
+	custom_tooltip = {
+		text = tge_remove_large_grandeur
+		change_variable = {
+			name = tge_new_fire_var
+			subtract = 3
+		}
+	}
+}
