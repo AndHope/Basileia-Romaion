@@ -1,21 +1,13 @@
-﻿je_princely_league_main = {
+﻿br_je_create_the_princely_league = {
 	icon = "gfx/interface/icons/generic_icons/mobilize_icon_single.dds" #change later
 	
 	group = je_group_foreign_affairs
 
-	is_shown_in_lobby = {
-		country_is_in_europe = yes
-		and = {
-			exists = c:HRE #to prevent errors if the HRE does not exist
-			is_subject_of = c:HRE
-		}
-		NOT = {
-			has_global_variable = princely_league_complete
-		}
-	}
+	scripted_button = je_create_princely_league_button
 	
 	is_shown_when_inactive = {
 		country_is_in_europe = yes
+		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
 		and = {
 			exists = c:HRE #to prevent errors if the HRE does not exist
 			is_subject_of = c:HRE
@@ -35,36 +27,269 @@
 		# 	years = 75
 		# }
 	}
-
-	scripted_button = je_create_princely_league_button
-	scripted_button = je_invite_members_to_league_button
 	
 	complete = {
-		custom_tooltip = {
-			text = princely_league_exists_tt
-			has_variable = princely_league_formed
-		}
+		br_does_princely_league_exist = yes
+	}
+
+	invalid = {
 		NOT = {
 			is_subject_of = c:HRE
 		}
 	}
-	
-	on_complete = {
-		trigger_event = {
-			id = princely_league_completion.1 #complete custom event
-			popup = yes
-		}
-		hidden_effect = {
-			set_global_variable = {
-				name = princely_league_complete
-			}
-		}
-	}
-
-	#add fail condition
 
 	transferable = no
 
 	weight = 5000
+	should_be_pinned_by_default = yes
+}
+
+br_je_princely_league_main = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_com_situations
+
+	scripted_button = br_je_princely_league_main_join_left_side_button
+	scripted_button = br_je_princely_league_main_join_right_side_button
+	scripted_button = br_je_princely_league_main_left_side_favour_independence_button
+	scripted_button = br_je_princely_league_main_left_side_favour_autonomy_button
+
+	is_shown_in_lobby = {
+		country_is_in_europe = yes
+		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
+		and = {
+			exists = c:HRE #to prevent errors if the HRE does not exist
+			is_subject_of = c:HRE
+		}
+		NOT = {
+			has_global_variable = princely_league_complete
+		}
+	}
+
+    status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = br_je_princely_league_main_status_desc_left_side
+				trigger = {
+					or = {
+						is_com_situation_faction_member = {
+							side = left
+							faction = br_princely_league_left_faction_members
+						}
+						is_com_situation_side_leader = {
+							side = left
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = br_je_princely_league_main_status_desc_right_side
+				trigger = {
+					or = {
+						is_com_situation_faction_member = {
+							side = right
+							faction = br_princely_league_right_faction_members
+						}
+						is_com_situation_side_leader = {
+							side = right
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = br_je_princely_league_main_status_desc_neutral_side
+				trigger = {
+					always = yes
+				}
+			}
+		}
+    }
+
+	modifiers_while_active = {
+		br_modifier_princely_league
+	}
+
+	immediate = {
+		#The setup of the situation should only run once, in this case when the princely league leader activates the JE
+		if = {
+			limit = { has_modifier = br_modifier_princely_league_leader }
+			# Setup base situation
+			# The id can be anything that can be stored in a variable like a flag, value or scope
+			create_com_situation = {
+				situation_id = br_princely_league_situation_id
+				icon = com_icon_rise_of_communism	#temp
+
+				side_leader_country_left = c:FLA	#for some reason I can't pass a var here, its temp hardcoded to only allow flanders as leader
+				side_name_left = br_princely_league_left_side_name
+				side_desc_left = br_princely_league_left_side_desc
+
+				side_leader_country_right = c:HRE
+				side_name_right = br_princely_league_right_side_name
+				side_desc_right = br_princely_league_right_side_desc
+			}
+
+			#temporarily save the leader scopes in the situation scope (TODO: add this later to CMF)
+			scope:com_situation = {
+				c:FLA = {
+					save_scope_as = br_com_left_side_leader
+				}
+				c:HRE = {
+					save_scope_as = br_com_right_side_leader
+				}
+			}
+
+			# Create Hardliners faction
+			create_com_situation_faction = {
+				side = left
+				name = br_princely_league_left_faction_members
+				desc = br_princely_league_left_faction_members_desc
+			}
+			create_com_situation_faction = {
+				side = neutral
+				name = br_princely_league_neutral_faction_members
+				desc = br_princely_league_neutral_faction_members_desc
+			}
+			create_com_situation_faction = {
+				side = right
+				name = br_princely_league_right_faction_members
+				desc = br_princely_league_right_faction_members_desc
+			}
+			c:HRE = {
+				every_direct_subject = {
+					limit = {
+						country_is_in_europe = yes #every european state gets notefied
+						NOT = {
+							is_com_situation_side_leader = {
+								side = left
+							}
+						}
+					}
+					save_temporary_scope_as = br_princely_league_new_neutral_side_member_scope
+					add_com_situation_faction_country = {
+						side = neutral
+						name = br_princely_league_neutral_faction_members
+						country = scope:br_princely_league_new_neutral_side_member_scope
+					}
+					add_journal_entry = {
+						type = br_je_princely_league_main
+					}
+				}
+				#Also give the JE to the HRE
+				add_journal_entry = {
+					type = br_je_princely_league_main
+				}
+			}
+			
+			# create_com_situation_button_group = {
+			# 	name = br_je_princely_league_main_leader_actions_button_group
+			# 	desc = br_je_princely_league_main_leader_actions_button_group_desc
+			# }
+			create_com_situation_button_group = {
+				name = br_je_princely_league_main_chose_side_button_group
+				desc = br_je_princely_league_main_chose_side_button_group_desc
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_side_button_group
+				name = br_je_princely_league_main_join_left_side_button
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_side_button_group
+				name = br_je_princely_league_main_join_right_side_button
+			}
+			create_com_situation_button_group = {
+				name = br_je_princely_league_main_chose_stance_button_group
+				desc = br_je_princely_league_main_chose_stance_button_group_desc
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_stance_button_group
+				name = br_je_princely_league_main_left_side_favour_independence_button
+			}
+			add_com_situation_button_group_element = {
+				group = br_je_princely_league_main_chose_stance_button_group
+				name = br_je_princely_league_main_left_side_favour_autonomy_button
+			}
+
+			#Do the setup for the stances feature
+			br_princely_league_main_set_up_left_side_stances = yes
+
+			#left side leader specific effects
+			#temporatily do it here will do this differently later on (this one is for the left side leader)
+			scope:com_situation = {
+				change_variable = {
+					name = br_princely_league_main_nr_of_left_side_members_var
+					add = 1
+				}
+			}
+			br_princely_league_main_left_side_member_change_stance_to_autonomy = yes
+		}
+		else = {
+			add_ongoing_com_situation = {
+				situation_id = br_princely_league_situation_id
+			}
+		}
+	}
+
+    complete = {
+		br_does_princely_league_exist = yes
+		any_com_situation_countries  = {
+			filter = {
+				or = {
+					is_com_situation_faction_member = {
+						side = left
+						faction = br_princely_league_left_faction_members
+					}
+					is_com_situation_side_leader = {
+						side = left
+					}
+				}
+			}
+			NOT = {
+				is_subject_of = c:HRE
+			}
+			count >= scope:com_situation.var:br_princely_league_main_nr_of_left_side_members_var
+		}
+	}
+	
+	on_complete = {
+		if = {
+			limit = {
+				not = { c:HRE ?= this }
+			}
+				trigger_event = {
+				id = princely_league_completion.1 #complete custom event
+				popup = yes
+			}
+			hidden_effect = {
+				set_global_variable = {
+					name = princely_league_complete
+				}
+			}
+			add_modifier = br_modifier_princely_league_success
+		}
+	}
+
+    fail = {
+		any_com_situation_countries  = {
+			is_com_situation_faction_member = {
+				side = right
+				faction = br_princely_league_right_faction_members
+			}
+			percent >= 1
+		}
+    }
+
+	on_fail = {
+		if = {
+			limit = {
+				not = { c:HRE ?= this }
+			}
+			add_modifier = br_modifier_princely_league_failure
+		}
+	}
+
+	transferable = yes
+	can_revolution_inherit = yes
+
+	weight = 200
 	should_be_pinned_by_default = yes
 }

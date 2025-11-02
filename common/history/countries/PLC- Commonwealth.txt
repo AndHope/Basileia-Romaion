@@ -50,6 +50,18 @@
 			name = br_modifier_winged_hussars
 			years = 75
 		}
+		add_modifier = {
+			name = br_modifier_the_issue_of_serfdom
+			years = 75
+		}
+		add_modifier = {
+			name = br_modifier_liberum_veto
+			years = -1
+		}
+		add_modifier = {
+			name = br_modifier_failure_at_hadiach
+			years = 100
+		}
 		
 		set_institution_investment_level = {
 			institution = institution_police
@@ -100,7 +112,29 @@
 			set_interest_group_name = ig_catholic_church 
 		}
 
+		ig:ig_intelligentsia = {
+			set_interest_group_name = ig_jadwigans
+			remove_ideology = ideology_republican
+			remove_ideology = ideology_anti_clerical
+			add_ideology = br_ideology_jadwigan_reformist
+			add_ideology = br_ideology_warsaw_confederationist
+		}
 
+		ig:ig_armed_forces = {
+			set_interest_group_name = ig_sarmaci
+			remove_ideology = ideology_loyalist
+			add_ideology = br_ideology_sarmatist_nationalism
+		}
+
+		ig:ig_trade_unions = {
+			set_interest_group_name = ig_ruchy_solidarnosci
+			remove_ideology = ideology_proletarian
+			add_ideology = br_ideology_solidarist
+		}
+
+		ig:ig_industrialists = {
+			set_interest_group_name = ig_przemyslowcy
+		}
 	}
 	c:PRU ?= {		
 		effect_starting_technology_tier_3_tech = yes

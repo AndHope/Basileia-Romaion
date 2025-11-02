@@ -1,0 +1,51 @@
+﻿###
+###Custom loc for br_je_princely_league_main
+###
+
+#Custom loc for the reason of the br_je_princely_league_main JE
+br_je_princely_league_main_reason_custom_loc = {
+	type = country
+
+	##PROBLEM it seems that I can't use the situations triggers as I can inposibly access the scope:com_situation
+	
+	#left side loc
+	text = {
+		trigger = {
+			or = {
+				is_com_situation_faction_member = {
+					side = left
+					faction = br_princely_league_left_faction_members
+				}
+				is_com_situation_side_leader = {
+					side = left
+				}
+			}
+		}
+		localization_key = br_je_princely_league_main_reason_left_side
+	}
+
+	#right side loc
+	text = {
+		trigger = {
+			or = {
+				is_com_situation_faction_member = {
+					side = right
+					faction = br_princely_league_right_faction_members
+				}
+				is_com_situation_side_leader = {
+					side = right
+				}
+
+				#Temp because the situation scope doesn't work here
+				c:HRE ?= this
+			}
+		}
+		localization_key = br_je_princely_league_main_reason_right_side
+	}
+	
+	#neutral loc
+	text = {
+		localization_key = br_je_princely_league_main_reason_left_side
+	}
+	
+}

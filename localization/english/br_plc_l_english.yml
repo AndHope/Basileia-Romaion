@@ -1,0 +1,195 @@
+﻿l_english:
+
+ ###
+ ###Journal entries
+ ###
+ #br_je_plc_succession
+ br_je_plc_succession: "Succession"
+ br_je_plc_succession_lobby: "Our King, Sigismund III, is slowly dying. We must prepare for the assention of his heir Princess Jadwiga."
+ br_je_plc_succession_status: "We have currently reached #b #blue [GetPlayer.MakeScope.Var('br_plc_succession_acquired_reform_support_progress_var').GetFlagName]#!#! when it comes to reform support"
+ br_je_plc_succession_reason: "Our King, Sigismund III, is slowly dying. For years, his health has been failing more and more, and by all rights, he is king in name only. While in reality, the Sejm has always had full power compared to our monarchs, there was once hope for it to change in Sigismund. Sigismund’s heir now holds that hope for reform, a bright and well educated young woman named after Poland’s first female monarch and Saint. It took much political maneuvering on Sigismund’s part to secure her as his heir. Now as the nation waits for the inevitable, support for Jadwiga should be built up to help both ease the transition of power and for the sake of helping get some initial reforms through.\n$TOOLTIP_DELIMITER$\nThe goal of this journal is to get the reform support as high as possible, when the [concept_journal_entry] comes at an end you will get bonuses based on how high the reform support is.\nYou can increase reform support by increasing the [concept_clout] of the [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant]. While you have access to this journal you have also been given a special decree, the [GetDecreeType('br_decree_increase_jadwigan_support').GetName] decree, to help boost the [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant]. Another way to increase support is to pass laws that are supported by the [GetIdeology('br_ideology_jadwigan_reformist').GetName] [concept_ideology].\n\nList of support tiers:\n#b #blue [GetStaticModifier('br_modifier_plc_succession_minor_support').GetName] | [GetStaticModifier('br_modifier_plc_succession_moderate_support').GetName] | [GetStaticModifier('br_modifier_plc_succession_major_support').GetName] | [GetStaticModifier('br_modifier_plc_succession_stunted_opposition').GetName]#!#!"
+ #br_je_plc_reform_main
+ br_je_plc_reform_main: "Commonwealth Reforms"
+ br_je_plc_reform_main_lobby: "$br_je_plc_reform_main_desc$"
+ br_je_plc_reform_main_desc: "With Queen Jadwiga now on the throne the work for reform can now begin. Two plans for reform have been proposed, the “Moderate” Reform path, proposed by various members of the Sejm who agree on some points of reform. Then there is the more radical “Jadwigan” Reform path, named for and proposed by her majesty and her supporters. In order for either plan to work, we must dedicate ourselves to one or the other. In a worst case scenario, if we do not finish either in a reasonable time our Commonwealth may end as we know it."
+ br_je_plc_reform_main_reason: "$br_je_plc_reform_main_desc$\n$TOOLTIP_DELIMITER$\n#blue Nr of completed Jadwigan reforms: [ROOT.GetVariable('br_plc_reform_nr_of_completed_jadwigan_reform_je_var').GetValue]\nNr of completed Moderate reforms: [ROOT.GetVariable('br_plc_reform_nr_of_completed_moderate_reform_je_var').GetValue]#!"
+ br_plc_reform_has_completed_all_jadwigan_reforms_tt: "Has completed all Jadwigan Reform [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ br_plc_reform_has_completed_all_moderate_reforms_tt: "Has completed all Moderate Reform [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ br_plc_reform_increase_jadwigan_progress_tt: "Will increase the reform progress of the Jadwigan’s"
+ br_plc_reform_increase_moderates_progress_tt: "Will increase the reform progress of the Moderates’s"
+ br_je_plc_reform_main_completion_header: "The Jadwigan’s will succeed if:\n"
+ br_je_plc_reform_main_failure_header: "The Moderates’s will succeed if:\n"
+ br_je_plc_reform_main_on_complete_tt: "Opens the Reform/Reunify the Commonwealth button in Nation formation"
+ br_je_plc_reform_main_on_fail_tt: "Opens the Reform/Reunify the Commonwealth button in Nation formation"
+ br_je_plc_reform_main_on_timeout_tt: "No direct debuff, but due to the inaction, the autonomies will unilaterally declare independence, making so that any reunification has to be done militarily, either by a Unification Diplomatic Play, or either re-puppeting them/conquering them one at a time. Once all either don’t exist or are puppeted, a separated Commonwealth reformation button is allowed, but unlike the ones of the reform paths, there is no fanfare or real bonuses"
+ #br_je_plc_jadwigan_reform_1
+ br_je_plc_jadwigan_reform_1: "Jadwigan Reforms: Memories of the Slavic Slave Trade"
+ br_je_plc_jadwigan_reform_1_reason: "Though it ended centuries ago, the Slavic Slave Trade is still in our memory, it has created a unique hatred towards it within our culture. Afterall, it is the word Slav that the more modern Slave word comes from. Yet, we still practice it, but we call it Serfdom. Its defenders will try to say otherwise, but people are tied to the land of a lord. How is there a difference? It must be abolished, both for our modernization and for our morals!"
+ #br_je_plc_jadwigan_reform_2
+ br_je_plc_jadwigan_reform_2: "Jadwigan Reforms: Improving the Golden Liberty"
+ br_je_plc_jadwigan_reform_2_reason: "When the Golden Liberty of our Nobles’ Democracy was formed, it was seen as something ahead of its time, giving us the most liberal system in Europe, if not the world! But now, it has become a force to just preserve the status quo, with the Liberum Veto being the most blatant weapon for the Szlachta. We have to change our system, making it more fair, even expanding it if we can!"
+ #br_je_plc_jadwigan_reform_3
+ br_je_plc_jadwigan_reform_3: "Jadwigan Reforms: The Minorities of the Commonwealth"
+ br_je_plc_jadwigan_reform_3_reason: "One of our Reform points, though unpopular to many, was to end our policies of Polonization and to restore the strength of the Warsaw Confederation. We have many minorities in our lands, from Jews, Germans, Ruthenians, Russians, etc… They need to have their voices heard or risk separatism within our borders and our autonomies."
+ #br_je_plc_jadwigan_reform_4
+ br_je_plc_jadwigan_reform_4: "Jadwigan Reforms: A New Economic Model"
+ br_je_plc_jadwigan_reform_4_reason: "In this new age of Industrialization, the reliance on our agrarian past is becoming heavily outmoded. We must help prop up new industries and do our best to get an economic edge against our rivals!"
+ #br_je_plc_jadwigan_reform_5
+ br_je_plc_jadwigan_reform_5: "Jadwigan Reforms: Military Reformation"
+ br_je_plc_jadwigan_reform_5_reason: "The days of regular melee combat and even pike-and-shot are coming to an end faster each day. A reliance on the old levy systems of old are therefor also obsdolete. The military must be a standing professional force loyal to the nation! Not just to some member of the Szlachta and even the Kings themselves. Nor should we have to rely on peasant conscripts who may run away as soon as a battle turns."
+ #br_je_plc_moderate_reform_1
+ br_je_plc_moderate_reform_1: "Moderate Reform: Ending Feudalism"
+ br_je_plc_moderate_reform_1_reason: "The Feudalistic Model of Land Management has been slowly becoming more and more obsolete as the decades go by. But, we must be cautious as to not upset the Szlachta. Perhaps an option where the peasants are “free” but still work for their former lords."
+ #br_je_plc_moderate_reform_2
+ br_je_plc_moderate_reform_2: "Moderate Reform: Streamlining the Sejm"
+ br_je_plc_moderate_reform_2_reason: "The fact that we have the Sejm has always been a unique part of our governance. Of the nations of Europe, we have been one of the few to have such a liberalized institution! But in recent years it has been stunted by the concept of the Liberum Veto. It has been used more and more as a way for the Szlachta to gain more power, now we must end this practice and reform the Sejm"
+ #br_je_plc_moderate_reform_3
+ br_je_plc_moderate_reform_3: "Moderate Reform: Preventing another Failure at Hadiach"
+ br_je_plc_moderate_reform_3_reason: "Over a Century ago representatives from the various peoples of the Commonwealth went to negotiate the treatment of the various minorities of our nation. But it failed, and a revolt happened causing our current decentralized situation for our Commonwealth. We must try to negotiate again, in order to have hope to reunite the Commonwealth"
+ #br_je_plc_moderate_reform_4
+ br_je_plc_moderate_reform_4: "Moderate Reform: An Outdated Economy"
+ br_je_plc_moderate_reform_4_reason: "Maintaining funding has always been difficult thanks to the systems of noble privileges that have only grown stronger over the years. But like everything else, we must go at the change slowly as to not upset the nobility and risk a revolt."
+ #br_je_plc_moderate_reform_5
+ br_je_plc_moderate_reform_5: "Moderate Reforms: Military Reformation"
+ br_je_plc_moderate_reform_5_reason: "One Universal truth both moderate reformers and full reformers can agree on is, our military needs to massively change. The levy system is becoming increasingly outdated, having a military system where we have at least a small amount of soldiers ready at all times would be preferable."
+ #br_je_plc_reform_the_commonwealth
+ br_je_plc_reform_the_commonwealth: "Reform the $dyn_c_commonwealth$"
+ br_je_plc_reform_the_commonwealth_reason: "With the Jadwigan Reforms finished, we have shown to our constituent autonomies we are willing and able to change and make their peoples fully equal in the Commonwealth, no more of our favoritism to just our fellow Poles. We must now propose full reunification and bring our nation together once more!"
+ br_plc_has_formed_the_commonwealth_tt: "Has formed the $dyn_c_commonwealth$"
+ br_plc_has_not_formed_the_commonwealth_tt: "Has not formed the $dyn_c_commonwealth$"
+ br_je_plc_reform_the_commonwealth_complete_tt: "$br_plc_has_formed_the_commonwealth_tt$"
+ #br_je_plc_reform_the_commonwealth
+ br_je_plc_centralizing_the_commonwealth: "Centralizing the $dyn_c_commonwealth$"
+ br_je_plc_centralizing_the_commonwealth_reason: "With the moderates getting their way, we at least opened ourselves up to some change. Our Lithuanian brothers are once again equal to us, and we are on the road to modernization. It is time we centralize ourself and make the Commonwealth whole once more."
+ br_je_plc_centralizing_the_commonwealth_complete_tt: "$br_plc_has_formed_the_commonwealth_tt$"
+ #br_je_plc_reclaiming_the_baltic
+ br_je_plc_reclaiming_the_baltic: "Reclaiming the Baltic"
+ br_je_plc_reclaiming_the_baltic_lobby: "$br_je_plc_reclaiming_the_baltic_reason$"
+ br_je_plc_reclaiming_the_baltic_reason: "After our War with Sweden a few decades ago, we lost all of our Baltic holdings with the exception of the Lithuanian homeland. It is time to correct this, we must end the Swedes hegemony over the Baltic Sea!"
+ #br_je_plc_access_to_the_black_sea
+ br_je_plc_access_to_the_black_sea: "Access to the Black Sea"
+ br_je_plc_access_to_the_black_sea_lobby: "$br_je_plc_access_to_the_black_sea_reason$"
+ br_je_plc_access_to_the_black_sea_reason: "At our height, we almost had access to the Black Sea and its rich ports, but alas, we failed in this regard. We should try once more, the Black Sea holds some of the richest ports, not to mention we would have access to the Silk Road trade network via easier access to Constantinople"
+ #br_je_plc_securing_of_our_eastern_front
+ br_je_plc_securing_of_our_eastern_front: "Securing of Our Eastern Front"
+ br_je_plc_securing_of_our_eastern_front_lobby: "$br_je_plc_securing_of_our_eastern_front_reason$"
+ br_je_plc_securing_of_our_eastern_front_reason: "The vast Eurasian Steppes are home to many threats, such as that of the remnants of the Mongolian Empire and lack natural defenses. We should secure it by weakening our enemies and extending our borders to keep our enemies far from our Capital."
+ #br_je_plc_extending_our_reach
+ br_je_plc_extending_our_reach: "Extending Our Reach"
+ br_je_plc_extending_our_reach_lobby: "$br_je_plc_extending_our_reach_reason$"
+ br_je_plc_extending_our_reach_reason: "Due to our internal issues we have been left behind in the Colonial game compared to other powers in Europe. With the securing of our former Baltic holdings we can now work on expanding out of Europe and claim a place for us in the sun!"
+ br_je_plc_extending_our_reach_complete_tt: "Are outside of Europe"
+ #br_je_plc_the_legacy_of_the_winged_hussars
+ br_je_plc_the_legacy_of_the_winged_hussars: "The Legacy of the Winged Hussars"
+ br_je_plc_the_legacy_of_the_winged_hussars_lobby: "$br_je_plc_the_legacy_of_the_winged_hussars_reason$"
+ br_je_plc_the_legacy_of_the_winged_hussars_reason: "It is a fact that Warfare is changing. With it becoming mechanized, our famous Winged Hussars are unfortunately also becoming outdated and their legacy becoming obsolete."
+ br_je_if_has_researched_stormtroopers_tt: "If has researched [GetTechnology('stormtroopers').GetName]"
+ br_je_if_has_researched_military_aviation_tt: "If has researched [GetTechnology('military_aviation').GetName]"
+ br_je_if_has_researched_mobile_armor_tt: "If has researched [GetTechnology('mobile_armor').GetName]"
+ #br_je_plc_the_monarchy_in_question
+ br_je_plc_the_monarchy_in_question: "The Monarchy in Question"
+ br_je_plc_the_monarchy_in_question_lobby: "$br_je_plc_the_monarchy_in_question_reason$"
+ br_je_plc_the_monarchy_in_question_reason: "It has been quite a bit of time since the reforms of Jadwiga II, and even though our Commonwealth owes a good deal from the monarchy, some are now calling it into question. Claims of it as an outdated institution with no basis in our modernizing world. Yet there are still those who are defending it as well, both for the sake of tradition and those using the historical precedent created by Jadwiga II as a liberalizing figure. Either way, a referendum is being demanded, and the fate of our monarchy will be decided by our peoples."
+
+ ###
+ ###Scripted Progress Bars
+ ###
+ #br_plc_sucession_reform_progress_bar
+ br_plc_sucession_reform_progress_bar: "Reform support"
+ br_plc_sucession_reform_progress_bar_desc: "$br_plc_sucession_reform_progress_bar$"
+ br_plc_succession_from_intelligentsia_clout_loc: "[GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] [concept_clout]"
+ br_plc_succession_has_jadwigan_approved_distribution_of_power_law_loc: " has a [GetLawGroup('lawgroup_distribution_of_power').GetName] that is supported by [GetIdeology('br_ideology_jadwigan_reformist').GetName]"
+ br_plc_succession_has_jadwigan_approved_governance_principles_law_loc: " has a [GetLawGroup('lawgroup_governance_principles').GetName] that is supported by [GetIdeology('br_ideology_jadwigan_reformist').GetName]"
+ br_plc_succession_has_jadwigan_approved_bureaucracy_law_loc: " has a [GetLawGroup('lawgroup_bureaucracy').GetName] that is supported by [GetIdeology('br_ideology_jadwigan_reformist').GetName]"
+ br_plc_succession_has_jadwigan_approved_taxation_law_loc: " has a [GetLawGroup('lawgroup_taxation').GetName] that is supported by [GetIdeology('br_ideology_jadwigan_reformist').GetName]"
+ #br_je_plc_reform_main_progress_bar
+ br_je_plc_reform_main_progress_bar: "Moderate Vs Jadwigan reforms"
+ br_je_plc_reform_main_progress_bar_desc: "Moderate"
+ br_je_plc_reform_main_progress_bar_second_desc: "Jadwigan"
+
+ ###
+ ###Scripted Buttons
+ ###
+ br_je_add_lithuanian_as_primary_culture_button: "Accept $lithuanian$"
+ br_je_add_lithuanian_as_primary_culture_button_desc: "Add the $lithuanian$ [concept_culture] as a [Concept('concept_primary_cultures','$concept_primary_culture$')]"
+ br_je_add_ukrainian_as_primary_culture_button: "Accept $ukrainian$"
+ br_je_add_ukrainian_as_primary_culture_button_desc: "Add the $ukrainian$ [concept_culture] as a [Concept('concept_primary_cultures','$concept_primary_culture$')]"
+ br_je_negotiate_with_the_cossacks_button: "Negotiate with the Cossacks"
+ br_je_negotiate_with_the_cossacks_button_desc: "Negotiate with the Cossacks"
+ br_je_plc_reform_the_commonwealth_form_the_commonwealth_button: "Form the $dyn_c_commonwealth$"
+ br_je_plc_reform_the_commonwealth_form_the_commonwealth_button_desc: "Form the $dyn_c_commonwealth$"
+ br_je_plc_reform_the_commonwealth_form_the_commonwealth_button_tt: "Will reform our nation as the $dyn_c_commonwealth$"
+ br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_button: "From the $dyn_c_commonwealth$"
+ br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_button_desc: "From the $dyn_c_commonwealth$"
+ br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_button_tt: "Will reform our nation as the $dyn_c_commonwealth$"
+
+ ###
+ ###Decisions
+ ###
+ br_plc_form_the_commonwealth_decision: "Form the $dyn_c_commonwealth$"
+ br_plc_form_the_commonwealth_decision_desc: "We will reform our nation into the $dyn_c_commonwealth$"
+ br_je_plc_form_the_commonwealth_decision_tt: "Will reform our nation as the $dyn_c_commonwealth$"
+
+ ###
+ ###Decrees
+ ###
+ br_decree_increase_jadwigan_support: "Increase Jadwigan Support"
+ br_decree_increase_jadwigan_support_desc: "Increase the Jadwigan Support to increase support for reforms in the $br_je_plc_succession$ [concept_journal_entry]"
+
+ ###
+ ###Flag var's
+ ###
+ br_plc_succession_minor_support_flag: "$br_modifier_plc_succession_minor_support$"
+ br_plc_succession_moderate_support_flag: "$br_modifier_plc_succession_moderate_support$"
+ br_plc_succession_major_support_flag: "$br_modifier_plc_succession_major_support$"
+ br_plc_succession_stunted_opposition_flag: "$br_modifier_plc_succession_stunted_opposition$"
+
+ ###
+ ###Events
+ ###
+ br_plc_succession_events.1.t: "The Succession"
+ br_plc_succession_events.1.d: "His Majesty Sigismund III has passed."
+ br_plc_succession_events.1.f: "His Majesty Sigismund III has passed. This is a sad day for our Commonwealth. But, there is hope! With his passing, a new monarch takes his place. The 23 year old Jadwiga II, King of Poland and Grand Duke of Lithuania! Like her namesake, we used the same loophole to make her our monarch, and with her astute personality and great intellect, perhaps we can turn the fortunes of our Commonwealth around! Long live her majesty!"
+ br_plc_succession_events.1.a: "Long live her majesty!"
+ br_plc_succession_jadwiga_is_new_ruler_tt: "[ROOT.GetCountry.GetRuler.GetFullName] is our new ruler"
+
+ ###
+ ###Modifiers
+ ###
+ #for br_je_plc_succession
+ br_modifier_plc_succession_minor_support: "Minor Support"
+ br_modifier_plc_succession_moderate_support: "Moderate Support"
+ br_modifier_plc_succession_major_support: "Major Support"
+ br_modifier_plc_succession_stunted_opposition: "Stunted Opposition"
+ #for br_je_plc_jadwigan_reform_1
+ br_modifier_plc_reform_jadwigan_land_reforms: "Jadwigan Land Reforms"
+ br_modifier_plc_reform_jadwigan_liberties: "Jadwigan Liberties"
+ br_modifier_plc_reform_restored_warsaw_confederation: "Restored Warsaw Confederation"
+ br_modifier_plc_reform_jadwigan_economy: "Jadwigan Economy"
+ br_modifier_plc_reform_hands_off_economy: "Hands Off Economy"
+ br_modifier_plc_reform_grand_army_of_the_commonwealth: "Grand Army Of The Commonwealth"
+ br_modifier_plc_reform_commonwealther_home_army: "Commonwealther Home Army"
+ br_modifier_plc_reform_jadwigan_reforms: "Jadwigan Reforms"
+ br_modifier_plc_reform_szlachta_endorsed_land_reforms: "Szlachta Endorsed Land Reforms"
+ br_modifier_plc_reform_golden_liberty_reborn: "Golden Liberty Reborn"
+ br_modifier_plc_reform_new_treaty_of_hadiach: "New Treaty of Hadiach"
+ br_modifier_plc_reform_sejmist_economic_plan: "Sejmist Economic Plan"
+ br_modifier_plc_reform_moderate_reforms: "Moderate Reforms"
+ br_modifier_plc_angels_of_death: "Angels Of Death"
+ br_modifier_plc_true_winged_hussars: "True Winged Hussars"
+ br_modifier_plc_hussarian_armor_corps: "Hussarian Armor Corps"
+ br_modifier_plc_the_peoples_monarchy: "The Peoples’ Monarchy"
+ br_modifier_plc_reformed_baltic_fleet: "Reformed Baltic Fleet"
+ br_modifier_black_sea_trade: "Black Sea Trade"
+ br_modifier_plc_well_defended_states: "Well Defended States"
+ br_modifier_plc_extended_reach: "Extended Reach"
+
+
+ ###
+ ###Character traits
+ ###
+ br_succesful_reformer: "Succesful Reformer"
+ br_succesful_reformer_desc: "This Character is a succesful reformer"
+ br_succesful_compromiser: "Succesful Compromiser"
+ br_succesful_compromiser_desc: "This Character is a succesful compromiser"
+ 

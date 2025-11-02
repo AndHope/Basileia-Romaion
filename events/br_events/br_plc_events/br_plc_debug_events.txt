@@ -1,0 +1,112 @@
+﻿namespace = br_plc_debug_events
+
+######################################################################
+###
+### br_je_plc_succession debug events
+###
+######################################################################
+# Maximise reform support
+br_plc_debug_events.1 = {
+	type = country_event
+	
+	# orphan = yes
+	hidden = yes
+	dlc = dlc_basileia_romaion
+
+	immediate = {
+		je:br_je_plc_succession = {
+			add_progress = {
+				name = br_plc_sucession_reform_progress_bar
+				value = 100
+			}
+		}
+		#Update reform support var's
+        br_plc_succession_update_reform_support_vars = yes
+	}
+}
+
+# Minamise reform support
+br_plc_debug_events.2 = {
+	type = country_event
+	
+	# orphan = yes
+	hidden = yes
+	dlc = dlc_basileia_romaion
+
+	immediate = {
+		je:br_je_plc_succession = {
+			add_progress = {
+				name = br_plc_sucession_reform_progress_bar
+				value = 100
+			}
+		}
+		#Update reform support var's
+        br_plc_succession_update_reform_support_vars = yes
+	}
+}
+
+# Set reform support to Minor Support
+br_plc_debug_events.3 = {
+	type = country_event
+	
+	orphan = yes
+	hidden = yes
+	dlc = dlc_basileia_romaion
+
+	immediate = {
+		trigger_event = br_plc_debug_events.2
+	}
+}
+
+# Set reform support to Moderate Support
+br_plc_debug_events.4 = {
+	type = country_event
+	
+	orphan = yes
+	hidden = yes
+	dlc = dlc_basileia_romaion
+
+	immediate = {
+		je:br_je_plc_succession = {
+			add_progress = {
+				name = br_plc_sucession_reform_progress_bar
+				value = 40
+			}
+		}
+		#Update reform support var's
+        br_plc_succession_update_reform_support_vars = yes
+	}
+}
+
+# Set reform support to Major Support
+br_plc_debug_events.5 = {
+	type = country_event
+	
+	orphan = yes
+	hidden = yes
+	dlc = dlc_basileia_romaion
+
+	immediate = {
+		je:br_je_plc_succession = {
+			add_progress = {
+				name = br_plc_sucession_reform_progress_bar
+				value = 70
+			}
+		}
+		#Update reform support var's
+        br_plc_succession_update_reform_support_vars = yes
+	}
+}
+
+# Set reform support to Stunted opposition
+br_plc_debug_events.6 = {
+	type = country_event
+	
+	orphan = yes
+	hidden = yes
+	dlc = dlc_basileia_romaion
+
+	immediate = {
+		trigger_event = br_plc_debug_events.1
+	}
+}

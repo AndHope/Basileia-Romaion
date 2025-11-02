@@ -1,5 +1,42 @@
 ####id 2880120246
 
+# Update 146
+
+## Poland-Lithuania Content has been reworked
+- 2 old Journal entries have been removed
+- 19 new Journal entries have been added
+- New Journal content around the assension off an new female ruler
+- New Journal content around reforming the state, and in doing so having to chose between following the Moderates or the Jadwigan's
+- The Commonwealth has been renamed at game start to Poland-Lithuania
+- After the reforms you will have the option to transform Poland-Lithuania into the Commonwealth
+- New Journals around various other things like conquest east, securing naval access, and colonialization
+- Special event for the PLC to have the option to convert to Slavic upon researching nationalism
+- 26 new modifiers which can be earned through the Journal Entries
+- New starting ruler and heir, with custom character traits
+- Renamed all of the PLC IG's with custom flavor names
+- Renamed all of the PLC political parties with custom flavor names
+- New optional flag for the Commonwealth, that you get when Ruthenian is a primary culture
+
+## Reworked the Princely League content
+- The Princely League journal for HRE subjects has been reworked completely using the new CMF situations
+
+## Localization/Flavor
+- All IGs have had their base names and descriptions changed to better reflect the mods lore based on Jozues Recomendations.
+
+## Balance and minor tweaks
+- increase base bureaucracy from 10 to 15
+- increase amount of bureaucratic buildings so most nations start with a balance or surplus at game start.
+- realigned the country_institution_health_system_max_investment_add to the same as vanilla.
+- tone down the qualification_growth debuffs from feudalism based on feedback.
+- changed the Palaiologos reforms security JE to only look at incorporated states.
+- increased the amount of wood in Canada, Scandinavia, Russia and the Amazonia regions. 
+- fixed Czech culture being wrong religion
+- fix for a bug caused by a Vinland company disabling generic timber company.
+
+- Enlarged the CoA for the alternate flag for WRE.
+- Changed Antartican culture in Nova Veneto to louisiane.
+
+
 # Basileía Rōmaíōn – October 2025 Update
 
 ## Highlights
@@ -1573,7 +1610,7 @@ For the Anglo-Saxon and New Anglander cultures;
 	- Rebalance to laws especially affect officer/soldiers political strength. 
 	- few late game production methods tweaked.
 	- Fixed a couple releasables that had wrong states
-	- couple scananavian strait traits improved.
+	- couple Scandinavia strait traits improved.
 	- Adjustments to a few techs
 	- Updated and streamlined the history files to a unified standard to be in line with current PDX standard. This may potentially increase performance and decrease errors
 	- Lots more Bug fixes
@@ -3167,7 +3204,7 @@ Continuing the work of 0.10 "Under the Tatar Yoke" to further enhance the Russo-
 	- ERE can integrate Etaireía Indía.
 	- Dutch can integrate Dutch East Indies and Dutch West Indies.
 	- Japan can integrate Shiberia and Pashifikku
-- Adjusted some borders in Scananavia
+- Adjusted some borders in Scandinavia
 - Adjusted some Borders in Indonesia/Oceania
 
 - In additon streamlined some AI processes possibly fixing potential errors. 

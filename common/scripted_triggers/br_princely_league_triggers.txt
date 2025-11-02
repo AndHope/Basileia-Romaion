@@ -1,0 +1,21 @@
+﻿#######################################################################################
+###
+### br_je_princely_league_main triggers
+###
+#######################################################################################
+br_does_princely_league_exist = {
+	custom_tooltip = {
+		text = princely_league_exists_tt
+		has_variable = princely_league_formed
+	}
+}
+
+#check if this country stance is independence
+br_pricely_league_main_is_country_stance_independence = {
+	var:br_princely_league_main_left_side_member_stance_var ?= flag:br_princely_league_main_independence_stance_flag
+}
+
+#check if this country stance is autonomy
+br_pricely_league_main_is_country_stance_autonomy = {
+	var:br_princely_league_main_left_side_member_stance_var ?= flag:br_princely_league_main_autonomy_stance_flag
+}
