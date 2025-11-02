@@ -1,0 +1,178 @@
+﻿#######################################################
+# BASILEIA ROMAION: THE GOLDEN EAGLE FLAG DEFINITIONS #
+#######################################################
+
+# By: Alexedishi
+
+########################################
+
+# Values copied from vanilla
+@coa_width = 768
+@coa_height = 512
+@canton_scale_cross_x = @[ ( 333 / coa_width ) + 0.001 ]
+@canton_scale_cross_y = @[ ( 205 / coa_height ) + 0.001 ]
+@canton_scale_sweden_x = @[ ( 255 / coa_width ) + 0.001 ]
+@canton_scale_sweden_y = @[ ( 204 / coa_height ) + 0.001 ]
+@canton_scale_norway_x = @[ ( 192 / coa_width ) + 0.001 ]
+@canton_scale_norway_y = @[ ( 192 / coa_height ) + 0.001 ]
+@canton_scale_denmark_x = @[ ( 220 / coa_width ) + 0.001 ]
+@canton_scale_denmark_y = @[ ( 220 / coa_height ) + 0.001 ]
+@third = @[1/3]
+
+########################################
+
+#### WOODLANDS COUNTRIES ####
+# //
+
+#### ARIO/OASIS-AMERICAN COUNTRIES ####
+ARI_CAH = {
+	flag_definition = {
+		coa = ARI_CAH
+		subject_canton = ARI_CAH
+		priority = 1
+	}
+}
+
+ARI_TAR = {
+	flag_definition = {
+		coa = ARI_TAR
+		subject_canton = ARI_TAR
+		priority = 1
+	}
+}
+
+#### MESOAMERICAN COUNTRIES ####
+
+MES_IRE = {
+	flag_definition = {
+		coa = MES_IRE
+		subject_canton = MES_IRE
+		priority = 1
+	}
+}
+
+MES_OTO = {
+	flag_definition = {
+		coa = MES_OTO
+		subject_canton = MES_OTO
+		priority = 1
+	}
+}
+
+MIX = {
+	flag_definition = {
+		coa = MIX
+		subject_canton = MIX
+		priority = 1
+	}
+	flag_definition = {
+		coa = MIX_elysian_theocracy
+		subject_canton = MIX_elysian_theocracy
+		priority = 10
+		trigger = {
+			scope:actor ?= {
+				has_law = law_type:law_theocracy
+				country_has_state_religion = rel:br_religion_elysian_orthodox
+			}
+		}
+	}
+}
+
+NAH = {
+	flag_definition = {
+		coa = NAH_AZT
+		subject_canton = NAH_AZT
+		priority = 1
+	}
+	flag_definition = {
+		coa = NAH_AZT_monarchy
+		subject_canton = NAH
+		priority = 100
+		trigger = {
+			scope:actor ?= {
+				has_law = law_type:law_monarchy
+				country_has_state_religion = rel:br_tge_religion_teotl
+			}
+		}
+	}
+}
+
+NAH_AZT = {
+	flag_definition = {
+		coa = NAH_AZT
+		priority = 1
+		allow_overlord_canton = yes
+		subject_canton = NAH_AZT
+#		overlord_canton_scale = { @canton_scale_cross_x @canton_scale_cross_y }
+	}
+}
+
+NAH_PIP = {
+	flag_definition = {
+		coa = NAH_PIP
+		subject_canton = NAH_PIP
+		priority = 1
+	}
+}
+
+NAH_NIC = {
+	flag_definition = {
+		coa = NAH_NIC
+		subject_canton = NAH_NIC
+		priority = 1
+	}
+	flag_definition = {
+		coa = NAH_NIC_aztec
+		subject_canton = NAH_NIC_aztec
+		priority = 10
+		trigger = {
+			scope:actor ?= {
+				overlord ?= {
+					country_has_state_religion = rel:br_tge_religion_teotl
+				}
+			}
+		}
+	}
+}
+
+MAY_WAS = {
+	flag_definition = {
+		coa = MAY_WAS
+		subject_canton = MAY_WAS
+		priority = 1
+	}
+}
+
+ZAP = {
+	flag_definition = {
+		coa = ZAP
+		subject_canton = ZAP
+		priority = 1
+	}
+}
+
+ZAP_TEH = {
+	flag_definition = {
+		coa = ZAP_TEH
+		subject_canton = ZAP_TEH
+		priority = 1
+	}
+}
+
+#### SOUTH AMERICAN COUNTRIES ####
+
+TWT = {
+	flag_definition = {
+		coa = TWT_monarchy
+		subject_canton = TWT_monarchy
+		priority = 100
+		trigger = { 
+			scope:actor ?= {
+				has_law = law_type:law_monarchy
+			}
+		}
+	}
+}
+
+#### MISCELLANEOUS COUNTRIES ####
+# //
