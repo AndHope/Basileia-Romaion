@@ -1,11 +1,5 @@
 ﻿DIPLOMACY = {
-	c:NAH ?= {
-		create_diplomatic_pact = {
-			country = c:PUE
-			type = vassal
-		}
-		set_relations = { country = c:TWT value = 100 }
-	}
+	## European Overlordships
 	c:HRE ?= {
 		create_diplomatic_pact = {
 			country = c:br_louisiane
@@ -18,15 +12,16 @@
 		set_relations = { country = c:br_louisiane value = 50 }
 		set_relations = { country = c:br_antarctique value = 50 }
 	}
-
+	
+	## New World Colonizers
 	c:br_vinland ?= {
 		create_unidirectional_truce = {
 			country = c:CTF
-			months = 50
+			months = 80
 		}
 		create_unidirectional_truce = {
 			country = c:IRO
-			months = 75
+			months = 80
 		}
 		create_diplomatic_pact = {
 			country = c:br_new_world_company
@@ -69,6 +64,7 @@
 		set_relations = { country = c:IRO value = -100 }
 		set_relations = { country = c:CTF value = -100 }
 		set_relations = { country = c:CHE value = -100 }
+		set_relations = { country = c:MIX value = 75 }
 
 		create_diplomatic_pact = {
 			country = c:br_apaleisia
@@ -119,7 +115,11 @@
 			country = c:br_creek
 			months = 80
 		}
-	
+
+		set_secret_goal = {
+			country = c:MIX
+			secret_goal = protect
+		}
 	}
 
 	c:br_apaleisia = {
@@ -182,14 +182,6 @@
 	c:br_antarctique = {
 		set_relations = { country = c:br_giamaica value = 25 }
 		set_relations = { country = c:br_atlantica value = 25 }
-		create_unidirectional_truce = {
-			country = c:GNI
-			months = 360
-		}
-		create_unidirectional_truce = {
-			country = c:AMZ
-			months = 360
-		}
 	}
 
 	c:br_chinese_new_world = {
@@ -202,15 +194,162 @@
 	c:br_japanese_new_world = {
 		set_relations = { country = c:br_chinese_new_world value = -50 }
 		add_liberty_desire = 10
-		create_unidirectional_truce = {
-			country = c:ATB
-			months = 180
+	}
+	
+	## Mesoamerican Native Tags
+	c:NAH ?= {
+		set_relations = {
+			country = c:ARI_CAH
+			value = 30
 		}
-		create_unidirectional_truce = {
-			country = c:ATB
-			months = 90
+		set_relations = {
+			country = c:NAH_PIP
+			value = 50
 		}
+		set_relations = {
+			country = c:NAH_NIC
+			value = 30
+		}
+		set_relations = {
+			country = c:MAY_WAS
+			value = 35
+		}
+		set_relations = {
+			country = c:PUE
+			value = -10
+		}
+		set_relations = {
+			country = c:ZAP
+			value = 50
+		}
+		set_relations = {
+			country = c:ARI_TAR
+			value = -50
+		}
+		set_relations = {
+			country = c:MIX
+			value = -75
+		}
+		set_relations = {
+			country = c:ZAP_TEH
+			value = -50
+		}
+		set_relations = {
+			country = c:br_louisiane 
+			value = -50
+		}
+		set_relations = {
+			country = c:br_elysium
+			value = 50
+		}
+		set_relations = {
+			country = c:br_atlantica
+			value = 25
+		}
+		set_relations = {
+			country = c:MAY_PAN 
+			value = -15
+		}
+		set_relations = {
+			country = c:MES_IRE 
+			value = -50
+		}
+		
+		create_diplomatic_pact = {
+			country = c:PUE
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:ARI_CAH
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:MAY_WAS
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:ZAP
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:NAH_PIP
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:NAH_NIC
+			type = tributary
+		}
+		
+		create_bidirectional_truce = {
+			country = c:br_louisiane
+			months = 60
+		}
+		create_bidirectional_truce = {
+			country = c:MES_IRE
+			months = 24
+		}
+		create_bidirectional_truce = {
+			country = c:NAH_COL
+			months = 24
+		}
+	}
+	
+	c:MAY_PAN = {
+		set_relations = {
+			country = c:NAH 
+			value = -15
+		}
+		set_relations = {
+			country = c:MAY_XIU
+			value = 20
+		}
+		set_relations = {
+			country = c:MAY_ITZ 
+			value = 20
+		}
+		set_relations = {
+			country = c:MAY_CHL 
+			value = 20
+		}
+		set_relations = {
+			country = c:MAY_CHO 
+			value = 20
+		}
+		
+		create_diplomatic_pact = {
+			country = c:MAY_XIU
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:MAY_ITZ
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:MAY_CHL
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:MAY_CHO
+			type = tributary
+		}
+	}
+	
+	c:MES_IRE = {
+		set_relations = {
+			country = c:NAH_COL 
+			value = 20
+		}
+	}
 
+	c:MIX = {
+		set_relations = {
+			country = c:br_elysium
+			value = 50
+		}
+		set_secret_goal = {
+			country = c:br_elysium
+			secret_goal = befriend
+		}
 	}
 
 }
