@@ -27,10 +27,7 @@ je_create_princely_league_button = {
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = princely_league_not_formed_tt
-			NOT = { has_variable = princely_league_formed }
-		}
+		br_does_princely_league_exist = no
 	}
 
 	effect = {
@@ -75,19 +72,150 @@ je_create_princely_league_button = {
 				}
 			}
 		}
+
+		add_journal_entry = {
+			type = br_je_princely_league_main
+		}
+
+		#Create the Situation JE for the Princely League
+		# create_com_situation_journal_entry = {
+		# 	journal = br_je_princely_league_main
+		# 	situation_id = br_princely_league_situation_id
+		# 	icon = com_icon_rise_of_communism	#temp
+		# 	side_leader_country_left = c:FLA
+		# 	side_name_left = br_princely_league_left_side_name
+		# 	side_desc_left = br_princely_league_left_side_desc
+		# 	side_leader_country_right = c:HRE
+		# 	side_name_right = br_princely_league_right_side_name
+		# 	side_desc_right = br_princely_league_right_side_desc
+		# }
 	}
 }
 
-je_invite_members_to_league_button = {
-	name = "je_invite_members_to_league_button"
-	desc = "je_invite_members_to_league_button_desc"
+# br_je_invite_members_to_league_button = {
+# 	name = "je_invite_members_to_league_button"
+# 	desc = "je_invite_members_to_league_button_desc"
+
+# 	#TODO write custom tooltips for the buttons effect
+
+# 	visible = { always = yes }
+
+# 	cooldown = {
+# 		months = 1
+# 	}
+
+# 	possible = {
+# 		# not = {
+# 		# 	has_variable = inviting_members_to_league
+# 		# }
+# 		has_modifier = br_modifier_princely_league_leader
+# 		custom_tooltip = {
+# 			text = formed_princely_league_tt
+# 			has_variable = created_princely_league
+# 		}
+# 	}
+
+# 	effect = {
+# 		# set_variable = inviting_members_to_league
+		
+# 		root = {
+# 			save_scope_as = league_leader
+# 		}
+
+# 		# overlord = {
+# 		# 	create_unidirectional_truce = {  
+# 		# 		country = root
+# 		# 		months = 36
+# 		# 	} 
+# 		# }
+
+# 		every_country = {
+# 			limit = {
+# 				country_is_in_europe = yes
+# 				is_subject = yes
+# 				NOT = { this = root }
+# 				overlord = c:HRE
+# 				liberty_desire > 75
+# 				NOT = {
+# 					br_is_county_supporting_independence_scripted_trigger = {
+# 						INITIATOR_COUNTRY = scope:league_leader
+# 						TARGET_COUNTRY = prev
+# 					}
+# 				}
+# 			}
+# 			trigger_event = { id = princely_league_invitation.1 popup = yes }
+# 		}
+# 	}
+
+# 	#Country scope
+# 	ai_chance = {
+# 		value = 0
+# 		if = {
+# 			limit = {
+# 				c:FLA = { liberty_desire >= 50 }
+# 			}
+# 			add = 5
+# 		}
+# 	}
+# }
+
+br_je_princely_league_main_join_left_side_button = {
+	name = "br_je_princely_league_main_join_left_side_button"
+	desc = "br_je_princely_league_main_join_left_side_button_desc"
 
 	#TODO write custom tooltips for the buttons effect
 
 	visible = { always = yes }
 
 	cooldown = {
-		days = 1
+		months = 1
+	}
+
+	possible = {
+		not = {
+			or = {
+				is_com_situation_side_leader = {
+					side = left
+				}
+				is_com_situation_side_leader = {
+					side = right
+				}
+				is_com_situation_faction_member = {
+					side = left
+					faction = br_princely_league_left_faction_members
+				}
+			}
+		}
+	}
+
+	effect = {
+		#country joins the princely league faction
+		save_temporary_scope_as = br_princely_league_new_left_side_member_scope
+
+		#Remove them from the previous faction (All countries may only belong to one faction)
+		remove_com_situation_faction_country_all = {
+			country = scope:br_princely_league_new_left_side_member_scope
+		}
+
+		add_com_situation_faction_country = {
+			side = left
+			name = br_princely_league_left_faction_members
+			country = scope:br_princely_league_new_left_side_member_scope
+		}
+
+		#By default when you join your stance is set to autonomy
+		br_princely_league_main_left_side_member_change_stance_to_autonomy = yes
+
+		#temporatily do it here will do this differently later on
+		scope:com_situation = {
+			change_variable = {
+				name = br_princely_league_main_nr_of_left_side_members_var
+				add = 1
+			}
+		}
+
+		#Establish a Princely League membership treaty
+		br_princely_league_main_establish_a_princely_league_membership_treaty_with_all_countries_currently_in_the_league = yes
 	}
 
 	#Country scope
@@ -95,52 +223,235 @@ je_invite_members_to_league_button = {
 		value = 0
 		if = {
 			limit = {
-				c:FLA = { liberty_desire >= 50 }
+				"relations(scope:overlord)" < relations_threshold:neural
+				"relations(scope:overlord)" >= relations_threshold:poor
 			}
 			add = 5
 		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" < relations_threshold:poor
+				"relations(scope:overlord)" >= relations_threshold:cold
+			}
+			add = 10
+		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" < relations_threshold:cold
+				"relations(scope:overlord)" >= relations_threshold:hostile
+			}
+			add = 25
+		}
+	}
+}
+
+br_je_princely_league_main_join_right_side_button = {
+	name = "br_je_princely_league_main_join_right_side_button"
+	desc = "br_je_princely_league_main_join_right_side_button_desc"
+
+	#TODO write custom tooltips for the buttons effect
+
+	visible = { always = yes }
+
+	cooldown = {
+		months = 1
 	}
 
 	possible = {
-		# not = {
-		# 	has_variable = inviting_members_to_league
-		# }
-		has_modifier = br_modifier_princely_league_leader
-		custom_tooltip = {
-			text = formed_princely_league_tt
-			has_variable = created_princely_league
+		not = {
+			or = {
+				is_com_situation_side_leader = {
+					side = left
+				}
+				is_com_situation_side_leader = {
+					side = right
+				}
+				is_com_situation_faction_member = {
+					side = right
+					faction = br_princely_league_right_faction_members
+				}
+			}
 		}
 	}
 
 	effect = {
-		# set_variable = inviting_members_to_league
-		
-		root = {
-			save_scope_as = league_leader
+		#Country joins the princely league faction
+		save_temporary_scope_as = br_princely_league_new_right_side_member_scope
+
+		#Remove them from the previous faction (All countries may only belong to one faction)
+		remove_com_situation_faction_country_all = {
+			country = scope:br_princely_league_new_right_side_member_scope
 		}
 
-		# overlord = {
-		# 	create_unidirectional_truce = {  
-		# 		country = root
-		# 		months = 36
-		# 	} 
-		# }
+		add_com_situation_faction_country = {
+			side = right
+			name = br_princely_league_right_faction_members
+			country = scope:br_princely_league_new_right_side_member_scope
+		}
 
-		every_country = {
-			limit = {
-				country_is_in_europe = yes
-				is_subject = yes
-				NOT = { this = root }
-				overlord = c:HRE
-				liberty_desire > 75
-				NOT = {
-					br_is_county_supporting_independence_scripted_trigger = {
-						INITIATOR_COUNTRY = scope:league_leader
-						TARGET_COUNTRY = prev
-					}
-				}
+		#temporatily do it here will do this differently later on
+		scope:com_situation = {
+			change_variable = {
+				name = br_princely_league_main_nr_of_left_side_members_var
+				add = -1
 			}
-			trigger_event = { id = princely_league_invitation.1 popup = yes }
+		}
+
+		#remove the Princely League membership treaty
+		br_princely_league_main_remove_princely_league_membership_treaty_with_all_countries_currently_in_the_league = yes
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				"relations(scope:overlord)" > relations_threshold:neural
+				"relations(scope:overlord)" <= relations_threshold:cordial
+			}
+			add = 5
+		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" > relations_threshold:cordial
+				"relations(scope:overlord)" <= relations_threshold:amicable
+			}
+			add = 10
+		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" > relations_threshold:amicable
+				"relations(scope:overlord)" <= relations_threshold:friendly
+			}
+			add = 25
+		}
+	}
+}
+
+br_je_princely_league_main_left_side_favour_independence_button = {
+	name = "br_je_princely_league_main_left_side_favour_independence_button"
+	desc = "br_je_princely_league_main_left_side_favour_independence_button_desc"
+
+	#TODO write custom tooltips for the buttons effect
+
+	visible = { always = yes }
+
+	cooldown = {
+		months = 1
+	}
+
+	possible = {
+		not = {
+			or = {
+				is_com_situation_side_leader = {
+					side = right
+				}
+				is_com_situation_faction_member = {
+					side = right
+					faction = br_princely_league_right_faction_members
+				}
+				is_com_situation_faction_member = {
+					side = neutral
+					faction = br_princely_league_neutral_faction_members
+				}
+
+				br_pricely_league_main_is_country_stance_independence = yes
+			}
+		}
+	}
+
+	effect = {
+		#Set this country stance to independence
+		br_princely_league_main_left_side_member_change_stance_to_independence = yes
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				"relations(scope:overlord)" < relations_threshold:neural
+				"relations(scope:overlord)" >= relations_threshold:poor
+			}
+			add = 5
+		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" < relations_threshold:poor
+				"relations(scope:overlord)" >= relations_threshold:cold
+			}
+			add = 10
+		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" < relations_threshold:cold
+				"relations(scope:overlord)" >= relations_threshold:hostile
+			}
+			add = 25
+		}
+	}
+}
+
+br_je_princely_league_main_left_side_favour_autonomy_button = {
+	name = "br_je_princely_league_main_left_side_favour_autonomy_button"
+	desc = "br_je_princely_league_main_left_side_favour_autonomy_button_desc"
+
+	#TODO write custom tooltips for the buttons effect
+
+	visible = { always = yes }
+
+	cooldown = {
+		months = 1
+	}
+
+	possible = {
+		not = {
+			or = {
+				is_com_situation_side_leader = {
+					side = right
+				}
+				is_com_situation_faction_member = {
+					side = right
+					faction = br_princely_league_right_faction_members
+				}
+				is_com_situation_faction_member = {
+					side = neutral
+					faction = br_princely_league_neutral_faction_members
+				}
+
+				br_pricely_league_main_is_country_stance_autonomy = yes
+			}
+		}
+	}
+
+	effect = {
+		#Set this country stance to independence
+		br_princely_league_main_left_side_member_change_stance_to_autonomy = yes
+	}
+
+	#Country scope
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				"relations(scope:overlord)" > relations_threshold:neural
+				"relations(scope:overlord)" <= relations_threshold:cordial
+			}
+			add = 5
+		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" > relations_threshold:cordial
+				"relations(scope:overlord)" <= relations_threshold:amicable
+			}
+			add = 10
+		}
+		else_if = {
+			limit = {
+				"relations(scope:overlord)" > relations_threshold:amicable
+				"relations(scope:overlord)" <= relations_threshold:friendly
+			}
+			add = 25
 		}
 	}
 }

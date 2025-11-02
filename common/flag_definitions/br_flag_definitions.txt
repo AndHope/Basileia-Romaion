@@ -225,11 +225,30 @@ br_WRE = {
 	flag_definition = {
 		coa = WRE2
 		allow_overlord_canton = yes
-		subject_canton = WRE
+		subject_canton = WRE2
 		priority = 100
 		trigger = {
 			scope:actor ?= {
 				has_variable = br_wre_alternate_flag_var
+			}
+		}
+	}
+}
+
+PLC = { # Poland-Lithuania
+	flag_definition = {
+		coa = PLC
+		subject_canton = PLC
+		priority = 1
+	}
+	flag_definition = {
+		coa = br_PLC_ruthenian_commonwealth
+		allow_overlord_canton = yes
+		subject_canton = br_PLC_ruthenian_commonwealth
+		priority = 100
+		trigger = {
+			scope:actor ?= {
+				has_variable = br_je_plc_reform_the_commonwealth_form_the_commonwealth_var
 			}
 		}
 	}

@@ -1,146 +1,1017 @@
-﻿je_golden_liberty = {
-    icon = "gfx/interface/icons/event_icons/event_military.dds"
+﻿br_je_plc_succession = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
 
 	group = je_group_internal_affairs
 
+    scripted_progress_bar = br_plc_sucession_reform_progress_bar
 
     modifiers_while_active = {
-        br_modifier_liberum_veto
     }
 
     is_shown_in_lobby = {
 		c:PLC ?= this
 	}
 
-    complete = {
-        OR = {
-            AND = {
-                ig:ig_landowners = {
-			        is_powerful = yes
-			        is_in_government = yes
-		        }
-		        has_insurrectionary_interest_groups = no
-                owns_entire_state_region = STATE_MAZOVIA
-                has_law_or_variant = law_type:law_hereditary_bureaucrats
-                has_law_or_variant = law_type:law_agrarianism
-                has_law_or_variant = law_type:law_serfdom
-                has_law_or_variant = law_type:law_oligarchy
+    immediate = {
+        ruler = {
+            set_character_immortal = yes
+        }
+        br_calc_given_ig_clout = {
+            ig = ig:ig_intelligentsia
+            result_var = br_plc_succession_intelligentsia_clout_var
+        }
+
+        #Update reform support var's
+        #because the je scope can't be scoped to directly in the immediate block
+        br_plc_succession_update_reform_support_vars_when_je_scope_not_init = yes
+    }
+
+    on_monthly_pulse = {
+        effect = {
+            br_calc_given_ig_clout = {
+                ig = ig:ig_intelligentsia
+                result_var = br_plc_succession_intelligentsia_clout_var
             }
-            AND = {
-                ig:ig_landowners = {
-			        is_powerful = no
-			        is_in_government = no
-		        }
-                has_insurrectionary_interest_groups = no
-                owns_entire_state_region = STATE_MAZOVIA
-                has_law_or_variant = law_type:law_interventionism
-                has_law_or_variant = law_type:law_wealth_voting
-                NOT = {
-                    has_law_or_variant = law_type:law_hereditary_bureaucrats
-                    has_law_or_variant = law_type:law_serfdom
-                }
-            }
+
+            #Update reform support var's
+            br_plc_succession_update_reform_support_vars = yes
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                ig:ig_landowners = {
-			        is_powerful = yes
-			        is_in_government = yes
-		        }
-            }
-            trigger_event = {
-			    id = poland.2
-		    }
-        }
-        else = {
-            trigger_event = {
-			    id = poland.3
-		    }
-        }
-    }
-
-    timeout = 26425
+    timeout = 1825
 
     on_timeout = {
-        if = {
-            limit = {
-                ig:ig_landowners = {
-			        is_powerful = yes
-			        is_in_government = yes
-		        }
-            }
-            trigger_event = {
-			    id = poland.2
-		    }
+        ruler = {
+            kill_character = yes
         }
-        else = {
-            trigger_event = {
-			    id = poland.3
-		    }
+        br_plc_succession_add_reform_support_modifier = yes
+        trigger_event = {
+            id = br_plc_succession_events.1
+            popup = yes
         }
+        add_journal_entry = {
+            type = br_je_plc_reform_main
+        }
+        br_plc_reform_variable_cleanup_scripted_effect = yes
 	}
 
     weight = 100
 	should_be_pinned_by_default = yes
 }
 
-je_eastern_resistance = {
-    icon = "gfx/interface/icons/event_icons/event_military.dds"
+# je_eastern_resistance = {
+#     icon = "gfx/interface/icons/event_icons/event_military.dds"
     
+# 	group = je_group_internal_affairs
+
+#     modifiers_while_active = {
+#         br_modifier_failure_at_hadiach
+#     }
+
+#     is_shown_in_lobby = {
+# 		c:PLC ?= this
+# 	}
+	
+#     is_shown_when_inactive = {
+#         exists = c:PLC
+#         c:PLC = root
+#     }
+
+#     possible = {
+#         exists = c:PLC
+#         c:PLC = root
+#         owns_entire_state_region = STATE_KIEV
+#     }
+
+#     complete = { 
+#         NOT = { 
+#             has_law_or_variant = law_type:law_serfdom
+#         }
+#         NOT = {  country_has_primary_culture = cu:ukrainian }
+#     }  
+
+#     fail = {
+#         any_country = { 	
+#             is_secessionist = yes
+#             is_diplomatic_play_target = yes
+#             OR = {
+#                 country_has_primary_culture = cu:ukrainian
+#             }
+#         }
+#     }
+
+#     on_fail = {
+#         trigger_event = {
+#             id = poland.5
+#             days = 21
+#         }
+#     }
+
+#     on_complete = {
+#         trigger_event = {
+#             id = poland.6
+#         }
+#     }
+
+#     weight = 100
+# 	should_be_pinned_by_default = yes
+# }
+
+#########################################################################################################################
+###
+### PLC reform JE's
+###
+#########################################################################################################################
+#Two Reform Paths with associated reform journals for it based on the “Tanzimat” reforms of base game Ottoman Empire
+#A Jadwigan reforms route vs a modarate reforms route
+br_je_plc_reform_main = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
 	group = je_group_internal_affairs
 
-    modifiers_while_active = {
-        br_modifier_eastern_oppression
+    scripted_progress_bar = br_je_plc_reform_main_progress_bar
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
     }
 
-    is_shown_in_lobby = {
-		c:PLC ?= this
-	}
-	
-    is_shown_when_inactive = {
-        exists = c:PLC
-        c:PLC = root
-    }
+    immediate = {
+        #set variables
+        set_variable = {
+			name = br_plc_reform_total_nr_of_completed_je_var
+			value = 0
+		}
+        set_variable = {
+			name = br_plc_reform_nr_of_completed_jadwigan_reform_je_var
+			value = 0
+		}
+        set_variable = {
+			name = br_plc_reform_nr_of_completed_moderate_reform_je_var
+			value = 0
+		}
 
-    possible = {
-        exists = c:PLC
-        c:PLC = root
-        owns_entire_state_region = STATE_KIEV
-    }
-
-    complete = { 
-        NOT = { 
-            has_law_or_variant = law_type:law_serfdom
+        #Add sub journals
+        add_journal_entry = {
+            type = br_je_plc_jadwigan_reform_1
         }
-        NOT = {  country_has_primary_culture = cu:ukrainian }
-    }  
+        add_journal_entry = {
+            type = br_je_plc_jadwigan_reform_2
+        }
+        add_journal_entry = {
+            type = br_je_plc_jadwigan_reform_3
+        }
+        add_journal_entry = {
+            type = br_je_plc_jadwigan_reform_4
+        }
+        add_journal_entry = {
+            type = br_je_plc_jadwigan_reform_5
+        }
+        add_journal_entry = {
+            type = br_je_plc_moderate_reform_1
+        }
+        add_journal_entry = {
+            type = br_je_plc_moderate_reform_2
+        }
+        add_journal_entry = {
+            type = br_je_plc_moderate_reform_3
+        }
+        add_journal_entry = {
+            type = br_je_plc_moderate_reform_4
+        }
+        add_journal_entry = {
+            type = br_je_plc_moderate_reform_5
+        }
+    }
+
+    custom_completion_header = br_je_plc_reform_main_completion_header
+
+	complete = {
+		br_plc_reform_has_completed_all_jadwigan_reforms = yes
+	}
+
+	on_complete = {
+		add_modifier = br_modifier_plc_reform_jadwigan_reforms
+        ruler = {
+            add_trait = br_succesful_reformer
+        }
+        add_journal_entry = {
+            type = br_je_plc_reform_the_commonwealth
+        }
+	}
+
+    custom_failure_header = br_je_plc_reform_main_failure_header
 
     fail = {
-        any_country = { 	
-            is_secessionist = yes
-            is_diplomatic_play_target = yes
-            OR = {
-                country_has_primary_culture = cu:ukrainian
-            }
-        }
+        br_plc_reform_has_completed_all_moderate_reforms = yes
     }
 
     on_fail = {
-        trigger_event = {
-            id = poland.5
-            days = 21
+        add_modifier = br_modifier_plc_reform_moderate_reforms
+        ruler = {
+            add_trait = br_succesful_compromiser
         }
+        add_journal_entry = {
+            type = br_je_plc_centralizing_the_commonwealth
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+        custom_tooltip = br_je_plc_reform_main_on_timeout_tt
+        set_variable = br_plc_reform_main_has_timedout_var
+        every_subject_or_below = {
+			capital = {
+				or = {
+					region = sr:region_poland
+					region = sr:region_baltic
+					region = sr:region_dnieper
+					region = sr:region_belarus
+				}
+			}
+            make_independent = yes
+		}
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+###
+### Jadwigan reforms JE
+###
+
+#Jadwigan Reforms: Memories of the Slavic Slave Trade
+br_je_plc_jadwigan_reform_1 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_homesteading
+	}
+
+	on_complete = {
+        br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_the_issue_of_serfdom
+        add_modifier = br_modifier_plc_reform_jadwigan_land_reforms
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Jadwigan Reforms: Improving the Golden Liberty
+br_je_plc_jadwigan_reform_2 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_census_voting
+        or = {
+            has_law_or_variant = law_type:law_appointed_bureaucrats
+            has_law_or_variant = law_type:law_elected_bureaucrats
+        }
+	}
+
+	on_complete = {
+        br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_liberum_veto
+        add_modifier = br_modifier_plc_reform_jadwigan_liberties
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Jadwigan Reforms: The Minorities of the Commonwealth
+br_je_plc_jadwigan_reform_3 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+    scripted_button = br_je_add_lithuanian_as_primary_culture_button
+    scripted_button = br_je_add_ukrainian_as_primary_culture_button
+    scripted_button = br_je_negotiate_with_the_cossacks_button
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_total_separation
+        not = {
+            or = {
+                has_law_or_variant = law_type:law_ethnostate
+                has_law_or_variant = law_type:law_national_supremacy
+            }
+        }
+        country_has_primary_culture = cu:lithuanian
+        country_has_primary_culture = cu:ukrainian
+	}
+
+	on_complete = {
+        br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_failure_at_hadiach
+        add_modifier = br_modifier_plc_reform_restored_warsaw_confederation
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Jadwigan Reforms: A New Economic Model
+br_je_plc_jadwigan_reform_4 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_interventionism
+	}
+
+	on_complete = {
+        br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_piotrkow_statutes
+        add_modifier = br_modifier_plc_reform_jadwigan_economy
+	}
+
+    fail = {
+        has_law_or_variant = law_type:law_laissez_faire
+    }
+
+    on_fail = {
+        br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_piotrkow_statutes
+        add_modifier = br_modifier_plc_reform_hands_off_economy
+    }
+
+    invalid = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Jadwigan Reforms: Military Reformation
+br_je_plc_jadwigan_reform_5 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_professional_army
+	}
+
+	on_complete = {
+        br_plc_reform_increase_jadwigan_progress = yes
+		remove_modifier = br_modifier_plc_army
+        add_modifier = br_modifier_plc_reform_grand_army_of_the_commonwealth
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+###
+### Moderate reforms JE
+###
+
+#Moderate Reform: Ending Feudalism
+br_je_plc_moderate_reform_1 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_tenant_farmers
+	}
+
+	on_complete = {
+        br_plc_reform_increase_moderates_progress = yes
+		remove_modifier = br_modifier_the_issue_of_serfdom
+        add_modifier = br_modifier_plc_reform_szlachta_endorsed_land_reforms
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Moderate Reform: Streamlining the Sejm
+br_je_plc_moderate_reform_2 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_wealth_voting
+        has_law_or_variant = law_type:law_appointed_bureaucrats
+	}
+
+	on_complete = {
+        br_plc_reform_increase_moderates_progress = yes
+		remove_modifier = br_modifier_liberum_veto
+        add_modifier = br_modifier_plc_reform_golden_liberty_reborn
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Moderate Reform: Preventing another Failure at Hadiach
+br_je_plc_moderate_reform_3 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		not = {
+            or = {
+                has_law_or_variant = law_type:law_ethnostate
+                has_law_or_variant = law_type:law_national_supremacy
+                has_law_or_variant = law_type:law_subjecthood
+            }
+        }
+	}
+
+	on_complete = {
+        br_plc_reform_increase_moderates_progress = yes
+		remove_modifier = br_modifier_failure_at_hadiach
+        add_modifier = br_modifier_plc_reform_new_treaty_of_hadiach
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Moderate Reform: An Outdated Economy
+br_je_plc_moderate_reform_4 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		has_law_or_variant = law_type:law_agrarianism
+	}
+
+	on_complete = {
+        br_plc_reform_increase_moderates_progress = yes
+		remove_modifier = br_modifier_piotrkow_statutes
+        add_modifier = br_modifier_plc_reform_sejmist_economic_plan
+	}
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
+        }
+    }
+
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#Moderate Reforms: Military Reformation
+br_je_plc_moderate_reform_5 = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+    complete = {
+        has_law_or_variant = law_type:law_national_militia
     }
 
     on_complete = {
-        trigger_event = {
-            id = poland.6
+        br_plc_reform_increase_moderates_progress = yes
+		remove_modifier = br_modifier_plc_army
+        add_modifier = br_modifier_plc_reform_commonwealther_home_army
+    }
+
+    fail = {
+        not = {
+            has_journal_entry = br_je_plc_reform_main
         }
     }
 
-    weight = 100
+	timeout = br_je_plc_reform_main_timeout
+
+	on_timeout = {
+	}
+
+	weight = 5000
+}
+
+#########################################################################################################################
+###
+### Reform the Commonwealth
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_reform_the_commonwealth = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+    scripted_button = br_je_plc_reform_the_commonwealth_form_the_commonwealth_button
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		br_plc_has_formed_the_commonwealth = yes
+	}
+
+	on_complete = {
+        add_primary_culture = cu:polish
+        add_primary_culture = cu:lithuanian
+        add_primary_culture = cu:ukrainian
+        add_primary_culture = cu:ashkenazi
+        add_primary_culture = cu:baltic_german
+	}
+
+	weight = 10000
+
 	should_be_pinned_by_default = yes
 }
+
+#########################################################################################################################
+###
+### Centralizing the Commonwealth
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_centralizing_the_commonwealth = {
+    icon = "gfx/interface/icons/event_icons/Coat_of_Arms_of_the_Polish–Lithuanian_Commonwealth.dds"
+
+	group = je_group_internal_affairs
+
+    scripted_button = br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_button
+
+	# is_shown_in_lobby = {}    #shoudn't be shown in lobby
+
+    immediate = {
+    }
+
+	complete = {
+		br_plc_has_formed_the_commonwealth = yes
+	}
+
+	on_complete = {
+        add_primary_culture = cu:polish
+        add_primary_culture = cu:lithuanian
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Reclaiming the Baltic
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_reclaiming_the_baltic = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    possible = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		country_or_subject_owned_all_baltic_region_states = yes
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_plc_reformed_baltic_fleet
+        add_journal_entry = {
+            type = br_je_plc_extending_our_reach
+        }
+        c:SWE = {
+            remove_modifier = br_modifier_norse_competitive_traders
+        }
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Access to the Black Sea
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_access_to_the_black_sea = {
+    icon = "gfx/interface/icons/event_icons/clippers.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    possible = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_BESSARABIA
+        country_or_subject_owns_entire_state_region = STATE_CHERSON
+        country_or_subject_owns_entire_state_region = STATE_CRIMEA
+        country_or_subject_owns_entire_state_region = STATE_TAURIDA
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_black_sea_trade
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Securing of Our Eastern Front
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_securing_of_our_eastern_front = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    possible = {
+        br_plc_has_formed_the_commonwealth = yes
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_PSKOV
+        country_or_subject_owns_entire_state_region = STATE_SMOLENSK
+        country_or_subject_owns_entire_state_region = STATE_ORYOL
+        country_or_subject_owns_entire_state_region = STATE_KURSK
+        country_or_subject_owns_entire_state_region = STATE_KHARKOV
+        country_or_subject_owns_entire_state_region = STATE_TAURIDA
+        country_or_subject_owns_entire_state_region = STATE_CRIMEA
+        country_or_subject_owns_entire_state_region = STATE_CHERSON
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_plc_well_defended_states
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### Extending Our Reach
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_extending_our_reach = {
+    icon = "gfx/interface/icons/event_icons/event_navigation.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    immediate = {
+    }
+
+	complete = {
+		or = {
+            any_scope_state = {
+                count = 3
+                not = {
+                    custom_tooltip = {
+                        text = br_je_plc_extending_our_reach_complete_tt
+                        br_is_strategic_region_in_europe = {
+                            strategic_region = region
+                        }
+                    }
+                }
+            }
+            any_subject_or_below = {
+                any_scope_state = {
+                    count = 3
+                    not = {
+                        custom_tooltip = {
+                            text = br_je_plc_extending_our_reach_complete_tt
+                            br_is_strategic_region_in_europe = {
+                                strategic_region = region
+                            }
+                        }
+                    }
+                }
+            }
+        }
+	}
+
+	on_complete = {
+        add_modifier = br_modifier_plc_well_defended_states
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### The Legacy of the Winged Hussars
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+br_je_plc_the_legacy_of_the_winged_hussars = {
+    icon = "gfx/interface/icons/event_icons/military_drill.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		c:PLC ?= THIS
+    }
+
+    is_shown_when_inactive = {
+        PLC ?= this
+    }
+
+    possible = {
+        has_technology_researched = trench_works
+    }
+
+    immediate = {
+    }
+
+	complete = {
+        or = {
+            has_technology_researched = stormtroopers
+            has_technology_researched = military_aviation
+            has_technology_researched = mobile_armor
+        }
+	}
+
+	on_complete = {
+        remove_modifier = br_modifier_winged_hussars
+        if = {
+            limit = {
+                has_technology_researched = stormtroopers
+            }
+            add_modifier = br_modifier_plc_angels_of_death
+        }
+        else_if = {
+            limit = {
+                has_technology_researched = military_aviation
+            }
+            add_modifier = br_modifier_plc_true_winged_hussars
+        }
+        else_if = {
+            limit = {
+                has_technology_researched = mobile_armor
+            }
+            add_modifier = br_modifier_plc_hussarian_armor_corps
+        }
+	}
+
+    event_outcome_completed_effect_desc = {
+        header = br_je_if_has_researched_stormtroopers_tt
+        effect = {
+            add_modifier = br_modifier_plc_angels_of_death
+        }
+    }
+    event_outcome_completed_effect_desc = {
+        header = br_je_if_has_researched_military_aviation_tt
+        effect = {
+            add_modifier = br_modifier_plc_true_winged_hussars
+        }
+    }
+    event_outcome_completed_effect_desc = {
+        header = br_je_if_has_researched_mobile_armor_tt
+        effect = {
+            add_modifier = br_modifier_plc_hussarian_armor_corps
+        }
+    }
+
+    timeout = 7300
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+#########################################################################################################################
+###
+### The Monarchy in Question
+###
+#########################################################################################################################
+#A JE that allows you to reform into the commonwealth
+# br_je_plc_the_monarchy_in_question = {    #TODO, not yet implemented
+#     icon = "gfx/interface/icons/event_icons/military_drill.dds"
+
+# 	group = je_group_internal_affairs
+
+# 	is_shown_in_lobby = {
+# 		c:PLC ?= THIS
+#     }
+
+#     is_shown_when_inactive = {
+#         PLC ?= this
+#     }
+
+#     possible = {
+#     }
+
+#     immediate = {
+#     }
+
+# 	complete = {
+#         #TODO
+# 	}
+
+# 	on_complete = {
+#         remove_modifier = br_modifier_plc_reform_jadwigan_reforms
+#         add_modifier = br_modifier_plc_the_peoples_monarchy
+# 	}
+
+#     fail = {
+#         #TODO
+#     }
+
+#     on_fail = {
+#         activate_law = law_type:law_presidential_republic
+#     }
+
+#     timeout = 1825
+
+# 	weight = 1000
+
+# 	should_be_pinned_by_default = yes
+# }

@@ -179,7 +179,7 @@
  je_control_the_lowlands_main: "Control the Lowlands"
  je_control_the_lowlands_main_goal: "Complete 2 'Lowland' [Concept('concept_journal_entry', '$concept_journal_entries$')]"
  je_control_the_lowlands_main_reason: "Since the Middle Ages, the lowlands have been one of the richest regions in Europe. Out of all the rivaling states, Flanders was the strongest. But a lot has changed since then, our French rulers are stronger than ever, and the days of small independent lords are over, so before we can break away from their domination, we must centralise and strengthen our control over the region."
- je_control_the_lowlands_main_lobby: "$je_control_the_lowlands_main_goal\nje_control_the_lowlands_main_reason$"
+ je_control_the_lowlands_main_lobby: "$je_control_the_lowlands_main_reason$"
  #je_control_the_northern_lowlands
  je_control_the_northern_lowlands: "Control the Northern Lowlands"
  #je_control_the_northern_lowlands_goal: "We must establish our control over the northern lowlands."
@@ -189,12 +189,35 @@
  #je_control_the_southern_lowlands_goal:0 "We must establish our control over the southern lowlands."
  je_control_the_southern_lowlands_reason: "We have to gain control over the southern regions, perhaps we can request control over these regions from our overlord."
  je_control_the_lowlands_advance: "Advances the Journal Entry 'Control the Lowlands'"
- #je_princely_league_main
- je_princely_league_main: "Princely League"
- #je_princely_league_main_goal:0 "???"
- je_princely_league_main_reason: "We must break free from the chain held by our overlord, but in order to achieve this we will have to gather support from other countries, in particular our fellow subjects would be good allies."
- je_princely_league_main_lobby: "$je_princely_league_main_reason$"
- princely_league_exists_tt: "The Gemanic League exists."
+ #br_je_create_the_princely_league
+ br_je_create_the_princely_league: "Create the $br_je_princely_league_main$"
+ br_je_create_the_princely_league_reason: "$br_je_princely_league_main_desc$"
+ #br_je_princely_league_main
+ br_je_princely_league_main: "Princely League"
+ br_je_princely_league_main_desc: "We must break free from the chain held by our overlord, but in order to achieve this we will have to gather support from other countries, in particular our fellow subjects would be good allies."
+ br_je_princely_league_main_reason: "[GetPlayer.GetCustom('br_je_princely_league_main_reason_custom_loc')]"
+ br_je_princely_league_main_lobby: "$br_je_princely_league_main_desc$"
+ princely_league_exists_tt: "The #b Princely League#! exists"
+ br_princely_league_situation_id: "br_princely_league_situation_id"
+ br_princely_league_left_side_name: "Princely League"
+ br_princely_league_left_side_desc: "These coutries have chosen band together in a league to protect their autonomy within the empire and to oppose the Emperor."
+ br_princely_league_left_faction_members: "Princely League Members"
+ br_princely_league_left_faction_members_desc: "These are vassals of the HRE who have chosen to oppose the Emperor"
+ br_princely_league_right_side_name: "Loyalists"
+ br_princely_league_right_side_desc: "These are vassals of the HRE who have chosen to remain loyal to the Emperor"
+ br_princely_league_right_faction_members: "Loyalists Members"
+ br_princely_league_right_faction_members_desc: "These are vassals of the HRE who have chosen to remain loyal to the Emperor"
+ br_princely_league_neutral_faction_members: "Neutral Members"
+ br_princely_league_neutral_faction_members_desc: "These are vassals of the HRE who are attempting to remain neutral in the matter"
+ #br_je_princely_league_main stances
+ br_princely_league_main_independence_stance_flag: "Independence"
+ br_princely_league_main_autonomy_stance_flag: "Autonomy"
+ br_je_princely_league_main_reason_left_side: "$br_je_princely_league_main_desc$\n\n$br_je_princely_league_main_reason_left_side_members_will_join_war_tt$" #\n$TOOLTIP_DELIMITER$\n$br_je_princely_league_main_status_desc_left_side$
+ br_je_princely_league_main_reason_left_side_members_will_join_war_tt: "When the independence of any member of the #b #yellow $br_princely_league_left_side_name$#!#! is threatened then all other members off the #b #yellow $br_princely_league_left_side_name$#!#! will join them in the [concept_diplomatic_play], this is because of #b #blue $br_princely_league_membership$#!#! [concept_treaty]"
+ br_je_princely_league_main_status_desc_left_side: "We are a member of the #b #yellow $br_princely_league_left_side_name$#!#!: \n$TAB$Currently our stance is: #b #blue [GetPlayer.MakeScope.Var('br_princely_league_main_left_side_member_stance_var').GetFlagName]#!#!"
+ br_je_princely_league_main_reason_right_side: "Our subjects are becoming restless, they have started to resent the Empire and now as their latest act of defiance they have formed the so called #b #yellow $br_princely_league_left_side_name$#!#! a organisation to meant to protect them form our influence. There are those within our vassals who would seek to use the League to gain their independence form us, we'll have to act carefully.\n\n$br_je_princely_league_main_reason_left_side_members_will_join_war_tt$\n"
+ br_je_princely_league_main_status_desc_right_side: "We are a member of the #b #yellow $br_princely_league_right_side_name$#!#!"
+ br_je_princely_league_main_status_desc_neutral_side: "We are a member of the #b #yellow Neutral#!#! side"
 
  
  #'Generic Journals'
@@ -219,6 +242,7 @@
 
  je_br_gain_independence: "The Struggle for Sovereignty"
  je_br_gain_independence_reason: "We are ruled, but not governed. Bound by treaties, tributes, or the weight of foreign crowns, our people remain denied their rightful voice and destiny. The time has come to cast off the yoke. Whether through arms, diplomacy, or perseverance, we must seize our independence—not as a gift, but as a claim long delayed. No great nation was born free; it was made free."
+ je_br_gain_independence_lobby: "$je_br_gain_independence_reason$"
  je_br_east_indies_trade: "Dominate East Indies Trade"
  je_br_east_indies_trade_reason: "The riches of the East—spices, silks, and exotic wares—flow through the Indies like lifeblood. To secure our place among the great trading powers, we must seize the ports, protect the sea lanes, and assert dominance over this vital crossroads of commerce."
  je_br_east_indies_trade_lobby: "$je_br_east_indies_trade_reason$"
