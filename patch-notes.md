@@ -32,6 +32,7 @@
 - increased the amount of wood in Canada, Scandinavia, Russia and the Amazonia regions. 
 - fixed Czech culture being wrong religion
 - fix for a bug caused by a Vinland company disabling generic timber company.
+- Fixed mods Relgion icons being to small.
 
 - Enlarged the CoA for the alternate flag for WRE.
 - Changed Antartican culture in Nova Veneto to louisiane.
