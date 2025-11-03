@@ -41,8 +41,18 @@ namespace = tge_mesoamerica
 ##  #MES1  AZTEC EMPIRE CONTENT  Events  101-199  ##
 
 #100-109 - The Golden Eagle Events
-#	100 - ##The Golden Eagle
+#	100 - The Empire of the Dawn
+#	101 - ##
+#	102 - ##
+#	103 - ##
+#	104 - ##
+#	105 - ##
+#	106 - ##
+#	107 - ##
+#	108 - ##The Coming Darkness
+#	109 - ##The Golden Eagle
 
+####################
 
 
 ############################################################
@@ -56,6 +66,166 @@ namespace = tge_mesoamerica
 ##  #MES1  AZTEC EMPIRE CONTENT  Events  101-199  ##
 ####################################################
 
-tge_mesoamerica.001 = {
-	orphan = yes
+tge_mesoamerica.100 = { # The Empire of the Dawn
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_aztec.dds"
+	duration = 3
+	dlc = dlc_tge
+	
+	title = tge_mesoamerica.100.t
+	desc = tge_mesoamerica.100.d
+	flavor = tge_mesoamerica.100.f
+	
+	gui_window = event_window_1char_adventure
+	left_icon = scope:tge_ruler_scope
+	
+	event_image = {
+		video = "tge_mesoamerica_public_debate"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		# triggered from GLOBAL
+	}
+	
+	immediate = {
+		ruler = {
+			save_scope_as = tge_ruler_scope
+		}
+		c:br_louisiane = {
+			save_scope_as = tge_louisiane_scope
+		}
+	}
+	
+	option = {
+		name = tge_mesoamerica.100.a
+		default_option = yes
+		show_as_tooltip = { 
+			add_journal_entry = { 
+				type = je_tge_golden_eagle
+			}
+			add_modifier = { 
+				name = modifier_tge_golden_aspirations
+			}
+		}
+	}
+}
+
+tge_mesoamerica.108 = { # The Coming Darkness
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_aztec.dds"
+	duration = 3
+	dlc = dlc_tge
+	
+	title = tge_mesoamerica.108.t
+	desc = tge_mesoamerica.108.d
+	flavor = tge_mesoamerica.108.f
+	
+	gui_window = event_window_1char_adventure
+	left_icon = scope:tge_ruler_scope
+	
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+	
+	trigger = {
+		# triggered by je_tge_golden_eagle on_fail
+	}
+	
+	immediate = {
+		ruler = {
+			save_scope_as = tge_ruler_scope
+		}
+	}
+	
+	option = {
+		name = tge_mesoamerica.108.a
+		default_option = yes
+		ruler = {
+			kill_character = yes
+		}
+		add_modifier = {
+			name = modifier_tge_coming_darkness
+			days = very_long_modifier_time
+			is_decaying = yes
+		}
+		add_radicals = {
+			value = large_radicals
+		}
+		every_subject_or_below = {
+			add_modifier = {
+				name = modifier_tge_doomed_empire
+				days = very_long_modifier_time
+				is_decaying = yes
+			}
+			add_liberty_desire = 50
+		}
+	}
+}
+
+tge_mesoamerica.109 = { # The Golden Eagle
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_aztec.dds"
+	duration = 3
+	dlc = dlc_tge
+	
+	title = tge_mesoamerica.109.t
+	desc = tge_mesoamerica.109.d
+	flavor = tge_mesoamerica.109.f
+	
+	gui_window = event_window_1char_adventure
+	left_icon = scope:tge_ruler_scope
+	
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+	
+	trigger = {
+		# triggered by je_tge_golden_eagle on_complete
+	}
+	
+	immediate = {
+		ruler = {
+			save_scope_as = tge_ruler_scope
+		}
+	}
+	
+	option = {
+		name = tge_mesoamerica.109.a
+		default_option = yes
+		ruler = {
+			add_modifier = {
+				name = modifier_tge_golden_eagle_character
+				days = very_long_modifier_time
+			}
+		}
+		heir ?= {
+			add_modifier = {
+				name = modifier_tge_golden_eagle_character
+				days = very_long_modifier_time
+			}
+		}
+		add_modifier = {
+			name = modifier_tge_golden_eagle_country
+			days = very_long_modifier_time
+			is_decaying = yes
+		}
+		add_loyalists = {
+			value = large_radicals
+		}
+		every_subject_or_below = {
+			add_modifier = {
+				name = modifier_tge_golden_overlord
+				days = very_long_modifier_time
+			}
+			add_liberty_desire = -25
+		}
+	}
 }

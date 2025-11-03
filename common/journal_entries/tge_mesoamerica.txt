@@ -11,7 +11,7 @@
 		}
 		set_variable = {
 			name = tge_golden_eagle_progress_var
-			value = 0
+			value = tge_golden_eagle_progress_value
 		}
 	}
 
@@ -23,8 +23,28 @@
 	
 	complete = {
 		custom_tooltip = {
-			text = je_tge_golden_eagle_complete
+			text = je_tge_golden_eagle_complete_1
 			var:tge_golden_eagle_var >= 500
+		}
+		custom_tooltip = {
+			text = je_tge_golden_eagle_complete_2
+			owns_entire_state_region = STATE_MEXICO
+			capital ?= {
+				state_region = s:STATE_MEXICO
+			}
+		}
+		calc_true_if = {
+			amount >= 10
+			owns_entire_state_region = STATE_CHIHUAHUA
+			owns_entire_state_region = STATE_DURANGO
+			owns_entire_state_region = STATE_GUERRERO
+			owns_entire_state_region = STATE_JALISCO
+			owns_entire_state_region = STATE_OAXACA
+			owns_entire_state_region = STATE_RIO_GRANDE
+			owns_entire_state_region = STATE_SINALOA
+			owns_entire_state_region = STATE_SONORA
+			owns_entire_state_region = STATE_VERACRUZ
+			owns_entire_state_region = STATE_ZACATECAS
 		}
 		has_law = law_type:law_monarchy
 		has_law = law_type:law_autocracy
@@ -33,6 +53,9 @@
 	}
 	
 	on_complete = {
+		trigger_event = {
+			id = tge_mesoamerica.109
+		}
 	}
 	
 	fail = {
@@ -44,10 +67,14 @@
 			NOT = {
 				country_has_state_religion = rel:br_tge_religion_teotl
 			}
+			is_subject = yes
 		}
 	}
 	
 	on_fail = {
+		trigger_event = {
+			id = tge_mesoamerica.108
+		}
 	}
 
 	on_weekly_pulse = {
@@ -86,7 +113,6 @@
 	}
 	
 	weight = 1000
-	
 }
 
 je_tge_aztlan = {
@@ -94,11 +120,11 @@ je_tge_aztlan = {
 	group = je_group_foreign_affairs
 	
 	should_be_pinned_by_default = yes
-
+	
 	is_shown_when_inactive = {
 		c:NAH ?= this
 	}
-
+	
 	possible = {
 		any_scope_state = {
 			OR = {
@@ -111,7 +137,6 @@ je_tge_aztlan = {
 	}
 	
 	immediate = {
-
 	}
 	
 	complete = {
@@ -129,7 +154,6 @@ je_tge_aztlan = {
 	}
 	
 	weight = 1000
-	
 }
 
 je_tge_mayan_frontier = {
@@ -169,5 +193,4 @@ je_tge_mayan_frontier = {
 	}
 
 	weight = 500
-
 }
