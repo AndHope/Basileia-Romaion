@@ -3,9 +3,21 @@
 # Update 146
 
 ## The Golden Eagle initial upload.
--
--
--
+
+- The Empire of the Dawn Has Landed!,
+	- Hey everyone! Well over 4 months behind schedule since updates for 1.10 derailed me for a bit, the first round of my (very many) changes for the Americas is ready! This first update is all about laying the groundwork for turning the Americas in a more playable region where the supremacy of the colonials isn't fully guaranteed yet.
+
+- Mesoamerica is no longer a singular Azteca blob, but rather a much more complex region with various government types, religions, and cultures. My goal is to explore what the Americas would look like in a world where contact came early with Vinland and with the Elysian Orthodoxy leading the charge with Eastern Christian missionaries as opposed to Catholic and Protestant missions.
+
+- There will be several new tags to choose from, but here are the major ones that I'll call out:
+	- The Mexica Empire: Wrapped up in layers of Sun God worship and re-energized by exposure to Hellenic innovations via Elysium, the Nahua have taken it upon themselves to spread the divine truth of Huitzilopotchli across the Altiplano,
+	- The Purepehca Empire: Having resisted both Nahua and, more recently, Elysian colonization attempts, the Purepecha hold true to their traditions and seek a way to survive in this changing world.,
+	- The Mixtec Theocracy: Converted to Elysian Orthodoxy by the shrewd missionaries from Elysium, the Mixtec have taken to the faith hook, line, and sinker and seek to bring forth the Kingdom of God atop the Hills of the Clouds.,
+	- The League of Mayapaan:  Clinging on by a thread, Mayapaan leads a decaying power bloc. Weakened by centuries of conflict with the Nahua, they now face imminent threats from Venetian and Andalusian intrusions.
+
+- Currently, only the Nahua have some initial flavor content. This centers around the amibtions of the "Golden Eagles." These are the Sun-Emperors who, in a corruption of the theology of in persona Christi, mantles Huitzilopotchli himself and is charged with ensuring that the sun god is provided with the strength to ensure the next sunrise.
+
+- Future content will include faith mechanics, Nahua internal politics, and some journals for the other tags in Mesoamerica.
 
 ## Poland-Lithuania Content has been reworked
 - 2 old Journal entries have been removed
