@@ -1,12 +1,12 @@
-﻿namespace = aegyptian_culture
+﻿namespace = br_ere_culture_change
 #Reminder to self use this style event for forming Indke and Aepoedian cultures.
-aegyptian_culture.1 = {
+br_ere_culture_change.1 = {
 	type = country_event
-	placement = ROOT
+	placement = c:br_kappadocia
 	
-	title = aegyptian_culture.1.t
-	desc = aegyptian_culture.1.d
-	flavor = aegyptian_culture.1.f
+	title = br_ere_culture_change.1.t
+	desc = br_ere_culture_change.1.d
+	flavor = br_ere_culture_change.1.f
 	
 	event_image = {
 		video = "unspecific_ruler_speaking_to_people"
@@ -14,35 +14,134 @@ aegyptian_culture.1 = {
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+
+	#orphan = yes #not yet in use
+	
+	trigger = {
+		#decision
+	}
+
+	option = {
+		name = br_ere_culture_change.1.a
+		default_option = yes
+
+		hidden_effect = {
+		c:br_kappadocia ?= {
+			#remove_primary_culture = cu:greek
+			add_primary_culture = cu:cappadocian
+			every_scope_pop = {
+				change_pop_culture = { target = cu:cappadocian value = 0.25 }
+			}
+		}
+		c:br_mesopotamia ?= {
+			every_scope_pop = {
+				change_pop_culture = { target = cu:cappadocian value = 0.1 }
+			}
+		}
+		s:STATE_ANKARA ?= {
+			add_homeland = cu:cappadocian
+		}
+		s:STATE_ADANA ?= {
+			add_homeland = cu:cappadocian
+		}
+		s:STATE_DIYARBAKIR ?= {
+			add_homeland = cu:cappadocian
+		}
+		c:BYZ = {
+			trigger_event = {
+				id = br_ere_culture_change.3
+				days = 5
+			}
+		}
+
+		custom_tooltip = {
+			text = br_ere_culture_change_cappadocian
+		}
+	}
+	}
+}
+
+br_ere_culture_change.2 = {
+	type = country_event
+	placement = c:br_pontos
+	
+	title = br_ere_culture_change.2.t
+	desc = br_ere_culture_change.2.d
+	flavor = br_ere_culture_change.2.f
+	
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	
 	duration = 3
 
 	orphan = yes #not yet in use
 	
 	trigger = {
-		 # set up trigger if BR doesn't subjugate by certain date. 
+		#decision
 	}
 
 	option = {
-		name = aegyptian_culture.1.a
+		name = br_ere_culture_change.2.a
 		default_option = yes
 
-		c:br_aegypt = {
+		hidden_effect = {
+		c:br_pontos ?= {
+			#remove_primary_culture = cu:greek
+			add_primary_culture = cu:pontic
 			every_scope_pop = {
-				limit = { culture = cu:greek }
-				change_pop_culture = { target = cu:aegyptian value = 1 }
+				change_pop_culture = { target = cu:pontic value = 0.55 }
 			}
 		}
-		c:br_afrika = {
+		c:br_taurica ?= {
 			every_scope_pop = {
-				limit = { culture = cu:greek }
-				change_pop_culture = { target = cu:aegyptian value = 1 }
+				change_pop_culture = { target = cu:pontic value = 0.2 }
 			}
+		}
+		s:STATE_TRABZON ?= {
+			add_homeland = cu:pontic
+		}
+		s:STATE_KASTAMONU ?= {
+			add_homeland = cu:pontic
 		}
 
-		#custom_tooltip = {
-			#text = aegyptian culture forms
-		#}
+		custom_tooltip = {
+			text = br_ere_culture_change_pontic
+		}
+	}
+	}
+}
+
+br_ere_culture_change.3 = {
+	type = country_event
+	placement = c:br_kappadocia
+	
+	title = br_ere_culture_change.1.t
+	desc = br_ere_culture_change.1.d
+	flavor = br_ere_culture_change.1.f
+	
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+	
+	trigger = {
+	}
+
+	option = {
+		name = br_ere_culture_change.1.a
+		default_option = yes
 	}
 }
