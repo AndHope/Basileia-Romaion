@@ -150,6 +150,22 @@ tge_tonalism.003 = { # The Sons of Huitzilopochtli
 
 }
 
+tge_tonalism.009 = {
+	type = country_event
+	hidden = yes
+	orphan = yes
+	
+	trigger = {
+		always = no # DO NOT CALL THIS EVENT
+	}
+	cancellation_trigger = {
+		always = yes
+	}
+	immediate = {
+		fix_variable_error = { variable = tge_no_deity }
+	}
+}
+
 ## Deity Veneration Events ##
 tge_tonalism.010 = { # Venerating a Deity
 	type = country_event
