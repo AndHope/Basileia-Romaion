@@ -2,6 +2,11 @@
 
 # Update 146
 
+## The Golden Eagle initial upload.
+-
+-
+-
+
 ## Poland-Lithuania Content has been reworked
 - 2 old Journal entries have been removed
 - 19 new Journal entries have been added
@@ -23,6 +28,11 @@
 ## Localization/Flavor
 - All IGs have had their base names and descriptions changed to better reflect the mods lore based on Jozues Recomendations.
 
+## ERE Changes
+- Updated ERE minors to start with the new Roman law varients.
+- Updated the starting war to naturally escalate if Aegypt is AI.
+- Added in some Kappadocian pops to eastern Anatolia and some events related to Regional Roman minorites. 
+
 ## Balance and minor tweaks
 - increase base bureaucracy from 10 to 15
 - increase amount of bureaucratic buildings so most nations start with a balance or surplus at game start.
@@ -33,6 +43,9 @@
 - fixed Czech culture being wrong religion
 - fix for a bug caused by a Vinland company disabling generic timber company.
 - Fixed mods Relgion icons being to small.
+- Increased Damascus Borders.
+- Tweaked the Persian/Kurdish Borders a tiny bit.
+- Added in some Kappadocian pops to eastern Anatolia and some events related to Regional Roman minorites. 
 
 - Enlarged the CoA for the alternate flag for WRE.
 - Changed Antartican culture in Nova Veneto to louisiane.
