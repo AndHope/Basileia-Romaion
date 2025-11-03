@@ -1,0 +1,719 @@
+## Normal Event Template ##
+temp_event_normal = { # 
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_"
+	duration = 3
+	dlc = dlc_tge
+	
+	title = temp_event_normal.t
+	desc = temp_event_normal.d
+	flavor = temp_event_normal.f
+	
+	event_image = {
+		video = "media_alias"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+	}
+	
+	cancellation_trigger = {
+	}
+	
+	cooldown = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = temp_event_normal.a
+		default_option = yes
+	}
+	
+	after = {
+	}
+}
+
+##  Character Event Template ##
+temp_event_char = { # 
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_"
+	duration = 3
+	dlc = dlc_tge
+
+	title = temp_event_char.t
+	desc = temp_event_char.d
+	flavor = temp_event_char.f
+	
+	gui_window =
+	left_icon = scope:left_icon
+	center_icon = scope:center_icon
+	right_icon = scope:right_icon
+	
+	event_image = {
+		texture = "gfx/interface/illustrations/event_backgrounds/gbbf_"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+	
+	trigger = {
+	}
+	
+	cancellation_trigger = {
+	}
+	
+	cooldown = { 
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = temp_event_char.a
+		default_option = yes
+	}
+	
+	option = {
+		name = temp_event_char.b
+	}
+	
+	after = {
+	}
+}
+
+## Hidden Event Template ##
+temp_event_hidden = { # 
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+	}
+
+	immediate = {
+	}
+}
+
+## show_as_unavailable Tooltip Function ##
+	trigger = {
+	}
+	highlighted_option = yes
+	show_as_unavailable = {
+		always = yes
+	}
+
+## General Journal Template ##
+je_temp_name_normal = { #
+	group = je_group_
+	icon = "gfx/interface/icons/event_icons/event_"
+	weight = 100
+
+	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+
+	is_shown_in_lobby = {
+	}
+
+	scripted_progress_bar =
+
+	scripted_button =
+	
+	is_shown_when_inactive = {
+	}
+	
+	possible = {
+	}
+	
+	immediate = {
+		gbbf_assign_dlc_icon_effect = yes
+	}
+	
+	modifiers_while_active = {
+	}
+	
+	complete = {
+	}
+	
+	on_complete = {
+	}
+	
+	fail = {
+	}
+	
+	on_fail = {
+	}
+	
+	timeout = 
+	
+	on_timeout = {
+	}
+	
+	invalid = {
+	}
+	
+	on_invalid = {
+	}
+	
+	on_weekly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	on_monthly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	on_yearly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	status_desc = {
+	}
+}
+
+## Journal Template with old progress bar ##
+je_temp_name_old_bar = { #
+	group = je_group_
+	icon = "gfx/interface/icons/event_icons/event_"
+	weight = 100
+	
+	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_in_lobby = {
+	}
+	
+	progressbar = yes
+	goal_add_value = {
+		value =
+	}
+	current_value = {
+		value =
+	}
+	is_progressing = {
+	}
+	progress_desc =
+	
+	scripted_button =
+	
+	is_shown_when_inactive = {
+	}
+	
+	possible = {
+	}
+	
+	immediate = {
+		gbbf_assign_dlc_icon_effect = yes
+	}
+	
+	modifiers_while_active = {
+	}
+	
+	complete = {
+	}
+	
+	on_complete = {
+	}
+	
+	fail = {
+	}
+	
+	on_fail = {
+	}
+	
+	timeout =
+	
+	on_timeout = {
+	}
+	
+	invalid = {
+	}
+	
+	on_invalid = {
+	}
+	
+	on_weekly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	on_monthly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	on_yearly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	status_desc = {
+	}
+}
+
+## General Scripted Button Template ##
+temp_name = {
+	name = "temp_name"
+	desc = "temp_name_desc"
+	
+	visible = {
+	}
+	
+	selected = {
+	}
+	
+	possible = {
+	}
+	
+	effect = {
+	}
+	
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {}
+			add = 0
+		}
+	}
+}
+
+## Character Template ##
+template_temp_name = {
+	#
+	first_name = 
+	last_name = 
+#	birth_date = 
+	age = 
+#	dna = 
+	culture = cu:
+	religion = rel:
+#	female = yes
+#	noble = yes
+#	ruler = yes
+#	heir = yes
+#	historical = yes
+#	ig_leader = yes
+#	is_general = yes
+#	hq = 
+	ideology = 
+	interest_group = 
+	traits = {
+	}
+}
+
+## Create Character Template ##
+# For insertion into immediate/option blocks
+create_character = {
+	#
+	template =
+	first_name = 
+	last_name = 
+	birth_date = 
+	age = 
+	dna = 
+	culture = cu: 
+	religion = rel: 
+	female = yes
+	noble = yes
+	ruler = yes
+	heir = yes
+	historical = yes
+	ig_leader = yes
+	is_general = yes
+	hq = 
+	ideology = 
+	interest_group = 
+	traits = {
+	}
+	on_created = {
+	}
+
+}
+
+# Character Trait Template	
+# trait types are personality, skill, and condition
+trait_template = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/reserved.dds"
+	
+	character_modifier = {
+	}
+	
+	country_modifier = {
+	}
+	
+	command_modifier = {
+	}
+	
+	interest_group_modifier = {
+	}
+	
+	agitator_modifier = {
+	}
+	
+	possible = {
+		always = no
+	}
+	
+	weight = {
+		value = 0
+	}
+	
+	replace = {
+	}
+	
+	value = 0 # remove for conditions
+	
+}
+
+## SGUI Template ##
+temp_name_sgui = {
+	scope = country
+	
+	is_shown = {
+	}
+	
+	is_valid = {
+	}
+	
+	effect = {
+	}
+}
+
+## Trigger Loc / Custom Desc ##
+temp_name = {
+	global =
+	global_not =
+	first =
+	first_not =
+	third =
+	third_not =
+}
+
+## CMF Event Windows ##
+#### Vanilla Event Window Variants
+event_window_default = {}
+event_window_1char_tabloid = {}
+event_window_1char_propaganda = {}
+event_window_1char_lord_kitchener = {}
+event_window_2char = {}
+event_window_2char_halloween = {}
+event_window_1char_tabloid_halloween = {}
+event_window_big_icon_center = {}
+
+#### CMF Character Window Variants
+event_window_1char_adventure = {}
+event_window_2char_adventure = {}
+event_window_2char_duel = {}
+event_window_2char_discussion = {}
+event_window_highlander = {}
+event_window_3char = {}
+event_window_3char_selection = {}
+
+#### CMF Superevent Window Variants
+event_window_superevent_newspaper = {}
+event_window_superevent_newspaper_full = {}
+event_window_superevent_classic = {}
+event_window_superevent_classic_full = {}
+event_window_superevent_modern = {}
+event_window_superevent_modern_full = {}
+event_window_superevent_crisis = {}
+
+#### CMF Widescreen Window Variants
+event_window_widescreen_classic = {}
+event_window_widescreen_newspaper = {}
+
+#### CMF Special Window Variants
+event_window_special = {} # placeholder
+event_window_ethics = {}
+
+#### CMF Letter Window Variants
+com_event_window_letter_simple = {}
+com_event_window_letter_paper = {}
+com_event_window_letter_image = {}
+com_event_window_telegram = {}
+com_event_window_newspaper = {}
+
+## State Claim Template
+if = {
+	limit = {
+		NOR = {
+			has_claim = s:STATE_xyx
+			owns_entire_state_region = STATE_xyx
+		}
+	}
+	s:STATE_xyx = {
+		add_claim = ROOT
+	}
+}
+
+## Script for getting relations between two countries as a scope value
+scope:country_scope = {
+	save_scope_value_as = {
+		name = relations_scope
+		value = "relations(scope:country_scope)"
+	}
+}
+
+## If you want to display a variable that is saved on a journal entry inside the locs of that journal entry, you can use this:
+loc_key: [SCOPE.sJE('journal_entry').MakeScope.Var('your_variable_name').GetValue]
+
+## To connect a scripted progress bar to a variable: *DO NOT FORGET TO SCOPE TO "owner"!
+je:je_your_je = {
+	set_bar_progress = {
+		value = owner.var:your_var
+		name = your_progress_bar
+	}
+}
+
+## To check if a variable exists and if it has a certain value in guiscript
+Country.MakeScope.Var('magic_research').IsSet
+EqualTo_CFixedPoint(Country.MakeScope.Var('magic_research').GetValue, '(CFixedPoint)0')
+
+#### LOCALIZATION TEMPLATES & FUNCTIONS
+# Single Event Loc Template
+ temp_event.t: ""
+ temp_event.d: ""
+ temp_event.f: ""
+ temp_event.a: ""
+ temp_event.b: ""
+
+# Event Block Loc Template
+ temp_event_0.t: ""
+ temp_event_0.d: ""
+ temp_event_0.f: ""
+ temp_event_0.a: ""
+ temp_event_1.t: ""
+ temp_event_1.d: ""
+ temp_event_1.f: ""
+ temp_event_1.a: ""
+ temp_event_2.t: ""
+ temp_event_2.d: ""
+ temp_event_2.f: ""
+ temp_event_2.a: ""
+ temp_event_3.t: ""
+ temp_event_3.d: ""
+ temp_event_3.f: ""
+ temp_event_3.a: ""
+ temp_event_4.t: ""
+ temp_event_4.d: ""
+ temp_event_4.f: ""
+ temp_event_4.a: ""
+ temp_event_5.t: ""
+ temp_event_5.d: ""
+ temp_event_5.f: ""
+ temp_event_5.a: ""
+ temp_event_6.t: ""
+ temp_event_6.d: ""
+ temp_event_6.f: ""
+ temp_event_6.a: ""
+ temp_event_7.t: ""
+ temp_event_7.d: ""
+ temp_event_7.f: ""
+ temp_event_7.a: ""
+ temp_event_8.t: ""
+ temp_event_8.d: ""
+ temp_event_8.f: ""
+ temp_event_8.a: ""
+ temp_event_9.t: ""
+ temp_event_9.d: ""
+ temp_event_9.f: ""
+ temp_event_9.a: ""
+
+# Custom Loc Template
+temp_name_type = {
+	type = country
+	
+	text = {
+		trigger = {
+		}
+		localization_key = custom_temp_name
+	}
+}
+
+# Localization Tricks & Odd Functions
+
+•			<- bullet point
+\n•				<- This adds a newline with a bullet point
+\n$TOOLTIP_DELIMITER$\n	<- This adds that nice line spacer between sections
+
+#tooltippable;tooltip:[Country.GetTooltipTag],tooltip_loc_key displayed_text#!
+#tooltippable #tooltip:[GetRawTextTooltipTag('tooltip_loc_key')] displayed_text#!#!
+
+#tooltippable;tooltip:[Country.GetTooltipTag],tooltip_loc_key [GetPlayer.MakeScope.Var('var').GetValue]#!
+[Country.MakeScope.GetScriptValueDesc('value_key')] <- place this inside of a #tooltippable;tooltip with either |+= or |-= as needed
+
+Example:
+je_loc_reason: "#tooltippable;tooltip:[Country.GetTooltipTag],je_loc_breakdown [Country.MakeScope.ScriptValue('value_key')|+=]#!"
+je_loc_breakdown: "[Country.MakeScope.GetScriptValueDesc('value_key')]"
+
+## Localization Functions ##
+
+[Concept('concept_key','$concept_loc$')]
+
+[GetBuildingType('building_type').GetName]
+[GetCulture('culture_key').GetName]
+[GetIdeology('ideology').GetName]
+[GetLawType('law_type').GetName]
+[GetPopType('pop_type').GetName]
+[GetReligion('religion_key').GetName]
+[GetStateRegion('state_region').GetName]
+[GetStrategicRegion('strategic_region').GetName]
+[GetTechnology('technology_id').GetName]
+
+[SCOPE.GetRootScope.GetCountry.GetCustom('')]
+[GetPlayer.MakeScope.Var('var').GetValue]
+[GetGlobalVariable('global_var').GetValue]
+
+ alert_<alert_key>_name: "" # This is the alert name
+ alert_<alert_key>_hint: "" # This is the alert desc 
+ alert_<alert_key>_action: "" # This is what will happen if you click the alert
+ <alert_key>_setting_name: "" # This is shown in the alert settings
+ 
+
+# Acceptance Modifier Types
+	state_radicals_and_loyalists_from_sol_change_mult
+
+	country_loyalism_increases_full_acceptance_mult = 
+	country_loyalism_increases_second_rate_citizen_mult = 
+	country_loyalism_increases_open_prejudice_mult = 
+	country_loyalism_increases_cultural_erasure_mult = 
+	country_loyalism_increases_violent_hostility_mult = 
+
+	country_radicalism_increases_full_acceptance_mult = 
+	country_radicalism_increases_second_rate_citizen_mult = 
+	country_radicalism_increases_open_prejudice_mult = 
+	country_radicalism_increases_cultural_erasure_mult = 
+	country_radicalism_increases_violent_hostility_mult = 
+
+	country_qualification_growth_full_acceptance_mult = 
+	country_qualification_growth_second_rate_citizen_mult = 
+	country_qualification_growth_open_prejudice_mult = 
+	country_qualification_growth_cultural_erasure_mult = 
+	country_qualification_growth_violent_hostility_mult = 
+	
+	
+	state_loyalism_increases_full_acceptance_mult = 
+	state_loyalism_increases_second_rate_citizen_mult = 
+	state_loyalism_increases_open_prejudice_mult = 
+	state_loyalism_increases_cultural_erasure_mult = 
+	state_loyalism_increases_violent_hostility_mult = 
+
+	state_radicalism_increases_full_acceptance_mult = 
+	state_radicalism_increases_second_rate_citizen_mult = 
+	state_radicalism_increases_open_prejudice_mult = 
+	state_radicalism_increases_cultural_erasure_mult = 
+	state_radicalism_increases_violent_hostility_mult = 
+
+	state_qualification_growth_full_acceptance_mult = 
+	state_qualification_growth_second_rate_citizen_mult = 
+	state_qualification_growth_open_prejudice_mult = 
+	state_qualification_growth_cultural_erasure_mult = 
+	state_qualification_growth_violent_hostility_mult = 
+
+# Social Class Modifier Template
+
+country_key_acceptance_min_add = {
+	decimals = 0
+	color = good
+	percent = no
+	game_data = {
+		ai_value = 0
+		tags = { cultural_acceptance }
+	}
+}
+
+country_key_acceptance_max_add = {
+	decimals = 0
+	color = bad
+	percent = no
+	game_data = {
+		ai_value = 0
+		tags = { cultural_acceptance }
+	}
+}
+
+country_key_cultural_acceptance_add = {
+	decimals = 0
+	color = good
+	percent = no
+}
+
+country_key_cultural_acceptance_mult = {
+	decimals = 0
+	color = good
+	percent = yes
+}
+
+country_key_education_access_add = {
+	decimals = 0
+	color = good
+	percent = no
+}
+
+country_key_education_access_mult = {
+	decimals = 0
+	color = good
+	percent = yes
+}
+
+country_key_qualification_growth_add = {
+	decimals = 0
+	color = good
+	percent = no
+}
+
+country_key_qualification_growth_mult = {
+	decimals = 0
+	color = good
+	percent = yes
+}
+
+country_key_qualification_growth_same_class_mult = {
+	decimals = 0
+	color = good
+	percent = yes
+}
+
+country_key_qualification_growth_other_class_mult = {
+	decimals = 0
+	color = good
+	percent = yes
+}
+
+#####################################
+
+cd /d D:\SteamLibrary\steamapps\common\Victoria 3\game
+findstr /s /i /c:"search_key" *

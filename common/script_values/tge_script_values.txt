@@ -1,0 +1,172 @@
+﻿tge_golden_eagle_progress_value = {
+	value = 0
+
+	## Sources
+	add = {
+		value = {
+			add = government_legitimacy
+			multiply = 0.01
+			round_to = 0.01
+		}
+		desc = tge_value_from_legitimacy
+	}
+	add = {
+		value = {
+			add = infamy
+			multiply = 0.01
+			round_to = 0.01
+		}
+		desc = tge_value_from_infamy
+	}
+	add = {
+		value = {
+			add = army_power_projection
+			multiply = 0.001
+			round_to = 0.01
+		}
+		desc = tge_value_from_army_projection
+	}
+
+	## Penalties
+	subtract = {
+		value = {
+			add = literacy_rate
+			round_to = 0.01
+		}
+		desc = tge_value_from_literacy
+	}
+	subtract = {
+		value = {
+			add = radical_population_fraction
+			round_to = 0.01
+		}
+		desc = tge_value_from_radicals
+	}
+
+	round_to = 0.01
+}
+
+tge_tonalli_progress_value = {
+	value = 0
+
+	## Sources
+	add = {
+		value = {
+			add = infamy
+			divide = 100
+			round_to = 0.01
+		}
+		desc = tge_value_from_infamy
+	}
+	if = {
+		limit = {
+			ig:ig_armed_forces = {
+				is_in_government = yes
+			}
+		}
+		add = {
+			value = {
+				add = ig:ig_armed_forces.ig_clout
+				round_to = 0.01
+			}
+			desc = tge_value_from_armed_forces_clout_positive
+		}
+	}
+	add = {
+		value = {
+			every_scope_general = {
+				add = commander_rank
+			}
+			every_scope_admiral = {
+				add = commander_rank
+			}
+			divide = 100
+			round_to = 0.01
+		}
+		desc = tge_value_from_commander_ranks
+	}
+	if = {
+		limit = {
+			is_at_war = yes
+		}
+		add = {
+			value = 0.05
+			desc = tge_value_from_at_war
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_tge_new_fire_hosted
+		}
+		add = {
+			value = 0.05
+			desc = tge_value_from_new_fire_hosted
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_tge_ritual_bloodletting
+		}
+		add = {
+			value = 0.05
+			desc = tge_value_from_ritual_bloodletting
+		}
+	}
+
+	## Penalties
+	if = {
+		limit = {
+			is_at_war = no
+		}
+		subtract = {
+			value = 0.01
+			desc = tge_value_from_at_peace
+		}
+	}
+	if = {
+		limit = {
+			tge_is_venerating_deity_trigger = no
+		}
+		subtract = {
+			value = 0.03
+			desc = tge_value_from_no_devotion
+		}
+	}
+	if = {
+		limit = {
+			ig:ig_armed_forces = {
+				is_in_government = no
+			}
+		}
+		subtract = {
+			value = {
+				add = ig:ig_armed_forces.ig_clout
+				round_to = 0.01
+			}
+			desc = tge_value_from_armed_forces_clout_negative
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_tge_new_fire_neglected
+		}
+		subtract = {
+			value = 1
+			desc = tge_value_from_new_fire_neglected
+		}
+	}
+	subtract = {
+		value = tge_tonalli_multiplier_value
+		desc = tge_value_from_tonalli
+	}
+	round_to = 0.01
+}
+
+tge_tonalli_multiplier_value = {
+	value = 0
+	add = var:tge_tonalli_var
+	divide = 1000
+	round_to = 0.01
+	max = 1
+	min = 0
+}

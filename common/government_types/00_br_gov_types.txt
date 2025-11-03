@@ -454,3 +454,57 @@ gov_br_chartered_company = {
 		post_change_to_dictatorial = yes
 	}
 }
+
+gov_br_tlahtoloyan = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_HUEY_TLATOANI"
+	female_ruler = "RULER_TITLE_HUEY_TLATOANI"
+	
+	male_heir = "RULER_TITLE_TLATOCAPILLI"
+	female_heir = "RULER_TITLE_CIHUATLATOANI"
+	
+	possible = {
+		c:NAH ?= this
+		has_law_or_variant = law_type:law_monarchy
+		OR = {
+			has_law_or_variant = law_type:law_autocracy
+			has_law_or_variant = law_type:law_oligarchy
+		}
+		is_subject = no
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+	
+}
+
+gov_br_altepetl = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_TLATOANI"
+	female_ruler = "RULER_TITLE_TLATOANI"
+	
+	male_heir = "RULER_TITLE_TLATOCAPILLI"
+	female_heir = "RULER_TITLE_CIHUATLATOANI"
+	
+	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = heritage_mesoamerican
+		}
+		has_law_or_variant = law_type:law_monarchy
+		has_law = law_type:law_altepetl
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+	
+}

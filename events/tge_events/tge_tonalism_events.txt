@@ -1,0 +1,696 @@
+﻿########################################################
+# BASILEIA ROMAION: THE GOLDEN EAGLE - TONALISM EVENTS #
+########################################################
+
+# By: Alexedishi
+
+####################
+
+namespace = tge_tonalism
+
+####################
+
+##  TOC  TABLE OF CONTENTS  ##
+
+#001-009 - Tonalism Starter Events
+#	001 - Tonalism Monitor Event
+#	002 - The Followers of Ometeotl
+#	003 - The Sons of Huitzilopochtli
+
+#010-019 - Deity Veneration Events
+#	010 - Venerating a Deity
+
+#020-029 - New Fire Ceremony Narrative Events
+#	020 - Planning a New Fire Ceremony
+#	021 - ##Gold Sacrifice
+#	022 - ##Animal Sacrifice
+#	023 - ##Human Sacrifice
+#	029 - ##The New Fire Ceremony
+
+#030-039 - New Fire Ceremony Dynamic Events
+#	030 -
+
+#040-049 - Tonalism Decision Events
+#	040 - Bloodletting Revived
+#	041 - Teotl Adopted
+
+
+## Tonalism Starter Events ##
+tge_tonalism.001 = { # Tonalism Monitor Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		NOT = {
+			has_variable = tge_tonalism_starter_var
+		}
+	}
+
+	immediate = {
+		set_variable = tge_tonalism_starter_var
+		if = {
+			limit = { 
+				country_has_state_religion = rel:br_tge_religion_teotl
+			}
+			trigger_event = {
+				id = tge_tonalism.003
+			}
+		}
+		else = {
+			trigger_event = {
+				id = tge_tonalism.002
+			}
+		}
+	}
+}
+
+tge_tonalism.002 = { # 
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_tlaloc.dds"
+
+	title = tge_tonalism.002.t
+	desc = tge_tonalism.002.d
+	flavor = tge_tonalism.002.f
+
+	event_image = {
+		video = "tge_mesoamerica_ruler_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_tge
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = tge_tonalism.002.a
+		default_option = yes
+		if = {
+			limit = {
+				has_journal_entry = je_tge_tonalism
+			}
+			custom_tooltip = tge_no_effects
+		}
+		else = {
+			add_journal_entry = {
+				type = je_tge_golden_eagle
+			}
+		}
+	}
+
+}
+
+tge_tonalism.003 = { # The Sons of Huitzilopochtli
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_tlaloc.dds"
+
+	title = tge_tonalism.003.t
+	desc = tge_tonalism.003.d
+	flavor = tge_tonalism.003.f
+
+	event_image = {
+		video = "tge_mesoamerica_ruler_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_tge
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = tge_tonalism.003.a
+		default_option = yes
+		if = {
+			limit = {
+				has_journal_entry = je_tge_tonalism
+			}
+			custom_tooltip = tge_no_effects
+		}
+		else = {
+			add_journal_entry = {
+				type = je_tge_golden_eagle
+			}
+		}
+	}
+
+}
+
+tge_tonalism.009 = {
+	type = country_event
+	hidden = yes
+	orphan = yes
+	
+	trigger = {
+		always = no # DO NOT CALL THIS EVENT
+	}
+	cancellation_trigger = {
+		always = yes
+	}
+	immediate = {
+		fix_variable_error = { variable = tge_no_deity }
+	}
+}
+
+## Deity Veneration Events ##
+tge_tonalism.010 = { # Venerating a Deity
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_tlaloc.dds"
+
+	title = tge_tonalism.010.t
+	desc = tge_tonalism.010.d
+	flavor = tge_tonalism.010.f
+
+	gui_window = event_window_ethics
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_tge
+
+	trigger = {
+		# triggered by tge_select_deity_button
+	}
+
+	cancellation_trigger = {
+		country_has_state_religion = rel:br_tge_religion_teotl
+	}
+
+	immediate = {
+		ig:ig_devout = {
+			save_scope_as = devout_scope
+		}
+	}
+
+	option = {
+		name = tge_tonalism.010.a
+		default_option = yes
+		if = {
+			limit = {
+				tge_is_venerating_deity_trigger = no
+			}
+			custom_tooltip = eocfm_no_effects
+		}
+		else = {
+			tge_remove_devotion_modifiers_effect = yes
+		}
+	}
+
+	option = {
+		name = tge_tonalism.010.1
+		tge_devotion_to_tezcatlipoca_effect = yes
+		tge_devotion_timeout_effect = yes
+	}
+
+	option = {
+		name = tge_tonalism.010.2
+		tge_devotion_to_tlaloc_effect = yes
+		tge_devotion_timeout_effect = yes
+	}
+
+	option = {
+		name = tge_tonalism.010.3
+		tge_devotion_to_quetzalcoatl_effect = yes
+		tge_devotion_timeout_effect = yes
+	}
+
+	option = {
+		name = tge_tonalism.010.4
+		tge_devotion_to_huitzilopochtli_effect = yes
+		tge_devotion_timeout_effect = yes
+	}
+	
+	after = { 
+		remove_variable = tge_selecting_deity_var
+	}
+
+}
+
+## New Fire Ceremony Events ##
+tge_tonalism.020 = { # Planning a New Fire Ceremony
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_tlaloc.dds"
+
+	title = tge_tonalism.020.t
+	desc = tge_tonalism.020.d
+	flavor = tge_tonalism.020.f
+
+	event_image = {
+		video = "tge_mesoamerica_ruler_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_tge
+
+	trigger = {
+		# triggered by tge_new_fire_button
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = tge_tonalism.020.a
+		default_option = yes
+		add_journal_entry = {
+			type = je_tge_tonalism_new_fire
+		}
+		show_as_tooltip = {
+			add_modifier = modifier_tge_hosting_new_fire
+		}
+	}
+
+	option = {
+		name = tge_tonalism.020.b
+		custom_tooltip = {
+			text = tge_nothing_happens
+			remove_variable = tge_new_fire_var
+		}
+	}
+
+}
+
+tge_tonalism.021 = { # Gold Offered as a Sacrifice
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = tge_tonalism.021.t
+	desc = tge_tonalism.021.d
+	flavor = tge_tonalism.021.f
+
+	event_image = {
+		video = "tge_mesoamerica_ruler_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 1
+
+	dlc = dlc_tge
+
+	trigger = {
+		# triggered by tge_host_gold_sacrifice_button
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_tge_tonalism_new_fire
+		}
+	}
+
+	immediate = {
+		capital = {
+			save_scope_as = tge_sacrifice_scope_1
+		}
+		random_scope_state = {
+			limit = {
+				NOT = {
+					scope:tge_sacrifice_scope_1 = this
+				}
+				any_scope_building = {
+					is_building_type = building_gold_mine
+				}
+			}
+			save_scope_as = tge_sacrifice_scope_2
+		}
+		random_scope_state = {
+			limit = {
+				NOR = {
+					scope:tge_sacrifice_scope_1 = this
+					scope:tge_sacrifice_scope_2 = this
+				}
+				any_scope_building = {
+					is_building_type = building_gold_mine
+				}
+			}
+			save_scope_as = tge_sacrifice_scope_3
+		}
+	}
+
+	option = {
+		name = tge_tonalism.021.a
+		default_option = yes
+		trigger = {
+			scope:tge_sacrifice_scope_1 = {
+				NOT = {
+					has_modifier = modifier_tge_capital_sacrifice
+				}
+			}
+		}
+		scope:tge_sacrifice_scope_1 = {
+			add_modifier = {
+				name = modifier_tge_capital_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	option = {
+		name = tge_tonalism.021.b
+		trigger = {
+			exists = scope:tge_sacrifice_scope_2
+		}
+		scope:tge_sacrifice_scope_2 = {
+			add_modifier = {
+				name = modifier_tge_gold_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	option = {
+		name = tge_tonalism.021.c
+		trigger = {
+			exists = scope:tge_sacrifice_scope_3
+		}
+		scope:tge_sacrifice_scope_3 = {
+			add_modifier = {
+				name = modifier_tge_gold_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	after = {
+		remove_variable = tge_considering_sacrifice_var
+	}
+
+}
+
+tge_tonalism.022 = { # Gold Offered as a Sacrifice
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = tge_tonalism.022.t
+	desc = tge_tonalism.022.d
+	flavor = tge_tonalism.022.f
+
+	event_image = {
+		video = "tge_mesoamerica_ruler_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 1
+
+	dlc = dlc_tge
+
+	trigger = {
+		# triggered by tge_host_gold_sacrifice_button
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_tge_tonalism_new_fire
+		}
+	}
+
+	immediate = {
+		capital = {
+			save_scope_as = tge_sacrifice_scope_1
+		}
+		random_scope_state = {
+			limit = {
+				NOT = {
+					scope:tge_sacrifice_scope_1 = this
+				}
+				any_scope_building = {
+					is_building_type = building_gold_mine
+				}
+			}
+			save_scope_as = tge_sacrifice_scope_2
+		}
+		random_scope_state = {
+			limit = {
+				NOR = {
+					scope:tge_sacrifice_scope_1 = this
+					scope:tge_sacrifice_scope_2 = this
+				}
+				any_scope_building = {
+					is_building_type = building_gold_mine
+				}
+			}
+			save_scope_as = tge_sacrifice_scope_3
+		}
+	}
+
+	option = {
+		name = tge_tonalism.022.a
+		default_option = yes
+		trigger = {
+			scope:tge_sacrifice_scope_1 = {
+				NOT = {
+					has_modifier = modifier_tge_capital_sacrifice
+				}
+			}
+		}
+		scope:tge_sacrifice_scope_1 = {
+			add_modifier = {
+				name = modifier_tge_capital_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	option = {
+		name = tge_tonalism.022.b
+		trigger = {
+			exists = scope:tge_sacrifice_scope_2
+		}
+		scope:tge_sacrifice_scope_2 = {
+			add_modifier = {
+				name = modifier_tge_animal_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	option = {
+		name = tge_tonalism.022.c
+		trigger = {
+			exists = scope:tge_sacrifice_scope_3
+		}
+		scope:tge_sacrifice_scope_3 = {
+			add_modifier = {
+				name = modifier_tge_animal_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	after = {
+		remove_variable = tge_considering_sacrifice_var
+	}
+
+}
+
+tge_tonalism.023 = { # Gold Offered as a Sacrifice
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = tge_tonalism.023.t
+	desc = tge_tonalism.023.d
+	flavor = tge_tonalism.023.f
+
+	event_image = {
+		video = "tge_mesoamerica_ruler_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 1
+
+	dlc = dlc_tge
+
+	trigger = {
+		# triggered by tge_host_gold_sacrifice_button
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_tge_tonalism_new_fire
+		}
+	}
+
+	immediate = {
+		capital = {
+			save_scope_as = tge_sacrifice_scope_1
+		}
+		random_scope_state = {
+			limit = {
+				NOT = {
+					scope:tge_sacrifice_scope_1 = this
+				}
+				any_scope_pop = {
+					is_pop_type = slaves
+				}
+			}
+			save_scope_as = tge_sacrifice_scope_2
+		}
+		random_scope_state = {
+			limit = {
+				NOR = {
+					scope:tge_sacrifice_scope_1 = this
+					scope:tge_sacrifice_scope_2 = this
+				}
+				any_scope_pop = {
+					is_pop_type = slaves
+				}
+			}
+			save_scope_as = tge_sacrifice_scope_3
+		}
+	}
+
+	option = {
+		name = tge_tonalism.023.a
+		default_option = yes
+		scope:tge_sacrifice_scope_1 = {
+			add_modifier = {
+				name = modifier_tge_human_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	option = {
+		name = tge_tonalism.023.b
+		trigger = {
+			exists = scope:tge_sacrifice_scope_2
+		}
+		scope:tge_sacrifice_scope_2 = {
+			add_modifier = {
+				name = modifier_tge_human_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	option = {
+		name = tge_tonalism.023.c
+		trigger = {
+			exists = scope:tge_sacrifice_scope_3
+		}
+		scope:tge_sacrifice_scope_3 = {
+			add_modifier = {
+				name = modifier_tge_human_sacrifice
+				months = 24
+			}
+		}
+	}
+
+	after = {
+		remove_variable = tge_considering_sacrifice_var
+	}
+
+}
+
+## Tonalism Decision Events ##
+tge_tonalism.040 = { # Bloodletting Revived
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	title = tge_tonalism.040.t
+	desc = tge_tonalism.040.d
+	flavor = tge_tonalism.040.f
+
+	event_image = {
+		video = "votp_hostile_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_tge
+
+	trigger = {
+		# triggered by tge_revive_bloodletting_button
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = tge_tonalism.040.a
+		default_option = yes
+	}
+
+}
+
+tge_tonalism.041 = { # Teotl Adopted
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = tge_tonalism.041.t
+	desc = tge_tonalism.041.d
+	flavor = tge_tonalism.041.f
+
+	event_image = {
+		video = "tge_mesoamerica_ruler_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_tge
+
+	trigger = {
+		# triggered by tge_adopt_teotl_button
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = tge_tonalism.041.a
+		default_option = yes
+		set_state_religion = rel:br_tge_religion_teotl
+		every_scope_pop = { 
+			limit = { 
+				has_pop_religion = br_tge_religion_tonalism
+			}
+			change_pop_religion = {
+				target = rel:br_tge_religion_teotl
+				value = 0.5
+			}
+		}
+		if = {
+			limit = {
+				tge_is_venerating_huitzilopochtli_trigger = no
+			}
+			tge_devotion_to_huitzilopochtli_effect = yes
+		}
+
+	}
+
+}

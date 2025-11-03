@@ -1,0 +1,35 @@
+﻿on_monthly_pulse_country = {
+	on_actions = {
+#		tge_tonalism_monthly_pulse
+	}
+}
+
+tge_tonalism_monthly_pulse = {
+	trigger = {
+		OR = {
+			country_has_state_religion = rel:br_tge_religion_teotl
+			country_has_state_religion = rel:br_tge_religion_tonalism
+		}
+	}
+	events = {
+		tge_tonalism.001 # Tonalism Monitor
+	}
+}
+
+####################
+
+on_game_started_after_lobby = {
+	on_actions = {
+		tge_on_game_started
+	}
+}
+
+tge_on_game_started = {
+	effect = {
+		c:NAH ?= {
+			trigger_event = {
+				id = tge_mesoamerica.100
+			}
+		}
+	}
+}

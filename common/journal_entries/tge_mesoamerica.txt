@@ -1,0 +1,206 @@
+﻿je_tge_golden_eagle = {
+	group = je_group_historical_content
+	icon = "gfx/interface/icons/event_icons/event_aztec.dds"
+	weight = 100
+	
+	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_in_lobby = {
+		c:NAH ?= this
+	}
+	
+	scripted_progress_bar = tge_golden_eagle_progressbar
+	
+	immediate = {
+		set_variable = {
+			name = tge_golden_eagle_var
+			value = 100
+		}
+		set_variable = {
+			name = tge_golden_eagle_progress_var
+			value = 0
+		}
+	}
+
+	modifiers_while_active = {
+		modifier_tge_golden_aspirations
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = je_tge_golden_eagle_complete_1
+			var:tge_golden_eagle_var >= 500
+		}
+		custom_tooltip = {
+			text = je_tge_golden_eagle_complete_2
+			owns_entire_state_region = STATE_MEXICO
+			capital ?= {
+				state_region = s:STATE_MEXICO
+			}
+		}
+		calc_true_if = {
+			amount >= 10
+			owns_entire_state_region = STATE_CHIHUAHUA
+			owns_entire_state_region = STATE_DURANGO
+			owns_entire_state_region = STATE_GUERRERO
+			owns_entire_state_region = STATE_JALISCO
+			owns_entire_state_region = STATE_OAXACA
+			owns_entire_state_region = STATE_RIO_GRANDE
+			owns_entire_state_region = STATE_SINALOA
+			owns_entire_state_region = STATE_SONORA
+			owns_entire_state_region = STATE_VERACRUZ
+			owns_entire_state_region = STATE_ZACATECAS
+		}
+		has_law = law_type:law_monarchy
+		has_law = law_type:law_autocracy
+		has_law = law_type:law_state_religion
+		country_rank >= rank_value:major_power
+	}
+	
+	on_complete = {
+		trigger_event = {
+			id = tge_mesoamerica.109
+		}
+	}
+	
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = je_tge_golden_eagle_fail
+				var:tge_golden_eagle_var <= 0
+			}
+			NOT = {
+				country_has_state_religion = rel:br_tge_religion_teotl
+			}
+			is_subject = yes
+		}
+	}
+	
+	on_fail = {
+		trigger_event = {
+			id = tge_mesoamerica.108
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			set_variable = {
+				name = tge_golden_eagle_progress_var
+				value = tge_golden_eagle_progress_value
+			}
+			scope:journal_entry = {
+				set_bar_progress = {
+					name = tge_golden_eagle_progressbar
+					value = owner.var:tge_golden_eagle_var
+				}
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			change_variable = {
+				name = tge_golden_eagle_var
+				add = var:tge_golden_eagle_progress_var
+			}
+			clamp_variable = {
+				name = tge_golden_eagle_var
+				max = 500
+				min = 0
+			}
+			scope:journal_entry = {
+				set_bar_progress = {
+					name = tge_golden_eagle_progressbar
+					value = owner.var:tge_golden_eagle_var
+				}
+			}
+		}
+	}
+}
+
+je_tge_aztlan = {
+	group = je_group_historical_content
+	icon = "gfx/interface/icons/event_icons/event_aztec.dds"
+	weight = 1000
+	
+	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_when_inactive = {
+		c:NAH ?= this
+	}
+	
+	possible = {
+		any_scope_state = {
+			OR = {
+				region = sr:region_pacific_coast
+				region = sr:region_great_plains
+			}
+		}
+		has_technology_researched = colonization
+		has_technology_researched = romanticism
+	}
+	
+	immediate = {
+	}
+	
+	complete = {
+		owns_entire_state_region = STATE_NEW_MEXICO
+		owns_entire_state_region = STATE_ARIZONA
+	}
+	
+	on_complete = {
+	}
+	
+	fail = {
+	}
+	
+	on_fail = {
+	}
+}
+
+je_tge_mayan_frontier = {
+	group = je_group_foreign_affairs
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	weight = 1000
+	
+	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_when_inactive = {
+		c:NAH ?= this
+	}
+	
+	possible = {
+		any_scope_state = {
+			region = sr:region_central_america
+		}
+	}
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_YUCATAN
+		country_or_subject_owns_entire_state_region = STATE_CHIAPAS
+		country_or_subject_owns_entire_state_region = STATE_GUATEMALA
+	}
+
+	on_complete = {
+	}
+
+	fail = {
+		NOT = {
+			any_scope_state = {
+				region = sr:region_central_america
+			}
+		}
+	}
+
+	on_fail = {
+	}
+}

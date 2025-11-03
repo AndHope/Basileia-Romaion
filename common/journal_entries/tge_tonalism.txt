@@ -1,0 +1,119 @@
+﻿je_tge_tonalism = {
+	icon = "gfx/interface/icons/event_icons/event_tlaloc.dds"
+	group = je_group_tge_native_rituals
+	should_be_pinned_by_default = yes
+
+	immediate = {
+		set_variable = {
+			name = tge_tonalli_var
+			value = 25
+		}
+		set_variable = {
+			name = tge_tonalli_progress_var
+			value = 0
+		}
+		if = {
+			limit = {
+				country_has_state_religion = rel:br_tge_religion_teotl
+			}
+			tge_devotion_to_huitzilopochtli_effect = yes
+			set_variable = {
+				name = tge_tonalli_diety_var
+				value = flag:tge_huitzilopochtli
+			}
+		}
+		else = {
+			set_variable = {
+				name = tge_tonalli_diety_var
+				value = flag:tge_no_deity
+			}
+		}
+		add_modifier = {
+			name = modifier_tge_tonalli
+			multiplier = tge_tonalli_multiplier_value
+		}
+	}
+
+	scripted_progress_bar = tge_tonalism_progressbar
+
+	scripted_button = tge_select_deity_button
+	scripted_button = tge_new_fire_button
+	scripted_button = tge_revive_bloodletting_button
+	scripted_button = tge_adopt_teotl_button
+
+	complete = {}
+
+	on_complete = {}
+
+	fail = {
+		NOR = {
+			country_has_state_religion = rel:br_tge_religion_teotl
+			country_has_state_religion = rel:br_tge_religion_tonalism
+		}
+	}
+
+	on_fail = {
+		tge_cleanup_tonalism_effect = yes
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			tge_weekly_tonalism_effect = yes
+		}
+	}
+
+	status_desc = {
+		triggered_desc = {
+			trigger = {
+				has_variable = tge_tonalli_diety_var
+			}
+			desc = je_tge_tonalism_status
+		}
+	}
+
+	weight = 100
+
+}
+
+je_tge_tonalism_new_fire = {
+	icon = "gfx/interface/icons/event_icons/event_tlaloc.dds"
+	group = je_group_tge_native_rituals
+	should_be_pinned_by_default = yes
+
+	immediate = {}
+
+	modifiers_while_active = {
+		modifier_tge_hosting_new_fire
+	}
+
+	scripted_progress_bar = tge_new_fire_progress_bar
+
+	scripted_button = tge_host_gold_sacrifice_button
+	scripted_button = tge_host_animal_sacrifice_button
+	scripted_button = tge_host_human_sacrifice_button
+
+	complete = {
+		custom_tooltip = {
+			text = je_tge_tonalism_new_fire_complete
+			je:je_tge_tonalism_new_fire = {
+				scripted_bar_progress = {
+					name = tge_new_fire_progress_bar
+					value >= 36
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		remove_variable = tge_new_fire_var
+	}
+
+	on_weekly_pulse = {
+		random_events = {
+			200 = 0
+		}
+	}
+
+	weight = 100
+
+}
