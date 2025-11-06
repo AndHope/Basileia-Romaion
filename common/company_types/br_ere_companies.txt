@@ -235,17 +235,27 @@ company_br_byz_rus = {
 	}
 
 	potential = {
-		country_has_primary_culture = cu:greek
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
 	}
 
 	possible_prestige_goods = {
 		prestige_good_rosewood
 	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CRIMEA
+			}
+		}
+	}
 	
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_CRIMEA
-			is_incorporated = yes
+			is_largest_state_in_region = yes
 			any_scope_building = {
 				is_building_type = building_trade_center
 				level > 5

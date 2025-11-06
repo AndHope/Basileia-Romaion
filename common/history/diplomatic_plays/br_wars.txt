@@ -119,7 +119,7 @@
 #				type = return_state
 #				target_state = s:STATE_CONSTANTINE.region_state:CNN
 #			}
-#		}			
+#		}
 #	}
 
 #	c:br_atlantica = {
@@ -129,7 +129,7 @@
 #			add_initiator_backers = { c:br_louisiane }
 #			war = yes
 #			type = dp_annex_war #dp_annex_subject #dp_secession
-#		}			
+#		}
 #	}
 
 	c:CHI = {
@@ -141,37 +141,15 @@
 		}			
 	}
 
-#	c:NAH = {
-#		create_diplomatic_play = {
-#			name = Aztec_Rebels
-#			target_country = c:PUE
-#			#add_target_backers = { c:  }
-#			war = yes
-#			type = dp_annex_subject #dp_secession
-#		}			
-#	}
-	
-#	c:NAH = {
-#		create_diplomatic_play = {
-#			name = Aztec_Rebels2
-#			target_country = c:MAY
-#			#add_target_backers = { c:  }
-#			war = yes
-#			type = dp_annex_subject #dp_secession
-#		}			
-#	}
-
-
-#	c:MUG = {
-#		create_diplomatic_play = {
-#			name = GWA_WAR
-#			target_country = c:GWA
-#			add_initiator_backers = { c:BGL c:GUJ c:BUN c:SIN c:ORI }
-#			add_target_backers = { c:MHR c:NAG c:RAJ  }
-#			war = yes
-#			type = dp_annex_subject
-#		}			
-#	}
+	c:NAH = {
+		create_diplomatic_play = {
+			target_country = c:ZAP_TEH
+			type = dp_annex_subject
+			add_initiator_backers = {
+				c:PUE c:ZAP c:NAH_PIP c:NAH_NIC c:MAY_WAS c:ARI_CAH
+			}
+		}
+	}
 
 	c:BYZ = {
 		create_diplomatic_play = {
@@ -191,6 +169,27 @@
 			war = yes
 			type = dp_annex_subject #dp_secession
 		}			
+	}
+
+	c:ARI_TAR = {
+		create_diplomatic_play = {
+			target_country = c:NAH
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:ARI_TAR
+				type = return_state
+				target_state = s:STATE_CHIHUAHUA.region_state:NAH
+			}
+			add_war_goal = {
+				holder = c:NAH
+				type = revoke_claim
+				target_state = s:STATE_CHIHUAHUA.region_state:NAH
+				target_country = c:ARI_TAR
+			}
+			add_target_backers = {
+				c:PUE c:ZAP c:NAH_PIP c:NAH_NIC c:MAY_WAS c:ARI_CAH
+			}
+		}
 	}
 
 }

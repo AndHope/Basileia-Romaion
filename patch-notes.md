@@ -2,6 +2,23 @@
 
 # Update 146
 
+## The Golden Eagle initial upload.
+
+- The Empire of the Dawn Has Landed!,
+	- Hey everyone! Well over 4 months behind schedule since updates for 1.10 derailed me for a bit, the first round of my (very many) changes for the Americas is ready! This first update is all about laying the groundwork for turning the Americas in a more playable region where the supremacy of the colonials isn't fully guaranteed yet.
+
+- Mesoamerica is no longer a singular Azteca blob, but rather a much more complex region with various government types, religions, and cultures. My goal is to explore what the Americas would look like in a world where contact came early with Vinland and with the Elysian Orthodoxy leading the charge with Eastern Christian missionaries as opposed to Catholic and Protestant missions.
+
+- There will be several new tags to choose from, but here are the major ones that I'll call out:
+	- The Mexica Empire: Wrapped up in layers of Sun God worship and re-energized by exposure to Hellenic innovations via Elysium, the Nahua have taken it upon themselves to spread the divine truth of Huitzilopotchli across the Altiplano,
+	- The Purepehca Empire: Having resisted both Nahua and, more recently, Elysian colonization attempts, the Purepecha hold true to their traditions and seek a way to survive in this changing world.,
+	- The Mixtec Theocracy: Converted to Elysian Orthodoxy by the shrewd missionaries from Elysium, the Mixtec have taken to the faith hook, line, and sinker and seek to bring forth the Kingdom of God atop the Hills of the Clouds.,
+	- The League of Mayapaan:  Clinging on by a thread, Mayapaan leads a decaying power bloc. Weakened by centuries of conflict with the Nahua, they now face imminent threats from Venetian and Andalusian intrusions.
+
+- Currently, only the Nahua have some initial flavor content. This centers around the amibtions of the "Golden Eagles." These are the Sun-Emperors who, in a corruption of the theology of in persona Christi, mantles Huitzilopotchli himself and is charged with ensuring that the sun god is provided with the strength to ensure the next sunrise.
+
+- Future content will include faith mechanics, Nahua internal politics, and some journals for the other tags in Mesoamerica.
+
 ## Poland-Lithuania Content has been reworked
 - 2 old Journal entries have been removed
 - 19 new Journal entries have been added
@@ -23,6 +40,11 @@
 ## Localization/Flavor
 - All IGs have had their base names and descriptions changed to better reflect the mods lore based on Jozues Recomendations.
 
+## ERE Changes
+- Updated ERE minors to start with the new Roman law varients.
+- Updated the starting war to naturally escalate if Aegypt is AI.
+- Added in some Kappadocian pops to eastern Anatolia and some events related to Regional Roman minorites. 
+
 ## Balance and minor tweaks
 - increase base bureaucracy from 10 to 15
 - increase amount of bureaucratic buildings so most nations start with a balance or surplus at game start.
@@ -32,6 +54,10 @@
 - increased the amount of wood in Canada, Scandinavia, Russia and the Amazonia regions. 
 - fixed Czech culture being wrong religion
 - fix for a bug caused by a Vinland company disabling generic timber company.
+- Fixed mods Relgion icons being to small.
+- Increased Damascus Borders.
+- Tweaked the Persian/Kurdish Borders a tiny bit.
+- Added in some Kappadocian pops to eastern Anatolia and some events related to Regional Roman minorites. 
 
 - Enlarged the CoA for the alternate flag for WRE.
 - Changed Antartican culture in Nova Veneto to louisiane.

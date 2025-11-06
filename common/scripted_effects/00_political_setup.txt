@@ -1,4 +1,4 @@
-﻿#Keep in mind these are default groups and certain individulized laws in history files are for flavor and to help tell the story.
+﻿#Keep in mind these are default groups and certain individualized laws in history files are for flavor and to help tell the story.
 
 effect_starting_politics_liberal = {
 	activate_law = law_type:law_presidential_republic
@@ -159,4 +159,62 @@ effect_starting_politics_princely_state = {
 	activate_law = law_type:law_no_workers_rights
 	activate_law = law_type:law_debt_slavery
 	activate_law = law_type:law_hindu_caste_enforced
+}
+
+# Semi-centralized North American States
+effect_starting_politics_chiefdom = {
+	activate_law = law_type:law_chiefdom
+	activate_law = law_type:law_elder_council
+	activate_law = law_type:law_national_supremacy
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:law_tribal_armies
+	activate_law = law_type:law_no_home_affairs
+	activate_law = law_type:law_traditionalism
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_consumption_based_taxation
+	activate_law = law_type:law_serfdom
+	activate_law = law_type:law_no_colonial_affairs
+	activate_law = law_type:law_no_police
+	activate_law = law_type:law_no_schools
+	activate_law = law_type:law_no_health_system
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_no_workers_rights
+	activate_law = law_type:law_child_labor_allowed
+	activate_law = law_type:law_no_social_security
+	activate_law = law_type:law_no_workers_rights
+	activate_law = law_type:law_debt_slavery
+}
+
+# Mesoamerican States
+effect_starting_politics_altepetl = {
+	activate_law = law_type:law_altepetl
+	activate_law = law_type:law_national_supremacy
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:law_tribal_armies
+	activate_law = law_type:law_no_home_affairs
+	activate_law = law_type:law_traditionalism
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_consumption_based_taxation
+	activate_law = law_type:law_serfdom
+	activate_law = law_type:law_no_colonial_affairs
+	activate_law = law_type:law_no_police
+	activate_law = law_type:law_no_schools
+	activate_law = law_type:law_no_health_system
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_no_workers_rights
+	activate_law = law_type:law_child_labor_allowed
+	activate_law = law_type:law_no_social_security
+	activate_law = law_type:law_no_workers_rights
+	activate_law = law_type:law_debt_slavery
+	if = {
+		limit = {
+			is_country_type = decentralized
+		}
+		activate_law = law_type:law_chiefdom
+	}
+	else = {
+		activate_law = law_type:law_monarchy
+	}
 }
