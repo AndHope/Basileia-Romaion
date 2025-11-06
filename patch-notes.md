@@ -35,6 +35,7 @@
 
 - Enlarged the CoA for the alternate flag for WRE.
 - Changed Antartican culture in Nova Veneto to louisiane.
+- For the HRE 'Revolution: Reform' Journal reduced the requirement to get rid of 'Unreliable Food Security' from 80% of the population requireing to have 75% food security to 60% of the population needing 65% food security
 
 
 # Basileía Rōmaíōn – October 2025 Update
