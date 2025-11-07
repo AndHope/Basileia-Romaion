@@ -45,6 +45,7 @@
 - Added in some Kappadocian pops to eastern Anatolia and some events related to Regional Roman minorites. 
 
 ## Balance and minor tweaks
+- For the HRE 'Revolution: Reform' Journal reduced the requirement to get rid of 'Unreliable Food Security' from 80% of the population requireing to have 75% food security to 60% of the population needing 65% food security
 - increase base bureaucracy from 10 to 15
 - increase amount of bureaucratic buildings so most nations start with a balance or surplus at game start.
 - realigned the country_institution_health_system_max_investment_add to the same as vanilla.
