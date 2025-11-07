@@ -4,22 +4,21 @@
 
 ## The Golden Eagle initial upload.
 
-- The Empire of the Dawn Has Landed!,
-	- Hey everyone! Well over 4 months behind schedule since updates for 1.10 derailed me for a bit, the first round of my (very many) changes for the Americas is ready! This first update is all about laying the groundwork for turning the Americas in a more playable region where the supremacy of the colonials isn't fully guaranteed yet.
-
-- Mesoamerica is no longer a singular Azteca blob, but rather a much more complex region with various government types, religions, and cultures. My goal is to explore what the Americas would look like in a world where contact came early with Vinland and with the Elysian Orthodoxy leading the charge with Eastern Christian missionaries as opposed to Catholic and Protestant missions.
-
-- There will be several new tags to choose from, but here are the major ones that I'll call out:
-	- The Mexica Empire: Wrapped up in layers of Sun God worship and re-energized by exposure to Hellenic innovations via Elysium, the Nahua have taken it upon themselves to spread the divine truth of Huitzilopotchli across the Altiplano,
-	- The Purepehca Empire: Having resisted both Nahua and, more recently, Elysian colonization attempts, the Purepecha hold true to their traditions and seek a way to survive in this changing world.,
-	- The Mixtec Theocracy: Converted to Elysian Orthodoxy by the shrewd missionaries from Elysium, the Mixtec have taken to the faith hook, line, and sinker and seek to bring forth the Kingdom of God atop the Hills of the Clouds.,
-	- The League of Mayapaan:  Clinging on by a thread, Mayapaan leads a decaying power bloc. Weakened by centuries of conflict with the Nahua, they now face imminent threats from Venetian and Andalusian intrusions.
-
-- Currently, only the Nahua have some initial flavor content. This centers around the amibtions of the "Golden Eagles." These are the Sun-Emperors who, in a corruption of the theology of in persona Christi, mantles Huitzilopotchli himself and is charged with ensuring that the sun god is provided with the strength to ensure the next sunrise.
-
-- Future content will include faith mechanics, Nahua internal politics, and some journals for the other tags in Mesoamerica.
+- Broke up Mesoamerica into several tags
+- Added several new native cultures
+- Added new Teotl, Tonalist, and Maya Ritualism religions
+- Added "Altepetl" distribution of power law
+- Added several flags, country names, and some initial government types
+- Added Altiplano Network building (clone of the Mountain Roadways building from GotB)
+- Added Chichén Itzá and Huēyi Teōcalli
+- Reworked the starting states, buildings, pops, and technology levels in Mesoamerica
+- Added new starting power blocs for the Nahua and Maya
+- Re-balanced the starting military formations in Mesoamerica
+- Added some initial journals to NAH
+- Decentralized large portions of Central America
 
 ## Poland-Lithuania Content has been reworked
+
 - 2 old Journal entries have been removed
 - 19 new Journal entries have been added
 - New Journal content around the assension off an new female ruler
