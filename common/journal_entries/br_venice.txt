@@ -1,7 +1,7 @@
-# Consolidate the Stato De Már
-je_br_consolidate_stato_de_mar = { 
+﻿# Consolidate the Stato Da Már
+je_br_consolidate_stato_da_mar = { 
     group = je_group_internal_affairs
-    icon = "gfx\interface\icons\event_icons\force_recognition.dds"
+    icon = "gfx/interface/icons/event_icons/force_recognition.dds"
 
 	should_be_pinned_by_default = yes
     weight = 100
@@ -11,30 +11,29 @@ je_br_consolidate_stato_de_mar = {
         c:VEN ?= this
     }
 
-    progressbar = yes
-    current_value = {
-        value = var:atlantica_consolidation_progress
-    }
-    goal_add_value = {
-        value = 100 }
-        ## This entire progress bar is entirely temporary and not something I want at all in the finalized version. I will likely have to switch to a scripted progress bar with a tooltip displaying the actual values that tick it up and down, but I couldn't even succeed in displaying the scripted progress bar
+    scripted_progress_bar = br_venice_consolidate_progress_bar
 
     complete = {
         OR = {
             # Completion via progress bar
-            AND = { # AND block in place in case I want to add other conditions.
-                scope:journal_entry = {
-                    has_variable = atlantica_consolidation_progress
-                    var:atlantica_consolidation_progress >= 100
-                    ### Flagging this for when I determine how and where I'm tracking consolidation progress
+            custom_tooltip = { 
+                text = je_br_consolidate_progress_complete_tt
+                AND = { # AND block in place in case I want to add other conditions.
+                    scope:journal_entry = {
+                        has_variable = atlantica_consolidation_progress
+                        var:atlantica_consolidation_progress >= 100
+                    }
                 }
             }
             # Completion via direct annexation
-            AND = {
-                has_state_in_state_region = STATE_CUBA # Atlanteum
-                has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
-                has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
-                NOT = { exists = c:br_atlantica } # If Atlantica doesn't exist
+            custom_tooltip = {
+                text = je_br_consolidate_annexation_complete_tt
+                AND = {
+                    has_state_in_state_region = STATE_CUBA # Atlanteum
+                    has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
+                    has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
+                    NOT = { exists = c:br_atlantica } # If Atlantica doesn't exist ## determine how to display this in the journal entry
+                }
             }
         }
     }
@@ -91,7 +90,4 @@ je_br_consolidate_stato_de_mar = {
             id = br_venice_consolidate_atlantica.102 ## TBW, permanent instability modifier, failed consolidation
         }
     }
-
-
-
 }

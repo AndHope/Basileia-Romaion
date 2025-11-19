@@ -1,0 +1,154 @@
+﻿br_venice_consolidate_progress_bar = {
+    name = "br_venice_consolidate_progress_bar"
+    desc = "br_venice_consolidate_progress_bar_desc"
+    default = yes
+
+    start_value = 0
+    min_value = 0
+    max_value = 100
+
+    monthly_progress = {
+        add = {
+            desc = "br_venice_consolidate_progress_bar_legitimacy"
+            value = {
+                if = {
+                    limit = {
+                        ROOT = {government_legitimacy >= 75}
+                    }
+                    value = 1.0
+                }
+                else_if = {
+                    limit = {
+                        ROOT = {government_legitimacy >= 50}
+                     }
+                     value = 0.5
+                }
+                else = {
+                    value = 0
+                } 
+            }
+        }
+        add = {
+            desc = "br_venice_consolidate_progress_bar_legitimacy_atl"
+            value = {
+                if = {
+                    limit = {
+                        exists = c:br_atlantica
+                        c:br_atlantica = {government_legitimacy >= 75}
+                    }
+                    value = 1.0
+                }
+                else_if = {
+                    limit = {
+                        exists = c:br_atlantica
+                        c:br_atlantica = {government_legitimacy >=50}
+                    }
+                    value = 0.5
+                }
+                else = {
+                    value = 0
+                }
+            }
+        }
+        add = { # Monthly progess bar changes based on relations between Venice and Atlantica
+            desc = "br_venice_consolidate_progress_bar_relations"
+            value = {
+                if = {
+                    limit = {
+                        exists = c:br_atlantica
+                        c:br_atlantica = { relations:ROOT >= relations_threshold:amicable }
+                    }
+                    value = 0.5
+                }
+                else_if = {
+                    limit = {
+                        exists = c:br_atlantica
+                        c:br_atlantica = { relations:ROOT <= relations_threshold:poor }
+                    }
+                    value = -0.5  
+                }
+                else = {
+                    #value = 0
+                }
+            }
+        }
+        subtract = {
+            desc = "br_venice_consolidate_progress_bar_liberty_desire"
+            value = {
+                if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 50 }
+                    }
+                    value = 0
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 55 }
+                    }
+                    value = 0.1
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 60 }
+                    }
+                    value = 0.2
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 65 }
+                    }
+                    value = 0.3
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 70 }
+                    }
+                    value = 0.4
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 75 }
+                    }
+                    value = 0.5
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 80 }
+                    }
+                    value = 0.6
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 85 }
+                    }
+                    value = 0.7
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 90 }
+                    }
+                    value = 0.8
+                }
+                else_if = {
+                    limit = {
+                         exists = c:br_atlantica
+                        c:br_atlantica = { liberty_desire <= 95 }
+                    }
+                    value = 0.9
+                }
+                else = {
+                    value = 1.0
+                }
+            }
+        }
+    }
+}
