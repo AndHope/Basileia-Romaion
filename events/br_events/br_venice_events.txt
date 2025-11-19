@@ -1,0 +1,81 @@
+﻿ # events for JE Consolidate the Stato da Már
+ 
+
+
+
+ # JE Consolidate the Stato da Már - Completion Events
+br_venice_consolidate_atlantica.99 = {
+    type = country_event
+    placement = ROOT
+    title = br_venice_consolidate_atlantica.99.t
+    desc = br_venice_consolidate_atlantica.99.d
+    flavor = br_venice_consolidate_atlantica.99.f
+
+    event_image = {
+        video = "unspecific_signed_contract"
+    }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/generic/enthusiastic"
+
+    icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+    duration = 3
+
+    option = {
+        name = br_venice_consolidate_atlantica.99.a
+        add_modifier = {
+            modifier = br_venice_atlantica_consolidation_success_modifier_merchant
+            days = -1
+        }
+        add_modifier = {
+            modifier = br_venice_atlantica_consolidation_government_modifier_merchant2
+            days = long_modifier_time
+        }
+        c:br_atlantica = {
+            add_modifier = {
+                modifier = br_modifier_venice_atlantica_consolidation_success_all
+                days = very_long_modifier_time
+            }
+        }
+        #hidden_effect = {
+            #c:br_atlantica = {
+                #add_modifier = {
+                    #modifier = br_venice_atlantica_consolidation_success_all_modifier                }
+            #}
+        #}
+    }
+    option = {
+        name = br_venice_consolidate_atlantica.99.b
+        add_modifier = {
+            modifier = br_venice_atlantica_consolidation_success_modifier_agriculture
+            days = -1
+        }
+        add_modifier = {
+            modifier = br_venice_atlantica_consolidation_government_modifier_agriculture2
+            days = very_long_modifier_time
+        }
+        #hidden_effect = {
+            #c:br_atlantica = {
+                #add_modifier = {
+                    #modifier = br_venice_atlantica_consolidation_success_modifier_all                }
+            #}
+        #}
+    }
+    option = {
+        name = br_venice_consolidate_atlantica.99.c
+        add_modifier = {
+            modifier = br_venice_atlantica_consolidation_success_modifier_government
+            days = -1
+        }
+        add_modifier = {
+        }
+        #hidden_effect = {
+            #c:br_atlantica = {
+                #add_modifier = {
+                    #name = br_venice_atlantica_consolidation_success_all_modifier
+                #}
+            #}
+        #}
+    }
+}
