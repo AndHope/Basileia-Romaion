@@ -25,7 +25,7 @@
                 }
                 else = {
                     value = 0
-                } 
+                }
             }
         }
         add = {
@@ -148,6 +148,22 @@
                 else = {
                     value = 1.0
                 }
+            }
+        }
+        if = {
+            limit = {
+                c:br_atlantica ?= {
+                    any_diplomatic_play = {
+                        OR = {
+                            is_diplomatic_play_type = dp_secession
+                            is_diplomatic_play_type = dp_revolution
+                        }
+                    }
+                }
+            }
+            subtract = {
+                desc = "br_venice_consolidate_progress_bar_revolt"
+                value = 2.0
             }
         }
     }
