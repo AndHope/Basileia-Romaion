@@ -101,6 +101,45 @@ br_venice_events.100 = {
             days = very_long_modifier_time
         }
     }
-    # Maybe another option that gives even more radicals but gives Venice homelands in Atlantica and boosted Assimilation
+    # Thinking ab adding second option that adds assimilation and North Italian homelands for further radicalism, turmoil etc.
+    }
+}
+
+ # JE Consolidate the Stato da Màr - Failure, will spark revolution.
+br_venice_events.101 = {
+    type = country_event
+    placement = ROOT
+    title = br_venice_events.101.t
+    desc = br_venice_events.101.d
+    flavor = br_venice_events.101.f
+
+    event_image = { video = "europenorthamerica_springtime_of_nations" }
+    
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
+
+    icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+    immediate = {
+        c:br_atlantica = {
+            create_diplomatic_play = {
+                target_country = ROOT 
+                type = dp_independence # in future may try to mess with war support values for Atlantica independence to make it less one sided. 
+                add_war_goal = { 
+                    holder = ROOT 
+                    target_country = c:br_atlantica 
+                    type = annex_country 
+                }
+            }
+        }
+    }
+
+    option = {
+        name = br_venice_events.101.a
+        add_modifier = {
+            name = br_modifier_venice_consolidate_failure
+            days = long_modifier_time
+            is_decaying = yes
+        }
     }
 }
