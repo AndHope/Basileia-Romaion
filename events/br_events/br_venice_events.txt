@@ -143,3 +143,61 @@ br_venice_events.101 = {
         }
     }
 }
+
+br_venice_events.104 = {
+    type = country_event
+    placement = ROOT
+    title = br_venice_events.104.t
+    desc = br_venice_events.104.d
+    flavor = br_venice_events.104.f
+
+    event_image = { video = "southamerica_aristocrats" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/southamerica/aristocrats"
+
+    icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+    option = {
+        name = br_venice_events.104.a
+        c:br_atlantica ?= {
+            add_modifier = {
+                name = br_modifier_venice_consolidate_timeout
+            }
+        }
+        if = {
+            limit = {
+                c:br_atlantica ?= {
+				is_subject_type = subject_type_colony
+			    }
+		    }
+            c:br_atlantica ?= {
+                change_subject_type = subject_type_dominion
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.104.b
+        add_modifier = {
+            name = br_modifier_venice_consolidate_timeout3
+            days = long_modifier_time
+        }
+        c:br_atlantica ?= {
+            add_modifier = {
+                name = br_modifier_venice_consolidate_timeout2
+            }
+        }
+        #potentially add a negative relations change here
+        if = {
+            limit = {
+                c:br_atlantica ?= {
+				is_subject_type = subject_type_colony
+			}
+            }
+            c:br_atlantica ?= {
+                change_subject_type = subject_type_dominion
+            }
+		}
+    }
+}
+}
