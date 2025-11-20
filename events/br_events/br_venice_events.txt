@@ -13,7 +13,7 @@ br_venice_events.99 = {
     desc = br_venice_events.99.d
     flavor = br_venice_events.99.f
 
-    event_image = { video = "unspecific_signed_contract" }
+    event_image = { video = "europenorthamerica_rich_and_poor" }
 
     on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
     on_opened_soundeffect = "event:/SFX/Events/generic/enthusiastic"
@@ -62,8 +62,45 @@ br_venice_events.99 = {
         name = br_venice_events.99.c
         add_modifier = {
             name = br_modifier_venice_consolidate_success_government
-            days = -1
         }
         add_loyalists = { value = 0.10}
+    }
+}
+
+br_venice_events.100 = {
+    type = country_event
+    placement = ROOT
+    title = br_venice_events.100.t
+    desc = br_venice_events.100.d
+    flavor = br_venice_events.100.f
+
+    event_image = { video = "europenorthamerica_before_the_battle"}
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/generic/devastation"
+
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+    option = {
+    name = br_venice_events.100.a
+    add_modifier = {
+        name = br_modifier_venice_annexation
+        days = long_modifier_time
+        }
+    every_scope_state = {
+        limit = {
+            owner = ROOT
+            OR = {
+                state_region = s:STATE_CUBA
+                state_region = s:STATE_BAHAMAS
+                state_region = s:STATE_FLORIDA
+            }
+        }
+        add_modifier = {
+            name = br_modifier_venice_annexation2
+            days = very_long_modifier_time
+        }
+    }
+    # Maybe another option that gives even more radicals but gives Venice homelands in Atlantica and boosted Assimilation
     }
 }
