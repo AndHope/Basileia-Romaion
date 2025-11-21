@@ -23,9 +23,6 @@ br_venice_events.1 = {
     
     trigger = {
         c:VEN ?= root
-        #je:je_br_consolidate_stato_da_mar ?= {
-            #"scripted_bar_progress(br_venice_consolidate_progress_bar)" >=1
-        #}
     }
 
     immediate = {
@@ -87,20 +84,94 @@ br_venice_events.1 = {
         c:br_atlantica ?= {
             add_liberty_desire = 8
         }
-        #trigger_event = {
-            #name = br_venice_events.2
-            #days = 300
-        #}
+        hidden_effect = {
+            random_list = {
+                75 = {
+                    trigger_event = { 
+                id = br_venice_events.2
+                days = 300
+                    }
+                }
+                25 = {
+                    trigger_event = {
+                        id = br_venice_events.3
+                        days = 700
+                    }
+                }
+            }
+        }
         add_modifier = {
             name = br_modifier_auditors
-            days = normal_modifier_time
+            days = short_modifier_time
         }
         custom_tooltip = br_venice_corruption_uncover_chance
+    }
+}
+br_venice_events.2 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.2.t
+    desc = br_venice_events.2.d
+    flavor = br_venice_events.2.f
+
+    event_image = { video = "unspecific_signed_contract" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+    icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+    option = {
+        name = br_venice_events.2.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 6
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_6
+        add_treasury = 20000
+        remove_modifier = br_modifier_auditors
+
+    }
+}
+br_venice_events.3 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.3.t
+    desc = br_venice_events.3.d
+    flavor = br_venice_events.3.f
+
+    event_image = { video = "europenorthamerica_rich_and_poor" }
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/rich_and_poor"
+
+    icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+    option = {
+        name = br_venice_events.3.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = -5
+                name = br_venice_consolidate_progress_bar
+            }
+        }
+        custom_tooltip = br_venice_consolidation_negative_5
+        c:br_atlantica ?= {
+            add_liberty_desire = 5
+        }
+        add_modifier = {
+            name = br_modifier_venice_audit_failure
+        }
+        remove_modifier = br_modifier_auditors
     }
 }
 br_venice_events.20 = {
     type = country_event
     placement = ROOT
+    duration = 3
     title = br_venice_events.20.t
     desc = br_venice_events.20.d
     flavor = br_venice_events.20.f
