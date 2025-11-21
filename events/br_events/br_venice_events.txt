@@ -3,12 +3,184 @@
  # events for JE Consolidate the Stato da Màr
  
 
+ # JE Consolidate the Stato da Màr - Crisis Events
+br_venice_events.1 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.1.t
+    desc = br_venice_events.1.d
+    flavor = br_venice_events.1.f
 
+    event_image = { video = "africa_leader_arguing" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/africa/leader_arguing"
+
+    icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+    cooldown = { days = never_fire_again_modifier_time }
+    
+    trigger = {
+        c:VEN ?= root
+        #je:je_br_consolidate_stato_da_mar ?= {
+            #"scripted_bar_progress(br_venice_consolidate_progress_bar)" >=1
+        #}
+    }
+
+    immediate = {
+        hidden_effect = {
+            c:br_atlantica ?= {
+                set_strategy = ai_strategy_subject_maintain_autonomy
+            }
+        }
+    }
+
+    option = {
+        name = br_venice_events.1.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 10
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_10
+        c:br_atlantica ?= {
+            add_liberty_desire = 10
+        }
+        ig:ig_armed_forces ?= {
+            add_modifier = {
+                name = br_modifier_strong_colonial_garrison
+                days = normal_modifier_time
+            }
+        }
+        add_modifier = {
+            name = br_modifier_funding_colonial_garrison
+            days = very_long_modifier_time
+        }
+    }
+    option = {
+        name = br_venice_events.1.b
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 2
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_2
+        c:br_atlantica ?= {
+            add_liberty_desire = -5
+        }
+        change_relations = {
+            country = c:br_atlantica
+            value = 10
+        }
+        ig:ig_petty_bourgeoisie ?= {
+            add_modifier = {
+                name = br_modifier_conciliatory_efforts
+                days = normal_modifier_time
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.1.c
+        c:br_atlantica ?= {
+            add_liberty_desire = 8
+        }
+        #trigger_event = {
+            #name = br_venice_events.2
+            #days = 300
+        #}
+        add_modifier = {
+            name = br_modifier_auditors
+            days = normal_modifier_time
+        }
+        custom_tooltip = br_venice_corruption_uncover_chance
+    }
+}
+br_venice_events.20 = {
+    type = country_event
+    placement = ROOT
+    title = br_venice_events.20.t
+    desc = br_venice_events.20.d
+    flavor = br_venice_events.20.f
+
+    event_image = { video = "unspecific_politicians_arguing" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/southamerica/aristocrats"
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+    cooldown = { days = never_fire_again_modifier_time }
+
+    option = {
+        name = br_venice_events.20.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 4
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_4
+        add_modifier = {
+            name = br_modifier_venice_newspaper
+            days = normal_modifier_time
+        }
+        c:br_atlantica ?= {
+            add_modifier = {
+                name = br_modifier_venice_press
+                days = normal_modifier_time
+            }
+        }
+    }
+
+    option = {
+        name = br_venice_events.20.b
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 8
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_8
+        add_treasury = -200000
+        c:br_atlantica ?= {
+            add_modifier = {
+            name = br_modifier_venice_newspaper_purchase
+            days = normal_modifier_time
+        }
+        }
+    }
+    option = {
+        name = br_venice_events.20.c
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 3
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_3
+        ig:ig_devout = {
+            add_modifier = {
+                name = br_modifier_venice_press_devout
+                days = normal_modifier_time
+            }
+        }
+        c:br_atlantica ?= {
+            add_modifier = {
+            name = br_modifier_venice_devout_atl
+            days = normal_modifier_time
+        }
+        }
+    }
+}
 
  # JE Consolidate the Stato da Màr - Completion Events
 br_venice_events.99 = {
     type = country_event
     placement = ROOT
+    duration = 3
     title = br_venice_events.99.t
     desc = br_venice_events.99.d
     flavor = br_venice_events.99.f
@@ -19,8 +191,6 @@ br_venice_events.99 = {
     on_opened_soundeffect = "event:/SFX/Events/generic/enthusiastic"
 
     icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-    duration = 3
 
     immediate = {
         hidden_effect = {
@@ -198,110 +368,5 @@ br_venice_events.104 = {
                 change_subject_type = subject_type_dominion
             }
 		}
-    }
-}
-
-br_venice_events.20 = {
-    type = country_event
-    placement = ROOT
-    title = br_venice_events.20.t
-    desc = br_venice_events.20.d
-    flavor = br_venice_events.20.f
-
-    event_image = { video = "unspecific_politicians_arguing" }
-
-    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-    on_opened_soundeffect = "event:/SFX/Events/southamerica/aristocrats"
-
-    icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
-
-    cooldown = { days = never_fire_again_modifier_time }
-
-    option = {
-        name = br_venice_events.20.a
-        je:je_br_consolidate_stato_da_mar ?= {
-            add_progress = {
-                value = 4
-                name = br_venice_consolidate_progress_bar  
-            }
-        }
-        custom_tooltip = br_venice_consolidation_4
-        add_modifier = {
-            name = br_modifier_venice_newspaper
-            days = normal_modifier_time
-        }
-        c:br_atlantica ?= {
-            add_modifier = {
-                name = br_modifier_venice_press
-                days = normal_modifier_time
-            }
-        }
-    }
-
-    option = {
-        name = br_venice_events.20.b
-        je:je_br_consolidate_stato_da_mar ?= {
-            add_progress = {
-                value = 8
-                name = br_venice_consolidate_progress_bar  
-            }
-        }
-        custom_tooltip = br_venice_consolidation_8
-        add_treasury = -200000
-        c:br_atlantica ?= {
-            add_modifier = {
-            name = br_modifier_venice_newspaper_purchase
-            days = normal_modifier_time
-        }
-        }
-    }
-    option = {
-        name = br_venice_events.20.c
-        je:je_br_consolidate_stato_da_mar ?= {
-            add_progress = {
-                value = 3
-                name = br_venice_consolidate_progress_bar  
-            }
-        }
-        custom_tooltip = br_venice_consolidation_3
-        ig:ig_devout = {
-            add_modifier = {
-                name = br_modifier_venice_press_devout
-                days = normal_modifier_time
-            }
-        }
-        c:br_atlantica ?= {
-            add_modifier = {
-            name = br_modifier_venice_devout_atl
-            days = normal_modifier_time
-        }
-        }
-    }
-}
-
-
-
-
-#placeholder as I figure this out. will partially become template.
-br_venice_events.test = {
-    type = country_event
-    placement = ROOT
-    title = br_venice_events.test.t
-    desc = br_venice_events.test.d
-    flavor = br_venice_events.test.f
-
-    event_image = { video = "southamerica_aristocrats" }
-
-    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-    icon = "gfx/interface/icons/event_icons/event_scales.dds"
-
-    option = { #add progress to progress bar
-        je:je_br_consolidate_stato_da_mar ?= {
-            add_progress = {
-                value = 50
-                name = br_venice_consolidate_progress_bar  
-            }
-    }
     }
 }
