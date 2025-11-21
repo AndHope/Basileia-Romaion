@@ -98,7 +98,7 @@ br_venice_events.100 = {
         }
         add_modifier = {
             name = br_modifier_venice_annexation2
-            days = very_long_modifier_time
+            days = very_long_modifier_time #Am considering making this a custom tooltip to consolidate size. 
         }
     }
     # Thinking ab adding second option that adds assimilation and North Italian homelands for further radicalism, turmoil etc.
@@ -200,4 +200,108 @@ br_venice_events.104 = {
 		}
     }
 }
+
+br_venice_events.20 = {
+    type = country_event
+    placement = ROOT
+    title = br_venice_events.20.t
+    desc = br_venice_events.20.d
+    flavor = br_venice_events.20.f
+
+    event_image = { video = "unspecific_politicians_arguing" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/southamerica/aristocrats"
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+    cooldown = { days = never_fire_again_modifier_time }
+
+    option = {
+        name = br_venice_events.20.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 4
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_4
+        add_modifier = {
+            name = br_modifier_venice_newspaper
+            days = normal_modifier_time
+        }
+        c:br_atlantica ?= {
+            add_modifier = {
+                name = br_modifier_venice_press
+                days = normal_modifier_time
+            }
+        }
+    }
+
+    option = {
+        name = br_venice_events.20.b
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 8
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_8
+        add_treasury = -200000
+        c:br_atlantica ?= {
+            add_modifier = {
+            name = br_modifier_venice_newspaper_purchase
+            days = normal_modifier_time
+        }
+        }
+    }
+    option = {
+        name = br_venice_events.20.c
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 3
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_3
+        ig:ig_devout = {
+            add_modifier = {
+                name = br_modifier_venice_press_devout
+                days = normal_modifier_time
+            }
+        }
+        c:br_atlantica ?= {
+            add_modifier = {
+            name = br_modifier_venice_devout_atl
+            days = normal_modifier_time
+        }
+        }
+    }
+}
+
+
+
+
+#placeholder as I figure this out. will partially become template.
+br_venice_events.test = {
+    type = country_event
+    placement = ROOT
+    title = br_venice_events.test.t
+    desc = br_venice_events.test.d
+    flavor = br_venice_events.test.f
+
+    event_image = { video = "southamerica_aristocrats" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+    icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+    option = { #add progress to progress bar
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 50
+                name = br_venice_consolidate_progress_bar  
+            }
+    }
+    }
 }
