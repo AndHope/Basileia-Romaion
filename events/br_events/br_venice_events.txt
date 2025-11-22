@@ -168,6 +168,175 @@ br_venice_events.3 = {
         remove_modifier = br_modifier_auditors
     }
 }
+br_venice_events.4 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.4.t
+    desc = br_venice_events.4.d
+    flavor = br_venice_events.4.f
+
+    event_image = { video = "africa_construction_colony" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/capitalists_meeting"
+
+    icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+    cooldown = { days = never_fire_again_modifier_time }
+
+    trigger = {
+		je:je_br_consolidate_stato_da_mar ?= {
+			"scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 25
+		}
+	}
+
+    option = {
+        name = br_venice_events.4.a
+        c:br_atlantica = {
+            add_modifier = {
+                name = br_modifier_venice_soldiers_in_plaza
+                days = short_modifier_time
+            }
+        }
+        add_treasury = -25000
+        ig:ig_armed_forces = {
+            add_modifier = {
+                name = br_modifier_venice_guarded_statue
+                days = normal_modifier_time
+            }
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = br_venice_events.5
+                days = 14
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.4.b
+        add_modifier = {
+            name = br_modifier_venice_monument_removal
+            days = short_modifier_time
+        }
+        ig:ig_intelligentsia = {
+            add_modifier = {
+                name = br_modifier_venice_precautious_measures
+                days = normal_modifier_time
+            }
+        }
+        ig:ig_armed_forces = {
+            add_modifier = {
+                name = br_modifier_venice_weakness_signs
+                days = normal_modifier_time
+            }
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = br_venice_events.6
+                days = 14
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.4.c
+        add_loyalists = {
+			strata = upper
+			value = small_radicals
+		}
+        hidden_effect = {
+            trigger_event = {
+                id = br_venice_events.7
+                days = 14
+            }
+        }
+    }
+}
+br_venice_events.5 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.5.t
+    desc = br_venice_events.5.d
+    flavor = br_venice_events.5.f
+
+    event_image = { video = "africa_soldiers_breaking_protest" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/africa/soldiers_breaking_protest"
+
+    icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+    option = {
+        name = br_venice_events.5.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 5
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_5
+        change_infamy = 5
+        c:br_atlantica = {
+            add_liberty_desire = 15
+            add_radicals = {
+                value = large_radicals
+            }
+        }
+        s:STATE_CUBA = {
+            building_throughput_add = -0.1
+        }
+    }
+    option = {
+        name = br_venice_events.5.b
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = -10
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_negative_10
+        c:br_atlantica = {
+            add_liberty_desire = 8
+            add_radicals = {
+                value = medium_radicals
+            }
+        }
+        add_modifier = {
+            name = br_modifier_venice_cover_up
+            days = normal_modifier_time
+        }
+    }
+    option = {
+        name = br_venice_events.5.c
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 3
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_3
+        c:br_atlantica = {
+            add_liberty_desire = 10
+            add_modifier = {
+                name = br_modifier_venice_missionary_zeal
+                days = normal_modifier_time
+            }
+            add_radicals = {
+                value = large_radicals
+                NOT = {
+                    religion = rel:catholic
+                }
+            }
+        }
+        ig:ig_devout = {
+            add_modifier = {
+                name = br_modifier_venice_mass_missionary_campaign
+                days = normal_modifier_time
+            }
+        }
+    }
+}
 br_venice_events.20 = {
     type = country_event
     placement = ROOT
@@ -428,7 +597,10 @@ br_venice_events.104 = {
                 name = br_modifier_venice_consolidate_timeout2
             }
         }
-        #potentially add a negative relations change here
+        change_relations = {
+            country = c:br_atlantica
+            value = -10
+        }
         if = {
             limit = {
                 c:br_atlantica ?= {
