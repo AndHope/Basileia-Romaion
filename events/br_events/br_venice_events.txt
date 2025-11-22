@@ -193,7 +193,7 @@ br_venice_events.4 = {
 
     option = {
         name = br_venice_events.4.a
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             add_modifier = {
                 name = br_modifier_venice_soldiers_in_plaza
                 days = short_modifier_time
@@ -277,7 +277,7 @@ br_venice_events.5 = {
         }
         custom_tooltip = br_venice_consolidation_5
         change_infamy = 5
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             add_liberty_desire = 15
             add_radicals = {
                 value = large_radicals
@@ -296,7 +296,7 @@ br_venice_events.5 = {
             }
         }
         custom_tooltip = br_venice_consolidation_negative_10
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             add_liberty_desire = 8
             add_radicals = {
                 value = medium_radicals
@@ -316,7 +316,7 @@ br_venice_events.5 = {
             }
         }
         custom_tooltip = br_venice_consolidation_3
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             add_liberty_desire = 10
             add_modifier = {
                 name = br_modifier_venice_missionary_zeal
@@ -397,11 +397,11 @@ br_venice_events.6 = {
             }
         }
         custom_tooltip = br_venice_consolidation_5
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             add_liberty_desire = 6
         }
         add_modifier = {
-            name = br_venice_modifiers_monument_comission
+            name = br_modifier_venice_monument_comission
             days = normal_modifier_time
         }
         hidden_effect = {
@@ -456,6 +456,84 @@ br_venice_events.6 = {
             }
         }
         custom_tooltip = br_venice_chance_of_discovery
+    }
+}
+br_venice_events.7 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.7.t
+    desc = br_venice_events.7.d
+    flavor = br_venice_events.f
+
+    event_image = { video = "europenorthamerica_political_extremism" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+    icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+    option = {
+        name = br_venice_events.7.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 5
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_5
+        c:br_atlantica ?= {
+            add_liberty_desire = 10
+        }
+        add_radicals = {
+            culture = cu:north_italian
+            value = medium_radicals
+        }
+    }
+    option = {
+        name = br_venice_events.7.b
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = -3
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_negative_3
+        c:br_atlantica ?= {
+            add_liberty_desire = 5
+        }
+        every_interest_group = {
+            limit = {
+                is_in_government = yes
+            }
+            add_modifier = {
+            name = br_modifier_venice_unsatisfying_solution
+            days = normal_modifier_time
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.7.c
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = -5
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_negative_5
+        c:br_atlantica ?= {
+            add_liberty_desire = -8
+        }
+        every_interest_group = {
+            limit = {
+                is_in_government = yes
+                not = ig:ig_intelligentsia
+            }
+            add_modifier = {
+                name = br_modifier_venice_conceded_failure
+                days = normal_modifier_time
+            }
+        }
     }
 }
 br_venice_events.20 = {
@@ -565,7 +643,7 @@ br_venice_events.99 = {
 
     option = {
         name = br_venice_events.99.a
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             add_modifier = {
                 name = br_modifier_venice_consolidate_success_trade
             }
@@ -574,7 +652,7 @@ br_venice_events.99 = {
             name = br_modifier_venice_consolidate_success_trade
         }
 
-         c:br_atlantica = {
+         c:br_atlantica ?= {
             add_modifier = {
                 name = br_modifier_venice_consolidate_success_trade2
                 days = long_modifier_time
@@ -583,7 +661,7 @@ br_venice_events.99 = {
     }
     option = {
         name = br_venice_events.99.b
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             add_modifier = {
             name = br_modifier_venice_consolidate_success_agriculture
             }
@@ -652,7 +730,7 @@ br_venice_events.101 = {
     icon = "gfx/interface/icons/event_icons/event_raiding.dds"
 
     immediate = {
-        c:br_atlantica = {
+        c:br_atlantica ?= {
             create_diplomatic_play = {
                 target_country = ROOT 
                 type = dp_independence # in future may try to mess with war support values for Atlantica independence to make it less one sided. 
