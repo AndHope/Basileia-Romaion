@@ -337,6 +337,127 @@ br_venice_events.5 = {
         }
     }
 }
+br_venice_events.6 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.6.t
+    desc = br_venice_events.6.d
+    flavor = br_venice_events.6.f
+
+    event_image = { video = "europenorthamerica_political_extremism" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+    icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+    option = {
+        name = br_venice_events.6.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 3
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_3
+        c:br_atlantica ?= {
+            add_liberty_desire = 12
+            change_relations = {
+                country = root
+                value = -15
+            }
+        }
+        add_modifier = {
+            name = br_modifier_venice_costly_search
+            days = short_modifier_time
+        }
+        hidden_effect = {
+            random_list = {
+                50 = {
+                    trigger_event = {
+                        id = br_venice_events.8
+                        days = 240
+                    }
+                }
+                50 = {
+                    trigger_event = {
+                        id = br_venice_events.9
+                        days = 750
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.6.b
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 5
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_5
+        c:br_atlantica = {
+            add_liberty_desire = 6
+        }
+        add_modifier = {
+            name = br_venice_modifiers_monument_comission
+            days = normal_modifier_time
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = br_venice_events.10
+                days = normal_modifier_time
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.6.c
+        add_treasury = -25000
+        hidden_effect = {
+            random_list = {
+                10 = 0
+                10 = {
+                    trigger_event = {
+                        id = br_venice_events.11
+                        days = 30
+                    }
+                }
+                10 = {
+                    trigger_event = {
+                        id = br_venice_events.11
+                        days = 60
+                    }
+                }
+                15 = {
+                    trigger_event = {
+                        id = br_venice_events.11
+                        days = 90
+                    }
+                }
+                15 = {
+                    trigger_event = {
+                        id = br_venice_events.11
+                        days = 180
+                    }
+                }
+                20 = {
+                    trigger_event = {
+                        id = br_venice_events.11
+                        days = 365
+                    }
+                }
+                20 = {
+                    trigger_event = {
+                        id = br_venice_events.11
+                        days = short_modifier_time
+                    }
+                }
+            }
+        }
+        custom_tooltip = br_venice_chance_of_discovery
+    }
+}
 br_venice_events.20 = {
     type = country_event
     placement = ROOT
