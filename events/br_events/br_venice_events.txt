@@ -744,8 +744,15 @@ br_venice_events.12 = {
 
     trigger = {
 		je:je_br_consolidate_stato_da_mar ?= {
-			"scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 0 # 50
+			"scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 50
 		}
+    }
+
+    immediate = {
+        trigger_event = {
+            id = br_venice_events.13
+            days = 550
+        }
     }
 
     option = {
@@ -821,6 +828,40 @@ br_venice_events.12 = {
             add_modifier = {
                 name = br_modifier_replaced_harbormasters
                 days = normal_modifier_time
+            }
+        }
+    }
+}
+br_venice_events.13 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.13.t
+    desc = br_venice_events.13.d
+    flavor = br_venice_events.13.f
+
+    event_image = { video = "unspecific_steam_ship" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/generic/sadness"
+
+    icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+    immediate = {
+        remove_modifier = br_modifier_venice_alternative_ports
+        remove_modifier = br_modifier_venice_blockade
+    }
+    option = {
+        name = br_venice_events.13.a
+        c:br_atlantica = {
+            every_scope_state = {
+                limit = {
+                    state_region = s:STATE_FLORIDA
+                }
+                add_modifier = {
+                    name = br_modifier_venice_scarred_harbor
+                    days = long_modifier_time
+                }
             }
         }
     }
