@@ -282,10 +282,14 @@ br_venice_events.5 = {
             add_radicals = {
                 value = large_radicals
             }
-        }
-        s:STATE_CUBA = {
-            add_modifier = {
-                name = br_modifier_venice_city_shutdown
+            every_scope_state = {
+                limit = {
+                    state_region = s:STATE_CUBA
+                }
+                add_modifier = {
+                    name = br_modifier_venice_city_shutdown
+                    days = short_modifier_time
+                }
             }
         }
     }
@@ -719,6 +723,105 @@ br_venice_events.11 = {
         add_modifier = {
             name = br_modifier_venice_prestige_blow
             days = normal_modifier_time
+        }
+    }
+}
+br_venice_events.12 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.12.t
+    desc = br_venice_events.12.d
+    flavor = br_venice_events.12.f
+
+    event_image = { video = "unspecific_temperance_movement" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+    icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+    cooldown = { days = never_fire_again_modifier_time }
+
+    trigger = {
+		je:je_br_consolidate_stato_da_mar ?= {
+			"scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 0 # 50
+		}
+    }
+
+    option = {
+        name = br_venice_events.12.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 10
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_10
+        c:br_atlantica = {
+            add_liberty_desire = 15
+            add_radicals = {
+                value = 0.05
+            }
+            add_modifier = {
+                    name = br_modifier_venice_blockaded_shores
+                    days = normal_modifier_time
+                }
+            every_scope_state = {
+                limit = {
+                    state_region = s:STATE_FLORIDA
+                }
+                add_modifier = {
+                    name = br_modifier_venice_blockade
+                    days = normal_modifier_time
+                }
+            }
+        }
+        change_relations = {
+                country = root
+                value = -15
+            }
+    }
+    option = {
+        name = br_venice_events.12.b
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = -10
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_negative_10
+        c:br_atlantica ?= {
+            add_liberty_desire = -10
+            every_scope_state = {
+                limit = {
+                    state_region = s:STATE_FLORIDA
+                }
+                add_modifier = {
+                    name = br_modifier_venice_alternative_ports
+                    days = normal_modifier_time
+                }
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.12.c
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 6
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_6
+        c:br_atlantica = {
+            add_liberty_desire = 10
+            change_relations = {
+                country = root
+                value = -15
+            }
+            add_modifier = {
+                name = br_modifier_replaced_harbormasters
+                days = normal_modifier_time
+            }
         }
     }
 }
