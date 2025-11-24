@@ -866,6 +866,76 @@ br_venice_events.13 = {
         }
     }
 }
+br_venice_events.14 = { # looking into reworking
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.14.t
+    desc = br_venice_events.14.d
+    flavor = br_venice_events.14.f
+
+    event_image = { video = "unspecific_politicians_arguing" }
+    
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+    icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+    cooldown = { days = never_fire_again_modifier_time }
+
+    trigger = {
+		je:je_br_consolidate_stato_da_mar ?= {
+			"scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 75
+		}
+        c:br_atlantica ?= {
+            liberty_desire >= 90
+        }
+    }
+    option = {
+        name = br_venice_events.14.a
+        c:br_atlantica ?= {
+            create_diplomatic_play = {
+                target_country = ROOT 
+                type = dp_independence 
+                add_war_goal = { 
+                    holder = ROOT 
+                    target_country = c:br_atlantica 
+                    type = annex_country 
+                }
+            }
+        }
+        ig:ig_armed_forces ?= {
+            add_modifier = {
+                name = br_modifier_venice_war
+                days = normal_modifier_time
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.14.b #this may need to become na event chain.
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = -15
+                name = br_venice_consolidate_progress_bar  
+            }
+        }
+        custom_tooltip = br_venice_consolidation_negative_15
+        c:br_atlantica = {
+            add_liberty_desire = -15
+            change_relations = {
+                country = root
+                value = 15
+            }
+        }
+        ig:ig_armed_forces = {
+            add_modifier = br_modifier_venice_diplomatic_solution
+            days = normal_modifier_time
+        }
+        add_modifier = {
+            name = br_modifier_venice_complex_negotiations
+            days = short_modifier_time
+        }
+    }
+}
 br_venice_events.20 = {
     type = country_event
     placement = ROOT
