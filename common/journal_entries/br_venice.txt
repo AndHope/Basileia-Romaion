@@ -27,9 +27,14 @@ je_br_consolidate_stato_da_mar = {
             # Completion via progress bar
             custom_tooltip = { 
                 text = je_br_consolidate_progress_complete_tt
-                AND = { # AND block in place in case I want to add other conditions.
+                AND = {
                     scope:journal_entry = {
                         "scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 100
+                    }
+                    hidden_trigger = {
+                        scope:target = {
+                            NOT = { has_variable = br_venice_final_crisis }
+                        }
                     }
                 }
             }
@@ -99,11 +104,16 @@ je_br_consolidate_stato_da_mar = {
         }
     }
     on_monthly_pulse = {
-        random_events = {
+        if = {
+            not = {
+                has_variable = br_venice_crisis_event_4
+            }
+            random_events = {
             100 = 0 # placeholder, will determine later
             100 = br_venice_events.4 # Whispers in the Piazza
             100 = br_venice_events.12 # The Boycott of Nóva Veneto
             10 = br_venice_events.20 # The Venetian Gazetteer
+        }
         }
     }
 }

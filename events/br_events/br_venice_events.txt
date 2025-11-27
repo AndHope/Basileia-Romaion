@@ -887,52 +887,71 @@ br_venice_events.14 = { # looking into reworking
 			"scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 75
 		}
         c:br_atlantica ?= {
-            liberty_desire >= 90
+            liberty_desire >= 75
+        }
+    }
+
+    immediate = {
+        ROOT = {
+            set_variable = br_venice_final_crisis
         }
     }
     option = {
         name = br_venice_events.14.a
-        c:br_atlantica ?= {
-            create_diplomatic_play = {
-                target_country = ROOT 
-                type = dp_independence 
-                add_war_goal = { 
-                    holder = ROOT 
-                    target_country = c:br_atlantica 
-                    type = annex_country 
-                }
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 3
+                name = br_venice_consolidate_progress_bar
             }
         }
-        ig:ig_armed_forces ?= {
+        custom_tooltip = br_venice_consolidation_3
+        c:br_atlantica = {
             add_modifier = {
-                name = br_modifier_venice_war
+                name = br_modifier_venice_underground
                 days = normal_modifier_time
+            }
+        }
+        custom_tooltip = br_venice_crisis_event_4
+        hidden_effect = {
+            trigger_event = {
+                id = br_venice_events.15
+                days = 14
             }
         }
     }
     option = {
-        name = br_venice_events.14.b #this may need to become na event chain.
+        name = br_venice_events.14.b 
+        custom_tooltip = br_venice_crisis_event_4
         je:je_br_consolidate_stato_da_mar ?= {
             add_progress = {
-                value = -15
-                name = br_venice_consolidate_progress_bar  
+                value = -5
+                name = br_venice_consolidate_progress_bar
             }
         }
-        custom_tooltip = br_venice_consolidation_negative_15
-        c:br_atlantica = {
-            add_liberty_desire = -15
-            change_relations = {
-                country = root
-                value = 15
+        custom_tooltip = br_venice_consolidation_negative_5
+        custom_tooltip = br_venice_crisis_event_4
+        hidden_effect = {
+            trigger_event = {
+                id = br_venice_events.16
+                days = 14
             }
         }
-        ig:ig_armed_forces = {
-            add_modifier = br_modifier_venice_diplomatic_solution
-            days = normal_modifier_time
+    }
+    option = {
+        name = br_venice_events.14.c
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 5
+                name = br_venice_consolidate_progress_bar
+            }
         }
-        add_modifier = {
-            name = br_modifier_venice_complex_negotiations
-            days = short_modifier_time
+        custom_tooltip = br_venice_consolidation_5
+        custom_tooltip = br_venice_crisis_event_4
+        hidden_effect = {
+            trigger_event = {
+                id = br_venice_events.17
+                days = 14
+            }
         }
     }
 }
