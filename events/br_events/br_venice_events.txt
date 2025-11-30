@@ -866,7 +866,7 @@ br_venice_events.13 = {
         }
     }
 }
-br_venice_events.14 = { # looking into reworking
+br_venice_events.14 = {
     type = country_event
     placement = ROOT
     duration = 3
@@ -946,6 +946,9 @@ br_venice_events.14 = { # looking into reworking
             }
         }
         custom_tooltip = br_venice_consolidation_5
+        c:br_atlantica = {
+            add_liberty_desire = 5
+        }
         custom_tooltip = br_venice_crisis_event_4
         hidden_effect = {
             trigger_event = {
@@ -955,13 +958,188 @@ br_venice_events.14 = { # looking into reworking
         }
     }
 }
-br_venice_events.20 = {
+br_venice_events.15 = {
     type = country_event
     placement = ROOT
     duration = 3
-    title = br_venice_events.20.t
-    desc = br_venice_events.20.d
-    flavor = br_venice_events.20.f
+    title = br_venice_events.15.t
+    desc = br_venice_events.15.d
+    flavor = br_venice_events.15.f
+
+    event_image = { video = "europenorthamerica_political_extremism" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+    icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+    option = {
+        name = br_venice_events.15.a
+        c:br_atlantica = {
+            add_liberty_desire = 12
+        }
+        # In future, if governor becomes character in-game, this option will either kill him or have a chance to do so. 
+        trigger_event = {
+            id = br_venice_events.18
+            days = 14
+        }
+    }
+    option = {
+        name = br_venice_events.15.b
+        c:br_atlantica = {
+            add_liberty_desire = 5
+        }
+        ig:ig_armed_forces = {
+            add_modifier = {
+                name = br_modifier_venice_pull_out_forces
+                days = normal_modifier_time
+            }
+        }
+        trigger_event = {
+            id = br_venice_events.18
+            days = 14
+        }
+    }
+    option = {
+        name = br_venice_events.15.c
+        c:br_atlantica = {
+            add_liberty_desire = 10
+            change_relations = {
+                country = root
+                value = -15
+            }
+        }
+        ig:ig_petty_bourgeoisie = {
+            add_modifier = {
+                name = br_modifier_venice_sieze_assets
+                days = normal_modifier_time
+            }
+        }
+        trigger_event = {
+            id = br_venice_events.18
+            days = 14
+        }
+    }
+}
+br_venice_events.16 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.16.t
+    desc = br_venice_events.16.d
+    flavor = br_venice_events.16.f
+
+    event_image = { video = "unspecific_politicians_arguings" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/unspecific/politicians_arguing"
+
+    icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+    option = {
+        name = br_venice_events.16.a
+        c:br_atlantica = {
+            add_liberty_desire = 5
+            change_relations = {
+                country = root
+                value = -10
+            }
+            add_modifier = {
+                name = br_modifier_venice_subject_payment_major_atl #will have to see how large the payment reduction will be
+                days = long_modifier_time
+            }
+        }
+        add_modifier = {
+            name = br_modifier_venice_subject_payment_major 
+            days = long_modifier_time
+        }
+    }
+    option = {
+        name = br_venice_events.16.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = 4
+                name = br_venice_consolidate_progress_bar
+            }
+        }
+        ig:ig_petty_bourgeoisie = {
+            add_modifier = {
+                name = br_modifier_venice_lowered_payments
+                days = normal_modifier_time
+            }
+        }
+        custom_tooltip = br_venice_consolidation_4
+        c:br_atlantica = {
+            add_liberty_desire = 10
+            add_modifier = {
+                name = br_modifier_venice_subject_payment_minor_atl
+                days = long_modifier_time
+            }
+        }
+        add_modifier = {
+            name = br_modifier_venice_subject_payment_minor 
+            days = long_modifier_time
+        }
+    }
+}
+br_venice_events.18 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.18.t
+    desc = br_venice_events.18.d
+    flavor = br_venice_events.18.f
+
+    event_image = { video = "europenorthamerica_springtime_of_nations" }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nations"
+
+    icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+    option = {
+        name = br_venice_events.18.a
+        je:je_br_consolidate_stato_da_mar ?= {
+            add_progress = {
+                value = -10
+                name = br_venice_consolidate_progress_bar
+            }
+        }
+        custom_tooltip = br_venice_consolidation_negative_10
+        c:br_atlantica = {
+            add_liberty_desire = -5
+        }
+        trigger_event = {
+            id = br_venice_events.21 # A sort of deescalation event
+            days = 30
+        }
+    }
+    option = {
+        name = br_venice_events.18.b
+        c:br_atlantica ?= {
+            create_diplomatic_play = {
+                target_country = ROOT 
+                type = dp_independence # in future may try to mess with war support values for Atlantica independence to make it less one sided. 
+                add_war_goal = { 
+                    holder = ROOT 
+                    target_country = c:br_atlantica 
+                    type = annex_country 
+                }
+            }
+        }
+    }
+    option = {
+        name = br_venice_events.18.c
+        # this option will, if possible, trigger a guerilla war whenever that comes about. 
+    }
+}
+br_venice_events.30 = {
+    type = country_event
+    placement = ROOT
+    duration = 3
+    title = br_venice_events.30.t
+    desc = br_venice_events.30.d
+    flavor = br_venice_events.30.f
 
     event_image = { video = "unspecific_politicians_arguing" }
 
@@ -973,7 +1151,7 @@ br_venice_events.20 = {
     cooldown = { days = never_fire_again_modifier_time }
 
     option = {
-        name = br_venice_events.20.a
+        name = br_venice_events.30.a
         je:je_br_consolidate_stato_da_mar ?= {
             add_progress = {
                 value = 4
@@ -994,7 +1172,7 @@ br_venice_events.20 = {
     }
 
     option = {
-        name = br_venice_events.20.b
+        name = br_venice_events.30.b
         je:je_br_consolidate_stato_da_mar ?= {
             add_progress = {
                 value = 8
@@ -1011,7 +1189,7 @@ br_venice_events.20 = {
         }
     }
     option = {
-        name = br_venice_events.20.c
+        name = br_venice_events.30.c
         je:je_br_consolidate_stato_da_mar ?= {
             add_progress = {
                 value = 3
