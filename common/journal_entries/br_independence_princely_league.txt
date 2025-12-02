@@ -6,7 +6,7 @@
 	scripted_button = je_create_princely_league_button
 	
 	is_shown_when_inactive = {
-		country_is_in_europe = yes
+		is_in_geographic_region = geographic_region_europe
 		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
 		and = {
 			exists = c:HRE #to prevent errors if the HRE does not exist
@@ -18,7 +18,7 @@
 	}
 
 	possible = {
-		country_is_in_europe = yes
+		is_in_geographic_region = geographic_region_europe
 	}
 
 	immediate = {
@@ -55,7 +55,7 @@ br_je_princely_league_main = {
 	scripted_button = br_je_princely_league_main_left_side_favour_autonomy_button
 
 	is_shown_in_lobby = {
-		country_is_in_europe = yes
+		is_in_geographic_region = geographic_region_europe
 		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
 		and = {
 			exists = c:HRE #to prevent errors if the HRE does not exist
@@ -157,7 +157,7 @@ br_je_princely_league_main = {
 			c:HRE = {
 				every_direct_subject = {
 					limit = {
-						country_is_in_europe = yes #every european state gets notefied
+						is_in_geographic_region = geographic_region_europe #every european state gets notefied
 						NOT = {
 							is_com_situation_side_leader = {
 								side = left
