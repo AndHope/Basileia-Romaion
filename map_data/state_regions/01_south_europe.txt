@@ -450,7 +450,8 @@ STATE_SICILY = {
 STATE_NEW_CASTILE = {
     id = 93
     subsistence_building = "building_subsistence_farm"
-    provinces = { "x093A56" "x2B550F" "x302080" "x41C3FC" "x73D6A9" "x8010A0" "x88CEE5" "x89CA9E" "x92DDDA" "xA1BEC2" "xB02080" "xB0A000" "xB0A080" "xB5194A" "xCAA3E1" "xDCD24C" "xF44640" "xF693FD" "xF841E6" }
+    provinces = { "x093A56" "x2B550F" "x302080" "x41C3FC" "x73D6A9" "x8010A0" "x88CEE5" "x89CA9E" "x92DDDA" "xA1BEC2" "xB0A000" "xB0A080" "xB5194A" "xCAA3E1" "xDCD24C" "xF44640" "xF693FD" "xF841E6" }
+    traits = { "state_trait_tagus_river" }
     city = "xDCD24C"
     farm = "xB0A000"
     mine = "x8010A0"
@@ -523,11 +524,13 @@ STATE_ASTURIAS = {
 STATE_OLD_CASTILE = {
     id = 95
     subsistence_building = "building_subsistence_farm"
-    provinces = { "x0543B8" "x0D5242" "x10C4E5" "x22193A" "x24A9D6" "x2C00C8" "x38C557" "x3A3528" "x4D18FC" "x50E0C0" "x590C75" "x5DB702" "x702000" "x70A000" "x70F50D" "x906201" "xB02000" "xB1C098" "xB3BC6E" "xC3ED38" "xCA2220" "xD060C0" "xD30171" "xD7A4DE" "xDC8B19" "xF02000" "xF44AAA" }
+    provinces = { "x0543B8" "x10C4E5" "x22193A" "x24A9D6" "x3A3528" "x4D18FC" "x50E0C0" "x590C75" "x5DB702" "x702000" "x70A000" "xA1037C" "xAC1425" "xBF2564" "xC3ED38" "xCA2220" "xCB3245" "xD7A4DE" "xDC8B19" "xF02000" "xF0A000" "xF44AAA" }
+    traits = { "state_trait_good_soils" "state_trait_douro_river" }
     city = "x70A000"
-    farm = "x38C557"
-    mine = "x0D5242"
-    wood = "x0543B8"
+    farm = "x50E0C0"
+    mine = "xAC1425"
+    wood = "xD7A4DE"
+    port = "xA1037C"
     arable_land = 75
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_cotton_plantations" "bg_tobacco_plantations" "bg_vineyard_plantations" }
     capped_resources = {
@@ -548,12 +551,12 @@ STATE_OLD_CASTILE = {
 STATE_BASQUE_COUNTRY = {
     id = 96
     subsistence_building = "building_subsistence_farm"
-    provinces = { "x10E0C0" "x48868C" "x702080" "x9EC9B8" "xABE0B3" "xAC1425" "xCB3245" }
-    traits = { "state_trait_basque_iron_ore" "state_trait_great_terroir" }
+    provinces = { "x10E0C0" "x48868C" "x702080" "x9EC9B8" "xABE0B3" }
+    traits = { "state_trait_basque_iron_ore" "state_trait_somorrostro_valley" "state_trait_great_terroir" }
     city = "xABE0B3"
     port = "x48868C"
     farm = "x10E0C0"
-    mine = "xAC1425"
+    mine = "x48868C"
     wood = "x702080"
     arable_land = 50
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_vineyard_plantations" }
@@ -656,7 +659,7 @@ STATE_LOWER_ANDALUSIA = {
     id = 100
     subsistence_building = "building_subsistence_farm"
     provinces = { "x2B6ABC" "x3C4E5B" "x4A1438" "x4E5464" "x53634F" "x58E3EB" "x59202C" "x801020" "x809020" "x911497" "xB1108A" "xD06000" }
-    traits = { "state_trait_cordoba" "state_trait_natural_harbors" } #"state_trait_guadalquivir"
+    traits = { "state_trait_cordoba" "state_trait_guadalquivir" "state_trait_bay_of_cadiz" "state_trait_riotinto_basin" }
     city = "x4A1438"
     port = "xB1108A"
     farm = "x3C4E5B"
@@ -718,6 +721,7 @@ STATE_EXTREMADURA = {
     id = 102
     subsistence_building = "building_subsistence_farm"
     provinces = { "x009020" "x30A000" "x342BE6" "x4A8E78" "x506000" "x679A01" "x7500D4" "x97FBA4" "xB4471A" "xC694C3" "xE47DCF" "xF19B02" }
+    traits = { "state_trait_tagus_river" }
     city = "x679A01"
     farm = "xF19B02"
     mine = "x7500D4"
@@ -907,6 +911,70 @@ STATE_MADEIRA = {
         bg_fishing = 3
     }
     naval_exit_id = 3089
+}
+
+#1.12
+STATE_MURCIA = {
+    id = 925
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x134657" "x626878" "x6549AD" "x71158B" "xA03040" "xB02080" "xB03776" "xE0BED4" }
+    traits = { "state_trait_sierra_minera_de_cartagena" "state_trait_bay_of_cartagena" }
+    city = "x626878"
+    farm = "x6549AD"
+    mine = "x71158B"
+    wood = "xA03040"
+    port = "xB03776"
+    arable_land = 24
+    arable_resources = { "building_wheat_farm" "building_silk_plantation" "building_livestock_ranch" "building_vineyard" }
+    capped_resources = {
+        building_iron_mine = 7
+        building_gold_mine = 2
+        building_lead_mine = 21
+        building_logging_camp = 3
+        building_fishing_wharf = 6
+    }
+    naval_exit_id = 3032
+}
+
+STATE_LEON = {
+    id = 926
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x0D5242" "x2C00C8" "x38C557" "x70F50D" "x906201" "xB02000" "xB1C098" "xB3BC6E" "xD060C0" "xD30171" }
+    traits = { "state_trait_douro_river" }
+    city = "x38C557"
+    farm = "x0D5242"
+    mine = "x906201"
+    wood = "xD060C0"
+    arable_land = 41
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
+    capped_resources = {
+        building_iron_mine = 10
+        building_coal_mine = 12
+        building_logging_camp = 7
+    }
+}
+
+STATE_ENTRE_DOURO_E_MINHO = {
+    id = 927
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x0EF845" "x37ADD8" "x641376" "xA64B2E" "xD0A000" "xD0E0C0" }
+
+    traits = { "state_trait_douro_valley" "state_trait_douro_river" }
+    city = "xA64B2E"
+    farm = "x641376"
+    mine = "x37ADD8"
+    wood = "x641376"
+    port = "xD0A000"
+    arable_land = 60
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
+    capped_resources = {
+        building_iron_mine = 26
+        building_gold_mine = 2
+        building_lead_mine = 3
+        building_logging_camp = 7
+        building_fishing_wharf = 6
+    }
+    naval_exit_id = 3029
 }
 
 STATE_EASTERN_THRACE = {
