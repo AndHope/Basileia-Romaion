@@ -1,49 +1,20 @@
 ﻿#Mined resources made discoverable 
 
-REPLACE_OR_CREATE:bg_coal_mining = {
-	parent_group = bg_mining
-	
-	default_building = building_coal_mine
+REPLACE_OR_CREATE:bg_mining = {
+	parent_group = bg_extraction
+
+	lens = mine
 
 	can_use_slaves = yes
 
-	capped_by_resources = yes
+	urbanization = 10
+	infrastructure_usage_per_level = 2
 
-	discoverable_resource = yes
-}
+	should_auto_expand = {
+		default_auto_expand_rule = yes
+	}
 
-REPLACE_OR_CREATE:bg_iron_mining = {
-	parent_group = bg_mining
-
-	default_building = building_iron_mine
-
-	can_use_slaves = yes
-
-	capped_by_resources = yes
-
-	discoverable_resource = yes
-}
-
-REPLACE_OR_CREATE:bg_lead_mining = {
-	parent_group = bg_mining
-
-	default_building = building_lead_mine
-
-	can_use_slaves = yes
-
-	capped_by_resources = yes
-
-	discoverable_resource = yes
-}
-
-REPLACE_OR_CREATE:bg_sulfur_mining = {
-	parent_group = bg_mining
-
-	default_building = building_sulfur_mine
-
-	can_use_slaves = yes
-
-	capped_by_resources = yes
-
-	discoverable_resource = yes
+	discoverable_resource = yes #BR added
+	economy_of_scale_ai_factor = 3.0
+	foreign_investment_ai_factor = 1.0
 }
