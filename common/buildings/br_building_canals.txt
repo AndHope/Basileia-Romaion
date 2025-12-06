@@ -9,7 +9,7 @@
 	ownership_type = self
     ai_nationalization_desire = 1    # AI should be keen on nationalizing these
 	ai_value = 50000 # Canals are very important
-	
+
 	unlocking_technologies = {
 		colonization
 	}
@@ -20,7 +20,10 @@
 
 	possible = {
 		owner = {
-			owns_treaty_port_in = STATE_SINAI
+			OR = {
+				owns_treaty_port_in = STATE_SINAI
+				owns_entire_state_region = STATE_SINAI
+			}
 			custom_tooltip = {
 				text = suez_survey_complete_tooltip
 				has_variable = suez_survey_complete
@@ -57,7 +60,7 @@ REPLACE_OR_CREATE:building_panama_canal = {
 	ownership_type = self
     ai_nationalization_desire = 1    # AI should be keen on nationalizing these
 	ai_value = 50000 # Canals are very important
-	
+
 	unlocking_technologies = {
 		civilizing_mission
 	}
@@ -68,14 +71,17 @@ REPLACE_OR_CREATE:building_panama_canal = {
 
 	possible = {
 		owner = {
-			owns_treaty_port_in = STATE_PANAMA
+			OR = {
+				owns_treaty_port_in = STATE_PANAMA
+				owns_entire_state_region = STATE_PANAMA
+			}
 			custom_tooltip = {
 				text = panama_survey_complete_tooltip
 				has_variable = panama_survey_complete
 			}
 		}
 	}
-	
+
 	entity_not_constructed = { }
 	entity_under_construction = { "canal_panamacanal_under_construction_01_entity" }
 	entity_constructed = { "canal_panamacanal_01_entity" }
