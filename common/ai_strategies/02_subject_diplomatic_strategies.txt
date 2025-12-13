@@ -44,10 +44,8 @@
 	}
 
 	building_group_weights = {
-		bg_munition_plants = 1.5
-		bg_arms_industries = 1.5
-		bg_artillery_foundries = 1.5
-		bg_military_shipyards = 1.5
+		bg_army = 1.5
+		bg_military_industry = 1.5
 	}
 
 	wargoal_weights = {
@@ -91,7 +89,7 @@
 		befriend = {
 			trigger = {
 				scope:target_country = { country_rank >= root.country_rank }
-				can_be_reached_by_target_country = yes			
+				can_be_reached_by_target_country = yes
 			}
 			score = {
 				if = {
@@ -231,10 +229,8 @@ ai_strategy_subject_strengthen_self = {
 	}
 
 	building_group_weights = {
-		bg_munition_plants = 1.5
-		bg_arms_industries = 1.5
-		bg_artillery_foundries = 1.5
-		bg_military_shipyards = 1.5
+		bg_army = 1.5
+		bg_military_industry = 1.5
 	}
 
 	wargoal_weights = {
@@ -292,7 +288,7 @@ ai_strategy_subject_strengthen_self = {
 			trigger = {
 				can_reach_target_country = yes
 				has_strategic_adjacency = scope:target_country
-				scope:target_country.country_rank <= root.country_rank			
+				scope:target_country.country_rank <= root.country_rank
 			}
 			score = {
 				if = {
@@ -415,7 +411,7 @@ ai_strategy_subject_maintain_autonomy = {
 			trigger = {
 				can_reach_target_country = yes
 				has_strategic_adjacency = scope:target_country
-				scope:target_country.country_rank <= root.country_rank			
+				scope:target_country.country_rank <= root.country_rank
 			}
 			score = {
 				if = {
@@ -502,7 +498,7 @@ ai_strategy_subject_overlord_compliance = {
 				}
 				else = {
 					value = 200
-				}		
+				}
 			}
 		}
 		defy = {

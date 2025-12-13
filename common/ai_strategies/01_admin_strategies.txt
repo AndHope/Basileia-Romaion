@@ -262,7 +262,7 @@ ai_strategy_resource_expansion = {
 		if = {
 			limit = {
 				exists = ig:ig_industrialists
-				ig:ig_industrialists = { is_powerful = yes }
+				ig:ig_industrialists ?= { is_powerful = yes }
 			}
 			multiply = 1.5
 		}
@@ -340,6 +340,15 @@ ai_strategy_industrial_expansion = {
 		bg_logging = 1.25
 	}
 
+	economic_vs_government_spending_balance = { # Refer to 00_default_strategy for how this works
+		if = { # Slightly more inclined to spend on economic buildings when not at war
+			limit = {
+				is_at_war = no
+			}
+			add = 0.05
+		}
+	}
+
 	weight = {
 		value = 10
 
@@ -369,12 +378,19 @@ ai_strategy_industrial_expansion = {
 				c:FRA = this
 				ruler = {
 					OR = {
-						has_variable = orleanist_leader
-						has_variable = bonapartist_leader
+						has_variable = house_orleans
+						has_variable = house_bonaparte
 					}
 				}
 			}
 			add = 20
+		}
+
+		if = { # Grunderzeit
+			limit = {
+				has_journal_entry = je_grunderzeit
+			}
+			add = 100
 		}
 
 		if = {
@@ -414,7 +430,7 @@ ai_strategy_industrial_expansion = {
 		if = {
 			limit = {
 				exists = ig:ig_industrialists
-				ig:ig_industrialists = { is_powerful = yes }
+				ig:ig_industrialists ?= { is_powerful = yes }
 			}
 			multiply = 2.0
 		}
@@ -581,7 +597,52 @@ ai_strategy_colonial_extraction = {
     }
     possible = {
     	is_subject = yes
-    	is_country_type = colonial
+		country_is_colonial_or_company = yes
+    }
+
+    weight = {
+        value = 100
+    }
+}
+
+ai_strategy_montenegro_admin = {
+    icon = "gfx/interface/icons/ai_strategy_icons/placate_population.dds"
+
+    type = administrative
+    building_group_weights = {
+		bg_private_infrastructure = 2.0
+		bg_agriculture = 2.0
+		bg_ranching = 2.0
+		bg_logging = 1.5
+		bg_manufacturing = 0.5
+    }
+
+    subsidies = {
+        building_trade_center = must_have
+    }
+
+    goods_stances = {
+		grain = { stance = wants_high_supply }
+		meat = { stance = wants_high_supply }
+		fish = { stance = wants_high_supply }
+		fruit = { stance = wants_high_supply }
+		fabric = { stance = wants_high_supply }
+		wood = { stance = wants_high_supply }
+		liquor = { stance = wants_high_supply }
+		small_arms = { stance = wants_high_supply }
+	}
+    possible = {
+    	c:MON ?= this
+		NOR = {
+			any_scope_state = { # Has a port
+				has_building = building_port
+			}
+			ROOT.market_capital = { # Is in another market
+				NOT = {
+					owner = ROOT
+				}
+			}
+		}
     }
 
     weight = {
