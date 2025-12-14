@@ -1,8 +1,8 @@
 ﻿GBR = {
 	use_culture_states = yes
 
-	required_states_fraction = 0.75	
-	
+	required_states_fraction = 0.75
+
 	ai_will_do = { always = yes }
 }
 
@@ -16,8 +16,8 @@ ENG = {
 		STATE_LANCASHIRE
 	}
 
-	required_states_fraction = 0.75	
-	
+	required_states_fraction = 0.75
+
 	ai_will_do = { always = yes }
 }
 
@@ -50,15 +50,15 @@ IRE = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = yes }
 }
 
 FRA = {
-	states = { 
-		STATE_ILE_DE_FRANCE 
-		STATE_PROVENCE 
-		STATE_NORMANDY 
+	states = {
+		STATE_ILE_DE_FRANCE
+		STATE_PROVENCE
+		STATE_NORMANDY
 		STATE_LANGUEDOC
 		STATE_RHONE
 		STATE_FRENCH_LOW_COUNTRIES
@@ -77,18 +77,18 @@ FRA = {
 	}
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = yes }
 }
 
 SWE = {
-	states = { 
-		STATE_SVEALAND 
-		STATE_GOTALAND 
-		STATE_SCANIA 
-		STATE_NORRLAND 
+	states = {
+		STATE_SVEALAND
+		STATE_GOTALAND
+		STATE_SCANIA
+		STATE_NORRLAND
 	}
-	
+
 	required_states_fraction = 0.75
 
 	ai_will_do = { always = no }
@@ -100,7 +100,7 @@ LAO = {
 	}
 
 	required_states_fraction = 1.0
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -108,7 +108,7 @@ UBD = {
 	use_culture_states = yes
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -117,11 +117,11 @@ UBD = {
 }
 
 BYZ = {
-	states = { 
-		STATE_EASTERN_THRACE 
-		STATE_ATTICA 
-		STATE_THESSALIA 
-		STATE_MACEDONIA 
+	states = {
+		STATE_EASTERN_THRACE
+		STATE_ATTICA
+		STATE_THESSALIA
+		STATE_MACEDONIA
 		STATE_SKOPIA
 		STATE_WESTERN_THRACE
 		STATE_NORTHERN_THRACE
@@ -133,7 +133,7 @@ BYZ = {
 	}
 
 	required_states_fraction = 1.0
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -158,18 +158,18 @@ PLC = {
 	}
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 }
 
 PRU = {
-	states = { 
+	states = {
 		STATE_WEST_PRUSSIA
 		STATE_EAST_PRUSSIA
 	}
 
 	required_states_fraction = 0.8
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -177,7 +177,7 @@ CHI = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.6
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -201,11 +201,31 @@ IBE = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.9
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
 		has_technology_researched = pan-nationalism
+		trigger_if = {
+			limit = {
+				capital = {
+					is_in_geographic_region = geographic_region_iberia
+				}
+				any_country_in_iberia = {
+					is_subject_of = ROOT
+				}
+			}
+			custom_tooltip = {
+				text = all_iberian_subjects_below_75_ld_tt
+				any_country_in_iberia = {
+					filter = {
+						is_subject_of = ROOT
+					}
+					liberty_desire < 75
+					count = all
+				}
+			}
+		}
 	}
 }
 
@@ -221,7 +241,7 @@ KUK = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.9
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -301,13 +321,19 @@ ZIM = {
 BLH = {
 	states = {
 		STATE_BALUCHISTAN
+		STATE_NORTHERN_BALUCHISTAN
+		STATE_SISTAN
 	}
 
 	required_states_fraction = 0.75
 	ai_will_do = { always = yes }
-	
+
 	possible = {
 		has_technology_researched = nationalism
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
 	}
 }
 
@@ -327,7 +353,7 @@ SGF = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -355,21 +381,28 @@ YUG = {
 	ai_will_do = { always = yes }
 }
 
-SAF = {
+TRH = {
 	states = {
-		STATE_NORTHERN_CAPE
-		STATE_EASTERN_CAPE
-		STATE_CAPE_COLONY 
+		STATE_FERGANA
+		STATE_UZBEKIA
+		STATE_KIRGHIZIA
+		STATE_KHIVA
+		STATE_MERZ
+		STATE_BALKH
+		STATE_TAJIKISTAN
+		STATE_TURKMENIA
+		STATE_SYRDARYA
+		STATE_JETISY
+		STATE_TIANSHAN
+		STATE_DZUNGARIA
+		STATE_SEMIRECHE
+		STATE_AKMOLINSK
+		STATE_AKTOBE
+		STATE_URALSK
 	}
 
-	ai_will_do = { always = yes }
-}
+	required_states_fraction = 0.4
 
-TRH = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.5
-	
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -396,7 +429,7 @@ IDN = {
 	}
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -407,28 +440,28 @@ IDN = {
 
 BHT = {
 	states = {
-		STATE_ASSAM 
-		STATE_AWADH 
+		STATE_ASSAM
+		STATE_AWADH
 		STATE_BALUCHISTAN
-		STATE_BIHAR 
-		STATE_BOMBAY 
-		STATE_MALWA 
-		STATE_CEYLON 
+		STATE_BIHAR
+		STATE_BOMBAY
+		STATE_MALWA
+		STATE_CEYLON
 		STATE_CIRCARS
-		STATE_DELHI 
-		STATE_GUJARAT 
-		STATE_HYDERABAD 
-		STATE_KASHMIR 
-		STATE_MADRAS 
-		STATE_MYSORE 
-		STATE_CENTRAL_PROVINCES 
-		STATE_WEST_BENGAL 
-		STATE_ORISSA 
+		STATE_DELHI
+		STATE_GUJARAT
+		STATE_HYDERABAD
+		STATE_KASHMIR
+		STATE_MADRAS
+		STATE_MYSORE
+		STATE_CENTRAL_PROVINCES
+		STATE_WEST_BENGAL
+		STATE_ORISSA
 		STATE_PASHTUNISTAN
-		STATE_PUNJAB 
-		STATE_RAJPUTANA 
-		STATE_SINDH 
-		STATE_EAST_BENGAL 
+		STATE_PUNJAB
+		STATE_RAJPUTANA
+		STATE_SINDH
+		STATE_EAST_BENGAL
 		STATE_TRAVANCORE
 		STATE_KURNOOL
 		STATE_BUNDELKHAND
@@ -438,12 +471,11 @@ BHT = {
 	}
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
 		has_technology_researched = pan-nationalism
-
 	}
 }
 
@@ -453,7 +485,7 @@ YEM = {
 	}
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -466,8 +498,8 @@ CAU = {
 		STATE_ELIZAVETPOL
 	}
 
-	required_states_fraction = 0.75	
-	
+	required_states_fraction = 0.75
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -496,7 +528,7 @@ KAZ = {
 	}
 
 	required_states_fraction = 0.5
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -526,17 +558,50 @@ UNL = {
 	}
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
+}
+
+RHN = {
+	states = {
+		STATE_HESSE
+		STATE_SAXONY
+		STATE_SCHLESWIG_HOLSTEIN
+		STATE_ANHALT
+		STATE_FRANCONIA
+		STATE_BAVARIA
+		STATE_BRUNSWICK
+		STATE_HANNOVER
+		STATE_BADEN
+		STATE_WURTTEMBERG
+		STATE_RUHR
+		STATE_WESTPHALIA
+		STATE_ELBE
+		STATE_MECKLENBURG
+	}
+
+	required_states_fraction = 0.75
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = nationalism
+		NOR = {
+			c:PRU ?= this
+			c:AUS ?= this
+			c:NGF ?= this
+			c:SGF ?= this
+		}
+	}
 }
 
 HRE = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = no }
-	
+
 	possible = {
 		NOT = { has_game_rule = plausible_formable_nations }
 		is_in_geographic_region = geographic_region_europe
@@ -547,18 +612,22 @@ AFG = {
 	states = {
 		STATE_HERAT
 		STATE_KANDAHAR
-		STATE_KABUL 
+		STATE_KABUL
 		STATE_CENTRAL_HIGHLANDS
+		STATE_BALKH
+		STATE_PASHTUNISTAN
+		STATE_QUETTA
+		STATE_NORTHERN_BALUCHISTAN
 	}
-	
-	required_states_fraction = 1
+
+	required_states_fraction = 0.5
 
 	ai_will_do = { always = yes }
 }
 
 TWT = {
 	use_culture_states = yes
-	
+
 	required_states_fraction = 0.5
 
 	ai_will_do = { always = no }
@@ -579,7 +648,7 @@ PAK = {
 	}
 
 	required_states_fraction = 0.80 # 5/6 states needed
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -589,8 +658,25 @@ PAK = {
 }
 
 MGB = {
-	use_culture_states = yes
-	
+	states = {
+		STATE_MARRAKECH
+		STATE_FEZ
+		STATE_AL_RIF
+		STATE_INNER_MOROCCO
+		STATE_WEST_SAHARA
+		STATE_INNER_MAURITANIA
+		STATE_MAURITANIA
+		STATE_SAHARA
+		STATE_ORAN
+		STATE_ALGIERS
+		STATE_CONSTANTINE
+		STATE_EAST_SAHARA
+		STATE_TUNISIA
+		STATE_TRIPOLI
+		STATE_LIBYAN_DESERT
+		STATE_LIBYA
+	}
+
 	required_states_fraction = 0.5
 
 	ai_will_do = { always = no }
@@ -604,11 +690,15 @@ ORI = {
 	use_culture_states = yes
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
 		has_technology_researched = nationalism
+		NOR = { # Some really strange things can happen during British Indian civil wars. Temporary fix pending investigation.
+			c:BHT ?= this
+			c:BIC ?= this
+		}
 	}
 }
 
@@ -616,11 +706,15 @@ RAJ = {
 	use_culture_states = yes
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
 		has_technology_researched = nationalism
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
 	}
 }
 
@@ -628,11 +722,15 @@ GUJ = {
 	use_culture_states = yes
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
 		has_technology_researched = nationalism
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
 	}
 }
 
@@ -640,8 +738,15 @@ MHR = {
 	use_culture_states = yes
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
+
+	possible = {
+		NOR = {
+			c:BHT ?= this
+			c:BIC ?= this
+		}
+	}
 }
 
 PAN = {
@@ -702,7 +807,7 @@ BGL = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.5
-	
+
 	ai_will_do = { always = yes }
 
 	possible = {
@@ -765,5 +870,49 @@ TJI = {
 
 	possible = {
 		has_technology_researched = nationalism
+	}
+}
+
+LBY = {
+	states = {
+		STATE_TRIPOLI
+		STATE_LIBYA
+		STATE_LIBYAN_DESERT
+	}
+
+	required_states_fraction = 1
+
+	ai_will_do = { always = yes }
+
+	potential = {
+		capital.state_region = {
+			OR = {
+				this = s:STATE_TRIPOLI
+				this = s:STATE_LIBYA
+				this = s:STATE_LIBYAN_DESERT
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
+
+ATL = {
+	states = {
+		STATE_CENTRAL_CUBA
+		STATE_WESTERN_CUBA
+		STATE_EASTERN_CUBA
+		STATE_PUERTO_RICO
+		STATE_SANTO_DOMINGO
+	}
+
+	required_states_fraction = 0.8
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = pan-nationalism
 	}
 }
