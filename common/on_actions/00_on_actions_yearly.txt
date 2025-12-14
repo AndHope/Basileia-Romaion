@@ -265,6 +265,29 @@ austrian_monarchy_yearly_events = {
 	}
 }
 
+# Portugal Single Fire Pulse Events
+#portugal_single_fire_yearly_events = {
+#	random_events = {
+#		chance_to_happen = 30
+#		1 = portugal_single_fire_events.1
+#		1 = portugal_single_fire_events.2
+#		1 = portugal_single_fire_events.3
+#		1 = portugal_single_fire_events.4
+#		1 = portugal_single_fire_events.5
+#		1 = portugal_single_fire_events.6
+#	}
+#}
+
+# Spain Single Fire Pulse Events
+#spain_single_fire_yearly_events = {
+#	random_events = {
+#		chance_to_happen = 30
+#		1 = spanish_events.1
+#		1 = spanish_events.2
+#		1 = spanish_events.3
+#	}
+#}
+
 # Springtie of Peoples
 springtime_of_peoples_yearly_events = {
 	random_events = {
@@ -442,7 +465,7 @@ tunguska_yearly_events = {
 # British Dictates 
 #british_dictate_yearly_events = {
 #	random_events = {
-#		chance_of_no_event = 75
+#		chance_to_happen = 25
 #		1 = british_dictates.1
 #		1 = british_dictates.2
 #		1 = british_dictates.4
@@ -521,8 +544,16 @@ on_memento_mori = {
 					}
 				}
 				scope:memento_mori_leader = {
-					kill_character = {
-						hidden = yes
+					if = {
+						limit = {
+							has_template = SPA_baldomero_espartero
+						}
+						place_character_in_void = 600 # I can't kill you, I still need you.
+					}
+					else = {
+						kill_character = {
+							hidden = yes
+						}
 					}
 				}
 				post_notification = ig_leader_memento_mori
