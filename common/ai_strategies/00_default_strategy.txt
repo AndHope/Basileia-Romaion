@@ -359,7 +359,6 @@ ai_strategy_default = {
 		}
 
 		### Risorgimento
-
 		if = {
 			limit = {
 				exists = scope:is_initiator
@@ -494,22 +493,6 @@ ai_strategy_default = {
 			add = {
 				value = 50
 				desc = "support_for_afghan_claimant"
-			}
-		}
-
-		if = { # The Balkan League countries supporting each other against the Ottomans.
-			limit = {
-				has_journal_entry = je_the_balkan_league
-				scope:country = {
-					has_journal_entry = je_the_balkan_league
-				}
-				scope:enemy_country = {
-					c:BYZ ?= this
-				}
-			}
-			add = {
-				value = 1000
-				desc = "support_for_balkan_league"
 			}
 		}
 
@@ -754,13 +737,7 @@ ai_strategy_default = {
 					has_variable = attack_bolivia
 				}
 				scope:country = {
-					OR = {
-						has_journal_entry = je_war_of_the_confederation
-						AND = {
-							is_subject_of = scope:enemy_country
-							has_journal_entry = je_peru_bolivia
-						}
-					}
+					is_involved_in_journal_entry = je_peru_bolivia
 					NOR = {
 						play_participant_has_war_goal_of_type_against = {
 							type = conquer_state
@@ -781,7 +758,8 @@ ai_strategy_default = {
 					}
 				}
 				scope:enemy_country = {
-					has_journal_entry = je_peru_bolivia
+					is_involved_in_journal_entry = je_peru_bolivia
+					has_variable = pbc_member
 				}
 			}
 			add = {
@@ -912,9 +890,9 @@ ai_strategy_default = {
 		# Balkan minors are quite bold during the Eastern Question
 		if = {
 			limit = {
-				has_journal_entry = je_eastern_crisis_tracker
+				is_involved_in_journal_entry = je_great_eastern_crisis
 				any_enemy_in_diplo_play = {
-					has_journal_entry = je_great_eastern_crisis
+					c:TUR ?= this
 				}
 			}
 			add = 10
@@ -923,7 +901,8 @@ ai_strategy_default = {
 		# Ottomans will tend to back down against Austria when they have the Great Eastern Crisis
 		if = {
 			limit = {
-				has_journal_entry = je_great_eastern_crisis
+				is_involved_in_journal_entry = je_great_eastern_crisis
+				c:TUR ?= this
 				owns_entire_state_region = STATE_BOSNIA
 				any_enemy_in_diplo_play = {
 					has_journal_entry = je_eastern_question_austria
@@ -957,10 +936,7 @@ ai_strategy_default = {
 
 		if = { # War of the Confederation participants
 			limit = {
-				OR = {
-					has_journal_entry = je_peru_bolivia
-					has_journal_entry = je_war_of_the_confederation
-				}
+				is_involved_in_journal_entry = je_peru_bolivia
 				is_diplomatic_play_enemy_of = c:BOL
 			}
 			add = 50
@@ -1994,20 +1970,7 @@ ai_strategy_default = {
 						sr:region_south_china = {
 							any_scope_state = {
 								NOT = { is_treaty_port = yes }
-								owner = {
-									NOT = { THIS = ROOT }
-									country_rank >= rank_value:major_power
-									OR = {
-										is_in_geographic_region = geographic_region_north_america
-										is_in_geographic_region = geographic_region_europe
-										is_in_geographic_region = geographic_region_south_america
-									}
-								}
-							}
-						}
-						sr:region_manchuria = {
-							any_scope_state = {
-								NOT = { is_treaty_port = yes }
+								is_largest_state_in_region = yes
 								owner = {
 									NOT = { THIS = ROOT }
 									country_rank >= rank_value:major_power
@@ -2373,37 +2336,37 @@ ai_strategy_default = {
 						AND = {
 							exists = c:KZH
 							scope:target_country = {
-								this = c:KZH
+								c:KZH ?= THIS
 							}
 						}
 						AND = {
 							exists = c:UZH
 							scope:target_country = {
-								this = c:UZH
+								c:UZH ?= THIS
 							}
 						}
 						AND = {
 							exists = c:OZH
 							scope:target_country = {
-								this = c:OZH
+								c:OZH ?= THIS
 							}
 						}
 						AND = {
 							exists = c:KOK
 							scope:target_country = {
-								this = c:KOK
+								c:KOK ?= THIS
 							}
 						}
 						AND = {
 							exists = c:KHI
 							scope:target_country = {
-								this = c:KHI
+								c:KHI ?= THIS
 							}
 						}
 						AND = {
 							exists = c:BUK
 							scope:target_country = {
-								this = c:BUK
+								c:BUK ?= THIS
 							}
 						}
 					}
@@ -6250,7 +6213,8 @@ ai_strategy_default = {
 				if = {
 					limit = {
 						scope:target_country = {
-							has_journal_entry = je_peru_bolivia
+							is_involved_in_journal_entry = je_peru_bolivia
+							has_variable = pbc_member
 						}
 						OR = {
 							country_has_primary_culture = cu:south_andean
@@ -6410,20 +6374,19 @@ ai_strategy_default = {
 						add = 1000
 					}
 
-					if = {
-						limit = {
-							scope:target_country = {
-								is_subject = yes
-								is_country_type = unrecognized
-								top_overlord ?= {
-									NOT = { is_country_type = unrecognized }
+						if = {
+							limit = {
+								scope:target_country = {
+									is_subject = yes
+									is_country_type = unrecognized
+									top_overlord ?= {
+										NOT = { is_country_type = unrecognized }
+									}
 								}
 							}
 							multiply = 0.1
 						}
-						multiply = 0.1
 					}
-				}			
 
 				# Second Balkan War, pitting the balkan nations against each other
 				if = {
@@ -7087,7 +7050,7 @@ ai_strategy_default = {
 				limit = {
 					wants_to_solve_schleswig_holstein = yes
 					exists = c:HOL
-					scope:target_country = { this = c:HOL }
+					scope:target_country = { c:HOL ?= THIS }
 					can_reach_target_country = yes
 				}
 				add = 100
@@ -7265,7 +7228,13 @@ ai_strategy_default = {
 							who = scope:target_country.top_overlord
 							type = rivalry
 						}
-						"ai_ideological_opinion(scope:target_country)" <= -25
+						AND = {
+							is_power_bloc_leader = yes
+							is_in_same_power_bloc = scope:target_country
+							power_bloc ?= {
+								has_identity = identity:identity_ideological_union
+							}
+						}
 					}
 				}
 				add = 10
