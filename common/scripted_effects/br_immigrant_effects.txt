@@ -17,11 +17,14 @@ br_convert_immigrants_to_settler_cultures_effect = {
 		if = { # european -> apoikoi
 			limit = {
 				country_has_primary_culture = cu:apoikoi
-				any_scope_state = {
-					is_incorporated = yes
-					state_is_in_europe = no
-					state_is_in_americas = no
-				}
+				NOT = {
+                    any_scope_state = {
+						OR = {
+							is_in_geographic_region = geographic_region_europe
+							is_in_geographic_region = geographic_region_americas
+						}
+					}
+                }
 			}
 			every_scope_pop = {
 				limit = {
@@ -147,10 +150,11 @@ br_convert_immigrants_to_settler_cultures_effect = {
 		else_if = { #  european -> colonial_italian
 			limit = {
 				country_has_primary_culture = cu:colonial_italian
-				any_scope_state = {
-					is_incorporated = yes
-					state_is_in_europe = no
-				}
+				NOT = {
+                    any_scope_state = {
+						is_in_geographic_region = geographic_region_europe
+					}
+                }
 			}
 			every_scope_pop = {
 				limit = {
@@ -173,10 +177,11 @@ br_convert_immigrants_to_settler_cultures_effect = {
 		else_if = { #  european -> amerigan
 			limit = {
 				country_has_primary_culture = cu:amerigan
-				any_scope_state = {
-					is_incorporated = yes
-					state_is_in_europe = no
-				}
+				NOT = {
+                    any_scope_state = {
+						is_in_geographic_region = geographic_region_europe
+					}
+                }
 			}
 			every_scope_pop = {
 				limit = {
@@ -254,10 +259,11 @@ br_convert_immigrants_to_settler_cultures_effect = {
 		else_if = { #  european -> colonial_dutch
 			limit = {
 				country_has_primary_culture = cu:colonial_dutch
-				any_scope_state = {
-					is_incorporated = yes
-					state_is_in_europe = no
-				}
+				NOT = {
+                    any_scope_state = {
+						is_in_geographic_region = geographic_region_europe
+					}
+                }
 			}
 			every_scope_pop = {
 				limit = {
