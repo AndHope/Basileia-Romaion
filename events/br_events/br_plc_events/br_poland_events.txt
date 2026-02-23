@@ -290,6 +290,13 @@ poland.7 = {
     trigger = {
         c:PLC ?= this
         has_technology_researched = nationalism
+        not = { has_variable = br_has_had_poland7_event_var }
+    }
+
+    immediate = {
+        # Set a var to that can be used to check if the event has been called already
+        # (can't use scope:technology in on_acquired_technology because you can't scope to specific techs like nationalism)
+        set_variable = br_has_had_poland7_event_var
     }
 
     #suppress the new religions
