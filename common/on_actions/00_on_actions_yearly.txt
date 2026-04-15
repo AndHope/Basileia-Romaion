@@ -253,7 +253,17 @@ on_yearly_events = {
 # 		50 = russia_monarchy.7
 # 		5 = russia_monarchy.8
 # 	}
-# }
+}
+
+# Japan Monarchy Pulse Events
+japan_monarchy_yearly_events = {
+	random_events = {
+		50 = shogunate.2
+		50 = shogunate.5
+		50 = japan_monarchy.6
+	}
+}
+
 # Austrian Monarchy Pulse Events
 austrian_monarchy_yearly_events = {
 	random_events = {
@@ -539,5 +549,71 @@ kamehameha_coin_toss = {
 				kill_character = yes
 			}
 		}
+	}
+}
+
+# Ryukyu Rivalry JE
+ryukyu_rivalry_coin_toss = {
+	trigger = {
+		OR = {
+			c:CHI = this
+			c:JAP = this
+		}
+        AND = {
+            c:JAP = { has_modifier = modifier_ryukyu_rivalry_officer_training }
+            c:CHI = { has_modifier = modifier_ryukyu_rivalry_officer_training }
+        }
+		NOT = { exists = global_var:ryukyu_rivalry_training_incident }
+	}
+	effect = {
+		set_global_variable = {
+			name = ryukyu_rivalry_training_incident
+			years = 5
+		}
+		random_list = {
+			1 = {
+				set_global_variable = {
+					name = ryukyu_rivalry_fire
+				}
+			}
+			1 = {
+				set_global_variable = {
+					name = ryukyu_rivalry_accident
+				}
+			}
+			1 = {
+				set_global_variable = {
+					name = ryukyu_rivalry_brawl
+				}
+			}
+		}
+		hidden_effect = { c:JAP ?= { trigger_event = { id = ryukyu_rivalry.6 days = 1 popup = yes } } } # Consider notification
+		hidden_effect = { c:CHI ?= { trigger_event = { id = ryukyu_rivalry.6 days = 1 popup = yes } } } # Consider notification
+	}
+}
+
+japan_yearly_events = {
+	random_events = {
+		chance_to_happen = 25
+		20 = japan_events.1
+		20 = japan_events.2
+		20 = japan_events.3
+		20 = japan_events.4
+		20 = japan_events.5
+		20 = japan_events.32
+		20 = japan_events.33
+		20 = japan_events.34
+		20 = japan_events.35
+	}
+}
+
+japan_earthquake_events = {
+	random_events = {
+		chance_to_happen = 50
+		# 20 = japan_earthquakes.1
+		20 = japan_earthquakes.2
+		20 = japan_earthquakes.3
+		20 = japan_earthquakes.4
+		20 = japan_earthquakes.5
 	}
 }
