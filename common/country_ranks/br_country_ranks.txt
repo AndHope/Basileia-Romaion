@@ -1,0 +1,58 @@
+﻿# rank_value = higher value rank effects take priority over lower ones in being assigned, also determines icon index
+# enforce_subject_rank_check = if yes, this rank is invalid for subjects with a subject type where overlord needs to have higher rank if overlord has that rank or higher
+# prestige_average_threshold = multiple of average country prestige
+# prestige_relative_threshold = relative to highest prestige country
+# min_generals = minimum amount of generals in the country; if below, game will auto-generate
+# min_commander_rank_random / max_commander_rank_random = min/max ranks when auto-generating commander rank
+# possible = {} must evaluate to true for rank to be able to be assigned
+# can_colonize = whether a country of this rank can colonize
+# diplo_pact_cost = Diplomatic pacts with country of this rank have their cost multiplied by this amount - 1
+# treaty_article_cost = Treaty articles with country of this rank have their cost multiplied by this amount - 1
+
+################
+## RECOGNIZED ##
+################
+
+INJECT:great_power = {
+	modifier = {
+		state_radicalism_increases_violent_hostility_mult = 0.15 #malus added
+		state_radicalism_increases_cultural_erasure_mult = 0.15 #malus added
+		state_radicalism_increases_open_prejudice_mult = 0.15 #malus added
+	}
+}
+
+INJECT:major_power = {
+	modifier = {
+		state_radicalism_increases_violent_hostility_mult = 0.1 #malus added
+		state_radicalism_increases_cultural_erasure_mult = 0.1 #malus added
+		state_radicalism_increases_open_prejudice_mult = 0.1 #malus added
+	}
+}
+
+INJECT:minor_power = {
+	modifier = {
+		state_tax_capacity_mult = 0.1 #bonus added
+		state_conscription_rate_mult = 0.1 #bonus added
+	}
+}
+
+INJECT:insignificant_power = {
+	modifier = {
+		state_tax_capacity_mult = 0.15 #bonus added
+		state_conscription_rate_mult = 0.15 #bonus added
+	}
+}
+
+###################
+## DECENTRALIZED ##
+###################
+
+INJECT:decentralized_power = {
+
+	modifier = {
+		state_birth_rate_mult = -5 #added
+		state_mortality_mult = -5 #added
+		state_education_access_add = -0.1 #added
+		country_resource_discovery_chance_mult = -0.5 #added
+	}
+}
