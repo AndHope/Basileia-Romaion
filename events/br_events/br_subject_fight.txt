@@ -127,6 +127,10 @@ FX_subject_fight.10 = {
     # return state
     option = {
         name = dp_return_state
+
+        #Make sure it has claimed provinces.
+        trigger = { scope:FX_subject_fight_target_country = { any_scope_state = { has_claim_by = scope:subject_initiator } } }
+
         trigger_event = {
             id = FX_subject_fight.12
             days = 0
@@ -272,7 +276,7 @@ FX_subject_fight.12 = {
         scope:FX_subject_fight_target_country = {
             every_scope_state = {
                 if = {
-                    limit = { has_claim_by = scope:subject_initiator } #Make sure it oly adds claimed provinces.
+                    limit = { has_claim_by = scope:subject_initiator } #Make sure it only adds claimed provinces.
                     if = { limit = { not = { exists = scope:potential_target_state1 } } this = { save_scope_as = potential_target_state1 } }
                     else_if = { limit = { not = { exists = scope:potential_target_state2 } } this = { save_scope_as = potential_target_state2 } }
                     else_if = { limit = { not = { exists = scope:potential_target_state3 } } this = { save_scope_as = potential_target_state3 } }
