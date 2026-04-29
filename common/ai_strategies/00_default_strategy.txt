@@ -2116,7 +2116,7 @@ ai_strategy_default = {
 					OR = {
 						region = sr:region_north_china
 						region = sr:region_south_china
-						region = sr:region_manchuria
+						region = sr:region_northeast_asia
 					}
 				}
 			}
@@ -3159,7 +3159,7 @@ ai_strategy_default = {
 						OR = {
 							region = sr:region_north_china
 							region = sr:region_south_china
-							region = sr:region_manchuria
+							region = sr:region_northeast_asia
 						}
 					}
 				}
@@ -5149,7 +5149,7 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_manchuria = {
+		region_northeast_asia = {
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -5387,7 +5387,7 @@ ai_strategy_default = {
 						exists = c:RUS
 						c:RUS ?= {
 							any_scope_state = {
-								region = sr:region_manchuria
+								region = sr:region_northeast_asia
 								OR = {
 									any_scope_building = {
 										is_building_type = building_port
@@ -5403,8 +5403,7 @@ ai_strategy_default = {
 						scope:target_country = {
 							country_rank >= rank_value:unrecognized_major_power
 							OR = {
-								capital.region = sr:region_japan
-								capital.region = sr:region_manchuria
+								capital.region = sr:region_northeast_asia
 								capital.region = sr:region_north_china
 								capital.region = sr:region_south_china
 								capital.region = sr:region_indonesia
