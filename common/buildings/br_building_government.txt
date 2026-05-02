@@ -1,60 +1,14 @@
 ﻿############ GOVERNMENT BUILDINGS
-REPLACE_OR_CREATE:building_government_administration = {
-	building_group = bg_bureaucracy
-	city_type = city
-
-	levels_per_mesh = 50
-
+INJECT:building_government_administration = {
 	unlocking_technologies = {
 		br_tech_municipal_charter
 	}
-
-	should_auto_expand = {
-		occupancy >= 0.8
-		OR = {
-			state.tax_capacity < state.tax_capacity_usage
-			owner = {
-				bureaucracy < -10
-			}
-		}
-	}
-
-	production_method_groups = {
-		pmg_base_building_government_administration
-		pmg_government_administration_bureaucrat_professionalism
-		pmg_government_administration_religious_administration
-	}
-
-	icon = "gfx/interface/icons/building_icons/building_government_administration.dds"
-
-	required_construction = construction_cost_low
-
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
-REPLACE_OR_CREATE:building_university = {
-
-	building_group = bg_technology
-
-	city_type = city
-
-	levels_per_mesh = 50
-
+INJECT:building_university = {
 	unlocking_technologies = {
 		br_tech_early_modern_universities
 	}
-
-	production_method_groups = {
-		pmg_base_building_university
-		pmg_university_academia
-		pmg_principle_freedom_of_movement_3
-	}
-
-	icon = "gfx/interface/icons/building_icons/building_university.dds"
-
-	required_construction = construction_cost_medium
-
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
 REPLACE_OR_CREATE:building_embassy = {
