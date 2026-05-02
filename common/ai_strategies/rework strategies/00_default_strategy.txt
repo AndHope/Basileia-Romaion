@@ -408,7 +408,7 @@ ai_strategy_default = {
 				}
 				scope:country = { # country is the country they're at war with
 					OR = {
-						capital.region = sr:region_persia
+						capital.region = sr:region_greater_persia
 						capital.region = sr:region_central_asia
 					}
 					NOT = {
@@ -1510,9 +1510,7 @@ ai_strategy_default = {
 					}
 					scope:target_state = {
 						OR = {
-							region = sr:region_bengal
-							region = sr:region_central_india
-							region = sr:region_punjab
+							region = sr:region_north_india
 						}
 					}
 				}
@@ -1547,10 +1545,10 @@ ai_strategy_default = {
 					has_journal_entry = je_eastern_frontier
 					scope:target_state = {
 						OR = {
-							region = sr:region_persia
+							region = sr:region_greater_persia
 							region = sr:region_central_asia
-							region = sr:region_bombay
-							region = sr:region_punjab
+							region = sr:region_south_india
+							region = sr:region_north_india
 						}
 						has_claim_by = ROOT
 					}
@@ -1690,10 +1688,10 @@ ai_strategy_default = {
 				limit = {
 					country_has_primary_culture = cu:french
 					scope:target_state = {
-						region = sr:region_france
-						region = sr:region_occitania
-						region = sr:region_rhine
-						region = sr:region_south_germany
+						region = sr:region_western_europe
+						region = sr:region_southern_europe
+
+						region = sr:region_central_europe
 					}
 					scope:target_country = {
 						OR = {
@@ -1738,7 +1736,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:greek
 					scope:target_state = {
 						region = sr:region_balkans
-						region = sr:region_anatolia
+						region = sr:region_near_east
 					}
 					scope:target_country = {
 						OR = {
@@ -1755,7 +1753,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:greek
 					scope:target_state = {
 						region = sr:region_balkans
-						region = sr:region_anatolia
+						region = sr:region_near_east
 					}
 					scope:target_country = {
 						country_has_primary_culture = cu:greek	
@@ -1767,7 +1765,7 @@ ai_strategy_default = {
 				limit = {
 					country_has_primary_culture = cu:greek
 					scope:target_state = {
-						region = sr:region_italy
+						region = sr:region_southern_europe
 						region = sr:region_north_africa
 						region = sr:region_nile_basin
 					}
@@ -1779,7 +1777,7 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_restore_north_italy
 					scope:target_state = {
-						region = sr:region_italy
+						region = sr:region_southern_europe
 					}
 				}
 				add = 25
@@ -1789,10 +1787,8 @@ ai_strategy_default = {
 				limit = {
 					c:br_elysium ?= this
 					scope:target_state = {
-						region = sr:region_new_england
+						region = sr:region_atlantic_coast
 						region = sr:region_great_plains
-						region = sr:region_the_midwest
-						region = sr:region_dixie
 					}
 				}
 				add = 50
@@ -1802,11 +1798,11 @@ ai_strategy_default = {
 				limit = {
 					country_has_primary_culture = cu:persian
 					scope:target_state = {
-						region = sr:region_persia
+						region = sr:region_greater_persia
 						region = sr:region_central_asia
-						region = sr:region_caucasus
-						region = sr:region_bombay
-						region = sr:region_arabic
+
+						region = sr:region_south_india
+						region = sr:region_arabia
 					}
 				}
 				add = 50
@@ -2118,7 +2114,7 @@ ai_strategy_default = {
 					OR = {
 						region = sr:region_north_china
 						region = sr:region_south_china
-						region = sr:region_manchuria
+						region = sr:region_northeast_asia
 					}
 				}
 			}
@@ -2391,22 +2387,17 @@ ai_strategy_default = {
 							OR = {
 								any_scope_state = {
 									OR = {
-										region = sr:region_madras
-										region = sr:region_bombay
-										region = sr:region_bengal
-										region = sr:region_central_india
-										region = sr:region_punjab
+										region = sr:region_south_india
+										region = sr:region_north_india
 									}
 									count >= 3
 								}
 								any_subject_or_below = {
 									any_scope_state = {
 										OR = {
-											region = sr:region_madras
-											region = sr:region_bombay
-											region = sr:region_bengal
-											region = sr:region_central_india
-											region = sr:region_punjab
+											region = sr:region_south_india
+											region = sr:region_north_india
+
 										}
 										count >= 3
 									}
@@ -2936,7 +2927,7 @@ ai_strategy_default = {
 				has_journal_entry = je_eastern_frontier
 				scope:target_country = {
 					capital = {
-						region = sr:region_persia
+						region = sr:region_greater_persia
 					}
 				}
 			}
@@ -3161,7 +3152,7 @@ ai_strategy_default = {
 						OR = {
 							region = sr:region_north_china
 							region = sr:region_south_china
-							region = sr:region_manchuria
+							region = sr:region_northeast_asia
 						}
 					}
 				}
@@ -3393,11 +3384,8 @@ ai_strategy_default = {
 					#target_is_our_or_fellow_subject = no
 					any_scope_state = {
 						OR = {
-							region = sr:region_madras
-							region = sr:region_bombay
-							region = sr:region_bengal
-							region = sr:region_central_india
-							region = sr:region_punjab
+							region = sr:region_south_india
+							region = sr:region_north_india
 							region = sr:region_himalayas
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
@@ -3571,22 +3559,18 @@ ai_strategy_default = {
 		        		OR = {
 		        			any_scope_state = {
 		        				OR = {
-									region = sr:region_madras
-									region = sr:region_bombay
-									region = sr:region_bengal
-									region = sr:region_central_india
-									region = sr:region_punjab
+									region = sr:region_south_india
+									region = sr:region_north_india
+
 		    					}
 								count >= 3
 		        			}
 		        			any_subject_or_below = {
 		        				any_scope_state = {
 		        					OR = {
-										region = sr:region_madras
-										region = sr:region_bombay
-										region = sr:region_bengal
-										region = sr:region_central_india
-										region = sr:region_punjab
+										region = sr:region_south_india
+										region = sr:region_north_india
+
 		        					}
 									count >= 3
 			        			}
@@ -3669,7 +3653,7 @@ ai_strategy_default = {
 				has_journal_entry = je_maintain_afghan_protectorate
 				scope:target_country = {
 					capital = {
-						region = sr:region_persia
+						region = sr:region_greater_persia
 					}
 					OR = {
 						country_has_primary_culture = cu:pashtun
@@ -3712,10 +3696,10 @@ ai_strategy_default = {
 				scope:target_country = {
 					any_scope_state = {
 						OR = {
-							region = sr:region_persia
+							region = sr:region_greater_persia
 							region = sr:region_central_asia
-							region = sr:region_bombay
-							region = sr:region_punjab
+							region = sr:region_south_india
+							region = sr:region_north_india
 						}
 						has_claim_by = ROOT
 					}
@@ -4296,10 +4280,7 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				capital = {
-					OR = {
-						region = sr:region_england
-						region = sr:region_north_sea_coast
-					}
+					region = sr:region_western_europe
 				}
 			}
 
@@ -4381,10 +4362,7 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				capital = {
-					OR = {
-						region = sr:region_england
-						region = sr:region_north_sea_coast
-					}
+					region = sr:region_western_europe
 				}
 			}
 
@@ -4985,7 +4963,7 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_senegal = {
+		region_west_africa = {
 			if = {
 				limit = {
 					OR = {
@@ -4999,20 +4977,7 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_niger = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							country_rank = rank_value:great_power
-							has_technology_researched = malaria_prevention
-						}
-						has_journal_entry = je_scramble_for_africa
-					}
-				}
-				add = 200
-			}
-		}
+
 		region_congo = {
 			if = {
 				limit = {
@@ -5041,7 +5006,7 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_zanj = {
+		region_east_africa = {
 			if = {
 				limit = {
 					OR = {
@@ -5055,7 +5020,7 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_north_germany = {
+		region_central_europe = {
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -5070,22 +5035,7 @@ ai_strategy_default = {
 				add = 1000
 			}
 		}
-		region_south_germany = {
-			if = {
-				limit = {
-					is_in_geographic_region = geographic_region_europe
-					country_rank >= rank_value:great_power
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_journal_entry = je_german_unification
-				}
-				add = 1000
-			}
-		}
-		region_italy = {
+		region_southern_europe = {
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -5094,7 +5044,7 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_baltic = {
+		region_northern_europe = {
 			if = {
 				limit = {
 					wants_to_solve_schleswig_holstein = yes
@@ -5111,7 +5061,7 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_england = {
+		region_western_europe = {
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -5120,7 +5070,7 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_iberia = {
+		region_southern_europe = {
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -5129,15 +5079,7 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_rhine = {
-			if = {
-				limit = {
-					is_in_geographic_region = geographic_region_europe
-					country_rank >= rank_value:great_power
-				}
-				add = 50
-			}
-		}
+
 		region_central_asia = {
 			if = {
 				limit = {
@@ -5153,7 +5095,7 @@ ai_strategy_default = {
 				add = -25
 			}
 		}
-		region_persia = {
+		region_greater_persia = {
 			if = {
 				limit = {
 					has_journal_entry = je_great_game_control
@@ -5178,7 +5120,7 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_manchuria = {
+		region_northeast_asia = {
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -5220,15 +5162,7 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_dixie = {
-			if = {
-				limit = {
-					c:br_elysium ?= this
-				}
-				add = 100
-			}
-		}
-		region_new_england = {
+		region_atlantic_coast = {
 			if = {
 				limit = {
 					c:br_elysium ?= this
@@ -5244,14 +5178,7 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_the_midwest = {
-			if = {
-				limit = {
-					c:br_elysium ?= this
-				}
-				add = 100
-			}
-		}
+
 		region_central_america = {
 			if = {
 				limit = {
@@ -5416,14 +5343,14 @@ ai_strategy_default = {
 						exists = c:RUS
 						c:RUS ?= {
 							any_scope_state = {
-								region = sr:region_manchuria
+								region = sr:region_northeast_asia
 								OR = {
 									any_scope_building = {
 										is_building_type = building_port
 										level >= 5
 									}
 									any_scope_building = {
-										is_building_type = building_naval_base
+										is_building_type = building_naval_administration
 										level >= 15
 									}
 								}
@@ -5432,8 +5359,7 @@ ai_strategy_default = {
 						scope:target_country = {
 							country_rank >= rank_value:unrecognized_major_power
 							OR = {
-								capital.region = sr:region_japan
-								capital.region = sr:region_manchuria
+								capital.region = sr:region_northeast_asia
 								capital.region = sr:region_north_china
 								capital.region = sr:region_south_china
 								capital.region = sr:region_indonesia
@@ -7067,7 +6993,7 @@ ai_strategy_default = {
 					has_journal_entry = je_maintain_afghan_protectorate
 					scope:target_country = {
 						capital = {
-							region = sr:region_persia
+							region = sr:region_greater_persia
 						}
 						OR = {
 							country_has_primary_culture = cu:pashtun
@@ -7087,9 +7013,9 @@ ai_strategy_default = {
 					}
 					any_scope_state = {
 						OR = {
-							region = sr:region_bengal
-							region = sr:region_central_india
-							region = sr:region_punjab
+							region = sr:region_north_india
+							region = sr:region_south_india
+
 						}
 					}
 				}

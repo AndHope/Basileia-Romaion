@@ -65,7 +65,7 @@
 	progressbar = yes
 
 	weight = 10000
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 
@@ -930,8 +930,8 @@ je_palaiologos_reforms_navy = {
 		has_technology_researched = screw_frigate
 		NOT = {
 			any_scope_building = {
-				is_building_type = building_naval_base
-				has_active_production_method = pm_no_naval_theory
+				is_building_type = building_naval_administration
+				has_active_production_method = pm_simple_sailor_recruitment
 			}
 		}
 		NOT = {
@@ -1176,7 +1176,7 @@ je_palaiologos_reforms_italy = {
 		}
 	}
 	possible = {
-		has_interest_marker_in_region = region_italy
+		has_interest_marker_in_region = region_southern_europe
 		#take control of adriatic ports first
 		owns_entire_state_region = STATE_ALBANIA
 		owns_entire_state_region = STATE_ATTICA
@@ -1341,7 +1341,7 @@ je_palaiologos_reforms_elysium = {
 	}
 	possible = {
 		country_rank >= rank_value:great_power
-		has_interest_marker_in_region = region_dixie
+		has_interest_marker_in_region = region_atlantic_coast
 		exists = c:BYZ
 		c:BYZ = ROOT
 	}

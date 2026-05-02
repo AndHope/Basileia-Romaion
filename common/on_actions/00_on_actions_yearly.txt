@@ -187,7 +187,7 @@ on_yearly_events = {
 		20 = discrimination_events.2
 		20 = discrimination_events.3
 		20 = discrimination_events.4
-		20 = acceptance_events.1
+		5 = acceptance_events.1
 
 		# Trade routes
 		20 = trade_route_events.1
@@ -253,7 +253,17 @@ on_yearly_events = {
 # 		50 = russia_monarchy.7
 # 		5 = russia_monarchy.8
 # 	}
-# }
+}
+
+# Japan Monarchy Pulse Events
+japan_monarchy_yearly_events = {
+	random_events = {
+		50 = shogunate.2
+		50 = shogunate.5
+		50 = japan_monarchy.6
+	}
+}
+
 # Austrian Monarchy Pulse Events
 austrian_monarchy_yearly_events = {
 	random_events = {
@@ -504,122 +514,6 @@ famine_yearly_events = {
 	}
 }
 
-# IG Leader death
-on_memento_mori = {
-	trigger = {
-		any_interest_group = {
-			NOT = { has_variable = memento_mori }
-			leader = {
-				is_ruler = no
-				is_heir = no
-				is_busy = no
-				is_immortal = no
-				NOT = { has_variable = memento_mori_immunity }
-			}
-		}
-	}
-	effect = {
-		random_list = {
-			50 = {}
-			50 = {
-				# Kill IG leaders occasionally, but not too often per IG
-				random_interest_group = {
-					limit = {
-						NOT = { has_variable = memento_mori }
-						leader = {
-							is_ruler = no
-							is_heir = no
-							is_busy = no
-							is_immortal = no
-							NOT = { has_variable = memento_mori_immunity }
-						}
-					}
-					save_scope_as = memento_mori_ig
-					leader = {
-						save_scope_as = memento_mori_leader
-					}
-					set_variable = {
-						name = memento_mori
-						years = 10
-					}
-				}
-				scope:memento_mori_leader = {
-					if = {
-						limit = {
-							has_template = SPA_baldomero_espartero
-						}
-						place_character_in_void = 600 # I can't kill you, I still need you.
-					}
-					else = {
-						kill_character = {
-							hidden = yes
-						}
-					}
-				}
-				post_notification = ig_leader_memento_mori
-				# Kill an Agitator occasionally, but not too often
-				if = {
-					limit = {
-						any_scope_character = {
-							has_role = agitator
-							is_immortal = no
-							NOT = { has_variable = memento_mori_immunity }
-						}
-						NOT = { has_variable = agitator_kill_var }
-					}
-					random_list = {
-						1 = {
-							random_scope_character = {
-								limit = {
-									has_role = agitator
-									is_immortal = no
-									NOT = { has_variable = memento_mori_immunity }
-								}
-								kill_character = yes
-							}
-							set_variable = { # this variable is a cooldown
-								name = agitator_kill_var
-								years = 5
-							}
-						}
-						4 = { }
-					}
-				}
-				# Kill an Executive occasionally, but not too often
-				if = {
-					limit = {
-						any_scope_character = {
-							has_role = executive
-							is_historical = no
-							is_immortal = no
-							NOT = { has_variable = memento_mori_immunity }
-						}
-						NOT = { has_variable = executive_kill_var }
-					}
-					random_list = {
-						1 = {
-							random_scope_character = {
-								limit = {
-									has_role = executive
-									is_historical = no
-									is_immortal = no
-									NOT = { has_variable = memento_mori_immunity }
-								}
-								kill_character = yes
-							}
-							set_variable = { # this variable is a cooldown
-								name = executive_kill_var
-								years = 7
-							}
-						}
-						4 = { }
-					}
-				}
-			}
-		}
-	}
-}
-
 # On wounded
 on_wounded = {
 	trigger = {
@@ -655,5 +549,71 @@ kamehameha_coin_toss = {
 				kill_character = yes
 			}
 		}
+	}
+}
+
+# Ryukyu Rivalry JE
+ryukyu_rivalry_coin_toss = {
+	trigger = {
+		OR = {
+			c:CHI = this
+			c:JAP = this
+		}
+        AND = {
+            c:JAP = { has_modifier = modifier_ryukyu_rivalry_officer_training }
+            c:CHI = { has_modifier = modifier_ryukyu_rivalry_officer_training }
+        }
+		NOT = { exists = global_var:ryukyu_rivalry_training_incident }
+	}
+	effect = {
+		set_global_variable = {
+			name = ryukyu_rivalry_training_incident
+			years = 5
+		}
+		random_list = {
+			1 = {
+				set_global_variable = {
+					name = ryukyu_rivalry_fire
+				}
+			}
+			1 = {
+				set_global_variable = {
+					name = ryukyu_rivalry_accident
+				}
+			}
+			1 = {
+				set_global_variable = {
+					name = ryukyu_rivalry_brawl
+				}
+			}
+		}
+		hidden_effect = { c:JAP ?= { trigger_event = { id = ryukyu_rivalry.6 days = 1 popup = yes } } } # Consider notification
+		hidden_effect = { c:CHI ?= { trigger_event = { id = ryukyu_rivalry.6 days = 1 popup = yes } } } # Consider notification
+	}
+}
+
+japan_yearly_events = {
+	random_events = {
+		chance_to_happen = 25
+		20 = japan_events.1
+		20 = japan_events.2
+		20 = japan_events.3
+		20 = japan_events.4
+		20 = japan_events.5
+		20 = japan_events.32
+		20 = japan_events.33
+		20 = japan_events.34
+		20 = japan_events.35
+	}
+}
+
+japan_earthquake_events = {
+	random_events = {
+		chance_to_happen = 50
+		# 20 = japan_earthquakes.1
+		20 = japan_earthquakes.2
+		20 = japan_earthquakes.3
+		20 = japan_earthquakes.4
+		20 = japan_earthquakes.5
 	}
 }
