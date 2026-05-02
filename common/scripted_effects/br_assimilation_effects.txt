@@ -1,126 +1,126 @@
-﻿br_colonial_to_mother_monthly_culutre_change_effect = {
-	if = {
-		limit = {
-			is_country_type = recognized
-		}
-		br_convert_colonial_to_mother_cultures_effect = yes
-	}
-}
-
-br_convert_colonial_to_mother_cultures_effect = {
-	hidden_effect = {
-		if = { #  colonials returning to europe should ditch their colonial identity.
-			limit = {
-				country_has_primary_culture = cu:greek
-				any_scope_state = {
-					is_incorporated = yes
-					state_region = { is_homeland = cu:greek }
-					OR = {
-						region = sr:region_balkans
-						region = sr:region_near_east
-					}
-				}
-			}
-			every_scope_pop = {
-				limit = {
-					culture = {
-						OR = {
-							has_discrimination_trait = colonial_heritage
-							has_discrimination_trait = african_settler
-						}
-					}
-				}
-				change_pop_culture = {
-					target = cu:greek
-					value = 1 
-				}
-			}
-		}
-		else_if = { #  colonials returning to europe should ditch their colonial identity.
-			limit = {
-				country_has_primary_culture = cu:french
-				any_scope_state = {
-					is_incorporated = yes
-					state_region = { is_homeland = cu:french }
-					OR = {
-						region = sr:region_western_europe
-						region = sr:region_southern_europe
-
-					}
-				}
-			}
-			every_scope_pop = {
-				limit = {
-					culture = {
-						OR = {
-							has_discrimination_trait = colonial_heritage
-							has_discrimination_trait = african_settler
-						}
-					}
-				}
-				change_pop_culture = {
-					target = cu:french
-					value = 1 
-				}
-			}
-		}
-
-	#	else_if = { # latinoi #outdated as from 1.10
-	#		limit = {
-	#			has_discrimination_trait = heritage_greek
-	#			any_scope_state = {
-	#				is_incorporated = yes
-	#				state_is_in_europe = yes
-	#				state_is_in_middle_east = yes
-	#			}
-	#		}
-	#		every_scope_pop = {
-	#			limit = {
-	#				#is_pop_type = peasants
-	#				culture = {
-	#					OR = {
-	#						has_discrimination_trait = italophone
-	#						has_discrimination_trait = francophone
-	#						has_discrimination_trait = hispanophone
-	#					}
-	#				}
-	#			}
-	#			change_pop_culture = {
-	#				target = cu:latinoi
-	#				value = 1
-	#			}
-	#		}
-	#	}
-
-	#Japanese assimilation
-		else_if = { #  asian -> japanese
-			limit = {
-				country_has_primary_culture = cu:japanese
-				any_scope_state = {
+﻿#br_colonial_to_mother_monthly_culutre_change_effect = {
+	#if = {
+		#limit = {
+			#is_country_type = recognized
+		#}
+		#br_convert_colonial_to_mother_cultures_effect = yes
+	#}
+#}
+#
+#br_convert_colonial_to_mother_cultures_effect = {
+	#hidden_effect = {
+		#if = { #  colonials returning to europe should ditch their colonial identity.
+			#limit = {
+				#country_has_primary_culture = cu:greek
+				#any_scope_state = {
 					#is_incorporated = yes
-					has_claim_by = root
-					OR = {
-						is_in_geographic_region = geographic_region_east_asia
-						is_in_geographic_region = geographic_region_south_east_asia
-					}
-				}
-			}
-			every_scope_pop = {
-				limit = {
-					OR = {
-						is_pop_type = bureaucrats
-						is_pop_type = officers
-					}
-					culture = {
-						has_discrimination_trait_group = heritage_group_east_asian
-					}
-				}
-				change_pop_culture = {
-					target = cu:japanese
-					value = 1 
-				}
-			}
-		}
-
-	}
-}
+					#state_region = { is_homeland = cu:greek }
+					#OR = {
+						#region = sr:region_balkans
+						#region = sr:region_near_east
+					#}
+				#}
+			#}
+			#every_scope_pop = {
+				#limit = {
+					#culture = {
+						#OR = {
+							#has_discrimination_trait = colonial_heritage
+							#has_discrimination_trait = african_settler
+						#}
+					#}
+				#}
+				#change_pop_culture = {
+					#target = cu:greek
+					#value = 1 
+				#}
+			#}
+		#}
+		#else_if = { #  colonials returning to europe should ditch their colonial identity.
+			#limit = {
+				#country_has_primary_culture = cu:french
+				#any_scope_state = {
+					#is_incorporated = yes
+					#state_region = { is_homeland = cu:french }
+					#OR = {
+						#region = sr:region_western_europe
+						#region = sr:region_southern_europe
+#
+					#}
+				#}
+			#}
+			#every_scope_pop = {
+				#limit = {
+					#culture = {
+						#OR = {
+							#has_discrimination_trait = colonial_heritage
+							#has_discrimination_trait = african_settler
+						#}
+					#}
+				#}
+				#change_pop_culture = {
+					#target = cu:french
+					#value = 1 
+				#}
+			#}
+		#}
+#
+	##	else_if = { # latinoi #outdated as from 1.10
+	##		limit = {
+	##			has_discrimination_trait = heritage_greek
+	##			any_scope_state = {
+	##				is_incorporated = yes
+	##				state_is_in_europe = yes
+	##				state_is_in_middle_east = yes
+	##			}
+	##		}
+	##		every_scope_pop = {
+	##			limit = {
+	##				#is_pop_type = peasants
+	##				culture = {
+	##					OR = {
+	##						has_discrimination_trait = italophone
+	##						has_discrimination_trait = francophone
+	##						has_discrimination_trait = hispanophone
+	##					}
+	##				}
+	##			}
+	##			change_pop_culture = {
+	##				target = cu:latinoi
+	##				value = 1
+	##			}
+	##		}
+	##	}
+#
+	##Japanese assimilation
+		#else_if = { #  asian -> japanese
+			#limit = {
+				#country_has_primary_culture = cu:japanese
+				#any_scope_state = {
+					##is_incorporated = yes
+					#has_claim_by = root
+					#OR = {
+						#is_in_geographic_region = geographic_region_east_asia
+						#is_in_geographic_region = geographic_region_south_east_asia
+					#}
+				#}
+			#}
+			#every_scope_pop = {
+				#limit = {
+					#OR = {
+						#is_pop_type = bureaucrats
+						#is_pop_type = officers
+					#}
+					#culture = {
+						#has_discrimination_trait_group = heritage_group_east_asian
+					#}
+				#}
+				#change_pop_culture = {
+					#target = cu:japanese
+					#value = 1 
+				#}
+			#}
+		#}
+#
+	#}
+#}
