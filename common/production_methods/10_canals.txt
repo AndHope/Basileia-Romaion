@@ -1,16 +1,17 @@
-﻿REPLACE_OR_CREATE:pm_canal = {
+﻿# BR Change the vanilla values of pm_canal
+REPLACE_OR_CREATE:pm_canal = {
 	texture = "gfx/interface/icons/production_method_icons/canals.dds"
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_prestige_add = 10 #Lowered so AGY woulden't be a major power to allow for make protectorate plays against. 
+			country_prestige_add = 10 #BR Lowered so AGY woulden't be a major power to allow for make protectorate plays against.
 		}
 	}
 
 	state_modifiers = {
 		level_scaled = {
 			state_migration_pull_mult = 0.05
-			state_market_access_price_impact = 0.05 #added
+			state_market_access_price_impact = 0.05 #BR added
 		}
 	}
 
@@ -19,8 +20,7 @@
 			# input goods
 			goods_input_tools_add = 5
 			goods_input_coal_add = 5
-			goods_input_paper_add = 5
-			## Added
+			## BR Added
 			goods_output_transportation_add = 25
 			goods_output_canal_toll_add = 50 
 		}
@@ -32,34 +32,4 @@
 		}
 	}
 
-}
-
-
-## Canal Tugboats
-
-pm_no_tugs_building_canals = {
-	texture = "gfx/interface/icons/production_method_icons/unused/no_cargo_handling.dds"
-
-}
-pm_tugging_building_canals = {
-	texture = "gfx/interface/icons/production_method_icons/reinforced_steam_ships.dds"
-
-	unlocking_technologies = {
-		gantry_cranes
-	}
-
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_steamers_add = 5
-			goods_input_coal_add = 5
-			## Added
-			goods_output_transportation_add = 25
-			goods_output_canal_toll_add = 25
-		}
-
-		level_scaled = {
-			building_employment_machinists_add = 500
-		}
-	}
 }
