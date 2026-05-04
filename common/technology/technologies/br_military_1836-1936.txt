@@ -112,7 +112,7 @@ REPLACE_OR_CREATE:military_drill = {
 	category = military
 
 	modifier = {
-		unit_army_experience_gain_mult = 0.1 #not sure which experaince value to keep or both
+		unit_experience_gain_mult = 0.05
 	}
 
 	unlocking_technologies = {
@@ -152,8 +152,8 @@ REPLACE_OR_CREATE:admiralty = {
 	category = military
 
 	modifier = {
-		state_building_naval_base_max_level_add = 10
-	}
+		#state_building_naval_administration_max_level_add = 4
+    }
 
 	unlocking_technologies = {
 		br_tech_naval_professionalization
@@ -171,6 +171,7 @@ REPLACE_OR_CREATE:army_reserves = {
 
 	modifier = {
 		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
 	}
 
 	unlocking_technologies = {
@@ -204,8 +205,8 @@ REPLACE_OR_CREATE:paddle_steamer = {
 	category = military
 
 	modifier = {
-		unit_navy_offense_mult = 0.1
-		unit_navy_defense_mult = 0.1
+		ship_hull_damage_mult = 0.05
+		ship_crew_damage_mult = 0.05
 	}
 
 	unlocking_technologies = {
@@ -255,6 +256,7 @@ REPLACE_OR_CREATE:logistics = {
 
 	modifier = {
 		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
 	}
 
 	unlocking_technologies = {
@@ -437,6 +439,7 @@ REPLACE_OR_CREATE:enlistment_offices = {
 
 	modifier = {
 		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
 	}
 
 	unlocking_technologies = {
@@ -568,6 +571,7 @@ REPLACE_OR_CREATE:monitor_tech = {
 
 	unlocking_technologies = {
 		ironclad_tech
+		breech_loading_artillery
 	}
 
 	ai_weight = {
@@ -611,11 +615,12 @@ REPLACE_OR_CREATE:jeune_ecole = {
 	category = military
 
 	modifier = {
-		state_building_naval_base_max_level_add = 10
+		#state_building_naval_administration_max_level_add = 2
+		country_admiral_rank_impact_mult = 0.25
 	}
 
 	unlocking_technologies = {
-		power_of_the_purse
+		self_propelled_torpedoes
 	}
 
 	ai_weight = {
@@ -657,12 +662,12 @@ REPLACE_OR_CREATE:gantry_cranes = {
 	category = military
 
 	modifier = {
-		building_shipyard_throughput_add = 0.05
-		building_military_shipyard_throughput_add = 0.05
+		ship_ship_type_supply_ship_supply_capacity_mult = 0.1
 	}
 
 	unlocking_technologies = {
 		hydraulic_cranes
+		screw_frigate
 	}
 
 	ai_weight = {
@@ -724,6 +729,7 @@ REPLACE_OR_CREATE:wargaming = {
 
 	modifier = {
 		unit_army_offense_mult = 0.1
+		country_general_rank_impact_mult = 0.2
 	}
 
 	unlocking_technologies = {
@@ -824,7 +830,22 @@ REPLACE_OR_CREATE:destroyer = {
 	}
 }
 
-REPLACE_OR_CREATE:dreadnought = {
+pre_dreadnought_tech = {
+	# Unlocks Pre-Dreadnoughts
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/pre_dreadnought.dds"
+	category = military
+
+	unlocking_technologies = {
+		ironclad_tech
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+dreadnought_tech = {
 	# Unlocks Dreadnoughts PM in Naval Bases
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/dreadnought.dds"
@@ -838,8 +859,9 @@ REPLACE_OR_CREATE:dreadnought = {
 	}
 
 	unlocking_technologies = {
-		ironclad_tech
+		pre_dreadnought_tech
 		sea_lane_strategies
+		concrete_dockyards
 	}
 
 	ai_weight = {
@@ -860,7 +882,8 @@ REPLACE_OR_CREATE:sea_lane_strategies = {
 	category = military
 
 	modifier = {
-		state_building_naval_base_max_level_add = 10
+		#state_building_naval_administration_max_level_add = 2
+		country_admiral_rank_impact_mult = 0.25
 	}
 
 	unlocking_technologies = {
@@ -876,10 +899,6 @@ REPLACE_OR_CREATE:landing_craft = {
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/landing_craft.dds"
 	category = military
-
-	modifier = {
-		country_ignores_landing_craft_penalty_bool = yes
-	}
 
 	unlocking_technologies = {
 		jeune_ecole
@@ -905,8 +924,7 @@ REPLACE_OR_CREATE:concrete_dockyards = {
 	category = military
 
 	modifier = {
-		building_shipyard_throughput_add = 0.05
-		building_military_shipyard_throughput_add = 0.05
+		ship_ship_type_supply_ship_supply_capacity_mult = 0.1
 	}
 
 	unlocking_technologies = {
@@ -931,6 +949,10 @@ REPLACE_OR_CREATE:nco_training = {
 	era = era_6
 	texture = "gfx/interface/icons/invention_icons/nco_training.dds"
 	category = military
+
+	modifier = {
+		country_general_rank_impact_mult = 0.2
+	}
 
 	unlocking_technologies = {
 		wargaming
@@ -1065,7 +1087,8 @@ REPLACE_OR_CREATE:carrier_tech = {
 	category = military
 
 	unlocking_technologies = {
-		dreadnought
+		dreadnought_tech
+		military_aviation
 	}
 
 	ai_weight = {
@@ -1086,7 +1109,7 @@ REPLACE_OR_CREATE:battleship_tech = {
 	category = military
 
 	unlocking_technologies = {
-		dreadnought
+		dreadnought_tech
 	}
 
 	ai_weight = {
@@ -1107,7 +1130,8 @@ REPLACE_OR_CREATE:battlefleet_tactics = {
 	category = military
 
 	modifier = {
-		state_building_naval_base_max_level_add = 10
+		#state_building_naval_administration_max_level_add = 2
+		country_admiral_rank_impact_mult = 0.25
 	}
 
 	unlocking_technologies = {
