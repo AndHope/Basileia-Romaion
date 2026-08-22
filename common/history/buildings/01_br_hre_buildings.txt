@@ -510,26 +510,26 @@
 					building={
 						type="building_manor_house"
 						country="c:HRE"
-						levels=1
+						levels=2
 						region="STATE_ILE_DE_FRANCE"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_shipbuilding"}
 			}
-			create_building={
-				building="building_military_shipyard"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:HRE"
-						levels=1
-						region="STATE_ILE_DE_FRANCE"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_military_shipbuilding_wooden" }
-			}
+			#create_building={
+				#building="building_military_shipyard"
+				#add_ownership={
+					#building={
+						#type="building_manor_house"
+						#country="c:HRE"
+						#levels=1
+						#region="STATE_ILE_DE_FRANCE"
+					#}
+				#}
+				#reserves=1
+				#activate_production_methods={ "pm_military_shipbuilding_wooden" }
+			#}
 			create_building={
 				building="building_fishing_wharf"
 				add_ownership={
@@ -594,6 +594,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:HRE"
+						levels=20
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -1087,6 +1098,17 @@
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
 			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:HRE"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
+			}
 		}
 		region_state:FLA={
 			create_building={
@@ -1192,6 +1214,17 @@
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
 			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:FLA"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
+			}
 		}
 	}
 	s:STATE_PICARDY={
@@ -1277,7 +1310,18 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
-			}				
+			}	
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:HRE"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
+			}			
 		}
 	}
 	s:STATE_ALSACE_LORRAINE={
@@ -1441,6 +1485,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_br_small_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:HRE"
+						levels=10
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -1884,6 +1939,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_br_small_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:BRI"
+						levels=5
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -2582,6 +2648,17 @@
 				reserves=1
 				activate_production_methods={ "pm_br_small_port" }
 			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:OCC"
+						levels=5
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
+			}
 		}
 	}
 	s:STATE_ORLEANS={
@@ -2698,7 +2775,7 @@
 					building={
 						type="building_financial_district"
 						country="c:NET"
-						levels=3
+						levels=4
 						region="STATE_HOLLAND"
 					}
 					building={
@@ -2711,20 +2788,20 @@
 				reserves=1
 				activate_production_methods={ "pm_basic_shipbuilding"}
 			}
-			create_building={
-				building="building_military_shipyard"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:NET"
-						levels=3
-						region="STATE_HOLLAND"
-					}
-				}
-				subsidized=yes
-				reserves=1
-				activate_production_methods={ "pm_military_shipbuilding_wooden" }
-			}
+			#create_building={
+				#building="building_military_shipyard"
+				#add_ownership={
+					#building={
+						#type="building_financial_district"
+						#country="c:NET"
+						#levels=3
+						#region="STATE_HOLLAND"
+					#}
+				#}
+				#subsidized=yes
+				#reserves=1
+				#activate_production_methods={ "pm_military_shipbuilding_wooden" }
+			#}
 			create_building={
 				building="building_arms_industry"
 				add_ownership={
@@ -2854,6 +2931,17 @@
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
 			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:NET"
+						levels=45
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
+			}
 		}
 		region_state:FLA={
 			create_building={
@@ -2894,6 +2982,16 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_unrefrigerated" "pm_fishing_trawlers" }
+			}
+			create_building={
+				building="building_naval_fortification"
+				add_ownership={
+					country={
+						country="c:NET"
+						levels=1
+					}
+				}
+				activate_production_methods={ "pm_naval_fortification_basic"  }
 			}
 		}
 	}
@@ -3037,6 +3135,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_br_small_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:NET"
+						levels=15
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -3358,6 +3467,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:POM"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -4314,27 +4434,27 @@
 				reserves=1
 				activate_production_methods={ "pm_scholastic_education" }
 			}
-			create_building={
-				building="building_military_shipyard"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:FLA"
-						levels=1
-						region="STATE_FLANDERS"
-					}
-				}
-				subsidized=yes
-				reserves=1
-				activate_production_methods={ "pm_military_shipbuilding_wooden" }
-			}
+			#create_building={
+				#building="building_military_shipyard"
+				#add_ownership={
+					#building={
+						#type="building_financial_district"
+						#country="c:FLA"
+						#levels=1
+						#region="STATE_FLANDERS"
+					#}
+				#}
+				#subsidized=yes
+				#reserves=1
+				#activate_production_methods={ "pm_military_shipbuilding_wooden" }
+			#}
 			create_building={
 				building="building_shipyard"
 				add_ownership={
 					building={
 						type="building_financial_district"
 						country="c:FLA"
-						levels=2
+						levels=3
 						region="STATE_FLANDERS"
 					}
 				}
@@ -4528,6 +4648,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:FLA"
+						levels=25
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -5345,6 +5476,17 @@
 				activate_production_methods={ "pm_basic_port" }
 			}	
 			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:DEN"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
+			}
+			create_building={
 				building="building_rye_farm"
 				add_ownership={
 					building={
@@ -5439,6 +5581,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:SAX"
+						levels=4
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 			create_building={
 				building="building_rye_farm"
@@ -5587,6 +5740,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:DEN"
+						levels=4
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -6363,6 +6527,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_br_small_port" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:SAX"
+						levels=4
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}
@@ -7203,6 +7378,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
+			}
+			create_building={
+				building="building_naval_administration"
+				add_ownership={
+					country={
+						country="c:POM"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
 		}
 	}

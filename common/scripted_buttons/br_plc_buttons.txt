@@ -115,37 +115,39 @@ br_je_plc_reform_the_commonwealth_form_the_commonwealth_button = {
 	selected = {
 	}
 
-	possible = {
-		br_plc_has_not_formed_the_commonwealth = yes
-		any_subject_or_below = {
-			percent = 1
-			capital = {
-				or = {
-					region = sr:region_poland
-					region = sr:region_baltic
-					region = sr:region_dnieper
-					region = sr:region_belarus
-				}
-			}
-			or = {
-				is_subject_type = subject_type_puppet
-				is_subject_type = subject_type_vassal
-			}
-			liberty_desire <= 10
-		}
-	}
+    possible = {
+        br_plc_has_not_formed_the_commonwealth = yes
+        any_subject_or_below = {
+            filter = {
+                capital = {
+                    region = sr:region_eastern_europe
+                }
+            }
+            percent = 1
+            or = {
+                is_subject_type = subject_type_puppet
+                is_subject_type = subject_type_vassal
+            }
+            liberty_desire <= 10
+        }
+    }
 
-	effect = {
-		custom_tooltip = {
-			text = br_je_plc_reform_the_commonwealth_form_the_commonwealth_button_tt
-			set_variable = br_je_plc_reform_the_commonwealth_form_the_commonwealth_var
-		}
-		every_subject_or_below = {
-			root = {
-				annex = prev
-			}
-		}
-	}
+    effect = {
+        custom_tooltip = {
+            text = br_je_plc_reform_the_commonwealth_form_the_commonwealth_button_tt
+            set_variable = br_je_plc_reform_the_commonwealth_form_the_commonwealth_var
+        }
+        every_subject_or_below = {
+            limit = {
+                capital = {
+                    region = sr:region_eastern_europe
+                }
+            }
+            root = {
+                annex = prev
+            }
+        }
+    }
 
 	#Country scope
 	ai_chance = {
@@ -174,12 +176,7 @@ br_je_plc_centralizing_the_commonwealth_form_the_commonwealth_button = {
 		any_subject_or_below = {
 			percent = 1
 			capital = {
-				or = {
-					region = sr:region_poland
-					region = sr:region_baltic
-					region = sr:region_dnieper
-					region = sr:region_belarus
-				}
+				region = sr:region_eastern_europe
 			}
 			or = {
 				is_subject_type = subject_type_puppet

@@ -1,5 +1,14 @@
 ####id 2880120246
 
+- Fixed the Jadwigan reform JE not working correctly, this was caused because some variables weren't being set because the game tried to add the JE twice.
+- Fixed depleted type incorrectly having a building instead of a building group
+- fixed neutral being misspelled
+- Fixed weekly_net_fixed_income having been renamed to net_fixed_income
+- Fixed accept_baltic_german_decision being broken, caused by an outdated culture trigger.
+- Fixed dye good being referenced as dyes
+- fixed invalid law_type error
+- Fixed Unknown effect clear_geheime_staatskonferenz error
+
 # 4th 1.12 fix patch
 
 - adapted je overwrites to 1.12

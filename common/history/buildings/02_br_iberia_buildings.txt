@@ -300,27 +300,27 @@
 					building={
 						type="building_financial_district"
 						country="c:ANL"
-						levels=3
+						levels=4
 						region="STATE_LOWER_ANDALUSIA"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_shipbuilding"}
 			}
-			create_building={
-				building="building_military_shipyard"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:ANL"
-						levels=1
-						region="STATE_LOWER_ANDALUSIA"
-					}
-				}
-				subsidized=yes
-				reserves=1
-				activate_production_methods={ "pm_military_shipbuilding_wooden" }
-			}
+			#create_building={
+				#building="building_military_shipyard"
+				#add_ownership={
+					#building={
+						#type="building_financial_district"
+						#country="c:ANL"
+						#levels=1
+						#region="STATE_LOWER_ANDALUSIA"
+					#}
+				#}
+				#subsidized=yes
+				#reserves=1
+				#activate_production_methods={ "pm_military_shipbuilding_wooden" }
+			#}
 			create_building={
 				building="building_wheat_farm"
 				add_ownership={
@@ -414,6 +414,16 @@
 		#		level=1
 		#		activate_production_methods={ "br_pm_default_building_great_port" }
 		#	}
+			create_building={
+				building="building_naval_fortification"
+				add_ownership={
+					country={
+						country="c:ANL"
+						levels=1
+					}
+				}
+				activate_production_methods={ "pm_naval_fortification_basic"  }
+			}
 		}
 	}
 	s:STATE_UPPER_ANDALUSIA={
@@ -561,6 +571,16 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
+			}
+			create_building={
+				building="building_naval_fortification"
+				add_ownership={
+					country={
+						country="c:ANL"
+						levels=1
+					}
+				}
+				activate_production_methods={ "pm_naval_fortification_basic"  }
 			}
 		}
 	}
@@ -2065,27 +2085,27 @@
 					building={
 						type="building_financial_district"
 						country="c:ANL"
-						levels=1
+						levels=2
 						region="STATE_LOWER_ANDALUSIA"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_shipbuilding"}
 			}
-			create_building={
-				building="building_military_shipyard"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:ANL"
-						levels=1
-						region="STATE_LOWER_ANDALUSIA"
-					}
-				}
-				subsidized=yes
-				reserves=1
-				activate_production_methods={ "pm_military_shipbuilding_wooden" }
-			}
+			#create_building={
+				#building="building_military_shipyard"
+				#add_ownership={
+					#building={
+						#type="building_financial_district"
+						#country="c:ANL"
+						#levels=1
+						#region="STATE_LOWER_ANDALUSIA"
+					#}
+				#}
+				#subsidized=yes
+				#reserves=1
+				#activate_production_methods={ "pm_military_shipbuilding_wooden" }
+			#}
 			create_building={
 				building="building_rice_farm"
 				add_ownership={
@@ -3193,7 +3213,17 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
-			}		
+			}
+			create_building={
+				building="building_naval_fortification"
+				add_ownership={
+					country={
+						country="c:ANL"
+						levels=1
+					}
+				}
+				activate_production_methods={ "pm_naval_fortification_basic"  }
+			}	
 		}
 		region_state:MOR={
 			create_building={
