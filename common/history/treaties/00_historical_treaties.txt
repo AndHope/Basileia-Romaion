@@ -10,6 +10,11 @@
 		binding_period = { years = 0 }
 
 		articles_to_create = {
+			{ # Dejima Trade Agreement
+				article = trade_privilege
+				source_country = c:JAP
+				target_country = c:NET
+			}
 			{ # Glassware trade
 				article = goods_transfer
 				source_country = c:NET
@@ -44,6 +49,41 @@
 				inputs = {
 					{ goods = g:silk }
 					{ quantity = 5 }
+				}
+			}
+		}
+	}
+
+	# Sino-Ryukyuan Tributary relationship / Not official treaty
+	create_treaty = {
+		name = treaty_name_china_ryukyu_agreement
+		first_country = c:CHI
+		second_country = c:RYU
+
+		is_draft = no
+		entered_into_force_on = 1372.1.1 # Year when The Ming emperor sent a mission recognizing the Ryukyuan king and the Ryukyuans began sending tribute missions to China
+		binding_period = { years = 500 } 
+
+		articles_to_create = {
+			{
+				article = military_assistance
+				source_country = c:CHI
+				target_country = c:RYU
+			}
+			{
+				article = law_commitment
+				source_country = c:RYU
+				target_country = c:CHI
+				inputs = {
+					{ law_type = law_type:law_monarchy }
+				}
+			}
+			{
+				article = money_transfer
+				source_country = c:RYU
+				target_country = c:CHI
+				inputs = {
+					{ quantity = 100 }
 				}
 			}
 		}
@@ -94,6 +134,15 @@
 				inputs = {
 					{ goods = g:silk }
 					{ quantity = 10 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:CHI
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:sugar }
+					{ quantity = 25 }
 				}
 			}
 		}

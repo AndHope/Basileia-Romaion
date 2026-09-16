@@ -3,7 +3,7 @@
 	c:SIC = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Reale Esercito di S.M. il Re del Regno delle Due Sicilie"
 
 			combat_unit = {
@@ -74,7 +74,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Corpo Svizzeri" # Swiss soldiers in Sicilian service.
 
 			combat_unit = {
@@ -86,7 +86,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Guardia Reale"
 
 			combat_unit = {
@@ -104,31 +104,16 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Armata di Mare di S.M. il Re del Regno delle Due Sicilie"
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_CAMPANIA
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
 				count = 2
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_CAMPANIA
-				count = 4
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_SICILY
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_APULIA
-				count = 1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
 			}
 		}
 	}
@@ -136,7 +121,7 @@
 	c:br_benevento = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
@@ -176,7 +161,7 @@
 	c:SAR = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "I Corpo d'Armata"
 
 			combat_unit = {
@@ -234,7 +219,7 @@
 	c:PAP = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Esercito dello Stato della Chiesa"
 
 			combat_unit = {
@@ -294,12 +279,11 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Marina Pontificia"
 
-			combat_unit = { # Nothing the size of a frigate
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_LAZIO
+			ship = {
+				type = ship_type:ship_type_frigate
 				count = 4
 			}
 		}
@@ -308,7 +292,7 @@
 	c:TUS = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Esercito del Granducato di Toscana"
 
 			combat_unit = {
@@ -345,13 +329,12 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Marina del Granducato di Toscana"
 
-			combat_unit = { # Nothing the size of a frigate
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_TUSCANY
-				count = 1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 2
 			}
 		}
 	}
@@ -359,7 +342,7 @@
 	c:LUC = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Esercito Ducale"
 
 			combat_unit = {
@@ -379,7 +362,7 @@
 	c:MOD = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Esercito del Ducato di Modena e Reggio"
 
 			combat_unit = {
@@ -405,7 +388,7 @@
 	c:PAR = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Truppe Reali Parmensi"
 
 			combat_unit = {
@@ -430,12 +413,12 @@
 
 	c:br_genoa = {
 		activate_production_method = {
-			building_type = building_naval_base
+			building_type = building_naval_administration
 			production_method = pm_power_of_the_purse
 		}			
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "I Corpo d'Armata"
 
 			combat_unit = {
@@ -473,30 +456,16 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Marina del Republica di Genoa"
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_PIEDMONT
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
 				count = 20
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_PIEDMONT
-				count = 15
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_SARDINIA
-				count = 5
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_CORSICA
-				count = 5
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 30
 			}
 		}
 
@@ -505,22 +474,13 @@
 			hq_region = sr:region_balkans
 			name = "Marina di Aegean"
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_PIEDMONT
-				count = 4
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 5
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_PIEDMONT
-				count = 4
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_WESTERN_THRACE
-				count = 2
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 10
 			}
 		}
 
@@ -530,28 +490,12 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_dnieper
+			hq_region = sr:region_eastern_europe
 			name = "Marina di Black Sea"
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_CRIMEA
-				count = 2
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_KUBAN
-				count = 2
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_TAURIDA
-				count = 2
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_ROSTOV
-				count = 2
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 5
 			}
 		}
 
@@ -560,7 +504,7 @@
 	c:LOM = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "I Corpo d'Armata"
 
 			combat_unit = {
@@ -610,12 +554,12 @@
 
 	c:VEN = {
 		activate_production_method = {
-			building_type = building_naval_base
+			building_type = building_naval_administration
 			production_method = pm_power_of_the_purse
 		}
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "I Corpo d'Armata"
 
 			combat_unit = {
@@ -648,19 +592,16 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "Marina del Republica di Venetia"
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_VENETIA
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
 				count = 25
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_VENETIA
-				count = 25
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 35
 			}
 			
 		}
@@ -670,32 +611,13 @@
 			hq_region = sr:region_balkans
 			name = "Marina di Aegean"
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_VENETIA
-				count = 4
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 5
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_VENETIA
-				count = 6
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_IONIAN_ISLANDS
-				count = 2
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_MONTENEGRO
-				count = 2
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_CHERSON
-				count = 2
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 10
 			}
 		}
 
@@ -760,7 +682,7 @@
 	c:br_verona = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
@@ -784,7 +706,7 @@
 	c:br_aquileia = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry

@@ -1,115 +1,79 @@
 ﻿COUNTRIES = {
 	c:JAP ?= {
 		effect_starting_technology_tier_3_tech = yes
+
+		add_technology_researched = academia
 		add_technology_researched = urban_planning
 		add_technology_researched = centralization
 		add_technology_researched = law_enforcement
-		add_technology_researched = br_tech_frontier_expansion
-		add_technology_researched = academia
+		add_technology_researched = colonization
 		add_technology_researched = sericulture
+		add_technology_researched = br_tech_frontier_expansion
 		add_technology_researched = br_tech_japanese_luxuries
-		
+
 		set_tax_level = medium
 		add_taxed_goods = g:services
 		add_taxed_goods = g:luxury_clothes
 		add_taxed_goods = g:luxury_furniture
 		add_taxed_goods = g:porcelain
 		add_taxed_goods = g:meat
-		#set_tariffs_import_priority = g:spices
-		#set_tariffs_import_priority = g:sugar
 
 		set_market_capital = STATE_KANTO
 		
-		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_landed_voting
-		activate_law = law_type:law_per_capita_based_taxation
-		activate_law = law_type:law_appointed_bureaucrats
-		activate_law = law_type:law_agrarianism
-		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_mixed_army
-		activate_law = law_type:law_national_guard
-		activate_law = law_type:law_migration_controls	
-		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_bakufu
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_subjecthood
+		activate_law = law_type:law_sakoku
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_frontier_colonization
-		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_intermediate_edo_system
+		activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_terakoya
+		activate_law = law_type:law_warrior_caste
 		activate_law = law_type:law_colonial_slavery
-		
+
 		set_institution_investment_level = {
 			institution = institution_police
-			level = 2
-		}
-
-		set_institution_investment_level = {
-			institution = institution_schools
 			level = 1
 		}
-
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_daimyo
+		
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_armed_forces = {
-			remove_ideology = ideology_loyalist
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-			#set_ig_bolstering = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 1
-				years = 75
-				is_decaying = yes
+		if = {
+			limit = {
+				has_dlc_feature = ep2_content
 			}
-			set_ig_trait = ig_trait:br_ig_trait_ronin
-		}
-
-		#add_journal_entry = { type = je_terakoya } #The Modifiers are too op and need to be reworked.
-
-		ig:ig_intelligentsia = {
-			#remove_ideology = ideology_anti_clerical
-			remove_ideology = ideology_republican
-			set_interest_group_name = ig_rangakusha
-			set_ig_trait = ig_trait:br_ig_trait_rangaku
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-			set_ig_trait = ig_trait:br_ig_trait_ikki
-		}
-
-
-		ig:ig_petty_bourgeoisie = {
-			set_interest_group_name = ig_chonin
-			#remove_ideology = ideology_meritocratic
-		}
-
-		ig:ig_industrialists = {
-			set_interest_group_name = ig_craftsmen
-			add_ideology = ideology_frontier_expansionist
-		}
-
-		#effect_starting_wealthy_merchants = yes
-
-	#	trigger_event = {
-	#		id = meiji.1
-	#	}
-
-		add_modifier = {
-			name = br_modifier_edo_class_system
-			years = 100
-		}
-
-		add_journal_entry = { type = je_br_inward_perfection }
+			add_journal_entry = {
+				type = je_sakoku
+			}
+			add_journal_entry = {
+				type = je_tenpo_crisis
+			}
+			trigger_event = {
+				id = tenpo_events.1
+				days = 1
+				popup = yes
+			}
+			set_variable = ryukyu_rival_member
+			every_scope_state = {
+				limit = {
+					is_in_geographic_region = geographic_region_honshu
+				}
+				add_devastation = 5
+				state_region = {
+					start_harvest_condition_with_params = {
+						type = torrential_rains
+						duration = 720
+						intensity = 5
+					}
+				}
+			}
 
 		add_company = company_type:company_jap_trade
 		company:company_jap_trade = {
@@ -117,65 +81,59 @@
 			set_company_state_region = s:STATE_KYUSHU
 		}
 
-		add_modifier = {
-			name = revere_the_emperor
-			years = -1
-		}
-		add_modifier = {
-			name = br_modifier_japan_shogunate
-			months = -1
-		}
-		add_modifier = {
-			name = br_modifier_corporate_reforms
-			months = -1
-		}
+		#add_journal_entry = { type = je_br_inward_perfection }
+		#add_modifier = {
+		#	name = br_modifier_edo_class_system
+		#	years = 100
+		#}
+		#add_modifier = {
+		#	name = revere_the_emperor
+		#	years = -1
+		#}
+		#add_modifier = {
+		#	name = br_modifier_japan_shogunate
+		#	months = -1
+		#}
+		#add_modifier = {
+		#	name = br_modifier_corporate_reforms
+		#	months = -1
+		#}
 		add_modifier = {
 			name = br_modifier_porcelain_modifier
 			months = -1
 		}
-		add_modifier = {
-			name = br_modifier_japan_military_tradition
-			months = -1
-		}
+		#add_modifier = {
+		#	name = br_modifier_japan_military_tradition
+		#	months = -1
+		#}
 		add_modifier = {
 			name = br_modifier_japan_pacific_trade
 			months = -1
 		}
-
-
+		}
 	}
 
-	c:br_ryukyu ?= {
+	c:RYU ?= {
 		effect_starting_technology_tier_4_tech = yes
-	
-		set_tax_level = medium
-		add_taxed_goods = g:services
-		
+		effect_starting_politics_traditional = yes
+
+		effect_starting_politics_traditional = yes
+
 		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_women_own_property
-		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
-		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_subjecthood
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_isolationism
 
-		activate_law = law_type:law_agrarianism
-		
-		activate_law = law_type:law_censorship
+		set_tax_level = low
 
-		activate_law = law_type:law_tenant_farmers
-
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
+		ig:ig_landowners ?= { 
 			add_ruling_interest_group = yes
 		}
-
+		set_variable = ryukyu_rival_member
 	}
 
 	c:br_japanese_new_world ?= {

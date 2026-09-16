@@ -1,5 +1,35 @@
 ####id 2880120246
 
+- Fixed the Jadwigan reform JE not working correctly, this was caused because some variables weren't being set because the game tried to add the JE twice.
+- Fixed depleted type incorrectly having a building instead of a building group
+- fixed neutral being misspelled
+- Fixed weekly_net_fixed_income having been renamed to net_fixed_income
+- Fixed accept_baltic_german_decision being broken, caused by an outdated culture trigger.
+- Fixed dye good being referenced as dyes
+- fixed invalid law_type error
+- Fixed Unknown effect clear_geheime_staatskonferenz error
+
+# 4th 1.12 fix patch
+
+- adapted je overwrites to 1.12
+- Update br_scripted_rules.txt
+	- fixed overwrite error
+- updated feudalism law group
+- fixed duplicate errors caused by incorrect overwrite
+- replaced ref of STATE_GHANA to STATE_GOLD_COAST
+	- replaced remaining references of STATE_GHANA to STATE_GOLD_COAST
+- replaced references of STATE_GAMBIA with STATE_SENEGAL
+	- replaced remaining ref of STATE_GAMBIA with STATE_SENEGAL
+- changed the br_je_princely_league_main JE goup
+	- changed the br_je_princely_league_main JE goup from je_group_com_situations to je_group_foreign_affairs
+- flaged HRE revolution estate modifier as script_only
+	- flaged HRE revolution estate modifier as script_only
+- Added 100 ai chance and 0 a chance to the suppress and accept Slavic paganism event for Poland to hopefully stop them from going Pagan.
+-
+-
+
+
+
 # Update 146
 
 ## The Golden Eagle initial upload.

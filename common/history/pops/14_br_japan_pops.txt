@@ -1,209 +1,491 @@
 ﻿POPS = {
+
+	#still need to adjust pops back down for the time difference generally 25% lower 
+
 	s:STATE_SAKHALIN = {
-		region_state:br_nivkh = {
+		region_state:SKH = {
 			create_pop = {
 				culture = siberian
-				size = 16000
+				size = 1731
 			}
+			# Ahistorical pops for gameplay purposes (+x2)
+			create_pop = {
+				culture = siberian
+				size = 3462
+			}			
+		}
+		region_state:ULT = {
 			create_pop = {
 				culture = ainu
-				size = 4004
+				size = 95
+			}
+			create_pop = {
+				culture = siberian
+				size = 612
+			}
+			# Ahistorical pops for gameplay purposes (+x5)
+			create_pop = {
+				culture = ainu
+				size = 475
+			}
+			create_pop = {
+				culture = siberian
+				size = 3060
 			}
 		}
 		region_state:AIN = {
 			create_pop = {
 				culture = ainu
-				size = 62004
+				size = 2184
 			}
 			create_pop = {
-				culture = japanese
-				size = 862
+				culture = siberian
+				size = 243
 			}
-		}
-	}
-	s:STATE_HOKKAIDO = {
-		region_state:JAP = {
+			# Ahistorical pops for gameplay purposes (+x2)
 			create_pop = {
 				culture = ainu
-				size = 360020
+				size = 4368
 			}
 			create_pop = {
-				culture = japanese
-				size = 147862
+				culture = siberian
+				size = 486
 			}
 		}
-		region_state:AIN = {
+		region_state:EZO = {
 			create_pop = {
 				culture = ainu
-				size = 660020
-			}
-		}
-	}
-	s:STATE_TOHOKU = {
-		region_state:JAP = {
-			create_pop = {
-				culture = japanese
-				size = 2074632
+				size = 601
 			}
 			create_pop = {
 				culture = japanese
-				religion = shinto
-				size = 1417280
-			}
-		}
-	}
-	s:STATE_KANTO = {
-		region_state:JAP = {
-			create_pop = {
-				culture = japanese
-				size = 3550072
-			}
-			create_pop = {
-				culture = japanese
-				religion = shinto
-				size = 2523204
-			}
-		}
-	}
-	s:STATE_CHUBU = {
-		region_state:JAP = {
-			create_pop = {
-				culture = japanese
-				size = 3527776
-			}
-			create_pop = {
-				culture = japanese
-				religion = shinto
-				size = 2245764
-			}
-		}
-	}
-	s:STATE_KANSAI = {
-		region_state:JAP = {
-			create_pop = {
-				culture = japanese
-				size = 5178176
-			}
-			create_pop = {
-				culture = japanese
-				religion = shinto
-				size = 2286204
-			}
-		}
-	}
-	s:STATE_KYUSHU = {
-		region_state:JAP = {
-			create_pop = {
-				culture = japanese
-				size = 2770167
-			}
-			create_pop = {
-				culture = micronesian
-				size = 132
-			}
-			create_pop = {
-				culture = japanese
-				religion = shinto
-				size = 1667036
-			}
-			create_pop = {
-				culture = han 
-				size = 18712
-			}
-		}
-		region_state:EOC = {
-			create_pop = {
-				culture = japanese
-				size = 77016
-			}
-			create_pop = {
-				culture = flemish
-				size = 8200
-				# removed in 1.9.2 working_adult_ratio = 0.45
-			}
-			create_pop = {
-				culture = colonial_french
-				size = 5000
-				# removed in 1.9.2 working_adult_ratio = 0.45
-			}
-			create_pop = {
-				culture = japanese
-				religion = shinto
-				size = 26703
-			}
-			create_pop = {
-				culture = japanese
-				religion = catholic
-				size = 26703
-			}
-			create_pop = {
-				culture = han 
-				size = 1871
+				size = 39
 			}
 		}
 	}
 
-	s:STATE_RYUKYU_ISLANDS = {
-		region_state:br_ryukyu = {
-			create_pop = {
-				culture = japanese
-				size = 329181
-			}
-			create_pop = {
-				culture = japanese
-				religion = shinto
-				size = 57036
-			}
-		}	
-	}
 	
-	s:STATE_CHUGOKU = {
+	s:STATE_TOHOKU = {
+		# Mutsu and Dewa provinces
 		region_state:JAP = {
 			create_pop = {
 				culture = japanese
-				size = 2024340
+				size = 3157725
 			}
+		}
+	}
+	s:STATE_HOKUSHINETSU = {
+		# Shinano, Wakasa, Echizen, Kaga, Noto, Etchū, Echigo, and Sado provinces
+		region_state:JAP = {
 			create_pop = {
 				culture = japanese
-				religion = shinto
-				size = 1444588
+				size = 4138700
+			}
+		}		
+	}
+	s:STATE_KYOTO = {
+		# Ōmi, Tanba, Tango, and Tajima provinces
+		region_state:JAP = {
+			create_pop = {
+				culture = japanese
+				size = 1377948
+			}
+		}		
+	}
+	s:STATE_KANTO = {
+		# Sagami, Musashi, Awa, Kazusa, Shimōsa, Hitachi, Kōzuke, and Shimotsuke provinces
+		region_state:JAP = {
+			create_pop = {
+				culture = japanese
+				size = 5004465
+			}
+		}
+		# TODO TODO PRCAL-42911
+		# region_state:MCR = {
+		# 	# Chichijima colony
+		# 	create_pop = {
+		# 		culture = yankee
+		# 		size = 3
+		# 	}
+		# 	create_pop = {
+		# 		culture = british
+		# 		size = 1
+		# 	}
+		# 	create_pop = {
+		# 		culture = north_italian
+		# 		size = 1
+		# 	}
+		# 	create_pop = {
+		# 		culture = danish
+		# 		size = 1
+		# 	}
+		# 	create_pop = {
+		# 		culture = hawaiian
+		# 		size = 20
+		# 	}
+		# }
+	}
+	s:STATE_TOKAI = {
+		# Iga, Ise, Shima, Owari, Mikawa, Tōtōmi, Suruga, Kai, Izu, Mino, and Hida provinces
+		region_state:JAP = {
+			create_pop = {
+				culture = japanese
+				size = 4192918
+			}
+		}
+	}
+	s:STATE_KANSAI = {
+		# Yamashiro, Yamato, Kawachi, Izumi, Settsu, Harima, Kii, and Awaji provinces
+		region_state:JAP = {
+			create_pop = {
+				culture = japanese
+				size = 3986882
+			}
+		}
+	}
+	s:STATE_KYUSHU = {
+		# Chikuzen, Chikugo, Buzen, Bungo, Hizen, Higo, Hyūga, Ōsumi, Satsuma, Iki-shima, and Tsushima-jima provinces
+		region_state:JAP = {
+			create_pop = {
+				culture = japanese
+				size = 4137366
+			}
+			create_pop = {
+				culture = ryukyuan
+				size = 2312
+			}
+			create_pop = { # Residents of the Chinese walled quarter in Nagasaki (Tojin-yashiki) and surroundings, mainly merchants and sailors, but also interpreters, etc.
+				culture = han
+				pop_type = shopkeepers
+				size = 1503
+			}
+			create_pop = { # Residents of the Chinese walled quarter in Nagasaki (Tojin-yashiki) and surroundings, mainly merchants and sailors, but also interpreters, etc.
+				culture = han
+				pop_type = clerks
+				size = 506
+			}
+			create_pop = { # Dejima trading post
+				culture = dutch
+				pop_type = clerks
+				size = 20
+			}			
+		}
+	}
+	s:STATE_CHUGOKU = {
+		# Inaba, Hōki, Izumo, Iwami, Oki, Mimasaka, Bizen, Bitchū, Bingo, Aki, Suō, and Nagato provinces
+		region_state:JAP = {
+			create_pop = {
+				culture = japanese
+				size = 4077516
 			}
 		}
 	}
 	s:STATE_SHIKOKU = {
+		# Awa, Sanuki, Iyo, and Tosa provinces
 		region_state:JAP = {
 			create_pop = {
 				culture = japanese
-				size = 1061416
-			}
-			create_pop = {
-				culture = japanese
-				religion = shinto
-				size = 952420
+				size = 2319419
 			}
 		}
 	}
-	s:STATE_HAWAIIAN_ISLANDS = {
-		region_state:HAW = {
+	# Numbers in the Japanese 'periphery' is derived partially from provincial Shogunal censuses, and partially from misc. secondary literature, like Howell's 'Capitalism from Within'
+	s:STATE_HOKKAIDO = {
+		# Ezochi ("Ainu-lands" - Matsumae Clan overlordship and indirect rule)
+		region_state:JAP = {
+			create_pop = {
+				culture = ainu
+				size = 102
+			}
 			create_pop = {
 				culture = japanese
-				religion = mahayana
-				size = 5000
+				size = 31102
+			}
+		}
+		# Wajinchi ("Japanese-lands" - Matsumae Clan direct rule)
+		region_state:EZO = {
+			create_pop = {
+				culture = ainu
+				size = 29500
+			}
+			create_pop = { # Traders and fishermen associated with contract fisheries. Formally not allowed to stay in Ezochi for more than one season, many did so nonetheless.
+				culture = japanese
+				size = 1731
+			}
+		}
+	}
+	s:STATE_RYUKYU_ISLANDS = {
+		# Kingdom of Ryukyu. Complex simultaneous diplomatic relationship with Japan/Satsuma and China
+		region_state:RYU = {
+			create_pop = {
+				culture = ryukyuan
+				size = 162912
 			}
 			create_pop = {
-				culture = hawaiian
-				religion = mahayana
-				size = 122304
-			}
-			create_pop = {
-				culture = hawaiian
-				religion = shinto
-				size = 8500
+				culture = ryukyuan
+				religion = confucian
+				size = 30201
 			}
 			create_pop = {
 				culture = han
-				size = 40000
+				pop_type = academics
+				size = 231
+			}
+			create_pop = {
+				culture = japanese
+				pop_type = bureaucrats
+				size = 151
+			}
+		}
+		# Amami Islands, under direct Satsuma control
+		region_state:JAP = {
+			create_pop = {
+				culture = ryukyuan
+				size = 100241
+			}
+			create_pop = {
+				culture = ryukyuan
+				religion = confucian
+				size = 5021
+			}
+			create_pop = {
+				culture = japanese
+				pop_type = farmers
+				size = 10201
+			}
+			create_pop = {
+				culture = japanese
+				pop_type = bureaucrats
+				size = 675
+			}
+			create_pop = {
+				culture = japanese
+				pop_type = aristocrats
+				size = 241
+			}
+			create_pop = {
+				culture = japanese
+				pop_type = soldiers
+				size = 1021
+			}
+			create_pop = {
+				culture = japanese
+				pop_type = officers
+				size = 51
 			}
 		}
 	}
+	
 }
+
+
+# 1.12 pops to be reintergrated
+#POPS = {
+	#s:STATE_SAKHALIN = {
+		#region_state:br_nivkh = {
+			#create_pop = {
+				#culture = siberian
+				#size = 16000
+			#}
+			#create_pop = {
+				#culture = ainu
+				#size = 4004
+			#}
+		#}
+		#region_state:AIN = {
+			#create_pop = {
+				#culture = ainu
+				#size = 62004
+			#}
+			#create_pop = {
+				#culture = japanese
+				#size = 862
+			#}
+		#}
+	#}
+	#s:STATE_HOKKAIDO = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = ainu
+				#size = 360020
+			#}
+			#create_pop = {
+				#culture = japanese
+				#size = 147862
+			#}
+		#}
+		#region_state:AIN = {
+			#create_pop = {
+				#culture = ainu
+				#size = 660020
+			#}
+		#}
+	#}
+	#s:STATE_TOHOKU = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = japanese
+				#size = 2074632
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 1417280
+			#}
+		#}
+	#}
+	#s:STATE_KANTO = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = japanese
+				#size = 3550072
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 2523204
+			#}
+		#}
+	#}
+	#s:STATE_CHUBU = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = japanese
+				#size = 3527776
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 2245764
+			#}
+		#}
+	#}
+	#s:STATE_KANSAI = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = japanese
+				#size = 5178176
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 2286204
+			#}
+		#}
+	#}
+	#s:STATE_KYUSHU = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = japanese
+				#size = 2770167
+			#}
+			#create_pop = {
+				#culture = micronesian
+				#size = 132
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 1667036
+			#}
+			#create_pop = {
+				#culture = han 
+				#size = 18712
+			#}
+		#}
+		#region_state:EOC = {
+			#create_pop = {
+				#culture = japanese
+				#size = 77016
+			#}
+			#create_pop = {
+				#culture = flemish
+				#size = 8200
+				## removed in 1.9.2 working_adult_ratio = 0.45
+			#}
+			#create_pop = {
+				#culture = colonial_french
+				#size = 5000
+				## removed in 1.9.2 working_adult_ratio = 0.45
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 26703
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = catholic
+				#size = 26703
+			#}
+			#create_pop = {
+				#culture = han 
+				#size = 1871
+			#}
+		#}
+	#}
+#
+	#s:STATE_RYUKYU_ISLANDS = {
+		#region_state:br_ryukyu = {
+			#create_pop = {
+				#culture = japanese
+				#size = 329181
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 57036
+			#}
+		#}	
+	#}
+#	
+	#s:STATE_CHUGOKU = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = japanese
+				#size = 2024340
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 1444588
+			#}
+		#}
+	#}
+	#s:STATE_SHIKOKU = {
+		#region_state:JAP = {
+			#create_pop = {
+				#culture = japanese
+				#size = 1061416
+			#}
+			#create_pop = {
+				#culture = japanese
+				#religion = shinto
+				#size = 952420
+			#}
+		#}
+	#}
+	#s:STATE_HAWAIIAN_ISLANDS = {
+		#region_state:HAW = {
+			#create_pop = {
+				#culture = japanese
+				#religion = mahayana
+				#size = 5000
+			#}
+			#create_pop = {
+				#culture = hawaiian
+				#religion = mahayana
+				#size = 122304
+			#}
+			#create_pop = {
+				#culture = hawaiian
+				#religion = shinto
+				#size = 8500
+			#}
+			#create_pop = {
+				#culture = han
+				#size = 40000
+			#}
+		#}
+	#}
+#}

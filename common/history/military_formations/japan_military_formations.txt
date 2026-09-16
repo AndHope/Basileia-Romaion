@@ -1,194 +1,259 @@
 ﻿#All great/major powers start with a few line infantry even if they don't have the tech this is to repesent their elite units, givng them the tech will bankrupt their ai as they upgrade all their units even without the goods.
 
 MILITARY_FORMATIONS = {
-	c:JAP = {
+
+	#c:JAP = {
+		#create_military_formation = {
+			#type = army
+			#hq_region = sr:region_northeast_asia
+			#name = "Hokugun"
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_TOHOKU
+				#count = 8
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_HOKKAIDO
+				#count = 4
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_HOKKAIDO
+				#count = 10
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_TOHOKU
+				#count = 20
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cuirassiers
+				#state_region = s:STATE_TOHOKU
+				#count = 4
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cannon_artillery
+				#state_region = s:STATE_TOHOKU
+				#count = 2
+			#}
+		#}
+
+		#create_military_formation = {
+			#type = army
+			#hq_region = sr:region_northeast_asia
+			#name = "Chuogun"
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_KANTO
+				#count = 10
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_CHUBU
+				#count = 10
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_KANSAI
+				#count = 10
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_KANTO
+				#count = 20
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_CHUBU
+				#count = 20
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_KANSAI
+				#count = 20
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cuirassiers
+				#state_region = s:STATE_KANSAI
+				#count = 4
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cannon_artillery
+				#state_region = s:STATE_KANSAI
+				#count = 4
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cuirassiers
+				#state_region = s:STATE_KANTO
+				#count = 2
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cannon_artillery
+				#state_region = s:STATE_KANTO
+				#count = 2
+			#}
+		#}
+
+		#create_military_formation = {
+			#type = army
+			#hq_region = sr:region_northeast_asia
+			#name = "Nangun"
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_KYUSHU
+				#count = 5
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_CHUGOKU
+				#count = 5
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_line_infantry
+				#state_region = s:STATE_SHIKOKU
+				#count = 5
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_KYUSHU
+				#count = 20
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_CHUGOKU
+				#count = 20
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_irregular_infantry
+				#service_type = conscript
+				#state_region = s:STATE_SHIKOKU
+				#count = 20
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cuirassiers
+				#state_region = s:STATE_KYUSHU
+				#count = 4
+			#}
+
+			#combat_unit = {
+				#type = unit_type:combat_unit_type_cannon_artillery
+				#state_region = s:STATE_KYUSHU
+				#count = 2
+			#}
+		#}
+
+		#create_military_formation = {
+			#type = fleet
+			#hq_region = sr:region_northeast_asia
+
+			#ship = {
+				#type = ship_type:ship_type_frigate
+				#count = 15
+			#}
+		#}
+	#}
+	c:JAP ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_japan
-			name = "Hokugun"
+			hq_region = sr:region_northeast_asia
+			name = Edo_Guard_Army
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_TOHOKU
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KANTO
+				count = 18
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TOKAI
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KANSAI
+				count = 4
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_northeast_asia
+			name = Kinai_Guard_Army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KANSAI
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KYOTO
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TOKAI
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CHUGOKU
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SHIKOKU
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_northeast_asia
+			name = Kyushu_Guard_Army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KYUSHU
 				count = 8
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_HOKKAIDO
-				count = 4
-			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_HOKKAIDO
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_TOHOKU
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cuirassiers
-				state_region = s:STATE_TOHOKU
-				count = 4
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_TOHOKU
-				count = 2
-			}
-		}
-
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_japan
-			name = "Chuogun"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KANTO
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_CHUBU
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KANSAI
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_KANTO
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_CHUBU
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_KANSAI
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cuirassiers
-				state_region = s:STATE_KANSAI
-				count = 4
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_KANSAI
-				count = 4
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cuirassiers
-				state_region = s:STATE_KANTO
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_KANTO
-				count = 2
-			}
-		}
-
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_japan
-			name = "Nangun"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KYUSHU
-				count = 5
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_CHUGOKU
-				count = 5
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SHIKOKU
-				count = 5
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_KYUSHU
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_CHUGOKU
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_SHIKOKU
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cuirassiers
-				state_region = s:STATE_KYUSHU
 				count = 4
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_KYUSHU
-				count = 2
-			}
 		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_japan
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_carrack
-				state_region = s:STATE_KANSAI
-				count = 5
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_carrack
-				state_region = s:STATE_KANTO
-				count = 5
-			}
-		}
-
-
 	}
 
 }

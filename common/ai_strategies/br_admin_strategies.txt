@@ -1,4 +1,4 @@
-﻿ai_strategy_colony_plantation_economy = {
+﻿REPLACE_OR_CREATE:ai_strategy_colony_plantation_economy = {
 	icon = "gfx/interface/icons/ai_strategy_icons/agricultural_expansion.dds"
 	
 	type = administrative
@@ -31,14 +31,14 @@
 
 	possible = {
 		OR = {
-			capital.region = sr:region_dixie
-			country_is_in_south_america = yes
-			country_is_in_central_america = yes
-			country_is_in_india = yes
-			country_is_in_southeast_asia = yes
-			country_is_in_africa = yes	
-			country_is_in_east_asia = yes	
-			country_is_in_middle_east = yes	
+			capital.region = sr:region_atlantic_coast
+			is_in_geographic_region = geographic_region_south_america
+			is_in_geographic_region = geographic_region_central_america
+			is_in_geographic_region = geographic_region_india
+			is_in_geographic_region = geographic_region_south_east_asia
+			is_in_geographic_region = geographic_region_africa
+			is_in_geographic_region = geographic_region_east_asia
+			is_in_geographic_region = geographic_region_middle_east
 		}
 	}
 	
@@ -48,11 +48,11 @@
 		if = {
 			limit = { 
 				OR = {
-					country_is_in_south_america = yes
-					country_is_in_central_america = yes
-					country_is_in_india = yes
-					country_is_in_southeast_asia = yes
-					capital.region = sr:region_dixie
+					is_in_geographic_region = geographic_region_south_america
+					is_in_geographic_region = geographic_region_central_america
+					is_in_geographic_region = geographic_region_india
+					is_in_geographic_region = geographic_region_south_east_asia
+					capital.region = sr:region_atlantic_coast
 				}
 			}
 			add = 20
@@ -106,7 +106,7 @@
 	}
 }
 
-ai_strategy_colony_resource_expansion = {
+REPLACE_OR_CREATE:ai_strategy_colony_resource_expansion = {
 	icon = "gfx/interface/icons/ai_strategy_icons/resource_expansion.dds"
 	
 	type = administrative	
@@ -125,8 +125,8 @@ ai_strategy_colony_resource_expansion = {
 	}
 	
 	#subsidies = {
-	#	building_tooling_workshops = wants_to_have
-	#	building_chemical_plants = wants_to_have
+	#	building_tooling_workshop = wants_to_have
+	#	building_chemical_plant = wants_to_have
 	#}
 	
 	goods_stances = {
@@ -163,8 +163,8 @@ ai_strategy_colony_resource_expansion = {
 		if = {
 			limit = { 
 				OR = {
-					country_is_in_europe = yes
-					country_is_in_north_america = yes
+					is_in_geographic_region = geographic_region_europe
+					is_in_geographic_region = geographic_region_north_america
 				}
 			}
 			add = 20

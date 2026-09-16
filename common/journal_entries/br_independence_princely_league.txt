@@ -6,7 +6,7 @@
 	scripted_button = je_create_princely_league_button
 	
 	is_shown_when_inactive = {
-		country_is_in_europe = yes
+		is_in_geographic_region = geographic_region_europe
 		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
 		and = {
 			exists = c:HRE #to prevent errors if the HRE does not exist
@@ -18,7 +18,7 @@
 	}
 
 	possible = {
-		country_is_in_europe = yes
+		is_in_geographic_region = geographic_region_europe
 	}
 
 	immediate = {
@@ -41,13 +41,13 @@
 	transferable = no
 
 	weight = 5000
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 br_je_princely_league_main = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
-	group = je_group_com_situations
+	group = je_group_foreign_affairs
 
 	scripted_button = br_je_princely_league_main_join_left_side_button
 	scripted_button = br_je_princely_league_main_join_right_side_button
@@ -55,7 +55,7 @@ br_je_princely_league_main = {
 	scripted_button = br_je_princely_league_main_left_side_favour_autonomy_button
 
 	is_shown_in_lobby = {
-		country_is_in_europe = yes
+		is_in_geographic_region = geographic_region_europe
 		c:FLA ?= this	#this is a temp measure because of some weird behavior with cmf's situations
 		and = {
 			exists = c:HRE #to prevent errors if the HRE does not exist
@@ -157,7 +157,7 @@ br_je_princely_league_main = {
 			c:HRE = {
 				every_direct_subject = {
 					limit = {
-						country_is_in_europe = yes #every european state gets notefied
+						is_in_geographic_region = geographic_region_europe #every european state gets notefied
 						NOT = {
 							is_com_situation_side_leader = {
 								side = left
@@ -291,5 +291,5 @@ br_je_princely_league_main = {
 	can_revolution_inherit = yes
 
 	weight = 200
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }

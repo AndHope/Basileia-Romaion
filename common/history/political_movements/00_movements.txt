@@ -6,6 +6,9 @@
 			limit = {
 				has_law_or_variant = law_type:law_monarchy
 				country_has_voting_franchise = no
+				NOT = {
+					has_law = law_type:law_bakufu
+				}
 			}
 			create_political_movement = { type = movement_royalist_absolutist }
 		}
@@ -237,5 +240,10 @@
 	c:FLA ?= {
 		create_political_movement = { type = movement_radical }
 		create_political_movement = { type = movement_liberal }
+	}
+	c:JAP ?= {
+		create_political_movement = { type = movement_meiji_restorationist }
+		create_political_movement = { type = movement_tokugawa_loyalist }
+		create_political_movement = { type = movement_land_reform }
 	}
 }

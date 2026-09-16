@@ -49,14 +49,16 @@
             id = br_plc_succession_events.1
             popup = yes
         }
-        add_journal_entry = {
-            type = br_je_plc_reform_main
+        show_as_tooltip = {
+            add_journal_entry = {
+                type = br_je_plc_reform_main
+            }
         }
         br_plc_reform_variable_cleanup_scripted_effect = yes
 	}
 
     weight = 100
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 # je_eastern_resistance = {
@@ -114,7 +116,7 @@
 #     }
 
 #     weight = 100
-# 	should_be_pinned_by_default = yes
+# 	should_be_pinned_by_default_uninvolved_or_context = yes
 # }
 
 #########################################################################################################################
@@ -222,12 +224,7 @@ br_je_plc_reform_main = {
         set_variable = br_plc_reform_main_has_timedout_var
         every_subject_or_below = {
 			capital = {
-				or = {
-					region = sr:region_poland
-					region = sr:region_baltic
-					region = sr:region_dnieper
-					region = sr:region_belarus
-				}
+				region = sr:region_eastern_europe
 			}
             make_independent = yes
 		}
@@ -235,7 +232,7 @@ br_je_plc_reform_main = {
 
 	weight = 10000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 ###
@@ -661,7 +658,7 @@ br_je_plc_reform_the_commonwealth = {
 
 	weight = 10000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 #########################################################################################################################
@@ -693,7 +690,7 @@ br_je_plc_centralizing_the_commonwealth = {
 
 	weight = 10000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 #########################################################################################################################
@@ -738,7 +735,7 @@ br_je_plc_reclaiming_the_baltic = {
 
 	weight = 1000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 #########################################################################################################################
@@ -780,7 +777,7 @@ br_je_plc_access_to_the_black_sea = {
 
 	weight = 1000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 #########################################################################################################################
@@ -826,7 +823,7 @@ br_je_plc_securing_of_our_eastern_front = {
 
 	weight = 1000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 #########################################################################################################################
@@ -882,7 +879,7 @@ br_je_plc_extending_our_reach = {
 
 	weight = 1000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 #########################################################################################################################
@@ -964,7 +961,7 @@ br_je_plc_the_legacy_of_the_winged_hussars = {
 
 	weight = 1000
 
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 #########################################################################################################################
@@ -1013,5 +1010,5 @@ br_je_plc_the_legacy_of_the_winged_hussars = {
 
 # 	weight = 1000
 
-# 	should_be_pinned_by_default = yes
+# 	should_be_pinned_by_default_uninvolved_or_context = yes
 # }
