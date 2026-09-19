@@ -556,14 +556,14 @@ kamehameha_coin_toss = {
 ryukyu_rivalry_coin_toss = {
 	trigger = {
 		OR = {
-			c:CHI = this
-			c:JAP = this
+			c:CHI ?= this
+			c:JAP ?= this
 		}
         AND = {
-            c:JAP = { has_modifier = modifier_ryukyu_rivalry_officer_training }
-            c:CHI = { has_modifier = modifier_ryukyu_rivalry_officer_training }
+            c:JAP ?= { has_modifier = modifier_ryukyu_rivalry_officer_training }
+            c:CHI ?= { has_modifier = modifier_ryukyu_rivalry_officer_training }
         }
-		NOT = { exists = global_var:ryukyu_rivalry_training_incident }
+		NOT = { has_global_variable = ryukyu_rivalry_training_incident }
 	}
 	effect = {
 		set_global_variable = {
