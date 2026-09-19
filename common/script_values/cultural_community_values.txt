@@ -34,14 +34,14 @@ cultural_community_creation_weight = {
 		# Conditions that add
 		if = {
 			limit = {
-				has_port = yes
+				has_port_state = yes
 			}
 			add = 0.001
 		}
 
 		if = {
 			limit = {
-				has_decree = decree_greener_grass_campaign
+				state_has_decree_variant = { DECREE = decree_greener_grass_campaign }
 			}
 			add = 0.005
 		}
@@ -260,6 +260,25 @@ cultural_community_creation_weight = {
 				num_cultural_communities >=15
 			}
 			multiply = 0.1
+		}
+
+		# Overrides
+
+		if = {
+			limit = {
+				has_building = building_cossack_host
+				root.owner = {
+					has_law_or_variant = law_type:law_internal_colonization
+				}
+				scope:culture = {
+					is_primary_culture_of = root.owner
+					OR = {
+						has_discrimination_trait = heritage_east_slavic
+						has_discrimination_trait = tradition_cossacks
+					}
+				}
+			}
+			add = 1 # clamped to max
 		}
 	}
 
