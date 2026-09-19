@@ -1,0 +1,29 @@
+﻿# Fallback party for Armed Forces
+
+INJECT:military_party = {
+	color = { 132 100 53 }
+	name = {
+		first_valid = {
+			#add all the BR triggers first so they have priority over the vanilla triggers
+			triggered_desc = {	#BR edit
+				desc = br_stronnictwo_narodowe
+				trigger = {
+					c:PLC ?= this
+				}
+			}
+
+			triggered_desc = {
+				desc = party_komma_paleologos
+				trigger = {
+					country_has_primary_culture = cu:greek
+				}
+			}
+			triggered_desc = {
+				desc = party_fidelitas_committee
+				trigger = {
+					country_has_primary_culture = cu:elysian
+				}
+			}
+		}
+	}
+}
