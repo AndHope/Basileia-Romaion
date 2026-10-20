@@ -505,8 +505,8 @@ ai_strategy_default = {
 		if = { # Great Powers will tend to meddle if you directly declare war on enemy countries to easily subjugate them.
 			limit = {
 				OR = {
-					c:GBR ?= this
-					c:RUS ?= this
+					c:PER ?= this
+					c:MUG ?= this
 				}
 				OR = {
 					is_involved_in_journal_entry = je_great_game_control
@@ -517,8 +517,8 @@ ai_strategy_default = {
 				has_diplomatic_relevance = scope:enemy_country
 				scope:enemy_country = { # enemy_country is the rival Great Power
 					OR = {
-						c:GBR ?= this
-						c:RUS ?= this
+						c:PER ?= this
+						c:MUG ?= this
 					}
 					NOT = {
 						this = root
@@ -620,15 +620,15 @@ ai_strategy_default = {
 				}
 				OR = {
 					AND = {
-						exists = c:GBR
-						is_subject_of = c:GBR
+						exists = c:PER
+						is_subject_of = c:PER
 						scope:country = {
 							has_variable = AFG_appealed_to_GBR
 						}
 					}
 					AND = {
-						exists = c:RUS
-						is_subject_of = c:RUS
+						exists = c:MUG
+						is_subject_of = c:MUG
 						scope:country = {
 							has_variable = AFG_appealed_to_RUS
 						}
@@ -987,7 +987,7 @@ ai_strategy_default = {
 
 		if = { # Russia backs the Orthodox Balkan states' independence from the Ottomans
 			limit = {
-				c:RUS ?= this
+				c:HRE ?= this
 				OR = {
 					scope:diplomatic_play_type = play_type:dp_independence
 					scope:diplomatic_play_type = play_type:dp_liberate_subject
