@@ -74,6 +74,37 @@ EOC = {
         priority = 5000
     }
 }
+DEI = { # Dutch East India Company #This is vanilla code just changed the priority this is because vanilla sets the default for a random flag of a charter company to priority 1000
+    flag_definition = {
+        coa = DEI
+        subject_canton = DEI
+        priority = 4000 #10 in vanilla
+    }
+    flag_definition = {
+        coa = DEI_subject
+        priority = 5000 #20 in vanilla
+        trigger = {
+            coa_def_colonial_ensign_trigger = yes
+        }
+    }
+    #	flag_definition = { # this is the company flag
+    #		coa = DEI_voc
+    #		coa_with_overlord_canton = DEI_voc
+    #		priority = 100
+    #		trigger = {
+    #			coa_def_republic_flag_trigger = yes
+    #			AND = {
+    #				exists = c:NET
+    #				c:NET ?= {
+    #					has_diplomatic_pact = {
+    #						who = c:DEI
+    #						type = dominion
+    #						is_initiator = yes
+    #				}
+    #			}
+    #		}
+    #	}
+}
 br_new_world_company = {
     flag_definition = { # 
         coa = br_new_world_company
