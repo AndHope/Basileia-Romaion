@@ -148,7 +148,7 @@ PLC = {
 		STATE_EAST_GALICIA
 		STATE_GREATER_POLAND
 		STATE_LESSER_POLAND
-		STATE_KAUNAS
+		STATE_LITHUANIA
 		STATE_VILNIUS
 		STATE_MAZOVIA
 		STATE_POSEN
@@ -158,6 +158,10 @@ PLC = {
 	}
 
 	required_states_fraction = 1
+
+	possible = {
+		is_subject = no
+	}
 
 	ai_will_do = { always = yes }
 }
@@ -182,7 +186,14 @@ CHI = {
 }
 
 ETH = {
-	use_culture_states = yes
+	states = {
+		STATE_AMHARA
+		STATE_GONDER
+		STATE_OROMIA
+		# intentionally omitting STATE_ERITREA
+	}
+
+	required_states_fraction = 0.33 # just unifying Gonder would suffice
 
 	required_states_fraction = 0.50
 	
@@ -208,7 +219,7 @@ IBE = {
 		has_technology_researched = pan-nationalism
 		trigger_if = {
 			limit = {
-				capital = {
+				capital ?= {
 					is_in_geographic_region = geographic_region_iberia_old
 				}
 				any_country_in_iberia_old = {
@@ -251,15 +262,30 @@ KUK = {
 }
 
 CZH = {
-	use_culture_states = yes
+	STATES = {
+		STATE_BOHEMIA
+		STATE_MORAVIA
+		STATE_SLOVAKIA
+		STATE_RUTHENIA
+	}
 
-	required_states_fraction = 1
-	
+
+	required_states_fraction = 0.75
+
 	ai_will_do = { always = yes }
 }
 
 POL = {
-	use_culture_states = yes
+	states = {
+		STATE_GREATER_POLAND
+		STATE_MAZOVIA
+		STATE_LESSER_POLAND
+		STATE_WEST_GALICIA
+		STATE_EAST_GALICIA
+		STATE_UPPER_SILESIA
+		STATE_WEST_PRUSSIA
+		STATE_POSEN
+	}
 
 	required_states_fraction = 0.55
 
@@ -914,5 +940,19 @@ ATL = {
 
 	possible = {
 		has_technology_researched = pan-nationalism
+	}
+}
+
+GEO = {
+	states = {
+		STATE_GREATER_CAUCASUS
+	}
+
+	required_states_fraction = 1
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = nationalism
 	}
 }

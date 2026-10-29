@@ -13,7 +13,7 @@ effect_starting_politics_liberal = {
 	activate_law = law_type:law_cultural_exclusion
 	activate_law = law_type:law_national_militia
 	activate_law = law_type:law_no_migration_controls
-	activate_law = law_type:law_homesteading
+	activate_law = law_type:law_peasant_proprietorship
 	activate_law = law_type:law_anti_strike_laws
 }
 # Merchant republics, companies etc
@@ -70,7 +70,15 @@ effect_starting_politics_oligarchy_republic_default = {
 
 effect_starting_politics_conservative = {
 	activate_law = law_type:law_monarchy
-	activate_law = law_type:law_state_religion
+	if = {
+		limit = {
+			country_is_islamic = yes
+		}
+		activate_law = law_type:law_people_of_the_book
+	}
+	else = {
+		activate_law = law_type:law_state_religion
+	}
 	activate_law = law_type:law_oligarchy
 	activate_law = law_type:law_appointed_bureaucrats
 	activate_law = law_type:law_religious_schools
@@ -89,12 +97,20 @@ effect_starting_politics_conservative = {
 
 effect_starting_politics_reactionary = {
 	activate_law = law_type:law_monarchy
-	activate_law = law_type:law_state_religion
+	if = {
+		limit = {
+			country_is_islamic = yes
+		}
+		activate_law = law_type:law_people_of_the_book
+	}
+	else = {
+		activate_law = law_type:law_state_religion
+	}
 	activate_law = law_type:law_autocracy 
 	activate_law = law_type:law_land_based_taxation
 	activate_law = law_type:law_local_police
 	activate_law = law_type:law_hereditary_bureaucrats
-	activate_law = law_type:law_national_supremacy
+	activate_law = law_type:law_subjecthood
 	activate_law = law_type:law_agrarianism
 	activate_law = law_type:law_mercantilism
 	activate_law = law_type:law_no_workers_rights
@@ -106,14 +122,22 @@ effect_starting_politics_reactionary = {
 }
 
 effect_starting_politics_traditional = {
-	activate_law = law_type:law_state_religion
+	if = {
+		limit = {
+			country_is_islamic = yes
+		}
+		activate_law = law_type:law_people_of_the_book
+	}
+	else = {
+		activate_law = law_type:law_state_religion
+	}
 	activate_law = law_type:law_autocracy
 	activate_law = law_type:law_land_based_taxation
 	activate_law = law_type:law_hereditary_bureaucrats
 	activate_law = law_type:law_subjecthood
 	activate_law = law_type:law_traditionalism
 	activate_law = law_type:law_right_of_assembly
-	activate_law = law_type:law_peasant_levies	
+	activate_law = law_type:law_peasant_levies
 	activate_law = law_type:law_closed_borders
 	activate_law = law_type:law_guild_system
 	if = {
@@ -124,7 +148,7 @@ effect_starting_politics_traditional = {
 		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_isolationism
 		activate_law = law_type:law_consumption_based_taxation
-		activate_law = law_type:law_right_of_assembly	
+		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_tribal_armies	
 		activate_law = law_type:law_closed_borders
@@ -143,7 +167,15 @@ effect_starting_politics_traditional = {
 }
 
 effect_starting_politics_princely_state = {
-	activate_law = law_type:law_state_religion
+	if = {
+		limit = {
+			country_is_islamic = yes
+		}
+		activate_law = law_type:law_people_of_the_book
+	}
+	else = {
+		activate_law = law_type:law_state_religion
+	}
 	activate_law = law_type:law_autocracy
 	activate_law = law_type:law_land_based_taxation
 	activate_law = law_type:law_hereditary_bureaucrats
@@ -159,6 +191,7 @@ effect_starting_politics_princely_state = {
 	activate_law = law_type:law_no_workers_rights
 	activate_law = law_type:law_debt_slavery
 	activate_law = law_type:law_hindu_caste_enforced
+	activate_law = law_type:law_guild_system
 }
 
 # Semi-centralized North American States

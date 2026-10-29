@@ -1,0 +1,29 @@
+﻿# Bastion of the Landowners
+# Can also appeal to the Devout, PB, and Industrialists
+
+INJECT:conservative_party = {
+	color = { 108 64 179 }
+	name = {
+		first_valid = {
+			#add all the BR triggers first so they have priority over the vanilla triggers
+			triggered_desc = {	#BR edit
+				desc = br_stronnictwo_magnackie
+				trigger = {
+					c:PLC ?= this
+				}
+			}
+			triggered_desc = {
+				desc = party_komma_ethnikofronon
+				trigger = {
+					country_has_primary_culture = cu:greek
+				}
+			}
+			triggered_desc = {
+				desc = party_optimates_factiosi
+				trigger = {
+					country_has_primary_culture = cu:elysian
+				}
+			}
+		}
+	}
+}

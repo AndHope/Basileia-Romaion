@@ -1,5 +1,7 @@
-﻿# possible - filters out achivements on game start so we dont have to check everything all the time
-# happened - checks if achivement happened
+﻿# BR edit: This is a mirror of a vanilla file with some small changes to adjust it for the mod
+
+# possible - filters out achievements on game start so we dont have to check everything all the time
+# happened - checks if achievement happened
 
 peccavi = {
     possible = {
@@ -270,7 +272,7 @@ manifest_mexico = {
 	}
 	happened = {
         c:NAH ?= this
-		c:NAH = {
+		c:NAH ?= {
 			owned_great_plains_region_states = yes
 			owned_pacific_coast_region_states = yes
             owns_entire_state_region = STATE_TEXAS
@@ -605,7 +607,7 @@ grander_colombia = {
     }
     happened = {
         c:GCO ?= this
-        c:GCO = {
+        c:GCO ?= {
             custom_tooltip = {
                 text = own_all_gran_colombia_tt
                 owned_gran_colombia_region_states = yes
@@ -693,7 +695,10 @@ star_swarmed_banner = {
                 is_incorporated = yes
                 count >= 100
             }
-            has_law_or_variant = law_type:law_presidential_republic
+			OR = {
+                has_law_or_variant = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_parliamentary_republic
+			}
             NOT = { has_law_or_variant = law_type:law_autocracy }
         }
     }

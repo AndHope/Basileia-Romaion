@@ -1,0 +1,123 @@
+﻿INJECT:mobilization_option_basic_supplies = {
+	upkeep_modifier_unscaled = {
+		goods_input_horse_mult = 0.25
+	}
+}
+
+INJECT:mobilization_option_extra_supplies = {
+	upkeep_modifier_unscaled = {
+		goods_input_horse_mult = 0.25
+	}
+}
+
+INJECT:mobilization_option_luxurious_supplies = {
+	upkeep_modifier_unscaled = {
+		goods_input_horse_mult = 0.25
+	}
+}
+#BR Added
+mobilization_option_horse_transport = {
+	texture = "gfx/interface/icons/mobilization_options/forced_march.dds"
+	
+	possible = {
+		scope:military_formation = {
+			NOR = {
+				has_mobilization_option = mobilization_option:mobilization_option_forced_march
+				has_mobilization_option = mobilization_option:mobilization_option_truck_transport
+				has_mobilization_option = mobilization_option:mobilization_option_rail_transport
+			}
+		}
+		market ?= {
+			mg:horse ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	
+	on_deactivate = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	
+	unlocking_technologies = {
+		br_tech_supply_train
+	}
+	upkeep_modifier = {
+		goods_input_horse_add = 0.5
+	}
+	unit_modifier = {
+		military_formation_movement_speed_mult = 0.25
+		military_formation_mobilization_speed_mult = 0.4
+	}
+	ai_weight = {
+		value = 1
+	}
+
+    group = transport
+}
+
+#BR Added "Greek Fire" aka liquid fire. (Only BR starts with
+mobilization_option_greekfire = {
+	texture = "gfx/interface/icons/mobilization_options/flamethrowers.dds"
+
+	possible = {
+		market ?= {
+			mg:sulfur ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	
+	on_deactivate = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	
+	unlocking_technologies = {
+		br_tech_greekfire
+	}
+	upkeep_modifier = {
+		goods_input_sulfur_add = 0.25 #modern flamethrowers are 0
+		goods_input_oil_add = 0.1 #modern flamethrowers are 1
+	}
+	unit_modifier = {
+		unit_offense_add = 5 #modern flamethrowers are 15
+		unit_devastation_mult = 0.25 #modern flamethrowers are 0.5
+		unit_morale_damage_mult = 0.1 #same as modern flamethrowers
+	}
+	ai_weight = {
+		value = 0 #ai retarded switching back and foruth in a loop
+	}
+
+    group = special_weapons
+}
