@@ -33,7 +33,7 @@ ITA = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -185,7 +185,7 @@ ETH = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.50
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -193,7 +193,7 @@ AOT = {
 	use_culture_states = yes
 
 	required_states_fraction = 1.0
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -208,7 +208,7 @@ IBE = {
 		has_technology_researched = pan-nationalism
 		trigger_if = {
 			limit = {
-				capital = {
+				capital ?= {
 					is_in_geographic_region = geographic_region_iberia_old
 				}
 				any_country_in_iberia_old = {
@@ -232,8 +232,8 @@ IBE = {
 SPA = {
 	use_culture_states = yes
 
-	required_states_fraction = 0.75	
-	
+	required_states_fraction = 0.75
+
 	ai_will_do = { always = yes }
 }
 
@@ -299,7 +299,7 @@ ARA = {
 		STATE_UPPER_EGYPT
 	}
 
-	required_states_fraction = 0.75	
+	required_states_fraction = 0.75
 
 	ai_will_do = { always = yes }
 
@@ -544,7 +544,7 @@ ALD = {
 	}
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -885,7 +885,7 @@ LBY = {
 	ai_will_do = { always = yes }
 
 	potential = {
-		capital.state_region = {
+		capital.state_region ?= {
 			OR = {
 				this = s:STATE_TRIPOLI
 				this = s:STATE_LIBYA
