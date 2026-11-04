@@ -1,4 +1,6 @@
-﻿# Fallback party for Armed Forces
+﻿# BR edit: We make small changes to values for balance and remove vanilla aspects, mark these with #BR edit
+
+# Fallback party for Armed Forces
 
 military_party = {
 	color = { 132 100 53 }
@@ -27,14 +29,12 @@ military_party = {
 			triggered_desc = {
 				desc = party_true_peoples_party
 				trigger = {
-					exists = c:MON
 					c:MON ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_national_party
 				trigger = {
-					exists = c:SER
 					c:SER ?= THIS
 				}
 			}
@@ -50,7 +50,6 @@ military_party = {
 			triggered_desc = {
 				desc = party_imperial_clan_party
 				trigger = {
-					exists = c:CHI
 					c:CHI ?= THIS
 					has_law = law_type:law_monarchy
 				}
@@ -58,7 +57,6 @@ military_party = {
 			triggered_desc = {
 				desc = party_russian_assembly
 				trigger = {
-					exists = c:RUS
 					c:RUS ?= THIS
 					has_law = law_type:law_monarchy
 				}
@@ -66,17 +64,44 @@ military_party = {
 			triggered_desc = {
 				desc = party_russian_all_military_union
 				trigger = {
-					exists = c:RUS
 					c:RUS ?= THIS
 					NOT = { has_law = law_type:law_monarchy }
 				}
 			}
 			triggered_desc = {
-				desc = party_imperial_way_party
+				desc = party_taikunate_military
 				trigger = {
-					exists = c:JAP
+					c:JAP ?= THIS
+					has_law_or_variant = law_type:law_landed_voting
+					country_is_taikunate = yes
+				}
+			}
+			triggered_desc = {
+				desc = party_ezo_military
+				trigger = {
+					c:EZO ?= THIS
+					has_variable = ezo_republic_var
+					has_law_or_variant = law_type:law_landed_voting
+				}
+			}
+			triggered_desc = {
+				desc = party_dai_nippon_kyokai
+				trigger = {
+					c:JAP ?= THIS
+					has_law_or_variant = law_type:law_landed_voting
+					NOT = {
+						country_is_taikunate = yes
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_teikokuto
+				trigger = {
 					c:JAP ?= THIS
 					has_law = law_type:law_monarchy
+					NOT = {
+						has_law_or_variant = law_type:law_landed_voting
+					}
 				}
 			}
 			triggered_desc = {
@@ -128,8 +153,13 @@ military_party = {
 	available_for_interest_group = {
 		owner = {
 			country_has_voting_franchise = yes
-			ig:ig_armed_forces ?= {
-				ig_counts_as_marginal = no
+			OR = {
+				py:military_party ?= {
+					any_member = {}
+				}
+				ig:ig_armed_forces ?= {
+					ig_counts_as_marginal = no
+				}
 			}
 		}
 	}
@@ -325,7 +355,7 @@ military_party = {
 					leader ?= { has_ideology = ideology:ideology_authoritarian }
 				}
 				owner = {
-					NOR = {
+					OR = {
 						has_law_or_variant = law_type:law_no_home_affairs
 						has_law_or_variant = law_type:law_guaranteed_liberties
 					}
@@ -370,11 +400,11 @@ military_party = {
 		}
 		if = { # Carlists and Miguelists were against participating in electoral politics for a good while
 			limit = {
-				NOT = { owner = { has_technology_researched = political_agitation } }
+				NOT = { owner = { has_technology_researched = corporatism } }
 				leader = {
 					OR = {
-						has_ideology = ideology:ideology_carlist
-						has_ideology = ideology:ideology_miguelist
+						character_has_carlist_ideology = yes
+						character_has_miguelist_ideology = yes
 					}
 				}
 			}
@@ -415,20 +445,11 @@ military_party = {
 		}
 		else_if = {
 			limit = {
-				scope:number = 3
-			}
-			multiply = {
-				value = 0.05
-				desc = "from_three_prior_members"
-			}
-		}
-		else_if = {
-			limit = {
-				scope:number > 3
+				scope:number >= 3
 			}
 			multiply = {
 				value = 0.0
-				desc = "from_more_than_three_prior_members"
+				desc = "from_three_or_more_prior_members"
 			}
 		}
 		if = { # anti-orleanist

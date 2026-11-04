@@ -1,4 +1,6 @@
-﻿# Radicals and Republicans extremely attracted to this ideology
+﻿# BR edit: We make small changes to values for balance and remove vanilla aspects, mark these with #BR edit
+
+# Radicals and Republicans extremely attracted to this ideology
 # Attracts weak leftists and liberals
 
 radical_party = {
@@ -22,77 +24,66 @@ radical_party = {
 			triggered_desc = {
 				desc = party_radical_civic_union
 				trigger = {
-					exists = c:ARG
 					c:ARG ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_democratic_progressive_party
 				trigger = {
-					exists = c:SPA
 					c:SPA ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_free_democratic_party
 				trigger = {
-					exists = c:SWI
 					c:SWI ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_national_progressive_party
 				trigger = {
-					exists = c:FIN
 					c:FIN ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_free_thinking_democratic_league
 				trigger = {
-					exists = c:NET
 					c:NET ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_radical_liberal_party
 				trigger = {
-					exists = c:LUX
 					c:LUX ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_progressive_club
 				trigger = {
-					exists = c:AUS
 					c:AUS ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_radical_peoples_party
 				trigger = {
-					exists = c:SER
 					c:SER ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_revival_party
 				trigger = {
-					exists = c:PER
 					c:PER ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_mexican_liberal_party
 				trigger = {
-					exists = c:MEX
 					c:MEX ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_democratic_progressive_party
 				trigger = {
-					exists = c:GBR
 					c:GBR ?= THIS
 					has_law_or_variant = law_type:law_universal_suffrage
 				}
@@ -100,7 +91,6 @@ radical_party = {
 			triggered_desc = {
 				desc = party_committee_of_union_and_progress
 				trigger = {
-					exists = c:TUR
 					c:TUR ?= THIS
 					has_law = law_type:law_monarchy
 				}
@@ -108,7 +98,6 @@ radical_party = {
 			triggered_desc = {
 				desc = party_freedom_and_accord_party
 				trigger = {
-					exists = c:TUR
 					c:TUR ?= THIS
 					NOT = { has_law = law_type:law_monarchy }
 				}
@@ -116,14 +105,12 @@ radical_party = {
 			triggered_desc = {
 				desc = party_trudovik_group
 				trigger = {
-					exists = c:RUS
 					c:RUS ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_revive_china_society
 				trigger = {
-					exists = c:CHI
 					c:CHI ?= THIS
 					has_law = law_type:law_monarchy
 				}
@@ -131,7 +118,6 @@ radical_party = {
 			triggered_desc = {
 				desc = party_republican_union
 				trigger = {
-					exists = c:FRA
 					c:FRA ?= THIS
 				}
 			}
@@ -169,29 +155,18 @@ radical_party = {
 			triggered_desc = {
 				desc = party_progressive_party
 				trigger = {
-					OR = {
-						AND = {
-							exists = c:JAP
-							c:JAP ?= THIS
-						}
-						AND = {
-							exists = c:USA
-							c:USA ?= THIS
-						}
-					}
+					c:USA ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_radical_liberal_party
 				trigger = {
-					exists = c:ECU
 					c:ECU ?= THIS
 				}
 			}
 			triggered_desc = {
 				desc = party_national_union
 				trigger = {
-					exists = c:PEU
 					c:PEU ?= THIS
 				}
 			}
@@ -260,7 +235,6 @@ radical_party = {
 			triggered_desc = {
 				desc = party_chartists
 				trigger = {
-					exists = c:GBR
 					c:GBR ?= THIS
 					NOT = { has_law_or_variant = law_type:law_universal_suffrage }
 				}
@@ -274,6 +248,63 @@ radical_party = {
 							c:BHT ?= this
 							is_subject = yes
 						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_taikunate_radical
+				trigger = {
+					c:JAP ?= THIS
+					has_law_or_variant = law_type:law_landed_voting
+					country_is_taikunate = yes
+				}
+			}
+			triggered_desc = {
+				desc = party_ezo_radical
+				trigger = {
+					c:EZO ?= THIS
+					has_variable = ezo_republic_var
+					has_law_or_variant = law_type:law_landed_voting
+				}
+			}
+			triggered_desc = {
+				desc = party_toyo_jiyuto
+				trigger = {
+					country_has_primary_culture = cu:japanese
+					has_law_or_variant = law_type:law_landed_voting
+					country_is_taikunate = no
+				}
+			}
+			triggered_desc = {
+				desc = party_yushinkai
+				trigger = {
+					country_has_primary_culture = cu:japanese
+					NOT = { has_technology_researched = political_agitation }
+					OR = {
+						has_law_or_variant = law_type:law_wealth_voting
+						has_law_or_variant = law_type:law_census_voting
+					}
+
+				}
+			}
+			triggered_desc = {
+				desc = party_rikken_kokuminto
+				trigger = {
+					country_has_primary_culture = cu:japanese
+					has_technology_researched = political_agitation
+					OR = {
+						has_law_or_variant = law_type:law_wealth_voting
+						has_law_or_variant = law_type:law_census_voting
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_kakushinto
+				trigger = {
+					country_has_primary_culture = cu:japanese
+					OR = {
+						has_law_or_variant = law_type:law_universal_suffrage
+						has_law_or_variant = law_type:law_single_party_state
 					}
 				}
 			}
@@ -298,16 +329,21 @@ radical_party = {
 	available_for_interest_group = {
 		owner = {
 			country_has_voting_franchise = yes
-			any_interest_group = {
-				ig_counts_as_marginal = no
-				OR = {
-					leader ?= {
-						has_ideology = ideology:ideology_radical
-					}
-					AND = {
-						is_interest_group_type = ig_trade_unions
-						NOT = {
-							has_ideology = ideology:ideology_socialist
+			OR = {
+				py:radical_party ?= {
+					any_member = {}
+				}
+				any_interest_group = {
+					ig_counts_as_marginal = no
+					OR = {
+						leader ?= {
+							has_ideology = ideology:ideology_radical
+						}
+						AND = {
+							is_interest_group_type = ig_trade_unions
+							NOT = {
+								has_ideology = ideology:ideology_socialist
+							}
 						}
 					}
 				}
@@ -323,7 +359,7 @@ radical_party = {
 				has_ideology = ideology:ideology_integralist
 				has_ideology = ideology:ideology_ethno_nationalist
 				has_ideology = ideology:ideology_traditionalist
-				has_ideology = ideology:ideology_carlist
+				character_has_carlist_ideology = yes
 				has_ideology = ideology:ideology_royalist
 				has_ideology = ideology:ideology_orleanist
 				has_ideology = ideology:ideology_bonapartist
