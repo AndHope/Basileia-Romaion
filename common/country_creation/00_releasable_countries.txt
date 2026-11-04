@@ -55,6 +55,14 @@ IRE = {
 	ai_will_do = { always = no }
 }
 
+MTC = {
+	use_culture_states = yes
+
+	required_num_states = 1
+
+	ai_will_do = { always = no }
+}
+
 GEO = {
 	states = {
 		STATE_GREATER_CAUCASUS
@@ -85,6 +93,7 @@ DAG = {
 AZB = {
 	states = {
 		STATE_AZERBAIJAN
+		STATE_ELIZAVETPOL
 	}
 
 	ai_will_do = { always = no }
@@ -314,7 +323,7 @@ POL = {
 }
 
 UKR = {
-	states = { STATE_CHERSON STATE_VOLHYNIA STATE_KIEV STATE_KHARKOV STATE_CHERNIHIV }
+	states = { STATE_EAST_GALICIA STATE_CHERSON STATE_VOLHYNIA STATE_KIEV STATE_TAURIDA STATE_KHARKOV STATE_CRIMEA STATE_CHERNIHIV }
 
 	required_num_states = 3
 
@@ -322,7 +331,9 @@ UKR = {
 }
 
 GAL = {
-	states = { STATE_EAST_GALICIA STATE_WEST_GALICIA }
+	states = { STATE_EAST_GALICIA STATE_WEST_GALICIA STATE_BUKOVINA }
+
+	required_num_states = 2
 
 	ai_will_do = { always = no }
 }
@@ -407,6 +418,12 @@ ANH = {
 
 NAS = {
 	provinces = { x3E794B x90C0A0 x1357DB }
+
+	ai_will_do = { always = no }
+}
+
+HES = {
+	states = { STATE_HESSE }
 
 	ai_will_do = { always = no }
 }
@@ -834,7 +851,16 @@ NCA = {
 		STATE_NORTH_CAUCASUS
 	}
 	possible = {
-		has_technology_researched = pan-nationalism
+		# Checks if the technology is researched by the war goal holder (if any) or by the releasing country
+		OR = {
+			scope:war_goal_holder ?= {
+				has_technology_researched = pan-nationalism
+			}
+			AND = {
+				NOT = { exists = scope:war_goal_holder }
+				has_technology_researched = pan-nationalism
+			}
+		}
 	}
 	ai_will_do = { always = no }
 }
@@ -1073,7 +1099,16 @@ PAL = {
 	ai_will_do = { always = no }
 
 	possible = {
-		has_technology_researched = nationalism
+		# Checks if the technology is researched by the war goal holder (if any) or by the releasing country
+		OR = {
+			scope:war_goal_holder ?= {
+				has_technology_researched = nationalism
+			}
+			AND = {
+				NOT = { exists = scope:war_goal_holder }
+				has_technology_researched = nationalism
+			}
+		}
 	}
 }
 
