@@ -1,4 +1,5 @@
-﻿mobilization_option_basic_supplies = {
+﻿# BR edit: We make small changes to values for balance, mark these with #BR edit
+mobilization_option_basic_supplies = {
 	texture = "gfx/interface/icons/mobilization_options/basic_supplies.dds"
 	can_be_turned_off = {
 		custom_tooltip = {
@@ -7,16 +8,16 @@
 		}
 	}
 	upkeep_modifier = {
-		goods_input_grain_add = 0.5
+		goods_input_grain_add = 0.5 # BR edit
 	}
 	upkeep_modifier_unscaled = {
-        goods_input_small_arms_mult = 0.25
-        goods_input_artillery_mult = 0.25
-		goods_input_ammunition_mult = 0.25
-        goods_input_oil_mult = 0.25
-		goods_input_horse_mult = 0.25
-        goods_input_radios_mult = 0.25
-        goods_input_tanks_mult = 0.25
+        goods_input_small_arms_mult = 0.25 # BR edit
+        goods_input_artillery_mult = 0.25 # BR edit
+		goods_input_ammunition_mult = 0.25 # BR edit
+        goods_input_oil_mult = 0.25 # BR edit
+		goods_input_horse_mult = 0.25 # BR edit
+        goods_input_radios_mult = 0.25 # BR edit
+        goods_input_tanks_mult = 0.25 # BR edit
 	}
 
 	unit_modifier = {
@@ -50,21 +51,21 @@ mobilization_option_extra_supplies = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 		}
 	}
 
 	upkeep_modifier = {
-		goods_input_groceries_add = 1
+		goods_input_groceries_add = 1 # BR edit
 	}
 	upkeep_modifier_unscaled = {
         goods_input_small_arms_mult = 0.25
         goods_input_artillery_mult = 0.25
 		goods_input_ammunition_mult = 0.25
         goods_input_oil_mult = 0.25
-		goods_input_horse_mult = 0.25
+		goods_input_horse_mult = 0.25 # BR edit
         goods_input_radios_mult = 0.25
         goods_input_tanks_mult = 0.25
 	}
@@ -106,22 +107,22 @@ mobilization_option_luxurious_supplies = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 		}
 	}
 
 	upkeep_modifier = {
-		goods_input_meat_add = 1
-		goods_input_wine_add = 1
+		goods_input_meat_add = 1 # BR edit
+		goods_input_wine_add = 1 # BR edit
 	}
 	upkeep_modifier_unscaled = {
         goods_input_small_arms_mult = 0.25
         goods_input_artillery_mult = 0.25
 		goods_input_ammunition_mult = 0.25
         goods_input_oil_mult = 0.25
-		goods_input_horse_mult = 0.25
+		goods_input_horse_mult = 0.25 # BR edit
         goods_input_radios_mult = 0.25
         goods_input_tanks_mult = 0.25
 	}
@@ -155,14 +156,14 @@ mobilization_option_chocolate = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 		}
 	}
 
 	upkeep_modifier = {
-		goods_input_sugar_add = 0.5 #was 1
+		goods_input_sugar_add = 0.5 #was 1 # BR edit
 	}
 	unit_modifier = {
 		unit_morale_recovery_mult = 0.1
@@ -191,7 +192,7 @@ mobilization_option_tobacco = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 		}
@@ -227,7 +228,7 @@ mobilization_option_liquor = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 		}
@@ -263,7 +264,7 @@ mobilization_option_opium = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 		}
@@ -300,7 +301,7 @@ mobilization_option_forced_march = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 		}
@@ -310,7 +311,7 @@ mobilization_option_forced_march = {
 		# empty on purpose - this has no cost and is just a toggle with its own tradeoffs
 	}
 	unit_modifier = {
-		military_formation_movement_speed_mult = 0.1
+		military_formation_army_movement_speed_mult = 0.1
 		military_formation_mobilization_speed_mult = 0.25
 		unit_morale_loss_mult = 0.1
 	}
@@ -320,7 +321,7 @@ mobilization_option_forced_march = {
 		if = {
 			limit = {
 				scope:military_formation = {
-					highest_ranked_commander ?= {
+					commander ?= {
 						OR = {
 							has_trait = cruel
 							has_trait = reckless
@@ -414,7 +415,7 @@ mobilization_option_truck_transport = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -424,7 +425,7 @@ mobilization_option_truck_transport = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -436,8 +437,8 @@ mobilization_option_truck_transport = {
 		goods_input_automobiles_add = 0.5
 	}
 	unit_modifier = {
-		military_formation_movement_speed_mult = 0.35
-		military_formation_mobilization_speed_mult = 0.45
+        military_formation_army_movement_speed_mult = 0.35 # BR edit
+		military_formation_mobilization_speed_mult = 0.45 # BR edit
 	}
 	ai_weight = {
 		value = 1
@@ -468,7 +469,7 @@ mobilization_option_rail_transport = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -478,7 +479,7 @@ mobilization_option_rail_transport = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -490,8 +491,8 @@ mobilization_option_rail_transport = {
 		goods_input_engines_add = 0.5
 	}
 	unit_modifier = {
-		military_formation_movement_speed_mult = 0.3
-		military_formation_mobilization_speed_mult = 0.4
+        military_formation_army_movement_speed_mult = 0.3 # BR edit
+		military_formation_mobilization_speed_mult = 0.4 # BR edit
 	}
 	ai_weight = {
 		value = 1
@@ -516,7 +517,7 @@ mobilization_option_machinegunners = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -526,7 +527,7 @@ mobilization_option_machinegunners = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -565,7 +566,7 @@ mobilization_option_chemical_weapons = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -575,7 +576,7 @@ mobilization_option_chemical_weapons = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -665,7 +666,7 @@ mobilization_option_flamethrowers = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -675,7 +676,7 @@ mobilization_option_flamethrowers = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -735,7 +736,7 @@ mobilization_option_motorized_recon = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -745,7 +746,7 @@ mobilization_option_motorized_recon = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -759,7 +760,7 @@ mobilization_option_motorized_recon = {
 	}
 	unit_modifier = {
 		unit_occupation_mult = 0.5
-		military_formation_movement_speed_mult = 0.3
+		military_formation_army_movement_speed_mult = 0.3
 		character_battle_condition_surprise_maneuver_mult = 0.5
 	}
 	ai_weight = {
@@ -792,7 +793,7 @@ mobilization_option_balloon_recon = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -842,7 +843,7 @@ mobilization_option_aerial_recon = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -852,7 +853,7 @@ mobilization_option_aerial_recon = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.25 # BR edit
 			}
 		}
 	}
@@ -967,7 +968,7 @@ mobilization_option_field_hospitals = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.25
+					multiply = -0.25 # BR edit
 				}
 			}
 			add_organization = {
