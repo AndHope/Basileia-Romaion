@@ -42,12 +42,7 @@
 #	
 #}
 
-REPLACE_OR_CREATE:bg_monuments = {
-	parent_group = bg_government
-	lens = special
-	inheritable_construction = yes
-	economy_of_scale = no
-
+INJECT:bg_monuments = {
 	urbanization = 100 #was 0
 }
 
@@ -72,63 +67,7 @@ bg_spices_plantations = {
 	default_building = building_spices_plantation
 }
 
-REPLACE:bg_owner_buildings = {
-	parent_group = bg_urban_facilities
-
-	min_productivity_to_hire = 10.0
-
-	category = urban
-
-	lens = trade
-
-	always_possible = yes
-
-	can_use_slaves = yes
-
-	auto_place_buildings = yes
-
-	owns_other_buildings = yes
-
-	always_self_owning = yes
-
-	ignores_productivity_when_hiring = yes
-
-	proportionality_limit = 1.0
-
-	economy_of_scale = no
-
-	default_building = building_financial_district
-
-	cash_reserves_max = 10000
-
-	urbanization = 0
-
-	infrastructure_usage_per_level = 0.05 #was 0.1
-
-	fired_pops_become_radical = no
-
-	should_auto_expand = {
-		always = no
-	}
-}
-
 # Needed for autonomous investment to track investments separately from other ownership buildings
-REPLACE:bg_financial_districts = {
-	parent_group = bg_owner_buildings
-	urbanization = 5 #was 0
-}
-
-# Needed for autonomous investment to track investments separately from other ownership buildings
-REPLACE:bg_manor_houses = {
-	parent_group = bg_owner_buildings
-	
+INJECT:bg_manor_houses = {
 	urbanization = 0.1 #was 0
-	infrastructure_usage_per_level = 0.0
-}
-
-REPLACE:bg_company_headquarter = {
-	parent_group = bg_owner_buildings
-	urbanization = 5 #was 0
-
-	company_headquarter = yes
 }
