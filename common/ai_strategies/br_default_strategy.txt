@@ -1,0 +1,783 @@
+﻿# This is a special strategy that sets the default values for different AI scores
+# All AIs always load data from this strategy, which can then be either added to or overridden by data from its other strategies
+
+INJECT:ai_strategy_default = {
+	# Chance each day that the AI will stop enacting a law that is going to spark a civil war (1 aversion should translate into ~25% chance of avoiding a civil war)
+	# Using a different value in a strategy will override this value
+	revolution_aversion = {
+		if = {
+			limit = {
+				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+				game_date < 1743.1.1
+			}
+			add = 100
+		}
+	}
+	# Added to base neutrality in diplomatic plays
+	# Using this value in other strategies will function additively
+	diplomatic_play_neutrality = {
+		if = {
+			limit = {
+				has_journal_entry = je_palaiologos_reforms_main #BR Edited
+			}
+			add = 50
+		}
+	}
+	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
+	# Using this value in other strategies will function additively (values below 0 or above 1 have no further effect)
+	wargoal_maneuvers_fraction = {
+		if = {
+			limit = {
+				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+				scope:enemy_country = {
+					OR = {
+						owns_entire_state_region = STATE_ALEPPO
+						owns_entire_state_region = STATE_SYRIA
+						owns_entire_state_region = STATE_LEBANON
+						owns_entire_state_region = STATE_PALESTINE
+						owns_entire_state_region = STATE_TRANSJORDAN
+						owns_entire_state_region = STATE_ADANA
+					}
+				}
+			}
+			add = 0.25
+		}	
+	}
+	# How much does the AI desire another country as their subject
+	# Using this value in other strategies will function additively
+	# root is the AI doing the evaluation, scope:target_country is prospective subject
+	subject_value = {
+		if = {
+			limit = {
+				OR = {
+					has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+					has_journal_entry = je_palaiologos_reforms_egypt
+				}
+				exists = c:br_aegypt
+				scope:target_country = c:br_aegypt
+			}
+			add = 100
+		}
+	}
+
+	# Recklessness multiplies the AI's estimation of its own strength, so at recklessness 2 it believes its forces to be twice as strong as they actually are
+	# The AI wants to have at least parity in what it believes its own forces to be and what the enemy forces are, so at recklessness 2 it's OK with only having 50% of the enemy strength
+	# Using this value in other strategies will function additively
+	recklessness = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+						scope:target_country = {
+							OR = {
+								owns_entire_state_region = STATE_ALEPPO
+								owns_entire_state_region = STATE_SYRIA
+								owns_entire_state_region = STATE_LEBANON
+								owns_entire_state_region = STATE_PALESTINE
+								owns_entire_state_region = STATE_TRANSJORDAN
+								owns_entire_state_region = STATE_ADANA
+							}
+						}
+					}
+					AND = {
+						has_journal_entry = je_palaiologos_reforms_egypt #BR Edited
+						scope:target_country = {
+							OR = {
+								owns_entire_state_region = STATE_SINAI
+								owns_entire_state_region = STATE_UPPER_EGYPT
+								owns_entire_state_region = STATE_MIDDLE_EGYPT
+								owns_entire_state_region = STATE_LOWER_EGYPT
+							}
+						}
+					}
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				has_journal_entry = je_elysium_expand_01
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_NEW_YORK
+							state_region = s:STATE_VIRGINIA
+							state_region = s:STATE_MINNESOTA
+							state_region = s:STATE_WISCONSIN
+							state_region = s:STATE_INDIANA
+							state_region = s:STATE_MICHIGAN
+							state_region = s:STATE_OHIO
+							state_region = s:STATE_KENTUCKY
+							state_region = s:STATE_WEST_VIRGINIA
+							state_region = s:STATE_PENNSYLVANIA
+							state_region = s:STATE_ILLINOIS
+							state_region = s:STATE_NORTH_CAROLINA
+						}
+					}
+				}
+			}
+			add = 1
+		}
+		# Greek Nationalism
+		if = {
+			limit = {
+				c:BYZ ?= this
+				scope:target_country = {
+					any_scope_state = {
+						state_region = { is_homeland = cu:greek }
+						has_claim_by = root
+					}
+				}
+			}
+			add = 1.0
+		}
+	}
+
+	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
+	# Using this value in other strategies will function additively
+	aggression = {
+		# Greek Nationalism
+		if = {
+			limit = {
+				c:BYZ ?= this
+				scope:target_country = {
+					any_scope_state = {
+						state_region = { is_homeland = cu:greek }
+						has_claim_by = root
+					}
+				}
+			}
+			add = 50
+		}	
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:greek
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:african
+						country_has_primary_culture = cu:aegyptian
+						country_has_primary_culture = cu:sicilian
+						country_has_primary_culture = cu:latinoi
+						country_has_primary_culture = cu:bulgarian
+						country_has_primary_culture = cu:serb
+					}	
+				}
+			}
+			add = 25
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_journal_entry = je_palaiologos_reforms_syria #BR Edited
+					has_journal_entry = je_palaiologos_reforms_egypt
+				}
+				exists = c:br_aegypt
+				scope:target_country = {
+					THIS = c:br_aegypt
+				}
+			}
+			add = 50
+		}
+		#BR extra aggression towards JE targets
+		if = {
+			limit = {
+				has_journal_entry = je_reclaiming_aquitaine
+				exists = c:OCC
+				scope:target_country = {
+					THIS = c:OCC
+				}
+			}
+			add = 50
+		}
+		if = { # HRE wishes to consolidate
+			limit = {
+				country_has_primary_culture = cu:french
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:frankish
+						country_has_primary_culture = cu:occitan
+					}	
+				}
+			}
+			add = 50
+		}
+		if = { # Serbia wishes to consolidate
+			limit = {
+				has_journal_entry = je_restore_serbia
+				scope:target_country = {
+					country_has_primary_culture = cu:serb	
+				}
+			}
+			add = 50
+		}
+		if = { # Persia wishes to consolidate
+			limit = {
+				has_journal_entry = je_persia_expansion_01
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:pashtun
+						country_has_primary_culture = cu:baluchi
+						country_has_primary_culture = cu:persian
+					}	
+				}
+			}
+			add = 50
+		}
+		if = { # Mughals wishes to consolidate
+			limit = {
+				has_journal_entry = je_consolidate_india_01
+				scope:target_country = {
+					country_has_primary_culture = cu:mughal	
+				}
+			}
+			add = 50
+		}
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:polish
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:tatar
+						country_has_primary_culture = cu:russian
+					}
+				}
+			}
+			add = 50
+		}
+
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:russian
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:russian
+						country_has_primary_culture = cu:ukrainian
+					}
+				}
+			}
+			add = 50
+		}
+
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:polish
+				scope:target_country = {
+					country_has_primary_culture = cu:ukrainian	
+				}
+			}
+			add = 50
+		}
+		if = { 
+			limit = {
+				country_has_primary_culture = cu:russian
+				scope:target_country = {
+					country_has_primary_culture = cu:tatar	
+				}
+			}
+			add = 15
+		}
+
+
+		if = {
+			limit = {
+				has_journal_entry = je_reclaiming_transylvania
+				exists = c:TRS
+				scope:target_country = {
+					THIS = c:TRS
+				}
+			}
+			add = 50
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_reclaim_england
+				exists = c:DEN
+				scope:target_country = {
+					THIS = c:DEN
+				}
+			}
+			add = 100
+		}
+
+		if = {
+			limit = {
+				c:br_aegypt ?= this
+				scope:target_country = {
+					OR = {
+						has_state_in_state_region = STATE_EGYPTIAN_DESERT
+						has_state_in_state_region = STATE_DONGOLA
+						has_state_in_state_region = STATE_KORDOFAN
+						has_state_in_state_region = STATE_BLUE_NILE
+						has_state_in_state_region = STATE_EGYPTIAN_DESERT
+					}
+				}
+			}
+			add = 25
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_consolidate_india_01
+				scope:target_country = {
+					is_country_type = unrecognized
+				}
+				scope:target_country = {
+					OR = {
+						has_state_in_state_region = STATE_PUNJAB
+						has_state_in_state_region = STATE_HILL_PUNJAB
+						has_state_in_state_region = STATE_RAJPUTANA
+						has_state_in_state_region = STATE_CENTRAL_PROVINCES
+						has_state_in_state_region = STATE_DELHI
+						has_state_in_state_region = STATE_AWADH
+						has_state_in_state_region = STATE_MALWA
+						has_state_in_state_region = STATE_AGRA
+						has_state_in_state_region = STATE_BUNDELKHAND
+						has_state_in_state_region = STATE_GUJARAT
+						has_state_in_state_region = STATE_SINDH
+						has_state_in_state_region = STATE_BIHAR
+						has_state_in_state_region = STATE_EAST_BENGAL
+						has_state_in_state_region = STATE_WEST_BENGAL
+						has_state_in_state_region = STATE_ASSAM
+						has_state_in_state_region = STATE_ORISSA
+					}
+				}
+			}
+			add = 50
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_elysium_expand_01
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_NEW_YORK
+							state_region = s:STATE_VIRGINIA
+							state_region = s:STATE_MINNESOTA
+							state_region = s:STATE_WISCONSIN
+							state_region = s:STATE_INDIANA
+							state_region = s:STATE_MICHIGAN
+							state_region = s:STATE_OHIO
+							state_region = s:STATE_KENTUCKY
+							state_region = s:STATE_WEST_VIRGINIA
+							state_region = s:STATE_PENNSYLVANIA
+							state_region = s:STATE_ILLINOIS
+							state_region = s:STATE_NORTH_CAROLINA
+						}
+					}
+				}
+			}
+			add = 25
+		}
+
+		if = { #Tartaria Central Asia
+			limit = {
+				country_has_primary_culture = cu:tatar
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_UZBEKIA
+							state_region = s:STATE_KIRGHIZIA
+							state_region = s:STATE_KHIVA
+							state_region = s:STATE_TURKMENIA
+							state_region = s:STATE_TAJIKISTAN
+						}
+					}
+				}
+				can_reach_target_country = yes
+			}
+			add = 10
+		}
+		
+		if = { #Tartaria Central Asia
+			limit = {
+				country_has_primary_culture = cu:tatar
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_URALSK
+							state_region = s:STATE_SEMIRECHE
+							state_region = s:STATE_AKMOLINSK
+						}
+					}
+				}
+			}
+			add = 15
+		}
+
+		if = { # consolidating South Africa
+			limit = {
+				country_has_primary_culture = cu:dutch
+				has_technology_researched = malaria_prevention
+				any_subject_or_below = {
+					capital.region = sr:region_southern_africa
+				}
+				scope:target_country = {
+					capital.region = sr:region_southern_africa
+				}
+			}
+			add = 25
+		}
+
+        # Andalusia should very aggressively go for Algeria.
+		if = {
+			limit = {
+				c:ANL ?= this
+				scope:target_country = {
+					OR = {
+						has_state_in_state_region = STATE_ALGIERS
+						has_state_in_state_region = STATE_CONSTANTINE
+						has_state_in_state_region = STATE_ORAN
+						has_state_in_state_region = STATE_SAHARA
+						has_state_in_state_region = STATE_EAST_SAHARA
+					}
+				}
+			}
+			add = 10
+		}
+	}
+
+
+	# How many levels of barracks should the AI have
+	# Using this value in other strategies will function additively
+	#wanted_army_size = {
+	##BR Added Start
+		#if = {
+			#limit =  { has_modifier = br_modifier_norse_military_doctrine }
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_norse_military_doctrine_2 }
+			#multiply = 2
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_anti_colonialism }
+			#multiply = 2
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_horde_khanate } 
+			#multiply = 1.25
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_tribal_warriors } 
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_holy_warriors } 
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_jihad_called } 
+			#multiply = 3
+		#}
+		#if = {
+			#limit =  { has_technology_researched = br_tech_aggressive_military_bonus } 
+			#multiply = 3.5
+		#}
+		#if = {
+			#limit =  { has_technology_researched = br_tech_defensive_military_bonus } 
+			#multiply = 2.5
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_russia_buff_1 } 
+			#multiply = 3.5
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_russia_buff_2 } 
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
+			#multiply = 3
+		#}
+		#if = {
+			#limit =  { has_modifier = war_for_independence } 
+			#multiply = 10
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_gain_independence } 
+			#multiply = 3.5
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_african_colony } 
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_spice_trade }
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_exarchate }
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_varangian_primacy }
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_tagmata_primacy }
+			#multiply = 1.75
+		#}
+		#if = {
+			#limit =  { has_modifier = br_rajputs_modifier }
+			#multiply = 2.5
+		#}
+		#if = {
+			#limit =  { has_modifier = br_maratha_modifier }
+			#multiply = 2
+		#}
+	##BR Added End
+	#}
+
+	# How many levels of naval base should the AI have
+	# Using this value in other strategies will function additively
+	#wanted_navy_size = {
+	##BR Added Start
+		#if = {
+			#limit = { has_strategy = ai_strategy_trade_imperialism }
+			#multiply = 5
+		#}
+#
+		#if = {
+			#limit =  { has_modifier = br_modifier_italy_gunboat_trade_diplomacy }
+			#multiply = 4
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_spice_trade }
+			#multiply = 2.5
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_naval_tradition }
+			#multiply = 2.5
+		#}
+		#if = {
+			#limit =  { has_modifier = br_modifier_decentralized_khanate }
+			#multiply = -2
+		#}
+	##BR Added End
+	#}
+
+	# Set the weights for combat unit groups, this determines the ratio that the AI aims to have of each, and thus what unit types it adds to formations
+	# Using this value in other strategies will function additively
+	# root = country
+	# scope:military_formation = military formation
+	combat_unit_group_weights = {
+
+		combat_unit_group_cavalry = {	
+			else_if = {
+				limit = { has_law_or_variant = law_type:law_tribal_armies }
+				multiply = 3
+			}		
+		}
+	}
+
+	# How many conscript battalions should the AI aim to have for each regular battalion in a formation?
+	# root = country
+	# scope:military_formation = military formation
+	# Using this value in other strategies will function additively
+	conscript_battalion_ratio = {
+		else_if = {
+			limit = { has_law_or_variant = law_type:law_mixed_army }
+			add = 1.5
+		}
+		else_if = {
+			limit = { has_law_or_variant = law_type:law_tribal_armies }
+			add = 3
+		}	
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine }
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_norse_military_doctrine_2 }
+			multiply = 2.5
+		}
+			
+		if = {
+			limit =  { has_modifier = br_modifier_anti_colonialism }
+			multiply = 1.75
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_horde_khanate } 
+			multiply = 1.75
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_tribal_warriors } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_warriors } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_arab_caliphate } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_jihad_called } 
+			multiply = 3
+		}
+		if = {
+			limit =  { has_technology_researched = br_tech_defensive_military_bonus } 
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_1 } 
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_russia_buff_2 } 
+			multiply = 1.75
+		}
+		if = {
+			limit =  { has_modifier = autocephalous_patriarchate_belgrade } 
+			multiply = 2
+		}
+		if = {
+			limit =  { has_modifier = war_for_independence } 
+			multiply = 4
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_gain_independence } 
+			multiply = 3
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_exarchate }
+			multiply = 1.75
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_themata_primacy }
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_corrupt_pronoia }
+			multiply = 1.75
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_eastern_roman_emperor }
+			multiply = 1.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_holy_roman_emperor }
+			multiply = 1.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_elysium }
+			multiply = 1.75
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_independent_new_world_colony }
+			multiply = 1.75
+		}
+		if = {
+			limit =  { has_modifier = br_rajputs_modifier }
+			multiply = 2.5
+		}
+		if = {
+			limit =  { has_modifier = br_maratha_modifier }
+			multiply = 1.75
+		}
+	#BR Added End
+	}
+
+	# How should the AI plan for production and trade of specific goods
+	# Using a different value in a strategy will override this value
+	goods_stances = {
+	#BR Added Start
+		horse = {
+			stance = wants_high_supply
+			trigger = {
+				country_rank >= rank_value:major_power
+			}
+		}
+	#BR Added End
+	}
+
+	# How many of its interests should the AI dedicate to regions with unrecognized and decentralized powers
+	# Using a different value in a strategy will override this value
+	colonial_interest_ratio = {
+		if = {
+			limit =  { has_modifier = br_modifier_italy_gunboat_trade_diplomacy }
+			add = 0.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_spice_trade }
+			add = 0.5
+		}
+		if = {
+			limit =  { has_modifier = br_modifier_naval_tradition }
+			add = 0.25
+		}
+	}
+
+	# How important is it that the AI maintains an interest in a specific strategic region (added on top of region value calculations set in defines)
+	# Using this value in other strategies will function additively
+	strategic_region_scores = {
+		region_central_asia = {
+			if = {
+				limit = {
+					OR = {
+						c:PER ?= this
+						c:br_tartaria ?= this
+					}
+				}
+				add = 500
+			}
+		}
+		region_greater_persia = {
+			if = {
+				limit = {
+					OR = {
+						c:PER ?= this
+						c:br_tartaria ?= this
+					}
+				}
+				add = 500
+			}
+		}
+		region_pacific_coast = {
+			if = {
+				limit = {
+					c:br_elysium ?= this
+				}
+				add = 50
+			}
+		}
+		region_great_plains = {
+			if = {
+				limit = {
+					c:br_elysium ?= this
+				}
+				add = 100
+			}
+		}
+		region_atlantic_coast = {
+			if = {
+				limit = {
+					c:br_elysium ?= this
+				}
+				add = 200
+			}
+		}
+		region_canada = {
+			if = {
+				limit = {
+					c:br_elysium ?= this
+				}
+				add = 25
+			}
+		}
+		region_central_america = {
+			if = {
+				limit = {
+					c:br_elysium ?= this
+				}
+				add = 25
+			}
+		}
+	}
+}
