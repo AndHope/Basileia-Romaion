@@ -1,15 +1,42 @@
-﻿pm_br_early_picks_and_shovels_building_coal_mine = {
-	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
+﻿
+INJECT:pm_picks_and_shovels_building_coal_mine = {
+	unlocking_technologies = {
+		br_tech_hand_tools #tech added
+	}
+}
 
+INJECT:pm_picks_and_shovels_building_iron_mine = {
+	unlocking_technologies = {
+		br_tech_hand_tools #tech added
+	}
+}
+
+INJECT:pm_picks_and_shovels_building_lead_mine = {
+	unlocking_technologies = {
+		br_tech_hand_tools #tech added
+	}
+}
+
+INJECT:pm_picks_and_shovels_building_sulfur_mine = {
+	unlocking_technologies = {
+		br_tech_hand_tools #tech added
+	}
+}
+
+INJECT:pm_picks_and_shovels_building_gold_mine = {
+	unlocking_technologies = {
+		br_tech_hand_tools #tech added
+	}
+}
+
+### br added
+
+pm_br_early_picks_and_shovels_building_coal_mine = {
+	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			#goods_input_tools_add = 1
-
-			# output goods
 			goods_output_coal_add = 8
 		}
-
 		level_scaled = {
 			building_employment_shopkeepers_add = 250
 			building_employment_laborers_add = 4750
@@ -19,16 +46,10 @@
 
 pm_br_early_picks_and_shovels_building_iron_mine = {
 	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			#goods_input_tools_add = 1
-
-			# output goods
 			goods_output_iron_add = 8
 		}
-
 		level_scaled = {
 			building_employment_shopkeepers_add = 250
 			building_employment_laborers_add = 4750
@@ -38,16 +59,10 @@ pm_br_early_picks_and_shovels_building_iron_mine = {
 
 pm_br_early_picks_and_shovels_building_lead_mine = {
 	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			#goods_input_tools_add = 1
-
-			# output goods
 			goods_output_lead_add = 8
 		}
-
 		level_scaled = {
 			building_employment_shopkeepers_add = 250
 			building_employment_laborers_add = 4750
@@ -57,16 +72,10 @@ pm_br_early_picks_and_shovels_building_lead_mine = {
 
 pm_br_early_picks_and_shovels_building_sulfur_mine = {
 	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			#goods_input_tools_add = 1
-
-			# output goods
 			goods_output_sulfur_add = 8
 		}
-
 		level_scaled = {
 			building_employment_shopkeepers_add = 250
 			building_employment_laborers_add = 4750
@@ -76,146 +85,18 @@ pm_br_early_picks_and_shovels_building_sulfur_mine = {
 
 pm_br_early_picks_and_shovels_building_gold_mine = {
 	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			#goods_input_tools_add = 1
-
-			# output goods
 			goods_output_gold_add = 3
 		}
-
 		level_scaled = {
 			building_employment_shopkeepers_add = 250
 			building_employment_laborers_add = 4750
 		}
 	}
-
 	country_modifiers = {
 		workforce_scaled = {
 			country_minting_add = 150
-		}
-	}
-}
-
-REPLACE_OR_CREATE:pm_picks_and_shovels_building_coal_mine = {
-	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
-	unlocking_technologies = {
-		br_tech_hand_tools
-	}
-
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_tools_add = 5
-
-			# output goods
-			goods_output_coal_add = 25
-		}
-
-		level_scaled = {
-			building_employment_shopkeepers_add = 500
-			building_employment_laborers_add = 4500
-		}
-	}
-}
-
-REPLACE_OR_CREATE:pm_picks_and_shovels_building_iron_mine = {
-	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
-	unlocking_technologies = {
-		br_tech_hand_tools
-	}
-
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_tools_add = 5
-
-			# output goods
-			goods_output_iron_add = 20
-		}
-
-		level_scaled = {
-			building_employment_shopkeepers_add = 500
-			building_employment_laborers_add = 4500
-		}
-	}
-}
-
-REPLACE_OR_CREATE:pm_picks_and_shovels_building_lead_mine = {
-	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
-	unlocking_technologies = {
-		br_tech_hand_tools
-	}
-
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_tools_add = 5
-
-			# output goods
-			goods_output_lead_add = 20
-		}
-
-		level_scaled = {
-			building_employment_shopkeepers_add = 500
-			building_employment_laborers_add = 4500
-		}
-	}
-}
-
-REPLACE:pm_picks_and_shovels_building_sulfur_mine = {
-	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
-	unlocking_technologies = {
-		br_tech_hand_tools
-	}
-
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_tools_add = 5
-
-			# output goods
-			goods_output_sulfur_add = 20
-		}
-
-		level_scaled = {
-			building_employment_shopkeepers_add = 500
-			building_employment_laborers_add = 4500
-		}
-	}
-}
-
-REPLACE:pm_picks_and_shovels_building_gold_mine = {
-	texture = "gfx/interface/icons/production_method_icons/picks_and_shovels.dds"
-
-	unlocking_technologies = {
-		br_tech_hand_tools
-	}
-
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_tools_add = 5
-
-			# output goods
-			goods_output_gold_add = 8
-		}
-
-		level_scaled = {
-			building_employment_shopkeepers_add = 500
-			building_employment_laborers_add = 4500
-		}
-	}
-
-	country_modifiers = {
-		workforce_scaled = {
-			country_minting_add = 250
 		}
 	}
 }
