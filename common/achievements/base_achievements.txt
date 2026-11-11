@@ -8,8 +8,8 @@ peccavi = {
         has_variable = peccavi_ach_possible
     }
     happened = {
-        owns_entire_state_region = STATE_SINDH
-        owns_entire_state_region = STATE_PUNJAB
+        owns_entire_state_region_uncontested = STATE_SINDH
+        owns_entire_state_region_uncontested = STATE_PUNJAB
         hidden_trigger = {
             has_variable = peccavi_ach_possible
         }
@@ -62,7 +62,7 @@ muhammed_alis_ambition = {
     }
     happened = {
         c:ARA ?= this
-        owns_entire_state_region = STATE_EASTERN_THRACE
+        owns_entire_state_region_uncontested = STATE_EASTERN_THRACE
         hidden_trigger = {
             has_variable = muhammed_alis_ambition_ach_possible
         }
@@ -76,7 +76,7 @@ an_empire_under_the_pun = {
     happened = {
         hidden_trigger = {
             c:GBR ?= {
-                is_subject_of = ROOT
+                is_subject_of_and_not_being_freed = ROOT
             }
             has_variable = an_empire_under_the_pun_ach_possible
         }
@@ -166,7 +166,7 @@ barbarys_back = {
         has_variable = barbarys_back_ach_possible
     }
     happened = {
-        owns_entire_state_region = STATE_ALGIERS
+        owns_entire_state_region_uncontested = STATE_ALGIERS
         country_rank >= rank_value:major_power
         hidden_trigger = {
             has_variable = barbarys_back_ach_possible
@@ -181,17 +181,17 @@ miners_and_minors = {
     happened = {
         hidden_trigger = {
             has_variable = miners_and_minors_ach_possible
-            owns_entire_state_region = STATE_EAST_BORNEO
+            owns_entire_state_region_uncontested = STATE_EAST_BORNEO
             any_scope_state = {
                 state_region = s:STATE_EAST_BORNEO
                 is_incorporated = yes
             }
-            owns_entire_state_region = STATE_NORTH_BORNEO
+            owns_entire_state_region_uncontested = STATE_NORTH_BORNEO
             any_scope_state = {
                 state_region = s:STATE_NORTH_BORNEO
                 is_incorporated = yes
             }
-            owns_entire_state_region = STATE_WEST_BORNEO
+            owns_entire_state_region_uncontested = STATE_WEST_BORNEO
             any_scope_state = {
                 state_region = s:STATE_WEST_BORNEO
                 is_incorporated = yes
@@ -275,7 +275,7 @@ manifest_mexico = {
 		c:NAH ?= {
 			owned_great_plains_region_states = yes
 			owned_pacific_coast_region_states = yes
-            owns_entire_state_region = STATE_TEXAS
+            owns_entire_state_region_uncontested = STATE_TEXAS
 			country_rank >= rank_value:great_power
 		}
 		hidden_trigger = {
@@ -299,7 +299,7 @@ american_territory = {
     }
     happened = {
         c:br_elysium ?= {
-            is_subject_of = ROOT
+            is_subject_of_and_not_being_freed = ROOT
             any_scope_state = {
                 count <= 3
             }
@@ -325,28 +325,11 @@ broken_promises = {
                         target_is = c:ITA
                     }
                 }
-                OR = {
-                    AND = {
-                        any_scope_initiator_ally = {
-                            this = c:ITA
-                        }
-                        any_scope_target_ally = {
-                            count >= 2
-                            any_scope_ally = {
-                                this = c:ITA
-                            }
-                        }
-                    }
-                    AND = {
-                        any_scope_target_ally = {
-                            this = c:ITA
-                        }
-                        any_scope_initiator_ally = {
-                            count >= 2
-                            any_scope_ally = {
-                                this = c:ITA
-                            }
-                        }
+                any_scope_play_involved = {
+                    c:ITA ?= this
+                    any_scope_ally = {
+                        is_diplomatic_play_enemy_of = prev
+                        count >= 2
                     }
                 }
             }
@@ -592,7 +575,6 @@ poppydock = {
                 level >= 8
             }
             market = {
-				# TODO PRCAL-38034 - change to look at country aggregated exports
                 mg:opium = {
                     market_goods_exports >= 2500
                 }
@@ -696,7 +678,7 @@ star_swarmed_banner = {
                 count >= 100
             }
 			OR = {
-                has_law_or_variant = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_presidential_republic
 				has_law_or_variant = law_type:law_parliamentary_republic
 			}
             NOT = { has_law_or_variant = law_type:law_autocracy }

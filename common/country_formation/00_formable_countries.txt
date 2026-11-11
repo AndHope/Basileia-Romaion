@@ -168,8 +168,13 @@ PLC = {
 
 PRU = {
 	states = {
+		# STATE_BRANDENBURG # BR Removed
+		# STATE_POMERANIA # BR Removed
 		STATE_WEST_PRUSSIA
 		STATE_EAST_PRUSSIA
+		# STATE_LOWER_SILESIA # BR Removed
+		# STATE_UPPER_SILESIA # BR Removed
+		# STATE_POSEN # BR Removed
 	}
 
 	required_states_fraction = 0.8
@@ -194,8 +199,6 @@ ETH = {
 	}
 
 	required_states_fraction = 0.33 # just unifying Gonder would suffice
-
-	required_states_fraction = 0.50
 
 	ai_will_do = { always = yes }
 }
@@ -257,7 +260,10 @@ KUK = {
 
 	possible = {
 		has_technology_researched = pan-nationalism
-		has_law_or_variant = law_type:law_multicultural
+		OR = {
+			has_law_or_variant = law_type:law_multicultural
+			has_law_or_variant = law_type:law_subjecthood
+		}
 	}
 }
 
@@ -395,15 +401,7 @@ MAL = {
 	}
 
 	required_states_fraction = 0.5
-	
-	ai_will_do = { always = yes }
-}
 
-YUG = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75
-	
 	ai_will_do = { always = yes }
 }
 
