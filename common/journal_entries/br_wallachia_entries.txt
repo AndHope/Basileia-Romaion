@@ -9,63 +9,69 @@ je_little_union = {
 		c:WAL ?= this
 	}
 
-	complete = {
-		OR = {
-			hidden_trigger = {
-				AND = {
-					is_player = no
-					game_date >= 1859
-					c:MOL = {
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_little_union_completed_desc
+		color = "gold_positive"
+		trigger = {
+			OR = {
+				hidden_trigger = {
+					AND = {
 						is_player = no
+						game_date >= 1859
+						c:MOL = {
+							is_player = no
+						}
 					}
 				}
-			}
-			AND = {
-				is_at_war = no
-				exists = c:MOL
-				has_technology_researched = nationalism
+				AND = {
+					is_at_war = no
+					exists = c:MOL
+					has_technology_researched = nationalism
 
-        		NOR = {
-					has_law_or_variant = law_type:law_closed_borders
-				}
+					NOR = {
+						has_law_or_variant = law_type:law_closed_borders
+					}
 
-				c:MOL = {
-					relations:ROOT >= relations_threshold:amicable
-				}
-
-				c:BYZ = {
-					relations:ROOT >= relations_threshold:amicable
-				}
-
-				OR = {
-					c:HRE = {
+					c:MOL = {
 						relations:ROOT >= relations_threshold:amicable
 					}
-					c:DEN = {
-						relations:ROOT >= relations_threshold:amicable
-					}
-				}
 
-				OR = {
-					c:br_tartaria = {
+					c:BYZ = {
 						relations:ROOT >= relations_threshold:amicable
 					}
-					c:PLC = {
-						relations:ROOT >= relations_threshold:amicable
+
+					OR = {
+						c:HRE = {
+							relations:ROOT >= relations_threshold:amicable
+						}
+						c:DEN = {
+							relations:ROOT >= relations_threshold:amicable
+						}
+					}
+
+					OR = {
+						c:br_tartaria = {
+							relations:ROOT >= relations_threshold:amicable
+						}
+						c:PLC = {
+							relations:ROOT >= relations_threshold:amicable
+						}
 					}
 				}
 			}
 		}
-	}
+		effect = {
+			trigger_event = {
+				id = wallachia_events.3
+				popup = yes
+			}
 
-	on_complete = {
-		trigger_event = {
-			id = wallachia_events.3
-			popup = yes
-		}
-
-		s:STATE_MOLDAVIA = {
-			add_claim = ROOT
+			s:STATE_MOLDAVIA = {
+				add_claim = ROOT
+			}
 		}
 	}
 
@@ -81,19 +87,25 @@ je_secure_dobruja = {
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
-	complete = {
-		is_subject = no
-        owns_entire_state_region = STATE_DOBRUDJA
-	}
-
-	on_complete = {
-		trigger_event = {
-			id = wallachia_events.6
-			popup = no
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_secure_dobruja_completed_desc
+		color = "gold_positive"
+		trigger = {
+			is_subject = no
+			owns_entire_state_region = STATE_DOBRUDJA
 		}
+		effect = {
+			trigger_event = {
+				id = wallachia_events.6
+				popup = no
+			}
 
-		add_journal_entry = {
-			type = je_form_greater_romania
+			add_journal_entry = {
+				type = je_form_greater_romania
+			}
 		}
 	}
 
@@ -109,21 +121,27 @@ je_form_greater_romania = {
 
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	complete = {
-        owns_entire_state_region = STATE_DOBRUDJA
-		owns_entire_state_region = STATE_SOUTHERN_TRANSYLVANIA
-		owns_entire_state_region = STATE_BANAT
-		owns_entire_state_region = STATE_NORTHERN_TRANSYLVANIA
-		owns_entire_state_region = STATE_BEKES
-		owns_entire_state_region = STATE_BESSARABIA
-		owns_entire_state_region = STATE_MOLDAVIA
-		owns_entire_state_region = STATE_WALLACHIA
-	}
-
-	on_complete = {
-		trigger_event = {
-			id = wallachia_events.7
-			popup = no
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_form_greater_romania_completed_desc
+		color = "gold_positive"
+		trigger = {
+			owns_entire_state_region = STATE_DOBRUDJA
+			owns_entire_state_region = STATE_SOUTHERN_TRANSYLVANIA
+			owns_entire_state_region = STATE_BANAT
+			owns_entire_state_region = STATE_NORTHERN_TRANSYLVANIA
+			owns_entire_state_region = STATE_BEKES
+			owns_entire_state_region = STATE_BESSARABIA
+			owns_entire_state_region = STATE_MOLDAVIA
+			owns_entire_state_region = STATE_WALLACHIA
+		}
+		effect = {
+			trigger_event = {
+				id = wallachia_events.7
+				popup = no
+			}
 		}
 	}
 

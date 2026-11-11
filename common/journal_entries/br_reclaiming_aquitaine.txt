@@ -38,36 +38,42 @@
 
 	}
 
-	complete = {
-		NOT = { exists = c:OCC }
-		owns_entire_state_region = STATE_LANGUEDOC
-		owns_entire_state_region = STATE_RHONE
-		owns_entire_state_region = STATE_GUYENNE
-		owns_entire_state_region = STATE_AUVERGNE_LIMOUSIN
-		owns_entire_state_region = STATE_AQUITAINE
-	}
-
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_reclaiming_aquitaine_completed_desc
+		color = "gold_positive"
+		trigger = {
+			NOT = { exists = c:OCC }
+			owns_entire_state_region = STATE_LANGUEDOC
+			owns_entire_state_region = STATE_RHONE
+			owns_entire_state_region = STATE_GUYENNE
+			owns_entire_state_region = STATE_AUVERGNE_LIMOUSIN
+			owns_entire_state_region = STATE_AQUITAINE
 		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
+		effect = {
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
 		}
 	}
 

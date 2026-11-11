@@ -32,41 +32,47 @@
 		is_country_type = recognized
 	}
 
-	complete = {
-		root = {
-			owns_entire_state_region = STATE_VENETIA
-			owns_entire_state_region = STATE_ISTRIA
-			owns_entire_state_region = STATE_LOMBARDY
-			owns_entire_state_region = STATE_PIEDMONT
-			owns_entire_state_region = STATE_EMILIA
-			owns_entire_state_region = STATE_TUSCANY
-			#owns_entire_state_region = STATE_ROMAGNA
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_restore_north_italy_completed_desc
+		color = "gold_positive"
+		trigger = {
+			root = {
+				owns_entire_state_region = STATE_VENETIA
+				owns_entire_state_region = STATE_ISTRIA
+				owns_entire_state_region = STATE_LOMBARDY
+				owns_entire_state_region = STATE_PIEDMONT
+				owns_entire_state_region = STATE_EMILIA
+				owns_entire_state_region = STATE_TUSCANY
+				#owns_entire_state_region = STATE_ROMAGNA
+			}
 		}
-	}
-	
-	on_complete = {
-		add_treasury = 75000
-		change_tag = ITA
-		#set_variable = italian_league
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
+		effect = {
+			add_treasury = 75000
+			change_tag = ITA
+			#set_variable = italian_league
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
 		}
 	}
 	

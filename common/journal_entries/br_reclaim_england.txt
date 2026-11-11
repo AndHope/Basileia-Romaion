@@ -32,36 +32,42 @@
 		}
 	}
 
-	complete = {
-		owns_entire_state_region = STATE_HOME_COUNTIES 
-		owns_entire_state_region = STATE_LANCASHIRE
-		owns_entire_state_region = STATE_YORKSHIRE
-		owns_entire_state_region = STATE_MIDLANDS
-		owns_entire_state_region = STATE_EAST_ANGLIA
-		owns_entire_state_region = STATE_WEST_COUNTRY
-	}
-
-    on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_reclaim_england_completed_desc
+		color = "gold_positive"
+		trigger = {
+			owns_entire_state_region = STATE_HOME_COUNTIES
+			owns_entire_state_region = STATE_LANCASHIRE
+			owns_entire_state_region = STATE_YORKSHIRE
+			owns_entire_state_region = STATE_MIDLANDS
+			owns_entire_state_region = STATE_EAST_ANGLIA
+			owns_entire_state_region = STATE_WEST_COUNTRY
 		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
+		effect = {
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
 		}
 	}
 	
@@ -90,12 +96,19 @@ je_conquer_wales = {
 		}
 	}
 
-	complete = {
-		owns_entire_state_region = STATE_WALES 
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_conquer_wales_completed_desc
+		color = "gold_positive"
+		trigger = {
+			owns_entire_state_region = STATE_WALES
+		}
+		effect = {
+		}
 	}
 
-    on_complete = {
-	}
 	
 	weight = 100
 	should_be_pinned_by_default_uninvolved_or_context = yes

@@ -23,36 +23,44 @@
 		#Manually placed in country file
 	}
 
-	complete = {
-		NOT = { 
-			has_law_or_variant = law_type:law_peasant_levies
-			has_law_or_variant = law_type:law_no_home_affairs
-			has_law_or_variant = law_type:law_hereditary_bureaucrats
-			has_law_or_variant = law_type:law_oligarchy
-			has_law_or_variant = law_type:law_traditionalism
-			has_law_or_variant = law_type:law_land_based_taxation
-			has_law_or_variant = law_type:law_debt_slavery
-			has_law_or_variant = law_type:law_mercantilism
-		}
-	}
-	on_complete = {
-		add_radicals = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_radicals = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = shopkeepers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = capitalists
-			value = very_large_radicals
-		}
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            NOT = {
+                has_law_or_variant = law_type:law_peasant_levies
+                has_law_or_variant = law_type:law_no_home_affairs
+                has_law_or_variant = law_type:law_hereditary_bureaucrats
+                has_law_or_variant = law_type:law_oligarchy
+                has_law_or_variant = law_type:law_traditionalism
+                has_law_or_variant = law_type:law_land_based_taxation
+                has_law_or_variant = law_type:law_debt_slavery
+                has_law_or_variant = law_type:law_mercantilism
+            }
+        }
+        effect = {
+            add_radicals = {
+                pop_type = clergymen
+                value = very_large_radicals
+            }
+            add_radicals = {
+                pop_type = aristocrats
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = shopkeepers
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = capitalists
+                value = very_large_radicals
+            }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 	
 }
 
@@ -70,28 +78,6 @@ je_china_reforms_navy = {	#this event is currently not beeing used
 	# 	c:CHI ?= this
 	# }
 
-	complete = {
-		navy_size >= 125
-		has_technology_researched = power_of_the_purse
-		has_technology_researched = screw_frigate
-		NOT = {
-			any_scope_building = {
-				is_building_type = building_naval_administration
-				has_active_production_method = pm_simple_sailor_recruitment
-			}
-		}
-		NOT = {
-			any_scope_building = {
-				is_building_type = building_shipyard
-				has_active_production_method = pm_basic_shipbuilding
-			}
-		}
-	}
-
-	on_complete = {
-		
-	}
-
 	#on_monthly_pulse = {
 	#	events = {
 	#		
@@ -106,6 +92,33 @@ je_china_reforms_navy = {	#this event is currently not beeing used
 	possible = {
 		has_modifier = br_modifier_regionalized_navy
 	}
+
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            navy_size >= 125
+            has_technology_researched = power_of_the_purse
+            has_technology_researched = screw_frigate
+            NOT = {
+                any_scope_building = {
+                    is_building_type = building_naval_administration
+                    has_active_production_method = pm_simple_sailor_recruitment
+                }
+            }
+            NOT = {
+                any_scope_building = {
+                    is_building_type = building_shipyard
+                    has_active_production_method = pm_basic_shipbuilding
+                }
+            }
+        }
+        effect = {}
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 5000
 

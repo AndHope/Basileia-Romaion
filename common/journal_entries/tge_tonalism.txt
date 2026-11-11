@@ -41,19 +41,21 @@
 	scripted_button = tge_revive_bloodletting_button
 	scripted_button = tge_adopt_teotl_button
 
-	complete = {}
-
-	on_complete = {}
-
-	fail = {
-		NOR = {
-			country_has_state_religion = rel:br_tge_religion_teotl
-			country_has_state_religion = rel:br_tge_religion_tonalism
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_tge_tonalism_failed_desc
+		color = "blue_negative"
+		trigger = {
+			NOR = {
+				country_has_state_religion = rel:br_tge_religion_teotl
+				country_has_state_religion = rel:br_tge_religion_tonalism
+			}
 		}
-	}
-
-	on_fail = {
-		tge_cleanup_tonalism_effect = yes
+		effect = {
+			tge_cleanup_tonalism_effect = yes
+		}
 	}
 
 	on_weekly_pulse = {
@@ -92,20 +94,26 @@ je_tge_tonalism_new_fire = {
 	scripted_button = tge_host_animal_sacrifice_button
 	scripted_button = tge_host_human_sacrifice_button
 
-	complete = {
-		custom_tooltip = {
-			text = je_tge_tonalism_new_fire_complete
-			je:je_tge_tonalism_new_fire = {
-				scripted_bar_progress = {
-					name = tge_new_fire_progress_bar
-					value >= 36
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_tge_tonalism_new_fire_completed_desc
+		color = "gold_positive"
+		trigger = {
+			custom_tooltip = {
+				text = je_tge_tonalism_new_fire_complete
+				je:je_tge_tonalism_new_fire = {
+					scripted_bar_progress = {
+						name = tge_new_fire_progress_bar
+						value >= 36
+					}
 				}
 			}
 		}
-	}
-
-	on_complete = {
-		remove_variable = tge_new_fire_var
+		effect = {
+			remove_variable = tge_new_fire_var
+		}
 	}
 
 	on_weekly_pulse = {

@@ -59,42 +59,48 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = br_when_you_own_all_ere_states_tt
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_br_wre_reconquer_the_east_completed_desc
+		color = "gold_positive"
+		trigger = {
+			custom_tooltip = {
+				text = br_when_you_own_all_ere_states_tt
+				country_or_subject_owned_all_ere_region_states = yes
+			}
 			country_or_subject_owned_all_ere_region_states = yes
 		}
-		country_or_subject_owned_all_ere_region_states = yes
-	}
-	
-	on_complete = {
-		custom_tooltip = br_changes_name_to_roman_empire_tt
-		add_treasury = 75000
-		add_modifier = {
-			name = br_modifier_restitutor_orbis
-			days = -1
+		effect = {
+			custom_tooltip = br_changes_name_to_roman_empire_tt
+			add_treasury = 75000
+			add_modifier = {
+				name = br_modifier_restitutor_orbis
+				days = -1
+			}
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
+			set_variable = br_wre_reconquered_the_east_var
 		}
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
-		}
-		set_variable = br_wre_reconquered_the_east_var
 	}
 	
 	should_be_pinned_by_default_uninvolved_or_context = yes

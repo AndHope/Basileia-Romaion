@@ -20,39 +20,46 @@
 		exists = c:br_alodia
 	}
 
-	complete = {
-		NOT = { exists = c:br_makuria }
-		NOT = { exists = c:br_alodia }
-		owns_entire_state_region = STATE_EGYPTIAN_DESERT
-		owns_entire_state_region = STATE_DONGOLA
-		owns_entire_state_region = STATE_KORDOFAN
-		owns_entire_state_region = STATE_BLUE_NILE
-		owns_entire_state_region = STATE_EGYPTIAN_DESERT
-	}
-
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
-		}
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            NOT = { exists = c:br_makuria }
+            NOT = { exists = c:br_alodia }
+            owns_entire_state_region = STATE_EGYPTIAN_DESERT
+            owns_entire_state_region = STATE_DONGOLA
+            owns_entire_state_region = STATE_KORDOFAN
+            owns_entire_state_region = STATE_BLUE_NILE
+            owns_entire_state_region = STATE_EGYPTIAN_DESERT
+        }
+        effect = {
+            add_treasury = 75000
+            add_loyalists = {
+                pop_type = aristocrats
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = officers
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = soldiers
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = clergymen
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = bureaucrats
+                value = very_large_radicals
+            }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 100
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -119,40 +126,47 @@ je_aegypt_homeland = {
 		}
 	}
 
-	complete = {
-		highest_secession_progress < 0.5
-		NOT = {
-			any_scope_state = {
-				turmoil >= 0.25
-			}
-		}
-	}
-
-	on_complete = {
-		s:STATE_LOWER_EGYPT ?= {
-			add_homeland = cu:aegyptian
-		}
-		s:STATE_MIDDLE_EGYPT ?= {
-			add_homeland = cu:aegyptian
-		}
-		s:STATE_UPPER_EGYPT ?= {
-			add_homeland = cu:aegyptian
-		}
-		s:STATE_MATRUH ?= {
-			add_homeland = cu:aegyptian
-		}
-		s:STATE_SINAI ?= {
-			add_homeland = cu:aegyptian
-		}
-		s:STATE_EGYPTIAN_DESERT ?= {
-			add_homeland = cu:aegyptian
-		}
-		c:br_aegypt ?= {
-			every_scope_pop = {
-				change_pop_culture = { target = cu:aegyptian value = 0.1 }
-			}
-		}
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            highest_secession_progress < 0.5
+            NOT = {
+                any_scope_state = {
+                    turmoil >= 0.25
+                }
+            }
+        }
+        effect = {
+            s:STATE_LOWER_EGYPT ?= {
+                add_homeland = cu:aegyptian
+            }
+            s:STATE_MIDDLE_EGYPT ?= {
+                add_homeland = cu:aegyptian
+            }
+            s:STATE_UPPER_EGYPT ?= {
+                add_homeland = cu:aegyptian
+            }
+            s:STATE_MATRUH ?= {
+                add_homeland = cu:aegyptian
+            }
+            s:STATE_SINAI ?= {
+                add_homeland = cu:aegyptian
+            }
+            s:STATE_EGYPTIAN_DESERT ?= {
+                add_homeland = cu:aegyptian
+            }
+            c:br_aegypt ?= {
+                every_scope_pop = {
+                    change_pop_culture = { target = cu:aegyptian value = 0.1 }
+                }
+            }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 100
 	should_be_pinned_by_default_uninvolved_or_context = yes

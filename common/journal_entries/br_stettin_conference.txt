@@ -164,46 +164,102 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = br_je_stettin_conference_tt_1
-			has_global_variable = br_stettin_conference_has_concluded_global_var
-
-		}
-		custom_tooltip = {
-			text = br_je_stettin_conference_tt_2
-			has_global_variable = br_stettin_treaty_signed_target_global_var
-		}
-		custom_tooltip = {
-			text = br_je_stettin_conference_tt_4
-			has_global_variable = br_stettin_treaty_signed_initiator_global_var
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = br_stettin_conference_event.4 popup = yes }
-	}
-
-	fail = {
-		OR = {
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = br_je_stettin_conference_completed_desc
+		color = "gold_positive"
+		trigger = {
 			custom_tooltip = {
-				text = br_je_stettin_conference_tt_3
-				OR = {
-					has_global_variable = br_stettin_treaty_not_signed_initiator_global_var
-					has_global_variable = br_stettin_treaty_not_signed_target_global_var
-				}
+				text = br_je_stettin_conference_tt_1
+				has_global_variable = br_stettin_conference_has_concluded_global_var
+
 			}
 			custom_tooltip = {
-				text = br_je_stettin_conference_tt_5
-				this ?= {
-					has_war_with = c:SWE
-				}
+				text = br_je_stettin_conference_tt_2
+				has_global_variable = br_stettin_treaty_signed_target_global_var
 			}
+			custom_tooltip = {
+				text = br_je_stettin_conference_tt_4
+				has_global_variable = br_stettin_treaty_signed_initiator_global_var
+			}
+		}
+		effect = {
+			trigger_event = { id = br_stettin_conference_event.4 popup = yes }
 		}
 	}
 
-	on_fail = {
-		trigger_event = { id = br_stettin_conference_event.5 popup = yes }
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = br_je_stettin_conference_failed_desc
+		color = "blue_negative"
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = br_je_stettin_conference_tt_3
+					OR = {
+						has_global_variable = br_stettin_treaty_not_signed_initiator_global_var
+						has_global_variable = br_stettin_treaty_not_signed_target_global_var
+					}
+				}
+				custom_tooltip = {
+					text = br_je_stettin_conference_tt_5
+					this ?= {
+						has_war_with = c:SWE
+					}
+				}
+			}
+		}
+		effect = {
+			trigger_event = { id = br_stettin_conference_event.5 popup = yes }
+		}
+	}
+
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			any_state_in_state_region_owned_by_country_or_subject = {
+				TARGET_COUNTRY = scope:br_target_scope
+				TARGET_STATE_REGION = s:STATE_COURLAND
+			}
+			any_state_in_state_region_owned_by_country_or_subject = {
+				TARGET_COUNTRY = scope:br_target_scope
+				TARGET_STATE_REGION = s:STATE_RIGA
+			}
+			any_state_in_state_region_owned_by_country_or_subject = {
+				TARGET_COUNTRY = scope:br_target_scope
+				TARGET_STATE_REGION = s:STATE_TARTU
+			}
+			any_state_in_state_region_owned_by_country_or_subject = {
+				TARGET_COUNTRY = scope:br_target_scope
+				TARGET_STATE_REGION = s:STATE_TALINN
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					this ?= scope:br_initiator_scope
+				}
+				s:STATE_COURLAND = {
+					add_claim = scope:br_initiator_scope
+				}
+				s:STATE_RIGA = {
+					add_claim = scope:br_initiator_scope
+				}
+				s:STATE_TARTU = {
+					add_claim = scope:br_initiator_scope
+				}
+				s:STATE_TALINN = {
+					add_claim = scope:br_initiator_scope
+				}
+				br_remove_treaty_of_stettin_variables_scripted_effect = yes
+			}
+		}
 	}
 
 	on_monthly_pulse = {
@@ -258,44 +314,6 @@
 		}
 	}
 
-	invalid = {
-		any_state_in_state_region_owned_by_country_or_subject = {
-			TARGET_COUNTRY = scope:br_target_scope
-			TARGET_STATE_REGION = s:STATE_COURLAND
-		}
-		any_state_in_state_region_owned_by_country_or_subject = {
-			TARGET_COUNTRY = scope:br_target_scope
-			TARGET_STATE_REGION = s:STATE_RIGA
-		}
-		any_state_in_state_region_owned_by_country_or_subject = {
-			TARGET_COUNTRY = scope:br_target_scope
-			TARGET_STATE_REGION = s:STATE_TARTU
-		}
-		any_state_in_state_region_owned_by_country_or_subject = {
-			TARGET_COUNTRY = scope:br_target_scope
-			TARGET_STATE_REGION = s:STATE_TALINN
-		}
-	}
-	on_invalid = {
-		if = {
-			limit = {
-				this ?= scope:br_initiator_scope
-			}
-			s:STATE_COURLAND = {
-				add_claim = scope:br_initiator_scope
-			}
-			s:STATE_RIGA = {
-				add_claim = scope:br_initiator_scope
-			}
-			s:STATE_TARTU = {
-				add_claim = scope:br_initiator_scope
-			}
-			s:STATE_TALINN = {
-				add_claim = scope:br_initiator_scope
-			}
-			br_remove_treaty_of_stettin_variables_scripted_effect = yes
-		}
-	}
 
 	weight = 100
 

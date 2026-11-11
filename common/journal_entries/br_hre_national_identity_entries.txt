@@ -30,18 +30,24 @@ je_national_identity = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = br_enbraced_an_identity_tt
-			has_variable = br_enbraced_an_identity
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_national_identity_completed_desc
+		color = "gold_positive"
+		trigger = {
+			custom_tooltip = {
+				text = br_enbraced_an_identity_tt
+				has_variable = br_enbraced_an_identity
+			}
 		}
-	}
-
-	on_complete = {
-		# trigger_event = {
-		# 	id = hre_national_identity_events.2
-		# 	popup = yes
-		# }
+		effect = {
+			# trigger_event = {
+			# 	id = hre_national_identity_events.2
+			# 	popup = yes
+			# }
+		}
 	}
 
 	weight = 10000
@@ -56,32 +62,43 @@ je_identity_embrace_our_roman_identity = {
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
-	complete = {
-		NOT = {
-			has_law_or_variant = law_type:law_national_supremacy
-			has_law_or_variant = law_type:law_ethnostate
-			has_law_or_variant = law_type:law_state_religion
-			has_law_or_variant = law_type:law_state_atheism
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_identity_embrace_our_roman_identity_completed_desc
+		color = "gold_positive"
+		trigger = {
+			NOT = {
+				has_law_or_variant = law_type:law_national_supremacy
+				has_law_or_variant = law_type:law_ethnostate
+				has_law_or_variant = law_type:law_state_religion
+				has_law_or_variant = law_type:law_state_atheism
+			}
+			country_has_primary_culture = cu:frankish
 		}
-		country_has_primary_culture = cu:frankish
+		effect = {
+			trigger_event = {
+				id = hre_national_identity_events.3
+				popup = no
+			}
+			add_modifier = {
+				name = br_modifier_romantic_multiculturalism
+				years = -1
+			}
+			remove_modifier = linguistic_discrimination
+		}
 	}
 
-	on_complete = {
-		trigger_event = {
-			id = hre_national_identity_events.3
-			popup = no
-		}
-		add_modifier = {
-			name = br_modifier_romantic_multiculturalism
-			years = -1
-		}
-		remove_modifier = linguistic_discrimination
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = br_enbraced_an_identity_tt
-			has_variable = br_enbraced_an_identity
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = br_enbraced_an_identity_tt
+				has_variable = br_enbraced_an_identity
+			}
 		}
 	}
 
@@ -97,33 +114,44 @@ je_identity_embrace_french = {
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
-	complete = {
-		OR = {
-			has_law_or_variant = law_type:law_national_supremacy
-			has_law_or_variant = law_type:law_ethnostate
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_identity_embrace_french_completed_desc
+		color = "gold_positive"
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_national_supremacy
+				has_law_or_variant = law_type:law_ethnostate
+			}
+			has_law_or_variant = law_type:law_state_religion
+			NOT = {
+				country_has_primary_culture = cu:frankish
+			}
 		}
-		has_law_or_variant = law_type:law_state_religion
-		NOT = {
-			country_has_primary_culture = cu:frankish
+		effect = {
+			trigger_event = {
+				id = hre_national_identity_events.4
+				popup = no
+			}
+			add_modifier = {
+				name = br_modifier_enforced_franconization
+				years = -1
+			}
+			remove_modifier = linguistic_discrimination
 		}
 	}
 
-	on_complete = {
-		trigger_event = {
-			id = hre_national_identity_events.4
-			popup = no
-		}
-		add_modifier = {
-			name = br_modifier_enforced_franconization
-			years = -1
-		}
-		remove_modifier = linguistic_discrimination
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = br_enbraced_an_identity_tt
-			has_variable = br_enbraced_an_identity
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = br_enbraced_an_identity_tt
+				has_variable = br_enbraced_an_identity
+			}
 		}
 	}
 
