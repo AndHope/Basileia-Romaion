@@ -46,7 +46,7 @@ state_trait_rome = {
 
 state_trait_venice_harbor = {
 	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
-	
+
 	modifier = {
 		state_building_naval_base_max_level_add = 25
 		state_infrastructure_add = 10
@@ -56,7 +56,7 @@ state_trait_venice_harbor = {
 
 state_trait_genoa_harbor = {
 	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
-	
+
 	modifier = {
 		state_building_naval_base_max_level_add = 25
 		state_infrastructure_add = 10
@@ -68,9 +68,9 @@ state_trait_genoa_harbor = {
 
 state_trait_hostile_climate = {
     icon = "gfx/interface/icons/state_trait_icons/dry_climate.dds"
-	
+
 	disabling_technologies = { "civilizing_mission" "br_tech_hostile_climate_colonization" }
-	
+
 	modifier = {
 		state_non_homeland_colony_growth_speed_mult = -0.75
 		state_non_homeland_mortality_mult = 0.15
@@ -80,9 +80,9 @@ state_trait_hostile_climate = {
 
 state_trait_hostile_climate_cold = {
     icon = "gfx/interface/icons/state_trait_icons/cold_climate.dds"
-	
+
 	disabling_technologies = { "civilizing_mission" "br_tech_hostile_climate_colonization" }
-	
+
 	modifier = {
 		state_non_homeland_colony_growth_speed_mult = -0.75
 		state_non_homeland_mortality_mult = 0.15
@@ -92,10 +92,9 @@ state_trait_hostile_climate_cold = {
 
 REPLACE_OR_CREATE:state_trait_pannonian_plain = {
 	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
-	
+
 	modifier = {
 		building_group_bg_agriculture_throughput_add = 0.1
-		building_group_bg_plantations_throughput_add = 0.1
 		building_group_bg_ranching_throughput_add = 0.1
 	}
 }
@@ -113,7 +112,7 @@ state_trait_caribbean_islands = {
 	
 	modifier = {
 		building_sugar_plantation_throughput_add = 0.25
-		building_group_bg_plantations_throughput_add = 0.25
+		building_group_bg_plantations_throughput_add = 0.1
 	}
 }
 
@@ -129,8 +128,7 @@ REPLACE_OR_CREATE:state_trait_anatolian_plateau = {
 	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
 	
 	modifier = {
-		building_group_bg_agriculture_throughput_add = 0.1
-		building_group_bg_plantations_throughput_add = 0.1
+		building_group_bg_agriculture_throughput_add = 0.05
 		building_group_bg_ranching_throughput_add = 0.1
 		state_infrastructure_mult = -0.1
 	}
@@ -140,7 +138,7 @@ state_trait_thessalian_plain = {
 	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
 
 	modifier = {
-		building_group_bg_agriculture_throughput_add = 0.15
+		building_group_bg_agriculture_throughput_add = 0.1
 	}
 }
 
@@ -216,9 +214,12 @@ state_trait_ethiopian_highlands = {
 	icon = "gfx/interface/icons/state_trait_icons/mountain.dds"
 	
 	modifier = {
-		state_infrastructure_mult = -0.2
+		state_infrastructure_mult = -0.1
 		state_market_access_price_impact = -0.05
+		building_group_bg_ranching_throughput_add = 0.1
 		building_coffee_plantation_throughput_add = 0.25
+		battle_defense_owned_province_mult = 0.1
+		battle_combat_width_mult = -0.25
 	}
 }
 
@@ -226,7 +227,6 @@ br_state_trait_armenian_highlands = {
 	icon = gfx/interface/icons/state_trait_icons/poor_soils.dds
 	modifier = {
 		building_group_bg_ranching_throughput_add = 0.1
-		building_group_bg_agriculture_throughput_add = -0.05
 		building_group_bg_plantations_throughput_add = -0.1
 	}
 }
@@ -234,7 +234,7 @@ br_state_trait_armenian_highlands = {
 br_state_trait_taurus_mountains = {
 	icon = gfx/interface/icons/state_trait_icons/mountain.dds
 	modifier = {
-		state_infrastructure_mult = -0.1
+		state_infrastructure_mult = -0.05
 		battle_defense_owned_province_mult = 0.1
 		battle_combat_width_mult = -0.25
 	}
