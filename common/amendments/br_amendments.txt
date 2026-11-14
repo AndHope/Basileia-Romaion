@@ -10,9 +10,13 @@ amendment_triple_acclamation = {
 		country_legitimacy_headofstate_add = 15
 		country_legitimacy_base_add = -5
 		interest_group_ig_armed_forces_pol_str_mult = 0.10
-		country_authority_mult = -0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_armed_forces
@@ -29,10 +33,10 @@ amendment_porphyrogennetos_doctrine = {
 	parent = law_monarchy
 	allowed_laws = { law_monarchy }
 	modifier = {
-		country_legitimacy_headofstate_add = 25
+		country_legitimacy_headofstate_add = 10
 		country_legitimacy_base_add = 5
 		interest_group_ig_armed_forces_approval_add = -1
-		country_law_enactment_speed_mult = -0.05
+		#country_law_enactment_speed_mult = -0.05
 	}
 	possible = { c:BYZ ?= this }
 	would_sponsor = {
@@ -57,7 +61,12 @@ amendment_synkletos = {
 		country_officers_voting_power_add = 15
 		country_electoral_confidence_impact_mult = -0.2
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_landowners
@@ -77,7 +86,12 @@ amendment_kinship_court_titles = {
 		country_legitimacy_govt_total_clout_add = 10
 		country_bureaucracy_mult = -0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_landowners
@@ -85,6 +99,96 @@ amendment_kinship_court_titles = {
 		}
 	}
 	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Junior emperor crowned early to secure the succession
+amendment_co_emperorship = {
+	parent = law_monarchy
+	allowed_laws = { law_monarchy }
+	modifier = {
+		country_legitimacy_headofstate_add = 10
+		country_legitimacy_base_add = 3
+		country_authority_mult = -0.05
+		interest_group_ig_armed_forces_pol_str_mult = 0.05
+	}
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Rivals are blinded or mutilated rather than killed, disqualifying them from the throne
+amendment_political_mutilation = {
+	parent = law_monarchy
+	allowed_laws = { law_monarchy }
+	modifier = {
+		country_legitimacy_base_add = 3
+		state_radicals_from_political_movements_mult = -0.10
+		interest_group_ig_devout_approval_add = -1
+		country_authority_add = 25
+	}
+	possible = { 
+		c:BYZ ?= this
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_landowners
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_devout
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# The emperor as nomos empsychos: the living law
+amendment_living_law = {
+	parent = law_monarchy
+	allowed_laws = { law_monarchy }
+	modifier = {
+		country_authority_mult = 0.10
+		country_law_enactment_speed_mult = 0.10
+		interest_group_ig_landowners_pol_str_mult = -0.10
+		country_clergymen_pol_str_mult = -0.05
+	}
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_landowners
+			is_powerful = yes
+		}
+	}
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
 	amendment_activism_multiplier = 0.5
 }
@@ -103,7 +207,12 @@ amendment_logothetes_sekreta = {
 		state_tax_capacity_mult = 0.05
 		country_government_wages_mult = 0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_intelligentsia
@@ -124,7 +233,12 @@ amendment_eunuch_ministers = {
 		interest_group_ig_landowners_pol_str_mult = -0.10
 		interest_group_ig_armed_forces_approval_add = -1
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -150,7 +264,12 @@ amendment_venal_offices = {
 		country_bureaucracy_mult = -0.05
 		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.10
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_petty_bourgeoisie
@@ -169,14 +288,20 @@ amendment_venal_offices = {
 # Novels of the Macedonian emperors: protect small holders from the dynatoi
 amendment_protection_of_the_poor = {
 	parent = law_serfdom
-	allowed_laws = { law_serfdom law_tenant_farmers law_peasant_proprietorship }
+	allowed_laws = { law_serfdom law_tenant_farmers law_peasant_proprietorship law_homesteading }
 	modifier = {
 		interest_group_ig_landowners_pol_str_mult = -0.15
 		interest_group_ig_landowners_approval_add = -1
 		interest_group_ig_rural_folk_approval_add = 1
 		state_conscription_rate_mult = 0.10
 	}
-	possible = { NOT = { any_active_law = { has_amendment = amendment_type:amendment_dynatoi_estates } } }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+		NOT = { any_active_law = { has_amendment = amendment_type:amendment_dynatoi_estates } }
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_rural_folk
@@ -205,7 +330,12 @@ amendment_dynatoi_estates = {
 		state_conscription_rate_mult = -0.10
 		state_tax_capacity_mult = -0.05
 	}
-	possible = { NOT = { any_active_law = { has_amendment = amendment_type:amendment_protection_of_the_poor } } }
+	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+		NOT = { any_active_law = { has_amendment = amendment_type:amendment_protection_of_the_poor } }
+	}
 	would_sponsor = {
 		is_interest_group_type = ig_landowners
 	}
@@ -219,26 +349,39 @@ amendment_dynatoi_estates = {
 	amendment_activism_multiplier = 0.75
 }
 
-# Allelengyon: neighbors jointly liable for each other's tax
+# Allelengyon (Basil II, 996): the powerful answer for the tax arrears of their poor neighbours
 amendment_allelengyon = {
 	parent = law_land_based_taxation
 	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation }
 	modifier = {
 		state_tax_collection_mult = 0.10
-		state_radicals_from_political_movements_mult = 0.10
-		interest_group_ig_rural_folk_approval_add = -1
+		interest_group_ig_landowners_approval_add = -1
+		interest_group_ig_landowners_pol_str_mult = -0.10
+		interest_group_ig_rural_folk_approval_add = 1
+		state_conscription_rate_mult = 0.05
 	}
-	tax_modifier_low = { tax_land_add = 0.03 }
-	tax_modifier_medium = { tax_land_add = 0.05 }
-	tax_modifier_high = { tax_land_add = 0.08 }
-	possible = { c:BYZ ?= this }
+	tax_modifier_low = { tax_dividends_add = 0.03 }
+	tax_modifier_medium = { tax_dividends_add = 0.05 }
+	tax_modifier_high = { tax_dividends_add = 0.08 }
+	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
-			is_interest_group_type = ig_landowners
+			is_interest_group_type = ig_rural_folk
+			is_interest_group_type = ig_armed_forces
 			AND = { exists = scope:approval scope:approval > 0 }
 		}
 	}
-	ai_will_revoke = { always = no }
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_landowners
+			is_powerful = yes
+		}
+	}
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
 	amendment_activism_multiplier = 0.5
 }
@@ -253,7 +396,11 @@ amendment_pronoia_grants = {
 		country_government_wages_mult = -0.10
 		state_tax_capacity_mult = -0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_armed_forces
@@ -274,7 +421,11 @@ amendment_civil_judges_of_themata = {
 		interest_group_ig_armed_forces_pol_str_mult = -0.10
 		state_tax_collection_mult = 0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_intelligentsia
@@ -301,7 +452,12 @@ amendment_inalienable_soldier_holdings = {
 		building_training_rate_mult = 0.05
 		interest_group_ig_landowners_approval_add = -1
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_armed_forces
@@ -313,11 +469,125 @@ amendment_inalienable_soldier_holdings = {
 	amendment_activism_multiplier = 0.5
 }
 
+# Basilika: Justinian's law recast in Greek
+amendment_basilika_code = {
+	parent = law_traditionalism
+	allowed_laws = { law_traditionalism }
+	modifier = {
+		country_bureaucracy_mult = 0.10
+		country_legitimacy_base_add = 3
+		country_law_enactment_speed_mult = -0.05
+		interest_group_ig_intelligentsia_approval_add = 1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Praktika: imperial surveyors register every plot
+amendment_cadastral_survey = {
+	parent = law_land_based_taxation
+	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation }
+	modifier = {
+		state_tax_collection_mult = 0.10
+		country_bureaucracy_investment_cost_factor_mult = 0.05
+		interest_group_ig_landowners_approval_add = -1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_landowners
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Exkousseia: tax immunities granted to magnates and monasteries
+amendment_fiscal_immunities = {
+	parent = law_land_based_taxation
+	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation }
+	modifier = {
+		state_tax_collection_mult = -0.10
+		interest_group_ig_landowners_approval_add = 1
+		interest_group_ig_devout_approval_add = 1
+		interest_group_ig_landowners_pol_str_mult = 0.10
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			is_interest_group_type = ig_devout
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_armed_forces
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.75
+}
+
+# Kapnikon: a flat levy per hearth
+amendment_hearth_tax = {
+	parent = law_per_capita_based_taxation
+	allowed_laws = { law_per_capita_based_taxation law_land_based_taxation }
+	modifier = {
+		state_tax_collection_mult = 0.10
+		interest_group_ig_rural_folk_approval_add = -1
+		state_radicals_from_political_movements_mult = 0.05
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
 #########################################################
 # MILITARY
 #########################################################
 
-# Varangian Guard: foreign axe-bearers loyal only to the Basileus
+# Varangian Guard: foreign soldiers loyal to the Basileus
 amendment_varangian_guard = {
 	parent = br_law_tagmata_army
 	allowed_laws = { br_law_tagmata_army }
@@ -326,7 +596,12 @@ amendment_varangian_guard = {
 		country_authority_add = 25
 		interest_group_ig_armed_forces_approval_add = 1
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_armed_forces
@@ -346,7 +621,12 @@ amendment_imperial_arsenals = {
 		building_group_bg_military_industry_throughput_add = 0.05
 		interest_group_ig_armed_forces_pol_str_mult = 0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_armed_forces
@@ -367,7 +647,11 @@ amendment_mercenary_companies = {
 		building_training_rate_mult = 0.10
 		interest_group_ig_armed_forces_approval_add = -1
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_industrialists
@@ -377,6 +661,116 @@ amendment_mercenary_companies = {
 	ai_will_revoke = { always = no }
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
 	amendment_activism_multiplier = 0.5
+}
+
+# Akritai: hereditary frontier guard families
+amendment_akritai_border_guards = {
+	parent = br_law_soldier_farmers
+	allowed_laws = { br_law_soldier_farmers }
+	modifier = {
+		state_conscription_rate_mult = 0.10
+		building_training_rate_mult = 0.05
+		state_radicals_from_political_movements_mult = 0.05
+		country_authority_mult = -0.05
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_rural_folk
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Karabisianoi and Kibyrrhaiotai: coastal themes supplying the fleet
+amendment_thematic_fleets = {
+	parent = br_law_themata
+	allowed_laws = { br_law_themata }
+	modifier = {
+		state_conscription_rate_mult = 0.05
+		#building_naval_base_throughput_add = 0.05
+		state_tax_collection_mult = -0.03
+		interest_group_ig_armed_forces_approval_add = 1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# The great military families keep their commands
+amendment_hereditary_strategoi = {
+	parent = br_law_themata
+	allowed_laws = { br_law_themata }
+	modifier = {
+		interest_group_ig_armed_forces_pol_str_mult = 0.1
+		interest_group_ig_landowners_pol_str_mult = 0.1
+		building_training_rate_mult = 0.05
+		country_authority_mult = -0.10
+		country_legitimacy_base_add = -5
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_landowners
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_intelligentsia
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.75
+}
+
+# Adelphata: veterans and retired officials lodged at monasteries at state expense
+amendment_adelphata = {
+	parent = br_law_soldier_farmers
+	allowed_laws = { br_law_soldier_farmers law_poor_laws }
+	modifier = {
+		state_welfare_payments_add = 0.05
+		interest_group_ig_armed_forces_approval_add = 1
+		interest_group_ig_devout_approval_add = 1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_devout
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
 }
 
 #########################################################
@@ -392,7 +786,12 @@ amendment_endemousa_synod = {
 		country_legitimacy_base_add = 5
 		country_authority_mult = -0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -419,7 +818,12 @@ amendment_charistike_patronage = {
 		interest_group_ig_devout_approval_add = -1
 		state_tax_capacity_mult = 0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_landowners
@@ -440,14 +844,18 @@ amendment_charistike_patronage = {
 # Anti-heresy edicts (Iconoclasm and its reversal)
 amendment_orthodoxy_enforcement = {
 	parent = law_censorship
-	allowed_laws = { law_censorship }
+	allowed_laws = { law_censorship law_outlawed_dissent }
 	modifier = {
 		interest_group_ig_devout_pol_str_mult = 0.10
 		country_academics_pol_str_mult = -0.10
-		state_radicals_from_political_movements_mult = 0.15
+		state_radicals_from_political_movements_mult = 0.1
 		state_conversion_mult = 0.10
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -462,6 +870,123 @@ amendment_orthodoxy_enforcement = {
 	}
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
 	amendment_activism_multiplier = 0.75
+}
+
+# The Patriarch crowns the emperor in Hagia Sophia
+amendment_patriarchal_coronation = {
+	parent = law_caesaropapism
+	allowed_laws = { law_caesaropapism }
+	modifier = {
+		country_legitimacy_headofstate_add = 10
+		country_clergymen_pol_str_mult = 0.10
+		interest_group_ig_devout_approval_add = 1
+		country_authority_mult = -0.05
+	}
+	possible = { 
+		c:BYZ ?= this
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = { law = law_type:law_caesaropapism value < neutral }
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# The Holy Mountain governs itself by its own typikon
+amendment_athonite_autonomy = {
+	parent = law_caesaropapism
+	allowed_laws = { law_caesaropapism }
+	modifier = {
+		interest_group_ig_devout_pop_attraction_mult = 0.10
+		interest_group_ig_devout_approval_add = 1
+		country_authority_mult = -0.03
+		state_conversion_mult = 0.05
+	}
+	possible = { 
+		c:BYZ ?= this
+	}
+	would_sponsor = {
+		is_interest_group_type = ig_devout
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = { law = law_type:law_caesaropapism value > neutral }
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Armenians, Syriacs and Jews live under their own religious law
+amendment_tolerated_communities = {
+	parent = br_law_roman_supremacy
+	allowed_laws = { br_law_roman_supremacy }
+	modifier = {
+		country_acceptance_shared_religious_trait_add = 5
+		country_acceptance_shared_religious_trait_group_add = 5
+		country_acceptance_no_shared_religious_trait_add = 5
+		state_conversion_mult = -0.10
+		state_radicals_from_political_movements_mult = -0.05
+		interest_group_ig_devout_approval_add = -1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_industrialists
+			is_interest_group_type = ig_petty_bourgeoisie
+			is_interest_group_type = ig_intelligentsia
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_devout
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Heretic communities moved to the frontier as border guards
+amendment_paulician_resettlement = {
+	parent = law_internal_colonization
+	allowed_laws = { law_internal_colonization }
+	modifier = {
+		state_migration_pull_unincorporated_mult = 0.10
+		state_conscription_rate_mult = 0.05
+		country_acceptance_no_shared_religious_trait_add = 5
+		country_acceptance_shared_religious_trait_group_add = 5
+		interest_group_ig_devout_approval_add = -1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
 }
 
 #########################################################
@@ -558,7 +1083,11 @@ amendment_xenones_and_nosokomeia = {
 		interest_group_ig_devout_pop_attraction_mult = 0.10
 		state_mortality_mult = -0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -581,10 +1110,14 @@ amendment_ptochotropheia = {
 	allowed_laws = { law_poor_laws }
 	modifier = {
 		interest_group_ig_devout_pop_attraction_mult = 0.10
-		state_political_strength_from_welfare_mult = 0.10
+		state_political_strength_from_welfare_mult = -0.10
 		country_institution_cost_institution_social_security_mult = -0.10
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -606,7 +1139,12 @@ amendment_capital_grain_dole = {
 		interest_group_ig_landowners_approval_add = -1
 		country_authority_add = 25
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_petty_bourgeoisie
@@ -617,6 +1155,105 @@ amendment_capital_grain_dole = {
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
 	amendment_activism_multiplier = 0.5
 }
+
+# The gold hyperpyron: a reliable standard of value
+amendment_gold_hyperpyron = {
+	parent = law_mercantilism
+	allowed_laws = { law_mercantilism }
+	modifier = {
+		country_loan_interest_rate_mult = -0.10
+		country_influence_mult = 0.05
+		interest_group_ig_petty_bourgeoisie_approval_add = 1
+		country_government_wages_mult = 0.05
+	}
+	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+		NOT = { any_active_law = { has_amendment = amendment_type:amendment_debased_coinage } }
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_petty_bourgeoisie
+			is_interest_group_type = ig_industrialists
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_armed_forces
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Debased coinage: gold content cut to pay for the crisis
+amendment_debased_coinage = {
+	parent = law_mercantilism
+	allowed_laws = { law_mercantilism }
+	modifier = {
+		country_loan_interest_rate_add = 0.03
+		state_tax_collection_mult = 0.05
+		country_influence_mult = -0.05
+		interest_group_ig_petty_bourgeoisie_approval_add = -1
+	}
+	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+		NOT = { any_active_law = { has_amendment = amendment_type:amendment_gold_hyperpyron } }
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_petty_bourgeoisie
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Kommerkion: flat state duty on goods in transit
+amendment_kommerkion_duty = {
+	parent = law_mercantilism
+	allowed_laws = { law_mercantilism }
+	modifier = {
+		state_tariff_import_add = 0.05
+		country_authority_add = 25
+		interest_group_ig_industrialists_approval_add = -1
+		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.05
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_industrialists
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
 
 #########################################################
 # SOCIETY, CULTURE, MIGRATION
@@ -652,7 +1289,11 @@ amendment_parish_schools = {
 		country_institution_cost_institution_schools_mult = -0.05
 		country_clergymen_pol_str_mult = 0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -667,14 +1308,19 @@ amendment_parish_schools = {
 # Resettlement of Slavs, Armenians and Vlachs as paroikoi on depopulated land
 amendment_forced_resettlement = {
 	parent = law_internal_colonization
-	allowed_laws = { law_internal_colonization }
+	allowed_laws = { law_internal_colonization law_frontier_colonization }
 	modifier = {
-		state_migration_pull_unincorporated_mult = 0.20
+		state_migration_pull_unincorporated_mult = 0.1
 		country_acceptance_no_shared_heritage_trait_add = -5
 		state_assimilation_mult = 0.10
 		state_radicals_from_political_movements_mult = 0.10
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_landowners
@@ -697,7 +1343,12 @@ amendment_foederati_settlement = {
 		state_conscription_rate_mult = 0.05
 		country_legitimacy_base_add = -2
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_armed_forces
@@ -714,12 +1365,16 @@ amendment_greek_liturgical_unity = {
 	parent = br_law_roman_supremacy
 	allowed_laws = { br_law_roman_supremacy }
 	modifier = {
-		state_assimilation_mult = 0.15
+		state_assimilation_mult = 0.10
 		state_conversion_mult = 0.10
-		country_acceptance_shared_religious_trait_add = 5
-		state_radicals_from_political_movements_mult = 0.10
+		country_acceptance_no_shared_religious_trait_add = -5
+		state_radicals_from_political_movements_mult = 0.05
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -739,9 +1394,13 @@ amendment_archon_autonomy = {
 		country_acceptance_no_shared_heritage_trait_add = 10
 		state_assimilation_mult = -0.10
 		country_authority_mult = -0.05
-		state_radicals_from_political_movements_mult = -0.05
+		state_radicals_from_political_movements_mult = -0.1
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_industrialists
@@ -767,7 +1426,12 @@ amendment_imperial_regency = {
 		country_authority_add = 25
 		interest_group_ig_armed_forces_approval_add = -1
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_intelligentsia
@@ -779,16 +1443,55 @@ amendment_imperial_regency = {
 	amendment_activism_multiplier = 0.25
 }
 
+# Succession of the Porphyrogennetai: the purple may pass to a daughter 
+amendment_female_succession = {
+	parent = law_monarchy
+	allowed_laws = { law_monarchy }
+	modifier = {
+		country_legitimacy_base_add = -5
+		country_authority_mult = -0.05
+		interest_group_ig_armed_forces_approval_add = -1
+		interest_group_ig_devout_approval_add = -1
+	}
+	possible = { always = yes }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			is_interest_group_type = ig_landowners
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_armed_forces
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	on_activate = {
+		set_variable = br_female_succession_var
+	}
+	on_deactivate = {
+		remove_variable = br_female_succession_var
+	}
+	amendment_activism_multiplier = 0.5
+}
+
 # Church-encouraged manumission softens slavery
 amendment_pious_manumission = {
 	parent = law_colonial_slavery
-	allowed_laws = { law_colonial_slavery }
+	allowed_laws = { law_colonial_slavery law_legacy_slavery }
 	modifier = {
 		interest_group_ig_devout_approval_add = 1
 		interest_group_ig_landowners_approval_add = -1
 		#state_free_state_pop_support_movement_anti_slavery_mult = -0.10
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_devout
@@ -814,7 +1517,12 @@ amendment_circus_factions = {
 		country_legitimacy_base_add = 3
 		state_mortality_turmoil_mult = 0.005
 	}
-	possible = { c:BYZ ?= this }
+	possible = { 
+		OR = {
+			c:BYZ ?= this
+			c:br_elysium ?= this
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_petty_bourgeoisie
@@ -824,4 +1532,56 @@ amendment_circus_factions = {
 	ai_will_revoke = { always = no }
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
 	amendment_activism_multiplier = 0.75
+}
+
+# Proix: a wife's dowry remains her own and returns to her as a widow
+amendment_dowry_law = {
+	parent = law_women_own_property
+	allowed_laws = { law_women_own_property }
+	modifier = {
+		country_legitimacy_base_add = 2
+		interest_group_ig_landowners_approval_add = 1
+		state_dependent_wage_mult = 0.03
+		interest_group_ig_armed_forces_approval_add = -1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			is_interest_group_type = ig_intelligentsia
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# The Vigla: the capital's night watch under the Eparch
+amendment_vigla_night_watch = {
+	parent = law_local_police
+	allowed_laws = { law_local_police }
+	modifier = {
+		state_radicals_from_political_movements_mult = -0.10
+		state_mortality_turmoil_mult = -0.005
+		country_bureaucracy_mult = -0.03
+		interest_group_ig_petty_bourgeoisie_approval_add = -1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
 }
