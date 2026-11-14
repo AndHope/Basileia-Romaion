@@ -38,24 +38,31 @@
         }
     }
 
-    timeout = 1825
+    timeout = 0
 
-    on_timeout = {
-        ruler = {
-            kill_character = yes
-        }
-        br_plc_succession_add_reform_support_modifier = yes
-        trigger_event = {
-            id = br_plc_succession_events.1
-            popup = yes
-        }
-        show_as_tooltip = {
-            add_journal_entry = {
-                type = br_je_plc_reform_main
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {
+            ruler = {
+                kill_character = yes
             }
+            br_plc_succession_add_reform_support_modifier = yes
+            trigger_event = {
+                id = br_plc_succession_events.1
+                popup = yes
+            }
+            show_as_tooltip = {
+                add_journal_entry = {
+                    type = br_je_plc_reform_main
+                }
+            }
+            br_plc_reform_variable_cleanup_scripted_effect = yes
         }
-        br_plc_reform_variable_cleanup_scripted_effect = yes
-	}
+    }
 
     weight = 100
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -185,50 +192,66 @@ br_je_plc_reform_main = {
         }
     }
 
-    custom_completion_header = br_je_plc_reform_main_completion_header
-
-	complete = {
-		br_plc_reform_has_completed_all_jadwigan_reforms = yes
-	}
-
-	on_complete = {
-		add_modifier = br_modifier_plc_reform_jadwigan_reforms
-        ruler = {
-            add_trait = br_succesful_reformer
+    # Completion
+    outcome = {
+        header = br_je_plc_reform_main_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            br_plc_reform_has_completed_all_jadwigan_reforms = yes
         }
-        add_journal_entry = {
-            type = br_je_plc_reform_the_commonwealth
+        effect = {
+            add_modifier = br_modifier_plc_reform_jadwigan_reforms
+            ruler = {
+                add_trait = br_succesful_reformer
+            }
+            add_journal_entry = {
+                type = br_je_plc_reform_the_commonwealth
+            }
         }
-	}
-
-    custom_failure_header = br_je_plc_reform_main_failure_header
-
-    fail = {
-        br_plc_reform_has_completed_all_moderate_reforms = yes
+        event_outcome_desc = {} # complex desc like a status_desc field
     }
 
-    on_fail = {
-        add_modifier = br_modifier_plc_reform_moderate_reforms
-        ruler = {
-            add_trait = br_succesful_compromiser
+    # Fail
+    outcome = {
+        header = br_je_plc_reform_main_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            br_plc_reform_has_completed_all_moderate_reforms = yes
         }
-        add_journal_entry = {
-            type = br_je_plc_centralizing_the_commonwealth
+        effect = {
+            add_modifier = br_modifier_plc_reform_moderate_reforms
+            ruler = {
+                add_trait = br_succesful_compromiser
+            }
+            add_journal_entry = {
+                type = br_je_plc_centralizing_the_commonwealth
+            }
         }
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-        custom_tooltip = br_je_plc_reform_main_on_timeout_tt
-        set_variable = br_plc_reform_main_has_timedout_var
-        every_subject_or_below = {
-			capital = {
-				region = sr:region_eastern_europe
-			}
-            make_independent = yes
-		}
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {
+            custom_tooltip = br_je_plc_reform_main_on_timeout_tt
+            set_variable = br_plc_reform_main_has_timedout_var
+            every_subject_or_below = {
+                capital = {
+                    region = sr:region_eastern_europe
+                }
+                make_independent = yes
+            }
+        }
+    }
 
 	weight = 10000
 
@@ -250,26 +273,47 @@ br_je_plc_jadwigan_reform_1 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_homesteading
-	}
-
-	on_complete = {
-        br_plc_reform_increase_jadwigan_progress = yes
-		remove_modifier = br_modifier_the_issue_of_serfdom
-        add_modifier = br_modifier_plc_reform_jadwigan_land_reforms
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_peasant_proprietorship
         }
+        effect = {
+            br_plc_reform_increase_jadwigan_progress = yes
+            remove_modifier = br_modifier_the_issue_of_serfdom
+            add_modifier = br_modifier_plc_reform_jadwigan_land_reforms
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -285,30 +329,51 @@ br_je_plc_jadwigan_reform_2 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_census_voting
-        or = {
-            has_law_or_variant = law_type:law_appointed_bureaucrats
-            has_law_or_variant = law_type:law_elected_bureaucrats
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_census_voting
+            or = {
+                has_law_or_variant = law_type:law_appointed_bureaucrats
+                has_law_or_variant = law_type:law_elected_bureaucrats
+            }
         }
-	}
-
-	on_complete = {
-        br_plc_reform_increase_jadwigan_progress = yes
-		remove_modifier = br_modifier_liberum_veto
-        add_modifier = br_modifier_plc_reform_jadwigan_liberties
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+        effect = {
+            br_plc_reform_increase_jadwigan_progress = yes
+            remove_modifier = br_modifier_liberum_veto
+            add_modifier = br_modifier_plc_reform_jadwigan_liberties
         }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -328,34 +393,55 @@ br_je_plc_jadwigan_reform_3 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_total_separation
-        not = {
-            or = {
-                has_law_or_variant = law_type:law_ethnostate
-                has_law_or_variant = law_type:law_national_supremacy
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_total_separation
+            not = {
+                or = {
+                    has_law_or_variant = law_type:law_ethnostate
+                    has_law_or_variant = law_type:law_national_supremacy
+                }
+            }
+            country_has_primary_culture = cu:lithuanian
+            country_has_primary_culture = cu:ukrainian
+        }
+        effect = {
+            br_plc_reform_increase_jadwigan_progress = yes
+            remove_modifier = br_modifier_failure_at_hadiach
+            add_modifier = br_modifier_plc_reform_restored_warsaw_confederation
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
             }
         }
-        country_has_primary_culture = cu:lithuanian
-        country_has_primary_culture = cu:ukrainian
-	}
-
-	on_complete = {
-        br_plc_reform_increase_jadwigan_progress = yes
-		remove_modifier = br_modifier_failure_at_hadiach
-        add_modifier = br_modifier_plc_reform_restored_warsaw_confederation
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
-        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -371,36 +457,61 @@ br_je_plc_jadwigan_reform_4 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_interventionism
-	}
-
-	on_complete = {
-        br_plc_reform_increase_jadwigan_progress = yes
-		remove_modifier = br_modifier_piotrkow_statutes
-        add_modifier = br_modifier_plc_reform_jadwigan_economy
-	}
-
-    fail = {
-        has_law_or_variant = law_type:law_laissez_faire
-    }
-
-    on_fail = {
-        br_plc_reform_increase_jadwigan_progress = yes
-		remove_modifier = br_modifier_piotrkow_statutes
-        add_modifier = br_modifier_plc_reform_hands_off_economy
-    }
-
-    invalid = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_interventionism
         }
+        effect = {
+            br_plc_reform_increase_jadwigan_progress = yes
+            remove_modifier = br_modifier_piotrkow_statutes
+            add_modifier = br_modifier_plc_reform_jadwigan_economy
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_laissez_faire
+        }
+        effect = {
+            br_plc_reform_increase_jadwigan_progress = yes
+            remove_modifier = br_modifier_piotrkow_statutes
+            add_modifier = br_modifier_plc_reform_hands_off_economy
+        }
+    }
+
+    # Invalid
+    outcome = {
+        flags = { hidden invalid_outcome }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -416,26 +527,47 @@ br_je_plc_jadwigan_reform_5 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_professional_army
-	}
-
-	on_complete = {
-        br_plc_reform_increase_jadwigan_progress = yes
-		remove_modifier = br_modifier_plc_army
-        add_modifier = br_modifier_plc_reform_grand_army_of_the_commonwealth
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_professional_army
         }
+        effect = {
+            br_plc_reform_increase_jadwigan_progress = yes
+            remove_modifier = br_modifier_plc_army
+            add_modifier = br_modifier_plc_reform_grand_army_of_the_commonwealth
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -455,26 +587,47 @@ br_je_plc_moderate_reform_1 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_tenant_farmers
-	}
-
-	on_complete = {
-        br_plc_reform_increase_moderates_progress = yes
-		remove_modifier = br_modifier_the_issue_of_serfdom
-        add_modifier = br_modifier_plc_reform_szlachta_endorsed_land_reforms
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_tenant_farmers
         }
+        effect = {
+            br_plc_reform_increase_moderates_progress = yes
+            remove_modifier = br_modifier_the_issue_of_serfdom
+            add_modifier = br_modifier_plc_reform_szlachta_endorsed_land_reforms
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -490,27 +643,48 @@ br_je_plc_moderate_reform_2 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_wealth_voting
-        has_law_or_variant = law_type:law_appointed_bureaucrats
-	}
-
-	on_complete = {
-        br_plc_reform_increase_moderates_progress = yes
-		remove_modifier = br_modifier_liberum_veto
-        add_modifier = br_modifier_plc_reform_golden_liberty_reborn
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_wealth_voting
+            has_law_or_variant = law_type:law_appointed_bureaucrats
         }
+        effect = {
+            br_plc_reform_increase_moderates_progress = yes
+            remove_modifier = br_modifier_liberum_veto
+            add_modifier = br_modifier_plc_reform_golden_liberty_reborn
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -526,32 +700,53 @@ br_je_plc_moderate_reform_3 = {
     immediate = {
     }
 
-	complete = {
-		not = {
-            or = {
-                has_law_or_variant = law_type:law_ethnostate
-                has_law_or_variant = law_type:law_national_supremacy
-                has_law_or_variant = law_type:law_subjecthood
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            not = {
+                or = {
+                    has_law_or_variant = law_type:law_ethnostate
+                    has_law_or_variant = law_type:law_national_supremacy
+                    has_law_or_variant = law_type:law_subjecthood
+                }
             }
         }
-	}
-
-	on_complete = {
-        br_plc_reform_increase_moderates_progress = yes
-		remove_modifier = br_modifier_failure_at_hadiach
-        add_modifier = br_modifier_plc_reform_new_treaty_of_hadiach
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+        effect = {
+            br_plc_reform_increase_moderates_progress = yes
+            remove_modifier = br_modifier_failure_at_hadiach
+            add_modifier = br_modifier_plc_reform_new_treaty_of_hadiach
         }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -567,26 +762,47 @@ br_je_plc_moderate_reform_4 = {
     immediate = {
     }
 
-	complete = {
-		has_law_or_variant = law_type:law_agrarianism
-	}
-
-	on_complete = {
-        br_plc_reform_increase_moderates_progress = yes
-		remove_modifier = br_modifier_piotrkow_statutes
-        add_modifier = br_modifier_plc_reform_sejmist_economic_plan
-	}
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_agrarianism
         }
+        effect = {
+            br_plc_reform_increase_moderates_progress = yes
+            remove_modifier = br_modifier_piotrkow_statutes
+            add_modifier = br_modifier_plc_reform_sejmist_economic_plan
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -602,26 +818,47 @@ br_je_plc_moderate_reform_5 = {
     immediate = {
     }
 
-    complete = {
-        has_law_or_variant = law_type:law_national_militia
-    }
-
-    on_complete = {
-        br_plc_reform_increase_moderates_progress = yes
-		remove_modifier = br_modifier_plc_army
-        add_modifier = br_modifier_plc_reform_commonwealther_home_army
-    }
-
-    fail = {
-        not = {
-            has_journal_entry = br_je_plc_reform_main
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            has_law_or_variant = law_type:law_national_militia
         }
+        effect = {
+            br_plc_reform_increase_moderates_progress = yes
+            remove_modifier = br_modifier_plc_army
+            add_modifier = br_modifier_plc_reform_commonwealther_home_army
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            not = {
+                has_journal_entry = br_je_plc_reform_main
+            }
+        }
+        effect = {}
     }
 
 	timeout = br_je_plc_reform_main_timeout
 
-	on_timeout = {
-	}
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 5000
 }
@@ -644,17 +881,24 @@ br_je_plc_reform_the_commonwealth = {
     immediate = {
     }
 
-	complete = {
-		br_plc_has_formed_the_commonwealth = yes
-	}
-
-	on_complete = {
-        add_primary_culture = cu:polish
-        add_primary_culture = cu:lithuanian
-        add_primary_culture = cu:ukrainian
-        add_primary_culture = cu:ashkenazi
-        add_primary_culture = cu:baltic_german
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            br_plc_has_formed_the_commonwealth = yes
+        }
+        effect = {
+            add_primary_culture = cu:polish
+            add_primary_culture = cu:lithuanian
+            add_primary_culture = cu:ukrainian
+            add_primary_culture = cu:ashkenazi
+            add_primary_culture = cu:baltic_german
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 10000
 
@@ -679,14 +923,21 @@ br_je_plc_centralizing_the_commonwealth = {
     immediate = {
     }
 
-	complete = {
-		br_plc_has_formed_the_commonwealth = yes
-	}
-
-	on_complete = {
-        add_primary_culture = cu:polish
-        add_primary_culture = cu:lithuanian
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            br_plc_has_formed_the_commonwealth = yes
+        }
+        effect = {
+            add_primary_culture = cu:polish
+            add_primary_culture = cu:lithuanian
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 10000
 
@@ -719,19 +970,26 @@ br_je_plc_reclaiming_the_baltic = {
     immediate = {
     }
 
-	complete = {
-		country_or_subject_owned_all_baltic_region_states = yes
-	}
-
-	on_complete = {
-        add_modifier = br_modifier_plc_reformed_baltic_fleet
-        add_journal_entry = {
-            type = br_je_plc_extending_our_reach
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            country_or_subject_owned_all_baltic_region_states = yes
         }
-        c:SWE = {
-            remove_modifier = br_modifier_norse_competitive_traders
+        effect = {
+            add_modifier = br_modifier_plc_reformed_baltic_fleet
+            add_journal_entry = {
+                type = br_je_plc_extending_our_reach
+            }
+            c:SWE = {
+                remove_modifier = br_modifier_norse_competitive_traders
+            }
         }
-	}
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 1000
 
@@ -764,16 +1022,23 @@ br_je_plc_access_to_the_black_sea = {
     immediate = {
     }
 
-	complete = {
-		country_or_subject_owns_entire_state_region = STATE_BESSARABIA
-        country_or_subject_owns_entire_state_region = STATE_CHERSON
-        country_or_subject_owns_entire_state_region = STATE_CRIMEA
-        country_or_subject_owns_entire_state_region = STATE_TAURIDA
-	}
-
-	on_complete = {
-        add_modifier = br_modifier_black_sea_trade
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            country_or_subject_owns_entire_state_region = STATE_BESSARABIA
+            country_or_subject_owns_entire_state_region = STATE_CHERSON
+            country_or_subject_owns_entire_state_region = STATE_CRIMEA
+            country_or_subject_owns_entire_state_region = STATE_TAURIDA
+        }
+        effect = {
+            add_modifier = br_modifier_black_sea_trade
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 1000
 
@@ -806,20 +1071,27 @@ br_je_plc_securing_of_our_eastern_front = {
     immediate = {
     }
 
-	complete = {
-		country_or_subject_owns_entire_state_region = STATE_PSKOV
-        country_or_subject_owns_entire_state_region = STATE_SMOLENSK
-        country_or_subject_owns_entire_state_region = STATE_ORYOL
-        country_or_subject_owns_entire_state_region = STATE_KURSK
-        country_or_subject_owns_entire_state_region = STATE_KHARKOV
-        country_or_subject_owns_entire_state_region = STATE_TAURIDA
-        country_or_subject_owns_entire_state_region = STATE_CRIMEA
-        country_or_subject_owns_entire_state_region = STATE_CHERSON
-	}
-
-	on_complete = {
-        add_modifier = br_modifier_plc_well_defended_states
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            country_or_subject_owns_entire_state_region = STATE_PSKOV
+            country_or_subject_owns_entire_state_region = STATE_SMOLENSK
+            country_or_subject_owns_entire_state_region = STATE_ORYOL
+            country_or_subject_owns_entire_state_region = STATE_KURSK
+            country_or_subject_owns_entire_state_region = STATE_KHARKOV
+            country_or_subject_owns_entire_state_region = STATE_TAURIDA
+            country_or_subject_owns_entire_state_region = STATE_CRIMEA
+            country_or_subject_owns_entire_state_region = STATE_CHERSON
+        }
+        effect = {
+            add_modifier = br_modifier_plc_well_defended_states
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 1000
 
@@ -844,20 +1116,14 @@ br_je_plc_extending_our_reach = {
     immediate = {
     }
 
-	complete = {
-		or = {
-            any_scope_state = {
-                count = 3
-                not = {
-                    custom_tooltip = {
-                        text = br_je_plc_extending_our_reach_complete_tt
-                        br_is_strategic_region_in_europe = {
-                            strategic_region = region
-                        }
-                    }
-                }
-            }
-            any_subject_or_below = {
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            or = {
                 any_scope_state = {
                     count = 3
                     not = {
@@ -869,13 +1135,26 @@ br_je_plc_extending_our_reach = {
                         }
                     }
                 }
+                any_subject_or_below = {
+                    any_scope_state = {
+                        count = 3
+                        not = {
+                            custom_tooltip = {
+                                text = br_je_plc_extending_our_reach_complete_tt
+                                br_is_strategic_region_in_europe = {
+                                    strategic_region = region
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-	}
-
-	on_complete = {
-        add_modifier = br_modifier_plc_well_defended_states
-	}
+        effect = {
+            add_modifier = br_modifier_plc_well_defended_states
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 1000
 
@@ -908,56 +1187,69 @@ br_je_plc_the_legacy_of_the_winged_hussars = {
     immediate = {
     }
 
-	complete = {
-        or = {
-            has_technology_researched = stormtroopers
-            has_technology_researched = military_aviation
-            has_technology_researched = mobile_armor
-        }
-	}
-
-	on_complete = {
-        remove_modifier = br_modifier_winged_hussars
-        if = {
-            limit = {
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            or = {
                 has_technology_researched = stormtroopers
-            }
-            add_modifier = br_modifier_plc_angels_of_death
-        }
-        else_if = {
-            limit = {
                 has_technology_researched = military_aviation
-            }
-            add_modifier = br_modifier_plc_true_winged_hussars
-        }
-        else_if = {
-            limit = {
                 has_technology_researched = mobile_armor
             }
-            add_modifier = br_modifier_plc_hussarian_armor_corps
         }
-	}
-
-    event_outcome_completed_effect_desc = {
-        header = br_je_if_has_researched_stormtroopers_tt
         effect = {
-            add_modifier = br_modifier_plc_angels_of_death
+            remove_modifier = br_modifier_winged_hussars
+            if = {
+                limit = {
+                    has_technology_researched = stormtroopers
+                }
+                add_modifier = br_modifier_plc_angels_of_death
+            }
+            else_if = {
+                limit = {
+                    has_technology_researched = military_aviation
+                }
+                add_modifier = br_modifier_plc_true_winged_hussars
+            }
+            else_if = {
+                limit = {
+                    has_technology_researched = mobile_armor
+                }
+                add_modifier = br_modifier_plc_hussarian_armor_corps
+            }
         }
-    }
-    event_outcome_completed_effect_desc = {
-        header = br_je_if_has_researched_military_aviation_tt
-        effect = {
-            add_modifier = br_modifier_plc_true_winged_hussars
+        event_outcome_effect_desc = {
+            header = br_je_if_has_researched_stormtroopers_tt
+            effect = {
+                add_modifier = br_modifier_plc_angels_of_death
+            }
         }
-    }
-    event_outcome_completed_effect_desc = {
-        header = br_je_if_has_researched_mobile_armor_tt
-        effect = {
-            add_modifier = br_modifier_plc_hussarian_armor_corps
+        event_outcome_effect_desc = {
+            header = br_je_if_has_researched_military_aviation_tt
+            effect = {
+                add_modifier = br_modifier_plc_true_winged_hussars
+            }
+        }
+        event_outcome_effect_desc = {
+            header = br_je_if_has_researched_mobile_armor_tt
+            effect = {
+                add_modifier = br_modifier_plc_hussarian_armor_corps
+            }
         }
     }
 
     timeout = 7300
+    # Timeout
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        flags = { timeout }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        effect = {}
+    }
 
 	weight = 1000
 

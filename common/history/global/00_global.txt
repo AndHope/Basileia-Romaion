@@ -12,10 +12,20 @@ GLOBAL = {
 			ig:ig_landowners ?= { add_ideology = ideology_pro_slavery }
 		}
 	}
-	
+
 	every_country = {
 		limit = {
-			has_law_or_variant = law_type:law_monarchy
+			country_has_monarchy_law = no
+		}
+		ig:ig_landowners ?= {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
+	}
+
+	every_country = {
+		limit = {
+			has_law = law_type:law_monarchy
 			has_law_or_variant = law_type:law_autocracy
 		}
 		set_variable = king_in_parliament_possible

@@ -1,55 +1,13 @@
 ﻿############# FARMING & RANCHING
 
-REPLACE_OR_CREATE:building_maize_farm = {
-	building_group = bg_staple_crops
-
-	icon = "gfx/interface/icons/building_icons/maize_farm.dds"
-
-	city_type = farm
-	levels_per_mesh = 50
-
+INJECT:building_maize_farm = {
 	unlocking_technologies = {
 		br_tech_new_world_crops
 	}
-
-	production_method_groups = {
-		pmg_base_building_maize_farm
-		pmg_secondary_building_maize_farm
-		pmg_harvesting_process_building_maize_farm
-	}
-
-	required_construction = construction_cost_low
-
-	terrain_manipulator = farmland_maize
-	ownership_type = self
-
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 
-REPLACE_OR_CREATE:building_livestock_ranch = {
-	building_group = bg_ranching
-
-	icon = "gfx/interface/icons/building_icons/cattle_ranch.dds"
-
-	city_type = farm
-	levels_per_mesh = 50
-
-	unlocking_technologies = {
-		enclosure
-	}
-
+INJECT:building_livestock_ranch = {
 	production_method_groups = {
-		pmg_base_building_livestock_ranch
-		pmg_sheep_ranch
 		pmg_horse_ranch
-		pmg_fencing
-		pmg_refrigeration_building_livestock_ranch
 	}
-
-	required_construction = construction_cost_low
-
-	terrain_manipulator = pasture
-	ownership_type = self
-
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }

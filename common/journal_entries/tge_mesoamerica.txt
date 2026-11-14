@@ -28,60 +28,72 @@
 	modifiers_while_active = {
 		modifier_tge_golden_aspirations
 	}
-	
-	complete = {
-		custom_tooltip = {
-			text = je_tge_golden_eagle_complete_1
-			var:tge_golden_eagle_var >= 500
-		}
-		custom_tooltip = {
-			text = je_tge_golden_eagle_complete_2
-			owns_entire_state_region = STATE_MEXICO
-			capital ?= {
-				state_region = s:STATE_MEXICO
-			}
-		}
-		calc_true_if = {
-			amount >= 10
-			owns_entire_state_region = STATE_CHIHUAHUA
-			owns_entire_state_region = STATE_DURANGO
-			owns_entire_state_region = STATE_GUERRERO
-			owns_entire_state_region = STATE_JALISCO
-			owns_entire_state_region = STATE_OAXACA
-			owns_entire_state_region = STATE_RIO_GRANDE
-			owns_entire_state_region = STATE_SINALOA
-			owns_entire_state_region = STATE_SONORA
-			owns_entire_state_region = STATE_VERACRUZ
-			owns_entire_state_region = STATE_ZACATECAS
-		}
-		has_law = law_type:law_monarchy
-		has_law = law_type:law_autocracy
-		has_law = law_type:law_state_religion
-		country_rank >= rank_value:major_power
-	}
-	
-	on_complete = {
-		trigger_event = {
-			id = tge_mesoamerica.109
-		}
-	}
-	
-	fail = {
-		OR = {
+
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_tge_golden_eagle_completed_desc
+		color = "gold_positive"
+		trigger = {
 			custom_tooltip = {
-				text = je_tge_golden_eagle_fail
-				var:tge_golden_eagle_var <= 0
+				text = je_tge_golden_eagle_complete_1
+				var:tge_golden_eagle_var >= 500
 			}
-			NOT = {
-				country_has_state_religion = rel:br_tge_religion_teotl
+			custom_tooltip = {
+				text = je_tge_golden_eagle_complete_2
+				owns_entire_state_region = STATE_MEXICO
+				capital ?= {
+					state_region = s:STATE_MEXICO
+				}
 			}
-			is_subject = yes
+			calc_true_if = {
+				amount >= 10
+				owns_entire_state_region = STATE_CHIHUAHUA
+				owns_entire_state_region = STATE_DURANGO
+				owns_entire_state_region = STATE_GUERRERO
+				owns_entire_state_region = STATE_JALISCO
+				owns_entire_state_region = STATE_OAXACA
+				owns_entire_state_region = STATE_RIO_GRANDE
+				owns_entire_state_region = STATE_SINALOA
+				owns_entire_state_region = STATE_SONORA
+				owns_entire_state_region = STATE_VERACRUZ
+				owns_entire_state_region = STATE_ZACATECAS
+			}
+			has_law = law_type:law_monarchy
+			has_law = law_type:law_autocracy
+			has_law = law_type:law_state_religion
+			country_rank >= rank_value:major_power
+		}
+		effect = {
+			trigger_event = {
+				id = tge_mesoamerica.109
+			}
 		}
 	}
-	
-	on_fail = {
-		trigger_event = {
-			id = tge_mesoamerica.108
+
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_tge_golden_eagle_failed_desc
+		color = "blue_negative"
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = je_tge_golden_eagle_fail
+					var:tge_golden_eagle_var <= 0
+				}
+				NOT = {
+					country_has_state_religion = rel:br_tge_religion_teotl
+				}
+				is_subject = yes
+			}
+		}
+		effect = {
+			trigger_event = {
+				id = tge_mesoamerica.108
+			}
 		}
 	}
 
@@ -148,20 +160,33 @@ je_tge_aztlan = {
 	
 	immediate = {
 	}
-	
-	complete = {
-		owns_entire_state_region = STATE_NEW_MEXICO
-		owns_entire_state_region = STATE_ARIZONA
+
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_tge_aztlan_completed_desc
+		color = "gold_positive"
+		trigger = {
+			owns_entire_state_region = STATE_NEW_MEXICO
+			owns_entire_state_region = STATE_ARIZONA
+		}
+		effect = {
+		}
 	}
-	
-	on_complete = {
+
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_tge_aztlan_failed_desc
+		color = "blue_negative"
+		trigger = {
+		}
+		effect = {
+		}
 	}
-	
-	fail = {
-	}
-	
-	on_fail = {
-	}
+
 }
 
 je_tge_mayan_frontier = {
@@ -184,23 +209,33 @@ je_tge_mayan_frontier = {
 		}
 	}
 
-	complete = {
-		country_or_subject_owns_entire_state_region = STATE_YUCATAN
-		country_or_subject_owns_entire_state_region = STATE_CHIAPAS
-		country_or_subject_owns_entire_state_region = STATE_GUATEMALA
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_tge_mayan_frontier_completed_desc
+		color = "gold_positive"
+		trigger = {
+			country_or_subject_owns_entire_state_region = STATE_YUCATAN
+			country_or_subject_owns_entire_state_region = STATE_CHIAPAS
+			country_or_subject_owns_entire_state_region = STATE_GUATEMALA
+		}
+		effect = {}
 	}
 
-	on_complete = {
-	}
-
-	fail = {
-		NOT = {
-			any_scope_state = {
-				region = sr:region_central_america
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_tge_mayan_frontier_failed_desc
+		color = "blue_negative"
+		trigger = {
+			NOT = {
+				any_scope_state = {
+					region = sr:region_central_america
+				}
 			}
 		}
-	}
-
-	on_fail = {
+		effect = {}
 	}
 }

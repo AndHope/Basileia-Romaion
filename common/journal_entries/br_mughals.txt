@@ -22,48 +22,54 @@
 		this = c:MUG
 	}
 
-	complete = {
-		root = {
-			owns_entire_state_region = STATE_PUNJAB
-			owns_entire_state_region = STATE_HILL_PUNJAB
-			owns_entire_state_region = STATE_RAJPUTANA
-			owns_entire_state_region = STATE_CENTRAL_PROVINCES
-			owns_entire_state_region = STATE_DELHI
-			owns_entire_state_region = STATE_AWADH
-			owns_entire_state_region = STATE_MALWA
-			owns_entire_state_region = STATE_AGRA
-			owns_entire_state_region = STATE_BUNDELKHAND
-			owns_entire_state_region = STATE_GUJARAT
-			owns_entire_state_region = STATE_SINDH
-			owns_entire_state_region = STATE_BIHAR
-			owns_entire_state_region = STATE_EAST_BENGAL
-			owns_entire_state_region = STATE_WEST_BENGAL
-			owns_entire_state_region = STATE_ASSAM
-			owns_entire_state_region = STATE_ORISSA
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_consolidate_india_01_completed_desc
+		color = "gold_positive"
+		trigger = {
+			root = {
+				owns_entire_state_region = STATE_PUNJAB
+				owns_entire_state_region = STATE_HILL_PUNJAB
+				owns_entire_state_region = STATE_RAJPUTANA
+				owns_entire_state_region = STATE_CENTRAL_PROVINCES
+				owns_entire_state_region = STATE_DELHI
+				owns_entire_state_region = STATE_AWADH
+				owns_entire_state_region = STATE_MALWA
+				owns_entire_state_region = STATE_AGRA
+				owns_entire_state_region = STATE_BUNDELKHAND
+				owns_entire_state_region = STATE_GUJARAT
+				owns_entire_state_region = STATE_SINDH
+				owns_entire_state_region = STATE_BIHAR
+				owns_entire_state_region = STATE_EAST_BENGAL
+				owns_entire_state_region = STATE_WEST_BENGAL
+				owns_entire_state_region = STATE_ASSAM
+				owns_entire_state_region = STATE_ORISSA
+			}
 		}
-	}
-	
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
+		effect = {
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
 		}
 	}
 	

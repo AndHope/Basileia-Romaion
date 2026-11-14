@@ -350,7 +350,7 @@
 		}
 	}
 
-	s:STATE_GALICH={
+	s:STATE_VOLOGDA={
 		region_state:br_novgorod={
 			create_building={
 				building="building_rye_farm"
@@ -372,7 +372,7 @@
 						type="building_logging_camp"
 						country="c:br_novgorod"
 						levels=2
-						region="STATE_GALICH"
+						region="STATE_VOLOGDA"
 					}
 					company={
 						type=company_br_early_swedish_resource_company
@@ -682,7 +682,7 @@
 					building={
 						type="building_manor_house"
 						country="c:br_muscovy"
-						levels=3
+						levels=2
 						region="STATE_MOSCOW"
 					}
 				}
@@ -726,7 +726,7 @@
 					building={
 						type="building_manor_house"
 						country="c:br_muscovy"
-						levels=4
+						levels=2
 						region="STATE_MOSCOW"
 					}
 					company={
@@ -740,6 +740,55 @@
 			}
 		}
 	}
+	s:STATE_TULA={
+		region_state:br_muscovy={
+			create_building={
+				building="building_rye_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_muscovy"
+						levels=2
+						region="STATE_MOSCOW"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" "pm_potatoes" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_muscovy"
+						levels=1
+						region="STATE_MOSCOW"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_increased_horse_ranch" "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_muscovy"
+						levels=2
+						region="STATE_MOSCOW"
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_road_carts" "pm_hardwood" }
+			}
+		}
+	}
+	
 	s:STATE_SMOLENSK={
 		region_state:br_smolensk={
 			create_building={
@@ -939,6 +988,47 @@
 						type="building_manor_house"
 						country="c:br_muscovy"
 						levels=2
+						region="STATE_MOSCOW"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_potatoes" "pm_tools_disabled" }
+			}
+		}
+	}
+	s:STATE_KOSTROMA={
+		region_state:br_yaroslavl={
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_muscovy"
+						levels=1
+						region="STATE_MOSCOW"
+					}
+					building={
+						type="building_logging_camp"
+						country="c:br_yaroslavl"
+						levels=1
+						region="STATE_YAROSLAVL"
+					}
+					company={
+						type=company_br_byz_rus
+						country="c:br_taurica"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_road_carts" "pm_no_hardwood" }
+			}
+			create_building={
+				building="building_rye_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:br_muscovy"
+						levels=1
 						region="STATE_MOSCOW"
 					}
 				}
@@ -2714,7 +2804,7 @@
 			}
 		}
 	}
-	s:STATE_KAUNAS={
+	s:STATE_LITHUANIA={
 		region_state:PLC={
 			create_building={
 				building="building_rye_farm"
@@ -2723,7 +2813,7 @@
 						type="building_manor_house"
 						country="c:PLC"
 						levels=1
-						region="STATE_KAUNAS"
+						region="STATE_LITHUANIA"
 					}
 					building={
 						type="building_manor_house"

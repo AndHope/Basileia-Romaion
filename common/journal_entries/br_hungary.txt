@@ -25,35 +25,41 @@
 		exists = c:TRS
 	}
 
-	complete = {
-		c:HUN = {
-			owns_entire_state_region = STATE_NORTHERN_TRANSYLVANIA
-			owns_entire_state_region = STATE_SOUTHERN_TRANSYLVANIA
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_reclaiming_transylvania_completed_desc
+		color = "gold_positive"
+		trigger = {
+			c:HUN = {
+				owns_entire_state_region = STATE_NORTHERN_TRANSYLVANIA
+				owns_entire_state_region = STATE_SOUTHERN_TRANSYLVANIA
 			
+			}
 		}
-	}
-	
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
+		effect = {
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
 		}
 	}
 	

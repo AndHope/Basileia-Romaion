@@ -1,14 +1,15 @@
-﻿REPLACE_OR_CREATE:garibaldi_character_template = {
+﻿# BR edit: We replace the vanilla def of garibaldi so he can spawn with a random name, for the rest keep similar to vanilla
+REPLACE_OR_CREATE:garibaldi_character_template = {
 	#first_name = Giuseppe
 	#last_name = Garibaldi
+    female = no
+    dna = dna_giuseppe_garibaldi
 	#historical = yes
+    age = 35 # = 1807.7.4
+    is_agitator = yes
 	culture = cu:north_italian
 	religion = rel:catholic # He hated the pope, but still identified as a Christian
 	interest_group = ig_trade_unions
-	is_agitator = yes 
-	female = no
-	age = 35 # = 1807.7.4
-	dna = dna_giuseppe_garibaldi
 	ideology = ideology_radical
 	traits = {
 		brave
@@ -17,7 +18,4 @@
 	on_created = {
 		set_global_variable = garibaldi_is_alive_global_var
 	}
-	#agitator_usage = { 
-	#	earliest_usage_date = 1836.1.1
-	#}
 }

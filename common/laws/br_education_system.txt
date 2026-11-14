@@ -12,13 +12,13 @@ REPLACE_OR_CREATE:law_religious_schools = {
 	progressiveness = 0
 
 	unlocking_technologies = {
-		br_tech_divine_right
+		br_tech_divine_right #br tech changed
 	}
 
 	disallowing_laws = {
 		law_total_separation
 		law_state_atheism
-		#law_serfdom
+		#law_serfdom #br removed
 	}
 
 	modifier = {
@@ -31,7 +31,8 @@ REPLACE_OR_CREATE:law_religious_schools = {
 		state_conversion_mult = 0.25
 		state_education_access_wealth_add = 0.001 # was none
 		state_education_access_add = 0.05 #was 0.1
-		country_clergymen_pol_str_mult = 0.25
+		country_clergymen_pol_str_mult = 0.1 #was added
+		interest_group_ig_devout_pol_str_mult = 0.1
 	}
 
 	can_impose = {
@@ -65,11 +66,26 @@ REPLACE_OR_CREATE:law_religious_schools = {
 				limit = {
 					OR = {
 						has_journal_entry = je_sick_man_education
-						has_journal_entry = je_terakoya
+						has_journal_entry = je_portugal_regeneration_institutions
 					}
 				}
 				add = 500
 			}
+		}
+
+		# For Japanese religion Journal Entries
+		if = {
+			limit = {
+				OR = {
+					has_journal_entry = je_elevate_buddhism
+					AND = {
+						# If Shinbutsu Bunri is active and the Taikyo Proclamation has been made
+						has_journal_entry = je_shinbutsu_bunri
+						country_has_state_religion = rel:shinto
+					}
+				}
+			}
+			add = 1000
 		}
 	}
 
@@ -119,11 +135,11 @@ REPLACE_OR_CREATE:law_private_schools = {
 	progressiveness = 25
 
 	unlocking_technologies = {
-		br_tech_early_modern_universities
+		br_tech_early_modern_universities #br tech changed
 	}
 
 	#disallowing_laws = {
-	#	law_state_religion
+	#	law_state_religion #br removed
 	#}
     
 	modifier = {
@@ -135,6 +151,13 @@ REPLACE_OR_CREATE:law_private_schools = {
 		state_assimilation_mult = 0.01 #was none
 		state_education_access_wealth_add = 0.005 # was 0.005
 		state_political_strength_from_wealth_mult = 0.1 #added
+	}
+
+	is_visible = {
+		NAND = {
+			c:JAP ?= this
+			has_law = law_type:law_terakoya
+		}
 	}
 
 	can_impose = {
@@ -168,7 +191,7 @@ REPLACE_OR_CREATE:law_private_schools = {
 				limit = {
 					OR = {
 						has_journal_entry = je_sick_man_education
-						has_journal_entry = je_terakoya
+						has_journal_entry = je_portugal_regeneration_institutions
 					}
 				}
 				add = 500
@@ -222,7 +245,7 @@ REPLACE_OR_CREATE:law_public_schools = {
 	progressiveness = 50
 
 	unlocking_technologies = {
-		academia
+		academia # br tech changed
 	}
 
 	disallowing_laws = {
@@ -230,8 +253,8 @@ REPLACE_OR_CREATE:law_public_schools = {
 		law_serfdom
 	}
 	
-     modifier = {
-        country_institution_schools_max_investment_add = 1
+    modifier = {
+        country_institution_schools_max_investment_add = 1 #br added
     }
     
 	institution = institution_schools
@@ -276,7 +299,7 @@ REPLACE_OR_CREATE:law_public_schools = {
 				limit = {
 					OR = {
 						has_journal_entry = je_sick_man_education
-						has_journal_entry = je_terakoya
+						has_journal_entry = je_portugal_regeneration_institutions
 					}
 				}
 				add = 500

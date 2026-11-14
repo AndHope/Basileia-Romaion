@@ -23,63 +23,76 @@
 		has_law_or_variant = law_type:law_frontier_colonization
 	}
 
-	complete = {
-		root = {
-			owns_entire_state_region = STATE_SYRDARYA
-			owns_entire_state_region = STATE_OKHOTSK
-			owns_entire_state_region = STATE_URALSK
-			owns_entire_state_region = STATE_CHUKOTKA
-			owns_entire_state_region = STATE_JETISY
-			owns_entire_state_region = STATE_CHELYABINSK
-			owns_entire_state_region = STATE_AKMOLINSK
-			owns_entire_state_region = STATE_TOBOLSK
-			owns_entire_state_region = STATE_URAL
-			owns_entire_state_region = STATE_KRASNOYARSK
-			owns_entire_state_region = STATE_SURGUT
-			owns_entire_state_region = STATE_OB
-			owns_entire_state_region = STATE_UPPER_YENISEYSK
-			owns_entire_state_region = STATE_TUVA
-			owns_entire_state_region = STATE_TOMSK
-			owns_entire_state_region = STATE_IRKUTSK
-			owns_entire_state_region = STATE_TRANS_BAIKAL
-			owns_entire_state_region = STATE_AMUR
-			owns_entire_state_region = STATE_BURYATIA
-			owns_entire_state_region = STATE_ALTAI
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_tartaria_steppe_expansion_completed_desc
+		color = "gold_positive"
+		trigger = {
+			root = {
+				owns_entire_state_region = STATE_SYRDARYA
+				owns_entire_state_region = STATE_OKHOTSK
+				owns_entire_state_region = STATE_URALSK
+				#owns_entire_state_region = STATE_CHUKOTKA
+				owns_entire_state_region = STATE_JETISY
+				owns_entire_state_region = STATE_CHELYABINSK
+				owns_entire_state_region = STATE_AKMOLINSK
+				owns_entire_state_region = STATE_TOBOLSK
+				owns_entire_state_region = STATE_URAL
+				owns_entire_state_region = STATE_KRASNOYARSK
+				owns_entire_state_region = STATE_SURGUT
+				owns_entire_state_region = STATE_OB
+				owns_entire_state_region = STATE_UPPER_YENISEYSK
+				owns_entire_state_region = STATE_TUVA
+				owns_entire_state_region = STATE_TOMSK
+				owns_entire_state_region = STATE_IRKUTSK
+				owns_entire_state_region = STATE_TRANS_BAIKAL
+				owns_entire_state_region = STATE_AMUR
+				owns_entire_state_region = STATE_BURYATIA
+				owns_entire_state_region = STATE_ALTAI
+			}
+		}
+		effect = {
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
+			add_modifier = {
+				name = br_modifier_silk_road
+				years = 50
+			}
 		}
 	}
 
-	invalid = {
-		NOT = { has_law_or_variant = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
-	}
-	
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
-		}
-		add_modifier = {
-			name = br_modifier_silk_road
-			years = 50
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = { has_law_or_variant = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
 		}
 	}
-	
+
+
+
 }
 
 je_tartaria_modernize = {
@@ -106,35 +119,42 @@ je_tartaria_modernize = {
 		this = c:br_tartaria
 	}
 
-	complete = {
-		NOT = { 
-			has_law_or_variant = law_type:law_peasant_levies
-			has_law_or_variant = law_type:law_no_home_affairs
-			has_law_or_variant = law_type:law_hereditary_bureaucrats
-			has_law_or_variant = law_type:law_oligarchy
-			has_law_or_variant = law_type:law_traditionalism 
-			has_law_or_variant = law_type:law_land_based_taxation 
-			has_law_or_variant = law_type:law_debt_slavery 
-			has_law_or_variant = law_type:law_tribal_armies 
-			has_law_or_variant = law_type:law_industry_banned 
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_tartaria_modernize_completed_desc
+		color = "gold_positive"
+		trigger = {
+			NOT = {
+				has_law_or_variant = law_type:law_peasant_levies
+				has_law_or_variant = law_type:law_no_home_affairs
+				has_law_or_variant = law_type:law_hereditary_bureaucrats
+				has_law_or_variant = law_type:law_oligarchy
+				has_law_or_variant = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_land_based_taxation
+				has_law_or_variant = law_type:law_debt_slavery
+				has_law_or_variant = law_type:law_tribal_armies
+				has_law_or_variant = law_type:law_industry_banned
+			}
 		}
-	}
-	on_complete = {
-		add_radicals = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_radicals = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = shopkeepers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = capitalists
-			value = very_large_radicals
+		effect = {
+			add_radicals = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_radicals = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = shopkeepers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = capitalists
+				value = very_large_radicals
+			}
 		}
 	}
 	
@@ -164,28 +184,35 @@ je_tartaria_end_slavic_oppression = {
 		this = c:br_tartaria
 	}
 
-	complete = {
-		NOT = { 
-			has_law_or_variant = law_type:law_ethnostate
-			has_law_or_variant = law_type:law_national_supremacy
-			has_law_or_variant = law_type:law_racial_segregation
-			has_law_or_variant = law_type:law_state_religion
-			has_law_or_variant = law_type:law_debt_slavery 
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_tartaria_end_slavic_oppression_completed_desc
+		color = "gold_positive"
+		trigger = {
+			NOT = {
+				has_law_or_variant = law_type:law_ethnostate
+				has_law_or_variant = law_type:law_national_supremacy
+				has_law_or_variant = law_type:law_racial_segregation
+				has_law_or_variant = law_type:law_state_religion
+				has_law_or_variant = law_type:law_debt_slavery
+			}
 		}
-	}
-	on_complete = {
-		remove_modifier = br_modifier_horde_reactionary_social_policies
-		add_radicals = {
-			value = 0.05
-			culture = cu:tatar
-		}
-		add_radicals = {
-			value = 0.05
-			culture = cu:mongol
-		}
-		add_loyalists = {
-			religion = rel:orthodox
-			value = 0.25
+		effect = {
+			remove_modifier = br_modifier_horde_reactionary_social_policies
+			add_radicals = {
+				value = 0.05
+				culture = cu:tatar
+			}
+			add_radicals = {
+				value = 0.05
+				culture = cu:mongol
+			}
+			add_loyalists = {
+				religion = rel:orthodox
+				value = 0.25
+			}
 		}
 	}
 	

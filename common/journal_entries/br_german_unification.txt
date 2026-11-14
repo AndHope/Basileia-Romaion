@@ -26,91 +26,6 @@
 			country_has_primary_culture = cu:baltic_german
 		}			
 	}
-
-	complete = {
-		trigger_if = {
-			limit = {
-				OR = {
-					c:HAM ?= this
-					c:LUB ?= this
-					c:HOL ?= this
-					c:SCH ?= this 
-				}
-			}
-			is_subject = no
-		}
-		trigger_if = {
-			limit = {
-				NOT = {
-					OR = {
-						c:HAM ?= this
-						c:LUB ?= this
-						c:HOL ?= this
-						c:SCH ?= this 
-					}
-				}
-				exists = c:DEN
-			}
-			custom_tooltip = {
-				text = je_schleswig_holstein_question_state_ownership_desc
-				any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-				s:STATE_SCHLESWIG_HOLSTEIN = {
-					NOT = {
-						any_scope_state = {
-							OR = {
-								NOT = {
-									owner = {
-										OR = {
-											country_has_primary_culture = cu:saxon
-											country_has_primary_culture = cu:baltic_german
-										}
-									}
-								}
-								owner = {
-									is_subject_of = c:DEN
-								}
-							}
-						}
-					}
-				}
-				s:STATE_ELBE = {
-					NOT = {
-						any_scope_state = {
-							OR = {
-								NOT = {
-									owner = {
-										OR = {
-											country_has_primary_culture = cu:saxon
-											country_has_primary_culture = cu:baltic_german
-										}
-									}
-								}
-								owner = {
-									is_subject_of = c:DEN
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	fail = {
-		custom_tooltip = {
-			has_global_variable = schleswig_holstein_question_solved
-			text = je_schleswig_holstein_question_solved_fail_trigger_desc
-		}
-		NOT = { has_modifier = br_modifier_schleswig_holstein_question_solver }
-	}	
-
-	on_complete = {
-		add_modifier = {
-			name = br_modifier_schleswig_holstein_question_solver
-			days = long_modifier_time
-		}	
-		hidden_effect = { set_global_variable = schleswig_holstein_question_solved }
-	}
 	
 	status_desc = {
 		first_valid = {
@@ -119,6 +34,106 @@
 			}
 		}
 	}
+
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            trigger_if = {
+                limit = {
+                    OR = {
+                        c:HAM ?= this
+                        c:LUB ?= this
+                        c:HOL ?= this
+                        c:SCH ?= this
+                    }
+                }
+                is_subject = no
+            }
+            trigger_if = {
+                limit = {
+                    NOT = {
+                        OR = {
+                            c:HAM ?= this
+                            c:LUB ?= this
+                            c:HOL ?= this
+                            c:SCH ?= this
+                        }
+                    }
+                    exists = c:DEN
+                }
+                custom_tooltip = {
+                    text = je_schleswig_holstein_question_state_ownership_desc
+                    any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
+                    s:STATE_SCHLESWIG_HOLSTEIN = {
+                        NOT = {
+                            any_scope_state = {
+                                OR = {
+                                    NOT = {
+                                        owner = {
+                                            OR = {
+                                                country_has_primary_culture = cu:saxon
+                                                country_has_primary_culture = cu:baltic_german
+                                            }
+                                        }
+                                    }
+                                    owner = {
+                                        is_subject_of = c:DEN
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    s:STATE_ELBE = {
+                        NOT = {
+                            any_scope_state = {
+                                OR = {
+                                    NOT = {
+                                        owner = {
+                                            OR = {
+                                                country_has_primary_culture = cu:saxon
+                                                country_has_primary_culture = cu:baltic_german
+                                            }
+                                        }
+                                    }
+                                    owner = {
+                                        is_subject_of = c:DEN
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        effect = {
+            add_modifier = {
+                name = br_modifier_schleswig_holstein_question_solver
+                days = long_modifier_time
+            }
+            hidden_effect = { set_global_variable = schleswig_holstein_question_solved }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Fail
+    outcome = {
+        header = je_standard_failure_header
+        effect_header = je_standard_on_failure_header
+        color = "blue_negative"
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            custom_tooltip = {
+                has_global_variable = schleswig_holstein_question_solved
+                text = je_schleswig_holstein_question_solved_fail_trigger_desc
+            }
+            NOT = { has_modifier = br_modifier_schleswig_holstein_question_solver }
+        }
+        effect = {}
+    }
 
 	weight = 1000
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -152,81 +167,94 @@ je_pomerania_question = {
 		}			
 	}
 
-	complete = {
-		trigger_if = {
-			limit = {
-				OR = {
-					c:POM ?= this
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_pomerania_question_completed_desc
+		color = "gold_positive"
+		trigger = {
+			trigger_if = {
+				limit = {
+					OR = {
+						c:POM ?= this
+					}
+				}
+				is_subject = no
+			}
+			trigger_if = {
+				limit = {
+					NOT = { c:POM ?= this }
+					exists = c:SWE
+				}
+				custom_tooltip = {
+					text = je_pomerania_question_state_ownership_desc
+					any_scope_state = { state_region = s:STATE_POMERANIA }
+					s:STATE_POMERANIA = {
+						NOT = {
+							any_scope_state = {
+								OR = {
+									NOT = {
+										owner = {
+											OR = {
+												country_has_primary_culture = cu:saxon
+												country_has_primary_culture = cu:baltic_german
+											}
+										}
+									}
+									owner = {
+										is_subject_of = c:SWE
+									}
+								}
+							}
+						}
+					}
+					s:STATE_MECKLENBURG = {
+						NOT = {
+							any_scope_state = {
+								OR = {
+									NOT = {
+										owner = {
+											OR = {
+												country_has_primary_culture = cu:saxon
+												country_has_primary_culture = cu:baltic_german
+											}
+										}
+									}
+									owner = {
+										is_subject_of = c:SWE
+									}
+								}
+							}
+						}
+					}
 				}
 			}
-			is_subject = no
 		}
-		trigger_if = {
-			limit = {
-				NOT = { c:POM ?= this }
-				exists = c:SWE
+		effect = {
+			add_modifier = {
+				name = br_modifier_pomerania_question_solver
+				days = long_modifier_time
 			}
-			custom_tooltip = {
-				text = je_pomerania_question_state_ownership_desc
-				any_scope_state = { state_region = s:STATE_POMERANIA }
-				s:STATE_POMERANIA = {
-					NOT = {
-						any_scope_state = {
-							OR = {
-								NOT = {
-									owner = {
-										OR = {
-											country_has_primary_culture = cu:saxon
-											country_has_primary_culture = cu:baltic_german
-										}
-									}
-								}
-								owner = {
-									is_subject_of = c:SWE
-								}
-							}
-						}
-					}
-				}
-				s:STATE_MECKLENBURG = {
-					NOT = {
-						any_scope_state = {
-							OR = {
-								NOT = {
-									owner = {
-										OR = {
-											country_has_primary_culture = cu:saxon
-											country_has_primary_culture = cu:baltic_german
-										}
-									}
-								}
-								owner = {
-									is_subject_of = c:SWE
-								}
-							}
-						}
-					}
-				}
-			}
+			hidden_effect = { set_global_variable = pomerania_question_solved }
 		}
 	}
-	
-	fail = {
-		custom_tooltip = {
-			has_global_variable = pomerania_question_solved
-			text = je_pomerania_question_solved_fail_trigger_desc
-		}
-		NOT = { has_modifier = br_modifier_pomerania_question_solver }
-	}	
 
-	on_complete = {
-		add_modifier = {
-			name = br_modifier_pomerania_question_solver
-			days = long_modifier_time
-		}	
-		hidden_effect = { set_global_variable = pomerania_question_solved }		
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_pomerania_question_failed_desc
+		color = "blue_negative"
+		trigger = {
+			custom_tooltip = {
+				has_global_variable = pomerania_question_solved
+				text = je_pomerania_question_solved_fail_trigger_desc
+			}
+			NOT = { has_modifier = br_modifier_pomerania_question_solver }
+		}
 	}
-	
+
 	status_desc = {
 		first_valid = {
 			triggered_desc = { 
@@ -270,198 +298,6 @@ REPLACE_OR_CREATE:je_german_unification_idea = {
 			country_has_primary_culture = cu:french
 		}
 	}
- 
-	complete = {		
-		any_country = {
-			filter = {
-				OR = {
-					country_has_primary_culture = cu:saxon
-					country_has_primary_culture = cu:baltic_german		
-					country_has_primary_culture = cu:frankish
-					country_has_primary_culture = cu:alemannic
-					country_has_primary_culture = cu:bavarian
-				}
-			}
-			has_technology_researched = nationalism	
-			percent >= 0.65
-		}
-	}
-
-	on_complete = {
-		hidden_effect = {
-			if = {
-				limit = {
-					any_country = { 
-						country_rank >= rank_value:great_power 
-						OR = {
-							AND = {
-								country_has_primary_culture = cu:saxon
-								root = { country_has_primary_culture = cu:saxon }
-							}						
-							AND = {
-								country_has_primary_culture = cu:baltic_german
-								root = { country_has_primary_culture = cu:baltic_german }
-							}
-							AND = {
-								country_has_primary_culture = cu:frankish
-								root = { country_has_primary_culture = cu:frankish }
-							}
-							AND = {
-								country_has_primary_culture = cu:alemannic
-								root = { country_has_primary_culture = cu:alemannic }
-							}	
-							AND = {
-								country_has_primary_culture = cu:bavarian
-								root = { country_has_primary_culture = cu:bavarian }
-							}								
-						}
-					}			
-				}			
-				random_country = {
-					limit = { 
-						country_rank >= rank_value:great_power 
-						OR = {
-							AND = {
-								country_has_primary_culture = cu:saxon
-								root = { country_has_primary_culture = cu:saxon }
-							}						
-							AND = {
-								country_has_primary_culture = cu:baltic_german
-								root = { country_has_primary_culture = cu:baltic_german }
-							}	
-							AND = {
-								country_has_primary_culture = cu:frankish
-								root = { country_has_primary_culture = cu:frankish }
-							}
-							AND = {
-								country_has_primary_culture = cu:alemannic
-								root = { country_has_primary_culture = cu:alemannic }
-							}	
-							AND = {
-								country_has_primary_culture = cu:bavarian
-								root = { country_has_primary_culture = cu:bavarian }
-							}						
-						}					
-					}
-					save_scope_as = german_unifier_candidate
-				}				
-			}
-			else_if = {
-				limit = {
-					any_country = { 
-						country_rank >= rank_value:great_power 
-						OR = {
-							country_has_primary_culture = cu:saxon
-							country_has_primary_culture = cu:baltic_german
-							country_has_primary_culture = cu:frankish
-							country_has_primary_culture = cu:alemannic
-							country_has_primary_culture = cu:bavarian				
-						}
-					}			
-				}			
-				random_country = {
-					limit = { 
-						country_rank >= rank_value:great_power 
-						OR = {
-							country_has_primary_culture = cu:saxon					
-							country_has_primary_culture = cu:baltic_german
-							country_has_primary_culture = cu:frankish
-							country_has_primary_culture = cu:alemannic
-							country_has_primary_culture = cu:bavarian							
-						}					
-					}
-					save_scope_as = german_unifier_candidate
-				}				
-			}
-			else_if = {
-				limit = {
-					any_country = { 
-						country_rank >= rank_value:major_power 
-						OR = {
-							AND = {
-								country_has_primary_culture = cu:saxon
-								root = { country_has_primary_culture = cu:saxon }
-							}						
-							AND = {
-								country_has_primary_culture = cu:baltic_german
-								root = { country_has_primary_culture = cu:baltic_german }
-							}	
-							AND = {
-								country_has_primary_culture = cu:frankish
-								root = { country_has_primary_culture = cu:frankish }
-							}
-							AND = {
-								country_has_primary_culture = cu:alemannic
-								root = { country_has_primary_culture = cu:alemannic }
-							}	
-							AND = {
-								country_has_primary_culture = cu:bavarian
-								root = { country_has_primary_culture = cu:bavarian }
-							}
-						}
-					}			
-				}			
-				random_country = {
-					limit = { 
-						country_rank >= rank_value:major_power 
-						OR = {
-							AND = {
-								country_has_primary_culture = cu:saxon
-								root = { country_has_primary_culture = cu:saxon }
-							}						
-							AND = {
-								country_has_primary_culture = cu:baltic_german
-								root = { country_has_primary_culture = cu:baltic_german }
-							}
-							AND = {
-								country_has_primary_culture = cu:frankish
-								root = { country_has_primary_culture = cu:frankish }
-							}
-							AND = {
-								country_has_primary_culture = cu:alemannic
-								root = { country_has_primary_culture = cu:alemannic }
-							}	
-							AND = {
-								country_has_primary_culture = cu:bavarian
-								root = { country_has_primary_culture = cu:bavarian }
-							}					
-						}					
-					}
-					save_scope_as = german_unifier_candidate
-				}				
-			}	
-			else_if = {
-				limit = {
-					any_country = { 
-						country_rank >= rank_value:major_power 
-						OR = {
-							country_has_primary_culture = cu:saxon
-							country_has_primary_culture = cu:baltic_german
-							country_has_primary_culture = cu:frankish
-							country_has_primary_culture = cu:alemannic
-							country_has_primary_culture = cu:bavarian						
-						}
-					}			
-				}			
-				random_country = {
-					limit = { 
-						country_rank >= rank_value:major_power 
-						OR = {
-							country_has_primary_culture = cu:saxon					
-							country_has_primary_culture = cu:baltic_german
-							country_has_primary_culture = cu:frankish
-							country_has_primary_culture = cu:alemannic
-							country_has_primary_culture = cu:bavarian							
-						}					
-					}
-					save_scope_as = german_unifier_candidate
-				}				
-			}			
-		}	
-		
-		hidden_effect = { set_variable = je_german_unification_idea }
-		trigger_event = { id = br_german_unification.5 } # German National Identity
-	}
 
 	status_desc = {
 		first_valid = {
@@ -470,6 +306,205 @@ REPLACE_OR_CREATE:je_german_unification_idea = {
 			}
 		}
 	}
+
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            any_country = {
+                filter = {
+                    OR = {
+                        country_has_primary_culture = cu:saxon
+                        country_has_primary_culture = cu:baltic_german
+                        country_has_primary_culture = cu:frankish
+                        country_has_primary_culture = cu:alemannic
+                        country_has_primary_culture = cu:bavarian
+                    }
+                }
+                has_technology_researched = nationalism
+                percent >= 0.65
+            }
+        }
+        effect = {
+            hidden_effect = {
+                if = {
+                    limit = {
+                        any_country = {
+                            country_rank >= rank_value:great_power
+                            OR = {
+                                AND = {
+                                    country_has_primary_culture = cu:saxon
+                                    root = { country_has_primary_culture = cu:saxon }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:baltic_german
+                                    root = { country_has_primary_culture = cu:baltic_german }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:frankish
+                                    root = { country_has_primary_culture = cu:frankish }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:alemannic
+                                    root = { country_has_primary_culture = cu:alemannic }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:bavarian
+                                    root = { country_has_primary_culture = cu:bavarian }
+                                }
+                            }
+                        }
+                    }
+                    random_country = {
+                        limit = {
+                            country_rank >= rank_value:great_power
+                            OR = {
+                                AND = {
+                                    country_has_primary_culture = cu:saxon
+                                    root = { country_has_primary_culture = cu:saxon }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:baltic_german
+                                    root = { country_has_primary_culture = cu:baltic_german }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:frankish
+                                    root = { country_has_primary_culture = cu:frankish }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:alemannic
+                                    root = { country_has_primary_culture = cu:alemannic }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:bavarian
+                                    root = { country_has_primary_culture = cu:bavarian }
+                                }
+                            }
+                        }
+                        save_scope_as = german_unifier_candidate
+                    }
+                }
+                else_if = {
+                    limit = {
+                        any_country = {
+                            country_rank >= rank_value:great_power
+                            OR = {
+                                country_has_primary_culture = cu:saxon
+                                country_has_primary_culture = cu:baltic_german
+                                country_has_primary_culture = cu:frankish
+                                country_has_primary_culture = cu:alemannic
+                                country_has_primary_culture = cu:bavarian
+                            }
+                        }
+                    }
+                    random_country = {
+                        limit = {
+                            country_rank >= rank_value:great_power
+                            OR = {
+                                country_has_primary_culture = cu:saxon
+                                country_has_primary_culture = cu:baltic_german
+                                country_has_primary_culture = cu:frankish
+                                country_has_primary_culture = cu:alemannic
+                                country_has_primary_culture = cu:bavarian
+                            }
+                        }
+                        save_scope_as = german_unifier_candidate
+                    }
+                }
+                else_if = {
+                    limit = {
+                        any_country = {
+                            country_rank >= rank_value:major_power
+                            OR = {
+                                AND = {
+                                    country_has_primary_culture = cu:saxon
+                                    root = { country_has_primary_culture = cu:saxon }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:baltic_german
+                                    root = { country_has_primary_culture = cu:baltic_german }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:frankish
+                                    root = { country_has_primary_culture = cu:frankish }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:alemannic
+                                    root = { country_has_primary_culture = cu:alemannic }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:bavarian
+                                    root = { country_has_primary_culture = cu:bavarian }
+                                }
+                            }
+                        }
+                    }
+                    random_country = {
+                        limit = {
+                            country_rank >= rank_value:major_power
+                            OR = {
+                                AND = {
+                                    country_has_primary_culture = cu:saxon
+                                    root = { country_has_primary_culture = cu:saxon }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:baltic_german
+                                    root = { country_has_primary_culture = cu:baltic_german }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:frankish
+                                    root = { country_has_primary_culture = cu:frankish }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:alemannic
+                                    root = { country_has_primary_culture = cu:alemannic }
+                                }
+                                AND = {
+                                    country_has_primary_culture = cu:bavarian
+                                    root = { country_has_primary_culture = cu:bavarian }
+                                }
+                            }
+                        }
+                        save_scope_as = german_unifier_candidate
+                    }
+                }
+                else_if = {
+                    limit = {
+                        any_country = {
+                            country_rank >= rank_value:major_power
+                            OR = {
+                                country_has_primary_culture = cu:saxon
+                                country_has_primary_culture = cu:baltic_german
+                                country_has_primary_culture = cu:frankish
+                                country_has_primary_culture = cu:alemannic
+                                country_has_primary_culture = cu:bavarian
+                            }
+                        }
+                    }
+                    random_country = {
+                        limit = {
+                            country_rank >= rank_value:major_power
+                            OR = {
+                                country_has_primary_culture = cu:saxon
+                                country_has_primary_culture = cu:baltic_german
+                                country_has_primary_culture = cu:frankish
+                                country_has_primary_culture = cu:alemannic
+                                country_has_primary_culture = cu:bavarian
+                            }
+                        }
+                        save_scope_as = german_unifier_candidate
+                    }
+                }
+            }
+
+            hidden_effect = { set_variable = je_german_unification_idea }
+            trigger_event = { id = br_german_unification.5 } # German National Identity
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 1000
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -482,31 +517,6 @@ REPLACE_OR_CREATE:je_north_german_unification = {
 
 	is_shown_in_lobby = {
 		country_has_a_north_german_primary_culture = yes
-	}
-	
-	complete = {
-		custom_tooltip = {
-			has_global_variable = schleswig_holstein_question_solved
-			text = je_schleswig_holstein_question_solved_trigger_desc
-		}
-		custom_tooltip = {
-			has_global_variable = pomerania_question_solved
-			text = je_pomerania_question_solved_trigger_desc
-		}
-		hidden_trigger = {
-			has_variable = je_unification_progress
-		}	
-		has_technology_researched = nationalism
-		is_unification_candidate = GER
-		custom_tooltip = {
-			text = je_german_unification_sole_candidate_trigger_desc #loc form vanilla
-			NOT = {
-				any_country = {
-					NOT = { this = root }				
-					is_unification_candidate = GER
-				}
-			}	
-		}				
 	}
 
 	on_monthly_pulse = {
@@ -522,11 +532,6 @@ REPLACE_OR_CREATE:je_north_german_unification = {
 		}	
 	}
 
-	on_complete = {
-		trigger_event = { id = br_german_unification.1 } # North German Confederation
-		remove_variable = je_unification_progress
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = { 
@@ -534,6 +539,43 @@ REPLACE_OR_CREATE:je_north_german_unification = {
 			}
 		}
 	}
+
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            custom_tooltip = {
+                has_global_variable = schleswig_holstein_question_solved
+                text = je_schleswig_holstein_question_solved_trigger_desc
+            }
+            custom_tooltip = {
+                has_global_variable = pomerania_question_solved
+                text = je_pomerania_question_solved_trigger_desc
+            }
+            hidden_trigger = {
+                has_variable = je_unification_progress
+            }
+            has_technology_researched = nationalism
+            is_unification_candidate = GER
+            custom_tooltip = {
+                text = je_german_unification_sole_candidate_trigger_desc #loc form vanilla
+                NOT = {
+                    any_country = {
+                        NOT = { this = root }
+                        is_unification_candidate = GER
+                    }
+                }
+            }
+        }
+        effect = {
+            trigger_event = { id = br_german_unification.1 } # North German Confederation
+            remove_variable = je_unification_progress
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 1000
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -549,31 +591,6 @@ REPLACE_OR_CREATE:je_south_german_unification = {
 		not = { country_has_primary_culture = cu:french }
 	}
 
-	complete = {
-		custom_tooltip = {
-			has_global_variable = schleswig_holstein_question_solved
-			text = je_schleswig_holstein_question_solved_trigger_desc
-		}
-		custom_tooltip = {
-			has_global_variable = pomerania_question_solved
-			text = je_pomerania_question_solved_trigger_desc
-		}	
-		hidden_trigger = {
-			has_variable = je_unification_progress
-		}	
-		has_technology_researched = nationalism
-		is_unification_candidate = GER
-		custom_tooltip = {
-			text = je_german_unification_sole_candidate_trigger_desc #loc form vanilla
-			NOT = {
-				any_country = {
-					NOT = { this = root }				
-					is_unification_candidate = GER
-				}
-			}	
-		}	
-	}
-
 	on_monthly_pulse = {
 		effect = {
 			if = { 
@@ -581,11 +598,6 @@ REPLACE_OR_CREATE:je_south_german_unification = {
 				set_variable = je_unification_progress
 			}
 		}
-	}
-
-	on_complete = {
-		trigger_event = { id = br_german_unification.1 } # South German Confederation
-		remove_variable = je_unification_progress
 	}
 
 	status_desc = {
@@ -598,6 +610,43 @@ REPLACE_OR_CREATE:je_south_german_unification = {
 			}
 		}
 	}
+
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            custom_tooltip = {
+                has_global_variable = schleswig_holstein_question_solved
+                text = je_schleswig_holstein_question_solved_trigger_desc
+            }
+            custom_tooltip = {
+                has_global_variable = pomerania_question_solved
+                text = je_pomerania_question_solved_trigger_desc
+            }
+            hidden_trigger = {
+                has_variable = je_unification_progress
+            }
+            has_technology_researched = nationalism
+            is_unification_candidate = GER
+            custom_tooltip = {
+                text = je_german_unification_sole_candidate_trigger_desc #loc form vanilla
+                NOT = {
+                    any_country = {
+                        NOT = { this = root }
+                        is_unification_candidate = GER
+                    }
+                }
+            }
+        }
+        effect = {
+            trigger_event = { id = br_german_unification.1 } # South German Confederation
+            remove_variable = je_unification_progress
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	weight = 1000
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -626,20 +675,6 @@ REPLACE_OR_CREATE:je_german_unification = {
 		is_subject = no
 	}
 
-	complete = {
-		custom_tooltip = {
-			c:GER ?= this
-			text = je_german_unification_complete_trigger_desc
-		}	
-	}
-
-	on_complete = {
-		show_as_tooltip = {
-			trigger_event = { id = br_german_unification.4 popup = yes } # German Unification
-		}
-		remove_variable = je_unification_progress
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -648,12 +683,39 @@ REPLACE_OR_CREATE:je_german_unification = {
 		}
 	}
 
-	invalid = {
-		OR = {
-			country_has_primary_culture = cu:hungarian
-			c:HRE ?= THIS
-		}
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            custom_tooltip = {
+                c:GER ?= this
+                text = je_german_unification_complete_trigger_desc
+            }
+        }
+        effect = {
+            show_as_tooltip = {
+                trigger_event = { id = br_german_unification.4 popup = yes } # German Unification
+            }
+            remove_variable = je_unification_progress
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
+
+    # Invalid
+    outcome = {
+        flags = { hidden invalid_outcome }
+        conclusion_desc = je_standard_failure_conclusion_desc
+        trigger = {
+            OR = {
+                country_has_primary_culture = cu:hungarian
+                c:HRE ?= THIS
+            }
+        }
+        effect = {}
+    }
 
 	weight = 1000
 	should_be_pinned_by_default_uninvolved_or_context = yes

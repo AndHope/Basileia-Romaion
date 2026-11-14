@@ -32,37 +32,44 @@
 		has_technology_researched = nationalism
 	}
 
-	complete = {
-		c:ARM = {
-			owns_entire_state_region = STATE_ARMENIA
-			#owns_entire_state_region = STATE_ELIZAVETPOL
-			NOT = { exists = c:br_arevelyan }
-		}
-	}
-	
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
-		}
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            c:ARM = {
+                owns_entire_state_region = STATE_ARMENIA
+                #owns_entire_state_region = STATE_ELIZAVETPOL
+                NOT = { exists = c:br_arevelyan }
+            }
+        }
+        effect = {
+            add_treasury = 75000
+            add_loyalists = {
+                pop_type = aristocrats
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = officers
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = soldiers
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = clergymen
+                value = very_large_radicals
+            }
+            add_loyalists = {
+                pop_type = bureaucrats
+                value = very_large_radicals
+            }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 	
 }
 

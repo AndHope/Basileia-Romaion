@@ -1,0 +1,29 @@
+﻿# Bastion of the Intelligenstia, also appeals to Industrialists
+# Can sometimes sway PB and Rural Folk when they have common interests
+
+INJECT:liberal_party = {
+	color = { 255 214 13 }
+	name = {
+		first_valid = {
+			#add all the BR triggers first so they have priority over the vanilla triggers
+			triggered_desc = {	#BR edit
+				desc = br_stronnictwo_patriotyczne
+				trigger = {
+					c:PLC ?= this
+				}
+			}
+			triggered_desc = {
+				desc = party_komma_fileleftheron
+				trigger = {
+					country_has_primary_culture = cu:greek
+				}
+			}
+			triggered_desc = {
+				desc = party_boni_factiosi
+				trigger = {
+					country_has_primary_culture = cu:elysian
+				}
+			}
+		}
+	}
+}

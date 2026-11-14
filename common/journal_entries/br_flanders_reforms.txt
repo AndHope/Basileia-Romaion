@@ -25,24 +25,31 @@
 			value = 0
 		}
 	}
-	
-	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
-		}
-	}
-	
-	on_complete = {
-		change_infamy = -5
-		trigger_event = {
-			id = complete_control_the_lowlands.1
-		}
-		hidden_effect = {
-			set_variable = {
-				name = lowland_expansion_complete
-			}
-		}
-	}
+
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+        effect = {
+            change_infamy = -5
+            trigger_event = {
+                id = complete_control_the_lowlands.1
+            }
+            hidden_effect = {
+                set_variable = {
+                    name = lowland_expansion_complete
+                }
+            }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 
 	current_value = {
 		value = var:control_the_lowlands_progress
@@ -73,23 +80,30 @@ je_control_the_northern_lowlands = {
 		}
 		exists = c:NET
 	}
-	
-	complete = {
-		AND = {
-			country_or_subject_owns_entire_state_region = STATE_HOLLAND
-			country_or_subject_owns_entire_state_region = STATE_GELRE
-			country_or_subject_owns_entire_state_region = STATE_FRIESLAND
-		}
-	}
-	
-	on_complete = {
-		custom_tooltip = je_control_the_lowlands_advance
-		change_infamy = -5
-		change_variable = {
-			name = control_the_lowlands_progress
-			add = 1
-		}
-	}
+
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            AND = {
+                country_or_subject_owns_entire_state_region = STATE_HOLLAND
+                country_or_subject_owns_entire_state_region = STATE_GELRE
+                country_or_subject_owns_entire_state_region = STATE_FRIESLAND
+            }
+        }
+        effect = {
+            custom_tooltip = je_control_the_lowlands_advance
+            change_infamy = -5
+            change_variable = {
+                name = control_the_lowlands_progress
+                add = 1
+            }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 	
 	transferable = no
 
@@ -119,21 +133,28 @@ je_control_the_southern_lowlands = {
 	scripted_button = je_request_french_low_countries_button
 	scripted_button = je_request_wallonia_button
 
-	complete = {
-		AND = {
-			country_or_subject_owns_entire_state_region = STATE_FRENCH_LOW_COUNTRIES
-			country_or_subject_owns_entire_state_region = STATE_WALLONIA
-		}
-	}
-	
-	on_complete = {
-		custom_tooltip = je_control_the_lowlands_advance
-		change_infamy = -5
-		change_variable = {
-			name = control_the_lowlands_progress
-			add = 1
-		}
-	}
+    # Completion
+    outcome = {
+        header = je_standard_completion_header
+        effect_header = je_standard_on_completion_header
+        color = "gold_positive"
+        conclusion_desc = je_standard_completion_conclusion_desc
+        trigger = {
+            AND = {
+                country_or_subject_owns_entire_state_region = STATE_FRENCH_LOW_COUNTRIES
+                country_or_subject_owns_entire_state_region = STATE_WALLONIA
+            }
+        }
+        effect = {
+            custom_tooltip = je_control_the_lowlands_advance
+            change_infamy = -5
+            change_variable = {
+                name = control_the_lowlands_progress
+                add = 1
+            }
+        }
+        event_outcome_desc = {} # complex desc like a status_desc field
+    }
 	
 	transferable = no
 

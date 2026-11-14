@@ -16,6 +16,8 @@
         undiscovered_amount = 18
         discovered_amount = 8
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.56
 }
 
 STATE_LOWER_SILESIA = {
@@ -53,18 +55,24 @@ STATE_LOWER_SILESIA = {
         undiscovered_amount = 20
         discovered_amount = 14
     }
+    resource = {
+        type = "building_copper_mine"
+        undiscovered_amount = 8
+        discovered_amount = 10
+    }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.52
 }
 
 STATE_UPPER_SILESIA = {
     id = 924
     subsistence_building = "building_subsistence_farm"
-    provinces = { "x5E9091" "x71E080" "x7B2F62" "x821F52" "x88194B" "x9061E0" "x90B12B" "xAF9F20" "xF0E080" }
+    provinces = { "x5E9091" "x7B2F62" "x821F52" "x88194B" "x90B12B" "xAF9F20" }
     traits = { "state_trait_oder_river" "state_trait_upper_silesia_coalfield" }
-    prime_land = { "xF0E080" }
     city = "x90B12B"
-    farm = "xF0E080"
+    farm = "xAF9F20"
     mine = "x821F52"
-    wood = "x9061E0"
+    wood = "x5E9091"
     arable_land = 45
     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
     capped_resources = {
@@ -90,6 +98,8 @@ STATE_UPPER_SILESIA = {
         undiscovered_amount = 20
         discovered_amount = 14
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.50
 }
 
 STATE_GREATER_POLAND = {
@@ -120,6 +130,8 @@ STATE_GREATER_POLAND = {
         undiscovered_amount = 60
         discovered_amount = 14
     }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.58
 }
 
 STATE_LESSER_POLAND = {
@@ -154,6 +166,8 @@ STATE_LESSER_POLAND = {
         undiscovered_amount = 20
         discovered_amount = 12
     }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.59
 }
 
 STATE_WEST_PRUSSIA = {
@@ -178,6 +192,12 @@ STATE_WEST_PRUSSIA = {
         discovered_amount = 10
     }
     naval_exit_id = 3074
+    blockade_locator = {
+        position = { 4520 0 2891 }
+        yaw = -124
+    }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.64
 }
 
 STATE_EAST_PRUSSIA = {
@@ -196,6 +216,8 @@ STATE_EAST_PRUSSIA = {
         building_fishing_wharf = 10
     }
     naval_exit_id = 3074
+    min_cold_effect = 0.02
+    max_cold_effect = 0.65
 }
 
 STATE_POSEN = {
@@ -216,17 +238,19 @@ STATE_POSEN = {
         undiscovered_amount = 10
         discovered_amount = 14
     }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.61
 }
 
 STATE_WEST_GALICIA = {
     id = 161
     subsistence_building = "building_subsistence_farm"
-    provinces = { "x1161E0" "x11E061" "x56599F" "x5F3456" "x66DCEE" "x906060" "x90E060" "xA550A9" "xA63CE6" "xC7B7B8" "xC8690C" "xFCC35F" }
+    provinces = { "x1161E0" "x11E061" "x56599F" "x5F3456" "x66DCEE" "x906060" "x9061E0" "x90E060" "xA550A9" "xA63CE6" "xC7B7B8" "xC8690C" "xFCC35F" }
     prime_land = { "x5F3456" "xFCC35F" }
     city = "x906060"
     farm = "x5F3456"
     mine = "x5F3456"
-    wood = "x5F3456" # TODO FIX
+    wood = "x5F3456"
     arable_land = 145
     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
     capped_resources = {
@@ -254,6 +278,8 @@ STATE_WEST_GALICIA = {
         type = "building_oil_rig"
         undiscovered_amount = 30
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.49
 }
 
 STATE_EAST_GALICIA = {
@@ -282,6 +308,8 @@ STATE_EAST_GALICIA = {
         type = "building_oil_rig"
         undiscovered_amount = 50
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.48
 }
 
 STATE_CENTRAL_HUNGARY = {
@@ -308,6 +336,13 @@ STATE_CENTRAL_HUNGARY = {
         undiscovered_amount = 20
         discovered_amount = 10
     }
+    resource = {
+        type = "building_copper_mine"
+        undiscovered_amount = 4
+        discovered_amount = 4
+    }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.44
 }
 
 STATE_BEKES = {
@@ -329,6 +364,8 @@ STATE_BEKES = {
         type = "building_iron_mine"
         undiscovered_amount = 20
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.44
 }
 
 STATE_TRANSDANUBIA = {
@@ -350,6 +387,8 @@ STATE_TRANSDANUBIA = {
         undiscovered_amount = 60
         discovered_amount = 14
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.44
 }
 
 STATE_DELVIDEK = {
@@ -374,6 +413,8 @@ STATE_DELVIDEK = {
         type = "building_oil_rig"
         undiscovered_amount = 10
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.41
 }
 
 STATE_BANAT = {
@@ -394,6 +435,8 @@ STATE_BANAT = {
         type = "building_coal_mine"
         undiscovered_amount = 25
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.41
 }
 
 STATE_SLOVAKIA = {
@@ -425,6 +468,13 @@ STATE_SLOVAKIA = {
         type = "building_sulfur_mine"
         undiscovered_amount = 10
     }
+    resource = {
+        type = "building_copper_mine"
+        undiscovered_amount = 5
+        discovered_amount = 5
+    }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.53
 }
 
 STATE_RUTHENIA = {
@@ -450,6 +500,8 @@ STATE_RUTHENIA = {
         undiscovered_amount = 80
         discovered_amount = 22
     }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.52
 }
 
 STATE_SOUTHERN_TRANSYLVANIA = {
@@ -475,6 +527,13 @@ STATE_SOUTHERN_TRANSYLVANIA = {
         undiscovered_amount = 25
         discovered_amount = 20
     }
+    resource = {
+        type = "building_copper_mine"
+        undiscovered_amount = 4
+        discovered_amount = 4
+    }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.42
 }
 
 STATE_NORTHERN_TRANSYLVANIA = {
@@ -504,6 +563,8 @@ STATE_NORTHERN_TRANSYLVANIA = {
         type = "building_oil_rig"
         undiscovered_amount = 10
     }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.49
 }
 
 STATE_MOLDAVIA = {
@@ -528,7 +589,10 @@ STATE_MOLDAVIA = {
         type = "building_oil_rig"
         undiscovered_amount = 40
     }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.49
 }
+
 STATE_BUKOVINA = {
     id = 922
     subsistence_building = "building_subsistence_farm"
@@ -544,7 +608,10 @@ STATE_BUKOVINA = {
         building_coal_mine = 2
         building_logging_camp = 7
     }
+    min_cold_effect = 0.02
+    max_cold_effect = 0.51
 }
+
 STATE_WALLACHIA = {
     id = 173
     subsistence_building = "building_subsistence_farm"
@@ -554,7 +621,7 @@ STATE_WALLACHIA = {
     farm = "x9E90C5"
     mine = "x743F1C"
     wood = "xF9AA0F"
-    arable_land = 95
+    arable_land = 85
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_silk_plantation" "building_cotton_plantation" "building_vineyard" }
     capped_resources = {
         building_logging_camp = 8
@@ -578,6 +645,8 @@ STATE_WALLACHIA = {
         type = "building_oil_rig"
         undiscovered_amount = 80
     }
+    min_cold_effect = 0.00
+    max_cold_effect = 0.39
 }
 
 STATE_BESSARABIA = {
@@ -596,4 +665,6 @@ STATE_BESSARABIA = {
         building_fishing_wharf = 9
     }
     naval_exit_id = 3036
+    min_cold_effect = 0.00
+    max_cold_effect = 0.43
 }

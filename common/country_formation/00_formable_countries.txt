@@ -33,7 +33,7 @@ ITA = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.75
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -148,7 +148,7 @@ PLC = {
 		STATE_EAST_GALICIA
 		STATE_GREATER_POLAND
 		STATE_LESSER_POLAND
-		STATE_KAUNAS
+		STATE_LITHUANIA
 		STATE_VILNIUS
 		STATE_MAZOVIA
 		STATE_POSEN
@@ -159,13 +159,22 @@ PLC = {
 
 	required_states_fraction = 1
 
+	possible = {
+		is_subject = no
+	}
+
 	ai_will_do = { always = yes }
 }
 
 PRU = {
 	states = {
+		# STATE_BRANDENBURG # BR Removed
+		# STATE_POMERANIA # BR Removed
 		STATE_WEST_PRUSSIA
 		STATE_EAST_PRUSSIA
+		# STATE_LOWER_SILESIA # BR Removed
+		# STATE_UPPER_SILESIA # BR Removed
+		# STATE_POSEN # BR Removed
 	}
 
 	required_states_fraction = 0.8
@@ -182,10 +191,15 @@ CHI = {
 }
 
 ETH = {
-	use_culture_states = yes
+	states = {
+		STATE_AMHARA
+		STATE_GONDER
+		STATE_OROMIA
+		# intentionally omitting STATE_ERITREA
+	}
 
-	required_states_fraction = 0.50
-	
+	required_states_fraction = 0.33 # just unifying Gonder would suffice
+
 	ai_will_do = { always = yes }
 }
 
@@ -193,7 +207,7 @@ AOT = {
 	use_culture_states = yes
 
 	required_states_fraction = 1.0
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -208,7 +222,7 @@ IBE = {
 		has_technology_researched = pan-nationalism
 		trigger_if = {
 			limit = {
-				capital = {
+				capital ?= {
 					is_in_geographic_region = geographic_region_iberia_old
 				}
 				any_country_in_iberia_old = {
@@ -232,8 +246,8 @@ IBE = {
 SPA = {
 	use_culture_states = yes
 
-	required_states_fraction = 0.75	
-	
+	required_states_fraction = 0.75
+
 	ai_will_do = { always = yes }
 }
 
@@ -246,20 +260,38 @@ KUK = {
 
 	possible = {
 		has_technology_researched = pan-nationalism
-		has_law_or_variant = law_type:law_multicultural
+		OR = {
+			has_law_or_variant = law_type:law_multicultural
+			has_law_or_variant = law_type:law_subjecthood
+		}
 	}
 }
 
 CZH = {
-	use_culture_states = yes
+	STATES = {
+		STATE_BOHEMIA
+		STATE_MORAVIA
+		STATE_SLOVAKIA
+		STATE_RUTHENIA
+	}
 
-	required_states_fraction = 1
-	
+
+	required_states_fraction = 0.75
+
 	ai_will_do = { always = yes }
 }
 
 POL = {
-	use_culture_states = yes
+	states = {
+		STATE_GREATER_POLAND
+		STATE_MAZOVIA
+		STATE_LESSER_POLAND
+		STATE_WEST_GALICIA
+		STATE_EAST_GALICIA
+		STATE_UPPER_SILESIA
+		STATE_WEST_PRUSSIA
+		STATE_POSEN
+	}
 
 	required_states_fraction = 0.55
 
@@ -299,7 +331,7 @@ ARA = {
 		STATE_UPPER_EGYPT
 	}
 
-	required_states_fraction = 0.75	
+	required_states_fraction = 0.75
 
 	ai_will_do = { always = yes }
 
@@ -369,15 +401,7 @@ MAL = {
 	}
 
 	required_states_fraction = 0.5
-	
-	ai_will_do = { always = yes }
-}
 
-YUG = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75
-	
 	ai_will_do = { always = yes }
 }
 
@@ -544,7 +568,7 @@ ALD = {
 	}
 
 	required_states_fraction = 1
-	
+
 	ai_will_do = { always = yes }
 }
 
@@ -885,7 +909,7 @@ LBY = {
 	ai_will_do = { always = yes }
 
 	potential = {
-		capital.state_region = {
+		capital.state_region ?= {
 			OR = {
 				this = s:STATE_TRIPOLI
 				this = s:STATE_LIBYA
@@ -914,5 +938,19 @@ ATL = {
 
 	possible = {
 		has_technology_researched = pan-nationalism
+	}
+}
+
+GEO = {
+	states = {
+		STATE_GREATER_CAUCASUS
+	}
+
+	required_states_fraction = 1
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = nationalism
 	}
 }

@@ -155,59 +155,77 @@ je_hre_impending_revolution = {
 		}
 	}
 
-	custom_completion_header = br_je_hre_impending_revolution_completion_header
-
-	complete = {
-		custom_tooltip = {
-			text = finished_revolution_tt
-			has_variable = br_impending_revolution_prevented_var
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = {
-			type = je_national_identity
-		}
-	}
-
-	custom_failure_header = br_je_hre_impending_revolution_failure_header
-
-	fail = {
-		OR = {
-			# has_law_or_variant = law_type:law_presidential_republic
-			NOT = {
-				has_law_or_variant = law_type:law_monarchy
-			}
-			custom_tooltip = {
-				text = if_journal_timeout_tt
-				has_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
-			}
-
-			#The revolution progress has reached 100%
-			br_hre_has_max_revolution_progress_scripted_trigger = yes
-		}
-	}
-	
-	# custom_on_failure_header = br_je_hre_impending_revolution_on_failure_header
-
-	on_fail = {
-		br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = yes
-	}
-
-	timeout = br_impending_revolution_timeout
-
-	#on_timeout the revolution happens
-	on_timeout = {
-		br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = yes
-	}
-
-	invalid = {
-		#It's hidden because this is just to make sure that the JE gets removed when debugging
-		hidden_trigger = {
+    # Completion
+	outcome = {
+		header = br_je_hre_impending_revolution_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_hre_impending_revolution_completed_desc
+		color = "gold_positive"
+		trigger = {
 			custom_tooltip = {
 				text = finished_revolution_tt
-				has_variable = br_impending_revolution_finished_var
-				not = { has_variable = br_impending_revolution_prevented_var }
+				has_variable = br_impending_revolution_prevented_var
+			}
+		}
+		effect = {
+			add_journal_entry = {
+				type = je_national_identity
+			}
+		}
+	}
+
+    # Fail
+	outcome = { #( custom_on_failure_header = br_je_hre_impending_revolution_on_failure_header)
+		header = br_je_hre_impending_revolution_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_hre_impending_revolution_failed_desc
+		color = "blue_negative"
+		trigger = {
+			OR = {
+				# has_law_or_variant = law_type:law_presidential_republic
+				NOT = {
+					has_law_or_variant = law_type:law_monarchy
+				}
+				custom_tooltip = {
+					text = if_journal_timeout_tt
+					has_variable = br_revolution_timeout_var #var that does not exit so that the condition is not checked
+				}
+
+				#The revolution progress has reached 100%
+				br_hre_has_max_revolution_progress_scripted_trigger = yes
+			}
+		}
+		effect = {
+			br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = yes
+		}
+	}
+
+    timeout = br_impending_revolution_timeout
+
+    # Timeout: the revolution happens
+    outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_hre_impending_revolution_timeout_desc
+		color = "blue_negative"
+		flags = { timeout }
+		effect = {
+			br_one_of_the_estates_begins_launching_a_revolution_scripted_effect = yes
+		}
+	}
+
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			#It's hidden because this is just to make sure that the JE gets removed when debugging
+			hidden_trigger = {
+				custom_tooltip = {
+					text = finished_revolution_tt
+					has_variable = br_impending_revolution_finished_var
+					not = { has_variable = br_impending_revolution_prevented_var }
+				}
 			}
 		}
 	}
@@ -259,38 +277,49 @@ je_revolution_reform = {
 		}
 	}
 
-	complete = {
-		NOT = {
-			has_law_or_variant = law_type:law_autocracy
-			has_law_or_variant = law_type:law_oligarchy
-			has_law_or_variant = law_type:law_landed_voting
-			has_law_or_variant = law_type:law_hereditary_bureaucrats
-			has_law_or_variant = law_type:law_serfdom
-			has_law_or_variant = law_type:law_traditionalism
-			has_law_or_variant = law_type:br_law_feudalism_enforced
-			has_law_or_variant = law_type:br_law_feudalism_codified
-			has_modifier = br_modifier_noble_privileges
-			has_modifier = br_modifier_unreliable_food_security
-			has_modifier = br_modifier_antiquated_regime
-			has_modifier = br_modifier_unpopular_regime
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_revolution_reform_completed_desc
+		color = "gold_positive"
+		trigger = {
+			NOT = {
+				has_law_or_variant = law_type:law_autocracy
+				has_law_or_variant = law_type:law_oligarchy
+				has_law_or_variant = law_type:law_landed_voting
+				has_law_or_variant = law_type:law_hereditary_bureaucrats
+				has_law_or_variant = law_type:law_serfdom
+				has_law_or_variant = law_type:law_traditionalism
+				has_law_or_variant = law_type:br_law_feudalism_enforced
+				has_law_or_variant = law_type:br_law_feudalism_codified
+				has_modifier = br_modifier_noble_privileges
+				has_modifier = br_modifier_unreliable_food_security
+				has_modifier = br_modifier_antiquated_regime
+				has_modifier = br_modifier_unpopular_regime
+			}
+		}
+		effect = {
+			trigger_event = {
+				id = hre_revolution_events.3
+				popup = no
+			}
+			add_modifier = {
+				name = br_modifier_peoples_monarchy
+				years = -1
+			}
 		}
 	}
 
-	on_complete = {
-		trigger_event = {
-			id = hre_revolution_events.3
-			popup = no
-		}
-		add_modifier = {
-			name = br_modifier_peoples_monarchy
-			years = -1
-		}
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_revolution_tt
-			has_variable = br_impending_revolution_finished_var
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = finished_revolution_tt
+				has_variable = br_impending_revolution_finished_var
+			}
 		}
 	}
 
@@ -306,46 +335,57 @@ je_revolution_suppress = {
 
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
-	complete = {
-		has_law_or_variant = law_type:law_autocracy
-		has_law_or_variant = law_type:law_censorship
-		OR = {
-			has_law_or_variant = law_type:law_national_guard
-			has_law_or_variant = law_type:law_professional_army
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_revolution_suppress_completed_desc
+		color = "gold_positive"
+		trigger = {
+			has_law_or_variant = law_type:law_autocracy
+			has_law_or_variant = law_type:law_censorship
+			OR = {
+				has_law_or_variant = law_type:law_national_guard
+				has_law_or_variant = law_type:law_professional_army
+			}
+			NOT = {
+				has_law_or_variant = law_type:law_peasant_levies
+			}
+			OR = {
+				has_law_or_variant = law_type:br_law_feudalism_enforced
+				has_law_or_variant = law_type:br_law_feudalism_codified
+			}
+			ig:ig_landowners = {
+				is_powerful = yes
+				is_in_government = yes
+			}
+			ig:ig_armed_forces = {
+				is_powerful = yes
+				is_in_government = yes
+			}
 		}
-		NOT = {
-			has_law_or_variant = law_type:law_peasant_levies
-		}
-		OR = {
-			has_law_or_variant = law_type:br_law_feudalism_enforced
-			has_law_or_variant = law_type:br_law_feudalism_codified
-		}
-		ig:ig_landowners = {
-			is_powerful = yes
-			is_in_government = yes
-		}
-		ig:ig_armed_forces = {
-			is_powerful = yes
-			is_in_government = yes
+		effect = {
+			trigger_event = {
+				id = hre_revolution_events.4
+				popup = no
+			}
+			add_modifier = {
+				name = br_modifier_heir_of_augustus
+				years = -1
+			}
+			#remove_modifier = br_modifier_noble_privileges
 		}
 	}
 
-	on_complete = {
-		trigger_event = {
-			id = hre_revolution_events.4
-			popup = no
-		}
-		add_modifier = {
-			name = br_modifier_heir_of_augustus
-			years = -1
-		}
-		#remove_modifier = br_modifier_noble_privileges
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = finished_revolution_tt
-			has_variable = br_impending_revolution_finished_var
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = finished_revolution_tt
+				has_variable = br_impending_revolution_finished_var
+			}
 		}
 	}
 

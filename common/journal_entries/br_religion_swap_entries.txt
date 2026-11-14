@@ -35,35 +35,57 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
-				scripted_bar_progress = {
-					name = br_religious_conversion_progress_bar
-					value >= 0.5	#50%
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_religion_swap_completed_desc
+		color = "gold_positive"
+		trigger = {
+			custom_tooltip = {
+				scope:journal_entry = { #in the scope journal_entrie because custom_tooltip is at the country scope level
+					scripted_bar_progress = {
+						name = br_religious_conversion_progress_bar
+						value >= 0.5	#50%
+					}
+				}
+				text = je_religion_swap_complete
+			}
+		}
+		effect = {
+			br_religion_swap_succes_effect = yes
+		}
+	}
+
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_religion_swap_failed_desc
+		color = "blue_negative"
+		trigger = {
+			scope:new_state_religion = {
+				not = {
+					is_state_religion = root
 				}
 			}
-			text = je_religion_swap_complete
+		}
+		effect = {
+			br_religion_swap_failed_effect = yes
 		}
 	}
 
-	on_complete = {
-		br_religion_swap_succes_effect = yes
-	}
-
-	fail = {
-		scope:new_state_religion = {
-			not = {
-				is_state_religion = root
-			}
+    # Timeout
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_religion_swap_timeout_desc
+		color = "blue_negative"
+		flags = { timeout }
+		effect = {
+			br_religion_swap_failed_effect = yes
 		}
 	}
-	
-	on_fail = {
-		br_religion_swap_failed_effect = yes
-	}	
- 
-	
 
 	on_weekly_pulse = {
 		effect = {
@@ -100,9 +122,6 @@
 
 	timeout = 5475	#15 years
 
-	on_timeout = {
-		br_religion_swap_failed_effect = yes
-	}
 
 	weight = 1000
 	should_be_pinned_by_default_uninvolved_or_context = yes

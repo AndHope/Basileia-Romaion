@@ -24,44 +24,50 @@
 		#has_law_or_variant = law_type:law_frontier_colonization
 	}
 
-	complete = {
-		root = {
-			owns_entire_state_region = STATE_KAMCHATKA
-			owns_entire_state_region = STATE_OKHOTSK
-			owns_entire_state_region = STATE_YAKUTSK
-			owns_entire_state_region = STATE_CHUKOTKA
-			owns_entire_state_region = STATE_KOLYMA
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_japanese_siberia_expansion_completed_desc
+		color = "gold_positive"
+		trigger = {
+			root = {
+				owns_entire_state_region = STATE_KAMCHATKA
+				owns_entire_state_region = STATE_OKHOTSK
+				owns_entire_state_region = STATE_YAKUTSK
+				#owns_entire_state_region = STATE_CHUKOTKA
+				owns_entire_state_region = STATE_KOLYMA
+			}
+		}
+		effect = {
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
 		}
 	}
 
 	#invalid = {
 	#	NOT = { has_law_or_variant = law_type:law_frontier_colonization } #So player won't abuse the buff to colonize the world
 	#}
-	
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
-		}
-	}
-	
+
 }
 
 

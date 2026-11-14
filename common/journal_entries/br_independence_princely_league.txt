@@ -27,14 +27,26 @@
 		# 	years = 75
 		# }
 	}
-	
-	complete = {
-		br_does_princely_league_exist = yes
+
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = br_je_create_the_princely_league_completed_desc
+		color = "gold_positive"
+		trigger = {
+			br_does_princely_league_exist = yes
+		}
 	}
 
-	invalid = {
-		NOT = {
-			is_subject_of = c:HRE
+    # Invalid
+	outcome = {
+		conclusion_desc = br_je_invalid_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = {
+				is_subject_of = c:HRE
+			}
 		}
 	}
 
@@ -229,61 +241,73 @@ br_je_princely_league_main = {
 		}
 	}
 
-    complete = {
-		br_does_princely_league_exist = yes
-		any_com_situation_countries  = {
-			filter = {
-				or = {
-					is_com_situation_faction_member = {
-						side = left
-						faction = br_princely_league_left_faction_members
-					}
-					is_com_situation_side_leader = {
-						side = left
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = br_je_princely_league_main_completed_desc
+		color = "gold_positive"
+		trigger = {
+			br_does_princely_league_exist = yes
+			any_com_situation_countries  = {
+				filter = {
+					or = {
+						is_com_situation_faction_member = {
+							side = left
+							faction = br_princely_league_left_faction_members
+						}
+						is_com_situation_side_leader = {
+							side = left
+						}
 					}
 				}
+				NOT = {
+					is_subject_of = c:HRE
+				}
+				count >= scope:com_situation.var:br_princely_league_main_nr_of_left_side_members_var
 			}
-			NOT = {
-				is_subject_of = c:HRE
-			}
-			count >= scope:com_situation.var:br_princely_league_main_nr_of_left_side_members_var
 		}
-	}
-	
-	on_complete = {
-		if = {
-			limit = {
-				not = { c:HRE ?= this }
-			}
-				trigger_event = {
-				id = princely_league_completion.1 #complete custom event
-				popup = yes
-			}
-			hidden_effect = {
-				set_global_variable = {
-					name = princely_league_complete
+		effect = {
+			if = {
+				limit = {
+					not = { c:HRE ?= this }
 				}
+					trigger_event = {
+					id = princely_league_completion.1 #complete custom event
+					popup = yes
+				}
+				hidden_effect = {
+					set_global_variable = {
+						name = princely_league_complete
+					}
+				}
+				add_modifier = br_modifier_princely_league_success
 			}
-			add_modifier = br_modifier_princely_league_success
 		}
 	}
 
-    fail = {
-		any_com_situation_countries  = {
-			is_com_situation_faction_member = {
-				side = right
-				faction = br_princely_league_right_faction_members
+    # Fail
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = br_je_princely_league_main_failed_desc
+		color = "blue_negative"
+		trigger = {
+			any_com_situation_countries  = {
+				is_com_situation_faction_member = {
+					side = right
+					faction = br_princely_league_right_faction_members
+				}
+				percent >= 1
 			}
-			percent >= 1
 		}
-    }
-
-	on_fail = {
-		if = {
-			limit = {
-				not = { c:HRE ?= this }
+		effect = {
+			if = {
+				limit = {
+					not = { c:HRE ?= this }
+				}
+				add_modifier = br_modifier_princely_league_failure
 			}
-			add_modifier = br_modifier_princely_league_failure
 		}
 	}
 

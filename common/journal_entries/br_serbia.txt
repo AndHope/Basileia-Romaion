@@ -29,36 +29,42 @@
 		#has_technology_researched = nationalism
 	}
 
-	complete = {
-		c:SER = {
-			owns_entire_state_region = STATE_BOSNIA
-			owns_entire_state_region = STATE_MONTENEGRO
-			owns_entire_state_region = STATE_WESTERN_SERBIA
-			owns_entire_state_region = STATE_EASTERN_SERBIA
+    # Completion
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_restore_serbia_completed_desc
+		color = "gold_positive"
+		trigger = {
+			c:SER = {
+				owns_entire_state_region = STATE_BOSNIA
+				owns_entire_state_region = STATE_MONTENEGRO
+				owns_entire_state_region = STATE_WESTERN_SERBIA
+				owns_entire_state_region = STATE_EASTERN_SERBIA
+			}
 		}
-	}
-	
-	on_complete = {
-		add_treasury = 75000
-		add_loyalists = {
-			pop_type = aristocrats
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = officers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = soldiers
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = clergymen
-			value = very_large_radicals
-		}
-		add_loyalists = {
-			pop_type = bureaucrats
-			value = very_large_radicals
+		effect = {
+			add_treasury = 75000
+			add_loyalists = {
+				pop_type = aristocrats
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = soldiers
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = clergymen
+				value = very_large_radicals
+			}
+			add_loyalists = {
+				pop_type = bureaucrats
+				value = very_large_radicals
+			}
 		}
 	}
 	
