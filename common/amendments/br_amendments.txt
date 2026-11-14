@@ -5,7 +5,7 @@
 # Imperial election by Army, Senate and People (Roman acclamation, no fixed dynasty)
 amendment_triple_acclamation = {
 	parent = law_monarchy
-	allowed_laws = { law_monarchy }
+	allowed_laws = { law_monarchy law_autocracy }
 	modifier = {
 		country_legitimacy_headofstate_add = 15
 		country_legitimacy_base_add = -5
@@ -132,7 +132,7 @@ amendment_co_emperorship = {
 # Rivals are blinded or mutilated rather than killed, disqualifying them from the throne
 amendment_political_mutilation = {
 	parent = law_monarchy
-	allowed_laws = { law_monarchy }
+	allowed_laws = { law_autocracy }
 	modifier = {
 		country_legitimacy_base_add = 3
 		state_radicals_from_political_movements_mult = -0.10
@@ -284,7 +284,7 @@ amendment_venal_offices = {
 # Novels of the Macedonian emperors: protect small holders from the dynatoi
 amendment_protection_of_the_poor = {
 	parent = law_serfdom
-	allowed_laws = { law_serfdom law_tenant_farmers law_peasant_proprietorship law_homesteading }
+	allowed_laws = { law_serfdom law_tenant_farmers law_peasant_proprietorship law_homesteading law_autocracy }
 	modifier = {
 		interest_group_ig_landowners_pol_str_mult = -0.15
 		interest_group_ig_landowners_approval_add = -1
@@ -317,7 +317,7 @@ amendment_protection_of_the_poor = {
 # Dynatoi: great landed magnates swallow the free villages
 amendment_dynatoi_estates = {
 	parent = law_serfdom
-	allowed_laws = { law_serfdom law_tenant_farmers law_peasant_proprietorship }
+	allowed_laws = { law_serfdom law_tenant_farmers law_traditionalism law_oligarchy }
 	modifier = {
 		interest_group_ig_landowners_pol_str_mult = 0.20
 		building_group_bg_manor_houses_aristocrats_standard_of_living_add = 2
@@ -347,7 +347,7 @@ amendment_dynatoi_estates = {
 # Allelengyon (Basil II, 996): the powerful answer for the tax arrears of their poor neighbours
 amendment_allelengyon = {
 	parent = law_land_based_taxation
-	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation }
+	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation law_autocracy }
 	modifier = {
 		state_tax_collection_mult = 0.10
 		interest_group_ig_landowners_approval_add = -1
@@ -465,8 +465,8 @@ amendment_inalienable_soldier_holdings = {
 
 # Basilika: Justinian's law recast in Greek
 amendment_basilika_code = {
-	parent = law_traditionalism
-	allowed_laws = { law_traditionalism }
+	#parent = law_traditionalism
+	#allowed_laws = { law_traditionalism }
 	modifier = {
 		country_bureaucracy_mult = 0.10
 		country_legitimacy_base_add = 3
@@ -523,7 +523,7 @@ amendment_cadastral_survey = {
 # Exkousseia: tax immunities granted to magnates and monasteries
 amendment_fiscal_immunities = {
 	parent = law_land_based_taxation
-	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation }
+	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation law_oligarchy }
 	modifier = {
 		state_tax_collection_mult = -0.10
 		interest_group_ig_landowners_approval_add = 1
@@ -802,7 +802,7 @@ amendment_endemousa_synod = {
 # Charistike: monastic houses placed under lay patrons
 amendment_charistike_patronage = {
 	parent = law_caesaropapism
-	allowed_laws = { law_caesaropapism }
+	allowed_laws = { law_caesaropapism law_state_religion }
 	modifier = {
 		interest_group_ig_landowners_approval_add = 1
 		country_clergymen_pol_str_mult = -0.10
@@ -894,7 +894,7 @@ amendment_patriarchal_coronation = {
 # The Holy Mountain governs itself by its own typikon
 amendment_athonite_autonomy = {
 	parent = law_caesaropapism
-	allowed_laws = { law_caesaropapism }
+	allowed_laws = { law_caesaropapism law_state_religion }
 	modifier = {
 		interest_group_ig_devout_pop_attraction_mult = 0.10
 		interest_group_ig_devout_approval_add = 1
