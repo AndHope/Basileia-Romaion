@@ -251,3 +251,122 @@ effect_starting_politics_altepetl = {
 		activate_law = law_type:law_monarchy
 	}
 }
+
+
+
+###br added
+
+effect_starting_politics_themata = {
+
+	activate_law = law_type:law_monarchy
+	activate_law = law_type:law_autocracy
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_land_based_taxation
+	activate_law = law_type:law_traditionalism
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_guild_system
+	activate_law = law_type:law_military_bureaucrats
+	activate_law = law_type:br_law_soldier_farmers
+	activate_law = law_type:br_law_roman_supremacy
+	activate_law = law_type:br_law_tagmata_army
+	activate_law = law_type:br_law_themata
+	activate_law = law_type:law_censorship
+	activate_law = law_type:law_legacy_slavery
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_local_police
+	
+	activate_law = law_type:law_charitable_health_system
+	activate_law = law_type:law_migration_controls	
+
+		ig:ig_landowners ?= {
+			set_interest_group_name = ig_themata_patricians
+		}
+		ig:ig_armed_forces ?= {
+			set_interest_group_name = ig_tagmata_strategos
+		}
+		ig:ig_devout ?= {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+		ig:ig_rural_folk ?= {
+			set_interest_group_name = ig_agrotikos
+		}
+		ig:ig_petty_bourgeoisie ?= {
+			set_interest_group_name = ig_merchant_guilds
+		}
+		ig:ig_intelligentsia ?= { 
+			set_interest_group_name = ig_dianooumenoi
+		}
+		ig:ig_industrialists ?= { 
+			set_interest_group_name = ig_viomixanoi
+		}
+		ig:ig_trade_unions ?= {
+			set_interest_group_name = ig_syndikalistai
+		}
+
+		active_law:lawgroup_land_reform ?= { #land_reform
+			add_amendment = {
+				type = amendment_inalienable_soldier_holdings
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+		active_law:lawgroup_land_reform ?= { #land_reform
+			add_amendment = {
+				type = amendment_akritai_border_guards
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+		active_law:lawgroup_land_reform ?= { #land_reform
+			add_amendment = {
+				type = amendment_adelphata
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+		active_law:lawgroup_internal_security ?= { #internal_security
+			add_amendment = {
+				type = amendment_hereditary_strategoi
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+		active_law:lawgroup_internal_security ?= { #internal_security
+			add_amendment = {
+				type = amendment_pronoia_grants
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+		active_law:lawgroup_citizenship ?= { #citizenship
+			add_amendment = {
+				type = amendment_greek_liturgical_unity
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+		active_law:lawgroup_economic_system ?= { #economic_system
+			add_amendment = {
+				type = amendment_basilika_code
+				sponsor = PREV.ig:ig_intelligentsia
+			}
+		}
+		active_law:lawgroup_migration ?= { #migrations
+			add_amendment = {
+				type = amendment_foederati_settlement
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+		active_law:lawgroup_trade_policy ?= { #trade_policy
+			add_amendment = {
+				type = amendment_kommerkion_duty
+				sponsor = PREV.ig:ig_intelligentsia
+			}
+		}
+
+
+
+		active_law:lawgroup_land_reform ?= { #land_reform
+			add_amendment = {
+				type = amendment_protection_of_the_poor
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+
+}

@@ -4,7 +4,7 @@
 INJECT:ai_strategy_default = {
 	# Chance each day that the AI will stop enacting a law that is going to spark a civil war (1 aversion should translate into ~25% chance of avoiding a civil war)
 	# Using a different value in a strategy will override this value
-	revolution_aversion = {
+	INJECT:revolution_aversion = {
 		if = {
 			limit = {
 				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
@@ -15,7 +15,7 @@ INJECT:ai_strategy_default = {
 	}
 	# Added to base neutrality in diplomatic plays
 	# Using this value in other strategies will function additively
-	diplomatic_play_neutrality = {
+	INJECT:diplomatic_play_neutrality = {
 		if = {
 			limit = {
 				has_journal_entry = je_palaiologos_reforms_main #BR Edited
@@ -25,7 +25,7 @@ INJECT:ai_strategy_default = {
 	}
 	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
 	# Using this value in other strategies will function additively (values below 0 or above 1 have no further effect)
-	wargoal_maneuvers_fraction = {
+	INJECT:wargoal_maneuvers_fraction = {
 		if = {
 			limit = {
 				has_journal_entry = je_palaiologos_reforms_syria #BR Edited
@@ -46,7 +46,7 @@ INJECT:ai_strategy_default = {
 	# How much does the AI desire another country as their subject
 	# Using this value in other strategies will function additively
 	# root is the AI doing the evaluation, scope:target_country is prospective subject
-	subject_value = {
+	INJECT:subject_value = {
 		if = {
 			limit = {
 				OR = {
@@ -63,7 +63,7 @@ INJECT:ai_strategy_default = {
 	# Recklessness multiplies the AI's estimation of its own strength, so at recklessness 2 it believes its forces to be twice as strong as they actually are
 	# The AI wants to have at least parity in what it believes its own forces to be and what the enemy forces are, so at recklessness 2 it's OK with only having 50% of the enemy strength
 	# Using this value in other strategies will function additively
-	recklessness = {
+	INJECT:recklessness = {
 		if = {
 			limit = {
 				OR = {
@@ -136,7 +136,7 @@ INJECT:ai_strategy_default = {
 
 	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
 	# Using this value in other strategies will function additively
-	aggression = {
+	INJECT:aggression = {
 		# Greek Nationalism
 		if = {
 			limit = {
@@ -565,7 +565,7 @@ INJECT:ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	# root = country
 	# scope:military_formation = military formation
-	combat_unit_group_weights = {
+	INJECT:combat_unit_group_weights = {
 
 		combat_unit_group_cavalry = {	
 			else_if = {
@@ -579,7 +579,7 @@ INJECT:ai_strategy_default = {
 	# root = country
 	# scope:military_formation = military formation
 	# Using this value in other strategies will function additively
-	conscript_battalion_ratio = {
+	INJECT:conscript_battalion_ratio = {
 		else_if = {
 			limit = { has_law_or_variant = law_type:law_mixed_army }
 			add = 1.5
@@ -686,7 +686,7 @@ INJECT:ai_strategy_default = {
 
 	# How should the AI plan for production and trade of specific goods
 	# Using a different value in a strategy will override this value
-	goods_stances = {
+	INJECT:goods_stances = {
 	#BR Added Start
 		horse = {
 			stance = wants_high_supply
@@ -699,7 +699,7 @@ INJECT:ai_strategy_default = {
 
 	# How many of its interests should the AI dedicate to regions with unrecognized and decentralized powers
 	# Using a different value in a strategy will override this value
-	colonial_interest_ratio = {
+	INJECT:colonial_interest_ratio = {
 		if = {
 			limit =  { has_modifier = br_modifier_italy_gunboat_trade_diplomacy }
 			add = 0.5
@@ -716,7 +716,7 @@ INJECT:ai_strategy_default = {
 
 	# How important is it that the AI maintains an interest in a specific strategic region (added on top of region value calculations set in defines)
 	# Using this value in other strategies will function additively
-	strategic_region_scores = {
+	INJECT:strategic_region_scores = {
 		region_central_asia = {
 			if = {
 				limit = {

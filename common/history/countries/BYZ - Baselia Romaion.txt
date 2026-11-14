@@ -1,26 +1,29 @@
 ﻿# Basileía ton Romaíon
 COUNTRIES = {
 	c:BYZ ?= {
+
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 
-		#Custom set-up tech
+	#Custom set-up tech
 
-		#Society
+	 #Society
 		add_technology_researched = br_tech_fiat_currency
 		add_technology_researched = centralization
 		add_technology_researched = sericulture
 
-		#Economy
+	 #Economy
 		add_technology_researched = br_tech_selective_breeding
 
-		#Warfare 
+	 #Warfare 
 		#add_technology_researched = field_works #The ai needs a military buff
 		add_technology_researched = mandatory_service  #The ai needs a military buff
 		#Unique
 		add_technology_researched = br_tech_greekfire
 
-		#Import Focus
+	#Tariffs
+
+	 #Import
 		set_import_tariff_level = { 
 			goods = g:wood
 			level = low_subventions
@@ -90,7 +93,7 @@ COUNTRIES = {
 			level = no_tariffs_or_subventions
 		}
 
-		#Export Focus
+	 #Export
 		set_export_tariff_level = { 
 			goods = g:sulfur
 			level = no_tariffs_or_subventions
@@ -116,6 +119,8 @@ COUNTRIES = {
 			level = no_tariffs_or_subventions
 		}
 
+	#Taxes
+
 		add_taxed_goods = g:tobacco
 		add_taxed_goods = g:wine
 		add_taxed_goods = g:liquor
@@ -125,6 +130,8 @@ COUNTRIES = {
 
 		set_tax_level = high
 		#set_military_wage_level = high
+
+	#Laws
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy #law_autocracy 
@@ -153,23 +160,39 @@ COUNTRIES = {
 		activate_law = law_type:law_internal_colonization #1.15
 		activate_law = law_type:law_colonial_slavery
 
+	#Amendments
 
-		active_law:lawgroup_distribution_of_power ?= { # Oligarchy
-			add_amendment = {
-				type = amendment_synkletos
-				sponsor = PREV.ig:ig_landowners
-			}
-		}
-		active_law:lawgroup_governance_principles ?= { #Monarchy
+		
+		active_law:lawgroup_governance_principles ?= { #governance_principles
 			add_amendment = {
 				type = amendment_porphyrogennetos_doctrine
 				sponsor = PREV.ig:ig_devout
 			}
 		}
-		active_law:lawgroup_governance_principles ?= { #Monarchy
+		active_law:lawgroup_governance_principles ?= { #governance_principles
 			add_amendment = {
 				type = amendment_kinship_court_titles
 				sponsor = PREV.ig:ig_landowners
+			}
+		}
+
+		active_law:lawgroup_distribution_of_power ?= { #distribution_of_power
+			add_amendment = {
+				type = amendment_synkletos
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+
+		active_law:lawgroup_church_and_state ?= { #church_and_state
+			add_amendment = {
+				type = amendment_patriarchal_coronation
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+		active_law:lawgroup_citizenship ?= { #citizenship
+			add_amendment = {
+				type = amendment_greek_liturgical_unity
+				sponsor = PREV.ig:ig_devout
 			}
 		}
 
@@ -186,15 +209,45 @@ COUNTRIES = {
 			}
 		}
 
+		
+		active_law:lawgroup_rights_of_women ?= { #rights_of_women
+			add_amendment = {
+				type = amendment_dowry_law
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+
+		active_law:lawgroup_economic_system ?= { #economic_system
+			add_amendment = {
+				type = amendment_basilika_code
+				sponsor = PREV.ig:ig_intelligentsia
+			}
+		}
+		active_law:lawgroup_taxation ?= { #taxation
+			add_amendment = {
+				type = amendment_fiscal_immunities
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+
+
 		active_law:lawgroup_land_reform ?= { #land_reform
 			add_amendment = {
 				type = amendment_dynatoi_estates
 				sponsor = PREV.ig:ig_landowners
 			}
 		}
+
+
 		active_law:lawgroup_internal_security ?= { #internal_security
 			add_amendment = {
 				type = amendment_pronoia_grants
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+		active_law:lawgroup_internal_security ?= { #internal_security
+			add_amendment = {
+				type = amendment_hereditary_strategoi
 				sponsor = PREV.ig:ig_landowners
 			}
 		}
@@ -211,8 +264,22 @@ COUNTRIES = {
 				sponsor = PREV.ig:ig_industrialists
 			}
 		}
+		active_law:lawgroup_trade_policy ?= { #trade_policy
+			add_amendment = {
+				type = amendment_debased_coinage
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
 
 		active_law:lawgroup_health_system ?= { #health_system
+			add_amendment = {
+				type = amendment_xenones_and_nosokomeia
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+
+
+		active_law:lawgroup_welfare ?= { #welfare
 			add_amendment = {
 				type = amendment_ptochotropheia
 				sponsor = PREV.ig:ig_devout
@@ -220,8 +287,8 @@ COUNTRIES = {
 		}
 		active_law:lawgroup_welfare ?= { #welfare
 			add_amendment = {
-				type = amendment_xenones_and_nosokomeia
-				sponsor = PREV.ig:ig_devout
+				type = amendment_adelphata
+				sponsor = PREV.ig:ig_armed_forces
 			}
 		}
 
@@ -231,6 +298,45 @@ COUNTRIES = {
 				sponsor = PREV.ig:ig_intelligentsia
 			}
 		}
+		active_law:lawgroup_education_system ?= { #education_system
+			add_amendment = {
+				type = amendment_parish_schools
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+
+	
+		active_law:lawgroup_free_speech ?= { #free_speech
+			add_amendment = {
+				type = amendment_orthodoxy_enforcement
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+		active_law:lawgroup_colonization ?= { #colonization
+			add_amendment = {
+				type = amendment_forced_resettlement
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+		
+		
+		
+		active_law:lawgroup_policing ?= { #policing
+			add_amendment = {
+				type = amendment_vigla_night_watch
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+		active_law:lawgroup_taxation ?= { #taxation
+			add_amendment = {
+				type = amendment_fiscal_immunities
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+
+		
+
+	#Instiutions
 
 		set_institution_investment_level = {
 			institution = institution_police
@@ -244,8 +350,10 @@ COUNTRIES = {
 			institution = institution_health_system
 			level = 1
 		}
+	
+	#Interest Groups
 
-		#In-Government
+	 #In-Government
 		ig:ig_landowners = {
 			set_interest_group_name = ig_themata_patricians
 			add_ruling_interest_group = yes
@@ -327,7 +435,7 @@ COUNTRIES = {
 
 		}
 
-		#Not-In-Government
+	 #Not-In-Government
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agrotikos
@@ -365,6 +473,8 @@ COUNTRIES = {
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
 		}
+
+	#Journals
 
 		add_journal_entry = {
 			type = je_palaiologos_reforms_main
@@ -412,6 +522,8 @@ COUNTRIES = {
 			type = je_palaiologos_reforms_egypt
 		}
 
+	#Modifiers
+		#Most of the following modifiers are now also handled as amendments, may remove and/or rework their names or effects. -D
 		add_modifier = {
 			name = br_modifier_romaioi_culture_supremacy
 			months = -1
