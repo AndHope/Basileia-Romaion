@@ -1,26 +1,15 @@
 ﻿COUNTRIES = {
 	c:br_aegypt ?= {
 		effect_starting_technology_tier_3_tech = yes
-		effect_starting_politics_traditional = yes
+		effect_starting_politics_pronoia = yes
 
 		add_technology_researched = br_tech_frontier_expansion
 		add_technology_researched = colonization #Needed for Canal at game start
 
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_tenant_farmers
-		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_hereditary_bureaucrats
+
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:br_law_roman_supremacy
-		activate_law = law_type:br_law_tagmata_army
-		activate_law = law_type:br_law_themata
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_legacy_slavery
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_local_police
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_migration_controls	
 		activate_law = law_type:law_agrarianism
 		start_enactment = law_type:law_frontier_colonization
 		add_enactment_phase = 1
@@ -35,69 +24,24 @@
 
 		set_military_wage_level = low
 		set_government_wage_level = low
-		add_taxed_goods = g:services
 		add_taxed_goods = g:opium
 		#set_tariffs_export_priority = g:dye
 		#set_tariffs_export_priority = g:sugar
 
 
-		ig:ig_landowners = {
-			set_interest_group_name = ig_themata_patricians
+		ig:ig_landowners ?= {
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
 		}
-		ig:ig_armed_forces = {
-			set_interest_group_name = ig_tagmata_strategos
+		ig:ig_armed_forces ?= {
 			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
 		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_agrotikos
-		}
-		ig:ig_petty_bourgeoisie = {
-			set_interest_group_name = ig_merchant_guilds
+		ig:ig_petty_bourgeoisie ?= {
 			add_ideology = ideology_frontier_expansionist
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
 		}
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_dianooumenoi
-		}
-		ig:ig_industrialists = { 
+		ig:ig_industrialists ?= { 
 			add_ideology = ideology_frontier_expansionist
-			set_interest_group_name = ig_viomixanoi
-			add_modifier = {
-				name = ig_attraction_modifier
-				multiplier = -0.5
-				years = 75
-				is_decaying = yes
-			}
 		}
-		ig:ig_trade_unions = {
-			set_interest_group_name = ig_syndikalistai
-		}
-
-		add_modifier = {
-			name = br_modifier_reformed_pronoia #br_modifier_themata_primacy
-			months = -1
-		}
-
 		add_modifier = {
 			name = br_modifier_latin_privileges
 			years = 50
@@ -110,225 +54,72 @@
 			name = br_modifier_muslim_cultural_discrimination
 			months = -1
 		}
-
 		add_journal_entry = { type = je_br_africa_colony }
-
-
+		ig:ig_devout ?= {
+			set_interest_group_name = ig_oriental_orthodox_church
+			remove_ideology = ideology_patriarchal
+			remove_ideology = ideology_orthodox_patriarch
+			add_ideology = ideology_oriental_orthodox_patriarch
+			add_ruling_interest_group = yes
+		}
 		add_modifier = {
 			name = autocephalous_patriarchate_alexandria
 			months = -1
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_oriental_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_oriental_orthodox_patriarch
-			add_ruling_interest_group = yes
-		}
-
-		#effect_starting_wealthy_merchants = yes
-		#add_company = company_type:company_byz_ric
-
 	}
 
 	c:BR_ANT ?= {
 		effect_starting_technology_tier_3_tech = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_hereditary_bureaucrats
+		effect_starting_politics_themata = yes
 		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:br_law_roman_supremacy
-		activate_law = law_type:law_traditionalism
-		activate_law = law_type:br_law_tagmata_army
-		activate_law = law_type:br_law_themata
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_legacy_slavery
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_migration_controls	
-
-		set_institution_investment_level = {
-			institution = institution_police
-			level = 1
-		}
-
-		set_military_wage_level = low
-		set_government_wage_level = low
-
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_themata_patricians
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
 		}
-		ig:ig_armed_forces = {
-			set_interest_group_name = ig_tagmata_strategos
+		ig:ig_armed_forces ?= {
 			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
 		}
-
-		ig:ig_rural_folk = {
-			#remove_ideology = ideology_isolationist
-			#add_ideology = ideology_isolationist_expansionism
-			set_interest_group_name = ig_agrotikos
-		}
-		ig:ig_petty_bourgeoisie = {
-			set_interest_group_name = ig_merchant_guilds
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
-		}
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_dianooumenoi
-		}
-		ig:ig_industrialists = { 
-			set_interest_group_name = ig_viomixanoi
-		}
-		ig:ig_trade_unions = {
-			set_interest_group_name = ig_syndikalistai
-		}
-
-		add_modifier = {
-			name = br_modifier_themata_primacy
-			months = -1
-		}
-
 		add_modifier = {
 			name = br_modifier_latin_privileges
 			years = 50
 		}
-
 		add_modifier = {
 			name = br_modifier_muslim_cultural_discrimination
 			months = -1
 		}
-
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			set_interest_group_name = ig_oriental_orthodox_church
 			remove_ideology = ideology_patriarchal
+			remove_ideology = ideology_orthodox_patriarch
 			add_ideology = ideology_oriental_orthodox_patriarch
 			add_ruling_interest_group = yes
 		}
-
-		#effect_starting_wealthy_merchants = yes
-
 	}
 
 	c:BR_PAL ?= {
 		effect_starting_technology_tier_3_tech = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_hereditary_bureaucrats
+		effect_starting_politics_themata = yes
 		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:br_law_roman_supremacy
-		activate_law = law_type:law_traditionalism
-		activate_law = law_type:br_law_tagmata_army
-		activate_law = law_type:br_law_themata
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_legacy_slavery
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_local_police
-		activate_law = law_type:law_migration_controls	
-
-		set_institution_investment_level = {
-			institution = institution_police
-			level = 1
-		}
-
-		set_military_wage_level = low
-		set_government_wage_level = low
-
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_themata_patricians
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
 		}
-		ig:ig_armed_forces = {
-			set_interest_group_name = ig_tagmata_strategos
+		ig:ig_armed_forces ?= {
 			add_ruling_interest_group = yes
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
 		}
-
-		ig:ig_rural_folk = {
-			#remove_ideology = ideology_isolationist
-			#add_ideology = ideology_isolationist_expansionism
-			set_interest_group_name = ig_agrotikos
-		}
-		ig:ig_petty_bourgeoisie = {
-			set_interest_group_name = ig_merchant_guilds
-			add_modifier = {
-				name = ig_influence_modifier
-				multiplier = 0.25
-				years = 75
-				is_decaying = yes
-			}
-		}
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_dianooumenoi
-		}
-		ig:ig_industrialists = { 
-			set_interest_group_name = ig_viomixanoi
-		}
-		ig:ig_trade_unions = {
-			set_interest_group_name = ig_syndikalistai
-		}
-
-		add_modifier = {
-			name = br_modifier_themata_primacy
-			months = -1
-		}
-
 		add_modifier = {
 			name = br_modifier_latin_privileges
 			years = 50
 		}
-
 		add_modifier = {
 			name = br_modifier_muslim_cultural_discrimination
 			months = -1
 		}
-
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			set_interest_group_name = ig_oriental_orthodox_church
 			remove_ideology = ideology_patriarchal
+			remove_ideology = ideology_orthodox_patriarch
 			add_ideology = ideology_oriental_orthodox_patriarch
 			add_ruling_interest_group = yes
 		}
-
-		#effect_starting_wealthy_merchants = yes
-
 	}
 
 	c:br_romaioi_india_company ?= {
@@ -362,15 +153,13 @@
 		#add_taxed_goods = g:porcelain
 		add_taxed_goods = g:services
 
-
-		ig:ig_landowners = {
+		ig:ig_landowners ?= {
 			set_interest_group_name = ig_themata_patricians
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_patrician
 			add_ideology = ideology_frontier_expansionist
 		}
-
-		ig:ig_armed_forces = {
+		ig:ig_armed_forces ?= {
 			set_interest_group_name = ig_tagmata_strategos
 			add_modifier = {
 				name = ig_influence_modifier
@@ -379,12 +168,10 @@
 				is_decaying = yes
 			}
 		}
-
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agrotikos
 		}
-
-		ig:ig_petty_bourgeoisie = {
+		ig:ig_petty_bourgeoisie ?= {
 			set_interest_group_name = ig_merchant_guilds
 			add_ideology = ideology_frontier_expansionist
 			add_ruling_interest_group = yes
@@ -395,7 +182,6 @@
 				is_decaying = yes
 			}
 		}
-
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
 			add_modifier = {
@@ -405,8 +191,7 @@
 				is_decaying = yes
 			}
 		}
-
-		ig:ig_industrialists = { 
+		ig:ig_industrialists ?= { 
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_attraction_modifier
@@ -415,33 +200,25 @@
 				is_decaying = yes
 			}
 		}
-
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
 		}
-
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			set_interest_group_name = ig_oriental_orthodox_church
 			remove_ideology = ideology_patriarchal
+			remove_ideology = ideology_orthodox_patriarch
 			add_ideology = ideology_oriental_orthodox_patriarch
 			add_ruling_interest_group = yes
 		}
-
 		add_modifier = {
 			name = br_modifier_merchant_republic
 			months = -1
 		}
-
 		add_journal_entry = { type = je_br_east_indies_trade }
-
 		add_journal_entry = { type = je_br_colonial_subject }
-
 		add_journal_entry = { type = je_br_colonial_merchant_republic }
-
 		add_journal_entry = { type = je_br_africa_colony }
-
 		add_journal_entry = { type = je_br_klysma_canal_toll }
-		
 		add_modifier = {
 			name = br_modifier_italy_gunboat_trade_diplomacy
 			months = -1
@@ -450,12 +227,9 @@
 		#	name = modifier_ruler_of_the_east_navy
 		#	years = 10
 		#}
-
 		#effect_starting_wealthy_merchants = yes
-
 		add_company = company_type:company_suez_company
 		#add_company = company_type:company_byz_ric
-
 	}
 
 	c:br_australis ?= {
@@ -463,11 +237,6 @@
 		add_technology_researched = br_tech_defensive_military_bonus
 		add_technology_researched = br_tech_hostile_climate_colonization
 		add_technology_researched = colonization
-		
-
-		#set_tariffs_import_priority = g:artillery
-		#set_tariffs_import_priority = g:small_arms
-
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_racial_segregation
@@ -484,9 +253,7 @@
 		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_national_militia
 		
-
 		add_journal_entry = { type = je_br_colonial_subject }
-		
 		add_journal_entry = { type = je_br_new_world_colony }
 
 		set_government_wage_level = low
@@ -502,47 +269,36 @@
 		add_taxed_goods = g:services
 		
 		#In-Government
-		ig:ig_landowners = {
+		ig:ig_landowners ?= {
 			set_interest_group_name = ig_themata_patricians
 			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_patrician
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_armed_forces = {
+		ig:ig_armed_forces ?= {
 			set_interest_group_name = ig_tagmata_strategos
 		}
-		
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			set_interest_group_name = ig_oriental_orthodox_church
 			remove_ideology = ideology_patriarchal
+			remove_ideology = ideology_orthodox_patriarch
 			add_ideology = ideology_oriental_orthodox_patriarch
-			add_modifier = {
-				name = ig_attraction_modifier
-				multiplier = -0.25
-				years = 75
-				is_decaying = yes
-			}
+			add_ruling_interest_group = yes
 		}
-
-		ig:ig_petty_bourgeoisie = {
+		ig:ig_petty_bourgeoisie ?= {
 			remove_ideology = ideology_anti_slavery
 			set_interest_group_name = ig_merchant_guilds
 			add_ruling_interest_group = yes
 		}
-
 		#Not-In-Government
 
 		ig:ig_rural_folk = {
 			set_interest_group_name = ig_agrotikos
-			
 		}
-
 		ig:ig_intelligentsia = { 
 			set_interest_group_name = ig_dianooumenoi
 		}
-
-		ig:ig_industrialists = { 
+		ig:ig_industrialists ?= { 
 			set_interest_group_name = ig_viomixanoi
 			add_modifier = {
 				name = ig_attraction_modifier
@@ -551,12 +307,9 @@
 				is_decaying = yes
 			}
 		}
-
 		ig:ig_trade_unions = {
 			set_interest_group_name = ig_syndikalistai
 		}
-
-
 		add_modifier = {
 			name = br_modifier_themata_primacy
 			months = -1
