@@ -1,0 +1,827 @@
+﻿#########################################################
+# GOVERNMENT / DISTRIBUTION OF POWER
+#########################################################
+
+# Imperial election by Army, Senate and People (Roman acclamation, no fixed dynasty)
+amendment_triple_acclamation = {
+	parent = law_monarchy
+	allowed_laws = { law_monarchy }
+	modifier = {
+		country_legitimacy_headofstate_add = 15
+		country_legitimacy_base_add = -5
+		interest_group_ig_armed_forces_pol_str_mult = 0.10
+		country_authority_mult = -0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_landowners
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Porphyrogennetos doctrine: only those "born in the purple" may rule
+amendment_porphyrogennetos_doctrine = {
+	parent = law_monarchy
+	allowed_laws = { law_monarchy }
+	modifier = {
+		country_legitimacy_headofstate_add = 25
+		country_legitimacy_base_add = 5
+		interest_group_ig_armed_forces_approval_add = -1
+		country_law_enactment_speed_mult = -0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Synkletos: the Senate as an honorific body of office-holders
+amendment_synkletos = {
+	parent = law_oligarchy
+	allowed_laws = { law_oligarchy law_landed_voting }
+	modifier = {
+		country_legitimacy_govt_total_votes_add = 25
+		country_aristocrats_voting_power_add = 25
+		country_bureaucrats_voting_power_add = 25
+		country_officers_voting_power_add = 15
+		country_electoral_confidence_impact_mult = -0.2
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			is_interest_group_type = ig_intelligentsia
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Court titles (Kaisar, Sebastokrator, Despotes) shared among the Komnenian kin
+amendment_kinship_court_titles = {
+	parent = law_monarchy
+	allowed_laws = { law_monarchy law_oligarchy }
+	modifier = {
+		country_legitimacy_govt_total_clout_add = 10
+		country_bureaucracy_mult = -0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			is_interest_group_type = ig_armed_forces
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+#########################################################
+# BUREAUCRACY
+#########################################################
+
+# Sekreta: the logothete departments (Genikon, Stratiotikon, Dromos...)
+amendment_logothetes_sekreta = {
+	parent = law_military_bureaucrats
+	allowed_laws = { law_military_bureaucrats law_appointed_bureaucrats law_hereditary_bureaucrats }
+	modifier = {
+		country_bureaucrats_pol_str_mult = 0.15
+		country_bureaucracy_investment_cost_factor_mult = -0.05
+		state_tax_capacity_mult = 0.05
+		country_government_wages_mult = 0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Court eunuchs: trusted because they cannot found dynasties
+amendment_eunuch_ministers = {
+	parent = law_military_bureaucrats
+	allowed_laws = { law_military_bureaucrats law_appointed_bureaucrats law_hereditary_bureaucrats }
+	modifier = {
+		country_authority_mult = 0.10
+		interest_group_ig_landowners_pol_str_mult = -0.10
+		interest_group_ig_armed_forces_approval_add = -1
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			is_interest_group_type = ig_intelligentsia
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_armed_forces
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Sale of offices (the Byzantine rogai/annonai system of purchased titles)
+amendment_venal_offices = {
+	parent = law_military_bureaucrats
+	allowed_laws = { law_military_bureaucrats law_appointed_bureaucrats law_hereditary_bureaucrats }
+	modifier = {
+		country_bureaucracy_mult = -0.05
+		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.10
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_petty_bourgeoisie
+			is_interest_group_type = ig_industrialists
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+#########################################################
+# LAND, TAXATION AND THE THEMATA
+#########################################################
+
+# Novels of the Macedonian emperors: protect small holders from the dynatoi
+amendment_protection_of_the_poor = {
+	parent = law_serfdom
+	allowed_laws = { law_serfdom law_tenant_farmers law_peasant_proprietorship }
+	modifier = {
+		interest_group_ig_landowners_pol_str_mult = -0.15
+		interest_group_ig_landowners_approval_add = -1
+		interest_group_ig_rural_folk_approval_add = 1
+		state_conscription_rate_mult = 0.10
+	}
+	possible = { NOT = { any_active_law = { has_amendment = amendment_type:amendment_dynatoi_estates } } }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_rural_folk
+			is_interest_group_type = ig_armed_forces
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_landowners
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.75
+}
+
+# Dynatoi: great landed magnates swallow the free villages
+amendment_dynatoi_estates = {
+	parent = law_serfdom
+	allowed_laws = { law_serfdom law_tenant_farmers law_peasant_proprietorship }
+	modifier = {
+		interest_group_ig_landowners_pol_str_mult = 0.20
+		building_group_bg_manor_houses_aristocrats_standard_of_living_add = 2
+		building_group_bg_subsistence_agriculture_peasants_standard_of_living_add = -1
+		state_conscription_rate_mult = -0.10
+		state_tax_capacity_mult = -0.05
+	}
+	possible = { NOT = { any_active_law = { has_amendment = amendment_type:amendment_protection_of_the_poor } } }
+	would_sponsor = {
+		is_interest_group_type = ig_landowners
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_rural_folk
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.75
+}
+
+# Allelengyon: neighbors jointly liable for each other's tax
+amendment_allelengyon = {
+	parent = law_land_based_taxation
+	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation }
+	modifier = {
+		state_tax_collection_mult = 0.10
+		state_radicals_from_political_movements_mult = 0.10
+		interest_group_ig_rural_folk_approval_add = -1
+	}
+	tax_modifier_low = { tax_land_add = 0.03 }
+	tax_modifier_medium = { tax_land_add = 0.05 }
+	tax_modifier_high = { tax_land_add = 0.08 }
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Pronoia: revenue grants to soldiers and nobles in lieu of pay
+amendment_pronoia_grants = {
+	parent = br_law_themata
+	allowed_laws = { br_law_themata br_law_soldier_farmers law_land_based_taxation }
+	modifier = {
+		interest_group_ig_armed_forces_pol_str_mult = 0.10
+		interest_group_ig_landowners_approval_add = 1
+		country_government_wages_mult = -0.10
+		state_tax_capacity_mult = -0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_landowners
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Civil kritai separated from military strategoi in the themata
+amendment_civil_judges_of_themata = {
+	parent = br_law_themata
+	allowed_laws = { br_law_themata }
+	modifier = {
+		country_bureaucracy_mult = 0.10
+		interest_group_ig_armed_forces_pol_str_mult = -0.10
+		state_tax_collection_mult = 0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_armed_forces
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Inalienable stratiotika ktemata: military holdings cannot be sold
+amendment_inalienable_soldier_holdings = {
+	parent = br_law_soldier_farmers
+	allowed_laws = { br_law_soldier_farmers }
+	modifier = {
+		state_conscription_rate_mult = 0.15
+		building_training_rate_mult = 0.05
+		interest_group_ig_landowners_approval_add = -1
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_rural_folk
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+#########################################################
+# MILITARY
+#########################################################
+
+# Varangian Guard: foreign axe-bearers loyal only to the Basileus
+amendment_varangian_guard = {
+	parent = br_law_tagmata_army
+	allowed_laws = { br_law_tagmata_army }
+	modifier = {
+		country_legitimacy_headofstate_add = 5
+		country_authority_add = 25
+		interest_group_ig_armed_forces_approval_add = 1
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Imperial arsenals and the secret of liquid fire
+amendment_imperial_arsenals = {
+	parent = br_law_tagmata_army
+	allowed_laws = { br_law_tagmata_army }
+	modifier = {
+		building_group_bg_military_industry_throughput_add = 0.05
+		interest_group_ig_armed_forces_pol_str_mult = 0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			is_interest_group_type = ig_intelligentsia
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Hired mercenary companies (Catalans, Franks) paid out of the treasury
+amendment_mercenary_companies = {
+	parent = br_law_tagmata_army
+	allowed_laws = { br_law_tagmata_army }
+	modifier = {
+		country_government_wages_mult = 0.10
+		building_training_rate_mult = 0.10
+		interest_group_ig_armed_forces_approval_add = -1
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_industrialists
+			is_interest_group_type = ig_petty_bourgeoisie
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+#########################################################
+# CHURCH AND STATE
+#########################################################
+
+# Endemousa Synod: bishops in the capital advise the Basileus
+amendment_endemousa_synod = {
+	parent = law_caesaropapism
+	allowed_laws = { law_caesaropapism }
+	modifier = {
+		country_clergymen_pol_str_mult = 0.10
+		country_legitimacy_base_add = 5
+		country_authority_mult = -0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = { law = law_type:law_caesaropapism value < neutral }
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Charistike: monastic houses placed under lay patrons
+amendment_charistike_patronage = {
+	parent = law_caesaropapism
+	allowed_laws = { law_caesaropapism }
+	modifier = {
+		interest_group_ig_landowners_approval_add = 1
+		country_clergymen_pol_str_mult = -0.10
+		interest_group_ig_devout_approval_add = -1
+		state_tax_capacity_mult = 0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_devout
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Anti-heresy edicts (Iconoclasm and its reversal)
+amendment_orthodoxy_enforcement = {
+	parent = law_censorship
+	allowed_laws = { law_censorship }
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = 0.10
+		country_academics_pol_str_mult = -0.10
+		state_radicals_from_political_movements_mult = 0.15
+		state_conversion_mult = 0.10
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = { law = law_type:law_censorship value < neutral }
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.75
+}
+
+#########################################################
+# ECONOMY
+#########################################################
+
+# Book of the Eparch: guild regulation of Constantinopolitan trades
+amendment_book_of_the_eparch = {
+	parent = law_mercantilism
+	allowed_laws = { law_mercantilism }
+	modifier = {
+		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.10
+		country_bureaucracy_mult = 0.05
+		country_loan_interest_rate_mult = -0.05
+		building_group_bg_light_industry_throughput_add = -0.03
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_petty_bourgeoisie
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = { law = law_type:law_mercantilism value < neutral }
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Kommerkiarioi: state silk monopoly and export controls on purple dye
+amendment_imperial_silk_monopoly = {
+	parent = law_mercantilism
+	allowed_laws = { law_mercantilism }
+	modifier = {
+		country_company_construction_efficiency_bonus_add = -0.05
+		interest_group_ig_industrialists_pol_str_mult = -0.10
+		state_tax_collection_mult = 0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_industrialists
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Chrysobulls to Venice, Genoa and Pisa: tariff-free trade colonies
+amendment_italian_trade_chrysobulls = {
+	parent = law_mercantilism
+	allowed_laws = { law_mercantilism }
+	modifier = {
+		state_tariff_import_add = -0.10
+		country_influence_mult = -0.05
+		interest_group_ig_industrialists_approval_add = 1
+		interest_group_ig_petty_bourgeoisie_approval_add = -1
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_industrialists
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			is_interest_group_type = ig_petty_bourgeoisie
+			is_powerful = yes
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.75
+}
+
+# Pandokeia and xenones: monasteries run hospitals and hostels
+amendment_xenones_and_nosokomeia = {
+	parent = law_charitable_health_system
+	allowed_laws = { law_charitable_health_system }
+	modifier = {
+		interest_group_ig_devout_pop_attraction_mult = 0.10
+		state_mortality_mult = -0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = { law = law_type:law_charitable_health_system value < neutral }
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Ptochotropheia: church orphanages and poorhouses
+amendment_ptochotropheia = {
+	parent = law_poor_laws
+	allowed_laws = { law_poor_laws }
+	modifier = {
+		interest_group_ig_devout_pop_attraction_mult = 0.10
+		state_political_strength_from_welfare_mult = 0.10
+		country_institution_cost_institution_social_security_mult = -0.10
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Imperial bread dole (annona) for the capital's population
+amendment_capital_grain_dole = {
+	parent = law_poor_laws
+	allowed_laws = { law_poor_laws }
+	modifier = {
+		state_welfare_payments_add = 0.05
+		state_radicals_from_political_movements_mult = -0.10
+		interest_group_ig_landowners_approval_add = -1
+		country_authority_add = 25
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_petty_bourgeoisie
+			is_interest_group_type = ig_rural_folk
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+#########################################################
+# SOCIETY, CULTURE, MIGRATION
+#########################################################
+
+# Pandidakterion: state-sponsored higher school in Constantinople
+amendment_pandidakterion = {
+	parent = law_private_schools
+	allowed_laws = { law_private_schools law_religious_schools law_public_schools }
+	modifier = {
+		country_academics_pol_str_mult = 0.10
+		country_institution_cost_institution_schools_mult = 0.05
+		interest_group_ig_intelligentsia_approval_add = 1
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Monastic and parish schools teach psalms and letters to the poor
+amendment_parish_schools = {
+	parent = law_private_schools
+	allowed_laws = { law_private_schools law_religious_schools }
+	modifier = {
+		interest_group_ig_devout_pop_attraction_mult = 0.10
+		country_institution_cost_institution_schools_mult = -0.05
+		country_clergymen_pol_str_mult = 0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Resettlement of Slavs, Armenians and Vlachs as paroikoi on depopulated land
+amendment_forced_resettlement = {
+	parent = law_internal_colonization
+	allowed_laws = { law_internal_colonization }
+	modifier = {
+		state_migration_pull_unincorporated_mult = 0.20
+		country_acceptance_no_shared_heritage_trait_add = -5
+		state_assimilation_mult = 0.10
+		state_radicals_from_political_movements_mult = 0.10
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_landowners
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Foederati: allied peoples settled on the frontier under their own chiefs
+amendment_foederati_settlement = {
+	parent = law_migration_controls
+	allowed_laws = { law_migration_controls law_no_migration_controls }
+	modifier = {
+		state_migration_pull_mult = 0.10
+		country_acceptance_no_shared_heritage_trait_add = 5
+		state_conscription_rate_mult = 0.05
+		country_legitimacy_base_add = -2
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Hellenization through the Church: Greek liturgy and bishops in conquered lands
+amendment_greek_liturgical_unity = {
+	parent = br_law_roman_supremacy
+	allowed_laws = { br_law_roman_supremacy }
+	modifier = {
+		state_assimilation_mult = 0.15
+		state_conversion_mult = 0.10
+		country_acceptance_shared_religious_trait_add = 5
+		state_radicals_from_political_movements_mult = 0.10
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Foreign communities keep their law under their own archons
+amendment_archon_autonomy = {
+	parent = br_law_roman_supremacy
+	allowed_laws = { br_law_roman_supremacy }
+	modifier = {
+		country_acceptance_no_shared_heritage_trait_add = 10
+		state_assimilation_mult = -0.10
+		country_authority_mult = -0.05
+		state_radicals_from_political_movements_mult = -0.05
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_industrialists
+			is_interest_group_type = ig_intelligentsia
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = { law = law_type:br_law_roman_supremacy value > neutral }
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# Empresses and regents: imperial women may govern for a minor heir
+amendment_imperial_regency = {
+	parent = law_women_own_property
+	allowed_laws = { law_women_own_property }
+	modifier = {
+		country_legitimacy_headofstate_add = 5
+		country_authority_add = 25
+		interest_group_ig_armed_forces_approval_add = -1
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_intelligentsia
+			is_interest_group_type = ig_devout
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+# Church-encouraged manumission softens slavery
+amendment_pious_manumission = {
+	parent = law_colonial_slavery
+	allowed_laws = { law_colonial_slavery }
+	modifier = {
+		interest_group_ig_devout_approval_add = 1
+		interest_group_ig_landowners_approval_add = -1
+		#state_free_state_pop_support_movement_anti_slavery_mult = -0.10
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_devout
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+#########################################################
+# ORDER AND POLICING
+#########################################################
+
+# Circus factions (Blues and Greens) run the city militia and acclamations
+amendment_circus_factions = {
+	parent = law_local_police
+	allowed_laws = { law_local_police }
+	modifier = {
+		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.10
+		state_radicals_from_political_movements_mult = 0.15
+		country_legitimacy_base_add = 3
+		state_mortality_turmoil_mult = 0.005
+	}
+	possible = { c:BYZ ?= this }
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_petty_bourgeoisie
+			is_interest_group_type = ig_rural_folk
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.75
+}

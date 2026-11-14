@@ -153,6 +153,85 @@ COUNTRIES = {
 		activate_law = law_type:law_internal_colonization #1.15
 		activate_law = law_type:law_colonial_slavery
 
+
+		active_law:lawgroup_distribution_of_power ?= { # Oligarchy
+			add_amendment = {
+				type = amendment_synkletos
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+		active_law:lawgroup_governance_principles ?= { #Monarchy
+			add_amendment = {
+				type = amendment_porphyrogennetos_doctrine
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+		active_law:lawgroup_governance_principles ?= { #Monarchy
+			add_amendment = {
+				type = amendment_kinship_court_titles
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+
+		active_law:lawgroup_bureaucracy ?= { #bureaucracy
+			add_amendment = {
+				type = amendment_logothetes_sekreta
+				sponsor = PREV.ig:ig_intelligentsia
+			}
+		}
+		active_law:lawgroup_bureaucracy ?= { #bureaucracy
+			add_amendment = {
+				type = amendment_venal_offices
+				sponsor = PREV.ig:ig_petty_bourgeoisie
+			}
+		}
+
+		active_law:lawgroup_land_reform ?= { #land_reform
+			add_amendment = {
+				type = amendment_dynatoi_estates
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+		active_law:lawgroup_internal_security ?= { #internal_security
+			add_amendment = {
+				type = amendment_pronoia_grants
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+
+		active_law:lawgroup_trade_policy ?= { #trade_policy
+			add_amendment = {
+				type = amendment_book_of_the_eparch
+				sponsor = PREV.ig:ig_petty_bourgeoisie
+			}
+		}
+		active_law:lawgroup_trade_policy ?= { #trade_policy
+			add_amendment = {
+				type = amendment_italian_trade_chrysobulls
+				sponsor = PREV.ig:ig_industrialists
+			}
+		}
+
+		active_law:lawgroup_health_system ?= { #health_system
+			add_amendment = {
+				type = amendment_ptochotropheia
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+		active_law:lawgroup_welfare ?= { #welfare
+			add_amendment = {
+				type = amendment_xenones_and_nosokomeia
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+
+		active_law:lawgroup_education_system ?= { #education_system
+			add_amendment = {
+				type = amendment_pandidakterion
+				sponsor = PREV.ig:ig_intelligentsia
+			}
+		}
+
 		set_institution_investment_level = {
 			institution = institution_police
 			level = 2
