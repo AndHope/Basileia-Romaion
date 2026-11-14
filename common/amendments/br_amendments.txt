@@ -132,7 +132,7 @@ amendment_co_emperorship = {
 # Rivals are blinded or mutilated rather than killed, disqualifying them from the throne
 amendment_political_mutilation = {
 	parent = law_monarchy
-	allowed_laws = { law_autocracy }
+	allowed_laws = { law_monarchy law_autocracy law_oligarchy }
 	modifier = {
 		country_legitimacy_base_add = 3
 		state_radicals_from_political_movements_mult = -0.10
@@ -295,7 +295,10 @@ amendment_protection_of_the_poor = {
 		any_primary_culture = {
 			has_discrimination_trait = greco_roman_heritage
 		}
-		NOT = { any_active_law = { has_amendment = amendment_type:amendment_dynatoi_estates } }
+		NOR = {
+				any_active_law = { has_amendment = amendment_type:amendment_dynatoi_estates }
+				currently_enacting_law ?= { has_amendment = amendment_type:amendment_dynatoi_estates }
+			}
 	}
 	would_sponsor = {
 		OR = {
@@ -329,7 +332,10 @@ amendment_dynatoi_estates = {
 		any_primary_culture = {
 			has_discrimination_trait = greco_roman_heritage
 		}
-		NOT = { any_active_law = { has_amendment = amendment_type:amendment_protection_of_the_poor } }
+		NOR = {
+				any_active_law = { has_amendment = amendment_type:amendment_protection_of_the_poor }
+				currently_enacting_law ?= { has_amendment = amendment_type:amendment_protection_of_the_poor }
+			}
 	}
 	would_sponsor = {
 		is_interest_group_type = ig_landowners
@@ -355,9 +361,11 @@ amendment_allelengyon = {
 		interest_group_ig_rural_folk_approval_add = 1
 		state_conscription_rate_mult = 0.05
 	}
+	tax_modifier_very_low = { tax_dividends_add = 0.02 }
 	tax_modifier_low = { tax_dividends_add = 0.03 }
 	tax_modifier_medium = { tax_dividends_add = 0.05 }
 	tax_modifier_high = { tax_dividends_add = 0.08 }
+	tax_modifier_very_high = { tax_dividends_add = 0.10 }
 	possible = {
 		any_primary_culture = {
 			has_discrimination_trait = greco_roman_heritage
@@ -465,8 +473,7 @@ amendment_inalienable_soldier_holdings = {
 
 # Basilika: Justinian's law recast in Greek
 amendment_basilika_code = {
-	#parent = law_traditionalism
-	#allowed_laws = { law_traditionalism }
+	allowed_laws = { law_monarchy law_traditionalism }
 	modifier = {
 		country_bureaucracy_mult = 0.10
 		country_legitimacy_base_add = 3
@@ -554,8 +561,8 @@ amendment_fiscal_immunities = {
 
 # Kapnikon: a flat levy per hearth
 amendment_hearth_tax = {
-	parent = law_per_capita_based_taxation
-	allowed_laws = { law_per_capita_based_taxation law_land_based_taxation }
+	parent = law_land_based_taxation
+	allowed_laws = { law_land_based_taxation law_per_capita_based_taxation }
 	modifier = {
 		state_tax_collection_mult = 0.10
 		interest_group_ig_rural_folk_approval_add = -1
@@ -1159,7 +1166,10 @@ amendment_gold_hyperpyron = {
 		any_primary_culture = {
 			has_discrimination_trait = greco_roman_heritage
 		}
-		NOT = { any_active_law = { has_amendment = amendment_type:amendment_debased_coinage } }
+		NOR = {
+				any_active_law = { has_amendment = amendment_type:amendment_debased_coinage }
+				currently_enacting_law ?= { has_amendment = amendment_type:amendment_debased_coinage }
+			}
 	}
 	would_sponsor = {
 		OR = {
@@ -1192,7 +1202,10 @@ amendment_debased_coinage = {
 		any_primary_culture = {
 			has_discrimination_trait = greco_roman_heritage
 		}
-		NOT = { any_active_law = { has_amendment = amendment_type:amendment_gold_hyperpyron } }
+		NOR = {
+				any_active_law = { has_amendment = amendment_type:amendment_gold_hyperpyron }
+				currently_enacting_law ?= { has_amendment = amendment_type:amendment_gold_hyperpyron }
+			}
 	}
 	would_sponsor = {
 		OR = {
@@ -1440,7 +1453,11 @@ amendment_female_succession = {
 		interest_group_ig_armed_forces_approval_add = -1
 		interest_group_ig_devout_approval_add = -1
 	}
-	possible = { always = yes }
+	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
 	would_sponsor = {
 		OR = {
 			is_interest_group_type = ig_intelligentsia
@@ -1456,12 +1473,6 @@ amendment_female_succession = {
 		}
 	}
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
-	on_activate = {
-		set_variable = br_female_succession_var
-	}
-	on_deactivate = {
-		remove_variable = br_female_succession_var
-	}
 	amendment_activism_multiplier = 0.5
 }
 
