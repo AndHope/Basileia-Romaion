@@ -1,0 +1,119 @@
+﻿# Consolidate the Stato Da Màr
+je_br_consolidate_stato_da_mar = { 
+    group = je_group_internal_affairs
+    icon = "gfx/interface/icons/event_icons/force_recognition.dds"
+
+	should_be_pinned_by_default = yes
+    weight = 100
+    can_revolution_inherit = yes
+
+    is_shown_in_lobby = {
+        c:VEN ?= this
+    }
+
+    scripted_progress_bar = br_venice_consolidate_progress_bar
+
+    immediate = {
+        c:br_atlantica ?= {
+            save_scope_as = atlantica_scope
+        }
+       s:STATE_CUBA ?= {
+        save_scope_as = atlanteum_scope
+       }
+    }
+
+    complete = {
+        OR = {
+            # Completion via progress bar
+            custom_tooltip = { 
+                text = je_br_consolidate_progress_complete_tt
+                AND = {
+                    scope:journal_entry = {
+                        "scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 100
+                    }
+                    hidden_trigger = {
+                        scope:target = {
+                            NOT = { has_variable = br_venice_final_crisis }
+                        }
+                    }
+                }
+            }
+            # Completion via direct annexation
+            custom_tooltip = {
+                text = je_br_consolidate_annexation_complete_tt
+                AND = {
+                    has_state_in_state_region = STATE_CUBA # Atlanteum
+                    has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
+                    has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
+                    NOT = { exists = c:br_atlantica } 
+                }
+            }
+        }
+    }
+    on_complete = {
+        if = {
+            limit = { 
+                has_state_in_state_region = STATE_CUBA # Atlanteum
+                has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
+                has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
+                NOT = { exists = c:br_atlantica } # If Atlantica doesn't exist
+            }
+            # Completion via direct annexation
+            trigger_event = {
+                id = br_venice_events.100
+            }
+        }
+        else = {
+        # Progress bar completion path
+        trigger_event = { 
+            id = br_venice_events.99
+            }
+        }
+    }
+
+    fail = {
+        OR = {
+            AND = {
+                exists = c:br_atlantica
+                    c:br_atlantica ?= {
+                        liberty_desire >= 100
+                    }
+                }
+            AND = {
+                exists = c:br_atlantica
+                NOT = {
+                    c:br_atlantica ?= {
+                        is_subject_of = ROOT
+                    }
+                }
+            }
+        }
+    }
+
+    on_fail = { 
+        trigger_event = { 
+            id = br_venice_events.101 #br_venice_events.102 and 103 will likely be consequences based on outcome of Revolution, TBW
+        }
+    }
+
+    timeout = 7300
+
+    on_timeout = {
+        trigger_event = {
+            id = br_venice_events.104 # May need some balancing
+        }
+    }
+    on_monthly_pulse = {
+        if = {
+            not = {
+                has_variable = br_venice_crisis_event_4
+            }
+            random_events = {
+            100 = 0 # placeholder, will determine later
+            100 = br_venice_events.4 # Whispers in the Piazza
+            100 = br_venice_events.12 # The Boycott of Nóva Veneto
+            10 = br_venice_events.30 # The Venetian Gazetteer
+        }
+        }
+    }
+}
