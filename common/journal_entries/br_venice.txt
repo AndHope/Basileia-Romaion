@@ -17,9 +17,9 @@ je_br_consolidate_stato_da_mar = {
         c:br_atlantica ?= {
             save_scope_as = atlantica_scope
         }
-       s:STATE_CUBA ?= {
-        save_scope_as = atlanteum_scope
-       }
+       s:STATE_WESTERN_CUBA ?= {
+            save_scope_as = atlanteum_scope
+        }
     }
 
 	outcome = {
@@ -47,7 +47,9 @@ je_br_consolidate_stato_da_mar = {
 				custom_tooltip = {
 					text = je_br_consolidate_annexation_complete_tt
 					AND = {
-						has_state_in_state_region = STATE_CUBA # Atlanteum
+						has_state_in_state_region = STATE_WESTERN_CUBA # Atlanteum
+                        has_state_in_state_region = STATE_CENTRAL_CUBA # Atlanteum
+                        has_state_in_state_region = STATE_EASTERN_CUBA # Atlanteum
 						has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
 						has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
 						NOT = { exists = c:br_atlantica }
@@ -58,7 +60,9 @@ je_br_consolidate_stato_da_mar = {
 		effect = {
 			if = {
 				limit = {
-					has_state_in_state_region = STATE_CUBA # Atlanteum
+					has_state_in_state_region = STATE_WESTERN_CUBA # Atlanteum
+                    has_state_in_state_region = STATE_CENTRAL_CUBA # Atlanteum
+                    has_state_in_state_region = STATE_EASTERN_CUBA # Atlanteum
 					has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
 					has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
 					NOT = { exists = c:br_atlantica } # If Atlantica doesn't exist
