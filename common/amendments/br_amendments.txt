@@ -688,32 +688,6 @@ amendment_akritai_border_guards = {
 	amendment_activism_multiplier = 0.5
 }
 
-# Karabisianoi and Kibyrrhaiotai: coastal themes supplying the fleet
-amendment_thematic_fleets = {
-	parent = br_law_themata
-	allowed_laws = { br_law_themata }
-	modifier = {
-		state_conscription_rate_mult = 0.05
-		#building_naval_base_throughput_add = 0.05
-		state_tax_collection_mult = -0.03
-		interest_group_ig_armed_forces_approval_add = 1
-	}
-	possible = { 
-		any_primary_culture = {
-			has_discrimination_trait = greco_roman_heritage
-		}
-	}
-	would_sponsor = {
-		OR = {
-			is_interest_group_type = ig_armed_forces
-			AND = { exists = scope:approval scope:approval > 0 }
-		}
-	}
-	ai_will_revoke = { always = no }
-	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
-	amendment_activism_multiplier = 0.25
-}
-
 # The great military families keep their commands
 amendment_hereditary_strategoi = {
 	parent = br_law_themata
@@ -1583,3 +1557,373 @@ amendment_vigla_night_watch = {
 	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
 	amendment_activism_multiplier = 0.25
 }
+
+#########################################################
+# Naval
+#########################################################
+# Karabisianoi and Kibyrrhaiotai: coastal themes supplying the fleet
+amendment_thematic_fleets = {
+	parent = law_merchant_navy
+	allowed_laws = { law_merchant_navy br_law_themata }
+	modifier = {
+		building_naval_administration_hiring_rate_mult = 0.15
+		country_ship_crew_starting_veterancy_experience_add = 15
+		interest_group_ig_armed_forces_approval_add = 1
+	}
+	possible = { 
+		any_primary_culture = {
+			has_discrimination_trait = greco_roman_heritage
+		}
+	}
+	would_sponsor = {
+		OR = {
+			is_interest_group_type = ig_armed_forces
+			AND = { exists = scope:approval scope:approval > 0 }
+		}
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}
+
+
+## Greek fire siphons: the secret weapon of the dromons
+#amendment_greek_fire_siphons = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_merchant_navy law_diplomatic_navy }
+	#modifier = {
+		#ship_power_projection_mult = 0.05
+		#country_ship_crew_starting_veterancy_experience_add = 25
+		#country_navy_goods_cost_mult = 0.05
+		#interest_group_ig_armed_forces_approval_add = 1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#is_interest_group_type = ig_intelligentsia
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
+#
+## Venetian and Genoese ships hired for the campaign season
+#amendment_italian_naval_contracts = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_merchant_navy law_diplomatic_navy law_professional_navy }
+	#modifier = {
+		#country_ship_group_supply_ships_construction_efficiency_add = 0.15
+		#country_ship_type_troop_ship_construction_efficiency_add = 0.15
+		#ship_power_projection_mult = -0.10
+		#country_influence_mult = -0.05
+		#interest_group_ig_industrialists_approval_add = 1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+		#NOR = {
+			#any_active_law = { has_amendment = amendment_type:amendment_imperial_arsenal_yards }
+			#currently_enacting_law ?= { has_amendment = amendment_type:amendment_imperial_arsenal_yards }
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_industrialists
+			#is_interest_group_type = ig_petty_bourgeoisie
+		#}
+	#}
+	#ai_will_revoke = {
+		#any_interest_group = {
+			#is_in_government = yes
+			#is_interest_group_type = ig_armed_forces
+			#is_powerful = yes
+		#}
+	#}
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.5
+#}
+#
+## The imperial yards at the Neorion build and arm the fleet themselves
+#amendment_imperial_arsenal_yards = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_merchant_navy law_diplomatic_navy law_professional_navy }
+	#modifier = {
+		#country_ship_construction_efficiency_add = 0.10
+		#country_navy_goods_cost_mult = -0.10
+		#country_bureaucracy_mult = -0.03
+		#interest_group_ig_industrialists_approval_add = -1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+		#NOR = {
+			#any_active_law = { has_amendment = amendment_type:amendment_italian_naval_contracts }
+			#currently_enacting_law ?= { has_amendment = amendment_type:amendment_italian_naval_contracts }
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#AND = { exists = scope:approval scope:approval > 0 }
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.5
+#}
+#
+## Sailors levied from the islands and the coastal themes
+#amendment_maritime_levy = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_merchant_navy law_diplomatic_navy law_professional_navy }
+	#modifier = {
+		#building_naval_administration_hiring_rate_mult = 0.15
+		#interest_group_ig_rural_folk_approval_add = -1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#AND = { exists = scope:approval scope:approval > 0 }
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.5
+#}
+#
+## The Droungarios of the Fleet: a single admiral commands every squadron
+#amendment_droungarios_of_the_fleet = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_diplomatic_navy }
+	#modifier = {
+		#country_officers_pol_str_mult = 0.10
+		#country_ship_crew_starting_veterancy_experience_add = 75
+		#interest_group_ig_armed_forces_approval_add = 1
+		#country_authority_mult = -0.03
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+		#NOR = {
+			#any_active_law = { has_amendment = amendment_type:amendment_megas_doux }
+			#currently_enacting_law ?= { has_amendment = amendment_type:amendment_megas_doux }
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#AND = { exists = scope:approval scope:approval > 0 }
+		#}
+	#}
+	#ai_will_revoke = {
+		#any_interest_group = {
+			#is_in_government = yes
+			#is_interest_group_type = ig_landowners
+			#is_powerful = yes
+		#}
+	#}
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
+#
+## Escort fleets guard the grain ships that feed the capital
+#amendment_grain_fleet_escorts = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_merchant_navy }
+	#modifier = {
+		#country_ship_group_supply_ships_construction_efficiency_add = 0.20
+		#state_radicals_from_political_movements_mult = -0.05
+		#ship_power_projection_mult = -0.05
+		#interest_group_ig_petty_bourgeoisie_approval_add = 1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_petty_bourgeoisie
+			#is_interest_group_type = ig_rural_folk
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
+#
+## Nomos Rhodion Nautikos: the Rhodian Sea Law governs shipping and salvage
+#amendment_rhodian_sea_law = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_merchant_navy law_diplomatic_navy law_professional_navy }
+	#modifier = {
+		#country_ship_group_supply_ships_construction_efficiency_add = 0.10
+		#country_prestige_from_navy_power_projection_mult = 0.10
+		#interest_group_ig_industrialists_approval_add = 1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_industrialists
+			#is_interest_group_type = ig_intelligentsia
+			#AND = { exists = scope:approval scope:approval > 0 }
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
+#
+## Megas Doux: the supreme admiral replaces the older fleet commands
+#amendment_megas_doux = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_diplomatic_navy }
+	#modifier = {
+		#country_officers_pol_str_mult = 0.15
+		#country_ship_crew_starting_veterancy_experience_add = 50
+		#country_prestige_from_navy_power_projection_mult = 0.10
+		#interest_group_ig_armed_forces_approval_add = 1
+		#country_authority_mult = -0.05
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+		#NOR = {
+			#any_active_law = { has_amendment = amendment_type:amendment_droungarios_of_the_fleet }
+			#currently_enacting_law ?= { has_amendment = amendment_type:amendment_droungarios_of_the_fleet }
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#is_interest_group_type = ig_landowners
+		#}
+	#}
+	#ai_will_revoke = {
+		#any_interest_group = {
+			#is_in_government = yes
+			#is_interest_group_type = ig_intelligentsia
+			#is_powerful = yes
+		#}
+	#}
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.5
+#}
+#
+## Epibatai: professional marines serve aboard every warship
+#amendment_epibatai_marines = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_diplomatic_navy }
+	#modifier = {
+		#country_ship_type_troop_ship_construction_efficiency_add = 0.1
+		#country_ship_type_early_troop_ship_construction_efficiency_add = 0.1
+		#building_training_rate_mult = 0.05
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#AND = { exists = scope:approval scope:approval > 0 }
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
+#
+## Kybernetai: a guild of trained pilots and navigators
+#amendment_corps_of_pilots = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_diplomatic_navy }
+	#modifier = {
+		#country_ship_crew_starting_veterancy_experience_add = 50
+		#country_officers_pol_str_mult = 0.05
+		#interest_group_ig_intelligentsia_approval_add = 1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_intelligentsia
+			#is_interest_group_type = ig_armed_forces
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
+#
+## Permanent naval stations on Crete, Cyprus and the Aegean islands
+#amendment_island_naval_stations = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_diplomatic_navy }
+	#modifier = {
+		#ship_power_projection_mult = 0.05
+		#country_ship_group_supply_ships_construction_efficiency_add = 0.10
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#AND = { exists = scope:approval scope:approval > 0 }
+		#}
+	#}
+	#ai_will_revoke = { always = no }
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
+#
+#amendment_straits_wardens = {
+	#parent = law_professional_navy
+	#allowed_laws = { law_professional_navy law_merchant_navy law_diplomatic_navy }
+	#modifier = {
+		#state_building_naval_fortification_max_level_add = 2
+		#interest_group_ig_armed_forces_approval_add = 1
+	#}
+	#possible = {
+		#any_primary_culture = {
+			#has_discrimination_trait = greco_roman_heritage
+		#}
+	#}
+	#would_sponsor = {
+		#OR = {
+			#is_interest_group_type = ig_armed_forces
+			#AND = { exists = scope:approval scope:approval > 0 }
+		#}
+	#}
+	#ai_will_revoke = {
+		#always = no
+	#}
+	#can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	#amendment_activism_multiplier = 0.25
+#}
