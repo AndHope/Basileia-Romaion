@@ -1,5 +1,5 @@
 ﻿# Consolidate the Stato Da Màr
-je_br_consolidate_stato_da_mar = { 
+je_br_consolidate_stato_da_mar = {
     group = je_group_internal_affairs
     icon = "gfx/interface/icons/event_icons/force_recognition.dds"
 
@@ -22,87 +22,108 @@ je_br_consolidate_stato_da_mar = {
        }
     }
 
-    complete = {
-        OR = {
-            # Completion via progress bar
-            custom_tooltip = { 
-                text = je_br_consolidate_progress_complete_tt
-                AND = {
-                    scope:journal_entry = {
-                        "scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 100
-                    }
-                    hidden_trigger = {
-                        scope:target = {
-                            NOT = { has_variable = br_venice_final_crisis }
-                        }
-                    }
-                }
-            }
-            # Completion via direct annexation
-            custom_tooltip = {
-                text = je_br_consolidate_annexation_complete_tt
-                AND = {
-                    has_state_in_state_region = STATE_CUBA # Atlanteum
-                    has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
-                    has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
-                    NOT = { exists = c:br_atlantica } 
-                }
-            }
-        }
-    }
-    on_complete = {
-        if = {
-            limit = { 
-                has_state_in_state_region = STATE_CUBA # Atlanteum
-                has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
-                has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
-                NOT = { exists = c:br_atlantica } # If Atlantica doesn't exist
-            }
-            # Completion via direct annexation
-            trigger_event = {
-                id = br_venice_events.100
-            }
-        }
-        else = {
-        # Progress bar completion path
-        trigger_event = { 
-            id = br_venice_events.99
-            }
-        }
-    }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_br_consolidate_stato_da_mar_completed_desc
+		color = "gold_positive"
+		trigger = {
+			OR = {
+				# Completion via progress bar
+				custom_tooltip = {
+					text = je_br_consolidate_progress_complete_tt
+					AND = {
+						scope:journal_entry = {
+							"scripted_bar_progress(br_venice_consolidate_progress_bar)" >= 100
+						}
+						hidden_trigger = {
+							scope:target = {
+								NOT = { has_variable = br_venice_final_crisis }
+							}
+						}
+					}
+				}
+				# Completion via direct annexation
+				custom_tooltip = {
+					text = je_br_consolidate_annexation_complete_tt
+					AND = {
+						has_state_in_state_region = STATE_CUBA # Atlanteum
+						has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
+						has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
+						NOT = { exists = c:br_atlantica }
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_state_in_state_region = STATE_CUBA # Atlanteum
+					has_state_in_state_region = STATE_BAHAMAS # Lucayanateum
+					has_state_in_state_region = STATE_FLORIDA # Nóva Veneto
+					NOT = { exists = c:br_atlantica } # If Atlantica doesn't exist
+				}
+				# Completion via direct annexation
+				trigger_event = {
+					id = br_venice_events.100
+				}
+			}
+			else = {
+			# Progress bar completion path
+			trigger_event = {
+				id = br_venice_events.99
+				}
+			}
+		}
+	}
 
-    fail = {
-        OR = {
-            AND = {
-                exists = c:br_atlantica
-                    c:br_atlantica ?= {
-                        liberty_desire >= 100
-                    }
-                }
-            AND = {
-                exists = c:br_atlantica
-                NOT = {
-                    c:br_atlantica ?= {
-                        is_subject_of = ROOT
-                    }
-                }
-            }
-        }
-    }
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_br_consolidate_stato_da_mar_failed_desc
+		color = "blue_negative"
+		trigger = {
+			OR = {
+				AND = {
+					exists = c:br_atlantica
+						c:br_atlantica ?= {
+							liberty_desire >= 100
+						}
+					}
+				AND = {
+					exists = c:br_atlantica
+					NOT = {
+						c:br_atlantica ?= {
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			trigger_event = {
+				id = br_venice_events.101 #br_venice_events.102 and 103 will likely be consequences based on outcome of Revolution, TBW
+			}
+		}
+	}
 
-    on_fail = { 
-        trigger_event = { 
-            id = br_venice_events.101 #br_venice_events.102 and 103 will likely be consequences based on outcome of Revolution, TBW
-        }
-    }
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_br_consolidate_stato_da_mar_timeout_desc
+		color = "blue_negative"
+		flags = { timeout }
+		effect = {
+			trigger_event = {
+				id = br_venice_events.104 # May need some balancing
+			}
+		}
+	}
+
+
 
     timeout = 7300
 
-    on_timeout = {
-        trigger_event = {
-            id = br_venice_events.104 # May need some balancing
-        }
-    }
     on_monthly_pulse = {
         if = {
             not = {
