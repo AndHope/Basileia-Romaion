@@ -3,6 +3,41 @@
 # Github
 git log 1.13-Beta..HEAD --pretty=format:"- %s"
 
+# 1.6
+- Updated hub/state names South Italy, parts of Balkans, Greece and West Anatola
+- Updated early society tech icons
+- 
+
+## Content expansions
+
+### Venice Content
+
+Stratocrats --> L'Ammiragliato
+The Admiralty is the defining factor of Venetian military power, the steel in Venice's velvet glove. Its officers, drawn from noble and cittadini families alike, see the world as a series of strategic chokepoints and vulnerable coasts. They advocate for a powerful fleet to project Venetian power, protect its trade routes, and secure new possessions, believing that a nation's influence is measured by the reach of its gunships.
+
+Aristocracy --> Landed Aristocracy
+The old nobility of the terraferma, the Venetian mainland. Their power is rooted in land, tradition, and the rents extracted from a vast agricultural hinterland. They view the Serene Republic first and foremost as a protector of their hereditary privileges and are deeply suspicious of the mercantile and industrial ambitions of the city, which they see as destabilizing to the natural order.
+
+Burghers --> Patriziato Mercantile
+The heart of the Venetian oligarchy. These patrician families trace their power to the sea, their fortunes built on the spice trade, banking, and a global commercial empire. They are the custodians of the Republic's maritime legacy, believing that Venice's destiny is to rule the waves and the ledger books, favoring a strong navy and policies that ensure the flow of trade and capital.
+Modernists --> Nuova Impresa
+The "New Enterprise." This class of innovators, master shipwrights from the Arsenale, and industrial capitalists emerged from the cittadini originari. They are the architects of the new Venetian economy, channeling the Republic's legendary mercantile wealth into factories, railroads, and mechanized production. They are visionaries who believe progress is measured in output and efficiency, and they push for infrastructure and policies that fuel industrial growth, often clashing with the traditional mercantilism of the Patricians.
+Now, the New Enterprise was never an official or historical term, but in a world where Northern Italy is the heart of the Industrial Revolution, I liked the idea of a new Venetian class being developed alongside it.
+
+Consolidate the Stato de Màr Journal Entry includes:
+
+4 Crisis Events
+These are major escalation points that significantly raise tensions between Venice and Atlantica. One of them branches into deeper event chains depending on prior choices. They’ll be spaced out across the JE so they punctuate the narrative.
+
+8 Development Events
+These help or hinder Venice as it tries to balance the expectations of the colony with those of the Grand Council. They expand Atlantican history and culture, such as festivals, symbols, traditions, and local politics, giving the region its own believable identity.
+
+3 Flavor Event Chains
+These longer chains develop into major political consequences. Currently we have:
+a religious conflict arc,
+a slavery-debate chain, and
+the ongoing headache of the incompetent Provveditore.
+
 # Basileia Romaion: Update for 1.15
 
 ## Compatibility
