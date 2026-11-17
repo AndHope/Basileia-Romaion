@@ -339,9 +339,9 @@ br_large_increase_in_revolutionary_tension_effect = {
 #######################################################################################
 
 br_create_new_estate = {
-	create_struct = {
-		struct_scope = $estate_name$
-		struct_type = $estate_type$
+    create_container = {
+		name = br_$estate_name$
+		tags = { $estate_type$ }
 	}
 
 	#save the struct in a var within the root
@@ -349,11 +349,11 @@ br_create_new_estate = {
 	root = {
 		set_variable = {
 			name = br_$estate_name$_var
-			value = scope:$estate_name$
+			value = container:br_$estate_name$
 		}
 		add_to_variable_list = {
 			name = br_list_of_estates
-			target = scope:$estate_name$
+			target = container:br_$estate_name$
 		}
 	}
 }
@@ -367,9 +367,9 @@ br_create_new_estate = {
 #estates are structs, and structs live forever so have to be removed manually
 #also clean up the var in which the struct is saved
 br_remove_estate = {
-	destroy_struct = {
-		struct = scope:$estate_name$
-	}
+    container:$estate_name$ = {
+        destroy_container = yes
+    }
 	remove_variable = br_$estate_name$_var
 }
 
