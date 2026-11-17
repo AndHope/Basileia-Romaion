@@ -4,8 +4,11 @@
 git log 1.13-Beta..HEAD --pretty=format:"- %s"
 
 # 1.6
-- Updated hub/state names South Italy, parts of Balkans, Greece and West Anatola
-- Updated early society tech icons
+
+- Updated hub and state names in Southern Italy, parts of the Balkans, Greece, and western Anatolia.
+- Reworked our tech tree to improve compatibility with mods that rely on the vanilla tech tree. Our early techs now use `era_0` instead of shifting every vanilla tech up a level, so we only replace the `era_1` techs rather than every tech in the game. Morgenröte now loads and appears playable with Basileía Romaíon again.
+
+
 - 
 
 ## Content expansions
