@@ -1,0 +1,630 @@
+﻿### ERA 0
+
+br_tech_military_levy = {
+	# The earliest form of conscription
+	# https://en.wikipedia.org/wiki/Conscription#Medieval_levies
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_military_levy.dds"
+	category = military
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_supply_train = {
+	# Should give some bonuses to armies, perhaps movement speed
+	# https://en.wikipedia.org/wiki/Train_(military)
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_supply_train.dds"
+	category = military
+
+	
+	modifier = {
+		military_formation_attrition_risk_mult = -0.1 
+		unit_supply_consumption_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		br_tech_military_levy
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_lines_of_communication = {
+	# Should give some bonuses to armies, perhaps attrition reduction
+	# https://en.wikipedia.org/wiki/Line_of_communication
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_lines_of_communication.dds"
+	category = military
+
+	modifier = {
+		military_formation_organization_gain_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		br_tech_supply_train
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_tech_hussar = {
+	# Unlocks a better version of traditional cavalry
+	# https://en.wikipedia.org/wiki/Hussar
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_tech_hussar.dds"
+	category = military
+
+	unlocking_technologies = {
+		br_tech_military_levy
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+tech_cavalry_specialization = {
+	# moving the other cavalry variants up from military drill will put other bonuses on it. Maybe experiance gain?
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/tech_cavalry_specialization.dds"
+	category = military
+
+	unlocking_technologies = {
+		br_tech_tech_hussar
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+REPLACE_OR_CREATE:gunsmithing = {
+	# Unlocks Arms Industry building
+	# Global Unlock for Muskets PM in Barracks
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
+	category = military
+	
+	modifier = {
+		unit_army_offense_add = 2
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+br_tech_flintlock_musket = {
+	# Improves the earlier musket techs
+	# https://en.wikipedia.org/wiki/Flintlock
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_flintlock_musket.dds"
+	category = military
+
+	unlocking_technologies = {
+		gunsmithing
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+REPLACE_OR_CREATE:artillery = {
+	# Unlocks Artillery Production PM in Arms Industries
+	# Unlocks Cannon Artillery PM in Barracks
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/artillery.dds"
+	category = military
+
+	unlocking_technologies = {
+		gunsmithing
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+br_tech_threadwheel_crane = {
+	# A very old tech for enabling ports
+	# https://en.wikipedia.org/wiki/Treadwheel_crane
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_threadwheel_crane.dds"
+	category = military
+
+	modifier = {
+		#unlocks buildings
+		#building_shipyard_throughput_add = 0.05
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_sextant = {
+	# One of the earliest navigation techs
+	# https://en.wikipedia.org/wiki/Sextant
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_sextant.dds"
+	category = military
+	
+	modifier = {
+		unit_convoy_defense_mult = 0.05
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_standardized_shipbuilding = {
+	# Gives access to shipyards
+	# https://en.wikipedia.org/wiki/Shipyard#History
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_standardized_shipbuilding.dds"
+	category = military
+
+	modifier = {
+		#unlocks pms and buildings
+		#building_shipyard_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_threadwheel_crane
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+REPLACE_OR_CREATE:navigation = {
+	# Unlocks Shipyards
+	# Unlocks Ports
+	# Increases Port max level by 2
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	unlocking_technologies = {
+		br_tech_sextant
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+br_tech_frigate = {
+	# Not the very oldest ship tech, but should be a pretty old tech
+	# https://en.wikipedia.org/wiki/Frigate#Age_of_sail
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_frigate.dds"
+	category = military
+
+	unlocking_technologies = {
+		#navigation
+		br_tech_standardized_shipbuilding
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_careening = {
+	# Tech closing the gap between pre-modern and modern shipbuilding
+	# https://en.wikipedia.org/wiki/Careening
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_careening.dds"
+	category = military
+	
+	modifier = {
+		#ship repair would be a good one
+		building_naval_base_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_standardized_shipbuilding
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 1
+
+br_tech_three_deckers = {
+	# Should unlock the best capital sailing ship
+	# https://en.wikipedia.org/wiki/Three-decker
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_three_deckers.dds"
+	category = military
+
+	unlocking_technologies = {
+		br_tech_frigate
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+REPLACE_OR_CREATE:standing_army = {
+	# Unlocks Barracks building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	unlocking_technologies = {
+		line_infantry
+		br_tech_lines_of_communication
+		tech_cavalry_specialization
+	}
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+br_tech_naval_professionalization = {
+	# Should give some bonuses to naval units
+	# https://www.tandfonline.com/doi/full/10.1080/21533369.2020.1835229
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_naval_professionalization.dds"
+	category = military
+
+	unlocking_technologies = {
+		navigation
+	}
+
+	modifier = {
+		#state_building_naval_base_max_level_add = 10
+		unit_navy_experience_gain_mult = 0.25 #not sure which experaince value to keep or both
+		unit_navy_experience_gain_add = 0.1
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+REPLACE_OR_CREATE:drydocks = {
+	# Increases Port max level by 3
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/drydock.dds"
+	category = military
+
+	modifier = {
+		building_shipyard_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_careening
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+REPLACE_OR_CREATE:mandatory_service = {
+	# Unlocks Army Model - National Militia
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/mandatory_service.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		standing_army
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+br_tech_field_guns = {
+	# Enables early combat guns
+	# https://en.wikipedia.org/wiki/Field_artillery#Early_modern_era
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_field_guns.dds"
+	category = military
+	
+	modifier = {
+		unit_kill_rate_add = 0.02
+	}
+
+	unlocking_technologies = {
+		artillery
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+REPLACE_OR_CREATE:military_drill = {
+	# Does nothing yet; should enable/increase combat unit Experience gain
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
+	category = military
+
+	modifier = {
+		unit_experience_gain_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		standing_army
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+REPLACE_OR_CREATE:napoleonic_warfare = {
+	# Unlocks Mobile Artillery PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/napoleonic_warfare.dds"
+	category = military
+
+	unlocking_technologies = {
+		mandatory_service
+		br_tech_field_guns
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+
+		if = {
+			limit = { has_journal_entry = je_sick_man_army }
+			add = 5
+		}
+	}
+}
+
+REPLACE_OR_CREATE:admiralty = {
+	# Unlocks Naval Base building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+
+	modifier = {
+		#state_building_naval_administration_max_level_add = 4
+    }
+
+	unlocking_technologies = {
+		br_tech_naval_professionalization
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+REPLACE_OR_CREATE:army_reserves = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/army_reserves.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		mandatory_service
+		military_drill
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+REPLACE_OR_CREATE:line_infantry = {
+	# Unlocks Line Infantry PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/line_infantry.dds"
+	category = military
+
+	unlocking_technologies = {
+		br_tech_flintlock_musket
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+REPLACE_OR_CREATE:paddle_steamer = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/paddle_steamer.dds"
+	category = military
+
+	modifier = {
+		ship_hull_damage_mult = 0.05
+		ship_crew_damage_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		admiralty
+		br_tech_three_deckers
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+### ERA 2
+
+#field_works
+
+#logistics
+
+#triage
+
+REPLACE_OR_CREATE:shell_gun = {
+	# Unlocks Explosive Shell Artillery Production PM in Arms Industries
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
+	category = military
+
+	unlocking_technologies = {
+		br_tech_field_guns
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+REPLACE_OR_CREATE:percussion_cap = {
+	# Unlocks Munition Plants building
+	# Global Unlock for Rifles PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/percussion_cap.dds"
+	category = military
+
+	unlocking_technologies = {
+		br_tech_flintlock_musket
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+
+		if = {
+			limit = {
+				has_technology_researched = general_staff
+			}
+			add = 2
+		}
+
+		if = {
+			limit = {
+				has_technology_researched = power_of_the_purse
+			}
+			add = 2
+		}
+	}
+}
+
+#rifling
+
+#general_staff
+
+#screw_frigate
+
+#power_of_the_purse
+
+INJECT:hydraulic_cranes = {
+	modifier = {
+		building_shipyard_throughput_add = 0.05
+	}
+}
+
+### ERA 3
+
+#modern_nursing
+
+#enlistment_offices
+
+electric_telegraph
+
+#military_statistics
+
+#repeaters
+
+#breech_loading_artillery
+
+#handcranked_machine_gun
+
+#self_propelled_torpedoes
+
+#monitor_tech
+
+#ironclad_tech
+
+#jeune_ecole
+
+#floating_harbor
+
+#gantry_cranes
+
+### ERA 4
+
+#trench_works
+
+#war_propaganda
+
+#wargaming
+
+#defense_in_depth
+
+#bolt_action_rifles
+
+#automatic_machine_guns
+
+#submarine
+
+#destroyer
+
+#pre_dreadnought_tech
+
+#dreadnought_tech
+
+#sea_lane_strategies
+
+#landing_craft
+
+#concrete_dockyards
+
+### ERA 5
+
+#nco_training
+
+#chemical_warfare
+
+#stormtroopers
+
+#concrete_fortifications
+
+#mobile_armor
+
+#military_aviation
+
+#flamethrowers
+
+#carrier_tech
+
+#battleship_tech
+
+#battlefleet_tactics
