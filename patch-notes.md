@@ -1,11 +1,15 @@
 ####id 2880120246
 
-# Github
-git log 1.13-Beta..HEAD --pretty=format:"- %s"
+# Github CMD prompt:
+git log 1.5..HEAD --pretty=format:"- %s"
 
+# Basileia Romaion: 1.5.0-5 for 1.15
 # 1.6
-- Updated hub/state names South Italy, parts of Balkans, Greece and West Anatola
-- Updated early society tech icons
+
+- Updated hub and state names in Southern Italy, parts of the Balkans, Greece, and western Anatolia.
+- Reworked our tech tree to improve compatibility with mods that rely on the vanilla tech tree. Our early techs now use `era_0` instead of shifting every vanilla tech up a level, so we only replace the `era_1` techs rather than every tech in the game. Morgenröte now loads and appears playable with Basileía Romaíon again.
+
+
 - 
 
 ## Content expansions
@@ -43,21 +47,25 @@ the ongoing headache of the incompetent Provveditore.
 ## Compatibility
 
 - Updated to Victoria 3 1.15
-- Updated vanilla files in the mod to 1.15 (DNA data, releasable countries, English localization, parties, on-actions, script values)
-- Removed vanilla DNA definitions that were duplicated in the mod
-- Marked deliberate vanilla overrides and brought several files closer to vanilla
+- Updated vanilla files in the mod to 1.15 
+- Changed most vanilla edits in the mod to simply INJECT our changes intead of REPLACE. Tech is probably the only vanilla system still completely using REPLACE.
+	- This should make BR more compatible with other mods that edit/add base game buildings, laws etc basiclly everything except tech.
 - Converted Journal Entry outcomes to 1.15
 
 ## Laws
 
 - All laws updated for 1.15
-- `law_homesteading` replaced with a unique `law_peasant_proprietorship` for BR
+- Added 54 medieval Roman-inspired law amendments, with more amendments set and new country templates
+- Updated internal security law
+- Added `br_law_soldier_farmers` as a unique version `law_peasant_proprietorship` for BR
 - Added `law_military_bureaucrats`
 - Added `law_internal_colonization` for BR and TAT, and cleaned up colonial tech
-- `law_caesaropapism` now uses a Replace for the Byzantines
+- `law_caesaropapism` now uses a Replace for the ERE
 
 ## Gameplay and Content
 
+- Added Marines to NET, FLA, VEN, GEN and ERE
+- Replaced the BR DLC icon.
 - Updated ideologies and IG ideologies
 - Fixed the BR monarchy name
 - Fixed BR unique uniforms
@@ -70,7 +78,7 @@ the ongoing headache of the incompetent Provveditore.
 ## Copper and Resources
 
 - Copper added to the world with the majority discoverable
-- Added two historic copper mines for Japan, and English and Saxon copper mines
+- Added historic copper mines for Japan, English and Saxon copper mines
 - Added copper options for various mod companies; the Swedish copper company now actually has copper
 - All mines are now discoverable
 - Fixed broken gold mines from depletion
@@ -79,6 +87,8 @@ the ongoing headache of the incompetent Provveditore.
 ## Map, States and Cultures
 
 - Russia and Siberia changes, including updated pops and states
+- Cossack updates
+- State traits updated: two new traits added, and two redundant ones removed from Eastern Anatolia
 - `STATE_KOSTROMA` split off from `STATE_YAROSLAVL`
 - `STATE_ORYOL` and `STATE_TULA` are now separate states (Oryol was previously named "Tula")
 - `STATE_GALICH` is now `STATE_VOLOGDA`, `STATE_KAUNAS` is now `STATE_LITHUANIA`, and `STATE_TARTARIA` is now `STATE_SARATOV`
@@ -90,9 +100,13 @@ the ongoing headache of the incompetent Provveditore.
 ## AI
 
 - AI strategies (base, diplomatic and administrative) now use INJECT instead of overwriting vanilla
+- Updated the BR default AI strategy
 
 ## Bug Fixes
 
+- Fixed the PLC succession JE timeout being 0
+- Fixed a broken spice plantation
+- Fixed `STATE_HAWAIIAN_ISLANDS` pops
 - Fixed the Jadwigan reform JE not working correctly. Some variables weren't being set because the game tried to add the JE twice
 - Fixed depleted type incorrectly having a building instead of a building group
 - Fixed "neutral" being misspelled
@@ -106,6 +120,11 @@ the ongoing headache of the incompetent Provveditore.
 ## Under the Hood
 
 - Infantry and artillery changes, production method edits, pop demand edits and base game production method groups moved to INJECT (cavalry stays REPLACE)
+- Localization now uses quote escaping
+- Updated metadata and removed interests
+- Marked deliberate vanilla overrides and brought several files closer to vanilla
+
+
 
 # 4th 1.12 fix patch
 
