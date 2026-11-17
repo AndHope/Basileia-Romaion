@@ -1,0 +1,881 @@
+﻿### ERA 0
+
+#agriculture
+REPLACE_OR_CREATE:sericulture = {
+	# Unlocks Mulberry Groves PM on Rice Farms
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+	can_research = no
+
+	modifier = {
+		building_silk_plantation_throughput_add = 0.25
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+REPLACE_OR_CREATE:enclosure = {
+	# Unlocks construction of Farms and Plantations
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/enclosure_br_ver.dds"
+	category = production
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_four_field_crop_rotation = {
+	# Placeholder for even older agriculture techs
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_four_field_crop_rotation.dds"
+	category = production
+
+	modifier = {
+		#building_group_bg_agriculture_throughput_add = 0.05
+		#building_group_bg_plantations_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_new_world_crops = {
+	# https://en.wikipedia.org/wiki/New_World_crops
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_new_world_crops.dds"
+	category = production
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_plantation_system = {
+	# Unlock new Plantations
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_plantation_system.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_new_world_crops
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_seed_drill = {
+	# Should unlock new PMs for farms
+	# https://en.wikipedia.org/wiki/Seed_drill#
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_seed_drill.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05
+		building_group_bg_plantations_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_four_field_crop_rotation
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_rotherham_plough = {
+	# Should unlock new PMs for farms
+	# https://en.wikipedia.org/wiki/Plough#Improved_designs
+	# https://web.archive.org/web/20150924092217/http://www.rotherhamweb.co.uk/h/plough.htm
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_rotherham_plough.dds"
+	category = production
+
+	modifier = {
+		#building_group_bg_agriculture_throughput_add = 0.05
+		#building_group_bg_plantations_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		#br_tech_hand_tools
+		br_tech_seed_drill
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+#industry
+br_tech_artisan_manufacturing = {
+	# Placeholder for even older manufacturing techs
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_artisan_manufacturing.dds"
+	category = production
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_murano_glass = {
+	# Unlock leaded glass
+	# https://en.wikipedia.org/wiki/Venetian_glass
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_murano_glass.dds"
+	category = production
+
+	modifier = {
+		#unlocks forest glass
+		#building_glassworks_throughput_add = 0.1 unlocks leaded glass now
+	}
+
+	unlocking_technologies = {
+		br_tech_metallurgy
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_hand_tools = {
+	# Unlocks tooling workshops
+	# Related tech: https://en.wikipedia.org/wiki/Machine_tool
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_hand_tools.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_metallurgy
+		br_tech_standardized_measures
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_standardized_measures = {
+	# Placeholder for other older techs with regards to standardization
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_standardized_measures.dds"
+	category = production
+
+	modifier = {
+		state_tax_capacity_mult = 0.1
+		state_shopkeepers_investment_pool_efficiency_mult = 0.1	
+		state_capitalists_investment_pool_efficiency_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_experimental_construction = {
+	# Should unlock first "efficent" PM for construction sector
+	# https://en.wikipedia.org/wiki/History_of_construction#Early_Modern
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_experimental_construction.dds"
+	category = production
+
+	modifier = {
+		state_building_construction_sector_max_level_add = 5
+	}
+
+	unlocking_technologies = {
+		br_tech_hand_tools
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_textile_manufacturies = {
+	# Unlock textile manufacturies pms
+	# Related tech: https://en.wikipedia.org/wiki/Spinning_jenny
+	# Related tech: https://en.wikipedia.org/wiki/Flying_shuttle
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_textile_manufacturies.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+
+	unlocking_technologies = {
+		br_tech_artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_furniture_manufacturies = {
+	# Unlock furniture manufacturies pm
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_furniture_manufacturies.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+
+	unlocking_technologies = {
+		br_tech_artisan_manufacturing
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_paper_manufacturies = {
+	# Unlock paper manufacturies pm
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_paper_manufacturies.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+
+	unlocking_technologies = {
+		br_tech_furniture_manufacturies
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_dye_workshops = {
+	# Unlock textile manufacturies
+	# Related tech: https://en.wikipedia.org/wiki/Spinning_jenny
+	# Related tech: https://en.wikipedia.org/wiki/Flying_shuttle
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_dye_workshops.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_textile_manufacturies
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+br_tech_surface_mining = {
+	# Unlocks basic mines
+	# The mines should have a much lower building cap, if that is possible
+	# https://en.wikipedia.org/wiki/Surface_mining
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+
+	#unlocking_technologies = {
+	#	br_tech_artisan_manufacturing
+	#}
+	modifier = {
+		country_resource_discovery_chance_mult = 0.01
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_metallurgy = {
+	# Placeholder for other older techs
+	# https://en.wikipedia.org/wiki/Metallurgy#History
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/br_tech_metallurgy.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_mining_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_surface_mining
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_blast_furnaces = {
+	# unlocks steelworks
+	era = era_0
+	texture = "gfx/interface/icons/invention_icons/steelworking.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_metallurgy
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+### ERA 1
+
+br_tech_selective_breeding = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_selective_breeding.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05
+		building_group_bg_plantations_throughput_add = 0.05
+		building_group_bg_ranching_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_plantation_system
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+ 
+br_tech_horse_drawn_machinery = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_horse_drawn_machinery.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_selective_breeding
+		br_tech_rotherham_plough
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_standardized_farming = {
+	# Should unlock new PMs for farms
+	# can change name
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_standardized_farming.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_horse_drawn_machinery
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_organic_farming = {
+	# Should unlock new PMs for farms
+	# can change name
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_organic_farming.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_standardized_farming
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_leaded_glass = {
+	# Unlock leaded glass
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_leaded_glass.dds"
+	category = production
+
+	modifier = {
+		#unlock various pms
+	}
+
+	unlocking_technologies = {
+		br_tech_murano_glass
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+br_tech_newcomen_engine = {
+	# Placeholder for other early manufacturing technologies
+	# https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/atmospheric_engine.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_mining_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		shaft_mining
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+br_tech_track = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/br_tech_track.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_horse_drawn_machinery
+		#br_tech_experimental_construction
+	}
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+REPLACE_OR_CREATE:manufacturies = {
+	# Unlocks Mercantilism Law
+	# Unlocks Food Industry, Textile Mills, Furniture Manufacturies, Glassworks, Tooling Workshops, Paper Mills
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_manufacturing_throughput_add = 0.1
+	}
+
+	unlocking_technologies = {
+		br_tech_dye_workshops
+		br_tech_paper_manufacturies
+		br_tech_leaded_glass
+		br_tech_experimental_construction
+	}
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+REPLACE_OR_CREATE:shaft_mining = {
+	# Unlocks Coal Mine, Iron Mine, Lead Mine, Sulfur Mine
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_mining_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		br_tech_experimental_construction
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+REPLACE_OR_CREATE:cotton_gin = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/cotton_gin.dds"
+	category = production
+
+	modifier = {
+		building_cotton_plantation_throughput_add = 0.25
+	}
+
+	unlocking_technologies = {
+		manufacturies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+REPLACE_OR_CREATE:lathe = {
+	# Unlocks Lathes PM in Furniture Manufacturies
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	category = production
+
+	unlocking_technologies = {
+		cotton_gin
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+REPLACE_OR_CREATE:distillation = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/distillation.dds"
+	category = production
+
+	unlocking_technologies = {
+		manufacturies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+REPLACE_OR_CREATE:steelworking = {
+	# unlocks bessemer process
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/steelworking.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_blast_furnaces
+		shaft_mining
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+INJECT:prospecting = {
+	modifier = {
+		country_resource_discovery_chance_mult = 0.1
+	}
+}
+
+### ERA 2
+
+#crystal_glass
+
+REPLACE_OR_CREATE:intensive_agriculture = {
+	# Unlocks Chemical Plants
+	# Unlocks Intensive Agriculture PM on Rye Farms, Wheat Farms, Rice Farms, Maize Farms, Millet Farms
+	# Unlocks Intensize Grazing Ranch PM on Livestock Ranches
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/intensive_agriculture.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_organic_farming
+	}
+
+	ai_weight = {
+		value = 2 # Important tech for everyone
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion
+					has_strategy = ai_strategy_plantation_economy
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+#fractional_distillation
+
+#canneries
+
+#watertube_boiler
+
+REPLACE_OR_CREATE:atmospheric_engine = {
+	# Unlocks Motor Industry
+	# Unlocks Atmospheric Engine Pump PM in Coal Mine, Iron Mine, Lead Mine, Sulfur Mine
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/atmospheric_engine.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_newcomen_engine
+	}
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				country_rank >= rank_value:unrecognized_major_power
+			}
+			add = 2
+		}
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+REPLACE_OR_CREATE:railways = {
+	# Unlocks Railways
+	# Unlocks Rail Transport PM in Coal, Iron, Lead, Sulfur Mines
+	# Unlocks Rail Transport PM in Coffee, Cotton, Dye, Opium, Tea, Tobacco, Sugar, Rubber, Banana Plantations
+	# Unlocks Rail Transport PM in Logging Camp
+	# Unlocks Rail Transport PM in Oil Rig
+	# Unlocks Public Trams in Urban Centers
+	# Increases Railway max level by 1
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/railways.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_track
+		mechanical_tools
+		atmospheric_engine
+	}
+
+	ai_weight = {
+		value = 2 # Important tech for everyone
+
+		if = {
+			limit = {
+				country_rank >= rank_value:unrecognized_major_power
+			}
+			add = 2
+		}
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+#chemical_bleaching
+
+REPLACE_OR_CREATE:nitroglycerin = {
+	# Unlocks Nitroglycerin PM in Coal, Iron, Lead, Sulfur Mines
+	# Unlocks Ammonia-Soda Process PM in Chemical Industries
+	# Countries get a +25% chance of discovering new resources
+
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/nitroglycerin.dds"
+	category = production
+
+	modifier = {
+		country_resource_discovery_chance_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		intensive_agriculture
+		prospecting
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+#bessemer_process
+
+#baking_powder
+
+#mechanized_workshops
+
+#mechanical_tools
+
+### ERA 3
+
+#improved_fertilizer
+
+REPLACE_OR_CREATE:steam_donkey = {
+	# Unlocks Steam Donkey PM in Logging Camps
+	# Unlocks Steam Donkey PM in Coal, Iron, Lead, Sulfur Mines
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/steam_donkey.dds"
+	category = production
+
+	unlocking_technologies = {
+		br_tech_horse_drawn_machinery
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+#dynamite
+
+#rubber_mastication
+
+#rotary_valve_engine
+
+#reinforced_concrete
+
+#threshing_machine
+
+#pumpjacks
+
+#aniline
+
+#open_hearth_process
+
+#vulcanization
+
+#vacuum_canning
+
+#shift_work
+
+#steel_railway_cars
+
+#electrical_generation
+
+### ERA 4
+
+#mechanized_farming
+
+#art_silk
+
+#automatic_bottle_blowers
+
+#conveyors
+
+#pasteurization
+
+#electric_railway
+
+#combustion_engine
+
+#pneumatic_tools
+
+#nitrogen_fixation
+
+#electric_arc_process
+
+#steam_turbine
+
+#plastics
+
+#electrical_capacitors
+
+#radio
+
+#telephone
+
+### ERA 5
+
+#dough_rollers
+
+#flash_freezing
+
+#oil_turbine
+
+#arc_welding
+
+#compression_ignition
